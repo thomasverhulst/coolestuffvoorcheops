@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+<meta charset="utf-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<link rel="shortcut icon" href="favicon.ico"/>
+
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<body>
+<h1>details kandidaat</h1>
+
+
+<div class="row">
+	<div class="col-sm-2">
+	</div>
+
+		
+	<form action="#" th:action="@{/dispatcher}" th:object="${candidates}">
+<!--     <label for="candidates_input">Search:</label> <input name="candidates" -->
+<!--                                                      id="candidates"> -->
+<!--     </input> -->
+    <div th:object="${candidate}">
+        <h2>Search Results</h2>
+        
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">Naam</th>
+                <th scope="col">Achternaam</th>
+                <th scope="col">E-mail </th>
+                <th scope="col">geboortedatum</th>
+                <th scope="col">Telefoonnumlmer</th>
+                <th scope="col">Mobiel telefoonnummer</th>
+                <th scope="col">Geslacht</th>
+                <th scope="col">CVnaam</th>
+                
+            </tr>
+            </thead>
+            <tbody>
+            
+            <tr >
+                <td th:text="${candidate.name}">Text ...</td>
+                <td th:text="${candidate.sirName}">Text ...</td>
+                <td th:text="${candidate.email}">Text...</td>
+                <td th:text="${candidate.birthdate}">Text ...</td>
+                <td th:text="${candidate.phoneNumber}">Text ...</td>
+                <td th:text="${candidate.celphoneNumber}">Text ...</td>
+                <td th:text="${candidate.gender}">Text...</td>
+                <td th:text="${candidate.cvLink}">Text ...</td>
+               
+<!--                 <td><a th:href="@{/searchapplicationproces/{candidateId}(candidateId=${candidates.id})}">Zie aanwervingsprocess </a> </td> -->
+                
+            </tr>
+            
+            </tbody>
+        </table>
+    </div>
+    
+    <div th:object="${address}">
+    
+     <h2>Zoekresultaat adres Adres</h2>
+        
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">Straataam</th>
+                <th scope="col">Huisnummer</th>
+                <th scope="col">Bus</th>
+                <th scope="col">Postcode</th>
+                <th scope="col">Gemeente</th>
+                <th scope="col">land</th>
+             
+                
+            </tr>
+            </thead>
+            <tbody>
+            
+            <tr >
+                <td th:text="${address.streetName}">Text ...</td>
+                <td th:text="${address.dwellingNumber}">Text ...</td>
+                <td th:text="${address.bus}">Text ...</td>
+                <td th:text="${address.postalCode}">Text...</td>
+                <td th:text="${address.municipality}">Text...</td>
+                <td th:text="${address.land}">Text...</td>
+                
+                </tr>
+            
+            </tbody>
+        </table>
+                 
+    </div>
+</form>
+	<div class="col-sm-3">
+	
+	</div>
+</div>
+
+
+
+
+</body>
+</html>
