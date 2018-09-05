@@ -72,6 +72,16 @@
     <artifactId>jwks-rsa</artifactId>
     <version>0.3.0</version>
 </dependency>
+
+<dependency>
+
+   <groupId>com.okta.spring</groupId>
+
+   <artifactId>okta-spring-boot-starter</artifactId>
+
+   <version>0.6.0</version>
+
+</dependency>
 <!-- <dependency> -->
 
 <!-- <groupId>org.json</groupId>

@@ -13,3 +13,6 @@ https://dzone.com/articles/build-a-secure-spa-with-spring-boot-and-oauth
 okta url: dev-893564.oktapreview.com 
 
 websecurity moest aangepast worden om openid te laten werken, hij doet het nog niet helemaal.
+
+
+https://devforum.okta.com/t/oauth-error-with-oktas-angular-sign-in-widget/145/6
