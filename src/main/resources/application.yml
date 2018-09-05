@@ -1,0 +1,10 @@
+security:
+ oauth2:
+   resource:
+     userInfoUri: https://dev-893564.oktapreview.com/oauth2/default/v1/userinfo
+     
+okta:
+ oauth2:
+   # Client ID from above step
+   clientId: 0oag51l0obql4AYG50h7
+   issuer: https://dev-893564.oktapreview.com/oauth2/default

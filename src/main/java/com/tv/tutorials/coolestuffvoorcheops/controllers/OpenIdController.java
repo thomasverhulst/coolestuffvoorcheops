@@ -14,4 +14,6 @@ public class OpenIdController {
         String username = SecurityContextHolder.getContext().getAuthentication().getName();
         return "Welcome, " + username;
     }
+	
+	
 }
