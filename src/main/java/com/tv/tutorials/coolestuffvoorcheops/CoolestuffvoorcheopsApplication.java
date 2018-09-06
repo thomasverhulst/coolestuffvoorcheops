@@ -1,7 +1,9 @@
 package com.tv.tutorials.coolestuffvoorcheops;
 
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.access.expression.method.MethodSecurityExpressionHandler;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
@@ -10,12 +12,16 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.oauth2.config.annotation.web.configuration.ResourceServerConfigurerAdapter;
 import org.springframework.security.oauth2.provider.expression.OAuth2MethodSecurityExpressionHandler;
 
+import com.tv.tutorials.coolestuffvoorcheops.configuration.StorageProperties;
+import com.tv.tutorials.coolestuffvoorcheops.services.IStorageService;
+
 @SpringBootApplication
 //@EnableJpaRepositories("com.tv.tutorials.coolestuffvoorcheops.repositories")
 //@ComponentScan({"com.tv.tutorials.coolestuffvoorcheops.*"})
 //https://www.baeldung.com/spring-security-openid-connect
 //@EnableResourceServer // als ik dit aan zet doet hij het niet meer?
 // https://dzone.com/articles/build-a-secure-spa-with-spring-boot-and-oauth
+@EnableConfigurationProperties(StorageProperties.class)
 public class CoolestuffvoorcheopsApplication {
 
 	public static void main(String[] args) {
@@ -50,4 +56,12 @@ public class CoolestuffvoorcheopsApplication {
 
 	   }
 	}
+	
+	@Bean
+    CommandLineRunner init(IStorageService storageService) {
+        return (args) -> {
+            storageService.deleteAll();
+            storageService.init();
+        };
+    }
 }
