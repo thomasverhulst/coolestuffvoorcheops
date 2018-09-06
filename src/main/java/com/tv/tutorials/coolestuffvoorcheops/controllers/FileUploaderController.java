@@ -1,6 +1,9 @@
 package com.tv.tutorials.coolestuffvoorcheops.controllers;
 
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.stream.Collectors;
 
 //import javax.annotation.Resource;
@@ -20,6 +23,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.method.annotation.MvcUriComponentsBuilder;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+//import com.google.common.io.Files;
 import com.google.common.net.HttpHeaders;
 import com.tv.tutorials.coolestuffvoorcheops.exceptions.StorageFileNotFoundException;
 import com.tv.tutorials.coolestuffvoorcheops.services.IStorageService;
@@ -28,7 +32,7 @@ import com.tv.tutorials.coolestuffvoorcheops.services.IStorageService;
 public class FileUploaderController {
 
 	private final IStorageService storageService;
-
+	public String uploadDirectory = System.getProperty("user.dir")+"/uploads";
     @Autowired
     public FileUploaderController(IStorageService storageService) {
         this.storageService = storageService;
@@ -58,8 +62,15 @@ public class FileUploaderController {
 
     @PostMapping("/upload3")
     public String handleFileUpload(@RequestParam("file") MultipartFile file,
-            RedirectAttributes redirectAttributes) {
+            RedirectAttributes redirectAttributes) throws IOException {
     	System.out.println("we zijn hier");
+    	
+    	
+    	
+    	Path filenameAndPath = Paths.get(uploadDirectory, file.getOriginalFilename());
+    	
+    	Files.write(filenameAndPath, file.getBytes());
+    	
         storageService.store(file);
         System.out.println("we zijn hier2");
         redirectAttributes.addFlashAttribute("message",

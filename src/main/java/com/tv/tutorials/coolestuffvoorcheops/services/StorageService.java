@@ -1,8 +1,12 @@
 package com.tv.tutorials.coolestuffvoorcheops.services;
 
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.Writer;
 import java.net.MalformedURLException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -46,6 +50,15 @@ public class StorageService implements IStorageService {
                                 + filename);
             }
             try (InputStream inputStream = file.getInputStream()) {
+            	//FileInputStream is = new FileInputStream(f);
+            	//File file = File.createTempFile("upload-", ".bin", new File("/path/to/your/uploads"));
+            	//is.write(file);
+            	 //Writer output = null;
+                // File file = new File("results.txt");
+                 //output = new BufferedWriter(new FileWriter(file));
+            	
+            	
+            	
                 Files.copy(inputStream, this.rootLocation.resolve(filename),
                     StandardCopyOption.REPLACE_EXISTING);
             }

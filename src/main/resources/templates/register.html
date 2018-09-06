@@ -34,7 +34,7 @@
 	</div>
 
 		
-	<form th:action="@{/registerCandidate}" th:object="${candidate}" method="POST">
+	<form th:action="@{/registerCandidate}" th:object="${candidate}" method="POST" enctype="multipart/form-data">
 
 	<div class="col-sm-3">
 		<div class=form-group>
@@ -69,12 +69,21 @@
 		</div>
 		
 		
+		<tr><td>File to upload:</td><td>
 		
 		<div class=form-group>
 			<label for="cvLink">Cv naam</label>
 			<input type="text" th:field=*{cvLink} id="cvLink" class="form-control" placeholder="CV naam" >
 		</div>
 			
+			
+			<!-- fileinputtest -->
+<!-- 		<div th:object="${files}" class=form-group> -->
+		<div class=form-group>
+			<label for="cvLink">Cv naam</label>
+			<input type="file" th:field=*{file} id="cvLink" class="form-control" placeholder="CV naam" value="test" >
+		</div>
+		<!--  -->
 				
 	</div>
 	

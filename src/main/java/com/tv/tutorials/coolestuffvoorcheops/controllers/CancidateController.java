@@ -1,5 +1,12 @@
 package com.tv.tutorials.coolestuffvoorcheops.controllers;
 
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.stream.Collectors;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +17,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.mvc.method.annotation.MvcUriComponentsBuilder;
 
 import com.tv.tutorials.coolestuffvoorcheops.model.Address;
 import com.tv.tutorials.coolestuffvoorcheops.model.ApplicationProcess;
@@ -19,12 +29,15 @@ import com.tv.tutorials.coolestuffvoorcheops.model.Skills;
 import com.tv.tutorials.coolestuffvoorcheops.services.AddressService;
 import com.tv.tutorials.coolestuffvoorcheops.services.ApplicationProcessService;
 import com.tv.tutorials.coolestuffvoorcheops.services.CandidateService;
+import com.tv.tutorials.coolestuffvoorcheops.services.IStorageService;
 import com.tv.tutorials.coolestuffvoorcheops.services.SalaryPackageService;
 import com.tv.tutorials.coolestuffvoorcheops.services.SkillsService;
 
 @Controller
 public class CancidateController {
 
+	private final IStorageService storageService;
+	public String uploadDirectory = System.getProperty("user.dir")+"/uploads";
 	//goede uitleg https://www.mkyong.com/spring-boot/spring-boot-hibernate-search-example/
 	@Autowired
 	AddressService addressService;
@@ -41,23 +54,39 @@ public class CancidateController {
 	@Autowired
 	ApplicationProcessService applicationProcessService;
 	
+	 @Autowired
+	    public CancidateController(IStorageService storageService) {
+	        this.storageService = storageService;
+	    }
 	@GetMapping("/register")
 	public String showRegister(ModelMap map) {
 		//naar register.html, addres en candadate worden meegegeven
 		// ModelMap https://stackoverflow.com/questions/13242394/spring-mvc-multiple-modelattribute-on-the-same-form
+		
+//		map.addAttribute("files", storageService.loadAll().map(
+//                path -> MvcUriComponentsBuilder.fromMethodName(FileUploaderController.class,
+//                        "serveFile", path.getFileName().toString()).build().toString())
+//                .collect(Collectors.toList()));
+		
 		map.addAttribute("address", new Address());
 		map.addAttribute("candidate", new Candidate());
 		return "register";
 	}
 	
 	@RequestMapping(value ="/registerCandidate",  method = RequestMethod.POST)
-	public String register(Model model , @ModelAttribute("address") Address address, @ModelAttribute("candidate") Candidate candidate, HttpSession session ) {
+	public String register(Model model , @ModelAttribute("address") Address address, @ModelAttribute("candidate") Candidate candidate, HttpSession session ) throws IOException {
 		
 		//https://stackoverflow.com/questions/2227395/spring-3-0-set-and-get-session-attribute
 		Candidate tmpCandidate =candidateservice.addCandidate(candidate);
 		session.setAttribute("candidate", tmpCandidate);
 		
 		
+		// save file 
+		MultipartFile file = tmpCandidate.getFile();
+		Path filenameAndPath = Paths.get(uploadDirectory, file.getOriginalFilename());
+    	
+    	Files.write(filenameAndPath, file.getBytes());
+		//
 		Address tmpAddress = addressService.addAddress(address);
 		
 		candidate.setAddressId(tmpAddress.getId());

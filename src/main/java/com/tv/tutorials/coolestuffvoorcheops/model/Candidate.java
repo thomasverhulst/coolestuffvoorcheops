@@ -1,5 +1,6 @@
 package com.tv.tutorials.coolestuffvoorcheops.model;
 
+import java.io.File;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -8,8 +9,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.web.multipart.MultipartFile;
 
 @Entity
 @Table(name= "candidate")
@@ -45,6 +48,10 @@ public class Candidate {
 	
 	@Column(name="gender")
 	private String gender;
+	@Transient
+	private MultipartFile file;
+	
+	
 	
 	//ids
 	@Column(name="currentsallarypackageId")
@@ -127,6 +134,17 @@ public class Candidate {
 	public void setGender(String sex) {
 		this.gender = sex;
 	}
+	
+	
+
+	public MultipartFile getFile() {
+		return file;
+	}
+
+	public void setFile(MultipartFile file) {
+		this.file = file;
+	}
+
 	public Integer getId() {
 		return id;
 	}
