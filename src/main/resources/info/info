@@ -16,3 +16,8 @@ websecurity moest aangepast worden om openid te laten werken, hij doet het nog n
 
 
 https://devforum.okta.com/t/oauth-error-with-oktas-angular-sign-in-widget/145/6
+
+
+favicon
+met deze uitleg werkte het in firefox:
+https://www.youtube.com/watch?v=xWz-2kYI0Ac
