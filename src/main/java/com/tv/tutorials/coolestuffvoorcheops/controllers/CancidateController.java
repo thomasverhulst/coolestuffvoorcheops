@@ -75,18 +75,23 @@ public class CancidateController {
 	
 	@RequestMapping(value ="/registerCandidate",  method = RequestMethod.POST)
 	public String register(Model model , @ModelAttribute("address") Address address, @ModelAttribute("candidate") Candidate candidate, HttpSession session ) throws IOException {
-		
-		//https://stackoverflow.com/questions/2227395/spring-3-0-set-and-get-session-attribute
-		Candidate tmpCandidate =candidateservice.addCandidate(candidate);
-		session.setAttribute("candidate", tmpCandidate);
-		
-		
-		// save file 
-		MultipartFile file = tmpCandidate.getFile();
+			
+		// save cv 
+		MultipartFile file = candidate.getFile();
 		Path filenameAndPath = Paths.get(uploadDirectory, file.getOriginalFilename());
-    	
+    	//System.out.println("Upload link = "+ uploadDirectory);		
     	Files.write(filenameAndPath, file.getBytes());
-		//
+		// 
+    	//set link to cv
+    	candidate.setCvLink(file.getOriginalFilename());
+    	
+    	//https://stackoverflow.com/questions/2227395/spring-3-0-set-and-get-session-attribute
+    	//save candidate to get an id
+    	Candidate tmpCandidate =candidateservice.addCandidate(candidate);
+    	session.setAttribute("candidate", tmpCandidate);
+
+    	
+    	// adres
 		Address tmpAddress = addressService.addAddress(address);
 		
 		candidate.setAddressId(tmpAddress.getId());
