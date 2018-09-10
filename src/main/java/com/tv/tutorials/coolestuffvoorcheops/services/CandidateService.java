@@ -37,7 +37,7 @@ public class CandidateService implements ICandidateService {
 
 	@Override
 	public void updateCandidate(Candidate candidate) {
-		candidateRepository.save(candidate);		
+		candidateRepository.save(candidate)	;
 	}
 
 	@Override

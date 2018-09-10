@@ -21,6 +21,7 @@ import com.tv.tutorials.coolestuffvoorcheops.model.CandaidateSearchModel;
 import com.tv.tutorials.coolestuffvoorcheops.model.Candidate;
 import com.tv.tutorials.coolestuffvoorcheops.model.SalaryPackage;
 import com.tv.tutorials.coolestuffvoorcheops.model.Skills;
+import com.tv.tutorials.coolestuffvoorcheops.model.Update;
 import com.tv.tutorials.coolestuffvoorcheops.services.AddressService;
 import com.tv.tutorials.coolestuffvoorcheops.services.ApplicationProcessService;
 import com.tv.tutorials.coolestuffvoorcheops.services.CandidateService;
@@ -107,18 +108,52 @@ public class SearchController {
 	// goede uitleg pathvariabelen https://stackoverflow.com/questions/46171030/spring-boot-thymeleaf-could-not-parse-as-expression-with-an-url
 	
 	@RequestMapping(value = "searchcandidatedetails/{candidateId}", method = RequestMethod.GET)
-    public String searchCandidateDetails( ModelMap map ,@PathVariable("candidateId") int candidateId) {
+    public String searchCandidateDetails( ModelMap map ,@PathVariable("candidateId") int candidateId ) {
 		System.out.println("we zijn in de GOEDE CONTROLLER"+ candidateId);
 		//https://stackoverflow.com/questions/1714028/mvc-which-submit-button-has-been-pressed
 		
 		Candidate tmpCandidate =candidateservice.getCandidateById(candidateId);
 		Address tmpAddress=addressService.getAddressById(tmpCandidate.getAddressId());
-
+		
+		//map.addAttribute("update", new Update(true));
 		map.addAttribute("address", tmpAddress);
 		map.addAttribute("candidate", tmpCandidate);
-		
-        return "searchcandidatedetails";
+		//return "register"; ik krijg geen voorwaardelijke knoppen, zo kan het niet hergebruikt worden
+		//werkt , ziet er uit zoals register 
+		return "updatecandidate";
+        //werkt return "searchcandidatedetails";
     }
+	
+	///{candidateId}
+	@RequestMapping(value = "updatecandidate", method = RequestMethod.POST)
+    public String updateCandidate( ModelMap map , @ModelAttribute("address") Address address,@ModelAttribute("candidate") Candidate candidate, HttpSession session) {
+		System.out.println("we zijn in de GOEDE UPDATE CONTROLLER");
+		//https://stackoverflow.com/questions/1714028/mvc-which-submit-button-has-been-pressed
+		//Candidate sessionCandidate = (Candidate) session.getAttribute("candidate");
+		//Candidate tmpCandidate =candidateservice.getCandidateById(candidateId);
+		//Address tmpAddress=addressService.getAddressById(tmpCandidate.getAddressId());
+		Candidate tmp = candidateservice.getCandidateById(8);
+		tmp.setPhoneNumber(tmp.getPhoneNumber() +88888);
+		//Address tmpAddress = (Address) map.get("address");
+		//System.out.println(tmpAddress.getId());
+		//map.addAttribute("update", new Update(true));
+		//map.addAttribute("address", tmpAddress);
+		//map.addAttribute("candidate", tmpCandidate);
+		//return "register"; ik krijg geen voorwaardelijke knoppen, zo kan het niet hergebruikt worden
+		//werkt , ziet er uit zoals register 
+		// modelmap, hgetattribute ipv modelattribute?
+		
+		 addressService.updateAddress((Address) map.get("address"));
+			
+			//candidate.setAddressId(tmpAddress.getId());
+			candidateservice.updateCandidate(tmp);
+		return "test";
+        //werkt return "searchcandidatedetails";
+    }
+	
+	
+	
+	
 	
 	@RequestMapping(value = "searchcv/{candidateId}", method = RequestMethod.GET)
     public String searchCv( @PathVariable("candidateId") int candidateId) {

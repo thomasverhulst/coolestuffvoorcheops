@@ -10,11 +10,14 @@ import java.util.stream.Collectors;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -26,6 +29,7 @@ import com.tv.tutorials.coolestuffvoorcheops.model.ApplicationProcess;
 import com.tv.tutorials.coolestuffvoorcheops.model.Candidate;
 import com.tv.tutorials.coolestuffvoorcheops.model.SalaryPackage;
 import com.tv.tutorials.coolestuffvoorcheops.model.Skills;
+import com.tv.tutorials.coolestuffvoorcheops.model.Update;
 import com.tv.tutorials.coolestuffvoorcheops.services.AddressService;
 import com.tv.tutorials.coolestuffvoorcheops.services.ApplicationProcessService;
 import com.tv.tutorials.coolestuffvoorcheops.services.CandidateService;
@@ -67,11 +71,19 @@ public class CancidateController {
 //                path -> MvcUriComponentsBuilder.fromMethodName(FileUploaderController.class,
 //                        "serveFile", path.getFileName().toString()).build().toString())
 //                .collect(Collectors.toList()));
-		
+		Update update = new Update(false);
+		map.addAttribute("update", update);
+		System.out.println( "wat is dit "+update.isUpdate());
 		map.addAttribute("address", new Address());
 		map.addAttribute("candidate", new Candidate());
 		return "register";
 	}
+	//terug knop, werkt niet
+	@RequestMapping(value="/registerCandidate", method=RequestMethod.POST, params="action=back")
+	public String home()  {
+		return "index";
+	}
+	
 	
 	@RequestMapping(value ="/registerCandidate",  method = RequestMethod.POST)
 	public String register(Model model , @ModelAttribute("address") Address address, @ModelAttribute("candidate") Candidate candidate, HttpSession session ) throws IOException {
@@ -104,6 +116,46 @@ public class CancidateController {
 		model.addAttribute("skills", new Skills());
 		return "skills";
 	}
+	
+	@PutMapping(value ="/updateCandidate")
+	public String updateArticle(@RequestBody Candidate candidate , Address address) {
+		 addressService.updateAddress(address);
+			System.out.println("we zijn in deput");
+			//candidate.setAddressId(tmpAddress.getId());
+			candidateservice.updateCandidate(candidate);
+			return "test";
+	}
+	
+	@RequestMapping(value ="/updateCandidate2",  method = RequestMethod.POST)
+	public String updateCandidate(Model model , @ModelAttribute("address") Address address, @ModelAttribute("candidate") Candidate candidate, HttpSession session ) throws IOException {
+			
+		// save cv 
+		System.out.println(candidate.getId());
+		if (candidate.getFile() != null) {
+			MultipartFile file = candidate.getFile();
+			Path filenameAndPath = Paths.get(uploadDirectory, file.getOriginalFilename());
+	    	//System.out.println("Upload link = "+ uploadDirectory);		
+	    	Files.write(filenameAndPath, file.getBytes());
+			// 
+	    	//set link to cv
+	    	candidate.setCvLink(file.getOriginalFilename());
+		}
+		System.out.println("we zijnn in de updatecontroller");
+    	
+    	//https://stackoverflow.com/questions/2227395/spring-3-0-set-and-get-session-attribute
+    	//save candidate to get an id
+    	//Candidate tmpCandidate =candidateservice.addCandidate(candidate);
+    	session.setAttribute("candidate", candidate);
+    	
+    	// wat als er nog geen adresid is?
+    	 addressService.updateAddress(address);
+		
+		//candidate.setAddressId(tmpAddress.getId());
+		candidateservice.updateCandidate(candidate);
+    	
+    	
+		return "test";
+    	}
 	
 	@RequestMapping(value ="/registerSkills", method = RequestMethod.POST)
 	public String registerSkills(Model model , @ModelAttribute("skills") Skills skills, HttpSession session ) {
