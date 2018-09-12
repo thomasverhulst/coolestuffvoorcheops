@@ -16,6 +16,7 @@ import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -117,8 +118,8 @@ public class CancidateController {
 		return "skills";
 	}
 	
-	@PutMapping(value ="/updateCandidate")
-	public String updateArticle(@RequestBody Candidate candidate , Address address) {
+	@PostMapping(value ="/updateCandidate")
+	public String updateArticle( Candidate candidate , Address address) {
 		 addressService.updateAddress(address);
 			System.out.println("we zijn in deput");
 			//candidate.setAddressId(tmpAddress.getId());

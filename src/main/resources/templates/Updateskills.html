@@ -26,7 +26,7 @@
 	<div class="col-sm-3"> </div>
 	<div class="col-sm-6">
 		<h1>Registreer talenten  </h1>
-		<p>Name: <span th:text="${session.candidate.name}">" "</span><span th:text="${session.candidate.sirName}"></span>.</p>
+<!-- 		<p>Name: <span th:text="${session.candidate.name}">" "</span><span th:text="${session.candidate.sirName}"></span>.</p> -->
 	</div>
 	<div class="col-sm-3"> </div>
 
@@ -36,7 +36,7 @@
 	</div>
 
 	<div class="col-sm-3">
-		<form th:action="@{/registerSkills}" th:object="${skills}" method="POST">
+		<form action="#" th:action="@{/updateSkills/{skillsId}(skillsId=${skills.id})}" th:object="${skills}" method="POST">
 	
 			<div class=form-group>
 				<label for="technicalknowlegde"> technische kennis</label>
@@ -72,24 +72,16 @@
 					<label for="frontend">Frontend</label>
 					<input type="checkbox" th:field="*{frontend}" id="frontend" class="form-control" >
 			</div>
+					
+			<input type="hidden" th:value="${id}" name="test" />
 			
 			<div class=form-group>
-				<button class="btn-lg btn-primary btn-block" type="submit">Volgende ></button>
+				<button class="btn-lg btn-primary btn-block" type="submit">Update ></button>
 			</div>
-		</form>
-		
-		<form th:action="@{/skills{0}}" >
-			
-				<div class=form-group>
-						<button class="btn-lg btn-succes btn-block" type="submit">Terug ></button>
-					</div>
-			</form>
-		
+		</form>		
 		
 	</div>
-	
-	
-	
+		
 	<div class="col-sm-7">
 	
 	</div>

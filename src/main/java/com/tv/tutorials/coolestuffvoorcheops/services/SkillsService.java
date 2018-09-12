@@ -37,7 +37,14 @@ public class SkillsService implements ISkillService {
 	@Override
 	public void updateSkills(Skills skills) {
 		// TODO Auto-generated method stub
-
+		 skillsRepository.save(skills);
+		 
+		 if (getSkillsById(skills.getId())==null) {
+			 //skillsRepository.save(skills);
+			 System.out.println("we zitten vast");
+			} else {
+				skillsRepository.save(skills);
+			}
 	}
 
 	@Override

@@ -112,12 +112,12 @@ public class SearchController {
 		System.out.println("we zijn in de GOEDE CONTROLLER"+ candidateId);
 		//https://stackoverflow.com/questions/1714028/mvc-which-submit-button-has-been-pressed
 		
-		Candidate tmpCandidate =candidateservice.getCandidateById(candidateId);
-		Address tmpAddress=addressService.getAddressById(tmpCandidate.getAddressId());
-		
+		map.addAttribute("candidate", candidateservice.getCandidateById(candidateId));
+		//Address tmpAddress=addressService.getAddressById(tmpCandidate.getAddressId());
+		map.addAttribute("address", addressService.getAddressById(candidateservice.getCandidateById(candidateId).getAddressId()));
 		//map.addAttribute("update", new Update(true));
-		map.addAttribute("address", tmpAddress);
-		map.addAttribute("candidate", tmpCandidate);
+		//map.addAttribute("address", tmpAddress);
+		//map.addAttribute("candidate", tmpCandidate);
 		//return "register"; ik krijg geen voorwaardelijke knoppen, zo kan het niet hergebruikt worden
 		//werkt , ziet er uit zoals register 
 		return "updatecandidate";
