@@ -81,7 +81,7 @@ public class SkillsController {
 		//return ResponseEntity.noContent().build();
 	}
 	
-	
+	// dit is de methode om een update te doen...
 	@PostMapping("/updateSkills/{skillsId}")
 
 	public String save(@Valid Skills skills, @PathVariable("skillsId") int id ,BindingResult result, RedirectAttributes redirect) {
