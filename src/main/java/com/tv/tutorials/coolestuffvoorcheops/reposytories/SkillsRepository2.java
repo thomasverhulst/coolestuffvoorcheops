@@ -7,9 +7,21 @@ import org.springframework.data.repository.Repository;
 
 import com.tv.tutorials.coolestuffvoorcheops.model.Skills;
 
-public interface SkillsRepository extends  CrudRepository<Skills, Integer>  {
+public interface SkillsRepository2<T, ID extends Serializable> extends  Repository<Skills, Integer>  {
 	//List<Address> findByStreetNameAndPostalCode(String streetName, String postalCode); {
 	
+	<S extends T> S save(S entity);
+  
+//T findOne(ID primaryKey);
+   
+Iterable<T> findAll();
+
+Long count();
+
+void delete(T entity);
+   
+//boolean exists(ID primaryKey);
+
 	
 }
 

@@ -35,8 +35,8 @@
 	<div class="col-sm-2">
 	</div>
 
-	<div class="col-sm-3">
-		<form action="#" th:action="@{/updateSkills/{skillsId}(skillsId=${skills.id})}" th:object="${skills}" method="POST">
+	<div class="col-sm-3" th:object="${skills}">
+		<form action="#" th:action="@{/updateSkills/{skillsId}(skillsId=${skills.id})}"  method="POST">
 	
 			<div class=form-group>
 				<label for="technicalknowlegde"> technische kennis</label>
