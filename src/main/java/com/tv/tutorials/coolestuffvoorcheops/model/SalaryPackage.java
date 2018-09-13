@@ -97,6 +97,10 @@ public class SalaryPackage {
 		this.groupInsurance = groupInsurance;
 	}
 
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
 	public Integer getId() {
 		return id;
 	}

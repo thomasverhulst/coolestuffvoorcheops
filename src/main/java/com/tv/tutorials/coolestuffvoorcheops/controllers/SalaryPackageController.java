@@ -16,9 +16,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.tv.tutorials.coolestuffvoorcheops.model.SalaryPackage;
 import com.tv.tutorials.coolestuffvoorcheops.model.Skills;
+import com.tv.tutorials.coolestuffvoorcheops.reposytories.SalaryPackageRepository;
 import com.tv.tutorials.coolestuffvoorcheops.reposytories.SkillsRepository;
 import com.tv.tutorials.coolestuffvoorcheops.services.CandidateService;
+import com.tv.tutorials.coolestuffvoorcheops.services.SalaryPackageService;
 import com.tv.tutorials.coolestuffvoorcheops.services.SkillsService;
 
 @Controller
@@ -26,70 +29,46 @@ public class SalaryPackageController {
 
 	@Autowired
 	CandidateService candidateservice;
-	//@Autowired
-	//SkillsService skillsService;
 	@Autowired
-	private SkillsRepository skillsRepository;
+	SalaryPackageService salaryPackageService;
+	@Autowired
+	private SalaryPackageRepository salaryPackageRepository;
 	
-	@RequestMapping(value = "searchskills8/{candidateId}", method = RequestMethod.GET)
-    public String searchSkills( Model model ,@PathVariable("candidateId") int candidateId ) {
-		System.out.println("we zijn in de GOEDE skills CONTROLLER"+ candidateId);
-		//https://stackoverflow.com/questions/1714028/mvc-which-submit-button-has-been-pressed
-		Integer skillsId = candidateservice.getCandidateById(candidateId).getSkillsId();
-		//model.addAttribute("skills", SkillsRepository.get .getSkillsById(skillsId) );
-		
-		return "updateskills";
-        //werkt return "searchcandidatedetails";
+	@RequestMapping(value = "searchcurrentsalarypackage2/{candidateId}", method = RequestMethod.GET)
+    public String searchCurrentSalaryPackage( Model model ,@PathVariable("candidateId") int candidateId ) {
+		Integer salaryPackageId = candidateservice.getCandidateById(candidateId).getCurrentSallaryPackageId();
+		//model.addAttribute("salaryPackage",salaryPackageRepository.findById(salaryPackageId).get());//shortcut service
+		model.addAttribute("salaryPackage", salaryPackageService.getSalaryPackageById(salaryPackageId));//via service => nullpointer? (niet bij skills) AUTOWIRD STOND UIT
+		return "updatesalarypackage";
     }
 	
-	@RequestMapping(value ="/updateSkills28/{skillsId}" , method = RequestMethod.POST)
-	public String updateSkills(Model model , @ModelAttribute("skills") Skills skills, @PathVariable ("skillsId") Integer skillsId ) {
-		System.out.println( skills.getId()+ "skillsid");
-		//skillsService.updateSkills(skillsService.getSkillsById(skillsId));
-			System.out.println("we zijn in de skills poster");
-			//candidate.setAddressId(tmpAddress.getId());
-			//candidateservice.updateCandidate(candidate);
-			return "test";
+	// dit is de methode om een update te doen...
+	@PostMapping("/updateSalaryPackage/{salaryPackageId}")
+	public String save(@Valid SalaryPackage salaryPackage, @PathVariable("salaryPackageId") int id ,BindingResult result, RedirectAttributes redirect) {
+
+		if (result.hasErrors()) {
+
+			return "updatesalarypackage";
+		}
+	
+		Optional<SalaryPackage> tmp = salaryPackageRepository.findById(id);
+		if (tmp.isPresent() ) {
+			SalaryPackage s =tmp.get();
+			
+			s= salaryPackage;
+			s.setId(id);
+			salaryPackageRepository.save(s);
+		}
+		else {
+			
+			System.out.println("tmp = null");
+			salaryPackageRepository.save(salaryPackage);
+		}
+		
+		redirect.addFlashAttribute("success", "Saved employee successfully!");
+
+		return "test";
+
 	}
-	
-	@RequestMapping (value ="/updateSkills9/{skillsId}",  method = RequestMethod.POST)
-	public String updateSkills(Model model , @ModelAttribute("skills") Skills skills, @PathVariable("skillsId") int id ,HttpServletRequest request) {
-	    //your controller code) {
-		System.out.println("dits is de id "+id);
-		//Optional<Skills> skillsOptional =  skillsRepository.findById(id)  ;
-
-		//if (!skillsOptional.isPresent())
-			///return ResponseEntity.notFound().build();
-
-		//skills.setId(id);
-		
-		skillsRepository.save(skills);
-		System.out.println("saven is gedaan");
-		
-		 String referer = request.getHeader("Referer");
-		    return "redirect:"+ referer;
-		
-		//return ResponseEntity.noContent().build();
-	}
-	
-	
-//	@PostMapping("/employee/save")
-//
-//	public String save(@Valid Employee employee, BindingResult result, RedirectAttributes redirect) {
-//
-//	if (result.hasErrors()) {
-//
-//	return "form";
-//
-//	}
-//
-//	employeeService.save(employee);
-//
-//	redirect.addFlashAttribute("success", "Saved employee successfully!");
-//
-//	return "redirect:/employee";
-//
-//	}
-
 
 }

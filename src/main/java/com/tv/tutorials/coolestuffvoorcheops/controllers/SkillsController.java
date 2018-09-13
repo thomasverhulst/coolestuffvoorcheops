@@ -88,7 +88,7 @@ public class SkillsController {
 
 	if (result.hasErrors()) {
 
-	return "form";
+	return "updateskills";
 	}
 	System.out.println("id path ="+id);
 	System.out.println("Hoi we zijn bij de nieuwe tets, id =" +skills.getId());

@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.tv.tutorials.coolestuffvoorcheops.model.SalaryPackage;
+import com.tv.tutorials.coolestuffvoorcheops.model.Skills;
 import com.tv.tutorials.coolestuffvoorcheops.reposytories.SalaryPackageRepository;
 
 @Service
@@ -24,9 +25,17 @@ public class SalaryPackageService implements ISalaryPackageService {
 		
 	}
 
+//	@Override
+//	public Skills getSkillsById(int skillsId) {
+//		Skills e = skillsRepository.findById(skillsId).get();
+//		return e;
+//	}
 	@Override
 	public SalaryPackage getSalaryPackageById(int salaryPackageId) {
+		//salaryPackageRepository.findById(salaryPackageId).
+		System.out.println("id "+salaryPackageId);
 		SalaryPackage e = salaryPackageRepository.findById(salaryPackageId).get();
+		System.out.println( "id is  = "+e.getId());
 		return e;
 	}
 
@@ -46,8 +55,5 @@ public class SalaryPackageService implements ISalaryPackageService {
 		salaryPackageRepository.delete(getSalaryPackageById(salaryPackageId));
 		
 	}
-
-	
-	
 	
 }
