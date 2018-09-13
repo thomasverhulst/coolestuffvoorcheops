@@ -29,3 +29,8 @@ Document crudinterface, goede uitleg
 https://docs.spring.io/spring-data/data-jpa/docs/1.3.4.RELEASE/reference/html/repositories.html
 Hierodner update van hierboven, kijk bij: 1.2.1 Defining repository interfaces
 https://docs.spring.io/spring-data/data-commons/docs/1.6.1.RELEASE/reference/html/repositories.html
+
+
+
+#teymleaf nullpointer datum
+applicationProcess was nog applicationprocess zonder hoofdletter.

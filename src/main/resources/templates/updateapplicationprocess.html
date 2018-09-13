@@ -31,13 +31,13 @@
 	</div>
 
 		
-	<form th:action="@{/updateApplicationProcess}" th:object="${applicationprocess}" method="POST">
+	<form th:action="@{/updateApplicationProcess/{applicationProcessId}(applicationProcessId=${applicationProcess.id})}" th:object="${applicationProcess}" method="POST">
 
 		<div class="col-sm-3">
 		
 		<div class=form-group>
 			<label for="applicationdate">Sollicitatiedatum</label>			
-			<input type="date" th:field=*{applicationDate} th:value="${#dates.format(applicationprocess.applicationDate,'yyyy/MM/dd')}" id="applicationdate" class="form-control" placeholder="Sollicitatiedatum" >			
+			<input type="date" th:field=*{applicationDate} th:value="${#dates.format(applicationProcess.applicationDate,'yyyy/MM/dd')}" id="applicationdate" class="form-control" placeholder="Sollicitatiedatum" >			
 		</div>
 			
 			<div class=form-group>
@@ -47,11 +47,11 @@
 			
 			<div class=form-group>
 			<label for="invitationdate"> Datum uitnodiging eerste gesprek</label>			
-			<input type="date" th:field=*{invitationDate} th:value="${#dates.format(applicationprocess.invitationDate,'yyyy/MM/dd')}" id="invitationdate" class="form-control"  >			
+			<input type="date" th:field=*{invitationDate} th:value="${#dates.format(applicationProcess.invitationDate,'yyyy/MM/dd')}" id="invitationdate" class="form-control"  >			
 		</div>
 	<div class=form-group>
 			<label for="firstconversationdate">Datum eerste gesprek</label>			
-			<input type="date" th:field=*{firstConversationDate} th:value="${#dates.format(applicationprocess.firstConversationDate,'yyyy/MM/dd')}" id="firstconversationdate" class="form-control"  >			
+			<input type="date" th:field=*{firstConversationDate} th:value="${#dates.format(applicationProcess.firstConversationDate,'yyyy/MM/dd')}" id="firstconversationdate" class="form-control"  >			
 		</div>
 	
 	<div class=form-group>
@@ -96,7 +96,7 @@
 			
 			<div class=form-group>
 			<label for="financialproposaldate">Datum financieel voorstel</label>			
-			<input type="date" th:field=*{financialProposalDate} th:value="${#dates.format(applicationprocess.financialProposalDate,'yyyy/MM/dd')}" id="financialproposaldate" class="form-control"  >			
+			<input type="date" th:field=*{financialProposalDate} th:value="${#dates.format(applicationProcess.financialProposalDate,'yyyy/MM/dd')}" id="financialproposaldate" class="form-control"  >			
 		</div>
 	
 			<div class=form-group>

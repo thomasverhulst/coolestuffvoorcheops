@@ -24,6 +24,7 @@ public class ApplicationProcessService implements IApplicationProcessService {
 
 	@Override
 	public ApplicationProcess getApplicationProcessById(int applicationProcessId) {
+		System.out.println("id is " +applicationProcessId);
 		ApplicationProcess e = applicationProcessRepository.findById(applicationProcessId).get();
 		return e;
 	}
