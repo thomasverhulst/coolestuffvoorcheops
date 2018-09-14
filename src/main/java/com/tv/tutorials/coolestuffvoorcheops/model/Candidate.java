@@ -1,6 +1,5 @@
 package com.tv.tutorials.coolestuffvoorcheops.model;
 
-import java.io.File;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -187,5 +186,10 @@ public class Candidate {
 	public void setAddressId(int addressId) {
 		this.addressId = addressId;
 	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+	
 	
 }

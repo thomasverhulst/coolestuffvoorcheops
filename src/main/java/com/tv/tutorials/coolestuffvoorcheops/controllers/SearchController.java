@@ -5,7 +5,6 @@ import java.util.List;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -21,7 +20,6 @@ import com.tv.tutorials.coolestuffvoorcheops.model.CandaidateSearchModel;
 import com.tv.tutorials.coolestuffvoorcheops.model.Candidate;
 import com.tv.tutorials.coolestuffvoorcheops.model.SalaryPackage;
 import com.tv.tutorials.coolestuffvoorcheops.model.Skills;
-import com.tv.tutorials.coolestuffvoorcheops.model.Update;
 import com.tv.tutorials.coolestuffvoorcheops.services.AddressService;
 import com.tv.tutorials.coolestuffvoorcheops.services.ApplicationProcessService;
 import com.tv.tutorials.coolestuffvoorcheops.services.CandidateService;
@@ -134,11 +132,7 @@ public class SearchController {
 		//Address tmpAddress=addressService.getAddressById(tmpCandidate.getAddressId());
 		Candidate tmp = candidateservice.getCandidateById(8);
 		tmp.setPhoneNumber(tmp.getPhoneNumber() +88888);
-		//Address tmpAddress = (Address) map.get("address");
-		//System.out.println(tmpAddress.getId());
-		//map.addAttribute("update", new Update(true));
-		//map.addAttribute("address", tmpAddress);
-		//map.addAttribute("candidate", tmpCandidate);
+	
 		//return "register"; ik krijg geen voorwaardelijke knoppen, zo kan het niet hergebruikt worden
 		//werkt , ziet er uit zoals register 
 		// modelmap, hgetattribute ipv modelattribute?
@@ -149,19 +143,13 @@ public class SearchController {
 			candidateservice.updateCandidate(tmp);
 		return "test";
         //werkt return "searchcandidatedetails";
-    }
-	
-	
-	
-	
+    }	
 	
 	@RequestMapping(value = "searchcv/{candidateId}", method = RequestMethod.GET)
     public String searchCv( @PathVariable("candidateId") int candidateId) {
 		System.out.println("we zijn in de GOEDE CONTROLLER"+ candidateId);
-		//https://stackoverflow.com/questions/1714028/mvc-which-submit-button-has-been-pressed
 		
 		Candidate tmpCandidate =candidateservice.getCandidateById(candidateId);
-		//Address tmpAddress=addressService.getAddressById(tmpCandidate.getAddressId());
 
 		//map.addAttribute("address", tmpAddress);
 		
@@ -176,9 +164,7 @@ public class SearchController {
 		Candidate tmpCandidate =candidateservice.getCandidateById(candidateId);
 		Skills tmpSkills=skillsService.getSkillsById(tmpCandidate.getSkillsId())  ;
 
-		model.addAttribute("skills", tmpSkills);
-		
-		
+		model.addAttribute("skills", tmpSkills);	
         return "searchskills";
     }
 	

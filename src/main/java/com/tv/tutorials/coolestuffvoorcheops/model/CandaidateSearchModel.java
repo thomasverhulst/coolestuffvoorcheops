@@ -1,7 +1,5 @@
 package com.tv.tutorials.coolestuffvoorcheops.model;
 
-import javax.persistence.Column;
-
 public class CandaidateSearchModel {
 
 	private String id; 

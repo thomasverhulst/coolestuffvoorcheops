@@ -35,7 +35,8 @@
 
 	<div th:object="${candidate}" >
 	<!-- /{candidateId}(candidateId=${candidate.id}) -->
-	<form th:action="@{/updateCandidate}"  enctype="multipart/form-data" method="POST">
+<!-- 					    @{/updateSkills/{skillsId}(skillsId=${skills.id}) -->
+	<form th:action="@{/updateCandidate/{candidateId}/{addressId}(candidateId=${candidate.id},addressId=${candidate.addressId})}"  enctype="multipart/form-data" method="POST">
 
 	<div class="col-sm-3">
 		<div class=form-group>

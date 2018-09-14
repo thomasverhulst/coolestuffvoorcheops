@@ -17,7 +17,6 @@ public class AddressService implements IAddressService {
 
 	@Override
 	public List<Address> getAllAdresses() {
-		// TODO Auto-generated method stub
 		List<Address> list = new ArrayList<>();
 		 addressRepository.findAll().forEach(e -> list.add(e));
 		return list;
@@ -26,9 +25,6 @@ public class AddressService implements IAddressService {
 
 	@Override
 	public Address getAddressById(int addressId) {
-		// TODO Auto-generated method stub
-		// Address obj =addressRepository.findById(addressId).get();
-		// return obj;
 		Address e = addressRepository.findById(addressId).get();
 		return e;
 	}

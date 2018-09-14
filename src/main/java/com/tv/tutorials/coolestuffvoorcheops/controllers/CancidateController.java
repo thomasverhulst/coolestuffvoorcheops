@@ -1,29 +1,27 @@
 package com.tv.tutorials.coolestuffvoorcheops.controllers;
 
-import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.stream.Collectors;
+import java.util.Optional;
 
 import javax.servlet.http.HttpSession;
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.servlet.mvc.method.annotation.MvcUriComponentsBuilder;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.tv.tutorials.coolestuffvoorcheops.model.Address;
 import com.tv.tutorials.coolestuffvoorcheops.model.ApplicationProcess;
@@ -31,6 +29,8 @@ import com.tv.tutorials.coolestuffvoorcheops.model.Candidate;
 import com.tv.tutorials.coolestuffvoorcheops.model.SalaryPackage;
 import com.tv.tutorials.coolestuffvoorcheops.model.Skills;
 import com.tv.tutorials.coolestuffvoorcheops.model.Update;
+import com.tv.tutorials.coolestuffvoorcheops.reposytories.AddressRepository;
+import com.tv.tutorials.coolestuffvoorcheops.reposytories.CandidateRepository;
 import com.tv.tutorials.coolestuffvoorcheops.services.AddressService;
 import com.tv.tutorials.coolestuffvoorcheops.services.ApplicationProcessService;
 import com.tv.tutorials.coolestuffvoorcheops.services.CandidateService;
@@ -59,6 +59,10 @@ public class CancidateController {
 	@Autowired
 	ApplicationProcessService applicationProcessService;
 	
+	@Autowired
+	CandidateRepository candidateRepository;
+	@Autowired
+	AddressRepository addressRepository;
 	 @Autowired
 	    public CancidateController(IStorageService storageService) {
 	        this.storageService = storageService;
@@ -243,4 +247,47 @@ public class CancidateController {
 
 		return "mailsucces";
 	}
+	
+	@PostMapping("/updateCandidate/{candidateId}/{addressId}")
+	public String save(@Valid Candidate candidate,@Valid Address address, @PathVariable("candidateId") int id,@PathVariable("addressId") int addressId ,BindingResult result, RedirectAttributes redirect) {
+
+		if (result.hasErrors()) {
+
+			return "updateCandidate";
+		}
+	
+		Optional<Candidate> tmp = candidateRepository.findById(id);
+		if (tmp.isPresent() ) {
+			Candidate s =tmp.get();
+			
+			s= candidate;
+			s.setId(id);
+			
+			// update address
+			//int tmpAddressId =s.getAddressId();
+			System.out.println("addressidttt = "+addressId);
+			Optional<Address> tmpAddress = addressRepository.findById(addressId);
+			if (tmpAddress.isPresent() ) {
+				Address s2 =tmpAddress.get();
+				s2= address;
+				s2.setId(addressId);
+				addressRepository.save(s2);
+			}
+			//
+			
+			candidateRepository.save(s);
+			System.out.println("het updaten is gelukt");
+		}
+		else {
+			
+			System.out.println("tmp = null");
+			candidateRepository.save(candidate);
+		}
+		
+		redirect.addFlashAttribute("success", "Saved employee successfully!");
+
+		return "test";
+
+	}
+
 }
