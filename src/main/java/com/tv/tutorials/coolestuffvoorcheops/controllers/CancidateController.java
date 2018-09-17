@@ -157,10 +157,9 @@ public class CancidateController {
 		
 		//candidate.setAddressId(tmpAddress.getId());
 		candidateservice.updateCandidate(candidate);
-    	
-    	
+    	   	
 		return "test";
-    	}
+    }
 	
 	@RequestMapping(value ="/registerSkills", method = RequestMethod.POST)
 	public String registerSkills(Model model , @ModelAttribute("skills") Skills skills, HttpSession session ) {
@@ -264,7 +263,6 @@ public class CancidateController {
 			s.setId(id);
 			
 			// update address
-			//int tmpAddressId =s.getAddressId();
 			System.out.println("addressidttt = "+addressId);
 			Optional<Address> tmpAddress = addressRepository.findById(addressId);
 			if (tmpAddress.isPresent() ) {
