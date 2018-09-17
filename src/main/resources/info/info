@@ -37,6 +37,10 @@ applicationProcess was nog applicationprocess zonder hoofdletter.
 
 download cv:
 https://www.guru99.com/jsp-file-upload-download.html
+
+#
+uitzetten error pagina
+https://www.baeldung.com/spring-boot-custom-error-page
 # saurusnamen
 orthopodont en agapitodon
 # todo's
@@ -52,3 +56,4 @@ orthopodont en agapitodon
 10) juiste teksten bij velden (met de kalnt)
 11) validatie velden (gedeeltelijk met klant)
 12) add candidate names to title insert pages (klaar)
+13) toevoegen error page: klaar

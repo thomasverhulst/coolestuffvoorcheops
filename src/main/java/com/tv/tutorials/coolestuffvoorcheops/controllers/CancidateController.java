@@ -226,6 +226,14 @@ public class CancidateController {
 		session.setAttribute("candidate", sessionCandidate);
 		
 		System.out.println("applicationprocess Id  = "+tmpApplicationprocess.getId());
+		Boolean t = (Boolean) session.getAttribute("isupdate");
+		System.out.println("waarde"+t);
+		if (t == false) {
+			// de eigelijke update moet hier nog gebeuren, uiteindelijk moet dit ook naar een service?
+			// 2 returns in dezelfde methode is niet optimaal
+			return "test";
+		}
+		
 		return "registrationsucces";
 	}
 	// naar voorstel
