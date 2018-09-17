@@ -2,11 +2,15 @@ package com.tv.tutorials.coolestuffvoorcheops.services;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
+
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.tv.tutorials.coolestuffvoorcheops.model.ApplicationProcess;
+import com.tv.tutorials.coolestuffvoorcheops.model.Skills;
 import com.tv.tutorials.coolestuffvoorcheops.reposytories.ApplicationProcessRepository;
 
 @Service
@@ -43,6 +47,23 @@ public class ApplicationProcessService implements IApplicationProcessService {
 	@Override
 	public void deleteAdress(int applicationProcessId) {
 		applicationProcessRepository.delete(getApplicationProcessById(applicationProcessId));
+		
+	}
+
+	public void saveOrUpdateApplicationProcess(int id ,@Valid ApplicationProcess applicationProcess) {
+		Optional<ApplicationProcess> tmp = applicationProcessRepository.findById(id);
+		if (tmp.isPresent() ) {
+			ApplicationProcess s =tmp.get();
+			
+			s= applicationProcess;
+			s.setId(id);
+			applicationProcessRepository.save(s);
+		}
+		else {
+			
+			System.out.println("tmp = null");
+			applicationProcessRepository.save(applicationProcess);
+		}
 		
 	}
 

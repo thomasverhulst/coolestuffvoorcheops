@@ -45,21 +45,8 @@ public class SalaryPackageController {
 
 			return "updatesalarypackage";
 		}
-	
-		Optional<SalaryPackage> tmp = salaryPackageRepository.findById(id);
-		if (tmp.isPresent() ) {
-			SalaryPackage s =tmp.get();
-			
-			s= salaryPackage;
-			s.setId(id);
-			salaryPackageRepository.save(s);
-		}
-		else {
-			
-			System.out.println("tmp = null");
-			salaryPackageRepository.save(salaryPackage);
-		}
 		
+		salaryPackageService.saveOrUpdateSalaryPackage(id, salaryPackage);		
 		redirect.addFlashAttribute("success", "Saved employee successfully!");
 
 		return "test";

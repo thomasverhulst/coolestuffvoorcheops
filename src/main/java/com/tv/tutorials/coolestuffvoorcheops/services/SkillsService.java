@@ -2,6 +2,9 @@ package com.tv.tutorials.coolestuffvoorcheops.services;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
+
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -51,6 +54,23 @@ public class SkillsService implements ISkillService {
 	public void deleteSkills(int skillsId) {
 		skillsRepository.delete(getSkillsById(skillsId));
 
+	}
+
+	public void saveOrUpdateSkills(int id, @Valid Skills skills) {
+	
+		Optional<Skills> tmp = skillsRepository.findById(id);
+		if (tmp.isPresent() ) {
+			Skills s =tmp.get();
+			
+			s= skills;
+			s.setId(id);
+			skillsRepository.save(s);
+		}
+		else {
+			
+			System.out.println("tmp = null");
+			skillsRepository.save(skills);
+		}
 	}
 
 }

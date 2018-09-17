@@ -37,7 +37,8 @@ applicationProcess was nog applicationprocess zonder hoofdletter.
 
 download cv:
 https://www.guru99.com/jsp-file-upload-download.html
-
+# saurusnamen
+orthopodont en agapitodon
 # todo's
 1) favicons toevoegen op updatepagina's: klaar maar werkt niet? Of is het Cache?
 2) div verwijderen op updatepagina's: klaar
@@ -45,7 +46,7 @@ https://www.guru99.com/jsp-file-upload-download.html
 4) Spring security toevoegen
 5) mogelijk maken om cv te updaten: klaar
 6) doorverwijzen naar createpagina's als updateid 0 is. Als er bijvoorbeeld nog geen loonpakket is toegevoegd
-7) code van controllers naar services verplaatsen (refactoring)
+7) code van controllers naar services verplaatsen (refactoring) klaar
 8) verwijderen searchcontroller  (refactoring)
 9) welke velden required (met de klant)
 10) juiste teksten bij velden (met de kalnt)

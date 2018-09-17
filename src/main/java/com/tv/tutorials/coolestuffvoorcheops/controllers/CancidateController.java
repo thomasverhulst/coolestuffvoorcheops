@@ -1,9 +1,6 @@
 package com.tv.tutorials.coolestuffvoorcheops.controllers;
 
-import java.awt.Desktop;
-import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.nio.file.Files;
@@ -262,35 +259,8 @@ public class CancidateController {
 			return "updateCandidate";
 		}
 	
-		Optional<Candidate> tmp = candidateRepository.findById(id);
-		if (tmp.isPresent() ) {
-			Candidate s =tmp.get();
-			
-			s= candidate;
-			s.setId(id);
-			
-			// update address
-			System.out.println("addressidttt = "+addressId);
-			Optional<Address> tmpAddress = addressRepository.findById(addressId);
-			if (tmpAddress.isPresent() ) {
-				Address s2 =tmpAddress.get();
-				s2= address;
-				s2.setId(addressId);
-				addressRepository.save(s2);
-			}
-			//
-			
-			candidateRepository.save(s);
-			System.out.println("het updaten is gelukt");
-		}
-		else {
-			
-			System.out.println("tmp = null");
-			candidateRepository.save(candidate);
-		}
-		
+		candidateservice.saveOrUpdateCandidate(id, candidate,address,addressId);	
 		redirect.addFlashAttribute("success", "Saved employee successfully!");
-
 		return "test";
 
 	}

@@ -77,32 +77,13 @@ public class SkillsController {
 	
 	// dit is de methode om een update te doen...
 	@PostMapping("/updateSkills/{skillsId}")
-
-	public String save(@Valid Skills skills, @PathVariable("skillsId") int id ,BindingResult result, RedirectAttributes redirect) {
+	public String update(@Valid Skills skills, @PathVariable("skillsId") int id ,BindingResult result, RedirectAttributes redirect) {
 
 	if (result.hasErrors()) {
-
-	return "updateskills";
-	}
-	System.out.println("id path ="+id);
-	System.out.println("Hoi we zijn bij de nieuwe tets, id =" +skills.getId());
-	//skillsRepository.
-	Optional<Skills> tmp = skillsRepository.findById(id);
-	if (tmp.isPresent() ) {
-		Skills s =tmp.get();
-		
-		s= skills;
-		s.setId(id);
-		skillsRepository.save(s);
-	}
-	else {
-		
-		System.out.println("tmp = null");
-		skillsRepository.save(skills);
+		return "updateskills";
 	}
 	
-	//skillsRepository2.save(skills);
-	System.out.println("Is de nieuwe test gelukt?");
+	skillsService.saveOrUpdateSkills(id, skills);		
 	redirect.addFlashAttribute("success", "Saved employee successfully!");
 
 	return "test";

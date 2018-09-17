@@ -48,22 +48,8 @@ public class ApplicationProcessController {
 			return "updateapplicationprocess";
 		}
 	
-		Optional<ApplicationProcess> tmp = applicationProcessRepository.findById(id);
-		if (tmp.isPresent() ) {
-			ApplicationProcess s =tmp.get();
-			
-			s= applicationProcess;
-			s.setId(id);
-			applicationProcessRepository.save(s);
-		}
-		else {
-			
-			System.out.println("tmp = null");
-			applicationProcessRepository.save(applicationProcess);
-		}
-		
+		applicationProcessService.saveOrUpdateApplicationProcess(id,applicationProcess);			
 		redirect.addFlashAttribute("success", "Saved employee successfully!");
-
 		return "test";
 
 	}
