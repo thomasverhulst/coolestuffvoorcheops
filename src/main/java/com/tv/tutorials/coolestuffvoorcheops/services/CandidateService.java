@@ -80,16 +80,9 @@ public class CandidateService implements ICandidateService {
 			System.out.println("het updaten is gelukt");
 		}
 		else {
-			
-			System.out.println("tmp = null");
 			candidateRepository.save(candidate);
 		}
 		
 	}
-
-	//public List<Candidate> findAllByNameLikeOrSirNameLike(String name, String sirName) {
-		// TODO Auto-generated method stub
-	//	return null;
-	//}
 
 }

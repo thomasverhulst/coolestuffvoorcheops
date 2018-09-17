@@ -203,14 +203,12 @@ public class SearchController {
         return "searchssalarypackage";
     }
 	
-	
 	@RequestMapping(value = "searchapplicationproces/{candidateId}", method = RequestMethod.GET)
     public String searchApplicationproces( @PathVariable("candidateId") String candidateId) {
 		System.out.println("we zijn in de GOEDE CONTROLLER"+ candidateId);
 		//https://stackoverflow.com/questions/1714028/mvc-which-submit-button-has-been-pressed
 		
         return "searchapplicationproces";
-    }
-	
+    }	
 	
 }

@@ -10,7 +10,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.tv.tutorials.coolestuffvoorcheops.model.ApplicationProcess;
-import com.tv.tutorials.coolestuffvoorcheops.model.Skills;
 import com.tv.tutorials.coolestuffvoorcheops.reposytories.ApplicationProcessRepository;
 
 @Service
@@ -53,15 +52,12 @@ public class ApplicationProcessService implements IApplicationProcessService {
 	public void saveOrUpdateApplicationProcess(int id ,@Valid ApplicationProcess applicationProcess) {
 		Optional<ApplicationProcess> tmp = applicationProcessRepository.findById(id);
 		if (tmp.isPresent() ) {
-			ApplicationProcess s =tmp.get();
-			
+			ApplicationProcess s =tmp.get();			
 			s= applicationProcess;
 			s.setId(id);
 			applicationProcessRepository.save(s);
 		}
-		else {
-			
-			System.out.println("tmp = null");
+		else {		
 			applicationProcessRepository.save(applicationProcess);
 		}
 		

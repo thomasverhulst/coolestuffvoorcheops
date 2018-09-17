@@ -1,7 +1,5 @@
 package com.tv.tutorials.coolestuffvoorcheops.controllers;
 
-import java.util.Optional;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
@@ -29,8 +27,6 @@ public class SkillsController {
 	CandidateService candidateservice;
 	@Autowired
 	SkillsService skillsService;
-//	@Autowired
-//	private SkillsRepository2 skillsRepository2;
 	@Autowired
 	SkillsRepository skillsRepository;
 	
@@ -53,26 +49,6 @@ public class SkillsController {
 			//candidate.setAddressId(tmpAddress.getId());
 			//candidateservice.updateCandidate(candidate);
 			return "test";
-	}
-	
-	@RequestMapping (value ="/updateSkillsp/{skillsId}",  method = RequestMethod.POST)
-	public String updateSkills(Model model , @ModelAttribute("skills") Skills skills, @PathVariable("skillsId") int id ,HttpServletRequest request) {
-	    //your controller code) {
-		System.out.println("dits is de id "+id);
-		//Optional<Skills> skillsOptional =  skillsRepository.findById(id)  ;
-
-		//if (!skillsOptional.isPresent())
-			///return ResponseEntity.notFound().build();
-
-		//skills.setId(id);
-		
-		//skillsRepository2.save(skills);
-		System.out.println("saven is gedaan");
-		
-		 String referer = request.getHeader("Referer");
-		    return "redirect:"+ referer;
-		
-		//return ResponseEntity.noContent().build();
 	}
 	
 	// dit is de methode om een update te doen...

@@ -26,8 +26,6 @@ public class SalaryPackageController {
 	CandidateService candidateservice;
 	@Autowired
 	SalaryPackageService salaryPackageService;
-	@Autowired
-	private SalaryPackageRepository salaryPackageRepository;
 	
 	@RequestMapping(value = "searchcurrentsalarypackage2/{candidateId}", method = RequestMethod.GET)
     public String searchCurrentSalaryPackage( Model model ,@PathVariable("candidateId") int candidateId ) {
@@ -42,7 +40,6 @@ public class SalaryPackageController {
 	public String save(@Valid SalaryPackage salaryPackage, @PathVariable("salaryPackageId") int id ,BindingResult result, RedirectAttributes redirect) {
 
 		if (result.hasErrors()) {
-
 			return "updatesalarypackage";
 		}
 		

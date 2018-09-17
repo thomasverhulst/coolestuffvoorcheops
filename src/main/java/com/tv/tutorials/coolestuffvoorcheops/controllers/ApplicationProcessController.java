@@ -29,8 +29,6 @@ public class ApplicationProcessController {
 	CandidateService candidateservice;
 	@Autowired
 	ApplicationProcessService applicationProcessService;
-	@Autowired
-	private ApplicationProcessRepository applicationProcessRepository;
 	
 	@RequestMapping(value = "searchapplicationproces2/{candidateId}", method = RequestMethod.GET)
     public String searchApplicationProcess( Model model ,@PathVariable("candidateId") int candidateId ) {
@@ -39,7 +37,6 @@ public class ApplicationProcessController {
 		return "updateapplicationprocess";
     }
 	
-	// dit is de methode om een update te doen...
 	@PostMapping("/updateApplicationProcess/{applicationProcessId}")
 	public String save(@Valid ApplicationProcess applicationProcess, @PathVariable("applicationProcessId") int id ,BindingResult result, RedirectAttributes redirect) {
 

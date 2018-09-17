@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.tv.tutorials.coolestuffvoorcheops.model.SalaryPackage;
-import com.tv.tutorials.coolestuffvoorcheops.model.Skills;
 import com.tv.tutorials.coolestuffvoorcheops.reposytories.SalaryPackageRepository;
 
 @Service
@@ -16,8 +15,7 @@ public class SalaryPackageService implements ISalaryPackageService {
 
 	@Autowired
 	private SalaryPackageRepository salaryPackageRepository;
-	
-	
+		
 	@Override
 	public List<SalaryPackage> getAllSalaryPackages() {
 		List<SalaryPackage> list = new ArrayList<>();
@@ -26,11 +24,6 @@ public class SalaryPackageService implements ISalaryPackageService {
 		
 	}
 
-//	@Override
-//	public Skills getSkillsById(int skillsId) {
-//		Skills e = skillsRepository.findById(skillsId).get();
-//		return e;
-//	}
 	@Override
 	public SalaryPackage getSalaryPackageById(int salaryPackageId) {
 		//salaryPackageRepository.findById(salaryPackageId).
@@ -57,9 +50,7 @@ public class SalaryPackageService implements ISalaryPackageService {
 		
 	}
 	
-	
 	public void saveOrUpdateSalaryPackage(int id ,SalaryPackage salaryPackage) {
-		System.out.println("spid ="+id);
 		Optional<SalaryPackage> tmp = salaryPackageRepository.findById(id);
 		if (tmp.isPresent() ) {
 			SalaryPackage s =tmp.get();
@@ -69,8 +60,6 @@ public class SalaryPackageService implements ISalaryPackageService {
 			salaryPackageRepository.save(s);
 		}
 		else {
-			
-			System.out.println("tmp = null");
 			salaryPackageRepository.save(salaryPackage);
 		}
 	}
