@@ -295,51 +295,22 @@ public class CancidateController {
 
 	}
 	
-	@GetMapping("/searchcv3/{candidateId}")
-	public void searchCv(@Valid Candidate candidate,@Valid Address address, @PathVariable("candidateId") int id,BindingResult result, RedirectAttributes redirect) {
-		//return uploadDirectory;
-
-		System.out.println("desktop = ondersteund? "+Desktop.isDesktopSupported());
-		if (Desktop.isDesktopSupported()) {
-		    try {
-		    	//uplo
-		        File myFile = new File(uploadDirectory+ candidate.getCvLink());
-		        Desktop.getDesktop().open(myFile);
-		    } catch (IOException ex) {
-		        // no application registered for PDFs
-		    }
-		}
-		//sharei
-		//return uploadDirectory;
-		
-		////
-//		BrowserWindowOpener opener = new BrowserWindowOpener(UI.class);
-//	//  opener.setFeatures("height=700,width=600, resizeable, scrollbars, location=0, status=0, toolbar=0"); //removing this line and setWindowName to _blank opens in new tab
-//	    opener.setResource(new FileResource(new File(VaadinService.getCurrent().getBaseDirectory().getAbsolutePath() + "/WEB-INF/xmlfiles/" + user + ".xml")));
-//	    opener.setWindowName("_blank");
-//	    opener.extend(details);
-		
-	}
-	
-	
 	@GetMapping("/searchcv2/{candidateId}")
 	public void searchCv2(@Valid Candidate candidate,@Valid Address address, @PathVariable("candidateId") int id,BindingResult result, RedirectAttributes redirect, HttpServletResponse response,HttpServletRequest request) throws IOException {
-		//return uploadDirectory;
+	
 		String cvlink ="Er is nog geen cv" ;
 		Optional<Candidate> tmp = candidateRepository.findById(id);
 		if (tmp.isPresent() ) {
 			System.out.println("hij bestaat");
 			cvlink =tmp.get().getCvLink();
-			
-			//s= candidate;
+						
 		}
 		
 		response.setContentType("text/html");
 		PrintWriter out;
 	
-			out = response.getWriter();
-		
-		
+		out = response.getWriter();
+				
 		String gurufile = cvlink;
 		String gurupath = uploadDirectory;
 		response.setContentType("APPLICATION/OCTET-STREAM");

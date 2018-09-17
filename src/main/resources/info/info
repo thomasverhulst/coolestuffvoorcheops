@@ -40,7 +40,7 @@ https://www.guru99.com/jsp-file-upload-download.html
 
 # todo's
 1) favicons toevoegen op updatepagina's: klaar maar werkt niet? Of is het Cache?
-2) div verwijderen op updatepagina's
+2) div verwijderen op updatepagina's: klaar
 3) ssl toevoegen?
 4) Spring security toevoegen
 5) mogelijk maken om cv te updaten: klaar

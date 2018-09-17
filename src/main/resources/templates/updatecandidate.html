@@ -30,13 +30,9 @@
 
 </div>
 <div class="row">
-	<div class="col-sm-2">
-	</div>
+	<div class="col-sm-2"></div>
 
-	<div th:object="${candidate}" >
-	<!-- /{candidateId}(candidateId=${candidate.id}) -->
-<!-- 					    @{/updateSkills/{skillsId}(skillsId=${skills.id}) -->
-	<form th:action="@{/updateCandidate/{candidateId}/{addressId}(candidateId=${candidate.id},addressId=${candidate.addressId})}"  enctype="multipart/form-data" method="POST">
+	<form th:action="@{/updateCandidate/{candidateId}/{addressId}(candidateId=${candidate.id},addressId=${candidate.addressId})}" th:object="${candidate}" enctype="multipart/form-data" method="POST">
 
 	<div class="col-sm-3">
 		<div class=form-group>
@@ -127,6 +123,6 @@
 	
 	</div>
 </div>
-</div>
+
 </body>
 </html>
