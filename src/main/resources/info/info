@@ -35,12 +35,15 @@ https://docs.spring.io/spring-data/data-commons/docs/1.6.1.RELEASE/reference/htm
 #teymleaf nullpointer datum
 applicationProcess was nog applicationprocess zonder hoofdletter.
 
+download cv:
+https://www.guru99.com/jsp-file-upload-download.html
+
 # todo's
-1) favicons toevoegen op updatepagina's
+1) favicons toevoegen op updatepagina's: klaar maar werkt niet? Of is het Cache?
 2) div verwijderen op updatepagina's
 3) ssl toevoegen?
 4) Spring security toevoegen
-5) mogelijk maken om cv te updaten
+5) mogelijk maken om cv te updaten: klaar
 6) doorverwijzen naar createpagina's als updateid 0 is. Als er bijvoorbeeld nog geen loonpakket is toegevoegd
 7) code van controllers naar services verplaatsen (refactoring)
 8) verwijderen searchcontroller  (refactoring)

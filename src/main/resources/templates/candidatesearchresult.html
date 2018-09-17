@@ -64,7 +64,7 @@
                 <td th:text="${candidates.sirName}">Text ...</td>
                 <td th:text="${candidates.email}">Text...</td>
                  
-                <td><a th:href="@{/searchcv/{candidateId}(candidateId=${candidates.id})}">Zie CV </a> </td>
+              	<td><a th:href="@{/searchcv2/{candidateId}(candidateId=${candidates.id})}">Zie CV <span class="glyphicon glyphicon-download"></span></a> </td>
                 
                 <td><a th:href="@{/searchcandidatedetails/{candidateId}(candidateId=${candidates.id})}">Zie details kandidaat <span class="glyphicon glyphicon-pencil"></span></a> </td>
                 
