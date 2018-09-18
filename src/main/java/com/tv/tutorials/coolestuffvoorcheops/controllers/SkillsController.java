@@ -60,9 +60,9 @@ public class SkillsController {
 	}
 	
 	skillsService.saveOrUpdateSkills(id, skills);		
-	redirect.addFlashAttribute("success", "Saved employee successfully!");
+	//redirect.addFlashAttribute("success", "Saved employee successfully!");
 
-	return "test";
+	return "updatesucces";
 
 	}
 	

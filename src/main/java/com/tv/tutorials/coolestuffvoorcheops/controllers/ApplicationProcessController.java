@@ -1,7 +1,5 @@
 package com.tv.tutorials.coolestuffvoorcheops.controllers;
 
-import java.util.Optional;
-
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,12 +13,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.tv.tutorials.coolestuffvoorcheops.model.ApplicationProcess;
-import com.tv.tutorials.coolestuffvoorcheops.model.SalaryPackage;
-import com.tv.tutorials.coolestuffvoorcheops.reposytories.ApplicationProcessRepository;
-import com.tv.tutorials.coolestuffvoorcheops.reposytories.SalaryPackageRepository;
 import com.tv.tutorials.coolestuffvoorcheops.services.ApplicationProcessService;
 import com.tv.tutorials.coolestuffvoorcheops.services.CandidateService;
-import com.tv.tutorials.coolestuffvoorcheops.services.SalaryPackageService;
 
 @Controller
 public class ApplicationProcessController {
@@ -47,9 +41,7 @@ public class ApplicationProcessController {
 	
 		applicationProcessService.saveOrUpdateApplicationProcess(id,applicationProcess);			
 		redirect.addFlashAttribute("success", "Saved employee successfully!");
-		return "test";
-
+		return "updatesucces";
 	}
-
 
 }

@@ -59,7 +59,7 @@ public class SalaryPackageController {
 		salaryPackageService.saveOrUpdateSalaryPackage(id, salaryPackage);		
 		redirect.addFlashAttribute("success", "Saved employee successfully!");
 
-		return "test";
+		return "updatesucces";
 
 	}
 

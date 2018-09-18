@@ -188,7 +188,7 @@ public class SearchController {
 
 		}
 		
-		        return "searchssalarypackage";
+		return "searchssalarypackage";
     }
 	
 	@RequestMapping(value = "searchproposedsalarypackage/{candidateId}", method = RequestMethod.GET)

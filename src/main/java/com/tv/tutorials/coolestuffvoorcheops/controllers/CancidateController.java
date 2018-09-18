@@ -266,10 +266,10 @@ public class CancidateController {
 
 			return "updateCandidate";
 		}
-	
+	System.out.println("we komen hierlangs");
 		candidateservice.saveOrUpdateCandidate(id, candidate,address,addressId);	
 		redirect.addFlashAttribute("success", "Saved employee successfully!");
-		return "test";
+		return "updatesucces";
 
 	}
 	
