@@ -274,36 +274,25 @@ public class CancidateController {
 	}
 	
 	@GetMapping("/searchcv2/{candidateId}")
-	public void searchCv2(@Valid Candidate candidate,@Valid Address address, @PathVariable("candidateId") int id,BindingResult result, RedirectAttributes redirect, HttpServletResponse response,HttpServletRequest request) throws IOException {
+	public String searchCv2(Model model,@Valid Candidate candidate,@Valid Address address, @PathVariable("candidateId") int id,BindingResult result, RedirectAttributes redirect, HttpServletResponse response) throws IOException {
 	
-		String cvlink ="Er is nog geen cv" ;
+		String returnValue= "updatecv";
+		String cvLink ="" ;
 		Optional<Candidate> tmp = candidateRepository.findById(id);
 		if (tmp.isPresent() ) {
 			System.out.println("hij bestaat");
-			cvlink =tmp.get().getCvLink();
+			cvLink =tmp.get().getCvLink();
+			
+			System.out.println(cvLink);
+			if (cvLink != null ) {
+				candidateservice.downloadCv(cvLink, response);
+				returnValue ="updatesucess";
+			}
 						
 		}
-		
-		response.setContentType("text/html");
-		PrintWriter out;
-	
-		out = response.getWriter();
-				
-		String gurufile = cvlink;
-		String gurupath = uploadDirectory;
-		response.setContentType("APPLICATION/OCTET-STREAM");
-		response.setHeader("Content-Disposition", "attachment; filename=\""
-				+ gurufile + "\"");
- 
-		FileInputStream fileInputStream = new FileInputStream(gurupath
-				+"\\"+ gurufile);
- 
-		int i;
-		while ((i = fileInputStream.read()) != -1) {
-			out.write(i);
-		}
-		fileInputStream.close();
-		out.close();
+		model.addAttribute("candidate", tmp.get());
+		return returnValue;
+
 	}
 	
 }

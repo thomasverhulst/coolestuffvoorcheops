@@ -1,9 +1,14 @@
 package com.tv.tutorials.coolestuffvoorcheops.services;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +22,7 @@ import com.tv.tutorials.coolestuffvoorcheops.reposytories.CandidateRepository;
 @Service
 public class CandidateService implements ICandidateService {
 
+	public String uploadDirectory = System.getProperty("user.dir")+"/uploads";
 	@Autowired
 	private CandidateRepository candidateRepository;
 	
@@ -83,6 +89,29 @@ public class CandidateService implements ICandidateService {
 			candidateRepository.save(candidate);
 		}
 		
+	}
+	
+	public void downloadCv(String cvLink , HttpServletResponse response) throws IOException {
+		response.setContentType("text/html");
+		PrintWriter out;
+	
+		out = response.getWriter();
+			
+		String gurufile = cvLink;
+		String gurupath = uploadDirectory;
+		response.setContentType("APPLICATION/OCTET-STREAM");
+		response.setHeader("Content-Disposition", "attachment; filename=\""
+				+ gurufile + "\"");
+ 
+		FileInputStream fileInputStream = new FileInputStream(gurupath
+				+"\\"+ gurufile);
+ 
+		int i;
+		while ((i = fileInputStream.read()) != -1) {
+			out.write(i);
+		}
+		fileInputStream.close();
+		out.close();
 	}
 
 }
