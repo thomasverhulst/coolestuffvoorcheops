@@ -73,10 +73,26 @@ public class SearchController {
 		System.out.println("Address saven is gelukt? " );
 		return null;
 		}
+	@RequestMapping(value = "/searchCandidate" )
+    public String getCandidateByNameAndSirName( ModelMap modelMap,  HttpSession session) {
+		System.out.println("we zijn toch al hier");
+		String name = (String) session.getAttribute("name");
+		String sirName =(String) session.getAttribute("sirName");
+        List<Candidate> candidates = candidateservice.findAllByNameLikeOrSirNameLike(name, sirName) ;
+        modelMap.addAttribute("candidates", candidates);
+        modelMap.addAttribute("candaidatesearchmodel", new CandaidateSearchModel());
+       
+        return "candidatesearchresult";
+    }
+	
 	
 	@RequestMapping(value = "/searchCandidate", method = RequestMethod.POST)
-    public String getCandidateByNameAndSirName(@RequestParam("name") String name, @RequestParam("sirName") String sirName, ModelMap modelMap) {
+    public String gpostCandidateByNameAndSirName(@RequestParam("name") String name, @RequestParam("sirName") String sirName, ModelMap modelMap, HttpSession session) {
 		System.out.println("we zijn toch al hier");
+		
+		session.setAttribute("name", name);
+		session.setAttribute("sirName", sirName);
+	
         List<Candidate> candidates = candidateservice.findAllByNameLikeOrSirNameLike(name, sirName) ;
         modelMap.addAttribute("candidates", candidates);
         modelMap.addAttribute("candaidatesearchmodel", new CandaidateSearchModel());
