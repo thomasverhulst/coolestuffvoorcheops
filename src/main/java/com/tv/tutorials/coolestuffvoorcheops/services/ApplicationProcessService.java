@@ -10,7 +10,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.tv.tutorials.coolestuffvoorcheops.model.ApplicationProcess;
-import com.tv.tutorials.coolestuffvoorcheops.model.Skills;
 import com.tv.tutorials.coolestuffvoorcheops.reposytories.ApplicationProcessRepository;
 
 @Service
@@ -35,8 +34,7 @@ public class ApplicationProcessService implements IApplicationProcessService {
 
 	@Override
 	public ApplicationProcess addApplicationProcess(ApplicationProcess applicationProcess) {
-		return applicationProcessRepository.save(applicationProcess);
-		
+		return applicationProcessRepository.save(applicationProcess);		
 	}
 
 	@Override
@@ -46,8 +44,7 @@ public class ApplicationProcessService implements IApplicationProcessService {
 
 	@Override
 	public void deleteAdress(int applicationProcessId) {
-		applicationProcessRepository.delete(getApplicationProcessById(applicationProcessId));
-		
+		applicationProcessRepository.delete(getApplicationProcessById(applicationProcessId));		
 	}
 
 	public void saveOrUpdateApplicationProcess(int id ,@Valid ApplicationProcess applicationProcess) {
@@ -60,8 +57,7 @@ public class ApplicationProcessService implements IApplicationProcessService {
 		}
 		else {		
 			applicationProcessRepository.save(applicationProcess);
-		}
-		
+		}		
 	}
 
 	public List<Integer> findAllRecruited() {

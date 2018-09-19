@@ -55,14 +55,13 @@ public class SkillsController {
 	@PostMapping("/updateSkills/{skillsId}")
 	public String update(@Valid Skills skills, @PathVariable("skillsId") int id ,BindingResult result, RedirectAttributes redirect) {
 
-	if (result.hasErrors()) {
-		return "updateskills";
-	}
+		if (result.hasErrors()) {
+			return "updateskills";
+		}
 	
-	skillsService.saveOrUpdateSkills(id, skills);		
-	//redirect.addFlashAttribute("success", "Saved employee successfully!");
-
-	return "updatesucces";
+		skillsService.saveOrUpdateSkills(id, skills);		
+		//redirect.addFlashAttribute("success", "Saved employee successfully!");
+		return "updatesucces";
 
 	}
 	

@@ -213,7 +213,7 @@ public class SearchController {
     public String searchCv( @PathVariable("candidateId") int candidateId) {
 		System.out.println("we zijn in de GOEDE CONTROLLER"+ candidateId);
 		
-		Candidate tmpCandidate =candidateservice.getCandidateById(candidateId);
+		//Candidate tmpCandidate =candidateservice.getCandidateById(candidateId);
 
 		//map.addAttribute("address", tmpAddress);
 		
@@ -246,10 +246,7 @@ public class SearchController {
 
 		}else {
 			model.addAttribute("msg", "<a href=\"/salarypackage\">Google.com</a> van deze kandidaat is nog geen huidig loonpakket ingevuld, wil u dat doen?");
-			//MyMessageDialog.openError(parent.getShell(), "Hehe", "<a href=\"http://google.com\">Google.com</a> Test");
-
-			//MyMessageDialog.openError(parent.getShell(), "Hehe", "<a href=\"/salarypackage\">Google.com</a> van deze kandidaat is nog geen huidig loonpakket ingevuld, wil u dat doen?");
-
+	
 		}
 		
 		return "searchssalarypackage";

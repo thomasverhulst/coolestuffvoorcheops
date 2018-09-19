@@ -9,7 +9,6 @@ import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.tv.tutorials.coolestuffvoorcheops.model.Candidate;
 import com.tv.tutorials.coolestuffvoorcheops.model.Skills;
 import com.tv.tutorials.coolestuffvoorcheops.reposytories.SkillsRepository;
 
@@ -34,7 +33,6 @@ public class SkillsService implements ISkillService {
 	@Override
 	public Skills addSkills(Skills skills) {
 		return (Skills) skillsRepository.save(skills);
-		//return null;
 	}
 
 	@Override
@@ -53,7 +51,6 @@ public class SkillsService implements ISkillService {
 	@Override
 	public void deleteSkills(int skillsId) {
 		skillsRepository.delete(getSkillsById(skillsId));
-
 	}
 
 	public void saveOrUpdateSkills(int id, @Valid Skills skills) {
@@ -93,7 +90,7 @@ public class SkillsService implements ISkillService {
 	public List<Integer> findAllJava() {
 		boolean isJava = true;
 		List<Skills> list =  skillsRepository.findAllByJava(isJava);
-		
+		// refactor optie
 		List<Integer> skillId = new ArrayList<Integer>();
 		for (Skills skills : list) {
 			skillId.add(skills.getId());

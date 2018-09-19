@@ -200,10 +200,7 @@ public class CancidateController {
 		//Update candidate in database
 		candidateservice.updateCandidate(sessionCandidate);
 		//Update candidate in session (not needed?)
-		session.setAttribute("candidate", sessionCandidate);
-
-		
-		
+		session.setAttribute("candidate", sessionCandidate);	
 		System.out.println("salary id = "+tmpSalarypackage.getId());
 		model.addAttribute("applicationprocess", new ApplicationProcess());
 
@@ -287,12 +284,10 @@ public class CancidateController {
 			if (cvLink != null ) {
 				candidateservice.downloadCv(cvLink, response);
 				returnValue ="updatesucess";
-			}
-						
+			}					
 		}
 		model.addAttribute("candidate", tmp.get());
 		return returnValue;
-
 	}
 	
 }

@@ -4,9 +4,7 @@ import java.util.List;
 
 import org.springframework.data.repository.CrudRepository;
 
-import com.tv.tutorials.coolestuffvoorcheops.model.ApplicationProcess;
 import com.tv.tutorials.coolestuffvoorcheops.model.Candidate;
-import com.tv.tutorials.coolestuffvoorcheops.model.Skills;
 
 public interface CandidateRepository  extends CrudRepository<Candidate, Integer>  {
 	//List<Address> findByStreetNameAndPostalCode(String streetName, String postalCode);
@@ -25,5 +23,7 @@ public interface CandidateRepository  extends CrudRepository<Candidate, Integer>
 	Iterable<Candidate> findAllByApplicationProcessIdIn(List<Integer> applicationProcessIds);
 
 	//Iterable<Candidate> findAllBySkillsIdIn(List<Integer> skillsIds);
+	//Page<Candidate> findAll(Pageable pageRequest);
+	  
 	
 }

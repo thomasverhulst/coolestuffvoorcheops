@@ -71,26 +71,20 @@ public class CandidateService implements ICandidateService {
 	
 	public List <Candidate> findAllDotnet(){
 		List<Integer> skillsIds =skillsService.findAllDotnet();
-		//Iterable<Candidate>   candidates= candidateRepository.findAllById(candidateIds);
 		Iterable<Candidate>   candidates= candidateRepository.findAllBySkillsIdIn(skillsIds);
-		return (List<Candidate>) candidates;
-		
+		return (List<Candidate>) candidates;	
 	}
 	
 	public List <Candidate> findAllJava(){
 		List<Integer> skillsIds =skillsService.findAllJava();
-		//Iterable<Candidate>   candidates= candidateRepository.findAllById(candidateIds);
 		Iterable<Candidate>   candidates= candidateRepository.findAllBySkillsIdIn(skillsIds);
-		return (List<Candidate>) candidates;
-		
+		return (List<Candidate>) candidates;		
 	}
 	
 	public List <Candidate> findAllFrontend(){
 		List<Integer> skillsIds =skillsService.findAllFrontend();
-		//Iterable<Candidate>   candidates= candidateRepository.findAllById(candidateIds);
 		Iterable<Candidate>   candidates= candidateRepository.findAllBySkillsIdIn(skillsIds);
-		return (List<Candidate>) candidates;
-		
+		return (List<Candidate>) candidates;		
 	}
 	
 
