@@ -75,6 +75,22 @@ public class CandidateService implements ICandidateService {
 		
 	}
 	
+	public List <Candidate> findAllJava(){
+		List<Integer> skillsIds =skillsService.findAllJava();
+		//Iterable<Candidate>   candidates= candidateRepository.findAllById(candidateIds);
+		Iterable<Candidate>   candidates= candidateRepository.findAllBySkillsIdIn(skillsIds);
+		return (List<Candidate>) candidates;
+		
+	}
+	
+	public List <Candidate> findAllFrontend(){
+		List<Integer> skillsIds =skillsService.findAllFrontend();
+		//Iterable<Candidate>   candidates= candidateRepository.findAllById(candidateIds);
+		Iterable<Candidate>   candidates= candidateRepository.findAllBySkillsIdIn(skillsIds);
+		return (List<Candidate>) candidates;
+		
+	}
+	
 
 	public void saveOrUpdateCandidate(int id, @Valid Candidate candidate, @Valid Address address,  @Valid int addressId) {
 		Optional<Candidate> tmp = candidateRepository.findById(id);

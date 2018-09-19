@@ -90,4 +90,27 @@ public class SkillsService implements ISkillService {
 		return skillId;
 	}
 
+	public List<Integer> findAllJava() {
+		boolean isJava = true;
+		List<Skills> list =  skillsRepository.findAllByJava(isJava);
+		
+		List<Integer> skillId = new ArrayList<Integer>();
+		for (Skills skills : list) {
+			skillId.add(skills.getId());
+		}
+		return skillId;
+	}
+
+	public List<Integer> findAllFrontend() {
+		
+		boolean isFrontend = true;
+		List<Skills> list =  skillsRepository.findAllByFrontend(isFrontend);
+		
+		List<Integer> skillId = new ArrayList<Integer>();
+		for (Skills skills : list) {
+			skillId.add(skills.getId());
+		}
+		return skillId;
+	}
+
 }

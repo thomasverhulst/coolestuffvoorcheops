@@ -15,6 +15,10 @@ public interface SkillsRepository extends  CrudRepository<Skills, Integer>  {
 	//List<Skills> findAllByDotnetTrue(boolean isdotnett);
 
 	List<Skills> findAllByDotnet(boolean isdotnett);
+
+	List<Skills> findAllByJava(boolean isJava);
+
+	List<Skills> findAllByFrontend(boolean isFrontend);
 	
 	//List<Skills> findAllByFrontenderGreaterThan(int i);
 

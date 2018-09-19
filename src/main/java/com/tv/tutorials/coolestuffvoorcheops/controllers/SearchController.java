@@ -1,5 +1,6 @@
 package com.tv.tutorials.coolestuffvoorcheops.controllers;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -108,21 +109,27 @@ public class SearchController {
 		//session.setAttribute("name", name);
 		//session.setAttribute("sirName", sirName);
 		System.out.println("tis"+search.isDotnet());
-		List<Candidate> candidates= null;
+		List<Candidate> candidates= new ArrayList<Candidate>();
+		
 		if (search.isDotnet()) {
 			System.out.println("we zijn er in");
-			 candidates = candidateservice.findAllDotnet() ;
+			//add .netters if asked
+			 candidates.addAll( candidateservice.findAllDotnet());
+		} 
+		if(search.isJava()){
+			//add javaers if asked
+			candidates.addAll(  candidateservice.findAllJava());
+		}
+		if(search.isFrontender()){
+			//add frontenders if asked
+			candidates.addAll( candidateservice.findAllFrontend());
 		}
         
         modelMap.addAttribute("candidates", candidates);
         modelMap.addAttribute("candaidatesearchmodel", new CandaidateSearchModel());
        
         return "candidatesearchresult";
-    }
-	
-	
-	
-	
+    }	
 	
 	@RequestMapping(value = "/searchssalarypackage", method = RequestMethod.POST)
     public String getEmployeeByName(@RequestParam("name") String name, @RequestParam("sirName") String sirName, ModelMap modelMap) {
