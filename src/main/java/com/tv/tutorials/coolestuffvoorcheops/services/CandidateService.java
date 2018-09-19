@@ -31,6 +31,8 @@ public class CandidateService implements ICandidateService {
 	private AddressRepository addressRepository;
 	@Autowired
 	private SkillsService skillsService;
+	@Autowired
+	ApplicationProcessService applicationProcessService;
 	
 	@Override
 	public List<Candidate> getAllCandidates() {
@@ -141,6 +143,13 @@ public class CandidateService implements ICandidateService {
 		}
 		fileInputStream.close();
 		out.close();
+	}
+
+	public List<Candidate> findAllRecruited() {
+		List<Integer> applicationProcessIds =   applicationProcessService.findAllRecruited();
+		//Iterable<Candidate>   candidates= candidateRepository.findAllById(candidateIds);
+		Iterable<Candidate>   candidates= candidateRepository.findAllByApplicationProcessIdIn(applicationProcessIds);
+		return (List<Candidate>) candidates;
 	}
 
 }

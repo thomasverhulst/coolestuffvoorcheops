@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.tv.tutorials.coolestuffvoorcheops.model.ApplicationProcess;
+import com.tv.tutorials.coolestuffvoorcheops.model.Skills;
 import com.tv.tutorials.coolestuffvoorcheops.reposytories.ApplicationProcessRepository;
 
 @Service
@@ -61,6 +62,17 @@ public class ApplicationProcessService implements IApplicationProcessService {
 			applicationProcessRepository.save(applicationProcess);
 		}
 		
+	}
+
+	public List<Integer> findAllRecruited() {
+		boolean isRecruited = true;
+		List<ApplicationProcess> list =  applicationProcessRepository.findAllByIsRecruited(isRecruited);
+		
+		List<Integer> applicationProcessId = new ArrayList<Integer>();
+		for (ApplicationProcess applicationProcess : list) {
+			applicationProcessId.add(applicationProcess.getId());
+		}
+		return applicationProcessId;
 	}
 
 }

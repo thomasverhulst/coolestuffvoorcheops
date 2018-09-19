@@ -102,8 +102,8 @@ public class SearchController {
         return "candidatesearchresult";
     }
 	
-	@RequestMapping(value = "/searchAllCandidates", method = RequestMethod.POST)
-    public String searchAllCandidates(@ModelAttribute("search") Search search, ModelMap modelMap, HttpSession session) {
+	@RequestMapping(value = "/searchInAllCandidates", method = RequestMethod.POST)
+    public String searchInAllCandidates(@ModelAttribute("search") Search search, ModelMap modelMap, HttpSession session) {
 		System.out.println("we zijn toch al hier");
 		
 		//session.setAttribute("name", name);
@@ -114,15 +114,15 @@ public class SearchController {
 		if (search.isDotnet()) {
 			System.out.println("we zijn er in");
 			//add .netters if asked
-			 candidates.addAll( candidateservice.findAllDotnet());
+			 candidates.addAll(candidateservice.findAllDotnet());
 		} 
 		if(search.isJava()){
 			//add javaers if asked
-			candidates.addAll(  candidateservice.findAllJava());
+			candidates.addAll(candidateservice.findAllJava());
 		}
 		if(search.isFrontender()){
 			//add frontenders if asked
-			candidates.addAll( candidateservice.findAllFrontend());
+			candidates.addAll(candidateservice.findAllFrontend());
 		}
         
         modelMap.addAttribute("candidates", candidates);
@@ -130,6 +130,23 @@ public class SearchController {
        
         return "candidatesearchresult";
     }	
+	
+										
+	@RequestMapping(value = "/searchAllRecruitedCandidates", method = RequestMethod.POST)
+    public String searchAllRecruitedCandidates(ModelMap modelMap, HttpSession session) {
+		List<Candidate> candidates= candidateservice.findAllRecruited();
+		modelMap.addAttribute("candidates", candidates);
+	    modelMap.addAttribute("candaidatesearchmodel", new CandaidateSearchModel());
+		return "candidatesearchresult";
+	}
+	
+	@RequestMapping(value = "/searchAllCandidates", method = RequestMethod.POST)
+    public String searchAllCandidates(ModelMap modelMap, HttpSession session) {
+		List<Candidate> candidates= candidateservice.getAllCandidates();
+		modelMap.addAttribute("candidates", candidates);
+	    modelMap.addAttribute("candaidatesearchmodel", new CandaidateSearchModel());
+		return "candidatesearchresult";
+	}
 	
 	@RequestMapping(value = "/searchssalarypackage", method = RequestMethod.POST)
     public String getEmployeeByName(@RequestParam("name") String name, @RequestParam("sirName") String sirName, ModelMap modelMap) {
