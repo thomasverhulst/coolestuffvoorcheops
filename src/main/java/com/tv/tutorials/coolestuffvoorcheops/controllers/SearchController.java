@@ -19,6 +19,7 @@ import com.tv.tutorials.coolestuffvoorcheops.model.Address;
 import com.tv.tutorials.coolestuffvoorcheops.model.CandaidateSearchModel;
 import com.tv.tutorials.coolestuffvoorcheops.model.Candidate;
 import com.tv.tutorials.coolestuffvoorcheops.model.SalaryPackage;
+import com.tv.tutorials.coolestuffvoorcheops.model.Search;
 import com.tv.tutorials.coolestuffvoorcheops.model.Skills;
 import com.tv.tutorials.coolestuffvoorcheops.services.AddressService;
 import com.tv.tutorials.coolestuffvoorcheops.services.ApplicationProcessService;
@@ -47,12 +48,13 @@ public class SearchController {
 	ApplicationProcessService applicationProcessService;
 	
 	@GetMapping("/search")
-	public String showRegister(Model model) {
+	public String showRegister(Model modelMap) {
 		//naar register.html, addres en candadate worden meegegeven
 		// ModelMap https://stackoverflow.com/questions/13242394/spring-mvc-multiple-modelattribute-on-the-same-form
 		//map.addAttribute("address", new Address());
 		//map.addAttribute("candidate", new Candidate());
-		model.addAttribute("candidate", new Candidate());
+		modelMap.addAttribute("candidate", new Candidate());
+		modelMap.addAttribute("saerch", new Search());
 		System.out.println("Search is hier");
 		return "search";
 	}
@@ -85,7 +87,6 @@ public class SearchController {
         return "candidatesearchresult";
     }
 	
-	
 	@RequestMapping(value = "/searchCandidate", method = RequestMethod.POST)
     public String gpostCandidateByNameAndSirName(@RequestParam("name") String name, @RequestParam("sirName") String sirName, ModelMap modelMap, HttpSession session) {
 		System.out.println("we zijn toch al hier");
@@ -99,6 +100,29 @@ public class SearchController {
        
         return "candidatesearchresult";
     }
+	
+	@RequestMapping(value = "/searchAllCandidates", method = RequestMethod.POST)
+    public String searchAllCandidates(@ModelAttribute("search") Search search, ModelMap modelMap, HttpSession session) {
+		System.out.println("we zijn toch al hier");
+		
+		//session.setAttribute("name", name);
+		//session.setAttribute("sirName", sirName);
+		System.out.println("tis"+search.isDotnet());
+		List<Candidate> candidates= null;
+		if (search.isDotnet()) {
+			System.out.println("we zijn er in");
+			 candidates = candidateservice.findAllDotnet() ;
+		}
+        
+        modelMap.addAttribute("candidates", candidates);
+        modelMap.addAttribute("candaidatesearchmodel", new CandaidateSearchModel());
+       
+        return "candidatesearchresult";
+    }
+	
+	
+	
+	
 	
 	@RequestMapping(value = "/searchssalarypackage", method = RequestMethod.POST)
     public String getEmployeeByName(@RequestParam("name") String name, @RequestParam("sirName") String sirName, ModelMap modelMap) {

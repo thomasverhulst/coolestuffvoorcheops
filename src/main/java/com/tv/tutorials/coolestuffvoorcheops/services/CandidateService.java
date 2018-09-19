@@ -16,6 +16,7 @@ import org.springframework.stereotype.Service;
 
 import com.tv.tutorials.coolestuffvoorcheops.model.Address;
 import com.tv.tutorials.coolestuffvoorcheops.model.Candidate;
+import com.tv.tutorials.coolestuffvoorcheops.model.Skills;
 import com.tv.tutorials.coolestuffvoorcheops.reposytories.AddressRepository;
 import com.tv.tutorials.coolestuffvoorcheops.reposytories.CandidateRepository;
 
@@ -28,6 +29,8 @@ public class CandidateService implements ICandidateService {
 	
 	@Autowired
 	private AddressRepository addressRepository;
+	@Autowired
+	private SkillsService skillsService;
 	
 	@Override
 	public List<Candidate> getAllCandidates() {
@@ -62,6 +65,16 @@ public class CandidateService implements ICandidateService {
 		List<Candidate> list =  candidateRepository.findAllByNameLikeOrSirNameLike(name, sirName) ;			
 		return list;
 	}
+	
+	
+	public List <Candidate> findAllDotnet(){
+		List<Integer> skillsIds =skillsService.findAllDotnet();
+		//Iterable<Candidate>   candidates= candidateRepository.findAllById(candidateIds);
+		Iterable<Candidate>   candidates= candidateRepository.findAllBySkillsIdIn(skillsIds);
+		return (List<Candidate>) candidates;
+		
+	}
+	
 
 	public void saveOrUpdateCandidate(int id, @Valid Candidate candidate, @Valid Address address,  @Valid int addressId) {
 		Optional<Candidate> tmp = candidateRepository.findById(id);

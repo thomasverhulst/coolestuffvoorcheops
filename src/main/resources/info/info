@@ -53,6 +53,11 @@ die met todo open laten
 -Het kan zijn dat het niet werkt omdat het ssl certificaat e rnog niet in is?
 -mvm clean install runnen?
 
+#checkbox booelan
+Als variabelen met is beginnen, worden getteres en setters ook gegeereerd met "is", dan verstaat thymleaf het niet en worden die velden niet getoond.
+
+#repository uitleg
+https://docs.spring.io/spring-data/jpa/docs/1.5.0.RC1/reference/html/jpa.repositories.html
 #
 uitzetten error pagina
 https://www.baeldung.com/spring-boot-custom-error-page
