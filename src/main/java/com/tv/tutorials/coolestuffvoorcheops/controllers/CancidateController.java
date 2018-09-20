@@ -225,13 +225,14 @@ public class CancidateController {
 		System.out.println("applicationprocess Id  = "+tmpApplicationprocess.getId());
 		Boolean t = (Boolean) session.getAttribute("isupdate");
 		System.out.println("waarde"+t);
-		if (t == false) {
+		// geen goede oplossing, 2 returen en de rest is buggy (nullpointers)
+		if (t == false || t==null) {
 			// de eigelijke update moet hier nog gebeuren, uiteindelijk moet dit ook naar een service?
 			// 2 returns in dezelfde methode is niet optimaal
-			return "test";
+			return "registrationsucces";
 		}
 		
-		return "registrationsucces";
+		return "updatesucces";
 	}
 	// naar voorstel
 	@RequestMapping(value ="/registerSalaryPackageProposal")

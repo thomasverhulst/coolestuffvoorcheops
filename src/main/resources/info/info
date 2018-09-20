@@ -58,6 +58,56 @@ Als variabelen met is beginnen, worden getteres en setters ook gegeereerd met "i
 
 #repository uitleg
 https://docs.spring.io/spring-data/jpa/docs/1.5.0.RC1/reference/html/jpa.repositories.html
+
+#ssl
+x6.nabble.com/Getting-quot-Invalid-message-received-with-signature-xxxxx-quot-messages-in-catalina-out-td5057448.html
+ 
+ #eerst dit installeren https://www.apachelounge.com/download/
+ #https://www.youtube.com/watch?v=9M8wtDTk26w
+ 
+ #installeren openssl https://www.youtube.com/watch?v=TjNq7lFt-t0
+ # sdet C:\OpenSSL-Win32\bin serctificaaten in virtual host van C:\Apache24\conf
+ # zie ook https://www.sslshopper.com/article-how-to-create-and-install-an-apache-self-signed-certificate.html
+
+
+
+
+
+# commando voor het genereren van een self signd sertificate : https://www.youtube.com/watch?v=-mTuL9UMDT8
+       // ZET HET JUISTE JDK NUMMER
+#C:\Program Files\Java\jdk1.8.0_181\bin>keytool.exe -genkey -alias springboot -storetype PKCS12 -keyalg RSA -keysize 2048 -keystore mykeystore.p12 -validity 3650
+
+
+Zo genereer je een certificaat:
+C:\>cd "Program Files"
+
+C:\Program Files>cd Java
+
+C:\Program Files\Java>cd jdk1.8.0_181
+
+C:\Program Files\Java\jdk1.8.0_181>cd bin
+
+C:\Program Files\Java\jdk1.8.0_181\bin>keytool.exe -genkey -alias springboot -storetype PKCS12 -keyalg RSA -keysize 2048 -keystore mykeystore.p12 -validity 3650
+
+Hier vind je het: (bestand heet mykeystore)
+C:\Program Files\Java\jdk1.8.0_181\bin
+
+kopieer het bestand mykeystore naar springboot project
+(zelfde plaats als pom file)
+
+voeg deze params toe in application.propperties
+server.port: 8443
+server.ssl.key-store: mykeystore.p12
+server.ssl.key-store-password: testAdmin@
+server.ssl.keyStoreType: PKCS12
+server.ssl.keyAlias: springboot
+
+start project op :
+ga naar : (heetps ipv http en andere poort) https/localhost:8443
+
+krijg je een driehoek met foutmelding
+
+This CA Root certificate is not trusted because it is not in the Trusted Root Certification Authorities store.
 #
 uitzetten error pagina
 https://www.baeldung.com/spring-boot-custom-error-page

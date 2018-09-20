@@ -1,0 +1,22 @@
+https://github.com/thomasverhulst/coolestuffvoorcheops.git
+https://github.com/thomasverhulst/coolestuffvoorcheops
+address applicationprocess candidate salarypackage skills
+jws-app-beheer
+ <application-name>-<project>.<default-domain-suffix>
+storage 100MiB
+
+
+ref: master
+die met todo open laten
+
+-Het kan zijn dat het niet werkt omdat het ssl certificaat e rnog niet in is?
+-mvm clean install runnen?
+
+
+
+private boolean isEmployed;
+	private boolean isFrontender;
+	private boolean isJava;
+	private boolean isDotnet;
+	private int experience;
+	
