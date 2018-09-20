@@ -14,6 +14,7 @@ import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -71,6 +72,7 @@ public class CancidateController {
 	    public CancidateController(IStorageService storageService) {
 	        this.storageService = storageService;
 	    }
+	@PreAuthorize("hasRole('ROLE_USER')")
 	@GetMapping("/register")
 	public String showRegister(ModelMap map) {
 		//naar register.html, addres en candadate worden meegegeven
