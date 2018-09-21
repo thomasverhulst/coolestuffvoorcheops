@@ -72,7 +72,7 @@ public class CancidateController {
 	    public CancidateController(IStorageService storageService) {
 	        this.storageService = storageService;
 	    }
-	@PreAuthorize("hasRole('ROLE_USER')")
+	@PreAuthorize("hasRole('ADMIN')")
 	@GetMapping("/register")
 	public String showRegister(ModelMap map) {
 		//naar register.html, addres en candadate worden meegegeven

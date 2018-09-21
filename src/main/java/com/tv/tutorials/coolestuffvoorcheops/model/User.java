@@ -40,12 +40,16 @@ package com.tv.tutorials.coolestuffvoorcheops.model;
 	    private int active;
 	    
 	    @OneToMany(cascade =CascadeType.ALL, fetch = FetchType.EAGER )
-	    @JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "iduser"), inverseJoinColumns = @JoinColumn(name = "idrole"))
+	    @JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "iduser_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
 	    private Set<Role> roles;
 	    
 	    public User() {
 	        
 	    }
+	    
+	   // public User (User user) {
+	   // 	this.active=user.getActive();
+	  //  }
 	    public User(User user) {
 	        this.active = user.getActive();
 	        this.email = user.getEmail();

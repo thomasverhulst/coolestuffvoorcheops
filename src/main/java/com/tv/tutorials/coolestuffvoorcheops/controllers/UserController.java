@@ -3,6 +3,7 @@ package com.tv.tutorials.coolestuffvoorcheops.controllers;
 import java.util.HashSet;
 import java.util.Set;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -10,6 +11,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.tv.tutorials.coolestuffvoorcheops.model.Role;
 import com.tv.tutorials.coolestuffvoorcheops.model.User;
+import com.tv.tutorials.coolestuffvoorcheops.services.CustomUserDetailService;
+//import com.tv.tutorials.coolestuffvoorcheops.services.UserService;
 @Controller
 public class UserController {
 
@@ -17,6 +20,12 @@ public class UserController {
 	//public String home()  {
 	//	return "index";
 	//}
+	//@primary
+	@Autowired
+	CustomUserDetailService customUserDetailsService;
+	///@Autowired
+	///UserService userService;
+	
 	@RequestMapping(value="/user") 
 	public String registerUser(Model model)  {
 		model.addAttribute("user", new User());
@@ -40,6 +49,7 @@ public class UserController {
 
         // temp.setId("Groet");
         customUserDetailsService.addUser(temp);
+        //userService.
         return "redirect:/"; // redirect to homepage
     }
 
