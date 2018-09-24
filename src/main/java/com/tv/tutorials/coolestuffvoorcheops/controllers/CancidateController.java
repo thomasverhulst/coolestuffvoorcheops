@@ -299,42 +299,24 @@ public class CancidateController {
 	@GetMapping("/searchcv2/{candidateId}")
 	public String searchCv2(Model model,@Valid Candidate candidate,@Valid Address address, @PathVariable("candidateId") int id,BindingResult result, RedirectAttributes redirect, HttpServletResponse response) throws IOException {
 	
-		String returnValue= "updatecv";
+		String returnValue= "toupdatecv";
 		String cvLink ="" ;
 		Optional<Candidate> tmp = candidateRepository.findById(id);
 		
 		// de kandidaat bestaat
-		if (tmp.isPresent() ) {
+		if (tmp.isPresent()){
 			// de kandidaat heeft een cv (of moet je kijken naar cv link?
 			if (tmp.get().getFile() != null && !tmp.get().getFile().isEmpty()) {
 				// cv wordt gedownloaded
 				System.out.println("het cv bestaat");
 				candidateservice.downloadCv(tmp.get().getCvLink(), response);
+				// updatesucess is raar, want wordt niet geupdated
 				returnValue ="updatesucess";
-				//MultipartFile file = candidate.getFile();
-				//Path filenameAndPath = Paths.get(uploadDirectory, file.getOriginalFilename());
-		    	//System.out.println("Upload link = "+ uploadDirectory);		
-		    	//Files.write(filenameAndPath, file.getBytes());
-				// 
-		    	//set link to cv
-		    	//candidate.setCvLink(file.getOriginalFilename());
+			
 			}
 			System.out.println("file is null?");
 		}
 		
-		
-		
-		
-//		if (tmp.isPresent() ) {
-//			System.out.println("hij bestaat");
-//			cvLink =tmp.get().getCvLink();
-//			
-//			System.out.println(cvLink);
-//			if (cvLink != null ) {
-//				candidateservice.downloadCv(cvLink, response);
-//				returnValue ="updatesucess"
-//			}					
-//		}
 		model.addAttribute("candidate", tmp.get());
 		return returnValue;
 	}

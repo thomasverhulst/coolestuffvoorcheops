@@ -194,17 +194,17 @@ public class SearchController {
 		//Candidate sessionCandidate = (Candidate) session.getAttribute("candidate");
 		//Candidate tmpCandidate =candidateservice.getCandidateById(candidateId);
 		//Address tmpAddress=addressService.getAddressById(tmpCandidate.getAddressId());
-		Candidate tmp = candidateservice.getCandidateById(8);
-		tmp.setPhoneNumber(tmp.getPhoneNumber() +88888);
+		//Candidate tmp = candidateservice.getCandidateById(8);
+		//tmp.setPhoneNumber(tmp.getPhoneNumber() +88888);
 	
 		//return "register"; ik krijg geen voorwaardelijke knoppen, zo kan het niet hergebruikt worden
 		//werkt , ziet er uit zoals register 
 		// modelmap, hgetattribute ipv modelattribute?
 		
-		 addressService.updateAddress((Address) map.get("address"));
+		 //addressService.updateAddress((Address) map.get("address"));
 			
 			//candidate.setAddressId(tmpAddress.getId());
-			candidateservice.updateCandidate(tmp);
+			//candidateservice.updateCandidate(tmp);
 		return "test";
         //werkt return "searchcandidatedetails";
     }	
