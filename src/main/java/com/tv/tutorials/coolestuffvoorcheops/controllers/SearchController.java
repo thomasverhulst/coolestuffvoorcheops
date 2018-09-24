@@ -258,7 +258,7 @@ public class SearchController {
 		//https://stackoverflow.com/questions/1714028/mvc-which-submit-button-has-been-pressed
 		Candidate candidate =candidateservice.getCandidateById(candidateId);
 		System.out.println("we zijn hier"+ candidate.getEmail());
-		// huidige loonpakket!
+		// voorgestelde loonpakket!
 		SalaryPackage tmpSalarypackage = salaryPackageService.getSalaryPackageById(candidate.getProposedSallaryPackageId());
 		model.addAttribute("proposedSalaryPackage", tmpSalarypackage);
         return "searchssalarypackage";

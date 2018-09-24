@@ -233,10 +233,10 @@ public class CancidateController {
 		Boolean t = (Boolean) session.getAttribute("isupdate");
 		System.out.println("waarde"+t);
 		String returning;
-		// geen goede oplossing, 2 returen en de rest is buggy (nullpointers)
+		
 		if (t == false) {
 			// de eigelijke update moet hier nog gebeuren, uiteindelijk moet dit ook naar een service?
-			// 2 returns in dezelfde methode is niet optimaal
+		
 			returning= "registrationsucces";
 		}else {
 			returning= "updatesucces";
@@ -268,14 +268,29 @@ public class CancidateController {
 	}
 	
 	@PostMapping("/updateCandidate/{candidateId}/{addressId}")
-	public String updateCondidate(@Valid Candidate candidate,@Valid Address address, @PathVariable("candidateId") int id,@PathVariable("addressId") int addressId ,BindingResult result, RedirectAttributes redirect) {
+	public String updateCondidate(@Valid Candidate candidate,@Valid Address address, @PathVariable("candidateId") int id,@PathVariable("addressId") int addressId ,BindingResult result, RedirectAttributes redirect) throws IOException {
 
 		if (result.hasErrors()) {
 
 			return "updateCandidate";
 		}
 	System.out.println("we komen hierlangs");
-		candidateservice.saveOrUpdateCandidate(id, candidate,address,addressId);	
+	// de MULTIPARTFILE WORDT HIER NOG NIET OPGESLAGEN
+	
+	if (candidate.getFile() != null && !candidate.getFile().isEmpty()) {
+		//if ( candidate.getFile() != null) {
+			MultipartFile file = candidate.getFile();
+			Path filenameAndPath = Paths.get(uploadDirectory, file.getOriginalFilename());
+	    	//System.out.println("Upload link = "+ uploadDirectory);		
+	    	Files.write(filenameAndPath, file.getBytes());
+			// 
+	    	//set link to cv
+	    	candidate.setCvLink(file.getOriginalFilename());
+		}
+	
+	
+	
+		candidateservice.saveOrUpdateCandidate(id, candidate,address,addressId)	;
 		redirect.addFlashAttribute("success", "Saved employee successfully!");
 		return "updatesucces";
 
@@ -287,16 +302,39 @@ public class CancidateController {
 		String returnValue= "updatecv";
 		String cvLink ="" ;
 		Optional<Candidate> tmp = candidateRepository.findById(id);
+		
+		// de kandidaat bestaat
 		if (tmp.isPresent() ) {
-			System.out.println("hij bestaat");
-			cvLink =tmp.get().getCvLink();
-			
-			System.out.println(cvLink);
-			if (cvLink != null ) {
-				candidateservice.downloadCv(cvLink, response);
+			// de kandidaat heeft een cv (of moet je kijken naar cv link?
+			if (tmp.get().getFile() != null && !tmp.get().getFile().isEmpty()) {
+				// cv wordt gedownloaded
+				System.out.println("het cv bestaat");
+				candidateservice.downloadCv(tmp.get().getCvLink(), response);
 				returnValue ="updatesucess";
-			}					
+				//MultipartFile file = candidate.getFile();
+				//Path filenameAndPath = Paths.get(uploadDirectory, file.getOriginalFilename());
+		    	//System.out.println("Upload link = "+ uploadDirectory);		
+		    	//Files.write(filenameAndPath, file.getBytes());
+				// 
+		    	//set link to cv
+		    	//candidate.setCvLink(file.getOriginalFilename());
+			}
+			System.out.println("file is null?");
 		}
+		
+		
+		
+		
+//		if (tmp.isPresent() ) {
+//			System.out.println("hij bestaat");
+//			cvLink =tmp.get().getCvLink();
+//			
+//			System.out.println(cvLink);
+//			if (cvLink != null ) {
+//				candidateservice.downloadCv(cvLink, response);
+//				returnValue ="updatesucess"
+//			}					
+//		}
 		model.addAttribute("candidate", tmp.get());
 		return returnValue;
 	}
