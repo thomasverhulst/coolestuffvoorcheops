@@ -98,30 +98,35 @@ public class CancidateController {
 	
 	@RequestMapping(value ="/registerCandidate",  method = RequestMethod.POST)
 	public String register(Model model , @ModelAttribute("address") Address address, @ModelAttribute("candidate") Candidate candidate, HttpSession session ) throws IOException {
-			
-		// save cv 
-		MultipartFile file = candidate.getFile();
-		Path filenameAndPath = Paths.get(uploadDirectory, file.getOriginalFilename());
-    	//System.out.println("Upload link = "+ uploadDirectory);		
-    	Files.write(filenameAndPath, file.getBytes());
-		// 
-    	//set link to cv
-    	candidate.setCvLink(file.getOriginalFilename());
-    	
+		
+		//
+		session.setAttribute("isupdate", false);
+		//Helper.em
+		// save cv if it exists
+		System.out.println("de cv link ="+candidate.getFile());
+		if (candidate.getFile() != null && !candidate.getFile().isEmpty()) {
+		//if ( candidate.getFile() != null) {
+			MultipartFile file = candidate.getFile();
+			Path filenameAndPath = Paths.get(uploadDirectory, file.getOriginalFilename());
+	    	//System.out.println("Upload link = "+ uploadDirectory);		
+	    	Files.write(filenameAndPath, file.getBytes());
+			// 
+	    	//set link to cv
+	    	candidate.setCvLink(file.getOriginalFilename());
+		}
+		  	
     	//https://stackoverflow.com/questions/2227395/spring-3-0-set-and-get-session-attribute
     	//save candidate to get an id
     	Candidate tmpCandidate =candidateservice.addCandidate(candidate);
     	session.setAttribute("candidate", tmpCandidate);
-
-    	
+   	
     	// adres
 		Address tmpAddress = addressService.addAddress(address);
 		
 		candidate.setAddressId(tmpAddress.getId());
 		candidateservice.updateCandidate(candidate);
 		System.out.println("we hebben iest weggeschreven");
-		System.out.println("Address saven is gelukt? " );
-		
+		System.out.println("Address saven is gelukt? " );		
 		
 		System.out.println("Kandidaat id "+ tmpCandidate.getId());
 		model.addAttribute("skills", new Skills());
@@ -227,14 +232,17 @@ public class CancidateController {
 		System.out.println("applicationprocess Id  = "+tmpApplicationprocess.getId());
 		Boolean t = (Boolean) session.getAttribute("isupdate");
 		System.out.println("waarde"+t);
+		String returning;
 		// geen goede oplossing, 2 returen en de rest is buggy (nullpointers)
-		if (t == false || t==null) {
+		if (t == false) {
 			// de eigelijke update moet hier nog gebeuren, uiteindelijk moet dit ook naar een service?
 			// 2 returns in dezelfde methode is niet optimaal
-			return "registrationsucces";
+			returning= "registrationsucces";
+		}else {
+			returning= "updatesucces";
 		}
 		
-		return "updatesucces";
+		return returning;
 	}
 	// naar voorstel
 	@RequestMapping(value ="/registerSalaryPackageProposal")
