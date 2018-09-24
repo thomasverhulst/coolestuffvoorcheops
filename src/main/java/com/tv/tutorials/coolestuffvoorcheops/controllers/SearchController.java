@@ -148,6 +148,22 @@ public class SearchController {
 		return "candidatesearchresult";
 	}
 	
+	@RequestMapping(value = "/searchAllCandidatesWithActiveApplicationProcess", method = RequestMethod.POST)
+    public String searchAllCandidatesWithActiveApplicationProcess(ModelMap modelMap, HttpSession session) {
+		List<Candidate> candidates= candidateservice.getAllCandidatesWithActiveApplicationProcess();
+		modelMap.addAttribute("candidates", candidates);
+	    modelMap.addAttribute("candaidatesearchmodel", new CandaidateSearchModel());
+		return "candidatesearchresult";
+	}
+	
+	@RequestMapping(value = "/searchAllCandidatesWithoutActiveApplicationProcess", method = RequestMethod.POST)
+    public String searchAllCandidatesWithoutActiveApplicationProcess(ModelMap modelMap, HttpSession session) {
+		List<Candidate> candidates= candidateservice.getAllCandidatesWithoutActiveApplicationProcess();
+		modelMap.addAttribute("candidates", candidates);
+	    modelMap.addAttribute("candaidatesearchmodel", new CandaidateSearchModel());
+		return "candidatesearchresult";
+	}
+	
 	@RequestMapping(value = "/searchssalarypackage", method = RequestMethod.POST)
     public String getEmployeeByName(@RequestParam("name") String name, @RequestParam("sirName") String sirName, ModelMap modelMap) {
 		System.out.println("we zijn toch al hier");

@@ -93,6 +93,20 @@ public class ApplicationProcess {
 		this.feedbackFinancialProposal = feedbackFinancialProposal;
 		this.isRecruited = isRecruited;
 	}
+	
+	 @Override
+	 public boolean equals(Object obj) {
+
+	    try {
+	    	ApplicationProcess applicationProcess  = (ApplicationProcess) obj;
+	          return id.equals(applicationProcess.getId());
+	       }
+	        catch (Exception e)
+	        {
+	            return false;
+	        }
+
+	    }
 
 	public Date getApplicationDate() {
 		return applicationDate;

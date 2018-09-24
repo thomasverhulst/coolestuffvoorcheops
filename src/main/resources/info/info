@@ -59,6 +59,8 @@ Als variabelen met is beginnen, worden getteres en setters ook gegeereerd met "i
 #repository uitleg
 https://docs.spring.io/spring-data/jpa/docs/1.5.0.RC1/reference/html/jpa.repositories.html
 
+#Itterate arrays
+https://stackoverflow.com/questions/1196586/calling-remove-in-foreach-loop-in-java
 #ssl
 x6.nabble.com/Getting-quot-Invalid-message-received-with-signature-xxxxx-quot-messages-in-catalina-out-td5057448.html
  

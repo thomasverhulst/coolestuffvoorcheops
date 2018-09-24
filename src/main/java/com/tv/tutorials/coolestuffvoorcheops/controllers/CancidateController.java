@@ -321,4 +321,7 @@ public class CancidateController {
 		return returnValue;
 	}
 	
+	
+	//searchAllCandidatesWithActiveApplicationProcess
+	
 }

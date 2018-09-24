@@ -146,4 +146,16 @@ public class CandidateService implements ICandidateService {
 		return (List<Candidate>) candidates;
 	}
 
+	public List<Candidate> getAllCandidatesWithActiveApplicationProcess() {
+		List<Integer> applicationProcessIds = applicationProcessService.getAllCandidatesWithActiveApplicationProcess();
+		Iterable<Candidate> candidates= candidateRepository.findAllByApplicationProcessIdIn(applicationProcessIds);
+		return (List<Candidate>) candidates;
+	}
+
+	public List<Candidate> getAllCandidatesWithoutActiveApplicationProcess() {
+		List<Integer> applicationProcessIds = applicationProcessService.getAllCandidatesWithoutActiveApplicationProcess();
+		Iterable<Candidate> candidates= candidateRepository.findAllByApplicationProcessIdIn(applicationProcessIds);
+		return (List<Candidate>) candidates;
+	}
+
 }

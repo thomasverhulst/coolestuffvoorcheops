@@ -97,6 +97,16 @@
 					<button class="btn-lg btn-primary btn-block" type="submit">Zoek iedereen in database></button>
 				</div>
 			</form>
+			<form th:action="@{/searchAllCandidatesWithActiveApplicationProcess}" th:object="${saerch}" method="POST">
+				<div class=form-group>
+					<button title="Kandidaten die niet in dienst zijn, met minstens status : uit te nodigen" class="btn-lg btn-primary btn-block" type="submit">Zoek actief applicatieprocces></button>
+				</div>
+			</form>
+			<form th:action="@{/searchAllCandidatesWithoutActiveApplicationProcess}" th:object="${saerch}" method="POST">
+				<div class=form-group>
+					<button title="Kandidaten zonder applicatieprocces" class="btn-lg btn-primary btn-block" type="submit">Zoek actief applicatieprocces></button>
+				</div>
+			</form>
 		</div>
 		
 	</div>
