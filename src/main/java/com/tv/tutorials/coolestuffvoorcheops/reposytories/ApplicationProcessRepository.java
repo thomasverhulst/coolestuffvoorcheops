@@ -13,5 +13,7 @@ public interface ApplicationProcessRepository extends  CrudRepository<Applicatio
 
 	List<ApplicationProcess> findAllBytoBeInvitedForFirstConversation(boolean isToBeInvitedForFirstConversation);
 
-	List<ApplicationProcess> findAllByIsRecruitedIn(List<ApplicationProcess> list);
+	//List<ApplicationProcess> findAllByIsRecruitedIn(List<ApplicationProcess> list);
+
+	List<ApplicationProcess> findAllByIsRecruitedIn(List<ApplicationProcess> t);
 }

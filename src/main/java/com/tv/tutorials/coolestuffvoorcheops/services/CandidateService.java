@@ -5,6 +5,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
@@ -15,6 +16,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.tv.tutorials.coolestuffvoorcheops.model.Address;
+import com.tv.tutorials.coolestuffvoorcheops.model.ApplicationProcess;
 import com.tv.tutorials.coolestuffvoorcheops.model.Candidate;
 import com.tv.tutorials.coolestuffvoorcheops.model.Skills;
 import com.tv.tutorials.coolestuffvoorcheops.reposytories.AddressRepository;
@@ -142,9 +144,46 @@ public class CandidateService implements ICandidateService {
 	public List<Candidate> findAllRecruited() {
 		List<Integer> applicationProcessIds =   applicationProcessService.findAllRecruited();
 		//Iterable<Candidate>   candidates= candidateRepository.findAllById(candidateIds);
-		Iterable<Candidate>   candidates= candidateRepository.findAllByApplicationProcessIdIn(applicationProcessIds);
+		Iterable<Candidate> candidates= candidateRepository.findAllByApplicationProcessIdIn(applicationProcessIds);
 		return (List<Candidate>) candidates;
 	}
+	
+	public List<Candidate>findAllRecruitedIn(List<Integer>applicationProcessId){
+		System.out.println("lengte "+applicationProcessId.size());
+		
+		List<Candidate> candidates = new ArrayList<Candidate>() ;
+		
+		List<ApplicationProcess> t = applicationProcessService.getAllApplicationProcessById(applicationProcessId);
+		System.out.println("lengte "+ t.size());
+		if (t != null) {
+			List<ApplicationProcess> applicationProcessIdsRecruited = applicationProcessService.findAllByIsRecruitedIn(t);
+			System.out.println("hier "+applicationProcessIdsRecruited.size());
+			System.out.println("lengte "+applicationProcessIdsRecruited.size());
+			
+			for (ApplicationProcess applicationProcess : applicationProcessIdsRecruited) {
+				candidates.add( candidateRepository.findByapplicationProcessId(applicationProcess.getId())      );
+			}
+			
+			// candidates.addAll((ArrayList<Candidate>) candidateRepository.findAllByApplicationProcessIdIn(applicationProcessIdsRecruited));
+			System.out.println("lengte "+candidates);
+			}
+		
+		
+		//NOG GEEN CANDIDAAT, maar applicatoieproses
+		
+		if(candidates != null){
+		}
+//		}else {
+//			// to avoid IllegalArgumentException
+//			System.out.println("wij zijn in de afvanger");
+//			candidates= new ArrayList<Candidate>();
+//			candidates= Collections.emptyList();
+//		}
+		
+		return  candidates;
+	}
+	
+	
 
 	public List<Candidate> getAllCandidatesWithActiveApplicationProcess() {
 		List<Integer> applicationProcessIds = applicationProcessService.getAllCandidatesWithActiveApplicationProcess();

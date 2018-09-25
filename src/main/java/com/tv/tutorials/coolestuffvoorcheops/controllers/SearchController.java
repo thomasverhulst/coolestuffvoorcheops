@@ -2,6 +2,7 @@ package com.tv.tutorials.coolestuffvoorcheops.controllers;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import javax.servlet.http.HttpSession;
 
@@ -123,6 +124,14 @@ public class SearchController {
 		if(search.isFrontender()){
 			//add frontenders if asked
 			candidates.addAll(candidateservice.findAllFrontend());
+		}				
+		if(search.isEmployed() ){
+			// search only in recruited candiates
+			System.out.println("lengte "+ candidates.size() );
+			List<Integer> applicationProcessIdList = candidates.stream().map(Candidate::getApplicationProcessId ).collect(Collectors.toList());
+			System.out.println("lengte "+ applicationProcessIdList.size() );
+			candidates.clear();					// lijst candidaten
+			candidates.addAll(candidateservice.findAllRecruitedIn(applicationProcessIdList));
 		}
         
         modelMap.addAttribute("candidates", candidates);

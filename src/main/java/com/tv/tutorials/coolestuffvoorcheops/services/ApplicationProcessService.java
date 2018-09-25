@@ -1,6 +1,7 @@
 package com.tv.tutorials.coolestuffvoorcheops.services;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Optional;
@@ -11,7 +12,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.tv.tutorials.coolestuffvoorcheops.model.ApplicationProcess;
-import com.tv.tutorials.coolestuffvoorcheops.model.Skills;
 import com.tv.tutorials.coolestuffvoorcheops.reposytories.ApplicationProcessRepository;
 
 @Service
@@ -79,24 +79,15 @@ public class ApplicationProcessService implements IApplicationProcessService {
 		System.out.println("Lengte"+list.size());
 		
 		
-		//List<String> names = ....
-				Iterator<ApplicationProcess> i = list.iterator();
-				while (i.hasNext()) {
-				   ApplicationProcess s = i.next(); // must be called before you can call i.remove()
-				   // Do something
-				   if (s.getIsRecruited()) {
-					   i.remove();
-				   }
-				   
-				}
-		
-		
-		
-		
-		//ArrayList<ApplicationProcess> listr =  (ArrayList<ApplicationProcess>) applicationProcessRepository.findAllByIsRecruitedIn(list);
-		//System.out.println("Lengte"+listr.size());
-		//list.removeAll(listr);
-	
+		Iterator<ApplicationProcess> i = list.iterator();
+		while (i.hasNext()) {
+			ApplicationProcess s = i.next(); // must be called before you can call i.remove()
+			// Do something
+			if (s.getIsRecruited()) {
+				i.remove();
+			}		   
+		}
+
 		List<Integer> applicationProcessId = new ArrayList<Integer>();
 		for (ApplicationProcess applicationProcess : list) {
 			applicationProcessId.add(applicationProcess.getId());
@@ -115,6 +106,38 @@ public class ApplicationProcessService implements IApplicationProcessService {
 			applicationProcessId.add(applicationProcess.getId());
 		}
 		return applicationProcessId;
+	}
+
+	public List<Integer> findAllRecruitedInoud(List<Integer> applicationProcessIds) {
+		return null;
+	}
+
+	public List<ApplicationProcess> getAllApplicationProcessById(List<Integer> applicationProcessId) {
+		return (List<ApplicationProcess>) applicationProcessRepository.findAllById(applicationProcessId);
+	}
+
+	public List<ApplicationProcess> findAllByIsRecruitedIn(List<ApplicationProcess> t) {
+		
+		Iterator<ApplicationProcess> i = t.iterator();
+		while (i.hasNext()) {
+			ApplicationProcess s = i.next(); // must be called before you can call i.remove()
+			// Do something
+			if (!(s.getIsRecruited())) {
+				i.remove();
+				System.out.println("eentje weg");
+			}		   
+		}
+		
+		System.out.println("we zijn hier");
+		//List<ApplicationProcess>z = null;
+		//z = applicationProcessRepository.findAllByIsRecruitedIn(t);
+		
+		if (t == null) {
+			t=Collections.emptyList();
+			System.out.println("we zijn p");
+		}
+		System.out.println("we zijn h");
+		return t;
 	}
 
 }

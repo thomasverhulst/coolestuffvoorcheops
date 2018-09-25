@@ -1,9 +1,11 @@
 package com.tv.tutorials.coolestuffvoorcheops.reposytories;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.data.repository.CrudRepository;
 
+import com.tv.tutorials.coolestuffvoorcheops.model.ApplicationProcess;
 import com.tv.tutorials.coolestuffvoorcheops.model.Candidate;
 
 public interface CandidateRepository  extends CrudRepository<Candidate, Integer>  {
@@ -21,6 +23,11 @@ public interface CandidateRepository  extends CrudRepository<Candidate, Integer>
 	Iterable<Candidate> findAllBySkillsIdIn(List<Integer> skillsIds);
 
 	Iterable<Candidate> findAllByApplicationProcessIdIn(List<Integer> applicationProcessIds);
+
+	Candidate findByapplicationProcessId(Integer id);
+
+	//@overload
+	//ArrayList<Candidate> findAllByApplicationProcessIdIn(List<ApplicationProcess> applicationProcessIdsRecruited);
 
 	//Iterable<Candidate> findAllBySkillsIdIn(List<Integer> skillsIds);
 	//Page<Candidate> findAll(Pageable pageRequest);
