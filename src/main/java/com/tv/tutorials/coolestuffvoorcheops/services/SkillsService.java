@@ -125,17 +125,11 @@ public class SkillsService implements ISkillService {
 				System.out.println("eentje minder");
 			}
 		}
-		System.out.println("grootte "+l.size());
-		//l= (Iterable<Skills>) i;
+
 		List<Skills> skills= new ArrayList<Skills>();
 		skills = (List<Skills>) l;
 		List<Integer> skillsIdList = l.stream().map(Skills::getId ).collect(Collectors.toList());
 
-		// ook een met :: skillids van overblijvende lijst skills
-//		List<Integer> applicationProcessId = new ArrayList<Integer>();
-//		for (ApplicationProcess applicationProcess : l) {
-//			applicationProcessId.add(applicationProcess.getId());
-//		}
 		System.out.println("skillid lijst"+ skillsIdList.size());
 		return skillsIdList;
 	}

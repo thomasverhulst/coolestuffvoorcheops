@@ -100,7 +100,6 @@ public class ApplicationProcessService implements IApplicationProcessService {
 		List<ApplicationProcess> list =  applicationProcessRepository.findAllBytoBeInvitedForFirstConversation(isToBeInvitedForFirstConversation);
 		System.out.println("Lengte"+list.size());
 		
-	
 		List<Integer> applicationProcessId = new ArrayList<Integer>();
 		for (ApplicationProcess applicationProcess : list) {
 			applicationProcessId.add(applicationProcess.getId());
@@ -128,15 +127,10 @@ public class ApplicationProcessService implements IApplicationProcessService {
 			}		   
 		}
 		
-		System.out.println("we zijn hier");
-		//List<ApplicationProcess>z = null;
-		//z = applicationProcessRepository.findAllByIsRecruitedIn(t);
-		
-		if (t == null) {
-			t=Collections.emptyList();
-			System.out.println("we zijn p");
-		}
-		System.out.println("we zijn h");
+//		if (t == null) {
+//			t=Collections.emptyList();
+//			System.out.println("we zijn p");
+//		}
 		return t;
 	}
 

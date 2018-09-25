@@ -1,14 +1,9 @@
 package com.tv.tutorials.coolestuffvoorcheops.services;
 
-import static org.mockito.Mockito.inOrder;
-
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -22,7 +17,6 @@ import org.springframework.stereotype.Service;
 import com.tv.tutorials.coolestuffvoorcheops.model.Address;
 import com.tv.tutorials.coolestuffvoorcheops.model.ApplicationProcess;
 import com.tv.tutorials.coolestuffvoorcheops.model.Candidate;
-import com.tv.tutorials.coolestuffvoorcheops.model.Skills;
 import com.tv.tutorials.coolestuffvoorcheops.reposytories.AddressRepository;
 import com.tv.tutorials.coolestuffvoorcheops.reposytories.CandidateRepository;
 
@@ -73,8 +67,7 @@ public class CandidateService implements ICandidateService {
 		List<Candidate> list =  candidateRepository.findAllByNameLikeOrSirNameLike(name, sirName) ;			
 		return list;
 	}
-	
-	
+		
 	public List <Candidate> findAllDotnet(){
 		List<Integer> skillsIds =skillsService.findAllDotnet();
 		Iterable<Candidate>   candidates= candidateRepository.findAllBySkillsIdIn(skillsIds);
@@ -93,7 +86,6 @@ public class CandidateService implements ICandidateService {
 		return (List<Candidate>) candidates;		
 	}
 	
-
 	public void saveOrUpdateCandidate(int id, @Valid Candidate candidate, @Valid Address address,  @Valid int addressId) {
 		Optional<Candidate> tmp = candidateRepository.findById(id);
 		if (tmp.isPresent() ) {
@@ -187,11 +179,9 @@ public class CandidateService implements ICandidateService {
 	}
 
 	public List<Candidate> findByExperienceGreaterThan(int experience, List<Candidate> candidates) {
-		// TODO Auto-generated method stub
 		
 		List<Integer> skillsIdList = candidates.stream().map(Candidate::getSkillsId).collect(Collectors.toList());
-		
-		
+				
 		//List<Integer> skillId=  candidateRepository.findAllBySkillsIdIn(skillsIdList)
 		List<Integer> filteredSkillsId =skillsService.findAllByExperienceGreaterThan(experience, skillsIdList);
 		// 1 skillid komt terug

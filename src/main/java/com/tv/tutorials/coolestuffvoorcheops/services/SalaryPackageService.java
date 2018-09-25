@@ -20,8 +20,7 @@ public class SalaryPackageService implements ISalaryPackageService {
 	public List<SalaryPackage> getAllSalaryPackages() {
 		List<SalaryPackage> list = new ArrayList<>();
 		salaryPackageRepository.findAll().forEach(e -> list.add(e));
-		return list;
-		
+		return list;	
 	}
 
 	@Override
@@ -40,14 +39,12 @@ public class SalaryPackageService implements ISalaryPackageService {
 
 	@Override
 	public void updateSalaryPackage(SalaryPackage salaryPackage) {
-		salaryPackageRepository.save(salaryPackage);
-		
+		salaryPackageRepository.save(salaryPackage);	
 	}
 
 	@Override
 	public void deleteSalaryPackage(int salaryPackageId) {
-		salaryPackageRepository.delete(getSalaryPackageById(salaryPackageId));
-		
+		salaryPackageRepository.delete(getSalaryPackageById(salaryPackageId));	
 	}
 	
 	public void saveOrUpdateSalaryPackage(int id ,SalaryPackage salaryPackage) {

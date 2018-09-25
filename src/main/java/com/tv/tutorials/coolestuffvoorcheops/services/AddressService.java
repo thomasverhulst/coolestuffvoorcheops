@@ -20,7 +20,6 @@ public class AddressService implements IAddressService {
 		List<Address> list = new ArrayList<>();
 		 addressRepository.findAll().forEach(e -> list.add(e));
 		return list;
-
 	}
 
 	@Override
@@ -31,21 +30,10 @@ public class AddressService implements IAddressService {
 
 	@Override
 	public Address addAddress(Address address) {
-		// TODO Auto-generated method stub
 		addressRepository.save(address);
 
-		// List<Address> list = addressRepository.findByStreetNameAndPostalCode
-		// (address.getStreetName(), address.getPostalCode());
-		// if (list.size() > 0) {
-		// return false;
-		// } else {
-		// addressRepository.save(address);
-		/// return true;
-		// }
 		System.out.println("hoihoi");
 		return address;
-		// return false;
-
 	}
 
 	@Override

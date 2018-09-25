@@ -1,14 +1,11 @@
 package com.tv.tutorials.coolestuffvoorcheops.controllers;
 
-import java.io.FileInputStream;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Optional;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
@@ -283,12 +280,9 @@ public class CancidateController {
 			Path filenameAndPath = Paths.get(uploadDirectory, file.getOriginalFilename());
 	    	//System.out.println("Upload link = "+ uploadDirectory);		
 	    	Files.write(filenameAndPath, file.getBytes());
-			// 
 	    	//set link to cv
 	    	candidate.setCvLink(file.getOriginalFilename());
 		}
-	
-	
 	
 		candidateservice.saveOrUpdateCandidate(id, candidate,address,addressId)	;
 		redirect.addFlashAttribute("success", "Saved employee successfully!");
@@ -320,8 +314,6 @@ public class CancidateController {
 		model.addAttribute("candidate", tmp.get());
 		return returnValue;
 	}
-	
-	
 	//searchAllCandidatesWithActiveApplicationProcess
 	
 }
