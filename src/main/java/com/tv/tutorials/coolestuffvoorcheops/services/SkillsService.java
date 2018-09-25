@@ -1,14 +1,18 @@
 package com.tv.tutorials.coolestuffvoorcheops.services;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.tv.tutorials.coolestuffvoorcheops.model.ApplicationProcess;
+import com.tv.tutorials.coolestuffvoorcheops.model.Candidate;
 import com.tv.tutorials.coolestuffvoorcheops.model.Skills;
 import com.tv.tutorials.coolestuffvoorcheops.reposytories.SkillsRepository;
 
@@ -108,6 +112,32 @@ public class SkillsService implements ISkillService {
 			skillId.add(skills.getId());
 		}
 		return skillId;
+	}
+
+	public List<Integer> findAllByExperienceGreaterThan(int minimumExperience, List<Integer> skillId) {
+
+		ArrayList<Skills> l = (ArrayList<Skills>) skillsRepository.findAllById(skillId);
+		Iterator<Skills> i = l.iterator();
+		while (i.hasNext()) {
+			Skills s = i.next();
+			if (s.getExperience()<minimumExperience) {
+				i.remove();
+				System.out.println("eentje minder");
+			}
+		}
+		System.out.println("grootte "+l.size());
+		//l= (Iterable<Skills>) i;
+		List<Skills> skills= new ArrayList<Skills>();
+		skills = (List<Skills>) l;
+		List<Integer> skillsIdList = l.stream().map(Skills::getId ).collect(Collectors.toList());
+
+		// ook een met :: skillids van overblijvende lijst skills
+//		List<Integer> applicationProcessId = new ArrayList<Integer>();
+//		for (ApplicationProcess applicationProcess : l) {
+//			applicationProcessId.add(applicationProcess.getId());
+//		}
+		System.out.println("skillid lijst"+ skillsIdList.size());
+		return skillsIdList;
 	}
 
 }

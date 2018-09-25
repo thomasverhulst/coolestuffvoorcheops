@@ -15,6 +15,7 @@ public class Search {
 	private boolean java;
 	private boolean dotnet;
 	private int experience;
+	//private int years;
 	
 	public Search() {
 		

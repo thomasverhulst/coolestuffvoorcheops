@@ -19,6 +19,10 @@ public interface SkillsRepository extends  CrudRepository<Skills, Integer>  {
 	List<Skills> findAllByJava(boolean isJava);
 
 	List<Skills> findAllByFrontend(boolean isFrontend);
+
+	Object findAllByExperienceGreaterThan(int experience);
+
+	//Object findAllByExperienceGreaterThanIn(int experience);
 	
 	//List<Skills> findAllByFrontenderGreaterThan(int i);
 

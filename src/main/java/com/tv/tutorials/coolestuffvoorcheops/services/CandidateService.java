@@ -1,13 +1,17 @@
 package com.tv.tutorials.coolestuffvoorcheops.services;
 
+import static org.mockito.Mockito.inOrder;
+
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
@@ -157,34 +161,19 @@ public class CandidateService implements ICandidateService {
 		System.out.println("lengte "+ t.size());
 		if (t != null) {
 			List<ApplicationProcess> applicationProcessIdsRecruited = applicationProcessService.findAllByIsRecruitedIn(t);
-			System.out.println("hier "+applicationProcessIdsRecruited.size());
-			System.out.println("lengte "+applicationProcessIdsRecruited.size());
 			
 			for (ApplicationProcess applicationProcess : applicationProcessIdsRecruited) {
 				candidates.add( candidateRepository.findByapplicationProcessId(applicationProcess.getId())      );
 			}
 			
-			// candidates.addAll((ArrayList<Candidate>) candidateRepository.findAllByApplicationProcessIdIn(applicationProcessIdsRecruited));
-			System.out.println("lengte "+candidates);
-			}
-		
-		
-		//NOG GEEN CANDIDAAT, maar applicatoieproses
+		}
 		
 		if(candidates != null){
 		}
-//		}else {
-//			// to avoid IllegalArgumentException
-//			System.out.println("wij zijn in de afvanger");
-//			candidates= new ArrayList<Candidate>();
-//			candidates= Collections.emptyList();
-//		}
-		
+
 		return  candidates;
 	}
 	
-	
-
 	public List<Candidate> getAllCandidatesWithActiveApplicationProcess() {
 		List<Integer> applicationProcessIds = applicationProcessService.getAllCandidatesWithActiveApplicationProcess();
 		Iterable<Candidate> candidates= candidateRepository.findAllByApplicationProcessIdIn(applicationProcessIds);
@@ -195,6 +184,22 @@ public class CandidateService implements ICandidateService {
 		List<Integer> applicationProcessIds = applicationProcessService.getAllCandidatesWithoutActiveApplicationProcess();
 		Iterable<Candidate> candidates= candidateRepository.findAllByApplicationProcessIdIn(applicationProcessIds);
 		return (List<Candidate>) candidates;
+	}
+
+	public List<Candidate> findByExperienceGreaterThan(int experience, List<Candidate> candidates) {
+		// TODO Auto-generated method stub
+		
+		List<Integer> skillsIdList = candidates.stream().map(Candidate::getSkillsId).collect(Collectors.toList());
+		
+		
+		//List<Integer> skillId=  candidateRepository.findAllBySkillsIdIn(skillsIdList)
+		List<Integer> filteredSkillsId =skillsService.findAllByExperienceGreaterThan(experience, skillsIdList);
+		// 1 skillid komt terug
+		candidates =(List<Candidate>) candidateRepository.findAllBySkillsIdIn(filteredSkillsId);
+		//candidates.addAll((Collection<? extends Candidate>) candidateRepository.findAllBySkillsIdIn(filteredSkillsId));
+		System.out.println("lengtelijsty"+candidates.size());
+		
+		return candidates;
 	}
 
 }

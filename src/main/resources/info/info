@@ -73,6 +73,10 @@ x6.nabble.com/Getting-quot-Invalid-message-received-with-signature-xxxxx-quot-me
 
 
 
+#zoek hele colom van een object
+	List<Integer> applicationProcessIdList = candidates.stream().map(Candidate::getApplicationProcessId ).collect(Collectors.toList());
+
+
 
 
 # commando voor het genereren van een self signd sertificate : https://www.youtube.com/watch?v=-mTuL9UMDT8

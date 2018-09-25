@@ -111,7 +111,7 @@ public class SearchController {
 		//session.setAttribute("sirName", sirName);
 		System.out.println("tis"+search.isDotnet());
 		List<Candidate> candidates= new ArrayList<Candidate>();
-		
+		// moet dit naar een service?
 		if (search.isDotnet()) {
 			System.out.println("we zijn er in");
 			//add .netters if asked
@@ -132,6 +132,15 @@ public class SearchController {
 			System.out.println("lengte "+ applicationProcessIdList.size() );
 			candidates.clear();					// lijst candidaten
 			candidates.addAll(candidateservice.findAllRecruitedIn(applicationProcessIdList));
+		}
+		if (search.getExperience()!=0) {
+			// filter te bouwen
+			System.out.println("FILTER");
+			// moet hier nog 1 worden afgetrokken omdate enkel groter dan gezocht wordt?
+			//candidateservice.findByExperienceGreaterThan(search.getExperience()).In(); COMBINATIE GREATER THAN EN in
+			List <Candidate> filterdByExperience= candidateservice.findByExperienceGreaterThan(search.getExperience(),candidates);
+			System.out.println("filter gelukt"+ filterdByExperience.size() );
+			candidates=filterdByExperience;
 		}
         
         modelMap.addAttribute("candidates", candidates);
