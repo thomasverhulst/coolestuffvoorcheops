@@ -33,10 +33,10 @@ public class SalaryPackageController {
 		if (salaryPackageId <=0) {
 			System.out.println("deze heeft nog geen salarypackage");
 			session.setAttribute("candidate", candidateservice.getCandidateById(candidateId));
-			session.setAttribute("isupdate", false);
-			model.addAttribute("applicationprocess", new ApplicationProcess());
+			session.setAttribute("isupdate", true);
+			model.addAttribute("salarypackage", new SalaryPackage());
 			//map.addAttribute("lateCreate", true);
-			return "applicationProcess";
+			return "salarypackage";
 			//return "test";
 		}else {
 			model.addAttribute("salaryPackage", salaryPackageService.getSalaryPackageById(salaryPackageId));//via service => nullpointer? (niet bij skills) AUTOWIRD STOND UIT

@@ -38,7 +38,7 @@ public class SkillsController {
 			
 		model.addAttribute("skills", skillsService.getSkillsById(skillsId) );
 		System.out.println("skillid = "+ skillsId);
-		
+		System.out.println("we gaan skills updaten");
 		// als er nog geen skills zijn moet deze ook naar een pagina die vraagd of ze toegevoegd moeten worden
 		
 		return "updateskills";
