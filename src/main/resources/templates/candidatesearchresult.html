@@ -16,6 +16,16 @@
 
 <!-- Latest compiled JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<style type="text/css">
+th {
+position: sticky;
+  top: 0;
+   background: #eee;
+  }
+</style>
+
+
 <title>Searchresults</title>
 </head>
 <body>
@@ -40,7 +50,7 @@
     <div th:if="${not #lists.isEmpty(candidates)}">
         <h2>Search Results</h2>
         
-        <table class="table">
+        <table class="table table-striped header-fixed">
             <thead>
             <tr>
                 <th scope="col">ID</th>

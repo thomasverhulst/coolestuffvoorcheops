@@ -30,51 +30,48 @@
 	<div class="col-sm-3"> </div>
 
 </div>
-<div class="row">
-	<div class="col-sm-2">
-	</div>
-
-	<div class="col-sm-3">
-		<form th:action="@{/registerSalaryPackage}" th:object="${salarypackage}" method="POST">
+	<div class="row">
+		<div class="col-sm-2">
+		</div>
 	
-			<div class=form-group>
-				<label for="grossSalary">Brutoloon</label>
-				<input type="text" th:field=*{grossSalary} id="grossSalary" class="form-control" placeholder="brotoloon" required="required">
-			</div>
-			<div class=form-group>
-				<label for="car"> Wagen</label>
-				<input type="text" th:field=*{car} id="car" class="form-control" placeholder="Wagen" >
-			</div>
-			<div class=form-group>
-				<label for="dailyallowance">Dag vergoeding</label>
-				<input type="text" th:field=*{dailyAllowance} id="dailyallowance" class="form-control" placeholder="dagvergoeding" >
-			</div>
-			<div class=form-group>
-				<label for="maaltijdchecques">maaltijdchecques</label>
-				<input type="text" th:field=*{maaltijdchecques} id="maaltijdchecques" class="form-control" placeholder="maaltijdchecques" >
-			</div>
-			
-			<div class=form-group>
-				<label for="hospitalization">Hospitalisatieverzekering</label>
-				<input type="checkbox"  th:field=*{hospitalization} id="hospitalization" class="form-control" >
-			</div>
-			<div class=form-group>
-				<label for="groupinsurance"> Groepsverzekering</label>
-				<input type="checkbox"  th:field=*{groupInsurance} id="groupinsurance" class="form-control"  >
-			</div>
-			
-			<div class=form-group>
-				<button class="btn-lg btn-primary btn-block" type="submit">Volgende ></button>
-			</div>
-		</form>
+		<div class="col-sm-3">
+			<form th:action="@{/registerSalaryPackage}" th:object="${salarypackage}" method="POST">
 		
-	</div>
-		<a href="/registerSalaryPackageProposal">Doe financieel voorstel</a>
-
-	<div class="col-sm-7">
+				<div class=form-group>
+					<label for="grossSalary">Brutoloon</label>
+					<input type="text" th:field=*{grossSalary} id="grossSalary" class="form-control" placeholder="brotoloon" required="required">
+				</div>
+				<div class=form-group>
+					<label for="car"> Wagen</label>
+					<input type="text" th:field=*{car} id="car" class="form-control" placeholder="Wagen" >
+				</div>
+				<div class=form-group>
+					<label for="dailyallowance">Dag vergoeding</label>
+					<input type="text" th:field=*{dailyAllowance} id="dailyallowance" class="form-control" placeholder="dagvergoeding" >
+				</div>
+				<div class=form-group>
+					<label for="maaltijdchecques">maaltijdchecques</label>
+					<input type="text" th:field=*{maaltijdchecques} id="maaltijdchecques" class="form-control" placeholder="maaltijdchecques" >
+				</div>			
+				<div class=form-group>
+					<label for="hospitalization">Hospitalisatieverzekering</label>
+					<input type="checkbox"  th:field=*{hospitalization} id="hospitalization" class="form-control" >
+				</div>
+				<div class=form-group>
+					<label for="groupinsurance"> Groepsverzekering</label>
+					<input type="checkbox"  th:field=*{groupInsurance} id="groupinsurance" class="form-control"  >
+				</div>			
+				<div class=form-group>
+					<button class="btn-lg btn-primary btn-block" type="submit">Volgende ></button>
+				</div>
+			</form>
+			
+		</div>
+			<a href="/registerSalaryPackageProposal">Doe financieel voorstel</a>
 	
+		<div class="col-sm-7">	
+		</div>
 	</div>
-</div>
 </div>
 </body>
 </html>
