@@ -97,10 +97,11 @@ public class SearchController {
 		session.setAttribute("sirName", sirName);
 	
         List<Candidate> candidates = candidateservice.findAllByNameLikeOrSirNameLike(name, sirName) ;
-        modelMap.addAttribute("candidates", candidates);
-        modelMap.addAttribute("candaidatesearchmodel", new CandaidateSearchModel());
-       
-        return "candidatesearchresult";
+        return goToResultpage(modelMap, candidates,session);
+//        modelMap.addAttribute("candidates", candidates);
+//        modelMap.addAttribute("candaidatesearchmodel", new CandaidateSearchModel());
+//       
+//        return "candidatesearchresult";
     }
 	
 	@RequestMapping(value = "/searchInAllCandidates", method = RequestMethod.POST)
@@ -142,36 +143,41 @@ public class SearchController {
 			System.out.println("filter gelukt"+ filterdByExperience.size() );
 			candidates=filterdByExperience;
 		}
-        
-        modelMap.addAttribute("candidates", candidates);
-        modelMap.addAttribute("candaidatesearchmodel", new CandaidateSearchModel());
-       
-        return "candidatesearchresult";
+		return goToResultpage(modelMap, candidates,session);
+//        modelMap.addAttribute("candidates", candidates);
+//        modelMap.addAttribute("candaidatesearchmodel", new CandaidateSearchModel());
+//       
+//        return "candidatesearchresult";
     }	
 	
 										
 	@RequestMapping(value = "/searchAllRecruitedCandidates", method = RequestMethod.POST)
     public String searchAllRecruitedCandidates(ModelMap modelMap, HttpSession session) {
 		List<Candidate> candidates= candidateservice.findAllRecruited();
-		modelMap.addAttribute("candidates", candidates);
-	    modelMap.addAttribute("candaidatesearchmodel", new CandaidateSearchModel());
-		return "candidatesearchresult";
+		return goToResultpage(modelMap, candidates,session);
+//		modelMap.addAttribute("candidates", candidates);
+//	    modelMap.addAttribute("candaidatesearchmodel", new CandaidateSearchModel());
+//		return "candidatesearchresult";
 	}
 	
 	@RequestMapping(value = "/searchAllCandidates", method = RequestMethod.POST)
     public String searchAllCandidates(ModelMap modelMap, HttpSession session) {
 		List<Candidate> candidates= candidateservice.getAllCandidates();
-		modelMap.addAttribute("candidates", candidates);
-	    modelMap.addAttribute("candaidatesearchmodel", new CandaidateSearchModel());
-		return "candidatesearchresult";
+		
+		//PROEF
+		return goToResultpage(modelMap, candidates,session);
+//		modelMap.addAttribute("candidates", candidates);
+//	    modelMap.addAttribute("candaidatesearchmodel", new CandaidateSearchModel());
+//		return "candidatesearchresult";
 	}
 	
 	@RequestMapping(value = "/searchAllCandidatesWithActiveApplicationProcess", method = RequestMethod.POST)
     public String searchAllCandidatesWithActiveApplicationProcess(ModelMap modelMap, HttpSession session) {
 		List<Candidate> candidates= candidateservice.getAllCandidatesWithActiveApplicationProcess();
-		modelMap.addAttribute("candidates", candidates);
-	    modelMap.addAttribute("candaidatesearchmodel", new CandaidateSearchModel());
-		return "candidatesearchresult";
+		return goToResultpage(modelMap, candidates,session);
+//		modelMap.addAttribute("candidates", candidates);
+//	    modelMap.addAttribute("candaidatesearchmodel", new CandaidateSearchModel());
+//		return "candidatesearchresult";
 	}
 	
 	@RequestMapping(value = "/searchAllCandidatesWithoutActiveApplicationProcess", method = RequestMethod.POST)
@@ -180,6 +186,38 @@ public class SearchController {
 		modelMap.addAttribute("candidates", candidates);
 	    modelMap.addAttribute("candaidatesearchmodel", new CandaidateSearchModel());
 		return "candidatesearchresult";
+	}
+	
+	
+	
+	//-----------------------------------------------------
+	
+	
+	
+	// refactor of redirection to resultpage
+	//adding result candidate list to session in order to make "return buttons" possible on update pages
+	public String goToResultpage(ModelMap modelMap,List<Candidate> candidates,HttpSession session) {
+		// adding results to session for return buttons
+		session.setAttribute("candidateResults", candidates);
+		modelMap.addAttribute("candidates", candidates);
+	    modelMap.addAttribute("candaidatesearchmodel", new CandaidateSearchModel());
+		return "candidatesearchresult";
+				//session.getAttribute("candidateResults");
+	}
+	@RequestMapping(value = "/toSearchPage", method = RequestMethod.GET)
+	public String toSearchPage(ModelMap modelMap,HttpSession session) {
+		//UITGEZET, WERKT WEL MAAR GEEFT ALLEEN ALLE KANDIDATEN TERUG
+		// IETS MIS MET SESSIE?
+		//VOORLOPIG TERUG NAAR SEARCH
+		// adding results to session for return buttons 
+		//session.setAttribute("candidateResults", candidates);
+		//modelMap.addAttribute("candidates", session.getAttribute("candidateResults"));
+	    //modelMap.addAttribute("candaidatesearchmodel", new CandaidateSearchModel());
+		
+		modelMap.addAttribute("candidate", new Candidate());
+		modelMap.addAttribute("saerch", new Search());
+		return "search";
+
 	}
 	
 	@RequestMapping(value = "/searchssalarypackage", method = RequestMethod.POST)
