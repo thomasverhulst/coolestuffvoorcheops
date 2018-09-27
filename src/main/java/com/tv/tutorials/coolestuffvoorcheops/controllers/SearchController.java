@@ -259,27 +259,27 @@ public class SearchController {
     }
 	
 	///{candidateId}
-	@RequestMapping(value = "updatecandidate", method = RequestMethod.POST)
-    public String updateCandidate( ModelMap map , @ModelAttribute("address") Address address,@ModelAttribute("candidate") Candidate candidate, HttpSession session) {
-		System.out.println("we zijn in de GOEDE UPDATE CONTROLLER");
-		//https://stackoverflow.com/questions/1714028/mvc-which-submit-button-has-been-pressed
-		//Candidate sessionCandidate = (Candidate) session.getAttribute("candidate");
-		//Candidate tmpCandidate =candidateservice.getCandidateById(candidateId);
-		//Address tmpAddress=addressService.getAddressById(tmpCandidate.getAddressId());
-		//Candidate tmp = candidateservice.getCandidateById(8);
-		//tmp.setPhoneNumber(tmp.getPhoneNumber() +88888);
-	
-		//return "register"; ik krijg geen voorwaardelijke knoppen, zo kan het niet hergebruikt worden
-		//werkt , ziet er uit zoals register 
-		// modelmap, hgetattribute ipv modelattribute?
-		
-		 //addressService.updateAddress((Address) map.get("address"));
-			
-			//candidate.setAddressId(tmpAddress.getId());
-			//candidateservice.updateCandidate(tmp);
-		return "test";
-        //werkt return "searchcandidatedetails";
-    }	
+//	@RequestMapping(value = "updatecandidate", method = RequestMethod.POST)
+//    public String updateCandidate( ModelMap map , @ModelAttribute("address") Address address,@ModelAttribute("candidate") Candidate candidate, HttpSession session) {
+//		System.out.println("we zijn in de GOEDE UPDATE CONTROLLER");
+//		//https://stackoverflow.com/questions/1714028/mvc-which-submit-button-has-been-pressed
+//		//Candidate sessionCandidate = (Candidate) session.getAttribute("candidate");
+//		//Candidate tmpCandidate =candidateservice.getCandidateById(candidateId);
+//		//Address tmpAddress=addressService.getAddressById(tmpCandidate.getAddressId());
+//		//Candidate tmp = candidateservice.getCandidateById(8);
+//		//tmp.setPhoneNumber(tmp.getPhoneNumber() +88888);
+//	
+//		//return "register"; ik krijg geen voorwaardelijke knoppen, zo kan het niet hergebruikt worden
+//		//werkt , ziet er uit zoals register 
+//		// modelmap, hgetattribute ipv modelattribute?
+//		
+//		 //addressService.updateAddress((Address) map.get("address"));
+//			
+//			//candidate.setAddressId(tmpAddress.getId());
+//			//candidateservice.updateCandidate(tmp);
+//		return "test";
+//        //werkt return "searchcandidatedetails";
+//    }	
 	
 	@RequestMapping(value = "searchcv/{candidateId}", method = RequestMethod.GET)
     public String searchCv( @PathVariable("candidateId") int candidateId) {

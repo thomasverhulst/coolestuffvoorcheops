@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.tv.tutorials.coolestuffvoorcheops.model.ApplicationProcess;
 import com.tv.tutorials.coolestuffvoorcheops.model.SalaryPackage;
 import com.tv.tutorials.coolestuffvoorcheops.services.CandidateService;
 import com.tv.tutorials.coolestuffvoorcheops.services.SalaryPackageService;

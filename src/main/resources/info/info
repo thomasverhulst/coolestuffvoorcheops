@@ -56,7 +56,9 @@ die met todo open laten
 
 -Het kan zijn dat het niet werkt omdat het ssl certificaat e rnog niet in is?
 -mvm clean install runnen?
-
+poging met .bat file
+runb bat file https://www.wikihow.com/Run-a-Batch-File-from-the-Command-Line-on-Windows
+https://github.com/webpack/webpack-dev-server/issues/854
 #checkbox booelan
 Als variabelen met is beginnen, worden getteres en setters ook gegeereerd met "is", dan verstaat thymleaf het niet en worden die velden niet getoond.
 
@@ -67,6 +69,14 @@ https://docs.spring.io/spring-data/jpa/docs/1.5.0.RC1/reference/html/jpa.reposit
 https://stackoverflow.com/questions/1196586/calling-remove-in-foreach-loop-in-java
 #ssl
 x6.nabble.com/Getting-quot-Invalid-message-received-with-signature-xxxxx-quot-messages-in-catalina-out-td5057448.html
+ 
+ 
+ Use "keytool -command_name -help" for usage of command_name
+PS C:\Program Files\Java\jdk1.8.0_181\bin> .\keytool.exe -genkey -alias tomcat -storetype PKCS12 -keyalg RSA -keysize 20
+48 -keystore keystore.p12 -validity 3650
+Enter keystore password:
+ 
+ 
  
  #eerst dit installeren https://www.apachelounge.com/download/
  #https://www.youtube.com/watch?v=9M8wtDTk26w
@@ -81,7 +91,8 @@ x6.nabble.com/Getting-quot-Invalid-message-received-with-signature-xxxxx-quot-me
 	List<Integer> applicationProcessIdList = candidates.stream().map(Candidate::getApplicationProcessId ).collect(Collectors.toList());
 
 
-
+# free icons
+https://all-free-download.com/free-icon/download/physical_sciences_99267_download.html
 
 # commando voor het genereren van een self signd sertificate : https://www.youtube.com/watch?v=-mTuL9UMDT8
        // ZET HET JUISTE JDK NUMMER

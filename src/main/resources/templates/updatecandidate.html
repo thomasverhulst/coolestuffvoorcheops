@@ -79,6 +79,7 @@
 	<div class="col-sm-1"></div>
 	
 	<div class="col-sm-3">
+	<div>
 	<!-- hier komt het adres-->
 	<!-- https://stackoverflow.com/questions/16122257/how-to-pass-two-objects-to-use-in-a-form-using-thymeleaf -->
 			<div th:object="${address}">
@@ -113,10 +114,13 @@
 				</div>
 				
 			</div>
+			</div>
 	</div>
 	
 	
 	</form>
+	</div>
+	
 	<div>
 	<form th:action="@{/toSearchPage}" >
 		
@@ -126,7 +130,7 @@
 	</form>
 </div>
 				
-	</div>
+	
 	<div class="col-sm-3">
 	
 	</div>
