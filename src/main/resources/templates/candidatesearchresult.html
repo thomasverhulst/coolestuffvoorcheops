@@ -5,7 +5,6 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-
 <link rel="shortcut icon" href="favicon.png" type="image/png"/>
 
 <!-- Latest compiled and minified CSS -->
@@ -25,8 +24,7 @@ position: sticky;
   }
 </style>
 
-
-<title>Searchresults</title>
+	<title>Searchresults</title>
 </head>
 <body>
 <div class=container-fluid>
@@ -35,8 +33,7 @@ position: sticky;
 		<div class="col-sm-6">
 			<h1>Zoekresultaten kandidaat</h1>
 		</div>
-		<div class="col-sm-3"> </div>
-	
+		<div class="col-sm-3"> </div>	
 	</div>
 	<div class="row">
 		<div class="col-sm-2">
@@ -47,23 +44,21 @@ position: sticky;
 <!--     <label for="candidates_input">Search:</label> <input name="candidates" -->
 <!--                                                      id="candidates"> -->
 <!--     </input> -->
-    <div th:if="${not #lists.isEmpty(candidates)}">
-        <h2>Search Results</h2>
-        
+    	<div th:if="${not #lists.isEmpty(candidates)}">
+        	<h2>Search Results</h2>        
         <table class="table table-striped header-fixed">
             <thead>
             <tr>
-                <th scope="col">ID</th>
-                <th scope="col">Naam</th>
+                <th scope="col">ID:</th>
+                <th scope="col">Naam:</th>
                 <th scope="col">Achetnaam</th>
-                <th scope="col">e-mail adres</th>
-                <th scope="col">Bekijk CV</th>
-                <th scope="col">Bekijk details</th>
-                <th scope="col">Bekijk kennis</th>
-                <th scope="col">Bekijk huidig loonpakket</th>
-                <th scope="col">Bekijk voorgestelde loonpakket</th>   
-                <th scope="col">aanwervingsproces</th>
-                
+                <th scope="col">E-mail adres:</th>
+                <th scope="col">Bekijk CV:</th>
+                <th scope="col">Bekijk details:</th>
+                <th scope="col">Bekijk kennis:</th>
+                <th scope="col">Bekijk huidig loonpakket:</th>
+                <th scope="col">Bekijk voorgestelde loonpakket:</th>   
+                <th scope="col">Aanwervingsproces:</th>               
             </tr>
             </thead>
             <tbody>
@@ -95,9 +90,6 @@ position: sticky;
                 	                	
                 	    </div>
               </td>
-                	
-
-
             </tr>
             
             </tbody>

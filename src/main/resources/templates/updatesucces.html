@@ -22,30 +22,29 @@
 </head>
 <body>
 <div class=container-fluid>
-<div class="row" >
-	<div class="col-sm-3"> </div>
-		<div class="col-sm-6">
-			<form th:action="@{/}" >
-			<h1>Update met succes uitgevoerd</h1>
-				<div class=form-group>
-						<button class="btn-lg btn-succes btn-block" type="submit">Terug ></button>
-					</div>
-			</form>
-			
-			<div>
-				<form th:action="@{/toSearchPage}" >
-					
+	<div class="row" >
+		<div class="col-sm-3"> </div>
+			<div class="col-sm-6">
+				<form th:action="@{/}" >
+				<h1>Update met succes uitgevoerd</h1>
 					<div class=form-group>
-						<button class="btn-lg btn-succes btn-block" type="submit"> Terug naar zoekpagina ></button>
-					</div>
+							<button class="btn-lg btn-succes btn-block" type="submit">Terug ></button>
+						</div>
 				</form>
+				
+				<div>
+					<form th:action="@{/toSearchPage}" >
+						
+						<div class=form-group>
+							<button class="btn-lg btn-succes btn-block" type="submit"> Terug naar zoekpagina ></button>
+						</div>
+					</form>
+				</div>
 			</div>
-		</div>
-		
-		
-	<div class="col-sm-3"> </div>
-
-</div>
+			
+			
+		<div class="col-sm-3"> </div>
+	</div>
 </div>
 </body>
 </html>

@@ -17,20 +17,19 @@
 <!-- Latest compiled JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <body>
-<h1>details kandidaat</h1>
+<h1>Details kandidaat</h1>
 
 
 <div class="row">
 	<div class="col-sm-2">
 	</div>
-
 		
 	<form action="#" th:action="@{/dispatcher}" th:object="${candidates}">
 <!--     <label for="candidates_input">Search:</label> <input name="candidates" -->
 <!--                                                      id="candidates"> -->
 <!--     </input> -->
-    <div th:object="${candidate}">
-        <h2>Search Results</h2>
+    	<div th:object="${candidate}">
+        <h2>Zoekresultaten:</h2>
         
         <table class="table">
             <thead>

@@ -38,19 +38,19 @@
 
 		<div class="col-sm-3">
 			<div class=form-group>
-				<label for="name"> Naam:</label>
+				<label for="name">Naam:</label>
 				<input type="text" th:field=*{name} id="name" class="form-control" placeholder="Voornaam" required="required">
 			</div>
 			<div class=form-group>
-				<label for="sirName">Famillie naam</label>
-				<input type="text" th:field=*{sirName} id="sirName" class="form-control" placeholder="famillie naam" >
+				<label for="sirName">Familienaam:</label>
+				<input type="text" th:field=*{sirName} id="sirName" class="form-control" placeholder="Familienaam" >
 			</div>
 			<div class=form-group>
-				<label for="email">E-mail</label>
-				<input type="text" th:field=*{email} id="email" class="form-control" placeholder="email" >
+				<label for="email">E-mail:</label>
+				<input type="text" th:field=*{email} id="email" class="form-control" placeholder="E-mail" >
 			</div>
 			<div class=form-group>
-				<label for="birthdate">Geboortedatum</label>			
+				<label for="birthdate">Geboortedatum:</label>			
 				<input type="date" th:field=*{birthdate} th:value="${#dates.format(candidate.birthdate,'yyyy/MM/dd')}" id="birthdate" class="form-control" placeholder="Geboortedatum" >			
 			</div>
 			<div class=form-group>
@@ -58,55 +58,54 @@
 				<input type="text" th:field=*{phoneNumber} id="phoneNumber" class="form-control" placeholder="Telefoonnummer" required="required">
 			</div>
 			<div class=form-group>
-				<label for="cellPhoneNumber">Mobiel telefoonnummer:</label>
-				<input type="text" th:field=*{celphoneNumber} id="cellPhoneNumber" class="form-control" placeholder="Mobiel Telefoonnummer" >
+				<label for="cellPhoneNumber">Mobiel nummer:</label>
+				<input type="text" th:field=*{celphoneNumber} id="cellPhoneNumber" class="form-control" placeholder="Mobiel nummer" >
 			</div>		
 			<div class=form-group>
 				<label for="gender">Geslacht</label>
-				<div><input type="radio" th:field=*{gender} id="gender" value="male" checked="checked" />Man</div>
-	  			<div><input type="radio" th:field=*{gender} id="gender" value="female" />Vrouw</div>	
-			</div>		
-			
+				<div><input type="radio" th:field=*{gender} id="gender" value="male" checked="checked" />  Man</div>
+	  			<div><input type="radio" th:field=*{gender} id="gender" value="female" />  Vrouw</div>	
+			</div>				
 	<!-- 		<div class=form-group> -->
 	<!-- 			<label for="cvLink">Cv naam</label> -->
 	<!-- 			<input type="text" th:field=*{cvLink} id="cvLink" class="form-control" placeholder="CV naam" > -->
-	<!-- 		</div> -->
-							
+	<!-- 		</div> -->						
 			<div class=form-group>
 				<label for="cv">Voeg CV toe</label>
 				<input type="file" th:field=*{file} id="cv" class="form-control" placeholder="CV naam" value="test" >
 			</div>			
 		</div>
 	
-		<div class="col-sm-1"></div>
+		<div class="col-sm-1">
+		</div>
 		
 		<div class="col-sm-3">
 	<!-- hier komt het adres-->
 	<!-- https://stackoverflow.com/questions/16122257/how-to-pass-two-objects-to-use-in-a-form-using-thymeleaf -->
 			<div th:object="${address}">
 				<div class=form-group>
-					<label for="streetname">Straatnaam</label>
+					<label for="streetname">Straatnaam:</label>
 					<input type="text" th:field=*{streetName} id="streetname" class="form-control" placeholder="Straatnaam" required="required">
 				</div>
 				<div class=form-group>
-					<label for="dwellingnumber">Huisnummer</label>
-					<input type="text" th:field=*{dwellingNumber} id="dwellingnumber" class="form-control" placeholder="huisnummer" >
+					<label for="dwellingnumber">Huisnummer:</label>
+					<input type="text" th:field=*{dwellingNumber} id="dwellingnumber" class="form-control" placeholder="Huisnummer" >
 				</div>
 				
 				<div class=form-group>
-					<label for="bus">bus</label>
-					<input type="text" th:field=*{bus} id="bus" class="form-control" placeholder="bus">
+					<label for="bus">Bus:</label>
+					<input type="text" th:field=*{bus} id="bus" class="form-control" placeholder="Bus">
 				</div>
 				<div class=form-group>
-					<label for="postalcode">Postcode</label>
-					<input type="text" th:field=*{postalCode} id="postalcode" class="form-control" placeholder="postcode" >
+					<label for="postalcode">Postcode:</label>
+					<input type="text" th:field=*{postalCode} id="postalcode" class="form-control" placeholder="Postcode" >
 				</div>
 				<div class=form-group>
-					<label for="municipality">Gemeente</label>
+					<label for="municipality">Gemeente:</label>
 					<input type="text" th:field=*{municipality} id="municipality" class="form-control" placeholder="Gemeente" >
 				</div>
 				<div class=form-group>
-					<label for="land">Land</label>
+					<label for="land">Land:</label>
 					<input type="text" th:field=*{land}  id="Land" class="form-control" placeholder="Land" >
 				</div>			
 				<div class=form-group  >
@@ -119,8 +118,7 @@
 	
 	</form>
 		
-	<div class="col-sm-3">
-	
+	<div class="col-sm-3">	
 	</div>
 </div>
 </div>

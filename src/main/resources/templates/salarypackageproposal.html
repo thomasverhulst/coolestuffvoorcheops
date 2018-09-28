@@ -38,27 +38,27 @@
 		<form th:action="@{/sendmail}" th:object="${salarypackage}" method="POST">
 	
 			<div class=form-group>
-				<label for="grossSalary">Brutoloon</label>
-				<input type="text" th:field=*{grossSalary} id="grossSalary" class="form-control" placeholder="brotoloon" required="required">
+				<label for="grossSalary">Brutoloon:</label>
+				<input type="text" th:field=*{grossSalary} id="grossSalary" class="form-control" placeholder="Brotoloon" required="required">
 			</div>
 			<div class=form-group>
-				<label for="car"> Wagen</label>
+				<label for="car">Wagen:</label>
 				<input type="text" th:field=*{car} id="car" class="form-control" placeholder="Wagen" >
 			</div>
 			<div class=form-group>
-				<label for="dailyallowance">Dag vergoeding</label>
-				<input type="text" th:field=*{dailyAllowance} id="dailyallowance" class="form-control" placeholder="dagvergoeding" >
+				<label for="dailyallowance">Dagvergoeding:</label>
+				<input type="text" th:field=*{dailyAllowance} id="dailyallowance" class="form-control" placeholder="Dagvergoeding" >
 			</div>
 			<div class=form-group>
-				<label for="maaltijdchecques">maaltijdchecques</label>
-				<input type="text" th:field=*{maaltijdchecques} id="maaltijdchecques" class="form-control" placeholder="maaltijdchecques" >
+				<label for="maaltijdchecques">Maaltijdchecques:</label>
+				<input type="text" th:field=*{maaltijdchecques} id="maaltijdchecques" class="form-control" placeholder="Maaltijdchecques" >
 			</div>		
 			<div class=form-group>
-				<label for="hospitalization">Hospitalisatieverzekering</label>
+				<label for="hospitalization">Hospitalisatieverzekering:</label>
 				<input type="checkbox"  th:field=*{hospitalization} id="hospitalization" class="form-control" >
 			</div>
 			<div class=form-group>
-				<label for="groupinsurance"> Groepsverzekering</label>
+				<label for="groupinsurance">Groepsverzekering:</label>
 				<input type="checkbox"  th:field=*{groupInsurance} id="groupinsurance" class="form-control"  >
 			</div>		
 			<div class=form-group>
