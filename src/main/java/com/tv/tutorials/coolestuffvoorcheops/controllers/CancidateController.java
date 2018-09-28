@@ -193,6 +193,27 @@ public class CancidateController {
 	public String registerSalaryPackage(Model model , @ModelAttribute("salarypackage") SalaryPackage salaryPackage, HttpSession session ) {
 		System.out.println("we passeren bij salary");
 		System.out.println("we passeren hier "+ salaryPackage.getGrossSalary() );
+		String returning ="applicationProcess";
+		// if voor als het een update is
+		boolean update =(boolean) session.getAttribute("isupdate");
+		if ( update) {
+			System.out.println("we zijn een salarypackage aan het updaten");
+			int salarypackageIdentificator =(int) session.getAttribute("currentSalaryPackage0OrProposedSalarypackage1");
+			SalaryPackage tmpSalarypackage = salaryPackageService.addSalaryPackage(salaryPackage);
+			Candidate sessionUpdateCandidate = (Candidate) session.getAttribute("candidate");
+			if (salarypackageIdentificator ==0) {
+				sessionUpdateCandidate.setCurrentSallaryPackageId(tmpSalarypackage.getId());
+				System.out.println("current geupdated");
+				
+			}else {
+				sessionUpdateCandidate.setProposedSallaryPackageId(tmpSalarypackage.getId()); 
+				System.out.println("proposed geupdated");
+			}
+			candidateservice.updateCandidate(sessionUpdateCandidate);
+			returning = "updatesucces";
+		}else {// binnen deze else is het de gewone flow bij het aanmalkn van een kandidaat
+			
+		
 		//Candidate tmpCandidate =candidateservice.addCandidate(salarypackage);
 		SalaryPackage tmpSalarypackage = salaryPackageService.addSalaryPackage(salaryPackage);
 		
@@ -207,8 +228,8 @@ public class CancidateController {
 		session.setAttribute("candidate", sessionCandidate);	
 		System.out.println("salary id = "+tmpSalarypackage.getId());
 		model.addAttribute("applicationprocess", new ApplicationProcess());
-
-		return "applicationProcess";
+		}
+		return returning;
 	}
 	
 	@RequestMapping(value ="/registerApplicationProcess", method = RequestMethod.POST)

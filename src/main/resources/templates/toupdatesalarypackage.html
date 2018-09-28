@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
-<link rel="shortcut icon" href="/favicon.png" type="image/png"/>
+<link rel="shortcut icon" href="favicon.png" type="image/png"/>
 
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -17,35 +17,28 @@
 <!-- Latest compiled JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-<title>Update succes</title>
+<title>To update salarypackage</title>
 
 </head>
 <body>
 <div class=container-fluid>
 	<div class="row" >
 		<div class="col-sm-3"> </div>
-			<div class="col-sm-6" th:object="${candidate}">
+			<div class="col-sm-6" th:object="${candidate}"  >
 				<form th:action="@{/}" >
-					<h1><span th:text="${candidate.name}"> </span>+ +<span th:text="${candidate.sirName}"></span> heeft nog geen cv</h1>
+					<h1>Voeg een loonpakket toe bij <span th:text="${candidate.name}"> </span> <span th:text="${candidate.sirName}"></span> </h1>
 					
 					Volg de link om dit aan te passen:
-					<a th:href="@{/searchcandidatedetails/{candidateId}(candidateId=${candidate.id})}">Zie details kandidaat <span class="glyphicon glyphicon-pencil"></span></a>
+					<!-- we moeten een onderscheid maken tussen current en proposed salarypackage en  -->
+					
+					
+					
+					<a th:href="@{/searchupdatesalarypackage/{candidateId}(candidateId=${candidate.id})}">Update salarypackage <span class="glyphicon glyphicon-pencil"></span></a>
 					
 					<div class=form-group>
 						<button class="btn-lg btn-succes btn-block" type="submit">Home ></button>
 					</div>
 				</form>
-				
-				<div>
-	<form th:action="@{/toSearchPage}" >
-		
-		<div class=form-group>
-			<button class="btn-lg btn-succes btn-block" type="submit"> Terug naar zoekpagina ></button>
-		</div>
-	</form>
-</div>
-				
-				
 			</div>
 		<div class="col-sm-3"> </div>
 	</div>

@@ -17,7 +17,7 @@
 <!-- Latest compiled JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-<title>Registreer loonpakket</title>
+<title>Registreer voorstel loonpakket</title>
 </head>
 <body>
 <div class=container-fluid>
@@ -35,7 +35,7 @@
 	</div>
 
 	<div class="col-sm-3">
-		<form th:action="@{/sendmail}" th:object="${salarypackage}" method="POST">
+		<form th:action="@{/registerSalaryPackage}" th:object="${salarypackage}" method="POST">
 	
 			<div class=form-group>
 				<label for="grossSalary">Brutoloon:</label>
