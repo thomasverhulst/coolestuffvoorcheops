@@ -8,35 +8,35 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name= "address")
+@Table(name = "address")
 public class Address {
 
 	@Id
-	@Column(name="idaddress")
+	@Column(name = "idaddress")
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
-	
-	@Column(name="streetname")
-	private String streetName; 
-	
-	@Column(name="dwellingnumber")
+
+	@Column(name = "streetname")
+	private String streetName;
+
+	@Column(name = "dwellingnumber")
 	private String dwellingNumber;
-	
-	@Column(name="bus")
+
+	@Column(name = "bus")
 	private String bus;
-	
-	@Column(name="postalcode")
+
+	@Column(name = "postalcode")
 	private String postalCode;
-	
-	@Column(name="land")
+
+	@Column(name = "land")
 	private String land;
-	
-	@Column(name="municipality")
+
+	@Column(name = "municipality")
 	private String municipality;
-	
+
 	public Address() {
 	}
-	
+
 	public Address(String streetName, String dwellingNumber, String bus, String postalCode, String land,
 			String municipality) {
 		super();
@@ -47,47 +47,61 @@ public class Address {
 		this.land = land;
 		this.municipality = municipality;
 	}
+
 	public String getStreetName() {
 		return streetName;
 	}
+
 	public void setStreetName(String streetName) {
 		this.streetName = streetName;
 	}
+
 	public String getDwellingNumber() {
 		return dwellingNumber;
 	}
+
 	public void setDwellingNumber(String dwellingNumber) {
 		this.dwellingNumber = dwellingNumber;
 	}
+
 	public String getBus() {
 		return bus;
 	}
+
 	public void setBus(String bus) {
 		this.bus = bus;
 	}
+
 	public String getPostalCode() {
 		return postalCode;
 	}
+
 	public void setPostalCode(String postalCode) {
 		this.postalCode = postalCode;
 	}
+
 	public String getLand() {
 		return land;
 	}
+
 	public void setLand(String land) {
 		this.land = land;
 	}
+
 	public String getMunicipality() {
 		return municipality;
 	}
+
 	public void setMunicipality(String municipality) {
 		this.municipality = municipality;
 	}
+
 	public Integer getId() {
 		return id;
 	}
+
 	public void setId(int id) {
 		this.id = id;
 	}
-		
+
 }

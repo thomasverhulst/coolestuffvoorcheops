@@ -18,7 +18,7 @@ public class AddressService implements IAddressService {
 	@Override
 	public List<Address> getAllAdresses() {
 		List<Address> list = new ArrayList<>();
-		 addressRepository.findAll().forEach(e -> list.add(e));
+		addressRepository.findAll().forEach(e -> list.add(e));
 		return list;
 	}
 
@@ -47,4 +47,4 @@ public class AddressService implements IAddressService {
 	}
 
 }
-//https://www.concretepage.com/spring-boot/spring-boot-crudrepository-example
+// https://www.concretepage.com/spring-boot/spring-boot-crudrepository-example

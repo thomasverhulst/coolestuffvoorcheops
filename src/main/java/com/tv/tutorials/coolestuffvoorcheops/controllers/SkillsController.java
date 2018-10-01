@@ -28,44 +28,48 @@ public class SkillsController {
 	SkillsService skillsService;
 	@Autowired
 	SkillsRepository skillsRepository;
-	
+
 	@RequestMapping(value = "searchskills1/{candidateId}", method = RequestMethod.GET)
-    public String searchSkills( Model model ,@PathVariable("candidateId") int candidateId ) {
-		System.out.println("we zijn in de GOEDE skills CONTROLLER"+ candidateId);
-		//https://stackoverflow.com/questions/1714028/mvc-which-submit-button-has-been-pressed
-	
+	public String searchSkills(Model model, @PathVariable("candidateId") int candidateId) {
+		System.out.println("we zijn in de GOEDE skills CONTROLLER" + candidateId);
+		// https://stackoverflow.com/questions/1714028/mvc-which-submit-button-has-been-pressed
+
 		Integer skillsId = candidateservice.getCandidateById(candidateId).getSkillsId();
-			
-		model.addAttribute("skills", skillsService.getSkillsById(skillsId) );
-		System.out.println("skillid = "+ skillsId);
+
+		model.addAttribute("skills", skillsService.getSkillsById(skillsId));
+		System.out.println("skillid = " + skillsId);
 		System.out.println("we gaan skills updaten");
-		// als er nog geen skills zijn moet deze ook naar een pagina die vraagd of ze toegevoegd moeten worden
-		
+		// als er nog geen skills zijn moet deze ook naar een pagina die vraagd of ze
+		// toegevoegd moeten worden
+
 		return "updateskills";
-        //werkt return "searchcandidatedetails";
-    }
-	
-//	@RequestMapping(value ="/updateSkills2/{skillsId}" , method = RequestMethod.POST)
-//	public String updateSkills(Model model , @ModelAttribute("skills") Skills skills, @PathVariable ("skillsId") Integer skillsId ) {
-//		System.out.println( skills.getId()+ "skillsid");
-//		skillsService.updateSkills(skillsService.getSkillsById(skillsId));
-//			System.out.println("we zijn in de skills poster");
-//			//candidate.setAddressId(tmpAddress.getId());
-//			//candidateservice.updateCandidate(candidate);
-//			return "test";
-//	}
-	
+		// werkt return "searchcandidatedetails";
+	}
+
+	// @RequestMapping(value ="/updateSkills2/{skillsId}" , method =
+	// RequestMethod.POST)
+	// public String updateSkills(Model model , @ModelAttribute("skills") Skills
+	// skills, @PathVariable ("skillsId") Integer skillsId ) {
+	// System.out.println( skills.getId()+ "skillsid");
+	// skillsService.updateSkills(skillsService.getSkillsById(skillsId));
+	// System.out.println("we zijn in de skills poster");
+	// //candidate.setAddressId(tmpAddress.getId());
+	// //candidateservice.updateCandidate(candidate);
+	// return "test";
+	// }
+
 	// dit is de methode om een update te doen...
 	@PostMapping("/updateSkills/{skillsId}")
-	public String update(@Valid Skills skills, @PathVariable("skillsId") int id ,BindingResult result, RedirectAttributes redirect) {
+	public String update(@Valid Skills skills, @PathVariable("skillsId") int id, BindingResult result,
+			RedirectAttributes redirect) {
 
 		if (result.hasErrors()) {
 			return "updateskills";
 		}
-	
-		skillsService.saveOrUpdateSkills(id, skills);		
-		//redirect.addFlashAttribute("success", "Saved employee successfully!");
+
+		skillsService.saveOrUpdateSkills(id, skills);
+		// redirect.addFlashAttribute("success", "Saved employee successfully!");
 		return "updatesucces";
 	}
-	
+
 }

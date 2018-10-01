@@ -13,15 +13,13 @@ public class CustomUserDetails extends User implements UserDetails {
 	public CustomUserDetails(final User user) {
 		super(user);
 	}
+
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
-		return getRoles()
-		.stream()
-		.map(role ->
-			 new SimpleGrantedAuthority("ROLE_"+role.getRole()))
-		
-		.collect(Collectors.toList());
-		//return list;
+		return getRoles().stream().map(role -> new SimpleGrantedAuthority("ROLE_" + role.getRole()))
+
+				.collect(Collectors.toList());
+		// return list;
 	}
 
 	@Override

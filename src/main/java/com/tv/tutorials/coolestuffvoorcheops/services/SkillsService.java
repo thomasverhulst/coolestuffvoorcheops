@@ -24,7 +24,7 @@ public class SkillsService implements ISkillService {
 	@Override
 	public List<Skills> getAllSkills() {
 		List<Skills> list = new ArrayList<>();
-		//skillsRepository.findAll().forEach(e -> list.add(e));
+		// skillsRepository.findAll().forEach(e -> list.add(e));
 		return list;
 	}
 
@@ -42,14 +42,14 @@ public class SkillsService implements ISkillService {
 	@Override
 	public void updateSkills(Skills skills) {
 		// TODO Auto-generated method stub
-		 skillsRepository.save(skills);
-		 
-		 if (getSkillsById(skills.getId())==null) {
-			 //skillsRepository.save(skills);
-			 System.out.println("we zitten vast");
-			} else {
-				skillsRepository.save(skills);
-			}
+		skillsRepository.save(skills);
+
+		if (getSkillsById(skills.getId()) == null) {
+			// skillsRepository.save(skills);
+			System.out.println("we zitten vast");
+		} else {
+			skillsRepository.save(skills);
+		}
 	}
 
 	@Override
@@ -58,32 +58,31 @@ public class SkillsService implements ISkillService {
 	}
 
 	public void saveOrUpdateSkills(int id, @Valid Skills skills) {
-	
+
 		Optional<Skills> tmp = skillsRepository.findById(id);
-		if (tmp.isPresent() ) {
-			Skills s =tmp.get();
-			
-			s= skills;
+		if (tmp.isPresent()) {
+			Skills s = tmp.get();
+
+			s = skills;
 			s.setId(id);
 			skillsRepository.save(s);
-		}
-		else {
-			
+		} else {
+
 			System.out.println("tmp = null");
 			skillsRepository.save(skills);
 		}
 	}
-	
-	public List<Integer>  findAllDotnet() {
-		
+
+	public List<Integer> findAllDotnet() {
+
 		System.out.println("hooolk");
-		//int id=0;
-		//List<Skills> list =  skillsRepository.findAllByDotnetGreaterThan(id) ;
+		// int id=0;
+		// List<Skills> list = skillsRepository.findAllByDotnetGreaterThan(id) ;
 		boolean isdotnett = true;
-		List<Skills> list =  skillsRepository.findAllByDotnet(isdotnett);
-		System.out.println("lengte lijst "+list.size());
+		List<Skills> list = skillsRepository.findAllByDotnet(isdotnett);
+		System.out.println("lengte lijst " + list.size());
 		System.out.println("en we zijn hier");
-		//List<Integer>  skillId = null;
+		// List<Integer> skillId = null;
 		List<Integer> skillId = new ArrayList<Integer>();
 		for (Skills skills : list) {
 			skillId.add(skills.getId());
@@ -93,7 +92,7 @@ public class SkillsService implements ISkillService {
 
 	public List<Integer> findAllJava() {
 		boolean isJava = true;
-		List<Skills> list =  skillsRepository.findAllByJava(isJava);
+		List<Skills> list = skillsRepository.findAllByJava(isJava);
 		// refactor optie
 		List<Integer> skillId = new ArrayList<Integer>();
 		for (Skills skills : list) {
@@ -103,10 +102,10 @@ public class SkillsService implements ISkillService {
 	}
 
 	public List<Integer> findAllFrontend() {
-		
+
 		boolean isFrontend = true;
-		List<Skills> list =  skillsRepository.findAllByFrontend(isFrontend);
-		
+		List<Skills> list = skillsRepository.findAllByFrontend(isFrontend);
+
 		List<Integer> skillId = new ArrayList<Integer>();
 		for (Skills skills : list) {
 			skillId.add(skills.getId());
@@ -120,17 +119,17 @@ public class SkillsService implements ISkillService {
 		Iterator<Skills> i = l.iterator();
 		while (i.hasNext()) {
 			Skills s = i.next();
-			if (s.getExperience()<minimumExperience) {
+			if (s.getExperience() < minimumExperience) {
 				i.remove();
 				System.out.println("eentje minder");
 			}
 		}
 
-		List<Skills> skills= new ArrayList<Skills>();
+		List<Skills> skills = new ArrayList<Skills>();
 		skills = (List<Skills>) l;
-		List<Integer> skillsIdList = l.stream().map(Skills::getId ).collect(Collectors.toList());
+		List<Integer> skillsIdList = l.stream().map(Skills::getId).collect(Collectors.toList());
 
-		System.out.println("skillid lijst"+ skillsIdList.size());
+		System.out.println("skillid lijst" + skillsIdList.size());
 		return skillsIdList;
 	}
 

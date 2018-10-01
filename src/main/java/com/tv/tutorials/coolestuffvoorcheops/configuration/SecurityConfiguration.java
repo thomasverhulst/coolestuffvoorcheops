@@ -16,72 +16,69 @@ import org.springframework.security.web.header.writers.StaticHeadersWriter;
 import com.tv.tutorials.coolestuffvoorcheops.reposytories.UserRepository;
 
 @Primary
-@EnableGlobalMethodSecurity(prePostEnabled= true)
-//@EnableWebSecurity
+@EnableGlobalMethodSecurity(prePostEnabled = true)
+// @EnableWebSecurity
 @EnableJpaRepositories(basePackageClasses = UserRepository.class)
 @Configuration
-public class SecurityConfiguration extends WebSecurityConfigurerAdapter{
+public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
 	@Autowired
-	private UserDetailsService userDetailsService ;
-		
+	private UserDetailsService userDetailsService;
+
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-		auth.userDetailsService(userDetailsService)
-		.passwordEncoder(getPasswordEncoder());
-		
+		auth.userDetailsService(userDetailsService).passwordEncoder(getPasswordEncoder());
+
 	}
-	
-	
+
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http.csrf().disable();
-		http.authorizeRequests()
-			.antMatchers("**/secure/**").authenticated()
-			.anyRequest().permitAll()
-			.and().formLogin().permitAll();
+		http.authorizeRequests().antMatchers("**/secure/**").authenticated().anyRequest().permitAll().and().formLogin()
+				.permitAll();
 	}
-	
-	
-	private PasswordEncoder getPasswordEncoder() {
-		
-		return new PasswordEncoder() {
-		@Override
-		public String encode(CharSequence rawPassword) {
-			// TODO Auto-generated method stub
-			return rawPassword.toString();
-		}
 
-		@Override
-		public boolean matches(CharSequence rawPassword, String encodedPassword) {
-			// TODO Auto-generated method stub
-			return true;
-		}
-		
-	};
+	private PasswordEncoder getPasswordEncoder() {
+
+		return new PasswordEncoder() {
+			@Override
+			public String encode(CharSequence rawPassword) {
+				// TODO Auto-generated method stub
+				return rawPassword.toString();
+			}
+
+			@Override
+			public boolean matches(CharSequence rawPassword, String encodedPassword) {
+				// TODO Auto-generated method stub
+				return true;
+			}
+
+		};
 	}
-	
-//	@Override
-//	  protected void configure(HttpSecurity http) throws Exception {
-//	    http
-//	      // ...
-//	      .headers()
-//	      	
-//	        .addHeaderWriter(new StaticHeadersWriter("X-Content-Security-Policy","script-src 'self'"))
-//	        
-//			.frameOptions()
-//				.sameOrigin()  // x frame dealing with clickjacking
-//	      // ...
-//			//	.xssProtection()
-//			//		.block(false)
-//		//**.csrf().disable()
-//			.httpPublicKeyPinning()
-//		.includeSubDomains(true)
-//		.reportUri("http://example.net/pkp-report")
-//		.addSha256Pins("d6qzRu9zOECb90Uez27xWltNsj0e1Md7GkYYkVoZWmM=", "E9CZ9INDbd+2eRQozYqqbQ2yXLVKB9+xcprMF+44U1g=");
-//	   
-//	   
-//	    //https://docs.spring.io/spring-security/site/docs/current/reference/htmlsingle/
-//	  }
-	
+
+	// @Override
+	// protected void configure(HttpSecurity http) throws Exception {
+	// http
+	// // ...
+	// .headers()
+	//
+	// .addHeaderWriter(new
+	// StaticHeadersWriter("X-Content-Security-Policy","script-src 'self'"))
+	//
+	// .frameOptions()
+	// .sameOrigin() // x frame dealing with clickjacking
+	// // ...
+	// // .xssProtection()
+	// // .block(false)
+	// //**.csrf().disable()
+	// .httpPublicKeyPinning()
+	// .includeSubDomains(true)
+	// .reportUri("http://example.net/pkp-report")
+	// .addSha256Pins("d6qzRu9zOECb90Uez27xWltNsj0e1Md7GkYYkVoZWmM=",
+	// "E9CZ9INDbd+2eRQozYqqbQ2yXLVKB9+xcprMF+44U1g=");
+	//
+	//
+	// //https://docs.spring.io/spring-security/site/docs/current/reference/htmlsingle/
+	// }
+
 }

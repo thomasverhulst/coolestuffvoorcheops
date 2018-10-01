@@ -79,10 +79,10 @@ public class CancidateController {
 		// ModelMap
 		// https://stackoverflow.com/questions/13242394/spring-mvc-multiple-modelattribute-on-the-same-form
 
-//		map.addAttribute("files", storageService.loadAll().map(
-//                path -> MvcUriComponentsBuilder.fromMethodName(FileUploaderController.class,
-//                        "serveFile", path.getFileName().toString()).build().toString())
-//                .collect(Collectors.toList()));
+		// map.addAttribute("files", storageService.loadAll().map(
+		// path -> MvcUriComponentsBuilder.fromMethodName(FileUploaderController.class,
+		// "serveFile", path.getFileName().toString()).build().toString())
+		// .collect(Collectors.toList()));
 		Update update = new Update(false);
 		map.addAttribute("update", update);
 		System.out.println("wat is dit " + update.isUpdate());

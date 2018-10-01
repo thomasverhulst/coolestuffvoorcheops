@@ -32,55 +32,56 @@ import com.tv.tutorials.coolestuffvoorcheops.services.IStorageService;
 public class FileUploaderController {
 
 	private final IStorageService storageService;
-	public String uploadDirectory = System.getProperty("user.dir")+"/uploads";
-    @Autowired
-    public FileUploaderController(IStorageService storageService) {
-        this.storageService = storageService;
-    }
+	public String uploadDirectory = System.getProperty("user.dir") + "/uploads";
 
-    @GetMapping("/upload2")
-    public String listUploadedFiles(Model model) throws IOException {
+	@Autowired
+	public FileUploaderController(IStorageService storageService) {
+		this.storageService = storageService;
+	}
 
-        model.addAttribute("files", storageService.loadAll().map(
-                path -> MvcUriComponentsBuilder.fromMethodName(FileUploaderController.class,
-                        "serveFile", path.getFileName().toString()).build().toString())
-                .collect(Collectors.toList()));
+	@GetMapping("/upload2")
+	public String listUploadedFiles(Model model) throws IOException {
 
-        return "uploading";
-    }
+		model.addAttribute("files", storageService.loadAll()
+				.map(path -> MvcUriComponentsBuilder
+						.fromMethodName(FileUploaderController.class, "serveFile", path.getFileName().toString())
+						.build().toString())
+				.collect(Collectors.toList()));
 
-    @GetMapping("/files/{filename:.+}")
-    @ResponseBody
-    public ResponseEntity<Resource> serveFile(@PathVariable String filename) {
+		return "uploading";
+	}
 
-        Resource file = storageService.loadAsResource(filename);
-        return ResponseEntity.ok().header(HttpHeaders.CONTENT_DISPOSITION,
-                "attachment; filename=\"" + file.getFilename() + "\"").body(file);
-    	//return null;
-        
-    }
+	@GetMapping("/files/{filename:.+}")
+	@ResponseBody
+	public ResponseEntity<Resource> serveFile(@PathVariable String filename) {
 
-    @PostMapping("/upload3")
-    public String handleFileUpload(@RequestParam("file") MultipartFile file,
-            RedirectAttributes redirectAttributes) throws IOException {
-    	System.out.println("we zijn hier");
-    	
-    	
-    	
-    	Path filenameAndPath = Paths.get(uploadDirectory, file.getOriginalFilename());
-    	
-    	Files.write(filenameAndPath, file.getBytes());
-    	
-        storageService.store(file);
-        System.out.println("we zijn hier2");
-        redirectAttributes.addFlashAttribute("message",
-                "You successfully uploaded " + file.getOriginalFilename() + "!");
+		Resource file = storageService.loadAsResource(filename);
+		return ResponseEntity.ok()
+				.header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + file.getFilename() + "\"")
+				.body(file);
+		// return null;
 
-        return "redirect:/";
-    }
-    
-    @ExceptionHandler(StorageFileNotFoundException.class)
-    public ResponseEntity<?> handleStorageFileNotFound(StorageFileNotFoundException exc) {
-        return ResponseEntity.notFound().build();
-}
+	}
+
+	@PostMapping("/upload3")
+	public String handleFileUpload(@RequestParam("file") MultipartFile file, RedirectAttributes redirectAttributes)
+			throws IOException {
+		System.out.println("we zijn hier");
+
+		Path filenameAndPath = Paths.get(uploadDirectory, file.getOriginalFilename());
+
+		Files.write(filenameAndPath, file.getBytes());
+
+		storageService.store(file);
+		System.out.println("we zijn hier2");
+		redirectAttributes.addFlashAttribute("message",
+				"You successfully uploaded " + file.getOriginalFilename() + "!");
+
+		return "redirect:/";
+	}
+
+	@ExceptionHandler(StorageFileNotFoundException.class)
+	public ResponseEntity<?> handleStorageFileNotFound(StorageFileNotFoundException exc) {
+		return ResponseEntity.notFound().build();
+	}
 }

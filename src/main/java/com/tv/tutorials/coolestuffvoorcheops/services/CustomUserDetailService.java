@@ -17,20 +17,23 @@ public class CustomUserDetailService implements UserDetailsService {
 
 	@Autowired
 	private UserRepository userRepository;
+
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-		
-		Optional<User> optionalUser = userRepository.findByName(username);
-	   
-		optionalUser.orElseThrow(() -> new UsernameNotFoundException("Username not found"));
-        return optionalUser.map(CustomUserDetails::new).get();
 
-	        //optionalUsers.orElseThrow(() -> new UsernameNotFoundException("Username not found"));
-	       // return optionalUser.map(CustomUserDetails::new).get();
-	    }// Minuut 22 https://www.youtube.com/watch?v=egXtoL5Kg08
+		Optional<User> optionalUser = userRepository.findByName(username);
+
+		optionalUser.orElseThrow(() -> new UsernameNotFoundException("Username not found"));
+		return optionalUser.map(CustomUserDetails::new).get();
+
+		// optionalUsers.orElseThrow(() -> new UsernameNotFoundException("Username not
+		// found"));
+		// return optionalUser.map(CustomUserDetails::new).get();
+	}// Minuut 22 https://www.youtube.com/watch?v=egXtoL5Kg08
+
 	public void addUser(User temp) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 }

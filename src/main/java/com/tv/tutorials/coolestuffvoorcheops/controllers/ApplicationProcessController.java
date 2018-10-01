@@ -23,23 +23,25 @@ public class ApplicationProcessController {
 	CandidateService candidateservice;
 	@Autowired
 	ApplicationProcessService applicationProcessService;
-	
+
 	@RequestMapping(value = "searchapplicationproces2/{candidateId}", method = RequestMethod.GET)
-    public String searchApplicationProcess( Model model ,@PathVariable("candidateId") int candidateId ) {
-		Integer applicationProcessId = candidateservice.getCandidateById(candidateId).getApplicationProcessId() ;
-		model.addAttribute("applicationProcess", applicationProcessService.getApplicationProcessById(applicationProcessId));
+	public String searchApplicationProcess(Model model, @PathVariable("candidateId") int candidateId) {
+		Integer applicationProcessId = candidateservice.getCandidateById(candidateId).getApplicationProcessId();
+		model.addAttribute("applicationProcess",
+				applicationProcessService.getApplicationProcessById(applicationProcessId));
 		return "updateapplicationprocess";
-    }
-	
+	}
+
 	@PostMapping("/updateApplicationProcess/{applicationProcessId}")
-	public String save(@Valid ApplicationProcess applicationProcess, @PathVariable("applicationProcessId") int id ,BindingResult result, RedirectAttributes redirect) {
+	public String save(@Valid ApplicationProcess applicationProcess, @PathVariable("applicationProcessId") int id,
+			BindingResult result, RedirectAttributes redirect) {
 
 		if (result.hasErrors()) {
 
 			return "updateapplicationprocess";
 		}
-	
-		applicationProcessService.saveOrUpdateApplicationProcess(id,applicationProcess);			
+
+		applicationProcessService.saveOrUpdateApplicationProcess(id, applicationProcess);
 		redirect.addFlashAttribute("success", "Saved employee successfully!");
 		return "updatesucces";
 	}

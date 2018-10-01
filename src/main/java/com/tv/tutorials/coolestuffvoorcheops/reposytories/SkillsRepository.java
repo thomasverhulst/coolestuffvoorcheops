@@ -6,13 +6,14 @@ import org.springframework.data.repository.CrudRepository;
 
 import com.tv.tutorials.coolestuffvoorcheops.model.Skills;
 
-public interface SkillsRepository extends  CrudRepository<Skills, Integer>  {
-	//List<Address> findByStreetNameAndPostalCode(String streetName, String postalCode); {
+public interface SkillsRepository extends CrudRepository<Skills, Integer> {
+	// List<Address> findByStreetNameAndPostalCode(String streetName, String
+	// postalCode); {
 
-	//List<Skills> findAllByDotnetGreaterThan(int i);
-	//List<Skills> findAllByJavaGreaterThan(int i);
+	// List<Skills> findAllByDotnetGreaterThan(int i);
+	// List<Skills> findAllByJavaGreaterThan(int i);
 
-	//List<Skills> findAllByDotnetTrue(boolean isdotnett);
+	// List<Skills> findAllByDotnetTrue(boolean isdotnett);
 
 	List<Skills> findAllByDotnet(boolean isdotnett);
 
@@ -22,8 +23,8 @@ public interface SkillsRepository extends  CrudRepository<Skills, Integer>  {
 
 	Object findAllByExperienceGreaterThan(int experience);
 
-	//Object findAllByExperienceGreaterThanIn(int experience);
-	
-	//List<Skills> findAllByFrontenderGreaterThan(int i);
+	// Object findAllByExperienceGreaterThanIn(int experience);
+
+	// List<Skills> findAllByFrontenderGreaterThan(int i);
 
 }

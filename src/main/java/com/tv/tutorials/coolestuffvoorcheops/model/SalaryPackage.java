@@ -8,36 +8,36 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="salarypackage")
+@Table(name = "salarypackage")
 public class SalaryPackage {
 
 	@Id
-	@Column(name="idsalarypackage")
+	@Column(name = "idsalarypackage")
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
-	
-	@Column(name="grosssalary")
-	private double grossSalary; 
-	
-	@Column(name="car")
-	private String car; 
-	
-	@Column(name="dailyallowance")
-	private Double dailyAllowance; 
-	
-	@Column(name="maaltijdchecques")
-	private Double maaltijdchecques; 
-	
-	@Column(name="hospitalization")
+
+	@Column(name = "grosssalary")
+	private double grossSalary;
+
+	@Column(name = "car")
+	private String car;
+
+	@Column(name = "dailyallowance")
+	private Double dailyAllowance;
+
+	@Column(name = "maaltijdchecques")
+	private Double maaltijdchecques;
+
+	@Column(name = "hospitalization")
 	private boolean hospitalization;
-	
-	@Column(name="groupinsurance")
+
+	@Column(name = "groupinsurance")
 	private boolean groupInsurance;
 
 	public SalaryPackage() {
-		
+
 	}
-	
+
 	public SalaryPackage(double grossSalary, String car, Double dailyAllowance, Double maaltijdchecques,
 			boolean hospitalization, boolean groupInsurance) {
 		super();
@@ -104,6 +104,5 @@ public class SalaryPackage {
 	public Integer getId() {
 		return id;
 	}
-	
-	
+
 }
