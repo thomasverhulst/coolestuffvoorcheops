@@ -1,4 +1,4 @@
-package com.tv.tutorials.coolestuffvoorcheops.services;
+package com.tv.tutorials.coolestuffvoorcheops.services.impl;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -11,10 +11,11 @@ import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.tv.tutorials.coolestuffvoorcheops.model.ApplicationProcess;
-import com.tv.tutorials.coolestuffvoorcheops.model.Candidate;
-import com.tv.tutorials.coolestuffvoorcheops.model.Skills;
-import com.tv.tutorials.coolestuffvoorcheops.reposytories.SkillsRepository;
+import com.tv.tutorials.coolestuffvoorcheops.models.ApplicationProcess;
+import com.tv.tutorials.coolestuffvoorcheops.models.Candidate;
+import com.tv.tutorials.coolestuffvoorcheops.models.Skills;
+import com.tv.tutorials.coolestuffvoorcheops.repositories.SkillsRepository;
+import com.tv.tutorials.coolestuffvoorcheops.services.ISkillService;
 
 @Service
 public class SkillsService implements ISkillService {

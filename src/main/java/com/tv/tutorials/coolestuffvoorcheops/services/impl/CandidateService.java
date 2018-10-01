@@ -1,4 +1,4 @@
-package com.tv.tutorials.coolestuffvoorcheops.services;
+package com.tv.tutorials.coolestuffvoorcheops.services.impl;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -14,11 +14,12 @@ import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.tv.tutorials.coolestuffvoorcheops.model.Address;
-import com.tv.tutorials.coolestuffvoorcheops.model.ApplicationProcess;
-import com.tv.tutorials.coolestuffvoorcheops.model.Candidate;
-import com.tv.tutorials.coolestuffvoorcheops.reposytories.AddressRepository;
-import com.tv.tutorials.coolestuffvoorcheops.reposytories.CandidateRepository;
+import com.tv.tutorials.coolestuffvoorcheops.models.Address;
+import com.tv.tutorials.coolestuffvoorcheops.models.ApplicationProcess;
+import com.tv.tutorials.coolestuffvoorcheops.models.Candidate;
+import com.tv.tutorials.coolestuffvoorcheops.repositories.AddressRepository;
+import com.tv.tutorials.coolestuffvoorcheops.repositories.CandidateRepository;
+import com.tv.tutorials.coolestuffvoorcheops.services.ICandidateService;
 
 @Service
 public class CandidateService implements ICandidateService {

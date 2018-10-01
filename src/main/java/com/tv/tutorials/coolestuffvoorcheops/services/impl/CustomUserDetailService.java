@@ -1,4 +1,4 @@
-package com.tv.tutorials.coolestuffvoorcheops.services;
+package com.tv.tutorials.coolestuffvoorcheops.services.impl;
 
 import java.util.Optional;
 
@@ -8,9 +8,9 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import com.tv.tutorials.coolestuffvoorcheops.model.CustomUserDetails;
-import com.tv.tutorials.coolestuffvoorcheops.model.User;
-import com.tv.tutorials.coolestuffvoorcheops.reposytories.UserRepository;
+import com.tv.tutorials.coolestuffvoorcheops.models.CustomUserDetails;
+import com.tv.tutorials.coolestuffvoorcheops.models.User;
+import com.tv.tutorials.coolestuffvoorcheops.repositories.UserRepository;
 
 @Service
 public class CustomUserDetailService implements UserDetailsService {

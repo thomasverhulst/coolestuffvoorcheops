@@ -13,7 +13,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.header.writers.StaticHeadersWriter;
 
-import com.tv.tutorials.coolestuffvoorcheops.reposytories.UserRepository;
+import com.tv.tutorials.coolestuffvoorcheops.repositories.UserRepository;
 
 @Primary
 @EnableGlobalMethodSecurity(prePostEnabled = true)

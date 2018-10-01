@@ -1,4 +1,4 @@
-package com.tv.tutorials.coolestuffvoorcheops.services;
+package com.tv.tutorials.coolestuffvoorcheops.services.impl;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -7,8 +7,9 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.tv.tutorials.coolestuffvoorcheops.model.SalaryPackage;
-import com.tv.tutorials.coolestuffvoorcheops.reposytories.SalaryPackageRepository;
+import com.tv.tutorials.coolestuffvoorcheops.models.SalaryPackage;
+import com.tv.tutorials.coolestuffvoorcheops.repositories.SalaryPackageRepository;
+import com.tv.tutorials.coolestuffvoorcheops.services.ISalaryPackageService;
 
 @Service
 public class SalaryPackageService implements ISalaryPackageService {

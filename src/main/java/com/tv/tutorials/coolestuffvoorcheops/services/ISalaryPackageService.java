@@ -2,7 +2,7 @@ package com.tv.tutorials.coolestuffvoorcheops.services;
 
 import java.util.List;
 
-import com.tv.tutorials.coolestuffvoorcheops.model.SalaryPackage;
+import com.tv.tutorials.coolestuffvoorcheops.models.SalaryPackage;
 
 public interface ISalaryPackageService {
 

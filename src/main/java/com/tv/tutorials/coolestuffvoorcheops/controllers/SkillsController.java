@@ -13,11 +13,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-//import com.google.common.base.Optional;
-import com.tv.tutorials.coolestuffvoorcheops.model.Skills;
-import com.tv.tutorials.coolestuffvoorcheops.reposytories.SkillsRepository;
-import com.tv.tutorials.coolestuffvoorcheops.services.CandidateService;
-import com.tv.tutorials.coolestuffvoorcheops.services.SkillsService;
+import com.tv.tutorials.coolestuffvoorcheops.models.Skills;
+import com.tv.tutorials.coolestuffvoorcheops.repositories.SkillsRepository;
+import com.tv.tutorials.coolestuffvoorcheops.services.impl.CandidateService;
+import com.tv.tutorials.coolestuffvoorcheops.services.impl.SkillsService;
 
 @Controller
 public class SkillsController {

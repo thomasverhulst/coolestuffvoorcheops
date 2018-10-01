@@ -1,4 +1,4 @@
-package com.tv.tutorials.coolestuffvoorcheops.services;
+package com.tv.tutorials.coolestuffvoorcheops.services.impl;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -6,8 +6,9 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.tv.tutorials.coolestuffvoorcheops.model.Address;
-import com.tv.tutorials.coolestuffvoorcheops.reposytories.AddressRepository;
+import com.tv.tutorials.coolestuffvoorcheops.models.Address;
+import com.tv.tutorials.coolestuffvoorcheops.repositories.AddressRepository;
+import com.tv.tutorials.coolestuffvoorcheops.services.IAddressService;
 
 @Service
 public class AddressService implements IAddressService {

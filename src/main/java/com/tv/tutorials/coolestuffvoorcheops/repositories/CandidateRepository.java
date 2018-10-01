@@ -1,10 +1,10 @@
-package com.tv.tutorials.coolestuffvoorcheops.reposytories;
+package com.tv.tutorials.coolestuffvoorcheops.repositories;
 
 import java.util.List;
 
 import org.springframework.data.repository.CrudRepository;
 
-import com.tv.tutorials.coolestuffvoorcheops.model.Candidate;
+import com.tv.tutorials.coolestuffvoorcheops.models.Candidate;
 
 public interface CandidateRepository extends CrudRepository<Candidate, Integer> {
 	// List<Address> findByStreetNameAndPostalCode(String streetName, String

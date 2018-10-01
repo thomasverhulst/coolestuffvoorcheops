@@ -13,11 +13,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.tv.tutorials.coolestuffvoorcheops.model.Candidate;
-import com.tv.tutorials.coolestuffvoorcheops.model.SalaryPackage;
-import com.tv.tutorials.coolestuffvoorcheops.model.Update;
-import com.tv.tutorials.coolestuffvoorcheops.services.CandidateService;
-import com.tv.tutorials.coolestuffvoorcheops.services.SalaryPackageService;
+import com.tv.tutorials.coolestuffvoorcheops.models.Candidate;
+import com.tv.tutorials.coolestuffvoorcheops.models.SalaryPackage;
+import com.tv.tutorials.coolestuffvoorcheops.models.Update;
+import com.tv.tutorials.coolestuffvoorcheops.services.impl.CandidateService;
+import com.tv.tutorials.coolestuffvoorcheops.services.impl.SalaryPackageService;
 
 @Controller
 public class SalaryPackageController {

@@ -17,17 +17,17 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.tv.tutorials.coolestuffvoorcheops.model.Address;
-import com.tv.tutorials.coolestuffvoorcheops.model.CandaidateSearchModel;
-import com.tv.tutorials.coolestuffvoorcheops.model.Candidate;
-import com.tv.tutorials.coolestuffvoorcheops.model.SalaryPackage;
-import com.tv.tutorials.coolestuffvoorcheops.model.Search;
-import com.tv.tutorials.coolestuffvoorcheops.model.Skills;
-import com.tv.tutorials.coolestuffvoorcheops.services.AddressService;
-import com.tv.tutorials.coolestuffvoorcheops.services.ApplicationProcessService;
-import com.tv.tutorials.coolestuffvoorcheops.services.CandidateService;
-import com.tv.tutorials.coolestuffvoorcheops.services.SalaryPackageService;
-import com.tv.tutorials.coolestuffvoorcheops.services.SkillsService;
+import com.tv.tutorials.coolestuffvoorcheops.models.Address;
+import com.tv.tutorials.coolestuffvoorcheops.models.CandaidateSearchModel;
+import com.tv.tutorials.coolestuffvoorcheops.models.Candidate;
+import com.tv.tutorials.coolestuffvoorcheops.models.SalaryPackage;
+import com.tv.tutorials.coolestuffvoorcheops.models.Search;
+import com.tv.tutorials.coolestuffvoorcheops.models.Skills;
+import com.tv.tutorials.coolestuffvoorcheops.services.impl.AddressService;
+import com.tv.tutorials.coolestuffvoorcheops.services.impl.ApplicationProcessService;
+import com.tv.tutorials.coolestuffvoorcheops.services.impl.CandidateService;
+import com.tv.tutorials.coolestuffvoorcheops.services.impl.SalaryPackageService;
+import com.tv.tutorials.coolestuffvoorcheops.services.impl.SkillsService;
 
 @Controller
 public class SearchController {

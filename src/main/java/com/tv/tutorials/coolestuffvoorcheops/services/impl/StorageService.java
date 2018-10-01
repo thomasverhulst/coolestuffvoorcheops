@@ -1,4 +1,4 @@
-package com.tv.tutorials.coolestuffvoorcheops.services;
+package com.tv.tutorials.coolestuffvoorcheops.services.impl;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -20,6 +20,7 @@ import org.springframework.web.multipart.MultipartFile;
 import com.tv.tutorials.coolestuffvoorcheops.configuration.StorageProperties;
 import com.tv.tutorials.coolestuffvoorcheops.exceptions.StorageException;
 import com.tv.tutorials.coolestuffvoorcheops.exceptions.StorageFileNotFoundException;
+import com.tv.tutorials.coolestuffvoorcheops.services.IStorageService;
 
 @Service
 public class StorageService implements IStorageService {

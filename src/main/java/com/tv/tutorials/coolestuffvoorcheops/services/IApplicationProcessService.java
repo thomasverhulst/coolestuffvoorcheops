@@ -2,8 +2,7 @@ package com.tv.tutorials.coolestuffvoorcheops.services;
 
 import java.util.List;
 
-//import com.tv.tutorials.coolestuffvoorcheops.model.ApplicationProces;
-import com.tv.tutorials.coolestuffvoorcheops.model.ApplicationProcess;
+import com.tv.tutorials.coolestuffvoorcheops.models.ApplicationProcess;
 
 public interface IApplicationProcessService {
 

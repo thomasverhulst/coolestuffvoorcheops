@@ -1,4 +1,4 @@
-package com.tv.tutorials.coolestuffvoorcheops.model;
+package com.tv.tutorials.coolestuffvoorcheops.models;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

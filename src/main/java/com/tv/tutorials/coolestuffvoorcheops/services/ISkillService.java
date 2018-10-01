@@ -2,7 +2,7 @@ package com.tv.tutorials.coolestuffvoorcheops.services;
 
 import java.util.List;
 
-import com.tv.tutorials.coolestuffvoorcheops.model.Skills;
+import com.tv.tutorials.coolestuffvoorcheops.models.Skills;
 
 public interface ISkillService {
 

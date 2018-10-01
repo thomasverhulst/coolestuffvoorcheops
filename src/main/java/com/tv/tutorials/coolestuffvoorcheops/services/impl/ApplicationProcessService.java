@@ -1,4 +1,4 @@
-package com.tv.tutorials.coolestuffvoorcheops.services;
+package com.tv.tutorials.coolestuffvoorcheops.services.impl;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -11,8 +11,9 @@ import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.tv.tutorials.coolestuffvoorcheops.model.ApplicationProcess;
-import com.tv.tutorials.coolestuffvoorcheops.reposytories.ApplicationProcessRepository;
+import com.tv.tutorials.coolestuffvoorcheops.models.ApplicationProcess;
+import com.tv.tutorials.coolestuffvoorcheops.repositories.ApplicationProcessRepository;
+import com.tv.tutorials.coolestuffvoorcheops.services.IApplicationProcessService;
 
 @Service
 public class ApplicationProcessService implements IApplicationProcessService {

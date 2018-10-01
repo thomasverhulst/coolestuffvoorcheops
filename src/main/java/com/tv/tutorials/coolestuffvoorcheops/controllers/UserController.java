@@ -9,9 +9,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.tv.tutorials.coolestuffvoorcheops.model.Role;
-import com.tv.tutorials.coolestuffvoorcheops.model.User;
-import com.tv.tutorials.coolestuffvoorcheops.services.CustomUserDetailService;
+import com.tv.tutorials.coolestuffvoorcheops.models.Role;
+import com.tv.tutorials.coolestuffvoorcheops.models.User;
+import com.tv.tutorials.coolestuffvoorcheops.services.impl.CustomUserDetailService;
 
 //import com.tv.tutorials.coolestuffvoorcheops.services.UserService;
 @Controller
