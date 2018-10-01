@@ -1,4 +1,4 @@
-package com.tv.tutorials.coolestuffvoorcheops.services;
+package com.tv.tutorials.coolestuffvoorcheops.services.impl;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -6,8 +6,9 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.tv.tutorials.coolestuffvoorcheops.model.Address;
-import com.tv.tutorials.coolestuffvoorcheops.reposytories.AddressRepository;
+import com.tv.tutorials.coolestuffvoorcheops.models.Address;
+import com.tv.tutorials.coolestuffvoorcheops.repositories.AddressRepository;
+import com.tv.tutorials.coolestuffvoorcheops.services.IAddressService;
 
 @Service
 public class AddressService implements IAddressService {
@@ -18,7 +19,7 @@ public class AddressService implements IAddressService {
 	@Override
 	public List<Address> getAllAdresses() {
 		List<Address> list = new ArrayList<>();
-		 addressRepository.findAll().forEach(e -> list.add(e));
+		addressRepository.findAll().forEach(e -> list.add(e));
 		return list;
 	}
 
@@ -47,4 +48,4 @@ public class AddressService implements IAddressService {
 	}
 
 }
-//https://www.concretepage.com/spring-boot/spring-boot-crudrepository-example
+// https://www.concretepage.com/spring-boot/spring-boot-crudrepository-example

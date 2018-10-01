@@ -1,4 +1,4 @@
-package com.tv.tutorials.coolestuffvoorcheops.model;
+package com.tv.tutorials.coolestuffvoorcheops.models;
 
 import java.util.Date;
 
@@ -12,65 +12,65 @@ import javax.persistence.Table;
 import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
-@Table(name="applicationprocess")
+@Table(name = "applicationprocess")
 public class ApplicationProcess {
 
 	@Id
-	@Column(name="idapplicationprocess")
+	@Column(name = "idapplicationprocess")
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
-	
+
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
-	@Column(name="applicationdate")
+	@Column(name = "applicationdate")
 	private Date applicationDate;
-	
-	@Column(name="tobeinvitedforfirstconversation")
+
+	@Column(name = "tobeinvitedforfirstconversation")
 	private Boolean toBeInvitedForFirstConversation;
-	
+
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
-	@Column(name="invitationdate")
+	@Column(name = "invitationdate")
 	private Date invitationDate;
-	
+
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
-	@Column(name="firstconversationdate")
+	@Column(name = "firstconversationdate")
 	private Date firstConversationDate;
-	
-	@Column(name="staffnamefirstconversation")
+
+	@Column(name = "staffnamefirstconversation")
 	private String staffNameFirstConversation;
-	
-	@Column(name="feedbackfirstconversation")
+
+	@Column(name = "feedbackfirstconversation")
 	private String feedbackFirstConversation;
-	
-	@Column(name="tobeinvitedfortechnicalconversation")
+
+	@Column(name = "tobeinvitedfortechnicalconversation")
 	private Boolean toBeInvitedForTechnicalConversation;
-	
+
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
-	@Column(name="technicalconversationdate")
+	@Column(name = "technicalconversationdate")
 	private Date technicalConversationDate;
-	
-	@Column(name="staffnametechnicalconversation")
+
+	@Column(name = "staffnametechnicalconversation")
 	private String staffNameTechnicalConversation;
-	
-	@Column(name="feedbacktechnicalconversation")
+
+	@Column(name = "feedbacktechnicalconversation")
 	private String feedbackTechnicalConversation;
-	
-	@Column(name="tobesendfinancialproposal")
+
+	@Column(name = "tobesendfinancialproposal")
 	private Boolean toBeSendFinancialProposal;
-	
+
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
-	@Column(name="financialproposaldate")
+	@Column(name = "financialproposaldate")
 	private Date financialProposalDate;
-	
-	@Column(name="feedbackfinancialproposal")
+
+	@Column(name = "feedbackfinancialproposal")
 	private String feedbackFinancialProposal;
-	
-	@Column(name="isrecruited")
+
+	@Column(name = "isrecruited")
 	private Boolean isRecruited;
-	
+
 	public ApplicationProcess() {
-		
+
 	}
-	
+
 	public ApplicationProcess(Date applicationDate, Boolean toBeInvitedForFirstConversation, Date invitationDate,
 			Date firstConversationDate, String staffNameFirstConversation, String feedbackFirstConversation,
 			Boolean toBeInvitedForTechnicalConversation, Date technicalConversationDate,
@@ -93,20 +93,18 @@ public class ApplicationProcess {
 		this.feedbackFinancialProposal = feedbackFinancialProposal;
 		this.isRecruited = isRecruited;
 	}
-	
-	 @Override
-	 public boolean equals(Object obj) {
 
-	    try {
-	    	ApplicationProcess applicationProcess  = (ApplicationProcess) obj;
-	          return id.equals(applicationProcess.getId());
-	       }
-	        catch (Exception e)
-	        {
-	            return false;
-	        }
+	@Override
+	public boolean equals(Object obj) {
 
-	    }
+		try {
+			ApplicationProcess applicationProcess = (ApplicationProcess) obj;
+			return id.equals(applicationProcess.getId());
+		} catch (Exception e) {
+			return false;
+		}
+
+	}
 
 	public Date getApplicationDate() {
 		return applicationDate;
@@ -227,6 +225,5 @@ public class ApplicationProcess {
 	public void setId(Integer id) {
 		this.id = id;
 	}
-	
-	
+
 }

@@ -25,20 +25,20 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.tv.tutorials.coolestuffvoorcheops.model.Address;
-import com.tv.tutorials.coolestuffvoorcheops.model.ApplicationProcess;
-import com.tv.tutorials.coolestuffvoorcheops.model.Candidate;
-import com.tv.tutorials.coolestuffvoorcheops.model.SalaryPackage;
-import com.tv.tutorials.coolestuffvoorcheops.model.Skills;
-import com.tv.tutorials.coolestuffvoorcheops.model.Update;
-import com.tv.tutorials.coolestuffvoorcheops.reposytories.AddressRepository;
-import com.tv.tutorials.coolestuffvoorcheops.reposytories.CandidateRepository;
-import com.tv.tutorials.coolestuffvoorcheops.services.AddressService;
-import com.tv.tutorials.coolestuffvoorcheops.services.ApplicationProcessService;
-import com.tv.tutorials.coolestuffvoorcheops.services.CandidateService;
+import com.tv.tutorials.coolestuffvoorcheops.models.Address;
+import com.tv.tutorials.coolestuffvoorcheops.models.ApplicationProcess;
+import com.tv.tutorials.coolestuffvoorcheops.models.Candidate;
+import com.tv.tutorials.coolestuffvoorcheops.models.SalaryPackage;
+import com.tv.tutorials.coolestuffvoorcheops.models.Skills;
+import com.tv.tutorials.coolestuffvoorcheops.models.Update;
+import com.tv.tutorials.coolestuffvoorcheops.repositories.AddressRepository;
+import com.tv.tutorials.coolestuffvoorcheops.repositories.CandidateRepository;
 import com.tv.tutorials.coolestuffvoorcheops.services.IStorageService;
-import com.tv.tutorials.coolestuffvoorcheops.services.SalaryPackageService;
-import com.tv.tutorials.coolestuffvoorcheops.services.SkillsService;
+import com.tv.tutorials.coolestuffvoorcheops.services.impl.AddressService;
+import com.tv.tutorials.coolestuffvoorcheops.services.impl.ApplicationProcessService;
+import com.tv.tutorials.coolestuffvoorcheops.services.impl.CandidateService;
+import com.tv.tutorials.coolestuffvoorcheops.services.impl.SalaryPackageService;
+import com.tv.tutorials.coolestuffvoorcheops.services.impl.SkillsService;
 
 @Controller
 public class CancidateController {
@@ -79,10 +79,10 @@ public class CancidateController {
 		// ModelMap
 		// https://stackoverflow.com/questions/13242394/spring-mvc-multiple-modelattribute-on-the-same-form
 
-//		map.addAttribute("files", storageService.loadAll().map(
-//                path -> MvcUriComponentsBuilder.fromMethodName(FileUploaderController.class,
-//                        "serveFile", path.getFileName().toString()).build().toString())
-//                .collect(Collectors.toList()));
+		// map.addAttribute("files", storageService.loadAll().map(
+		// path -> MvcUriComponentsBuilder.fromMethodName(FileUploaderController.class,
+		// "serveFile", path.getFileName().toString()).build().toString())
+		// .collect(Collectors.toList()));
 		Update update = new Update(false);
 		map.addAttribute("update", update);
 		System.out.println("wat is dit " + update.isUpdate());

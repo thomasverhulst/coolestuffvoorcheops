@@ -1,9 +1,9 @@
-package com.tv.tutorials.coolestuffvoorcheops.model;
+package com.tv.tutorials.coolestuffvoorcheops.models;
 
 public class CandaidateSearchModel {
 
-	private String id; 
-	
+	private String id;
+
 	private String link;
 
 	public CandaidateSearchModel(String id, String link) {
@@ -11,9 +11,9 @@ public class CandaidateSearchModel {
 		this.id = id;
 		this.link = link;
 	}
-	
-	public CandaidateSearchModel(){
-		
+
+	public CandaidateSearchModel() {
+
 	}
 
 	public String getId() {
@@ -31,6 +31,5 @@ public class CandaidateSearchModel {
 	public void setLink(String link) {
 		this.link = link;
 	}
-	
-	
+
 }

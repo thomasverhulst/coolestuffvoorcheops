@@ -9,11 +9,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class OpenIdController {
 
 	@RequestMapping("/openid")
-    @ResponseBody
-    public String home() {
-        String username = SecurityContextHolder.getContext().getAuthentication().getName();
-        return "Welcome, " + username;
-    }
-	
-	
+	@ResponseBody
+	public String home() {
+		String username = SecurityContextHolder.getContext().getAuthentication().getName();
+		return "Welcome, " + username;
+	}
+
 }

@@ -1,4 +1,4 @@
-package com.tv.tutorials.coolestuffvoorcheops.model;
+package com.tv.tutorials.coolestuffvoorcheops.models;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -15,10 +15,10 @@ public class Search {
 	private boolean java;
 	private boolean dotnet;
 	private int experience;
-	//private int years;
-	
+	// private int years;
+
 	public Search() {
-		
+
 	}
 
 	public Search(boolean employed, boolean frontender, boolean java, boolean dotnet, int experience) {
@@ -77,5 +77,5 @@ public class Search {
 	public void setExperience(int experience) {
 		this.experience = experience;
 	}
-	
+
 }

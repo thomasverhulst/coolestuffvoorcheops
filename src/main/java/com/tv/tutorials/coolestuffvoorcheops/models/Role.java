@@ -1,4 +1,4 @@
-package com.tv.tutorials.coolestuffvoorcheops.model;
+package com.tv.tutorials.coolestuffvoorcheops.models;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -6,21 +6,23 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+
 @Entity
-@Table(name="role")
+@Table(name = "role")
 public class Role {
 
 	@Id
-	@Column(name="role_id")
+	@Column(name = "role_id")
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
-	
-	@Column(name="role")
+
+	@Column(name = "role")
 	private String role;
 
 	public Role() {
-		
+
 	}
+
 	public Role(Integer id, String role) {
 		super();
 		this.id = id;
@@ -34,15 +36,13 @@ public class Role {
 	public void setId(Integer id) {
 		this.id = id;
 	}
+
 	public String getRole() {
 		return role;
 	}
+
 	public void setRole(String role) {
 		this.role = role;
 	}
 
-	
-	
-	
-	
 }

@@ -12,9 +12,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.tv.tutorials.coolestuffvoorcheops.model.ApplicationProcess;
-import com.tv.tutorials.coolestuffvoorcheops.services.ApplicationProcessService;
-import com.tv.tutorials.coolestuffvoorcheops.services.CandidateService;
+import com.tv.tutorials.coolestuffvoorcheops.models.ApplicationProcess;
+import com.tv.tutorials.coolestuffvoorcheops.services.impl.ApplicationProcessService;
+import com.tv.tutorials.coolestuffvoorcheops.services.impl.CandidateService;
 
 @Controller
 public class ApplicationProcessController {
@@ -23,23 +23,25 @@ public class ApplicationProcessController {
 	CandidateService candidateservice;
 	@Autowired
 	ApplicationProcessService applicationProcessService;
-	
+
 	@RequestMapping(value = "searchapplicationproces2/{candidateId}", method = RequestMethod.GET)
-    public String searchApplicationProcess( Model model ,@PathVariable("candidateId") int candidateId ) {
-		Integer applicationProcessId = candidateservice.getCandidateById(candidateId).getApplicationProcessId() ;
-		model.addAttribute("applicationProcess", applicationProcessService.getApplicationProcessById(applicationProcessId));
+	public String searchApplicationProcess(Model model, @PathVariable("candidateId") int candidateId) {
+		Integer applicationProcessId = candidateservice.getCandidateById(candidateId).getApplicationProcessId();
+		model.addAttribute("applicationProcess",
+				applicationProcessService.getApplicationProcessById(applicationProcessId));
 		return "updateapplicationprocess";
-    }
-	
+	}
+
 	@PostMapping("/updateApplicationProcess/{applicationProcessId}")
-	public String save(@Valid ApplicationProcess applicationProcess, @PathVariable("applicationProcessId") int id ,BindingResult result, RedirectAttributes redirect) {
+	public String save(@Valid ApplicationProcess applicationProcess, @PathVariable("applicationProcessId") int id,
+			BindingResult result, RedirectAttributes redirect) {
 
 		if (result.hasErrors()) {
 
 			return "updateapplicationprocess";
 		}
-	
-		applicationProcessService.saveOrUpdateApplicationProcess(id,applicationProcess);			
+
+		applicationProcessService.saveOrUpdateApplicationProcess(id, applicationProcess);
 		redirect.addFlashAttribute("success", "Saved employee successfully!");
 		return "updatesucces";
 	}
