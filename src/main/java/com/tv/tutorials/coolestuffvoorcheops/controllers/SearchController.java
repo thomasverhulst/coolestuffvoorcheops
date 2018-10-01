@@ -17,7 +17,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.tv.tutorials.coolestuffvoorcheops.models.Address;
 import com.tv.tutorials.coolestuffvoorcheops.models.CandaidateSearchModel;
 import com.tv.tutorials.coolestuffvoorcheops.models.Candidate;
 import com.tv.tutorials.coolestuffvoorcheops.models.SalaryPackage;
@@ -62,23 +61,6 @@ public class SearchController {
 		return "search";
 	}
 
-	@RequestMapping(value = "/searchCandidate2", method = RequestMethod.POST)
-	public String register(Model model, @ModelAttribute("address") Address address,
-			@ModelAttribute("candidate") Candidate candidate, HttpSession session) {
-
-		// https://stackoverflow.com/questions/2227395/spring-3-0-set-and-get-session-attribute
-		// Candidate tmpCandidate =candidateservice.addCandidate(candidate);
-		// session.setAttribute("candidate", tmpCandidate);
-
-		// Address tmpAddress = addressService.addAddress(address);
-
-		// candidate.setAddressId(tmpAddress.getId());
-		// candidateservice.updateCandidate(candidate);
-		System.out.println("we hebben iest weggeschreven");
-		System.out.println("Address saven is gelukt? ");
-		return null;
-	}
-
 	@RequestMapping(value = "/searchCandidate")
 	public String getCandidateByNameAndSirName(ModelMap modelMap, HttpSession session) {
 		System.out.println("we zijn toch al hier");
@@ -95,6 +77,14 @@ public class SearchController {
 	public String gpostCandidateByNameAndSirName(@RequestParam("name") String name,
 			@RequestParam("sirName") String sirName, ModelMap modelMap, HttpSession session) {
 		System.out.println("we zijn toch al hier");
+
+		if (name.equals("")) {
+			name = "!";
+		}
+
+		if (sirName.equals("")) {
+			sirName = "!";
+		}
 
 		session.setAttribute("name", name);
 		session.setAttribute("sirName", sirName);
