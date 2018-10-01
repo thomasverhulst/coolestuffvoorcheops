@@ -1,0 +1,8 @@
+Apitest
+clientid? apitest-1488830431258
+
+
+naam		key
+openId		AIzaSyBIygg9zUOnTEtIYM2thEK4-u5KlxmkraI
+
+/c/Users/thomas.verhulst/Documents/workspace-sts-3.9.5.RELEASE/coolestuffvoorcheops
