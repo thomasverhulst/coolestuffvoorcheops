@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://thymeleaf.org">
+<head>
+<meta charset="utf-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+
+<link rel="shortcut icon" href="favicon.png" type="image/png"/> <!-- favicon werkt in firefox -->
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.metroui.org.ua/v4/css/metro-all.min.css">
+
+
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<title>Coole stuff voor Cheops</title>
+   <script src="https://ok1static.oktacdn.com/assets/js/sdk/okta-signin-widget/2.6.0/js/okta-sign-in.min.js" type="text/javascript"></script>
+
+   <link href="https://ok1static.oktacdn.com/assets/js/sdk/okta-signin-widget/2.6.0/css/okta-sign-in.min.css" type="text/css" rel="stylesheet">
+
+   <link href="https://ok1static.oktacdn.com/assets/js/sdk/okta-signin-widget/2.6.0/css/okta-theme.css" type="text/css" rel="stylesheet">
+
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+<body>
+<div class="container">
+	<h1>Goedemorgen</h1>
+
+
+<a href="/test">test dit</a>
+<a href="/register">Registreer kandidaat</a>
+
+
+<div>
+<a href="/search">Zoek in kandidaten</a>
+</div>
+
+<div>
+<a href="~/login.html">login</a>
+</div>
+
+<div>
+<a href="/user">registreer gebruiker</a>
+</div>
+
+<div>
+<a href="/openid">Open id test</a>
+</div>
+
+<div>
+<a href="/upload2">Upload een file</a>
+</div>
+
+<div>
+ <th:block th:include="/_menu"></th:block>
+
+      <h3>Spring Boot File Upload Example</h3>
+
+      <ul>
+        <li><a th:href="@{/uploadOneFile}">Upload One File Example</a></li>
+        <li><a th:href="@{/uploadMultiFile}">Upload Multiple Files Example</a></li>
+      </ul>
+</div>
+
+
+
+<!-- <div data-size="small" data-role="tile"><i class="fas fa-stroopwafel"></i> -->
+<!-- <span class="branding-bar">Branding bar</span> -->
+<!-- </div> -->
+<!-- <div data-size="medium" data-role="tile"><img src="images/github.png" class="icon"></div> -->
+<!-- <div data-size="wide" data-role="tile"><img src="images/github.png" class="icon"></div> -->
+<!-- <div data-size="large" data-role="tile"><span class="mif-github icon"></span></div> -->
+
+
+
+<div class="container">
+
+ 	<div class="first" style="margin-right: 1%; margin-bottom: 1%;">
+
+ 		<h1 style="text-align: center;">LOGIN</h1>
+		<a href="/login.html" class="first test">tessst
+			<span class="branding-bar">Branding bar</span>
+			<img src="images\User_login_Icon_256.png" class="icon" >
+		</a>
+ 	</div>
+
+ 	<div class="third" style="margin-bottom: 1%; ">
+ 		<div>
+ 		 		<h1 style="text-align: center;">REGISTREER</h1>
+
+ 		</div>
+ 		<div>
+ 			<a href="/register" class="third fill-div">
+				<img src="images\Add_Male_User_Icon_256.png" class="icon" >
+			</a>
+ 		</div>
+
+	</div>
+<!-- <div class="second" style="margin-right: 10px; margin-bottom: 10px;">  -->
+<!--  		<h1 style="text-align: center;">ZOEK</h1> -->
+<!-- 		<a href="/search" class="second" class="test">Zoek in kandidaten -->
+<!-- 			<img src="images\Search_Search_Folder_Icon_256.png" class="icon" style="text-align: center;"> -->
+<!-- 		</a> -->
+<!--  	</div>  -->
+
+<!-- <a href="https://www.w3schools.com"> -->
+<!-- <img border="0" alt="W3Schools" src="logo_w3s.gif" width="100" height="100"> -->
+<!-- </a> -->
+	<div class="second" style="margin-right: 1%;">
+		<div>
+			<h1 style="text-align: center;">ZOEK</h1>
+		</div>
+		<div>
+			<a href="/search" class="fill-div">
+				<img src="images\Search_Search_Folder_Icon_256.png" class="icon" style="text-align: center;">
+			</a>
+		</div>
+	</div>
+	<div class="fourth" >
+		<h1 style="text-align: center;">INSTELLINGEN</h1>
+		<a href="/instellingen">Instellingen
+			<img src="images\Configuration_Settings_Icon_256.png" class="icon" style="text-align: center;">
+		</a>
+	</div>
+	<div style="margin-right: 1%;" class=" test last ">
+		<h1 style="text-align: center;">TEST</h1>
+		<a href="/test">
+			<img src="images\Physical_sciences_Icon_256.png" class="icon" style="text-align: center;">
+		</a>
+	</div>
+</div>
+
+
+
+
+</div>
+
+
+
+<!-- Render the login widget here -->
+
+<div id="okta-login-container"></div>
+
+<!-- Render the REST response here -->
+
+<div id="cool-stuff-here"></div>
+
+<!-- And a logout button, hidden by default -->
+
+<button id="logout" type="button" class="btn btn-danger" style="display:none">Logout</button>
+
+<div th:replace="fragments/footer :: footer">...</div>
+
+<script>
+
+ $.ajax({
+
+   url: "/sign-in-widget-config",
+
+ }).then(function(data) {
+
+   // we are priming our config object with data retrieved from the server in order to make this example easier to run
+
+   // You could statically define your config like if you wanted too:
+
+   /*
+
+   const data = {
+
+     baseUrl: 'https://dev-123456.oktapreview.com',
+
+     clientId: '00icu81200icu812w0h7',
+
+     redirectUri: 'http://localhost:8080',
+
+     authParams: {
+
+       issuer: 'https://dev-123456.oktapreview.com/oauth2/default',
+
+       responseType: ['id_token', 'token']
+
+     }
+
+   }; */
+
+   // we want the access token so include 'token'
+
+   data.authParams.responseType = ['id_token', 'token'];
+
+   data.authParams.scopes = ['openid', 'email', 'profile'];
+
+   data.redirectUri = window.location.href; // simple single page app
+
+   // setup the widget
+
+   window.oktaSignIn = new OktaSignIn(data);
+
+   // handle the rest of the page
+
+   doInit();
+
+ });
+
+ /**
+
+  * Makes a request to a REST resource and displays a simple message to the page.
+
+  * @param accessToken The access token used for the auth header
+
+  */
+
+ function doAllTheThings(accessToken) {
+
+   // include the Bearer token in the request
+
+   $.ajax({
+
+     url: "/mod",
+
+     headers: {
+
+       'Authorization': "Bearer " + accessToken
+
+     },
+
+   }).then(function(data) {
+
+     // Render the message of the day
+
+     $('#cool-stuff-here').append("<strong>Message of the Day:</strong> "+ data);
+
+   })
+
+   .fail(function(data) {
+
+     // handle any errors
+
+     console.error("ERROR!!");
+
+     console.log(data.responseJSON.error);
+
+     console.log(data.responseJSON.error_description);
+
+   });
+
+   // show the logout button
+
+   $( "#logout" )[0].style.display = 'block';
+
+ }
+
+ function doInit() {
+
+   $( "#logout" ).click(function() {
+
+     oktaSignIn.signOut(() => {
+
+       oktaSignIn.tokenManager.clear();
+
+       location.reload();
+
+     });
+
+   });
+
+   // Check if we already have an access token
+
+   const token = oktaSignIn.tokenManager.get('my_access_token');
+
+   // if we do great, just go with it!
+
+   if (token) {
+
+     doAllTheThings(token.accessToken)
+
+   } else {
+
+     // otherwise show the login widget
+
+     oktaSignIn.renderEl(
+
+       {el: '#okta-login-container'},
+
+       function (response) {
+
+         // check if success
+
+         if (response.status === 'SUCCESS') {
+
+           // for our example we have the id token and the access token
+
+           oktaSignIn.tokenManager.add('my_id_token', response[0]);
+
+           oktaSignIn.tokenManager.add('my_access_token', response[1]);
+
+           // hide the widget
+
+           oktaSignIn.hide();
+
+           // now for the fun part!
+
+           doAllTheThings(response[1].accessToken);
+
+         }
+
+       },
+
+       function (err) {
+
+         // handle any errors
+
+         console.log(err);
+
+       }
+
+     );
+
+   }
+
+ }
+
+</script>
+
+
+
+</body>
+
+<style>
+html, body, .container
+{
+    height: 80%;
+    min-height: 100%;
+}
+
+.first {
+    float: left;
+    width: 38%;
+    height: 50%;
+    background-color: red;
+
+}
+
+.second{
+    float: left;
+    width: 37%;
+    height: 50%;
+    background-color: green;
+}
+
+
+.third{
+    float: right;
+    width: 60%;
+    height: 50%;
+    background-color: blue;
+}
+
+.fourth {
+    float: right;
+    width: 30%;
+    height: 50%;
+    background-color: #DDDDDD;
+}
+
+.last{
+
+    float: right;
+    width: 30%;
+    height: 50%;
+    background-color: yellow;
+}
+img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.test{
+	/* margin-top: 1%; */
+    margin-bottom: 1%;
+    margin-right: 1%;
+    margin-left: 1%;
+}
+a.fill-div {
+    display: block;
+    height: 100%;
+    width: 100%;
+    text-decoration: none;
+}
+
+</style>
+</html>
