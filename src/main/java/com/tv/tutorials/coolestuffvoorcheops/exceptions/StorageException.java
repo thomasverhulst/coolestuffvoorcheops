@@ -2,6 +2,11 @@ package com.tv.tutorials.coolestuffvoorcheops.exceptions;
 
 public class StorageException extends RuntimeException {
 
+	/**
+	 *
+	 */
+	private static final long serialVersionUID = -6739169475216917111L;
+
 	public StorageException(String message) {
 		super(message);
 	}

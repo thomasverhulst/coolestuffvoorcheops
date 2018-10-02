@@ -9,6 +9,11 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 public class CustomUserDetails extends User implements UserDetails {
 
+	/**
+	 *
+	 */
+	private static final long serialVersionUID = -8658111257472083879L;
+
 	public CustomUserDetails(final User user) {
 		super(user);
 	}

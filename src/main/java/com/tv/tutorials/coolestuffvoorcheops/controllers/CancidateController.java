@@ -31,7 +31,6 @@ import com.tv.tutorials.coolestuffvoorcheops.models.Candidate;
 import com.tv.tutorials.coolestuffvoorcheops.models.SalaryPackage;
 import com.tv.tutorials.coolestuffvoorcheops.models.Skills;
 import com.tv.tutorials.coolestuffvoorcheops.models.Update;
-import com.tv.tutorials.coolestuffvoorcheops.repositories.AddressRepository;
 import com.tv.tutorials.coolestuffvoorcheops.repositories.CandidateRepository;
 import com.tv.tutorials.coolestuffvoorcheops.services.IStorageService;
 import com.tv.tutorials.coolestuffvoorcheops.services.impl.AddressService;
@@ -48,24 +47,22 @@ public class CancidateController {
 	// goede uitleg
 	// https://www.mkyong.com/spring-boot/spring-boot-hibernate-search-example/
 	@Autowired
-	AddressService addressService;
+	private AddressService addressService;
 
 	@Autowired
-	CandidateService candidateservice;
+	private CandidateService candidateservice;
 
 	@Autowired
-	SkillsService skillsService;
+	private SkillsService skillsService;
 
 	@Autowired
-	SalaryPackageService salaryPackageService;
+	private SalaryPackageService salaryPackageService;
 
 	@Autowired
-	ApplicationProcessService applicationProcessService;
+	private ApplicationProcessService applicationProcessService;
 
 	@Autowired
-	CandidateRepository candidateRepository;
-	@Autowired
-	AddressRepository addressRepository;
+	private CandidateRepository candidateRepository;
 
 	@Autowired
 	public CancidateController(IStorageService storageService) {
@@ -333,7 +330,6 @@ public class CancidateController {
 			HttpServletResponse response) throws IOException {
 
 		String returnValue = "toupdatecv";
-		String cvLink = "";
 		Optional<Candidate> tmp = candidateRepository.findById(id);
 
 		// de kandidaat bestaat

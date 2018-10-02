@@ -124,8 +124,6 @@ public class SkillsService implements ISkillService {
 			}
 		}
 
-		List<Skills> skills = new ArrayList<Skills>();
-		skills = l;
 		List<Integer> skillsIdList = l.stream().map(Skills::getId).collect(Collectors.toList());
 
 		System.out.println("skillid lijst" + skillsIdList.size());
