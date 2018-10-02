@@ -24,6 +24,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import org.thymeleaf.util.StringUtils;
 
 import com.tv.tutorials.coolestuffvoorcheops.models.Address;
 import com.tv.tutorials.coolestuffvoorcheops.models.ApplicationProcess;
@@ -112,9 +113,14 @@ public class CancidateController {
 			// if ( candidate.getFile() != null) {
 			MultipartFile file = candidate.getFile();
 			Path filenameAndPath = Paths.get(uploadDirectory, file.getOriginalFilename());
-			// System.out.println("Upload link = "+ uploadDirectory);
+
+			// Path filenameAndPath = Paths.get(uploadDirectory,
+			// file.getOriginalFilename());
+			System.out.println("Upload link = " + uploadDirectory);
+			System.out.println("filenaam pad" + filenameAndPath);
+			// Files.write(filenameAndPath, file.getBytes());
 			Files.write(filenameAndPath, file.getBytes());
-			//
+			System.out.println("in de cv");
 			// set link to cv
 			candidate.setCvLink(file.getOriginalFilename());
 		}
@@ -334,16 +340,21 @@ public class CancidateController {
 
 		// de kandidaat bestaat
 		if (tmp.isPresent()) {
-			// de kandidaat heeft een cv (of moet je kijken naar cv link?
-			if (tmp.get().getFile() != null && !tmp.get().getFile().isEmpty()) {
-				// cv wordt gedownloaded
-				System.out.println("het cv bestaat");
-				candidateservice.downloadCv(tmp.get().getCvLink(), response);
-				// updatesucess is raar, want wordt niet geupdated
-				returnValue = "updatesucess";
+			// System.out.println("filename"+tmp.get().getFile().getName());
+			// System.out.println("filename"+tmp.get().getFile().getName());
 
+			// de kandidaat heeft een cv (of moet je kijken naar cv link?
+			// if (tmp.get().getFile() != null && !tmp.get().getFile().isEmpty()) {
+			// cv wordt gedownloaded
+			System.out.println("het cv bestaat");
+			if (!StringUtils.isEmpty(tmp.get().getCvLink())) {
+				candidateservice.downloadCv(tmp.get().getCvLink(), response);
 			}
-			System.out.println("file is null?");
+			// updatesucess is raar, want wordt niet geupdated
+			//returnValue = "updatesucess";
+
+			// }
+			/// System.out.println("file is null?");
 		}
 
 		model.addAttribute("candidate", tmp.get());
