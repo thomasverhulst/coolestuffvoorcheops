@@ -11,8 +11,6 @@ import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.tv.tutorials.coolestuffvoorcheops.models.ApplicationProcess;
-import com.tv.tutorials.coolestuffvoorcheops.models.Candidate;
 import com.tv.tutorials.coolestuffvoorcheops.models.Skills;
 import com.tv.tutorials.coolestuffvoorcheops.repositories.SkillsRepository;
 import com.tv.tutorials.coolestuffvoorcheops.services.ISkillService;
@@ -37,7 +35,7 @@ public class SkillsService implements ISkillService {
 
 	@Override
 	public Skills addSkills(Skills skills) {
-		return (Skills) skillsRepository.save(skills);
+		return skillsRepository.save(skills);
 	}
 
 	@Override
@@ -127,7 +125,7 @@ public class SkillsService implements ISkillService {
 		}
 
 		List<Skills> skills = new ArrayList<Skills>();
-		skills = (List<Skills>) l;
+		skills = l;
 		List<Integer> skillsIdList = l.stream().map(Skills::getId).collect(Collectors.toList());
 
 		System.out.println("skillid lijst" + skillsIdList.size());

@@ -97,6 +97,11 @@ public class CancidateController {
 		return "index";
 	}
 
+	@GetMapping("/header")
+	public String getHeader() {
+		return "header.html";
+	}
+
 	@RequestMapping(value = "/registerCandidate", method = RequestMethod.POST)
 	public String register(Model model, @ModelAttribute("address") Address address,
 			@ModelAttribute("candidate") Candidate candidate, HttpSession session) throws IOException {

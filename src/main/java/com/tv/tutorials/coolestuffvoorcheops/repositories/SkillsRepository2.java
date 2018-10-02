@@ -2,7 +2,6 @@ package com.tv.tutorials.coolestuffvoorcheops.repositories;
 
 import java.io.Serializable;
 
-import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.Repository;
 
 import com.tv.tutorials.coolestuffvoorcheops.models.Skills;
