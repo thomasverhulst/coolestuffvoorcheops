@@ -1,13 +1,11 @@
-!DOCTYPE html>
-
+<!DOCTYPE html>
 <html xmlns:th="http://thymeleaf.org">
+
 <head>
 <meta charset="utf-8">
-
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-
-<link rel="shortcut icon" href="favicon.png" type="image/png"/>
+<link rel="shortcut icon" href="/favicon.png" type="image/png"/>
 
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -18,15 +16,15 @@
 <!-- Latest compiled JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-<title>Succes mail</title>
+<title>Registratie succes</title>
 </head>
 <body>
 <div class=container-fluid>
 	<div class="row">
 		<div class="col-sm-3"> </div>
-			<div class="col-sm-6">
-				<h1>Met succes geregistreerd</h1>
-				<p>Name: <span th:text="${session.candidate.name}">" "</span><span th:text="${session.candidate.sirName}"></span>.</p>
+			<div class="col-sm-6">				
+				<h1>Met succes geregistreerd: <span th:text="${session.candidate.name}"></span> <span th:text="${session.candidate.sirName}"></span></h1>
+				
 				<form th:action="@{/}" >			
 					<div class=form-group>
 						<button class="btn-lg btn-succes btn-block" type="submit">Home ></button>
