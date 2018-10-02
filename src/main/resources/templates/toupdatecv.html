@@ -17,7 +17,7 @@
 <!-- Latest compiled JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-<title>Update succes</title>
+<title>To update cv</title>
 
 </head>
 <body>
@@ -26,7 +26,7 @@
 		<div class="col-sm-3"> </div>
 			<div class="col-sm-6" th:object="${candidate}">
 				<form th:action="@{/}" >
-					<h1><span th:text="${candidate.name}"> </span>+ +<span th:text="${candidate.sirName}"></span> heeft nog geen cv</h1>
+					<h1><span th:text="${candidate.name}"> </span> <span th:text="${candidate.sirName}"></span> heeft nog geen cv</h1>
 					
 					Volg de link om dit aan te passen:
 					<a th:href="@{/searchcandidatedetails/{candidateId}(candidateId=${candidate.id})}">Zie details kandidaat <span class="glyphicon glyphicon-pencil"></span></a>
