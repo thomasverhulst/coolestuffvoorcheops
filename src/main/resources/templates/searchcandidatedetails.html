@@ -21,16 +21,18 @@
 
 
 <div class="row">
+
 	<div class="col-sm-2">
 	</div>
-		
+
 	<form action="#" th:action="@{/dispatcher}" th:object="${candidates}">
 <!--     <label for="candidates_input">Search:</label> <input name="candidates" -->
 <!--                                                      id="candidates"> -->
 <!--     </input> -->
+<h2>Zoekresultaten:</h2>
     	<div th:object="${candidate}">
-        <h2>Zoekresultaten:</h2>
-        
+
+
         <table class="table">
             <thead>
 	            <tr>
@@ -41,10 +43,10 @@
 	                <th scope="col">Telefoonnumlmer</th>
 	                <th scope="col">Mobiel telefoonnummer</th>
 	                <th scope="col">Geslacht</th>
-	                <th scope="col">CVnaam</th>                
+	                <th scope="col">CVnaam</th>
 	            </tr>
             </thead>
-            <tbody>            
+            <tbody>
             	<tr>
 	                <td th:text="${candidate.name}">Text ...</td>
 	                <td th:text="${candidate.sirName}">Text ...</td>
@@ -54,17 +56,17 @@
 	                <td th:text="${candidate.celphoneNumber}">Text ...</td>
 	                <td th:text="${candidate.gender}">Text...</td>
 	                <td th:text="${candidate.cvLink}">Text ...</td>
-               
-<!--                 <td><a th:href="@{/searchapplicationproces/{candidateId}(candidateId=${candidates.id})}">Zie aanwervingsprocess </a> </td> -->              
-            	</tr>           
+
+<!--                 <td><a th:href="@{/searchapplicationproces/{candidateId}(candidateId=${candidates.id})}">Zie aanwervingsprocess </a> </td> -->
+            	</tr>
             </tbody>
         </table>
     </div>
-    
+
     <div th:object="${address}">
-    
+
      <h2>Zoekresultaat adres Adres</h2>
-        
+
         <table class="table">
             <thead>
 	            <tr>
@@ -73,34 +75,34 @@
 	                <th scope="col">Bus</th>
 	                <th scope="col">Postcode</th>
 	                <th scope="col">Gemeente</th>
-	                <th scope="col">land</th>               
+	                <th scope="col">land</th>
 	            </tr>
             </thead>
-            <tbody>         
+            <tbody>
             	<tr>
 	                <td th:text="${address.streetName}">Text ...</td>
 	                <td th:text="${address.dwellingNumber}">Text ...</td>
 	                <td th:text="${address.bus}">Text ...</td>
 	                <td th:text="${address.postalCode}">Text...</td>
 	                <td th:text="${address.municipality}">Text...</td>
-	                <td th:text="${address.land}">Text...</td>  
-                </tr>            
+	                <td th:text="${address.land}">Text...</td>
+                </tr>
             </tbody>
         </table>
-                 
+
     </div>
 </form>
 
 <div>
 			<form th:action="@{/toSearchPage}" >
-				
+
 				<div class=form-group>
 					<button class="btn-lg btn-succes btn-block" type="submit"> Terug naar zoekpagina ></button>
 				</div>
 			</form>
 		</div>
 	<div class="col-sm-3">
-	
+
 	</div>
 </div>
 

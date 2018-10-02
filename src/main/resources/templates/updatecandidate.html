@@ -21,6 +21,9 @@
 <body>
 <div class=container-fluid>
 <div class="row">
+		<header th:insert="fragments/fragment.html :: header"> </header>
+	</div>
+<div class="row">
 	<div class="col-sm-3"> </div>
 	<div class="col-sm-6">
 		<h1 th:object="${candidate}">Update gegevens kandidaat </h1>
@@ -47,8 +50,8 @@
 				<input type="text" th:field=*{email} id="email" class="form-control" placeholder="E-mail" >
 			</div>
 			<div class=form-group>
-				<label for="birthdate">Geboortedatum:</label>			
-				<input type="date" th:field=*{birthdate} th:value="${#dates.format(candidate.birthdate,'yyyy/MM/dd')}" id="birthdate" class="form-control" placeholder="Geboortedatum" >			
+				<label for="birthdate">Geboortedatum:</label>
+				<input type="date" th:field=*{birthdate} th:value="${#dates.format(candidate.birthdate,'yyyy/MM/dd')}" id="birthdate" class="form-control" placeholder="Geboortedatum" >
 			</div>
 			<div class=form-group>
 				<label for="phoneNumber">Telefoonnummer:</label>
@@ -57,24 +60,24 @@
 			<div class=form-group>
 				<label for="cellPhoneNumber">Mobiel nummer:</label>
 				<input type="text" th:field=*{celphoneNumber} id="cellPhoneNumber" class="form-control" placeholder="Mobiel Telefoonnummer" >
-			</div>			
+			</div>
 			<div class=form-group>
 				<label for="gender">Geslacht:</label>
 				<div><input type="radio" th:field=*{gender} id="gender" value="male" checked="checked" />  Man</div>
-	  			<div><input type="radio" th:field=*{gender} id="gender" value="female" />  Vrouw</div>	
-			</div>					
+	  			<div><input type="radio" th:field=*{gender} id="gender" value="female" />  Vrouw</div>
+			</div>
 	<!-- 		<div class=form-group> -->
 	<!-- 			<label for="cvLink">Cv naam</label> -->
 	<!-- 			<input type="text" th:field=*{cvLink} id="cvLink" class="form-control" placeholder="CV naam" > -->
-	<!-- 		</div> -->						
+	<!-- 		</div> -->
 			<div class=form-group>
 				<label for="cvFile">Voeg CV toe</label>
 				<input type="file" th:field=*{file} id="cvFile" class="form-control" placeholder="CV " value="test" >
-			</div>			
+			</div>
 		</div>
-	
+
 	<div class="col-sm-1"></div>
-	
+
 	<div class="col-sm-3">
 		<div>
 	<!-- hier komt het adres-->
@@ -87,7 +90,7 @@
 				<div class=form-group>
 					<label for="dwellingnumber">Huisnummer:</label>
 					<input type="text" th:field=*{dwellingNumber} id="dwellingnumber" class="form-control" placeholder="Huisnummer" >
-				</div>				
+				</div>
 				<div class=form-group>
 					<label for="bus">bus:</label>
 					<input type="text" th:field=*{bus} id="bus" class="form-control" placeholder="Bus">
@@ -103,50 +106,52 @@
 				<div class=form-group>
 					<label for="land">Land:</label>
 					<input type="text" th:field=*{land}  id="Land" class="form-control" placeholder="Land" >
-				</div>				
+				</div>
 				<div class=form-group>
 					<button class="btn-lg btn-primary btn-block" type="submit">Update ></button>
-				</div>				
+				</div>
 			</div>
 		</div>
 	</div>
-	
-	
+
+
 	</form>
-	
+
 	<div class="col-sm-3">
-	
+
 	</div>
 	</div>
-	
+
 	<div class="row" >
 		<div class="col-sm-2"> </div>
 			<div class="col-sm-7">
 				<form th:action="@{/}" >
-				
+
 					<div class=form-group>
 							<button class="btn-lg btn-succes btn-block" type="submit">Terug ></button>
 						</div>
 				</form>
-				
+
 				<div>
 					<form th:action="@{/toSearchPage}" >
-						
+
 						<div class=form-group>
 							<button class="btn-lg btn-succes btn-block" type="submit"> Terug naar zoekpagina ></button>
 						</div>
 					</form>
 				</div>
 			</div>
-			
-			
+
+
 		<div class="col-sm-3"> </div>
 	</div>
-	
-	
 
-	
-	
+	<div class="row">
+		<p th:insert="fragments/fragment.html :: footer"> </p>
+	</div>
+
+
+
 </div>
 
 </body>
