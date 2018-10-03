@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+<meta charset="utf-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="shortcut icon" href="favicon.png" type="image/png" />
+
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<style type="text/css">
+th {
+	position: sticky;
+	top: 0;
+	background: #eee;
+}
+</style>
+
+<title>Searchresults</title>
+</head>
+<body>
+	<div class=container-fluid>
+		<header th:insert="fragments/fragment.html :: header"> </header>
+		<div class="row">
+			<div class="col-sm-3"></div>
+			<div class="col-sm-6">
+				<h1>Zoekresultaten kandidaat</h1>
+			</div>
+			<div class="col-sm-3"></div>
+		</div>
+		<div class="row">
+			<div class="col-sm-2"></div>
+		</div>
+
+		<form action="#" th:action="@{/dispatcher}" th:object="${candidates}">
+			<!--     <label for="candidates_input">Search:</label> <input name="candidates" -->
+			<!--                                                      id="candidates"> -->
+			<!--     </input> -->
+			<div th:if="${not #lists.isEmpty(candidates)}">
+				<h2>Search Results</h2>
+				<table class="table table-striped header-fixed">
+					<thead>
+						<tr>
+							<th scope="col">ID:</th>
+							<th scope="col">Naam:</th>
+							<th scope="col">Achetnaam</th>
+							<th scope="col">E-mail adres:</th>
+							<th scope="col">Bekijk CV:</th>
+							<th scope="col">Bekijk details:</th>
+							<th scope="col">Bekijk kennis:</th>
+							<th scope="col">Bekijk huidig loonpakket:</th>
+							<th scope="col">Bekijk voorgestelde loonpakket:</th>
+							<th scope="col">Aanwervingsproces:</th>
+						</tr>
+					</thead>
+					<tbody>
+
+						<tr th:each="candidates : ${candidates}">
+							<td th:text="${candidates.id}">Text ...</td>
+							<td th:text="${candidates.name}">Text ...</td>
+							<td th:text="${candidates.sirName}">Text ...</td>
+							<td th:text="${candidates.email}">Text...</td>
+
+							<td><a
+								th:href="@{/searchcv2/{candidateId}(candidateId=${candidates.id})}">Zie
+									CV <span class="glyphicon glyphicon-download"></span>
+							</a></td>
+
+							<td><a
+								th:href="@{/searchcandidatedetails/{candidateId}(candidateId=${candidates.id})}">Zie
+									details kandidaat <span class="glyphicon glyphicon-pencil"></span>
+							</a></td>
+
+							<td><a
+								th:href="@{/searchskills1/{candidateId}(candidateId=${candidates.id})}">Zie
+									kennis kandadaat <span class="glyphicon glyphicon-pencil"></span>
+							</a></td>
+
+							<td><a
+								th:href="@{/searchcurrentsalarypackage2/{candidateId}(candidateId=${candidates.id})}">Zie
+									huidig loonpakket <span class="glyphicon glyphicon-pencil"></span>
+							</a></td>
+
+							<td><a
+								th:href="@{/searchproposedsalarypackage2/{candidateId}(candidateId=${candidates.id})}">Zie
+									voorgesteld loonpakket <span class="glyphicon glyphicon-pencil"></span>
+							</a></td>
+
+							<td>
+								<!-- optie, links niet laten zien, maar hoe doe je dan een update? -->
+								<div th:if="${candidates.applicationProcessId != 0}">
+									<a
+										th:href="@{/searchapplicationproces2/{candidateId}(candidateId=${candidates.id})}">Zie
+										aanwervingsprocess <span class="glyphicon glyphicon-pencil"></span>
+									</a>,
+								</div>
+								<div
+									th:if="${candidates.applicationProcessId = 0}? ${'color: red;'}">
+									<a
+										th:href="@{/searchapplicationproces2/{candidateId}(candidateId=${candidates.id})}">Zie
+										aanwervingsprocess <span class="glyphicon glyphicon-pencil"></span>
+									</a>,
+								</div>
+							</td>
+						</tr>
+
+					</tbody>
+				</table>
+			</div>
+		</form>
+
+		<div>
+			<form th:action="@{/toSearchPage}">
+
+				<div class=form-group>
+					<button class="btn-lg btn-succes btn-block" type="submit">
+						Terug naar zoekpagina ></button>
+				</div>
+			</form>
+		</div>
+
+		<p th:insert="fragments/fragment.html :: footer"></p>
+	</div>
+</body>
+
+
+</html>

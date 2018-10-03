@@ -18,6 +18,9 @@
 <body>
 <div class=container-fluid>
 <div class="row">
+		<header th:insert="fragments/fragment.html :: header"> </header>
+	</div>
+<div class="row">
 	<div class="col-sm-3"> </div>
 	<div class="col-sm-6">
 		<h1>Update het applictaieprocess </h1>
@@ -28,25 +31,25 @@
 <div class="row">
 	<div class="col-sm-2">
 	</div>
-		
+
 	<form th:action="@{/updateApplicationProcess/{applicationProcessId}(applicationProcessId=${applicationProcess.id})}" th:object="${applicationProcess}" method="POST">
-		<div class="col-sm-3">		
+		<div class="col-sm-3">
 			<div class=form-group>
-				<label for="applicationdate">Sollicitatiedatum:</label>			
-				<input type="date" th:field=*{applicationDate} th:value="${#dates.format(applicationProcess.applicationDate,'yyyy/MM/dd')}" id="applicationdate" class="form-control" placeholder="Sollicitatiedatum" >			
-			</div>				
+				<label for="applicationdate">Sollicitatiedatum:</label>
+				<input type="date" th:field=*{applicationDate} th:value="${#dates.format(applicationProcess.applicationDate,'yyyy/MM/dd')}" id="applicationdate" class="form-control" placeholder="Sollicitatiedatum" >
+			</div>
 			<div class=form-group>
 				<label for="tobeinvitedforfirstconversation">Uit te nodigen /uitgenodigd voor eerste gesprek?</label>
 				<input type="checkbox"  th:field=*{toBeInvitedForFirstConversation} id="tobeinvitedforfirstconversation" class="form-control"  >
-			</div>				
-			<div class=form-group>
-				<label for="invitationdate">Datum uitnodiging eerste gesprek</label>			
-				<input type="date" th:field=*{invitationDate} th:value="${#dates.format(applicationProcess.invitationDate,'yyyy/MM/dd')}" id="invitationdate" class="form-control"  >			
 			</div>
 			<div class=form-group>
-				<label for="firstconversationdate">Datum eerste gesprek:</label>			
-				<input type="date" th:field=*{firstConversationDate} th:value="${#dates.format(applicationProcess.firstConversationDate,'yyyy/MM/dd')}" id="firstconversationdate" class="form-control"  >			
-			</div>	
+				<label for="invitationdate">Datum uitnodiging eerste gesprek</label>
+				<input type="date" th:field=*{invitationDate} th:value="${#dates.format(applicationProcess.invitationDate,'yyyy/MM/dd')}" id="invitationdate" class="form-control"  >
+			</div>
+			<div class=form-group>
+				<label for="firstconversationdate">Datum eerste gesprek:</label>
+				<input type="date" th:field=*{firstConversationDate} th:value="${#dates.format(applicationProcess.firstConversationDate,'yyyy/MM/dd')}" id="firstconversationdate" class="form-control"  >
+			</div>
 			<div class=form-group>
 				<label for="staffnamefirstconversation">Naam gesprekspartner eerste gesprek:</label>
 				<input type="text" th:field=*{staffNameFirstConversation} id="staffnamefirstconversation" class="form-control" placeholder="Alain" >
@@ -54,20 +57,20 @@
 			<div class=form-group>
 				<label for="feedbackfirstconversation">Feedback eerste gesprek:</label>
 				<textarea rows=5 cols=40  th:field=*{feedbackFirstConversation} id="feedbackfirstconversation" class="form-control" placeholder="Feedback eerste gesprek" ></textarea>
-			</div>			
+			</div>
 		</div>
-		
+
 		<div class="col-sm-1"></div>
-	
-		<div class="col-sm-3">						
+
+		<div class="col-sm-3">
 			<div class=form-group>
 				<label for="tobeinvitedfortechnicalconversation">Uit te nodigen/ uitgenodigd voor tweede gesprek?</label>
 				<input type="checkbox"  th:field=*{toBeInvitedForTechnicalConversation} id="tobeinvitedfortechnicalconversation" class="form-control"  >
-			</div>			
+			</div>
 <!-- 			<div class=form-group> -->
 <!-- 			<label for="technicalconversationdate">Datum tweede gesprek</label>			 -->
 <!-- 			<input type="date" th:field=*{technicalConversationDate} th:value="${#dates.format(applicationprocess.technicalConversationDate,'yyyy/MM/dd')}" id="technicalconversationdate" class="form-control" placeholder="Geboortedatum" >			 -->
-<!-- 		</div> -->		
+<!-- 		</div> -->
 			<div class=form-group>
 				<label for="staffnametechnicalconversation">Naam gesprekspartner technisch gesprek:</label>
 				<input type="text" th:field=*{staffNameTechnicalConversation} id="staffnametechnicalconversation" class="form-control" placeholder="Alain" >
@@ -75,52 +78,56 @@
 			<div class=form-group>
 				<label for="feedbacktechnicalconversation">Feedback technisch gesprek:</label>
 				<textarea rows=5 cols=40  th:field=*{feedbackTechnicalConversation} id="feedbacktechnicalconversation" class="form-control" placeholder="Feedback technisch gesprek" ></textarea>
-			</div>			
+			</div>
 			<div class=form-group>
 				<label for="tobesendfinancialproposal"> Uit te nodigen /uitgenodigd voor eerste gesprek?</label>
 				<input type="checkbox"  th:field=*{toBeSendFinancialProposal} id="tobesendfinancialproposal" class="form-control"  >
-			</div>			
+			</div>
 			<div class=form-group>
-				<label for="financialproposaldate">Datum financieel voorstel:</label>			
-				<input type="date" th:field=*{financialProposalDate} th:value="${#dates.format(applicationProcess.financialProposalDate,'yyyy/MM/dd')}" id="financialproposaldate" class="form-control"  >			
+				<label for="financialproposaldate">Datum financieel voorstel:</label>
+				<input type="date" th:field=*{financialProposalDate} th:value="${#dates.format(applicationProcess.financialProposalDate,'yyyy/MM/dd')}" id="financialproposaldate" class="form-control"  >
 			</div>
 			<div class=form-group>
 				<label for="feedbackfinancialproposal">Feedback technisch gesprek:</label>
 				<textarea rows=5 cols=40  th:field=*{feedbackFinancialProposal} id="feedbackfinancialproposal" class="form-control" placeholder="Feedback financieel voorstekl" ></textarea>
-			</div>			
+			</div>
 			<div class=form-group>
 				<label for="isrecruited">Is in dienst:</label>
 				<input type="checkbox"  th:field=*{isRecruited} id="isrecruited" class="form-control"  >
-			</div>				
+			</div>
 			<div class=form-group>
 				<button class="btn-lg btn-primary btn-block" type="submit">Update ></button>
 			</div>
 		</div>
-	</form>	
+	</form>
 
 	<div class="col-sm-3">
-	
+
 	</div>
 </div>
 
 <div class="row" >
 		<div class="col-sm-2"> </div>
 			<div class="col-sm-7">
-				<form th:action="@{/}" >				
+				<form th:action="@{/}" >
 					<div class=form-group>
 							<button class="btn-lg btn-succes btn-block" type="submit">Terug ></button>
 						</div>
 				</form>
-				
+
 				<div>
-					<form th:action="@{/toSearchPage}" >						
+					<form th:action="@{/toSearchPage}" >
 						<div class=form-group>
 							<button class="btn-lg btn-succes btn-block" type="submit"> Terug naar zoekpagina ></button>
 						</div>
 					</form>
 				</div>
-			</div>						
+			</div>
 		<div class="col-sm-3"> </div>
+	</div>
+
+	<div class="row">
+		<p th:insert="fragments/fragment.html :: footer"> </p>
 	</div>
 </div>
 </body>
