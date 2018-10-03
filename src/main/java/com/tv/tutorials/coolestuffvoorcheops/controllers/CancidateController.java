@@ -189,14 +189,26 @@ public class CancidateController {
 
 	@RequestMapping(value = "/registerSkills", method = RequestMethod.POST)
 	public String registerSkills(Model model, @ModelAttribute("skills") Skills skills, HttpSession session) {
-		// voorlopig terug naar dde testpagina
+		//check if it is an update (late adding ) of skills
+		boolean update = (boolean) session.getAttribute("isupdate");
+		// get candidate from session
+		Candidate sessionCandidate = (Candidate) session.getAttribute("candidate");
 
-		// SkillsService ms = new SkillsService();
+		if (update) {
+			Skills tmpSkills = skillsService.addSkills(skills);
+			//SalaryPackage tmpSalarypackage = salaryPackageService.addSalaryPackage(salaryPackage);
+			//Candidate sessionUpdateCandidate = (Candidate) session.getAttribute("candidate");
+			skillsService.addSkills(tmpSkills); 
+			sessionCandidate.setSkillsId(tmpSkills.getId());
+			//sessionUpdateCandidate.setCurrentSallaryPackageId(tmpSalarypackage.getId());
+			candidateservice.updateCandidate(sessionCandidate);
+			return  "updatesucces";
+		}
 		Skills tmpSkills = skillsService.addSkills(skills);
 		System.out.println("Skills id = " + tmpSkills.getId());
 
-		// get candidate from session
-		Candidate sessionCandidate = (Candidate) session.getAttribute("candidate");
+		
+		//Candidate sessionCandidate = (Candidate) session.getAttribute("candidate");
 		// set SkillsId to candidate from session
 		sessionCandidate.setSkillsId(tmpSkills.getId());
 		// Update candidate in database

@@ -47,15 +47,15 @@ $(function(){
 			<form action="#" th:action="@{/updateSkills/{skillsId}(skillsId=${skills.id})}" th:object="${skills}" method="POST">		
 				<div class=form-group>
 					<label for="technicalknowlegde"> technische kennis</label>
-					<textarea rows=5 cols=40  th:field=*{technicalKnowlegde} id="technicalknowlegde" class="form-control" placeholder="Technische kennis" required="required"></textarea>
+					<textarea rows=5 cols=40  th:field=*{technicalKnowlegde} id="technicalknowlegde" class="form-control" placeholder="Technische kennis"></textarea>
 				</div>			
 				<div class=form-group>
 					<label for="experience">Ervaring:</label>
-					<input type="text" th:field=*{experience} id="experience" class="form-control" placeholder="2" required="required">
+					<input type="text" th:field=*{experience} id="experience" class="form-control" placeholder="2">
 				</div>			
 				<div class=form-group>
 					<label for="preferredlocation">Voorkeurslocatie:</label>
-					<input type="text" th:field=*{preferredLocation} id="preferredlocation" class="form-control" placeholder="Voorkeurslokatie" required="required">
+					<input type="text" th:field=*{preferredLocation} id="preferredlocation" class="form-control" placeholder="Voorkeurslokatie">
 				</div>			
 				<div class=form-group>
 					<label for="preferredtechnologies">Voorkeurstechnologieen:</label>
