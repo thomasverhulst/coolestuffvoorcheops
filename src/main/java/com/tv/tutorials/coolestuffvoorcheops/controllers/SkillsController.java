@@ -1,5 +1,6 @@
 package com.tv.tutorials.coolestuffvoorcheops.controllers;
 
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +13,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.tv.tutorials.coolestuffvoorcheops.models.Candidate;
+import com.tv.tutorials.coolestuffvoorcheops.models.SalaryPackage;
 import com.tv.tutorials.coolestuffvoorcheops.models.Skills;
 import com.tv.tutorials.coolestuffvoorcheops.repositories.SkillsRepository;
 import com.tv.tutorials.coolestuffvoorcheops.services.impl.CandidateService;
@@ -28,20 +31,22 @@ public class SkillsController {
 	private SkillsRepository skillsRepository;
 
 	@RequestMapping(value = "searchskills1/{candidateId}", method = RequestMethod.GET)
-	public String searchSkills(Model model, @PathVariable("candidateId") int candidateId) {
+	public String searchSkills(Model model, @PathVariable("candidateId") int candidateId,HttpSession session) {
 		System.out.println("we zijn in de GOEDE skills CONTROLLER" + candidateId);
 		// https://stackoverflow.com/questions/1714028/mvc-which-submit-button-has-been-pressed
 
 		Integer skillsId = candidateservice.getCandidateById(candidateId).getSkillsId();
-
-		model.addAttribute("skills", skillsService.getSkillsById(skillsId));
-		System.out.println("skillid = " + skillsId);
-		System.out.println("we gaan skills updaten");
-		// als er nog geen skills zijn moet deze ook naar een pagina die vraagd of ze
-		// toegevoegd moeten worden
-
+		if (skillsId <= 0) {
+			Candidate c = candidateservice.getCandidateById(candidateId);
+			session.setAttribute("candidate", c);
+			session.setAttribute("isupdate", true);
+			model.addAttribute("candidate", c);
+			return "toupdateskills";
+		}else {
+			model.addAttribute("skills", skillsService.getSkillsById(skillsId));
+		}
+		
 		return "updateskills";
-		// werkt return "searchcandidatedetails";
 	}
 
 	// @RequestMapping(value ="/updateSkills2/{skillsId}" , method =
@@ -69,5 +74,23 @@ public class SkillsController {
 		// redirect.addFlashAttribute("success", "Saved employee successfully!");
 		return "updatesucces";
 	}
-
+	
+	
+	@RequestMapping(value = "/addSkills/{candidateId}", method = RequestMethod.GET)
+	public String addSkills(Model model, @PathVariable("candidateId") int candidateId,HttpSession session) {
+		System.out.println("we zijn in de GOEDE skills CONTROLLER" + candidateId);
+		// https://stackoverflow.com/questions/1714028/mvc-which-submit-button-has-been-pressed
+		System.out.println("HOOOIUY");
+		model.addAttribute("candidate", session.getAttribute("candidate"));
+		model.addAttribute("skills", new Skills());
+		boolean t = (boolean) session.getAttribute("isupdate");
+		System.out.println("t = "+t);
+		if (t) {
+			System.out.println("hier");
+			return  "skills";
+		}else {
+			return "updateskills";
+		}
+		
+	}
 }
