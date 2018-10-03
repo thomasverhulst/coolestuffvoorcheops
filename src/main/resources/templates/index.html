@@ -6,8 +6,9 @@
 </head>
 <body>
 	<div class="container">
-		<header th:insert="fragments/fragment.html :: header"> </header>
-
+		<div class="row">
+			<header th:insert="fragments/fragment.html :: header"> </header>
+		</div>
 
 		<!-- <a href="/test">test dit</a> <a href="/register">Registreer
 			kandidaat</a>
@@ -33,58 +34,60 @@
 			<a href="/upload2">Upload een file</a>
 		</div> -->
 
-		<div >
+		<div class="container">
 
-			<div class="first" style="margin-right: 1%; margin-bottom: 1%;">
+				<div class="first" style="margin-right: 1%; margin-bottom: 1%;">
 
-				<h1 style="text-align: center;">LOGIN</h1>
-				<a href="/login.html" class="first test">tessst <span
-					class="branding-bar">Branding bar</span> <img
-					src="images\User_login_Icon_256.png" class="icon">
-				</a>
-			</div>
-
-			<div class="third" style="margin-bottom: 1%;">
-				<div>
-					<h1 style="text-align: center;">REGISTREER</h1>
-
-				</div>
-				<div>
-					<a href="/register" class="third fill-div"> <img
-						src="images\Add_Male_User_Icon_256.png" class="icon">
+					<h1 style="text-align: center;">LOGIN</h1>
+					<a href="/login.html" class="first test">tessst <span
+						class="branding-bar">Branding bar</span> <img
+						src="images\User_login_Icon_256.png" class="icon">
 					</a>
 				</div>
 
+				<div class="third" style="margin-bottom: 1%;">
+					<div>
+						<h1 style="text-align: center;">REGISTREER</h1>
+
+					</div>
+					<div>
+						<a href="/register" class="third fill-div"> <img
+							src="images\Add_Male_User_Icon_256.png" class="icon">
+						</a>
+					</div>
 			</div>
-			<div class="second" style="margin-right: 1%;">
-				<div>
-					<h1 style="text-align: center;">ZOEK</h1>
+
+				<div class="second" style="margin-right: 1%;">
+					<div>
+						<h1 style="text-align: center;">ZOEK</h1>
+					</div>
+					<div>
+						<a href="/search" class="fill-div"> <img
+							src="images\Search_Search_Folder_Icon_256.png" class="icon"
+							style="text-align: center;">
+						</a>
+					</div>
 				</div>
-				<div>
-					<a href="/search" class="fill-div"> <img
-						src="images\Search_Search_Folder_Icon_256.png" class="icon"
+				<div style="margin-right: 1%;" class=" test last ">
+					<h1 style="text-align: center;">TEST</h1>
+					<a href="/test"> <img
+						src="images\Physical_sciences_Icon_256.png" class="icon"
 						style="text-align: center;">
 					</a>
 				</div>
-			</div>
-			<div class="fourth">
-				<h1 style="text-align: center;">INSTELLINGEN</h1>
-				<a href="/instellingen">Instellingen <img
-					src="images\Configuration_Settings_Icon_256.png" class="icon"
-					style="text-align: center;">
-				</a>
-			</div>
-			<div style="margin-right: 1%;" class=" test last ">
-				<h1 style="text-align: center;">TEST</h1>
-				<a href="/test"> <img
-					src="images\Physical_sciences_Icon_256.png" class="icon"
-					style="text-align: center;">
-				</a>
-			</div>
+				<div class="fourth">
+					<h1 style="text-align: center;">INSTELLINGEN</h1>
+					<a href="/instellingen">Instellingen <img
+						src="images\Configuration_Settings_Icon_256.png" class="icon"
+						style="text-align: center;">
+					</a>
+				</div>
+
 		</div>
 
-
-		<header th:insert="fragments/fragment.html :: footer"> </header>
+		<div class="row">
+			<p th:insert="fragments/fragment.html :: footer"></p>
+		</div>
 
 	</div>
 
