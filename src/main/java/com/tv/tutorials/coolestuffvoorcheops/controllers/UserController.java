@@ -47,7 +47,6 @@ public class UserController {
 		Set<Role> t = new HashSet<Role>();
 		t.add(r);
 		temp.setRoles(t);
-		System.out.println(temp.toString());
 
 		// temp.setId("Groet");
 		customUserDetailsService.addUser(temp);

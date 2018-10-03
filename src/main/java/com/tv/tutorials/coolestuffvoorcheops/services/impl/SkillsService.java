@@ -45,7 +45,6 @@ public class SkillsService implements ISkillService {
 
 		if (getSkillsById(skills.getId()) == null) {
 			// skillsRepository.save(skills);
-			System.out.println("we zitten vast");
 		} else {
 			skillsRepository.save(skills);
 		}
@@ -66,21 +65,15 @@ public class SkillsService implements ISkillService {
 			s.setId(id);
 			skillsRepository.save(s);
 		} else {
-
-			System.out.println("tmp = null");
 			skillsRepository.save(skills);
 		}
 	}
 
 	public List<Integer> findAllDotnet() {
-
-		System.out.println("hooolk");
 		// int id=0;
 		// List<Skills> list = skillsRepository.findAllByDotnetGreaterThan(id) ;
 		boolean isdotnett = true;
 		List<Skills> list = skillsRepository.findAllByDotnet(isdotnett);
-		System.out.println("lengte lijst " + list.size());
-		System.out.println("en we zijn hier");
 		// List<Integer> skillId = null;
 		List<Integer> skillId = new ArrayList<Integer>();
 		for (Skills skills : list) {
@@ -120,13 +113,11 @@ public class SkillsService implements ISkillService {
 			Skills s = i.next();
 			if (s.getExperience() < minimumExperience) {
 				i.remove();
-				System.out.println("eentje minder");
 			}
 		}
 
 		List<Integer> skillsIdList = l.stream().map(Skills::getId).collect(Collectors.toList());
 
-		System.out.println("skillid lijst" + skillsIdList.size());
 		return skillsIdList;
 	}
 

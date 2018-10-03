@@ -29,7 +29,6 @@ public class ApplicationProcessService implements IApplicationProcessService {
 
 	@Override
 	public ApplicationProcess getApplicationProcessById(int applicationProcessId) {
-		System.out.println("id is " + applicationProcessId);
 		ApplicationProcess e = applicationProcessRepository.findById(applicationProcessId).get();
 		return e;
 	}
@@ -76,7 +75,6 @@ public class ApplicationProcessService implements IApplicationProcessService {
 		boolean isToBeInvitedForFirstConversation = true;
 		ArrayList<ApplicationProcess> list = (ArrayList<ApplicationProcess>) applicationProcessRepository
 				.findAllBytoBeInvitedForFirstConversation(isToBeInvitedForFirstConversation);
-		System.out.println("Lengte" + list.size());
 
 		Iterator<ApplicationProcess> i = list.iterator();
 		while (i.hasNext()) {
@@ -98,8 +96,6 @@ public class ApplicationProcessService implements IApplicationProcessService {
 		boolean isToBeInvitedForFirstConversation = false;
 		List<ApplicationProcess> list = applicationProcessRepository
 				.findAllBytoBeInvitedForFirstConversation(isToBeInvitedForFirstConversation);
-		System.out.println("Lengte" + list.size());
-
 		List<Integer> applicationProcessId = new ArrayList<Integer>();
 		for (ApplicationProcess applicationProcess : list) {
 			applicationProcessId.add(applicationProcess.getId());
@@ -123,13 +119,11 @@ public class ApplicationProcessService implements IApplicationProcessService {
 			// Do something
 			if (!(s.getIsRecruited())) {
 				i.remove();
-				System.out.println("eentje weg");
 			}
 		}
 
 		// if (t == null) {
 		// t=Collections.emptyList();
-		// System.out.println("we zijn p");
 		// }
 		return t;
 	}

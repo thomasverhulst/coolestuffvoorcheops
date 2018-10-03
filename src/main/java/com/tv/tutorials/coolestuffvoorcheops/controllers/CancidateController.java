@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
@@ -44,6 +45,7 @@ import com.tv.tutorials.coolestuffvoorcheops.services.impl.SkillsService;
 @Controller
 public class CancidateController {
 
+	Logger logger = Logger.getLogger(CancidateController.class);
 	private final IStorageService storageService;
 	public String uploadDirectory = System.getProperty("user.dir") + "/uploads";
 	// goede uitleg
@@ -65,7 +67,7 @@ public class CancidateController {
 
 	@Autowired
 	private CandidateRepository candidateRepository;
-	
+
 	@Autowired
 	private AddressRepository addressRepository;
 
@@ -87,7 +89,6 @@ public class CancidateController {
 		// .collect(Collectors.toList()));
 		Update update = new Update(false);
 		map.addAttribute("update", update);
-		System.out.println("wat is dit " + update.isUpdate());
 		map.addAttribute("address", new Address());
 		map.addAttribute("candidate", new Candidate());
 		return "register";
@@ -112,7 +113,7 @@ public class CancidateController {
 		session.setAttribute("isupdate", false);
 		// Helper.em
 		// save cv if it exists
-		System.out.println("de cv link =" + candidate.getFile());
+		logger.debug("de cv link =" + candidate.getFile());
 		if (candidate.getFile() != null && !candidate.getFile().isEmpty()) {
 			// if ( candidate.getFile() != null) {
 			MultipartFile file = candidate.getFile();
@@ -120,11 +121,10 @@ public class CancidateController {
 
 			// Path filenameAndPath = Paths.get(uploadDirectory,
 			// file.getOriginalFilename());
-			System.out.println("Upload link = " + uploadDirectory);
-			System.out.println("filenaam pad" + filenameAndPath);
+			logger.debug("Upload link = " + uploadDirectory);
+			logger.debug("filenaam pad" + filenameAndPath);
 			// Files.write(filenameAndPath, file.getBytes());
 			Files.write(filenameAndPath, file.getBytes());
-			System.out.println("in de cv");
 			// set link to cv
 			candidate.setCvLink(file.getOriginalFilename());
 		}
@@ -139,10 +139,8 @@ public class CancidateController {
 
 		candidate.setAddressId(tmpAddress.getId());
 		candidateservice.updateCandidate(candidate);
-		System.out.println("we hebben iest weggeschreven");
-		System.out.println("Address saven is gelukt? ");
 
-		System.out.println("Kandidaat id " + tmpCandidate.getId());
+		logger.debug("Kandidaat id " + tmpCandidate.getId());
 		model.addAttribute("skills", new Skills());
 		return "skills";
 	}
@@ -150,7 +148,6 @@ public class CancidateController {
 	@PostMapping(value = "/updateCandidate")
 	public String updateArticle(Candidate candidate, Address address) {
 		addressService.updateAddress(address);
-		System.out.println("we zijn in deput");
 		// candidate.setAddressId(tmpAddress.getId());
 		candidateservice.updateCandidate(candidate);
 		return "test";
@@ -161,17 +158,12 @@ public class CancidateController {
 			@ModelAttribute("candidate") Candidate candidate, HttpSession session) throws IOException {
 
 		// save cv
-		System.out.println(candidate.getId());
 		if (candidate.getFile() != null) {
 			MultipartFile file = candidate.getFile();
 			Path filenameAndPath = Paths.get(uploadDirectory, file.getOriginalFilename());
-			// System.out.println("Upload link = "+ uploadDirectory);
 			Files.write(filenameAndPath, file.getBytes());
-			//
-			// set link to cv
 			candidate.setCvLink(file.getOriginalFilename());
 		}
-		System.out.println("we zijnn in de updatecontroller");
 
 		// https://stackoverflow.com/questions/2227395/spring-3-0-set-and-get-session-attribute
 		// save candidate to get an id
@@ -205,7 +197,7 @@ public class CancidateController {
 			return  "updatesucces";
 		}
 		Skills tmpSkills = skillsService.addSkills(skills);
-		System.out.println("Skills id = " + tmpSkills.getId());
+		logger.debug("Skills id = " + tmpSkills.getId());
 
 		
 		//Candidate sessionCandidate = (Candidate) session.getAttribute("candidate");
@@ -222,24 +214,22 @@ public class CancidateController {
 	@RequestMapping(value = "/registerSalaryPackage", method = RequestMethod.POST)
 	public String registerSalaryPackage(Model model, @ModelAttribute("salarypackage") SalaryPackage salaryPackage,
 			HttpSession session) {
-		System.out.println("we passeren bij salary");
-		System.out.println("we passeren hier " + salaryPackage.getGrossSalary());
+		logger.debug("we passeren hier " + salaryPackage.getGrossSalary());
 		String returning = "applicationProcess";
 		// if voor als het een update is
 		boolean update = (boolean) session.getAttribute("isupdate");
 		if (update) {
-			System.out.println("we zijn een salarypackage aan het updaten");
 			int salarypackageIdentificator = (int) session
 					.getAttribute("currentSalaryPackage0OrProposedSalarypackage1");
 			SalaryPackage tmpSalarypackage = salaryPackageService.addSalaryPackage(salaryPackage);
 			Candidate sessionUpdateCandidate = (Candidate) session.getAttribute("candidate");
 			if (salarypackageIdentificator == 0) {
 				sessionUpdateCandidate.setCurrentSallaryPackageId(tmpSalarypackage.getId());
-				System.out.println("current geupdated");
+				logger.debug("current geupdated");
 
 			} else {
 				sessionUpdateCandidate.setProposedSallaryPackageId(tmpSalarypackage.getId());
-				System.out.println("proposed geupdated");
+				logger.debug("proposed geupdated");
 			}
 			candidateservice.updateCandidate(sessionUpdateCandidate);
 			returning = "updatesucces";
@@ -256,7 +246,6 @@ public class CancidateController {
 			candidateservice.updateCandidate(sessionCandidate);
 			// Update candidate in session (not needed?)
 			session.setAttribute("candidate", sessionCandidate);
-			System.out.println("salary id = " + tmpSalarypackage.getId());
 			model.addAttribute("applicationprocess", new ApplicationProcess());
 		}
 		return returning;
@@ -265,9 +254,6 @@ public class CancidateController {
 	@RequestMapping(value = "/registerApplicationProcess", method = RequestMethod.POST)
 	public String registerApplicationProcess(Model model,
 			@ModelAttribute("applicationprocess") ApplicationProcess applicationProcess, HttpSession session) {
-		System.out.println("we passeren bij applicatiprocess");
-		System.out.println("we passeren bij applicatiprocess " + applicationProcess.getFeedbackFinancialProposal());
-
 		ApplicationProcess tmpApplicationprocess = applicationProcessService.addApplicationProcess(applicationProcess);
 		// get candidate from session
 		Candidate sessionCandidate = (Candidate) session.getAttribute("candidate");
@@ -277,10 +263,7 @@ public class CancidateController {
 		candidateservice.updateCandidate(sessionCandidate);
 		// Update candidate in session (not needed?)
 		session.setAttribute("candidate", sessionCandidate);
-
-		System.out.println("applicationprocess Id  = " + tmpApplicationprocess.getId());
 		Boolean t = (Boolean) session.getAttribute("isupdate");
-		System.out.println("waarde" + t);
 		String returning;
 
 		if (t == false) {
@@ -299,8 +282,6 @@ public class CancidateController {
 	@RequestMapping(value = "/registerSalaryPackageProposal")
 	public String registerSalaryPackageProposal(Model model) {
 		// voorlopig terug naar dde testpagina
-
-		System.out.println("we passeren bij salarypackageProposal");
 		model.addAttribute("salarypackage", new SalaryPackage());
 
 		return "salarypackageproposal";
@@ -308,13 +289,6 @@ public class CancidateController {
 
 	@RequestMapping(value = "/sendmail", method = RequestMethod.POST)
 	public String sendMail(Model model, @ModelAttribute("salarypackage") SalaryPackage salaryPackage) {
-		// voorlopig terug naar dde testpagina
-
-		System.out.println("we passeren bij salarypackageProposal");
-		System.out.println("we passeren hier " + salaryPackage.getGrossSalary());
-
-		// model.addAttribute("salarypackage", new SalaryPackage());
-
 		return "mailsucces";
 	}
 
@@ -327,14 +301,12 @@ public class CancidateController {
 
 			return "updateCandidate";
 		}
-		System.out.println("we komen hierlangs");
 		// de MULTIPARTFILE WORDT HIER NOG NIET OPGESLAGEN
 
 		if (candidate.getFile() != null && !candidate.getFile().isEmpty()) {
 			// if ( candidate.getFile() != null) {
 			MultipartFile file = candidate.getFile();
 			Path filenameAndPath = Paths.get(uploadDirectory, file.getOriginalFilename());
-			// System.out.println("Upload link = "+ uploadDirectory);
 			Files.write(filenameAndPath, file.getBytes());
 			// set link to cv
 			candidate.setCvLink(file.getOriginalFilename());
@@ -356,21 +328,10 @@ public class CancidateController {
 
 		// de kandidaat bestaat
 		if (tmp.isPresent()) {
-			// System.out.println("filename"+tmp.get().getFile().getName());
-			// System.out.println("filename"+tmp.get().getFile().getName());
-
-			// de kandidaat heeft een cv (of moet je kijken naar cv link?
-			// if (tmp.get().getFile() != null && !tmp.get().getFile().isEmpty()) {
-			// cv wordt gedownloaded
-			System.out.println("het cv bestaat");
+			logger.debug("het cv bestaat");
 			if (!StringUtils.isEmpty(tmp.get().getCvLink())) {
 				candidateservice.downloadCv(tmp.get().getCvLink(), response);
 			}
-			// updatesucess is raar, want wordt niet geupdated
-			//returnValue = "updatesucess";
-
-			// }
-			/// System.out.println("file is null?");
 		}
 
 		model.addAttribute("candidate", tmp.get());

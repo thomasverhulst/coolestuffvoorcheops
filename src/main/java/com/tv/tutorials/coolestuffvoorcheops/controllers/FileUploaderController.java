@@ -66,14 +66,12 @@ public class FileUploaderController {
 	@PostMapping("/upload3")
 	public String handleFileUpload(@RequestParam("file") MultipartFile file, RedirectAttributes redirectAttributes)
 			throws IOException {
-		System.out.println("we zijn hier");
 
 		Path filenameAndPath = Paths.get(uploadDirectory, file.getOriginalFilename());
 
 		Files.write(filenameAndPath, file.getBytes());
 
 		storageService.store(file);
-		System.out.println("we zijn hier2");
 		redirectAttributes.addFlashAttribute("message",
 				"You successfully uploaded " + file.getOriginalFilename() + "!");
 
