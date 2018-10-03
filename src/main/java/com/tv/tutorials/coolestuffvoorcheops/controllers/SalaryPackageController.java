@@ -23,9 +23,9 @@ import com.tv.tutorials.coolestuffvoorcheops.services.impl.SalaryPackageService;
 public class SalaryPackageController {
 
 	@Autowired
-	CandidateService candidateservice;
+	private CandidateService candidateservice;
 	@Autowired
-	SalaryPackageService salaryPackageService;
+	private SalaryPackageService salaryPackageService;
 
 	@RequestMapping(value = "searchcurrentsalarypackage2/{candidateId}", method = RequestMethod.GET)
 	public String searchCurrentSalaryPackage(Model model, @PathVariable("candidateId") int candidateId,

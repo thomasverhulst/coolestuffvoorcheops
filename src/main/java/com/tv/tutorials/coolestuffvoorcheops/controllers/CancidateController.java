@@ -64,6 +64,9 @@ public class CancidateController {
 
 	@Autowired
 	private CandidateRepository candidateRepository;
+	
+	@Autowired
+	private AddressRepository addressRepository;
 
 	@Autowired
 	public CancidateController(IStorageService storageService) {

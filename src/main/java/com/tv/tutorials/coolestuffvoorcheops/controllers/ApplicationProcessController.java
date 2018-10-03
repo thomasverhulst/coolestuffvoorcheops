@@ -20,9 +20,9 @@ import com.tv.tutorials.coolestuffvoorcheops.services.impl.CandidateService;
 public class ApplicationProcessController {
 
 	@Autowired
-	CandidateService candidateservice;
+	private CandidateService candidateservice;
 	@Autowired
-	ApplicationProcessService applicationProcessService;
+	private ApplicationProcessService applicationProcessService;
 
 	@RequestMapping(value = "searchapplicationproces2/{candidateId}", method = RequestMethod.GET)
 	public String searchApplicationProcess(Model model, @PathVariable("candidateId") int candidateId) {

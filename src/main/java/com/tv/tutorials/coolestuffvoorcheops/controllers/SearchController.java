@@ -34,19 +34,19 @@ public class SearchController {
 	// https://www.mkyong.com/spring-boot/spring-boot-hibernate-search-example/
 	// https://stackoverflow.com/questions/48800517/how-to-search-multiple-fields-in-a-search-box-in-spring-data-jpa
 	@Autowired
-	CandidateService candidateservice;
+	private CandidateService candidateservice;
 
 	@Autowired
-	AddressService addressService;
+	private AddressService addressService;
 
 	@Autowired
-	SkillsService skillsService;
+	private SkillsService skillsService;
 
 	@Autowired
-	SalaryPackageService salaryPackageService;
+	private SalaryPackageService salaryPackageService;
 
 	@Autowired
-	ApplicationProcessService applicationProcessService;
+	private ApplicationProcessService applicationProcessService;
 
 	@GetMapping("/search")
 	public String showRegister(Model modelMap) {

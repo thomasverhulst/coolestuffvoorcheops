@@ -21,11 +21,11 @@ import com.tv.tutorials.coolestuffvoorcheops.services.impl.SkillsService;
 public class SkillsController {
 
 	@Autowired
-	CandidateService candidateservice;
+	private CandidateService candidateservice;
 	@Autowired
-	SkillsService skillsService;
+	private SkillsService skillsService;
 	@Autowired
-	SkillsRepository skillsRepository;
+	private SkillsRepository skillsRepository;
 
 	@RequestMapping(value = "searchskills1/{candidateId}", method = RequestMethod.GET)
 	public String searchSkills(Model model, @PathVariable("candidateId") int candidateId) {
