@@ -32,6 +32,7 @@ import com.tv.tutorials.coolestuffvoorcheops.models.Candidate;
 import com.tv.tutorials.coolestuffvoorcheops.models.SalaryPackage;
 import com.tv.tutorials.coolestuffvoorcheops.models.Skills;
 import com.tv.tutorials.coolestuffvoorcheops.models.Update;
+import com.tv.tutorials.coolestuffvoorcheops.repositories.AddressRepository;
 import com.tv.tutorials.coolestuffvoorcheops.repositories.CandidateRepository;
 import com.tv.tutorials.coolestuffvoorcheops.services.IStorageService;
 import com.tv.tutorials.coolestuffvoorcheops.services.impl.AddressService;
