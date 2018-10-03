@@ -32,7 +32,6 @@ public class SkillsController {
 
 	@RequestMapping(value = "searchskills1/{candidateId}", method = RequestMethod.GET)
 	public String searchSkills(Model model, @PathVariable("candidateId") int candidateId,HttpSession session) {
-		System.out.println("we zijn in de GOEDE skills CONTROLLER" + candidateId);
 		// https://stackoverflow.com/questions/1714028/mvc-which-submit-button-has-been-pressed
 
 		Integer skillsId = candidateservice.getCandidateById(candidateId).getSkillsId();
@@ -45,7 +44,6 @@ public class SkillsController {
 		}else {
 			model.addAttribute("skills", skillsService.getSkillsById(skillsId));
 		}
-		
 		return "updateskills";
 	}
 
@@ -53,9 +51,7 @@ public class SkillsController {
 	// RequestMethod.POST)
 	// public String updateSkills(Model model , @ModelAttribute("skills") Skills
 	// skills, @PathVariable ("skillsId") Integer skillsId ) {
-	// System.out.println( skills.getId()+ "skillsid");
 	// skillsService.updateSkills(skillsService.getSkillsById(skillsId));
-	// System.out.println("we zijn in de skills poster");
 	// //candidate.setAddressId(tmpAddress.getId());
 	// //candidateservice.updateCandidate(candidate);
 	// return "test";

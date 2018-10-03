@@ -8,6 +8,7 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.apache.log4j.Logger;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,6 +18,9 @@ import org.springframework.web.multipart.MultipartFile;
 import com.tv.tutorials.coolestuffvoorcheops.models.MyUploadForm;
 
 public class MyFileUploadController {
+
+	Logger logger = Logger.getLogger(MyFileUploadController.class);
+
 	@RequestMapping(value = "/")
 	public String homePage() {
 
@@ -67,11 +71,9 @@ public class MyFileUploadController {
 			MyUploadForm myUploadForm) {
 
 		String description = myUploadForm.getDescription();
-		System.out.println("Description: " + description);
 
 		// Root Directory.
 		String uploadRootPath = request.getServletContext().getRealPath("upload");
-		System.out.println("uploadRootPath=" + uploadRootPath);
 
 		File uploadRootDir = new File(uploadRootPath);
 		// Create directory if it not exists.
@@ -87,7 +89,6 @@ public class MyFileUploadController {
 
 			// Client File Name
 			String name = fileData.getOriginalFilename();
-			System.out.println("Client File Name = " + name);
 
 			if (name != null && name.length() > 0) {
 				try {
@@ -99,9 +100,9 @@ public class MyFileUploadController {
 					stream.close();
 					//
 					uploadedFiles.add(serverFile);
-					System.out.println("Write file: " + serverFile);
+					logger.debug("Write file: " + serverFile);
 				} catch (Exception e) {
-					System.out.println("Error Write file: " + name);
+					logger.debug("Error Write file: " + name);
 					failedFiles.add(name);
 				}
 			}

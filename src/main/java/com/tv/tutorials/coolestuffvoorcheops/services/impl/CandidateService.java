@@ -97,7 +97,6 @@ public class CandidateService implements ICandidateService {
 			s.setId(id);
 
 			// update address
-			System.out.println("addressidttt = " + addressId);
 			Optional<Address> tmpAddress = addressRepository.findById(addressId);
 			if (tmpAddress.isPresent()) {
 				Address s2 = tmpAddress.get();
@@ -108,7 +107,6 @@ public class CandidateService implements ICandidateService {
 			//
 
 			candidateRepository.save(s);
-			System.out.println("het updaten is gelukt");
 		} else {
 			candidateRepository.save(candidate);
 		}
@@ -145,12 +143,10 @@ public class CandidateService implements ICandidateService {
 	}
 
 	public List<Candidate> findAllRecruitedIn(List<Integer> applicationProcessId) {
-		System.out.println("lengte " + applicationProcessId.size());
 
 		List<Candidate> candidates = new ArrayList<Candidate>();
 
 		List<ApplicationProcess> t = applicationProcessService.getAllApplicationProcessById(applicationProcessId);
-		System.out.println("lengte " + t.size());
 		if (t != null) {
 			List<ApplicationProcess> applicationProcessIdsRecruited = applicationProcessService
 					.findAllByIsRecruitedIn(t);
@@ -190,7 +186,6 @@ public class CandidateService implements ICandidateService {
 		candidates = (List<Candidate>) candidateRepository.findAllBySkillsIdIn(filteredSkillsId);
 		// candidates.addAll((Collection<? extends Candidate>)
 		// candidateRepository.findAllBySkillsIdIn(filteredSkillsId));
-		System.out.println("lengtelijsty" + candidates.size());
 
 		return candidates;
 	}
