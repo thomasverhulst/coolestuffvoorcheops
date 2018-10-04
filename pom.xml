@@ -73,6 +73,14 @@
 			<artifactId>jwks-rsa</artifactId>
 			<version>0.3.0</version>
 		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.projectlombok/lombok-maven -->
+		<dependency>
+		    <groupId>org.projectlombok</groupId>
+		    <artifactId>lombok-maven</artifactId>
+		    <version>1.18.0.0</version>
+		    <type>pom</type>
+		</dependency>
+
 
 		<dependency>
 
