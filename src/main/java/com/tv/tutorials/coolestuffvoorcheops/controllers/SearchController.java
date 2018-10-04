@@ -69,7 +69,7 @@ public class SearchController {
 		modelMap.addAttribute("candidates", candidates);
 		modelMap.addAttribute("candaidatesearchmodel", new CandaidateSearchModel());
 
-		return "candidatesearchresult";
+		return "searchcandidateresult";
 	}
 
 	@RequestMapping(value = "/searchCandidate", method = RequestMethod.POST)
@@ -174,7 +174,7 @@ public class SearchController {
 		List<Candidate> candidates = candidateservice.getAllCandidatesWithoutActiveApplicationProcess();
 		modelMap.addAttribute("candidates", candidates);
 		modelMap.addAttribute("candaidatesearchmodel", new CandaidateSearchModel());
-		return "candidatesearchresult";
+		return "searchcandidateresult";
 	}
 
 	// -----------------------------------------------------
