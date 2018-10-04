@@ -17,6 +17,8 @@ import org.springframework.stereotype.Service;
 import com.tv.tutorials.coolestuffvoorcheops.models.Address;
 import com.tv.tutorials.coolestuffvoorcheops.models.ApplicationProcess;
 import com.tv.tutorials.coolestuffvoorcheops.models.Candidate;
+import com.tv.tutorials.coolestuffvoorcheops.models.CandidateSearchResolver;
+import com.tv.tutorials.coolestuffvoorcheops.models.Skills;
 import com.tv.tutorials.coolestuffvoorcheops.repositories.AddressRepository;
 import com.tv.tutorials.coolestuffvoorcheops.repositories.CandidateRepository;
 import com.tv.tutorials.coolestuffvoorcheops.services.ICandidateService;
@@ -36,10 +38,49 @@ public class CandidateService implements ICandidateService {
 	ApplicationProcessService applicationProcessService;
 
 	@Override
-	public List<Candidate> getAllCandidates() {
-		List<Candidate> list = new ArrayList<>();
-		candidateRepository.findAll().forEach(e -> list.add(e));
-		return list;
+	public List<CandidateSearchResolver> getAllCandidates() {
+
+		List<CandidateSearchResolver> candidateResolverList = new ArrayList();
+		List<Candidate> candidates = new ArrayList<>();
+		candidateRepository.findAll().forEach(e -> candidates.add(e));
+
+		for (Candidate candidate : candidates) {
+			// Everything related to the skill
+			Skills skill = skillsService.getSkillsById(candidate.getSkillsId());
+			StringBuffer expertise = new StringBuffer();
+
+			if (skill.isDotnet()) {
+				expertise.append(".Net");
+				if (skill.isJava() || skill.isFrontend()) {
+					expertise.append(", ");
+				}
+			} else if (skill.isJava()) {
+				expertise.append("Java");
+				if (skill.isFrontend()) {
+					expertise.append(", ");
+				}
+			} else if (skill.isFrontend()) {
+				expertise.append("Front-End");
+			}
+
+			// ApplicationProcess Logic
+			ApplicationProcess applicationProcess = applicationProcessService
+					.getApplicationProcessById(candidate.getApplicationProcessId());
+			String applicationStatus = "";
+			if (applicationProcess.getToBeInvitedForFirstConversation()) {
+				applicationStatus = "Eerste interview";
+			} else if (applicationProcess.getToBeInvitedForTechnicalConversation()) {
+				applicationStatus = "Technisch interview";
+			} else if (applicationProcess.getIsRecruited()) {
+				applicationStatus = "In dienst";
+			}
+			CandidateSearchResolver candidateSearchResolver = new CandidateSearchResolver(candidate,
+					expertise.toString(), applicationStatus);
+			candidateResolverList.add(candidateSearchResolver);
+
+		}
+
+		return candidateResolverList;
 	}
 
 	@Override

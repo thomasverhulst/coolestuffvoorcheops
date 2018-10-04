@@ -20,6 +20,7 @@ import org.thymeleaf.util.StringUtils;
 
 import com.tv.tutorials.coolestuffvoorcheops.models.CandaidateSearchModel;
 import com.tv.tutorials.coolestuffvoorcheops.models.Candidate;
+import com.tv.tutorials.coolestuffvoorcheops.models.CandidateSearchResolver;
 import com.tv.tutorials.coolestuffvoorcheops.models.SalaryPackage;
 import com.tv.tutorials.coolestuffvoorcheops.models.Search;
 import com.tv.tutorials.coolestuffvoorcheops.models.Skills;
@@ -137,7 +138,8 @@ public class SearchController {
 
 	@RequestMapping(value = "/searchAllCandidates", method = RequestMethod.POST)
 	public String searchAllCandidates(ModelMap modelMap, HttpSession session) {
-		List<Candidate> candidates = candidateservice.getAllCandidates();
+
+		List<CandidateSearchResolver> candidates = candidateservice.getAllCandidates();
 		return goToResultpage(modelMap, candidates, session);
 	}
 
@@ -156,7 +158,8 @@ public class SearchController {
 	}
 
 	// adding result candidate list to session in order to make "return buttons"
-	public String goToResultpage(ModelMap modelMap, List<Candidate> candidates, HttpSession session) {
+	// possible on update pages
+	public String goToResultpage(ModelMap modelMap, List<CandidateSearchResolver> candidates, HttpSession session) {
 		// adding results to session for return buttons
 		session.setAttribute("candidateResults", candidates);
 		// session.getAttribute("candidateResults")
