@@ -185,6 +185,7 @@ public class SearchController {
 	public String goToResultpage(ModelMap modelMap, List<Candidate> candidates, HttpSession session) {
 		// adding results to session for return buttons
 		session.setAttribute("candidateResults", candidates);
+		//session.getAttribute("candidateResults")
 		modelMap.addAttribute("candidates", candidates);
 		modelMap.addAttribute("candaidatesearchmodel", new CandaidateSearchModel());
 		return "searchcandidateresult";
@@ -193,18 +194,11 @@ public class SearchController {
 
 	@RequestMapping(value = "/toSearchPage", method = RequestMethod.GET)
 	public String toSearchPage(ModelMap modelMap, HttpSession session) {
-		// UITGEZET, WERKT WEL MAAR GEEFT ALLEEN ALLE KANDIDATEN TERUG
-		// IETS MIS MET SESSIE?
-		// VOORLOPIG TERUG NAAR SEARCH
-		// adding results to session for return buttons
-		// session.setAttribute("candidateResults", candidates);
-		// modelMap.addAttribute("candidates",
-		// session.getAttribute("candidateResults"));
-		// modelMap.addAttribute("candaidatesearchmodel", new CandaidateSearchModel());
-
-		modelMap.addAttribute("candidate", new Candidate());
-		modelMap.addAttribute("saerch", new Search());
-		return "search";
+		
+		List <Candidate> candidateList =(List<Candidate>) session.getAttribute("candidateResults");			
+		modelMap.addAttribute("candidates",candidateList);
+		
+		return "searchcandidateresult";
 
 	}
 
