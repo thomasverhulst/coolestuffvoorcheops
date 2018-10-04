@@ -185,6 +185,7 @@ public class SearchController {
 	public String goToResultpage(ModelMap modelMap, List<Candidate> candidates, HttpSession session) {
 		// adding results to session for return buttons
 		session.setAttribute("candidateResults", candidates);
+		//session.getAttribute("candidateResults")
 		modelMap.addAttribute("candidates", candidates);
 		modelMap.addAttribute("candaidatesearchmodel", new CandaidateSearchModel());
 		return "searchcandidateresult";
@@ -198,13 +199,19 @@ public class SearchController {
 		// VOORLOPIG TERUG NAAR SEARCH
 		// adding results to session for return buttons
 		// session.setAttribute("candidateResults", candidates);
-		// modelMap.addAttribute("candidates",
-		// session.getAttribute("candidateResults"));
+		List <Candidate> l =(List<Candidate>) session.getAttribute("candidateResults");
+		System.out.println("lijst "+l.size());
+		if (session.getAttribute("candidateResults") != null) {
+			System.out.println("ik ben null");
+		}
+		
+		 modelMap.addAttribute("candidates",l);
 		// modelMap.addAttribute("candaidatesearchmodel", new CandaidateSearchModel());
-
-		modelMap.addAttribute("candidate", new Candidate());
-		modelMap.addAttribute("saerch", new Search());
-		return "search";
+		 System.out.println("hierrr");
+		//modelMap.addAttribute("candidate", new Candidate());
+		//modelMap.addAttribute("saerch", new Search());
+		//return "search";
+		 return "searchcandidateresults";
 
 	}
 
