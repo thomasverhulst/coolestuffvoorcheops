@@ -118,7 +118,7 @@ public class SearchController {
 			candidates.addAll(candidateservice.findAllRecruitedIn(applicationProcessIdList));
 		}
 		if (search.getExperience() != 0) {
-			// filter te bouwen
+			// TODO: filter te bouwen
 			// moet hier nog 1 worden afgetrokken omdate enkel groter dan gezocht wordt?
 			// candidateservice.findByExperienceGreaterThan(search.getExperience()).In();
 			// COMBINATIE GREATER THAN EN in
