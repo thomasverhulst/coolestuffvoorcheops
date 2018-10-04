@@ -68,6 +68,11 @@ Als variabelen met is beginnen, worden getteres en setters ook gegeereerd met "i
 #repository uitleg
 https://docs.spring.io/spring-data/jpa/docs/1.5.0.RC1/reference/html/jpa.repositories.html
 
+
+# SQL
+ALTER table kandidatenbeheer.candidate ADD contactChannel varchar(2000);
+
+
 #
 header en footer toevoegen https://www.quora.com/How-do-I-include-a-header-and-footer-file-in-every-HTML-page-we-are-designing
 https://mdbootstrap.com/components/bootstrap-footer/
