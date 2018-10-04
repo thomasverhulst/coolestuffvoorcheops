@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.thymeleaf.util.StringUtils;
 
 import com.tv.tutorials.coolestuffvoorcheops.models.CandaidateSearchModel;
 import com.tv.tutorials.coolestuffvoorcheops.models.Candidate;
@@ -75,12 +76,14 @@ public class SearchController {
 	public String gpostCandidateByNameAndSirName(@RequestParam("name") String name,
 			@RequestParam("sirName") String sirName, ModelMap modelMap, HttpSession session) {
 
-		if (name.equals("")) {
-			name = "!";
-		}
+		if (!(StringUtils.isEmpty(name) && StringUtils.isEmpty(sirName))) {
+			if (name.equals("")) {
+				name = "!";
+			}
 
-		if (sirName.equals("")) {
-			sirName = "!";
+			if (sirName.equals("")) {
+				sirName = "!";
+			}
 		}
 
 		session.setAttribute("name", name);
@@ -184,7 +187,7 @@ public class SearchController {
 		session.setAttribute("candidateResults", candidates);
 		modelMap.addAttribute("candidates", candidates);
 		modelMap.addAttribute("candaidatesearchmodel", new CandaidateSearchModel());
-		return "candidatesearchresult";
+		return "searchcandidateresult";
 		// session.getAttribute("candidateResults");
 	}
 
