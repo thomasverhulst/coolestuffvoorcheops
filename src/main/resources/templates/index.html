@@ -33,14 +33,15 @@
 		<div>
 			<a href="/upload2">Upload een file</a>
 		</div> -->
-
+	<div class="row">
 		<div class="container">
 
 			<div class="first" style="margin-right: 1%; margin-bottom: 1%;">
 
 				<h1 style="text-align: center;">LOGIN</h1>
 				<div>
-				<a href="/login" class="first test" style="text-align: center; display: inline;"> <img
+<!-- 				class="first test" -->
+				<a href="/login"  class="third fill-div" style="text-align: center; display: inline;"> <img
 					src="images\User_login_Icon_256.png"  style="text-align: center; display: inline;" class="icon" alt="Login">
 				</a>
 				</div>
@@ -63,35 +64,61 @@
 					<h1 style="text-align: center;">ZOEK</h1>
 				</div>
 				<div>
-					<a href="/search" class="fill-div" style="text-align: center; display: inline; "> <img
+					<a href="/search" class="third fill-div" style="text-align: center; display: inline; "> <img
 						src="images\Search_Search_Folder_Icon_256.png" class="icon"
 						style="text-align: center;  display: inline;" alt="Zoek">
 					</a>
 				</div>
 			</div>
-			<div style="margin-right: 1%;" class=" test last ">
-				<h1 style="text-align: center;">TEST</h1>
-				<a href="/test"> <img
-					src="images\Physical_sciences_Icon_256.png" class="icon"
-					style="text-align: center;">
-				</a>
-			</div>
-				<div class="fourth">
-					<h1 style="text-align: center;">INSTELLINGEN</h1>
-					<a  href="/instellingen" style="text-align: center; display: inline;"><img
-						src="images\Configuration_Settings_Icon_256.png" style="text-align: center; display: inline;" class="icon"
-						 alt="Instellingen">
+			
+			
+			
+			
+			<div class="test last" style="margin-bottom: 1%;">
+				<div>
+					<h1 style="text-align: center;">TEST</h1>
+
+				</div>
+				<div>
+					<a href="/test" class="third fill-div" style="text-align: center; display: inline; "> <img
+						src="images\Physical_sciences_Icon_256.png" style="text-align: center; display: inline; "class="icon" alt="Test">
 					</a>
 				</div>
+			</div>
+			
+			
+<!-- 			<div style="margin-right: 1%;" class=" test last "> -->
+<!-- 				<h1 style="text-align: center;">TEST</h1> -->
+<!-- 				<a href="/test"> <img -->
+<!-- 					src="images\Physical_sciences_Icon_256.png" class="icon" -->
+<!-- 					style="text-align: center;"> -->
+<!-- 				</a> -->
+<!-- 			</div> -->
+			
+			
+			
+			
+			<div class="fourth">
+			<div>
+							<h1 style="text-align: center;">INSTELLINGEN</h1>
+			
+			</div>
+			<div>
+				<a  href="/instellingen" class="third fill-div" style="text-align: center; display: inline;"><img
+					src="images\Configuration_Settings_Icon_256.png" style="text-align: center; display: inline;" class="icon"
+					 alt="Instellingen">
+				</a>
+			</div>
 
 		</div>
 
-		<div class="row">
-			<p th:insert="fragments/fragment.html :: footer"></p>
-		</div>
+		
 
 	</div>
-
+	</div>
+<div class="row">
+			<p th:insert="fragments/fragment.html :: footer"></p>
+		</div>
 
 </body>
 
