@@ -43,14 +43,13 @@ public class SalaryPackageController {
 			session.setAttribute("isupdate", true);
 			session.setAttribute("currentSalaryPackage0OrProposedSalarypackage1", 0);
 
-			// model.addAttribute("salarypackage", new SalaryPackage());
-			// map.addAttribute("lateCreate", true);
-			model.addAttribute("candidate", c);
+			
+			
 			Update update = new Update();
 			update.setCurrentSalaryPackage0OrProposedSalarypackage1(0);
 			model.addAttribute("currentSalaryPackage0OrProposedSalarypackage1", update);
+			model.addAttribute("candidate", c);
 			return "toupdatesalarypackage";
-			// return "test";
 		} else {
 			model.addAttribute("salaryPackage", salaryPackageService.getSalaryPackageById(salaryPackageId));// via
 																											// service
@@ -75,24 +74,14 @@ public class SalaryPackageController {
 			session.setAttribute("candidate", c);
 			session.setAttribute("isupdate", true);
 			session.setAttribute("currentSalaryPackage0OrProposedSalarypackage1", 1);
-			// model.addAttribute("currentSalaryPackage0OrProposedSalarypackage1", 1);
 			model.addAttribute("candidate", c);
 			Update update = new Update();
 			update.setCurrentSalaryPackage0OrProposedSalarypackage1(1);
 			model.addAttribute("currentSalaryPackage0OrProposedSalarypackage1", update);
-			// model.addAttribute("salarypackage", new SalaryPackage());
-			// map.addAttribute("lateCreate", true);
+		
 			return "toupdatesalarypackage";
-			// return "test";
 		} else {
-			model.addAttribute("salaryPackage", salaryPackageService.getSalaryPackageById(salaryPackageId));// via
-																											// service
-																											// =>
-																											// nullpointer?
-																											// (niet bij
-																											// skills)
-																											// AUTOWIRD
-																											// STOND UIT
+			model.addAttribute("salaryPackage", salaryPackageService.getSalaryPackageById(salaryPackageId));
 		}
 		return "updatesalarypackage";
 	}

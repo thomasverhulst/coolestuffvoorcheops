@@ -111,9 +111,9 @@ public class ApplicationProcessService implements IApplicationProcessService {
 		return (List<ApplicationProcess>) applicationProcessRepository.findAllById(applicationProcessId);
 	}
 
-	public List<ApplicationProcess> findAllByIsRecruitedIn(List<ApplicationProcess> t) {
+	public List<ApplicationProcess> findAllByIsRecruitedIn(List<ApplicationProcess> applicationProcess) {
 
-		Iterator<ApplicationProcess> i = t.iterator();
+		Iterator<ApplicationProcess> i = applicationProcess.iterator();
 		while (i.hasNext()) {
 			ApplicationProcess s = i.next(); // must be called before you can call i.remove()
 			// Do something
@@ -122,10 +122,7 @@ public class ApplicationProcessService implements IApplicationProcessService {
 			}
 		}
 
-		// if (t == null) {
-		// t=Collections.emptyList();
-		// }
-		return t;
+		return applicationProcess;
 	}
 
 }

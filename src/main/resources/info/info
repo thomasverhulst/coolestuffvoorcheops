@@ -74,6 +74,9 @@ ALTER table kandidatenbeheer.candidate ADD contactChannel varchar(2000);
 
 
 #
+// https://www.concretepage.com/spring-boot/spring-boot-crudrepository-example
+
+#
 header en footer toevoegen https://www.quora.com/How-do-I-include-a-header-and-footer-file-in-every-HTML-page-we-are-designing
 https://mdbootstrap.com/components/bootstrap-footer/
 #Itterate arrays

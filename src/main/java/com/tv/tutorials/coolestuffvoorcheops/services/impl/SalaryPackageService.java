@@ -26,7 +26,6 @@ public class SalaryPackageService implements ISalaryPackageService {
 
 	@Override
 	public SalaryPackage getSalaryPackageById(int salaryPackageId) {
-		// salaryPackageRepository.findById(salaryPackageId).
 		SalaryPackage e = salaryPackageRepository.findById(salaryPackageId).get();
 		return e;
 	}

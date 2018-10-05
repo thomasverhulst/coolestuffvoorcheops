@@ -40,11 +40,9 @@ public class SkillsService implements ISkillService {
 
 	@Override
 	public void updateSkills(Skills skills) {
-		// TODO Auto-generated method stub
 		skillsRepository.save(skills);
 
 		if (getSkillsById(skills.getId()) == null) {
-			// skillsRepository.save(skills);
 		} else {
 			skillsRepository.save(skills);
 		}
@@ -70,11 +68,9 @@ public class SkillsService implements ISkillService {
 	}
 
 	public List<Integer> findAllDotnet() {
-		// int id=0;
-		// List<Skills> list = skillsRepository.findAllByDotnetGreaterThan(id) ;
-		boolean isdotnett = true;
-		List<Skills> list = skillsRepository.findAllByDotnet(isdotnett);
-		// List<Integer> skillId = null;
+		
+		boolean isdotnet = true;
+		List<Skills> list = skillsRepository.findAllByDotnet(isdotnet);
 		List<Integer> skillId = new ArrayList<Integer>();
 		for (Skills skills : list) {
 			skillId.add(skills.getId());

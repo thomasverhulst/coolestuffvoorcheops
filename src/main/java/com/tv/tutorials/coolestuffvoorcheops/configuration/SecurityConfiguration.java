@@ -15,7 +15,6 @@ import com.tv.tutorials.coolestuffvoorcheops.repositories.UserRepository;
 
 @Primary
 @EnableGlobalMethodSecurity(prePostEnabled = true)
-// @EnableWebSecurity
 @EnableJpaRepositories(basePackageClasses = UserRepository.class)
 @Configuration
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
@@ -41,13 +40,11 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 		return new PasswordEncoder() {
 			@Override
 			public String encode(CharSequence rawPassword) {
-				// TODO Auto-generated method stub
 				return rawPassword.toString();
 			}
 
 			@Override
 			public boolean matches(CharSequence rawPassword, String encodedPassword) {
-				// TODO Auto-generated method stub
 				return true;
 			}
 

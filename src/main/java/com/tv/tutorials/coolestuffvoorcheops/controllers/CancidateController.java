@@ -33,7 +33,6 @@ import com.tv.tutorials.coolestuffvoorcheops.models.Candidate;
 import com.tv.tutorials.coolestuffvoorcheops.models.SalaryPackage;
 import com.tv.tutorials.coolestuffvoorcheops.models.Skills;
 import com.tv.tutorials.coolestuffvoorcheops.models.Update;
-import com.tv.tutorials.coolestuffvoorcheops.repositories.AddressRepository;
 import com.tv.tutorials.coolestuffvoorcheops.repositories.CandidateRepository;
 import com.tv.tutorials.coolestuffvoorcheops.services.IStorageService;
 import com.tv.tutorials.coolestuffvoorcheops.services.impl.AddressService;
@@ -69,9 +68,6 @@ public class CancidateController {
 	private CandidateRepository candidateRepository;
 
 	@Autowired
-	private AddressRepository addressRepository;
-
-	@Autowired
 	public CancidateController(IStorageService storageService) {
 		this.storageService = storageService;
 	}
@@ -83,10 +79,6 @@ public class CancidateController {
 		// ModelMap
 		// https://stackoverflow.com/questions/13242394/spring-mvc-multiple-modelattribute-on-the-same-form
 
-		// map.addAttribute("files", storageService.loadAll().map(
-		// path -> MvcUriComponentsBuilder.fromMethodName(FileUploaderController.class,
-		// "serveFile", path.getFileName().toString()).build().toString())
-		// .collect(Collectors.toList()));
 		Update update = new Update(false);
 		map.addAttribute("update", update);
 		map.addAttribute("address", new Address());
@@ -108,19 +100,16 @@ public class CancidateController {
 	@RequestMapping(value = "/registerCandidate", method = RequestMethod.POST)
 	public String register(Model model, @ModelAttribute("address") Address address,
 			@ModelAttribute("candidate") Candidate candidate, HttpSession session) throws IOException {
-
-		//
+		
 		session.setAttribute("isupdate", false);
-		// Helper.em
+		
 		// save cv if it exists
 		logger.debug("de cv link =" + candidate.getFile());
 		if (candidate.getFile() != null && !candidate.getFile().isEmpty()) {
-			// if ( candidate.getFile() != null) {
+			
 			MultipartFile file = candidate.getFile();
 			Path filenameAndPath = Paths.get(uploadDirectory, file.getOriginalFilename());
 
-			// Path filenameAndPath = Paths.get(uploadDirectory,
-			// file.getOriginalFilename());
 			logger.debug("Upload link = " + uploadDirectory);
 			logger.debug("filenaam pad" + filenameAndPath);
 			// Files.write(filenameAndPath, file.getBytes());
@@ -148,7 +137,6 @@ public class CancidateController {
 	@PostMapping(value = "/updateCandidate")
 	public String updateArticle(Candidate candidate, Address address) {
 		addressService.updateAddress(address);
-		// candidate.setAddressId(tmpAddress.getId());
 		candidateservice.updateCandidate(candidate);
 		return "test";
 	}
@@ -233,14 +221,13 @@ public class CancidateController {
 			}
 			candidateservice.updateCandidate(sessionUpdateCandidate);
 			returning = "updatesucces";
-		} else {// binnen deze else is het de gewone flow bij het aanmalkn van een kandidaat
+		} else {
 
-			// Candidate tmpCandidate =candidateservice.addCandidate(salarypackage);
 			SalaryPackage tmpSalarypackage = salaryPackageService.addSalaryPackage(salaryPackage);
 
 			// get candidate from session
 			Candidate sessionCandidate = (Candidate) session.getAttribute("candidate");
-			// set SkillsId to candidate from session
+			// set SalarypackageId to candidate from session
 			sessionCandidate.setCurrentSallaryPackageId(tmpSalarypackage.getId());
 			// Update candidate in database
 			candidateservice.updateCandidate(sessionCandidate);
@@ -257,7 +244,7 @@ public class CancidateController {
 		ApplicationProcess tmpApplicationprocess = applicationProcessService.addApplicationProcess(applicationProcess);
 		// get candidate from session
 		Candidate sessionCandidate = (Candidate) session.getAttribute("candidate");
-		// set SkillsId to candidate from session
+		// set ApplicationprocessId to candidate from session
 		sessionCandidate.setApplicationProcessId(tmpApplicationprocess.getId());
 		// Update candidate in database
 		candidateservice.updateCandidate(sessionCandidate);
@@ -337,6 +324,5 @@ public class CancidateController {
 		model.addAttribute("candidate", tmp.get());
 		return returnValue;
 	}
-	// searchAllCandidatesWithActiveApplicationProcess
 
 }

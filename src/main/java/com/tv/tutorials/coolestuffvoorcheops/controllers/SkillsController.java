@@ -27,12 +27,9 @@ public class SkillsController {
 	private CandidateService candidateservice;
 	@Autowired
 	private SkillsService skillsService;
-	@Autowired
-	private SkillsRepository skillsRepository;
 
 	@RequestMapping(value = "searchskills1/{candidateId}", method = RequestMethod.GET)
 	public String searchSkills(Model model, @PathVariable("candidateId") int candidateId,HttpSession session) {
-		// https://stackoverflow.com/questions/1714028/mvc-which-submit-button-has-been-pressed
 
 		Integer skillsId = candidateservice.getCandidateById(candidateId).getSkillsId();
 		if (skillsId <= 0) {
@@ -47,17 +44,7 @@ public class SkillsController {
 		return "updateskills";
 	}
 
-	// @RequestMapping(value ="/updateSkills2/{skillsId}" , method =
-	// RequestMethod.POST)
-	// public String updateSkills(Model model , @ModelAttribute("skills") Skills
-	// skills, @PathVariable ("skillsId") Integer skillsId ) {
-	// skillsService.updateSkills(skillsService.getSkillsById(skillsId));
-	// //candidate.setAddressId(tmpAddress.getId());
-	// //candidateservice.updateCandidate(candidate);
-	// return "test";
-	// }
-
-	// dit is de methode om een update te doen...
+	
 	@PostMapping("/updateSkills/{skillsId}")
 	public String update(@Valid Skills skills, @PathVariable("skillsId") int id, BindingResult result,
 			RedirectAttributes redirect) {
@@ -74,14 +61,11 @@ public class SkillsController {
 	
 	@RequestMapping(value = "/addSkills/{candidateId}", method = RequestMethod.GET)
 	public String addSkills(Model model, @PathVariable("candidateId") int candidateId,HttpSession session) {
-		System.out.println("we zijn in de GOEDE skills CONTROLLER" + candidateId);
-		// https://stackoverflow.com/questions/1714028/mvc-which-submit-button-has-been-pressed
-		System.out.println("HOOOIUY");
 		model.addAttribute("candidate", session.getAttribute("candidate"));
 		model.addAttribute("skills", new Skills());
-		boolean t = (boolean) session.getAttribute("isupdate");
-		System.out.println("t = "+t);
-		if (t) {
+		boolean update = (boolean) session.getAttribute("isupdate");
+		System.out.println("t = "+update);
+		if (update) {
 			System.out.println("hier");
 			return  "skills";
 		}else {

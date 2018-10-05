@@ -51,11 +51,9 @@ public class SearchController {
 
 	@GetMapping("/search")
 	public String showRegister(Model modelMap) {
-		// naar register.html, addres en candadate worden meegegeven
-		// ModelMap
+
 		// https://stackoverflow.com/questions/13242394/spring-mvc-multiple-modelattribute-on-the-same-form
-		// map.addAttribute("address", new Address());
-		// map.addAttribute("candidate", new Candidate());
+
 		modelMap.addAttribute("candidate", new Candidate());
 		modelMap.addAttribute("saerch", new Search());
 		return "search";
@@ -91,18 +89,13 @@ public class SearchController {
 
 		List<Candidate> candidates = candidateservice.findAllByNameLikeOrSirNameLike(name, sirName);
 		return goToResultpage(modelMap, candidates, session);
-		// modelMap.addAttribute("candidates", candidates);
-		// modelMap.addAttribute("candaidatesearchmodel", new CandaidateSearchModel());
-		//
-		// return "candidatesearchresult";
+
 	}
 
 	@RequestMapping(value = "/searchInAllCandidates", method = RequestMethod.POST)
 	public String searchInAllCandidates(@ModelAttribute("search") Search search, ModelMap modelMap,
 			HttpSession session) {
 
-		// session.setAttribute("name", name);
-		// session.setAttribute("sirName", sirName);
 		List<Candidate> candidates = new ArrayList<Candidate>();
 		// moet dit naar een service?
 		if (search.isDotnet()) {
@@ -134,39 +127,24 @@ public class SearchController {
 			candidates = filterdByExperience;
 		}
 		return goToResultpage(modelMap, candidates, session);
-		// modelMap.addAttribute("candidates", candidates);
-		// modelMap.addAttribute("candaidatesearchmodel", new CandaidateSearchModel());
-		//
-		// return "candidatesearchresult";
 	}
 
 	@RequestMapping(value = "/searchAllRecruitedCandidates", method = RequestMethod.POST)
 	public String searchAllRecruitedCandidates(ModelMap modelMap, HttpSession session) {
 		List<Candidate> candidates = candidateservice.findAllRecruited();
 		return goToResultpage(modelMap, candidates, session);
-		// modelMap.addAttribute("candidates", candidates);
-		// modelMap.addAttribute("candaidatesearchmodel", new CandaidateSearchModel());
-		// return "candidatesearchresult";
 	}
 
 	@RequestMapping(value = "/searchAllCandidates", method = RequestMethod.POST)
 	public String searchAllCandidates(ModelMap modelMap, HttpSession session) {
 		List<Candidate> candidates = candidateservice.getAllCandidates();
-
-		// PROEF
 		return goToResultpage(modelMap, candidates, session);
-		// modelMap.addAttribute("candidates", candidates);
-		// modelMap.addAttribute("candaidatesearchmodel", new CandaidateSearchModel());
-		// return "candidatesearchresult";
 	}
 
 	@RequestMapping(value = "/searchAllCandidatesWithActiveApplicationProcess", method = RequestMethod.POST)
 	public String searchAllCandidatesWithActiveApplicationProcess(ModelMap modelMap, HttpSession session) {
 		List<Candidate> candidates = candidateservice.getAllCandidatesWithActiveApplicationProcess();
 		return goToResultpage(modelMap, candidates, session);
-		// modelMap.addAttribute("candidates", candidates);
-		// modelMap.addAttribute("candaidatesearchmodel", new CandaidateSearchModel());
-		// return "candidatesearchresult";
 	}
 
 	@RequestMapping(value = "/searchAllCandidatesWithoutActiveApplicationProcess", method = RequestMethod.POST)
@@ -177,29 +155,22 @@ public class SearchController {
 		return "searchcandidateresult";
 	}
 
-	// -----------------------------------------------------
-
-	// refactor of redirection to resultpage
 	// adding result candidate list to session in order to make "return buttons"
-	// possible on update pages
 	public String goToResultpage(ModelMap modelMap, List<Candidate> candidates, HttpSession session) {
 		// adding results to session for return buttons
 		session.setAttribute("candidateResults", candidates);
-		//session.getAttribute("candidateResults")
+		// session.getAttribute("candidateResults")
 		modelMap.addAttribute("candidates", candidates);
 		modelMap.addAttribute("candaidatesearchmodel", new CandaidateSearchModel());
 		return "searchcandidateresult";
-		// session.getAttribute("candidateResults");
 	}
 
 	@RequestMapping(value = "/toSearchPage", method = RequestMethod.GET)
 	public String toSearchPage(ModelMap modelMap, HttpSession session) {
-		
-		List <Candidate> candidateList =(List<Candidate>) session.getAttribute("candidateResults");			
-		modelMap.addAttribute("candidates",candidateList);
-		
-		return "searchcandidateresult";
 
+		List<Candidate> candidateList = (List<Candidate>) session.getAttribute("candidateResults");
+		modelMap.addAttribute("candidates", candidateList);
+		return "searchcandidateresult";
 	}
 
 	@RequestMapping(value = "/searchssalarypackage", method = RequestMethod.POST)
@@ -207,7 +178,6 @@ public class SearchController {
 			ModelMap modelMap) {
 
 		// haal candidateid uit sessie, zoek zo id van die candidaat zijn gegegvens,
-		// haal "link cv op, zoek cv
 		List<Candidate> candidates = candidateservice.findAllByNameLikeOrSirNameLike(name, sirName);
 		modelMap.addAttribute("candidates", candidates);
 		return "searchssalarypackage";
@@ -216,58 +186,19 @@ public class SearchController {
 	@RequestMapping(value = "/dispatcher/{test}", method = RequestMethod.GET)
 	public String searchDispatcher(@PathVariable("test") String test) {
 		// https://stackoverflow.com/questions/1714028/mvc-which-submit-button-has-been-pressed
-
 		return "searchssalarypackage";
 	}
 
-	// GOEDE REQUESTMAPPINGS HIERONDER komt vanuit candidatesearchresult
-	// goede uitleg pathvariabelen
-	// https://stackoverflow.com/questions/46171030/spring-boot-thymeleaf-could-not-parse-as-expression-with-an-url
-
 	@RequestMapping(value = "searchcandidatedetails/{candidateId}", method = RequestMethod.GET)
 	public String searchCandidateDetails(ModelMap map, @PathVariable("candidateId") int candidateId) {
-		// https://stackoverflow.com/questions/1714028/mvc-which-submit-button-has-been-pressed
 
 		map.addAttribute("candidate", candidateservice.getCandidateById(candidateId));
-		// Address
-		// tmpAddress=addressService.getAddressById(tmpCandidate.getAddressId());
+
 		map.addAttribute("address",
 				addressService.getAddressById(candidateservice.getCandidateById(candidateId).getAddressId()));
-		// map.addAttribute("update", new Update(true));
-		// map.addAttribute("address", tmpAddress);
-		// map.addAttribute("candidate", tmpCandidate);
-		// return "register"; ik krijg geen voorwaardelijke knoppen, zo kan het niet
-		// hergebruikt worden
-		// werkt , ziet er uit zoals register
-		return "updatecandidate";
-		// werkt return "searchcandidatedetails";
-	}
 
-	/// {candidateId}
-	// @RequestMapping(value = "updatecandidate", method = RequestMethod.POST)
-	// public String updateCandidate( ModelMap map , @ModelAttribute("address")
-	// Address address,@ModelAttribute("candidate") Candidate candidate, HttpSession
-	// session) {
-	// //https://stackoverflow.com/questions/1714028/mvc-which-submit-button-has-been-pressed
-	// //Candidate sessionCandidate = (Candidate) session.getAttribute("candidate");
-	// //Candidate tmpCandidate =candidateservice.getCandidateById(candidateId);
-	// //Address
-	// tmpAddress=addressService.getAddressById(tmpCandidate.getAddressId());
-	// //Candidate tmp = candidateservice.getCandidateById(8);
-	// //tmp.setPhoneNumber(tmp.getPhoneNumber() +88888);
-	//
-	// //return "register"; ik krijg geen voorwaardelijke knoppen, zo kan het niet
-	// hergebruikt worden
-	// //werkt , ziet er uit zoals register
-	// // modelmap, hgetattribute ipv modelattribute?
-	//
-	// //addressService.updateAddress((Address) map.get("address"));
-	//
-	// //candidate.setAddressId(tmpAddress.getId());
-	// //candidateservice.updateCandidate(tmp);
-	// return "test";
-	// //werkt return "searchcandidatedetails";
-	// }
+		return "updatecandidate";
+	}
 
 	@RequestMapping(value = "searchcv/{candidateId}", method = RequestMethod.GET)
 	public String searchCv(@PathVariable("candidateId") int candidateId) {
@@ -322,7 +253,6 @@ public class SearchController {
 
 	@RequestMapping(value = "searchapplicationproces/{candidateId}", method = RequestMethod.GET)
 	public String searchApplicationproces(@PathVariable("candidateId") String candidateId) {
-		// https://stackoverflow.com/questions/1714028/mvc-which-submit-button-has-been-pressed
 		return "searchapplicationproces";
 	}
 
