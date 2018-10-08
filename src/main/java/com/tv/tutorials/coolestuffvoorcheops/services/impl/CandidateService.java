@@ -240,6 +240,7 @@ public class CandidateService implements ICandidateService {
 		return candidateResolverList;
 	}
 
+	@Override
 	public List<CandidateSearchResolver> findAllFrontend() {
 		List<Integer> skillsIds = skillsService.findAllFrontend();
 		Iterable<Candidate> candidates = candidateRepository.findAllBySkillsIdIn(skillsIds);
@@ -283,6 +284,7 @@ public class CandidateService implements ICandidateService {
 		return candidateResolverList;
 	}
 
+	@Override
 	public void saveOrUpdateCandidate(int id, @Valid Candidate candidate, @Valid Address address,
 			@Valid int addressId) {
 		Optional<Candidate> tmp = candidateRepository.findById(id);
@@ -309,6 +311,7 @@ public class CandidateService implements ICandidateService {
 
 	}
 
+	@Override
 	public void downloadCv(String cvLink, HttpServletResponse response) throws IOException {
 		response.setContentType("text/html");
 		PrintWriter out;
