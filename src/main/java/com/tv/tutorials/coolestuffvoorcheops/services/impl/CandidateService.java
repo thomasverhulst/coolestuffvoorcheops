@@ -39,40 +39,49 @@ public class CandidateService implements ICandidateService {
 
 	@Override
 	public List<CandidateSearchResolver> findAllByNameLikeOrSirNameLike(String name, String sirName) {
-		List<CandidateSearchResolver> candidateResolverList = new ArrayList();
 
 		List<Candidate> candidates = candidateRepository.findAllByNameLikeOrSirNameLike(name, sirName);
 
+		return fillExpertiseAndStatus(candidates);
+	}
+
+	private List<CandidateSearchResolver> fillExpertiseAndStatus(List<Candidate> candidates) {
+		List<CandidateSearchResolver> candidateResolverList = new ArrayList();
 		for (Candidate candidate : candidates) {
 			// Everything related to the skill
-			Skills skill = skillsService.getSkillsById(candidate.getSkillsId());
-			StringBuffer expertise = new StringBuffer();
+			StringBuffer expertise = new StringBuffer("");
+			if (candidate.getSkillsId() != 0) {
+				Skills skill = skillsService.getSkillsById(candidate.getSkillsId());
 
-			if (skill.isDotnet()) {
-				expertise.append(".Net");
-				if (skill.isJava() || skill.isFrontend()) {
-					expertise.append(", ");
+				if (skill.isDotnet()) {
+					expertise.append(".Net");
+					if (skill.isJava() || skill.isFrontend()) {
+						expertise.append(", ");
+					}
+				} else if (skill.isJava()) {
+					expertise.append("Java");
+					if (skill.isFrontend()) {
+						expertise.append(", ");
+					}
+				} else if (skill.isFrontend()) {
+					expertise.append("Front-End");
 				}
-			} else if (skill.isJava()) {
-				expertise.append("Java");
-				if (skill.isFrontend()) {
-					expertise.append(", ");
-				}
-			} else if (skill.isFrontend()) {
-				expertise.append("Front-End");
 			}
 
 			// ApplicationProcess Logic
-			ApplicationProcess applicationProcess = applicationProcessService
-					.getApplicationProcessById(candidate.getApplicationProcessId());
 			String applicationStatus = "";
-			if (applicationProcess.getToBeInvitedForFirstConversation()) {
-				applicationStatus = "Eerste interview";
-			} else if (applicationProcess.getToBeInvitedForTechnicalConversation()) {
-				applicationStatus = "Technisch interview";
-			} else if (applicationProcess.getIsRecruited()) {
-				applicationStatus = "In dienst";
+			if (candidate.getApplicationProcessId() != 0) {
+				ApplicationProcess applicationProcess = applicationProcessService
+						.getApplicationProcessById(candidate.getApplicationProcessId());
+				if (applicationProcess.getToBeInvitedForFirstConversation()) {
+					applicationStatus = "Eerste interview";
+				} else if (applicationProcess.getToBeInvitedForTechnicalConversation()) {
+					applicationStatus = "Technisch interview";
+				} else if (applicationProcess.getIsRecruited()) {
+					applicationStatus = "In dienst";
+				}
 			}
+
 			CandidateSearchResolver candidateSearchResolver = new CandidateSearchResolver(candidate,
 					expertise.toString(), applicationStatus);
 			candidateResolverList.add(candidateSearchResolver);
@@ -83,47 +92,10 @@ public class CandidateService implements ICandidateService {
 	@Override
 	public List<CandidateSearchResolver> getAllCandidates() {
 
-		List<CandidateSearchResolver> candidateResolverList = new ArrayList();
 		List<Candidate> candidates = new ArrayList<>();
 		candidateRepository.findAll().forEach(e -> candidates.add(e));
 
-		for (Candidate candidate : candidates) {
-			// Everything related to the skill
-			Skills skill = skillsService.getSkillsById(candidate.getSkillsId());
-			StringBuffer expertise = new StringBuffer();
-
-			if (skill.isDotnet()) {
-				expertise.append(".Net");
-				if (skill.isJava() || skill.isFrontend()) {
-					expertise.append(", ");
-				}
-			} else if (skill.isJava()) {
-				expertise.append("Java");
-				if (skill.isFrontend()) {
-					expertise.append(", ");
-				}
-			} else if (skill.isFrontend()) {
-				expertise.append("Front-End");
-			}
-
-			// ApplicationProcess Logic
-			ApplicationProcess applicationProcess = applicationProcessService
-					.getApplicationProcessById(candidate.getApplicationProcessId());
-			String applicationStatus = "";
-			if (applicationProcess.getToBeInvitedForFirstConversation()) {
-				applicationStatus = "Eerste interview";
-			} else if (applicationProcess.getToBeInvitedForTechnicalConversation()) {
-				applicationStatus = "Technisch interview";
-			} else if (applicationProcess.getIsRecruited()) {
-				applicationStatus = "In dienst";
-			}
-			CandidateSearchResolver candidateSearchResolver = new CandidateSearchResolver(candidate,
-					expertise.toString(), applicationStatus);
-			candidateResolverList.add(candidateSearchResolver);
-
-		}
-
-		return candidateResolverList;
+		return fillExpertiseAndStatus(candidates);
 	}
 
 	@Override
@@ -152,136 +124,23 @@ public class CandidateService implements ICandidateService {
 	public List<CandidateSearchResolver> findAllDotnet() {
 
 		List<Integer> skillsIds = skillsService.findAllDotnet();
-		Iterable<Candidate> candidates = candidateRepository.findAllBySkillsIdIn(skillsIds);
+		List<Candidate> candidates = candidateRepository.findAllBySkillsIdIn(skillsIds);
 
-		List<CandidateSearchResolver> candidateResolverList = new ArrayList<CandidateSearchResolver>();
-
-		for (Candidate candidate : candidates) {
-			// Everything related to the skill
-			Skills skill = skillsService.getSkillsById(candidate.getSkillsId());
-			StringBuffer expertise = new StringBuffer();
-
-			if (skill.isDotnet()) {
-				expertise.append(".Net");
-				if (skill.isJava() || skill.isFrontend()) {
-					expertise.append(", ");
-				}
-			} else if (skill.isJava()) {
-				expertise.append("Java");
-				if (skill.isFrontend()) {
-					expertise.append(", ");
-				}
-			} else if (skill.isFrontend()) {
-				expertise.append("Front-End");
-			}
-
-			// ApplicationProcess Logic
-			ApplicationProcess applicationProcess = applicationProcessService
-					.getApplicationProcessById(candidate.getApplicationProcessId());
-			String applicationStatus = "";
-			if (applicationProcess.getToBeInvitedForFirstConversation()) {
-				applicationStatus = "Eerste interview";
-			} else if (applicationProcess.getToBeInvitedForTechnicalConversation()) {
-				applicationStatus = "Technisch interview";
-			} else if (applicationProcess.getIsRecruited()) {
-				applicationStatus = "In dienst";
-			}
-			CandidateSearchResolver candidateSearchResolver = new CandidateSearchResolver(candidate,
-					expertise.toString(), applicationStatus);
-
-			candidateResolverList.add(candidateSearchResolver);
-		}
-
-		return candidateResolverList;
+		return fillExpertiseAndStatus(candidates);
 	}
 
 	@Override
 	public List<CandidateSearchResolver> findAllJava() {
 		List<Integer> skillsIds = skillsService.findAllJava();
-		Iterable<Candidate> candidates = candidateRepository.findAllBySkillsIdIn(skillsIds);
-		List<CandidateSearchResolver> candidateResolverList = new ArrayList<CandidateSearchResolver>();
-
-		for (Candidate candidate : candidates) {
-			// Everything related to the skill
-			Skills skill = skillsService.getSkillsById(candidate.getSkillsId());
-			StringBuffer expertise = new StringBuffer();
-
-			if (skill.isDotnet()) {
-				expertise.append(".Net");
-				if (skill.isJava() || skill.isFrontend()) {
-					expertise.append(", ");
-				}
-			} else if (skill.isJava()) {
-				expertise.append("Java");
-				if (skill.isFrontend()) {
-					expertise.append(", ");
-				}
-			} else if (skill.isFrontend()) {
-				expertise.append("Front-End");
-			}
-
-			// ApplicationProcess Logic
-			ApplicationProcess applicationProcess = applicationProcessService
-					.getApplicationProcessById(candidate.getApplicationProcessId());
-			String applicationStatus = "";
-			if (applicationProcess.getToBeInvitedForFirstConversation()) {
-				applicationStatus = "Eerste interview";
-			} else if (applicationProcess.getToBeInvitedForTechnicalConversation()) {
-				applicationStatus = "Technisch interview";
-			} else if (applicationProcess.getIsRecruited()) {
-				applicationStatus = "In dienst";
-			}
-			CandidateSearchResolver candidateSearchResolver = new CandidateSearchResolver(candidate,
-					expertise.toString(), applicationStatus);
-
-			candidateResolverList.add(candidateSearchResolver);
-		}
-
-		return candidateResolverList;
+		List<Candidate> candidates = candidateRepository.findAllBySkillsIdIn(skillsIds);
+		return fillExpertiseAndStatus(candidates);
 	}
 
 	@Override
 	public List<CandidateSearchResolver> findAllFrontend() {
 		List<Integer> skillsIds = skillsService.findAllFrontend();
-		Iterable<Candidate> candidates = candidateRepository.findAllBySkillsIdIn(skillsIds);
-		List<CandidateSearchResolver> candidateResolverList = new ArrayList<CandidateSearchResolver>();
-		for (Candidate candidate : candidates) {
-			// Everything related to the skill
-			Skills skill = skillsService.getSkillsById(candidate.getSkillsId());
-			StringBuffer expertise = new StringBuffer();
-
-			if (skill.isDotnet()) {
-				expertise.append(".Net");
-				if (skill.isJava() || skill.isFrontend()) {
-					expertise.append(", ");
-				}
-			} else if (skill.isJava()) {
-				expertise.append("Java");
-				if (skill.isFrontend()) {
-					expertise.append(", ");
-				}
-			} else if (skill.isFrontend()) {
-				expertise.append("Front-End");
-			}
-
-			// ApplicationProcess Logic
-			ApplicationProcess applicationProcess = applicationProcessService
-					.getApplicationProcessById(candidate.getApplicationProcessId());
-			String applicationStatus = "";
-			if (applicationProcess.getToBeInvitedForFirstConversation()) {
-				applicationStatus = "Eerste interview";
-			} else if (applicationProcess.getToBeInvitedForTechnicalConversation()) {
-				applicationStatus = "Technisch interview";
-			} else if (applicationProcess.getIsRecruited()) {
-				applicationStatus = "In dienst";
-			}
-			CandidateSearchResolver candidateSearchResolver = new CandidateSearchResolver(candidate,
-					expertise.toString(), applicationStatus);
-
-			candidateResolverList.add(candidateSearchResolver);
-		}
-
-		return candidateResolverList;
+		List<Candidate> candidates = candidateRepository.findAllBySkillsIdIn(skillsIds);
+		return fillExpertiseAndStatus(candidates);
 	}
 
 	@Override
@@ -336,48 +195,8 @@ public class CandidateService implements ICandidateService {
 	@Override
 	public List<CandidateSearchResolver> findAllRecruited() {
 		List<Integer> applicationProcessIds = applicationProcessService.findAllRecruited();
-		// Iterable<Candidate> candidates=
-		// candidateRepository.findAllById(candidateIds);
 		List<Candidate> candidates = candidateRepository.findAllByApplicationProcessIdIn(applicationProcessIds);
-		List<CandidateSearchResolver> candidateResolverList = new ArrayList<CandidateSearchResolver>();
-
-		for (Candidate candidate : candidates) {
-			// Everything related to the skill
-			Skills skill = skillsService.getSkillsById(candidate.getSkillsId());
-			StringBuffer expertise = new StringBuffer();
-
-			if (skill.isDotnet()) {
-				expertise.append(".Net");
-				if (skill.isJava() || skill.isFrontend()) {
-					expertise.append(", ");
-				}
-			} else if (skill.isJava()) {
-				expertise.append("Java");
-				if (skill.isFrontend()) {
-					expertise.append(", ");
-				}
-			} else if (skill.isFrontend()) {
-				expertise.append("Front-End");
-			}
-
-			// ApplicationProcess Logic
-			ApplicationProcess applicationProcess = applicationProcessService
-					.getApplicationProcessById(candidate.getApplicationProcessId());
-			String applicationStatus = "";
-			if (applicationProcess.getToBeInvitedForFirstConversation()) {
-				applicationStatus = "Eerste interview";
-			} else if (applicationProcess.getToBeInvitedForTechnicalConversation()) {
-				applicationStatus = "Technisch interview";
-			} else if (applicationProcess.getIsRecruited()) {
-				applicationStatus = "In dienst";
-			}
-			CandidateSearchResolver candidateSearchResolver = new CandidateSearchResolver(candidate,
-					expertise.toString(), applicationStatus);
-
-			candidateResolverList.add(candidateSearchResolver);
-		}
-
-		return candidateResolverList;
+		return fillExpertiseAndStatus(candidates);
 	}
 
 	@Override
@@ -395,45 +214,7 @@ public class CandidateService implements ICandidateService {
 			}
 
 		}
-		List<CandidateSearchResolver> candidateResolverList = new ArrayList<CandidateSearchResolver>();
-
-		for (Candidate candidate : candidates) {
-			// Everything related to the skill
-			Skills skill = skillsService.getSkillsById(candidate.getSkillsId());
-			StringBuffer expertise = new StringBuffer();
-
-			if (skill.isDotnet()) {
-				expertise.append(".Net");
-				if (skill.isJava() || skill.isFrontend()) {
-					expertise.append(", ");
-				}
-			} else if (skill.isJava()) {
-				expertise.append("Java");
-				if (skill.isFrontend()) {
-					expertise.append(", ");
-				}
-			} else if (skill.isFrontend()) {
-				expertise.append("Front-End");
-			}
-
-			// ApplicationProcess Logic
-			ApplicationProcess applicationProcess = applicationProcessService
-					.getApplicationProcessById(candidate.getApplicationProcessId());
-			String applicationStatus = "";
-			if (applicationProcess.getToBeInvitedForFirstConversation()) {
-				applicationStatus = "Eerste interview";
-			} else if (applicationProcess.getToBeInvitedForTechnicalConversation()) {
-				applicationStatus = "Technisch interview";
-			} else if (applicationProcess.getIsRecruited()) {
-				applicationStatus = "In dienst";
-			}
-			CandidateSearchResolver candidateSearchResolver = new CandidateSearchResolver(candidate,
-					expertise.toString(), applicationStatus);
-
-			candidateResolverList.add(candidateSearchResolver);
-		}
-
-		return candidateResolverList;
+		return fillExpertiseAndStatus(candidates);
 
 	}
 
@@ -441,45 +222,7 @@ public class CandidateService implements ICandidateService {
 	public List<CandidateSearchResolver> getAllCandidatesWithActiveApplicationProcess() {
 		List<Integer> applicationProcessIds = applicationProcessService.getAllCandidatesWithActiveApplicationProcess();
 		List<Candidate> candidates = candidateRepository.findAllByApplicationProcessIdIn(applicationProcessIds);
-		List<CandidateSearchResolver> candidateResolverList = new ArrayList<CandidateSearchResolver>();
-
-		for (Candidate candidate : candidates) {
-			// Everything related to the skill
-			Skills skill = skillsService.getSkillsById(candidate.getSkillsId());
-			StringBuffer expertise = new StringBuffer();
-
-			if (skill.isDotnet()) {
-				expertise.append(".Net");
-				if (skill.isJava() || skill.isFrontend()) {
-					expertise.append(", ");
-				}
-			} else if (skill.isJava()) {
-				expertise.append("Java");
-				if (skill.isFrontend()) {
-					expertise.append(", ");
-				}
-			} else if (skill.isFrontend()) {
-				expertise.append("Front-End");
-			}
-
-			// ApplicationProcess Logic
-			ApplicationProcess applicationProcess = applicationProcessService
-					.getApplicationProcessById(candidate.getApplicationProcessId());
-			String applicationStatus = "";
-			if (applicationProcess.getToBeInvitedForFirstConversation()) {
-				applicationStatus = "Eerste interview";
-			} else if (applicationProcess.getToBeInvitedForTechnicalConversation()) {
-				applicationStatus = "Technisch interview";
-			} else if (applicationProcess.getIsRecruited()) {
-				applicationStatus = "In dienst";
-			}
-			CandidateSearchResolver candidateSearchResolver = new CandidateSearchResolver(candidate,
-					expertise.toString(), applicationStatus);
-
-			candidateResolverList.add(candidateSearchResolver);
-		}
-
-		return candidateResolverList;
+		return fillExpertiseAndStatus(candidates);
 	}
 
 	@Override
@@ -500,45 +243,7 @@ public class CandidateService implements ICandidateService {
 		List<Integer> filteredSkillsId = skillsService.findAllByExperienceGreaterThan(experience, skillsIdList);
 
 		List<Candidate> candidatesList = candidateRepository.findAllBySkillsIdIn(filteredSkillsId);
-		List<CandidateSearchResolver> candidateResolverList = new ArrayList<CandidateSearchResolver>();
-
-		for (Candidate candidate : candidatesList) {
-			// Everything related to the skill
-			Skills skill = skillsService.getSkillsById(candidate.getSkillsId());
-			StringBuffer expertise = new StringBuffer();
-
-			if (skill.isDotnet()) {
-				expertise.append(".Net");
-				if (skill.isJava() || skill.isFrontend()) {
-					expertise.append(", ");
-				}
-			} else if (skill.isJava()) {
-				expertise.append("Java");
-				if (skill.isFrontend()) {
-					expertise.append(", ");
-				}
-			} else if (skill.isFrontend()) {
-				expertise.append("Front-End");
-			}
-
-			// ApplicationProcess Logic
-			ApplicationProcess applicationProcess = applicationProcessService
-					.getApplicationProcessById(candidate.getApplicationProcessId());
-			String applicationStatus = "";
-			if (applicationProcess.getToBeInvitedForFirstConversation()) {
-				applicationStatus = "Eerste interview";
-			} else if (applicationProcess.getToBeInvitedForTechnicalConversation()) {
-				applicationStatus = "Technisch interview";
-			} else if (applicationProcess.getIsRecruited()) {
-				applicationStatus = "In dienst";
-			}
-			CandidateSearchResolver candidateSearchResolver = new CandidateSearchResolver(candidate,
-					expertise.toString(), applicationStatus);
-
-			candidateResolverList.add(candidateSearchResolver);
-		}
-
-		return candidateResolverList;
+		return fillExpertiseAndStatus(candidatesList);
 	}
 
 }
