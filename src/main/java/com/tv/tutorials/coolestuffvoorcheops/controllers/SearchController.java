@@ -64,7 +64,7 @@ public class SearchController {
 	public String getCandidateByNameAndSirName(ModelMap modelMap, HttpSession session) {
 		String name = (String) session.getAttribute("name");
 		String sirName = (String) session.getAttribute("sirName");
-		List<Candidate> candidates = candidateservice.findAllByNameLikeOrSirNameLike(name, sirName);
+		List<CandidateSearchResolver> candidates = candidateservice.findAllByNameLikeOrSirNameLike(name, sirName);
 		modelMap.addAttribute("candidates", candidates);
 		modelMap.addAttribute("candaidatesearchmodel", new CandaidateSearchModel());
 
@@ -88,7 +88,7 @@ public class SearchController {
 		session.setAttribute("name", name);
 		session.setAttribute("sirName", sirName);
 
-		List<Candidate> candidates = candidateservice.findAllByNameLikeOrSirNameLike(name, sirName);
+		List<CandidateSearchResolver> candidates = candidateservice.findAllByNameLikeOrSirNameLike(name, sirName);
 		return goToResultpage(modelMap, candidates, session);
 
 	}
@@ -96,8 +96,7 @@ public class SearchController {
 	@RequestMapping(value = "/searchInAllCandidates", method = RequestMethod.POST)
 	public String searchInAllCandidates(@ModelAttribute("search") Search search, ModelMap modelMap,
 			HttpSession session) {
-
-		List<Candidate> candidates = new ArrayList<Candidate>();
+		List<CandidateSearchResolver> candidates = new ArrayList<CandidateSearchResolver>();
 		// moet dit naar een service?
 		if (search.isDotnet()) {
 			// add .netters if asked
@@ -113,8 +112,8 @@ public class SearchController {
 		}
 		if (search.isEmployed()) {
 			// search only in recruited candiates
-			List<Integer> applicationProcessIdList = candidates.stream().map(Candidate::getApplicationProcessId)
-					.collect(Collectors.toList());
+			List<Integer> applicationProcessIdList = candidates.stream()
+					.map(c -> c.getCandidate().getApplicationProcessId()).collect(Collectors.toList());
 			candidates.clear(); // lijst candidaten
 			candidates.addAll(candidateservice.findAllRecruitedIn(applicationProcessIdList));
 		}
@@ -123,8 +122,8 @@ public class SearchController {
 			// moet hier nog 1 worden afgetrokken omdate enkel groter dan gezocht wordt?
 			// candidateservice.findByExperienceGreaterThan(search.getExperience()).In();
 			// COMBINATIE GREATER THAN EN in
-			List<Candidate> filterdByExperience = candidateservice.findByExperienceGreaterThan(search.getExperience(),
-					candidates);
+			List<CandidateSearchResolver> filterdByExperience = candidateservice
+					.findByExperienceGreaterThan(search.getExperience(), candidates);
 			candidates = filterdByExperience;
 		}
 		return goToResultpage(modelMap, candidates, session);
@@ -132,7 +131,7 @@ public class SearchController {
 
 	@RequestMapping(value = "/searchAllRecruitedCandidates", method = RequestMethod.POST)
 	public String searchAllRecruitedCandidates(ModelMap modelMap, HttpSession session) {
-		List<Candidate> candidates = candidateservice.findAllRecruited();
+		List<CandidateSearchResolver> candidates = candidateservice.findAllRecruited();
 		return goToResultpage(modelMap, candidates, session);
 	}
 
@@ -145,7 +144,7 @@ public class SearchController {
 
 	@RequestMapping(value = "/searchAllCandidatesWithActiveApplicationProcess", method = RequestMethod.POST)
 	public String searchAllCandidatesWithActiveApplicationProcess(ModelMap modelMap, HttpSession session) {
-		List<Candidate> candidates = candidateservice.getAllCandidatesWithActiveApplicationProcess();
+		List<CandidateSearchResolver> candidates = candidateservice.getAllCandidatesWithActiveApplicationProcess();
 		return goToResultpage(modelMap, candidates, session);
 	}
 
@@ -181,7 +180,9 @@ public class SearchController {
 			ModelMap modelMap) {
 
 		// haal candidateid uit sessie, zoek zo id van die candidaat zijn gegegvens,
-		List<Candidate> candidates = candidateservice.findAllByNameLikeOrSirNameLike(name, sirName);
+
+		// haal "link cv op, zoek cv
+		List<CandidateSearchResolver> candidates = candidateservice.findAllByNameLikeOrSirNameLike(name, sirName);
 		modelMap.addAttribute("candidates", candidates);
 		return "searchssalarypackage";
 	}

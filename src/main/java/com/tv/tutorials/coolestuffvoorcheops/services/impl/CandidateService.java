@@ -38,6 +38,49 @@ public class CandidateService implements ICandidateService {
 	ApplicationProcessService applicationProcessService;
 
 	@Override
+	public List<CandidateSearchResolver> findAllByNameLikeOrSirNameLike(String name, String sirName) {
+		List<CandidateSearchResolver> candidateResolverList = new ArrayList();
+
+		List<Candidate> candidates = candidateRepository.findAllByNameLikeOrSirNameLike(name, sirName);
+
+		for (Candidate candidate : candidates) {
+			// Everything related to the skill
+			Skills skill = skillsService.getSkillsById(candidate.getSkillsId());
+			StringBuffer expertise = new StringBuffer();
+
+			if (skill.isDotnet()) {
+				expertise.append(".Net");
+				if (skill.isJava() || skill.isFrontend()) {
+					expertise.append(", ");
+				}
+			} else if (skill.isJava()) {
+				expertise.append("Java");
+				if (skill.isFrontend()) {
+					expertise.append(", ");
+				}
+			} else if (skill.isFrontend()) {
+				expertise.append("Front-End");
+			}
+
+			// ApplicationProcess Logic
+			ApplicationProcess applicationProcess = applicationProcessService
+					.getApplicationProcessById(candidate.getApplicationProcessId());
+			String applicationStatus = "";
+			if (applicationProcess.getToBeInvitedForFirstConversation()) {
+				applicationStatus = "Eerste interview";
+			} else if (applicationProcess.getToBeInvitedForTechnicalConversation()) {
+				applicationStatus = "Technisch interview";
+			} else if (applicationProcess.getIsRecruited()) {
+				applicationStatus = "In dienst";
+			}
+			CandidateSearchResolver candidateSearchResolver = new CandidateSearchResolver(candidate,
+					expertise.toString(), applicationStatus);
+			candidateResolverList.add(candidateSearchResolver);
+		}
+		return candidateResolverList;
+	}
+
+	@Override
 	public List<CandidateSearchResolver> getAllCandidates() {
 
 		List<CandidateSearchResolver> candidateResolverList = new ArrayList();
@@ -105,27 +148,139 @@ public class CandidateService implements ICandidateService {
 		candidateRepository.delete(getCandidateById(candidateId));
 	}
 
-	public List<Candidate> findAllByNameLikeOrSirNameLike(String name, String sirName) {
-		List<Candidate> list = candidateRepository.findAllByNameLikeOrSirNameLike(name, sirName);
-		return list;
-	}
+	@Override
+	public List<CandidateSearchResolver> findAllDotnet() {
 
-	public List<Candidate> findAllDotnet() {
 		List<Integer> skillsIds = skillsService.findAllDotnet();
 		Iterable<Candidate> candidates = candidateRepository.findAllBySkillsIdIn(skillsIds);
-		return (List<Candidate>) candidates;
+
+		List<CandidateSearchResolver> candidateResolverList = new ArrayList<CandidateSearchResolver>();
+
+		for (Candidate candidate : candidates) {
+			// Everything related to the skill
+			Skills skill = skillsService.getSkillsById(candidate.getSkillsId());
+			StringBuffer expertise = new StringBuffer();
+
+			if (skill.isDotnet()) {
+				expertise.append(".Net");
+				if (skill.isJava() || skill.isFrontend()) {
+					expertise.append(", ");
+				}
+			} else if (skill.isJava()) {
+				expertise.append("Java");
+				if (skill.isFrontend()) {
+					expertise.append(", ");
+				}
+			} else if (skill.isFrontend()) {
+				expertise.append("Front-End");
+			}
+
+			// ApplicationProcess Logic
+			ApplicationProcess applicationProcess = applicationProcessService
+					.getApplicationProcessById(candidate.getApplicationProcessId());
+			String applicationStatus = "";
+			if (applicationProcess.getToBeInvitedForFirstConversation()) {
+				applicationStatus = "Eerste interview";
+			} else if (applicationProcess.getToBeInvitedForTechnicalConversation()) {
+				applicationStatus = "Technisch interview";
+			} else if (applicationProcess.getIsRecruited()) {
+				applicationStatus = "In dienst";
+			}
+			CandidateSearchResolver candidateSearchResolver = new CandidateSearchResolver(candidate,
+					expertise.toString(), applicationStatus);
+
+			candidateResolverList.add(candidateSearchResolver);
+		}
+
+		return candidateResolverList;
 	}
 
-	public List<Candidate> findAllJava() {
+	@Override
+	public List<CandidateSearchResolver> findAllJava() {
 		List<Integer> skillsIds = skillsService.findAllJava();
 		Iterable<Candidate> candidates = candidateRepository.findAllBySkillsIdIn(skillsIds);
-		return (List<Candidate>) candidates;
+		List<CandidateSearchResolver> candidateResolverList = new ArrayList<CandidateSearchResolver>();
+
+		for (Candidate candidate : candidates) {
+			// Everything related to the skill
+			Skills skill = skillsService.getSkillsById(candidate.getSkillsId());
+			StringBuffer expertise = new StringBuffer();
+
+			if (skill.isDotnet()) {
+				expertise.append(".Net");
+				if (skill.isJava() || skill.isFrontend()) {
+					expertise.append(", ");
+				}
+			} else if (skill.isJava()) {
+				expertise.append("Java");
+				if (skill.isFrontend()) {
+					expertise.append(", ");
+				}
+			} else if (skill.isFrontend()) {
+				expertise.append("Front-End");
+			}
+
+			// ApplicationProcess Logic
+			ApplicationProcess applicationProcess = applicationProcessService
+					.getApplicationProcessById(candidate.getApplicationProcessId());
+			String applicationStatus = "";
+			if (applicationProcess.getToBeInvitedForFirstConversation()) {
+				applicationStatus = "Eerste interview";
+			} else if (applicationProcess.getToBeInvitedForTechnicalConversation()) {
+				applicationStatus = "Technisch interview";
+			} else if (applicationProcess.getIsRecruited()) {
+				applicationStatus = "In dienst";
+			}
+			CandidateSearchResolver candidateSearchResolver = new CandidateSearchResolver(candidate,
+					expertise.toString(), applicationStatus);
+
+			candidateResolverList.add(candidateSearchResolver);
+		}
+
+		return candidateResolverList;
 	}
 
-	public List<Candidate> findAllFrontend() {
+	public List<CandidateSearchResolver> findAllFrontend() {
 		List<Integer> skillsIds = skillsService.findAllFrontend();
 		Iterable<Candidate> candidates = candidateRepository.findAllBySkillsIdIn(skillsIds);
-		return (List<Candidate>) candidates;
+		List<CandidateSearchResolver> candidateResolverList = new ArrayList<CandidateSearchResolver>();
+		for (Candidate candidate : candidates) {
+			// Everything related to the skill
+			Skills skill = skillsService.getSkillsById(candidate.getSkillsId());
+			StringBuffer expertise = new StringBuffer();
+
+			if (skill.isDotnet()) {
+				expertise.append(".Net");
+				if (skill.isJava() || skill.isFrontend()) {
+					expertise.append(", ");
+				}
+			} else if (skill.isJava()) {
+				expertise.append("Java");
+				if (skill.isFrontend()) {
+					expertise.append(", ");
+				}
+			} else if (skill.isFrontend()) {
+				expertise.append("Front-End");
+			}
+
+			// ApplicationProcess Logic
+			ApplicationProcess applicationProcess = applicationProcessService
+					.getApplicationProcessById(candidate.getApplicationProcessId());
+			String applicationStatus = "";
+			if (applicationProcess.getToBeInvitedForFirstConversation()) {
+				applicationStatus = "Eerste interview";
+			} else if (applicationProcess.getToBeInvitedForTechnicalConversation()) {
+				applicationStatus = "Technisch interview";
+			} else if (applicationProcess.getIsRecruited()) {
+				applicationStatus = "In dienst";
+			}
+			CandidateSearchResolver candidateSearchResolver = new CandidateSearchResolver(candidate,
+					expertise.toString(), applicationStatus);
+
+			candidateResolverList.add(candidateSearchResolver);
+		}
+
+		return candidateResolverList;
 	}
 
 	public void saveOrUpdateCandidate(int id, @Valid Candidate candidate, @Valid Address address,
@@ -175,15 +330,55 @@ public class CandidateService implements ICandidateService {
 		out.close();
 	}
 
-	public List<Candidate> findAllRecruited() {
+	@Override
+	public List<CandidateSearchResolver> findAllRecruited() {
 		List<Integer> applicationProcessIds = applicationProcessService.findAllRecruited();
 		// Iterable<Candidate> candidates=
 		// candidateRepository.findAllById(candidateIds);
-		Iterable<Candidate> candidates = candidateRepository.findAllByApplicationProcessIdIn(applicationProcessIds);
-		return (List<Candidate>) candidates;
+		List<Candidate> candidates = candidateRepository.findAllByApplicationProcessIdIn(applicationProcessIds);
+		List<CandidateSearchResolver> candidateResolverList = new ArrayList<CandidateSearchResolver>();
+
+		for (Candidate candidate : candidates) {
+			// Everything related to the skill
+			Skills skill = skillsService.getSkillsById(candidate.getSkillsId());
+			StringBuffer expertise = new StringBuffer();
+
+			if (skill.isDotnet()) {
+				expertise.append(".Net");
+				if (skill.isJava() || skill.isFrontend()) {
+					expertise.append(", ");
+				}
+			} else if (skill.isJava()) {
+				expertise.append("Java");
+				if (skill.isFrontend()) {
+					expertise.append(", ");
+				}
+			} else if (skill.isFrontend()) {
+				expertise.append("Front-End");
+			}
+
+			// ApplicationProcess Logic
+			ApplicationProcess applicationProcess = applicationProcessService
+					.getApplicationProcessById(candidate.getApplicationProcessId());
+			String applicationStatus = "";
+			if (applicationProcess.getToBeInvitedForFirstConversation()) {
+				applicationStatus = "Eerste interview";
+			} else if (applicationProcess.getToBeInvitedForTechnicalConversation()) {
+				applicationStatus = "Technisch interview";
+			} else if (applicationProcess.getIsRecruited()) {
+				applicationStatus = "In dienst";
+			}
+			CandidateSearchResolver candidateSearchResolver = new CandidateSearchResolver(candidate,
+					expertise.toString(), applicationStatus);
+
+			candidateResolverList.add(candidateSearchResolver);
+		}
+
+		return candidateResolverList;
 	}
 
-	public List<Candidate> findAllRecruitedIn(List<Integer> applicationProcessId) {
+	@Override
+	public List<CandidateSearchResolver> findAllRecruitedIn(List<Integer> applicationProcessId) {
 
 		List<Candidate> candidates = new ArrayList<Candidate>();
 
@@ -197,19 +392,94 @@ public class CandidateService implements ICandidateService {
 			}
 
 		}
+		List<CandidateSearchResolver> candidateResolverList = new ArrayList<CandidateSearchResolver>();
 
-		if (candidates != null) {
+		for (Candidate candidate : candidates) {
+			// Everything related to the skill
+			Skills skill = skillsService.getSkillsById(candidate.getSkillsId());
+			StringBuffer expertise = new StringBuffer();
+
+			if (skill.isDotnet()) {
+				expertise.append(".Net");
+				if (skill.isJava() || skill.isFrontend()) {
+					expertise.append(", ");
+				}
+			} else if (skill.isJava()) {
+				expertise.append("Java");
+				if (skill.isFrontend()) {
+					expertise.append(", ");
+				}
+			} else if (skill.isFrontend()) {
+				expertise.append("Front-End");
+			}
+
+			// ApplicationProcess Logic
+			ApplicationProcess applicationProcess = applicationProcessService
+					.getApplicationProcessById(candidate.getApplicationProcessId());
+			String applicationStatus = "";
+			if (applicationProcess.getToBeInvitedForFirstConversation()) {
+				applicationStatus = "Eerste interview";
+			} else if (applicationProcess.getToBeInvitedForTechnicalConversation()) {
+				applicationStatus = "Technisch interview";
+			} else if (applicationProcess.getIsRecruited()) {
+				applicationStatus = "In dienst";
+			}
+			CandidateSearchResolver candidateSearchResolver = new CandidateSearchResolver(candidate,
+					expertise.toString(), applicationStatus);
+
+			candidateResolverList.add(candidateSearchResolver);
 		}
 
-		return candidates;
+		return candidateResolverList;
+
 	}
 
-	public List<Candidate> getAllCandidatesWithActiveApplicationProcess() {
+	@Override
+	public List<CandidateSearchResolver> getAllCandidatesWithActiveApplicationProcess() {
 		List<Integer> applicationProcessIds = applicationProcessService.getAllCandidatesWithActiveApplicationProcess();
-		Iterable<Candidate> candidates = candidateRepository.findAllByApplicationProcessIdIn(applicationProcessIds);
-		return (List<Candidate>) candidates;
+		List<Candidate> candidates = candidateRepository.findAllByApplicationProcessIdIn(applicationProcessIds);
+		List<CandidateSearchResolver> candidateResolverList = new ArrayList<CandidateSearchResolver>();
+
+		for (Candidate candidate : candidates) {
+			// Everything related to the skill
+			Skills skill = skillsService.getSkillsById(candidate.getSkillsId());
+			StringBuffer expertise = new StringBuffer();
+
+			if (skill.isDotnet()) {
+				expertise.append(".Net");
+				if (skill.isJava() || skill.isFrontend()) {
+					expertise.append(", ");
+				}
+			} else if (skill.isJava()) {
+				expertise.append("Java");
+				if (skill.isFrontend()) {
+					expertise.append(", ");
+				}
+			} else if (skill.isFrontend()) {
+				expertise.append("Front-End");
+			}
+
+			// ApplicationProcess Logic
+			ApplicationProcess applicationProcess = applicationProcessService
+					.getApplicationProcessById(candidate.getApplicationProcessId());
+			String applicationStatus = "";
+			if (applicationProcess.getToBeInvitedForFirstConversation()) {
+				applicationStatus = "Eerste interview";
+			} else if (applicationProcess.getToBeInvitedForTechnicalConversation()) {
+				applicationStatus = "Technisch interview";
+			} else if (applicationProcess.getIsRecruited()) {
+				applicationStatus = "In dienst";
+			}
+			CandidateSearchResolver candidateSearchResolver = new CandidateSearchResolver(candidate,
+					expertise.toString(), applicationStatus);
+
+			candidateResolverList.add(candidateSearchResolver);
+		}
+
+		return candidateResolverList;
 	}
 
+	@Override
 	public List<Candidate> getAllCandidatesWithoutActiveApplicationProcess() {
 		List<Integer> applicationProcessIds = applicationProcessService
 				.getAllCandidatesWithoutActiveApplicationProcess();
@@ -217,18 +487,55 @@ public class CandidateService implements ICandidateService {
 		return (List<Candidate>) candidates;
 	}
 
-	public List<Candidate> findByExperienceGreaterThan(int experience, List<Candidate> candidates) {
+	@Override
+	public List<CandidateSearchResolver> findByExperienceGreaterThan(int experience,
+			List<CandidateSearchResolver> candidates) {
 
-		List<Integer> skillsIdList = candidates.stream().map(Candidate::getSkillsId).collect(Collectors.toList());
+		List<Integer> skillsIdList = candidates.stream().map(c -> c.getCandidate().getSkillsId())
+				.collect(Collectors.toList());
 
-		// List<Integer> skillId= candidateRepository.findAllBySkillsIdIn(skillsIdList)
 		List<Integer> filteredSkillsId = skillsService.findAllByExperienceGreaterThan(experience, skillsIdList);
-		// 1 skillid komt terug
-		candidates = (List<Candidate>) candidateRepository.findAllBySkillsIdIn(filteredSkillsId);
-		// candidates.addAll((Collection<? extends Candidate>)
-		// candidateRepository.findAllBySkillsIdIn(filteredSkillsId));
 
-		return candidates;
+		List<Candidate> candidatesList = candidateRepository.findAllBySkillsIdIn(filteredSkillsId);
+		List<CandidateSearchResolver> candidateResolverList = new ArrayList<CandidateSearchResolver>();
+
+		for (Candidate candidate : candidatesList) {
+			// Everything related to the skill
+			Skills skill = skillsService.getSkillsById(candidate.getSkillsId());
+			StringBuffer expertise = new StringBuffer();
+
+			if (skill.isDotnet()) {
+				expertise.append(".Net");
+				if (skill.isJava() || skill.isFrontend()) {
+					expertise.append(", ");
+				}
+			} else if (skill.isJava()) {
+				expertise.append("Java");
+				if (skill.isFrontend()) {
+					expertise.append(", ");
+				}
+			} else if (skill.isFrontend()) {
+				expertise.append("Front-End");
+			}
+
+			// ApplicationProcess Logic
+			ApplicationProcess applicationProcess = applicationProcessService
+					.getApplicationProcessById(candidate.getApplicationProcessId());
+			String applicationStatus = "";
+			if (applicationProcess.getToBeInvitedForFirstConversation()) {
+				applicationStatus = "Eerste interview";
+			} else if (applicationProcess.getToBeInvitedForTechnicalConversation()) {
+				applicationStatus = "Technisch interview";
+			} else if (applicationProcess.getIsRecruited()) {
+				applicationStatus = "In dienst";
+			}
+			CandidateSearchResolver candidateSearchResolver = new CandidateSearchResolver(candidate,
+					expertise.toString(), applicationStatus);
+
+			candidateResolverList.add(candidateSearchResolver);
+		}
+
+		return candidateResolverList;
 	}
 
 }

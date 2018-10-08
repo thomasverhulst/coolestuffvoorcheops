@@ -16,4 +16,20 @@ public interface ICandidateService {
 	void updateCandidate(Candidate candidate);
 
 	void deleteCandidate(int candidateId);
+
+	List<CandidateSearchResolver> findAllByNameLikeOrSirNameLike(String name, String sirName);
+
+	List<CandidateSearchResolver> findAllDotnet();
+
+	List<CandidateSearchResolver> findAllJava();
+
+	List<CandidateSearchResolver> findAllRecruitedIn(List<Integer> applicationProcessId);
+
+	List<Candidate> getAllCandidatesWithoutActiveApplicationProcess();
+
+	List<CandidateSearchResolver> getAllCandidatesWithActiveApplicationProcess();
+
+	List<CandidateSearchResolver> findAllRecruited();
+
+	List<CandidateSearchResolver> findByExperienceGreaterThan(int experience, List<CandidateSearchResolver> candidates);
 }
