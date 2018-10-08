@@ -42,7 +42,6 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
-
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
@@ -75,41 +74,22 @@
 		</dependency>
 		<!-- https://mvnrepository.com/artifact/org.projectlombok/lombok-maven -->
 		<dependency>
-		    <groupId>org.projectlombok</groupId>
-		    <artifactId>lombok-maven</artifactId>
-		    <version>1.18.0.0</version>
-		    <type>pom</type>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok-maven</artifactId>
+			<version>1.18.0.0</version>
+			<type>pom</type>
 		</dependency>
-
-
 		<dependency>
-
 			<groupId>com.okta.spring</groupId>
-
 			<artifactId>okta-spring-boot-starter</artifactId>
-
 			<version>0.6.0</version>
-
-
-
-
 		</dependency>
-		<!-- <dependency> -->
-
-		<!-- <groupId>org.json</groupId> https://www.baeldung.com/spring-security-openid-connect
-			OPENID implementatie -->
-
-		<!-- <artifactId>json</artifactId> -->
-
-		<!-- <version>20160810</version> -->
-
-		<!-- </dependency> -->
-		<!-- <dependency> -->
-		<!-- <groupId>net.sourceforge.nekohtml</groupId> -->
-		<!-- <artifactId>nekohtml</artifactId> -->
-		<!-- <version>1.9.22</version> -->
-		<!-- </dependency> -->
-
+		<!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-test -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-configuration-processor</artifactId>
@@ -126,7 +106,6 @@
 			<artifactId>log4j</artifactId>
 			<version>1.2.17</version>
 		</dependency>
-
 	</dependencies>
 
 	<build>
