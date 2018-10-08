@@ -56,6 +56,8 @@ th {
 							<th scope="col">Naam:</th>
 							<th scope="col">Achetnaam</th>
 							<th scope="col">E-mail adres:</th>
+							<th scope="col">Expertise:</th>
+							<th scope="col">Status:</th>
 							<th scope="col">Bekijk CV:</th>
 							<th scope="col">Bekijk details:</th>
 							<th scope="col">Bekijk kennis:</th>
@@ -67,48 +69,50 @@ th {
 					<tbody>
 
 						<tr th:each="candidates : ${candidates}">
-							<td th:text="${candidates.id}">Text ...</td>
-							<td th:text="${candidates.name}">Text ...</td>
-							<td th:text="${candidates.sirName}">Text ...</td>
-							<td th:text="${candidates.email}">Text...</td>
+							<td th:text="${candidates.candidate.id}">Text ...</td>
+							<td th:text="${candidates.candidate.name}">Text ...</td>
+							<td th:text="${candidates.candidate.sirName}">Text ...</td>
+							<td th:text="${candidates.candidate.email}">Text...</td>
+							<td th:text="${candidates.expertise}">Text...</td>
+							<td th:text="${candidates.applicationStatus}">Text...</td>
 
 							<td><a
-								th:href="@{/searchcv2/{candidateId}(candidateId=${candidates.id})}">Zie
+								th:href="@{/searchcv2/{candidateId}(candidateId=${candidates.candidate.id})}">Zie
 									CV <span class="glyphicon glyphicon-download"></span>
 							</a></td>
 
 							<td><a
-								th:href="@{/searchcandidatedetails/{candidateId}(candidateId=${candidates.id})}">Zie
+								th:href="@{/searchcandidatedetails/{candidateId}(candidateId=${candidates.candidate.id})}">Zie
 									details kandidaat <span class="glyphicon glyphicon-pencil"></span>
 							</a></td>
 
 							<td><a
-								th:href="@{/searchskills1/{candidateId}(candidateId=${candidates.id})}">Zie
+								th:href="@{/searchskills1/{candidateId}(candidateId=${candidates.candidate.id})}">Zie
 									kennis kandadaat <span class="glyphicon glyphicon-pencil"></span>
 							</a></td>
 
 							<td><a
-								th:href="@{/searchcurrentsalarypackage2/{candidateId}(candidateId=${candidates.id})}">Zie
+								th:href="@{/searchcurrentsalarypackage2/{candidateId}(candidateId=${candidates.candidate.id})}">Zie
 									huidig loonpakket <span class="glyphicon glyphicon-pencil"></span>
 							</a></td>
 
 							<td><a
-								th:href="@{/searchproposedsalarypackage2/{candidateId}(candidateId=${candidates.id})}">Zie
+								th:href="@{/searchproposedsalarypackage2/{candidateId}(candidateId=${candidates.candidate.id})}">Zie
 									voorgesteld loonpakket <span class="glyphicon glyphicon-pencil"></span>
 							</a></td>
 
 							<td>
 								<!-- optie, links niet laten zien, maar hoe doe je dan een update? -->
-								<div th:if="${candidates.applicationProcessId != 0}">
+								<div th:if="${candidates.candidate.applicationProcessId != 0}">
 									<a
-										th:href="@{/searchapplicationproces2/{candidateId}(candidateId=${candidates.id})}">Zie
+										th:href="@{/searchapplicationproces2/{candidateId}(candidateId=${candidates.candidate.id})}">Zie
 										aanwervingsprocess <span class="glyphicon glyphicon-pencil"></span>
 									</a>,
 								</div>
 								<div
-									th:if="${candidates.applicationProcessId = 0}? ${'color: red;'}">
+									th:if="${candidates.candidate.applicationProcessId = 0}? ${'color: red;'}">
 									<a
-										th:href="@{/searchapplicationproces2/{candidateId}(candidateId=${candidates.id})}">Zie
+										th:href="@{/searchapplicationproces2/{candidateId}(candidateId=${candidates.candidate.id})}">Zie
 										aanwervingsprocess <span class="glyphicon glyphicon-pencil"></span>
 									</a>,
 								</div>
