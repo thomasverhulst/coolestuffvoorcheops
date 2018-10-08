@@ -45,6 +45,7 @@ import com.tv.tutorials.coolestuffvoorcheops.services.impl.SkillsService;
 public class CancidateController {
 
 	Logger logger = Logger.getLogger(CancidateController.class);
+
 	private final IStorageService storageService;
 	public String uploadDirectory = System.getProperty("user.dir") + "/uploads";
 	// goede uitleg
@@ -100,19 +101,18 @@ public class CancidateController {
 	@RequestMapping(value = "/registerCandidate", method = RequestMethod.POST)
 	public String register(Model model, @ModelAttribute("address") Address address,
 			@ModelAttribute("candidate") Candidate candidate, HttpSession session) throws IOException {
-		
+
 		session.setAttribute("isupdate", false);
-		
+
 		// save cv if it exists
 		logger.debug("de cv link =" + candidate.getFile());
 		if (candidate.getFile() != null && !candidate.getFile().isEmpty()) {
-			
+
 			MultipartFile file = candidate.getFile();
 			Path filenameAndPath = Paths.get(uploadDirectory, file.getOriginalFilename());
 
 			logger.debug("Upload link = " + uploadDirectory);
 			logger.debug("filenaam pad" + filenameAndPath);
-			// Files.write(filenameAndPath, file.getBytes());
 			Files.write(filenameAndPath, file.getBytes());
 			// set link to cv
 			candidate.setCvLink(file.getOriginalFilename());
@@ -155,13 +155,11 @@ public class CancidateController {
 
 		// https://stackoverflow.com/questions/2227395/spring-3-0-set-and-get-session-attribute
 		// save candidate to get an id
-		// Candidate tmpCandidate =candidateservice.addCandidate(candidate);
 		session.setAttribute("candidate", candidate);
 
 		// wat als er nog geen adresid is?
 		addressService.updateAddress(address);
 
-		// candidate.setAddressId(tmpAddress.getId());
 		candidateservice.updateCandidate(candidate);
 
 		return "test";
@@ -169,26 +167,21 @@ public class CancidateController {
 
 	@RequestMapping(value = "/registerSkills", method = RequestMethod.POST)
 	public String registerSkills(Model model, @ModelAttribute("skills") Skills skills, HttpSession session) {
-		//check if it is an update (late adding ) of skills
+		// check if it is an update (late adding ) of skills
 		boolean update = (boolean) session.getAttribute("isupdate");
 		// get candidate from session
 		Candidate sessionCandidate = (Candidate) session.getAttribute("candidate");
 
 		if (update) {
 			Skills tmpSkills = skillsService.addSkills(skills);
-			//SalaryPackage tmpSalarypackage = salaryPackageService.addSalaryPackage(salaryPackage);
-			//Candidate sessionUpdateCandidate = (Candidate) session.getAttribute("candidate");
-			skillsService.addSkills(tmpSkills); 
+			skillsService.addSkills(tmpSkills);
 			sessionCandidate.setSkillsId(tmpSkills.getId());
-			//sessionUpdateCandidate.setCurrentSallaryPackageId(tmpSalarypackage.getId());
 			candidateservice.updateCandidate(sessionCandidate);
-			return  "updatesucces";
+			return "updatesucces";
 		}
 		Skills tmpSkills = skillsService.addSkills(skills);
 		logger.debug("Skills id = " + tmpSkills.getId());
 
-		
-		//Candidate sessionCandidate = (Candidate) session.getAttribute("candidate");
 		// set SkillsId to candidate from session
 		sessionCandidate.setSkillsId(tmpSkills.getId());
 		// Update candidate in database
@@ -253,7 +246,7 @@ public class CancidateController {
 		Boolean t = (Boolean) session.getAttribute("isupdate");
 		String returning;
 
-		if (t == false) {
+		if (!t) {
 			// de eigelijke update moet hier nog gebeuren, uiteindelijk moet dit ook naar
 			// een service?
 
@@ -291,7 +284,6 @@ public class CancidateController {
 		// de MULTIPARTFILE WORDT HIER NOG NIET OPGESLAGEN
 
 		if (candidate.getFile() != null && !candidate.getFile().isEmpty()) {
-			// if ( candidate.getFile() != null) {
 			MultipartFile file = candidate.getFile();
 			Path filenameAndPath = Paths.get(uploadDirectory, file.getOriginalFilename());
 			Files.write(filenameAndPath, file.getBytes());

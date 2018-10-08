@@ -46,7 +46,7 @@ public class CandidateService implements ICandidateService {
 	}
 
 	private List<CandidateSearchResolver> fillExpertiseAndStatus(List<Candidate> candidates) {
-		List<CandidateSearchResolver> candidateResolverList = new ArrayList();
+		List<CandidateSearchResolver> candidateResolverList = new ArrayList<CandidateSearchResolver>();
 		for (Candidate candidate : candidates) {
 			// Everything related to the skill
 			StringBuffer expertise = new StringBuffer("");

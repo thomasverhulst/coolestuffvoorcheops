@@ -45,14 +45,6 @@ public class StorageService implements IStorageService {
 						"Cannot store file with relative path outside current directory " + filename);
 			}
 			try (InputStream inputStream = file.getInputStream()) {
-				// FileInputStream is = new FileInputStream(f);
-				// File file = File.createTempFile("upload-", ".bin", new
-				// File("/path/to/your/uploads"));
-				// is.write(file);
-				// Writer output = null;
-				// File file = new File("results.txt");
-				// output = new BufferedWriter(new FileWriter(file));
-
 				Files.copy(inputStream, this.rootLocation.resolve(filename), StandardCopyOption.REPLACE_EXISTING);
 			}
 		} catch (IOException e) {

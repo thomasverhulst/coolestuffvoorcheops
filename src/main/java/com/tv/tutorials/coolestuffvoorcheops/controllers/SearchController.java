@@ -25,7 +25,6 @@ import com.tv.tutorials.coolestuffvoorcheops.models.SalaryPackage;
 import com.tv.tutorials.coolestuffvoorcheops.models.Search;
 import com.tv.tutorials.coolestuffvoorcheops.models.Skills;
 import com.tv.tutorials.coolestuffvoorcheops.services.impl.AddressService;
-import com.tv.tutorials.coolestuffvoorcheops.services.impl.ApplicationProcessService;
 import com.tv.tutorials.coolestuffvoorcheops.services.impl.CandidateService;
 import com.tv.tutorials.coolestuffvoorcheops.services.impl.SalaryPackageService;
 import com.tv.tutorials.coolestuffvoorcheops.services.impl.SkillsService;
@@ -46,9 +45,6 @@ public class SearchController {
 
 	@Autowired
 	private SalaryPackageService salaryPackageService;
-
-	@Autowired
-	private ApplicationProcessService applicationProcessService;
 
 	@GetMapping("/search")
 	public String showRegister(Model modelMap) {
@@ -120,7 +116,6 @@ public class SearchController {
 		if (search.getExperience() != 0) {
 			// TODO: filter te bouwen
 			// moet hier nog 1 worden afgetrokken omdate enkel groter dan gezocht wordt?
-			// candidateservice.findByExperienceGreaterThan(search.getExperience()).In();
 			// COMBINATIE GREATER THAN EN in
 			List<CandidateSearchResolver> filterdByExperience = candidateservice
 					.findByExperienceGreaterThan(search.getExperience(), candidates);
@@ -206,11 +201,6 @@ public class SearchController {
 
 	@RequestMapping(value = "searchcv/{candidateId}", method = RequestMethod.GET)
 	public String searchCv(@PathVariable("candidateId") int candidateId) {
-
-		// Candidate tmpCandidate =candidateservice.getCandidateById(candidateId);
-
-		// map.addAttribute("address", tmpAddress);
-
 		return "searchcv";
 	}
 
