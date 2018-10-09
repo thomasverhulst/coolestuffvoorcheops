@@ -23,7 +23,7 @@ public class SkillsService implements ISkillService {
 	@Override
 	public List<Skills> getAllSkills() {
 		List<Skills> list = new ArrayList<>();
-		// skillsRepository.findAll().forEach(e -> list.add(e));
+		 skillsRepository.findAll().forEach(e -> list.add(e));
 		return list;
 	}
 
