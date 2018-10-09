@@ -1,7 +1,9 @@
 package com.tv.tutorials.coolestuffvoorcheops.services.impl;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.Assert.assertNotNull;
 
+import java.util.Arrays;
 import java.util.List;
 
 import org.junit.Test;
@@ -10,9 +12,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import com.tv.tutorials.coolestuffvoorcheops.models.ApplicationProcess;
 import com.tv.tutorials.coolestuffvoorcheops.models.Candidate;
 import com.tv.tutorials.coolestuffvoorcheops.models.CandidateSearchResolver;
+import com.tv.tutorials.coolestuffvoorcheops.models.Skills;
+import com.tv.tutorials.coolestuffvoorcheops.services.IApplicationProcessService;
 import com.tv.tutorials.coolestuffvoorcheops.services.ICandidateService;
+import com.tv.tutorials.coolestuffvoorcheops.services.ISkillService;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringBootTest
@@ -20,10 +26,15 @@ public class CandidateServiceImplTest {
 
 	private static final String NAME = "Thomas";
 	private static final String SURNAME = "Verhulst";
-	private static final Integer ID = 1;
+	private static final Integer CANDIDATEID = 1;
+	private static final List<Integer> APPLICATIONPROCESSID = Arrays.asList(new Integer[] { 1, 4, 13, 15 });
 
 	@Autowired
 	private ICandidateService candidateService;
+	@Autowired
+	private ISkillService skillService;
+	@Autowired
+	private IApplicationProcessService applicationService;
 
 	@Test
 	public void getAllCandidatesTest() {
@@ -45,8 +56,79 @@ public class CandidateServiceImplTest {
 
 	@Test
 	public void getCandidateByIdTest() {
-		Candidate candidate = candidateService.getCandidateById(ID);
+		Candidate candidate = candidateService.getCandidateById(CANDIDATEID);
 		assertThat(candidate != null);
+	}
+
+	@Test
+	public void findAllDotnetTest() {
+		List<CandidateSearchResolver> candidateList = candidateService.findAllDotnet();
+		assertThat(!candidateList.isEmpty());
+
+		Candidate candidate = candidateList.get(0).getCandidate();
+		assertNotNull(candidate);
+
+		Skills skill = skillService.getSkillsById(candidate.getSkillsId());
+		assertNotNull(skill);
+		assertThat(skill.isDotnet());
+
+	}
+
+	@Test
+	public void findAllJavaTest() {
+		List<CandidateSearchResolver> candidateList = candidateService.findAllJava();
+		assertThat(!candidateList.isEmpty());
+
+		Candidate candidate = candidateList.get(0).getCandidate();
+		assertNotNull(candidate);
+
+		Skills skill = skillService.getSkillsById(candidate.getSkillsId());
+		assertNotNull(skill);
+		assertThat(skill.isJava());
+	}
+
+	@Test
+	public void findAllFrontEndTest() {
+		List<CandidateSearchResolver> candidateList = candidateService.findAllFrontend();
+		assertThat(!candidateList.isEmpty());
+
+		Candidate candidate = candidateList.get(0).getCandidate();
+		assertNotNull(candidate);
+
+		Skills skill = skillService.getSkillsById(candidate.getSkillsId());
+		assertNotNull(skill);
+		assertThat(skill.isFrontend());
+	}
+
+	@Test
+	public void findAllRecruitedTest() {
+		List<CandidateSearchResolver> candidateList = candidateService.findAllRecruited();
+		assertThat(!candidateList.isEmpty());
+
+		Candidate candidate = candidateList.get(0).getCandidate();
+		assertNotNull(candidate);
+
+		ApplicationProcess appProcess = applicationService
+				.getApplicationProcessById(candidate.getApplicationProcessId());
+		assertNotNull(appProcess);
+		assertNotNull(appProcess.getIsRecruited());
+	}
+
+	@Test
+	public void getAllCandidatesWithActiveApplicationProcessTest() {
+		List<CandidateSearchResolver> candidateList = candidateService.findAllRecruitedIn(APPLICATIONPROCESSID);
+		assertThat(!candidateList.isEmpty());
+
+		for (CandidateSearchResolver candidateSearchResolver : candidateList) {
+			Candidate candidate = candidateSearchResolver.getCandidate();
+			assertNotNull(candidate);
+
+			ApplicationProcess appProcess = applicationService
+					.getApplicationProcessById(candidate.getApplicationProcessId());
+			assertNotNull(appProcess);
+			assertNotNull(appProcess.getIsRecruited());
+		}
+
 	}
 
 }
