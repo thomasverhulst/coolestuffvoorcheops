@@ -244,13 +244,33 @@ public class CandidateServiceImplTest {
 	@Test
 	public void addCandidateTest() {
 		Integer count = candidateService.getAllCandidates().size();
-		Candidate candidate = new Candidate("Ronald", "Janssen", "Ronald.Janssen@gmail.com", Date.from(Instant.now()),
-				"5555", "6666", "", "male");
+		Candidate candidate = new Candidate("Jan", "Janssen", "Jan.Janssen@gmail.com", Date.from(Instant.now()), "5555",
+				"6666", "", "male");
 
 		candidateService.addCandidate(candidate);
 
 		assertThat(candidateService.getAllCandidates().size()).isEqualTo(++count);
 
+	}
+
+	@Test
+	public void deleteCandidateTest() {
+		Integer count = candidateService.getAllCandidates().size();
+		Candidate candidate = new Candidate("Jan", "Janssen", "Jan.Janssen@gmail.com", Date.from(Instant.now()), "5555",
+				"6666", "", "male");
+
+		candidate = candidateService.addCandidate(candidate);
+		candidateService.deleteCandidate(candidate.getId());
+		assertThat(candidateService.getAllCandidates().size()).isEqualTo(count);
+	}
+
+	@Test
+	public void updateCandidateTest() {
+		Candidate candidate = candidateService.findAllByNameLikeOrSirNameLike("Yannick", "Pire").get(0).getCandidate();
+		candidate.setName("fjdqsklfjsdkljfqsdkl");
+		candidateService.updateCandidate(candidate);
+		assertThat(candidateService.findAllByNameLikeOrSirNameLike("Yannick", "Pire").get(0).getCandidate().getName())
+				.isEqualToIgnoringNewLines("fjdqsklfjsdkljfqsdkl");
 	}
 
 }
