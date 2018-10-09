@@ -156,6 +156,7 @@ public class CandidateServiceImplTest {
 		}
 	}
 
+	@Test
 	public void findByExperienceGreaterThanTest() {
 		List<CandidateSearchResolver> candidates = candidateService.getAllCandidates();
 		candidates = candidateService.findByExperienceGreaterThan(EXPERIENCE, candidates);
