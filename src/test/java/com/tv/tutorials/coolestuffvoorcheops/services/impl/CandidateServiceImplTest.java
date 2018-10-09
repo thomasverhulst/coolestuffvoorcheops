@@ -6,10 +6,12 @@ import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
 import java.time.Instant;
-import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
+import java.util.stream.Collectors;
 
+import org.junit.After;
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +22,9 @@ import com.tv.tutorials.coolestuffvoorcheops.models.ApplicationProcess;
 import com.tv.tutorials.coolestuffvoorcheops.models.Candidate;
 import com.tv.tutorials.coolestuffvoorcheops.models.CandidateSearchResolver;
 import com.tv.tutorials.coolestuffvoorcheops.models.Skills;
+import com.tv.tutorials.coolestuffvoorcheops.repositories.ApplicationProcessRepository;
+import com.tv.tutorials.coolestuffvoorcheops.repositories.CandidateRepository;
+import com.tv.tutorials.coolestuffvoorcheops.repositories.SkillsRepository;
 import com.tv.tutorials.coolestuffvoorcheops.services.IApplicationProcessService;
 import com.tv.tutorials.coolestuffvoorcheops.services.ICandidateService;
 import com.tv.tutorials.coolestuffvoorcheops.services.ISkillService;
@@ -31,7 +36,6 @@ public class CandidateServiceImplTest {
 	private static final String NAME = "Thomas";
 	private static final String SURNAME = "Verhulst";
 	private static final Integer CANDIDATEID = 1;
-	private static final List<Integer> APPLICATIONPROCESSID = Arrays.asList(new Integer[] { 1, 4, 13, 15 });
 	private static final Integer EXPERIENCE = 3;
 
 	@Autowired
@@ -41,22 +45,90 @@ public class CandidateServiceImplTest {
 	@Autowired
 	private IApplicationProcessService applicationService;
 
+	@Autowired
+	private CandidateRepository candidateRepo;
+	@Autowired
+	private SkillsRepository skillRepo;
+	@Autowired
+	private ApplicationProcessRepository applicationProcessRepo;
+
+	@Before
+	public void fillDb() {
+
+		// Candidates
+		Candidate henkie = new Candidate("Henkie", "Penkie", "henkie.penkie@gmail.com", Date.from(Instant.now()),
+				"5555", "6666", "", "male");
+		Candidate yannick = new Candidate("Yannick", "Pire", "y.p@gmail.com", Date.from(Instant.now()), "5555", "6666",
+				"", "male");
+		Candidate thomas = new Candidate("Thomas", "Verhulst", "t.v@gmail.com", Date.from(Instant.now()), "5555",
+				"6666", "", "male");
+		Candidate vvv = new Candidate("vvv", "vvv", "v.v@gmail.com", Date.from(Instant.now()), "5555", "6666", "",
+				"male");
+
+		// Skills
+		Skills skillDotNet = new Skills("DotNet", 3, "Brussel", "DotNet", true, false, false);
+		Skills skillJava = new Skills("Java", 3, "Brussel", "Java", false, true, false);
+		Skills skillFE = new Skills("FrontEnd", 3, "Brussel", "Front-End", false, false, true);
+		Skills skillJavaFE = new Skills("Java", 3, "Brussel", "Java", false, true, true);
+
+		// ApplicationProcess
+		ApplicationProcess appProcessHenkie = new ApplicationProcess(Date.from(Instant.now()), true,
+				Date.from(Instant.now()), null, "Alain", "Goed", true, Date.from(Instant.now()), "", "", false, null,
+				"", false);
+		ApplicationProcess appProcessYannick = new ApplicationProcess(Date.from(Instant.now()), true,
+				Date.from(Instant.now()), null, "Alain", "Goed", true, Date.from(Instant.now()), "", "", true, null, "",
+				true);
+
+		ApplicationProcess appProcessVvv = new ApplicationProcess(null, false, null, null, "Alain", "Goed", false, null,
+				"", "", false, null, "", true);
+
+		candidateService.addCandidate(henkie);
+		candidateService.addCandidate(yannick);
+		candidateService.addCandidate(thomas);
+		candidateService.addCandidate(vvv);
+
+		skillDotNet = skillService.addSkills(skillDotNet);
+		skillJava = skillService.addSkills(skillJava);
+		skillFE = skillService.addSkills(skillFE);
+		skillJavaFE = skillService.addSkills(skillJavaFE);
+
+		appProcessHenkie = applicationService.addApplicationProcess(appProcessHenkie);
+		appProcessYannick = applicationService.addApplicationProcess(appProcessYannick);
+		appProcessVvv = applicationService.addApplicationProcess(appProcessVvv);
+
+		henkie.setSkillsId(skillDotNet.getId());
+		henkie.setApplicationProcessId(appProcessHenkie.getId());
+		candidateService.updateCandidate(henkie);
+
+		yannick.setSkillsId(skillJava.getId());
+		yannick.setApplicationProcessId(appProcessYannick.getId());
+		candidateService.updateCandidate(yannick);
+
+		thomas.setSkillsId(skillFE.getId());
+		candidateService.updateCandidate(thomas);
+
+		vvv.setSkillsId(skillJavaFE.getId());
+		vvv.setApplicationProcessId(appProcessVvv.getId());
+		candidateService.updateCandidate(vvv);
+	}
+
+	@After
+	public void flushDb() {
+		candidateRepo.deleteAll();
+		skillRepo.deleteAll();
+		applicationProcessRepo.deleteAll();
+	}
+
 	@Test
 	public void getAllCandidatesTest() {
 		List<CandidateSearchResolver> listCandidates = candidateService.getAllCandidates();
-		assertThat(listCandidates).isNotEmpty();
+		assertThat(listCandidates).hasSize(4);
 	}
 
 	@Test
 	public void findAllByNameLikeOrSirNameLikeTestFilledNameAndSurname() {
 		List<CandidateSearchResolver> listCandidates = candidateService.findAllByNameLikeOrSirNameLike(NAME, SURNAME);
-		assertThat(listCandidates.size() >= 1);
-	}
-
-	@Test
-	public void findAllByNameLikeOrSirNameLikeTestWithoutNameAndSurname() {
-		List<CandidateSearchResolver> listCandidates = candidateService.findAllByNameLikeOrSirNameLike("", "");
-		assertThat(listCandidates.size() >= 1);
+		assertThat(listCandidates).hasSize(1);
 	}
 
 	@Test
@@ -121,7 +193,11 @@ public class CandidateServiceImplTest {
 
 	@Test
 	public void findAllRecruitedInTest() {
-		List<CandidateSearchResolver> candidateList = candidateService.findAllRecruitedIn(APPLICATIONPROCESSID);
+
+		List<Integer> applicationProcessId = applicationService.getAllApplicationProcesses().stream()
+				.map(ApplicationProcess::getId).collect(Collectors.toList());
+
+		List<CandidateSearchResolver> candidateList = candidateService.findAllRecruitedIn(applicationProcessId);
 		assertThat(candidateList).isNotEmpty();
 
 		for (CandidateSearchResolver candidateSearchResolver : candidateList) {
@@ -168,7 +244,7 @@ public class CandidateServiceImplTest {
 	@Test
 	public void addCandidateTest() {
 		Integer count = candidateService.getAllCandidates().size();
-		Candidate candidate = new Candidate("Henkie", "Penkie", "henkie.penkie@gmail.com", Date.from(Instant.now()),
+		Candidate candidate = new Candidate("Ronald", "Janssen", "Ronald.Janssen@gmail.com", Date.from(Instant.now()),
 				"5555", "6666", "", "male");
 
 		candidateService.addCandidate(candidate);
