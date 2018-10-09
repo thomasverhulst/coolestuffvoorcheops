@@ -68,12 +68,14 @@ public class SkillsService implements ISkillService {
 	}
 
 	public List<Integer> findAllDotnet() {
-		
+
 		boolean isdotnet = true;
 		List<Skills> list = skillsRepository.findAllByDotnet(isdotnet);
 		List<Integer> skillId = new ArrayList<Integer>();
 		for (Skills skills : list) {
-			skillId.add(skills.getId());
+			if (skills.isDotnet()) {
+				skillId.add(skills.getId());
+			}
 		}
 		return skillId;
 	}
@@ -84,7 +86,9 @@ public class SkillsService implements ISkillService {
 		// refactor optie
 		List<Integer> skillId = new ArrayList<Integer>();
 		for (Skills skills : list) {
-			skillId.add(skills.getId());
+			if (skills.isJava()) {
+				skillId.add(skills.getId());
+			}
 		}
 		return skillId;
 	}
@@ -96,7 +100,9 @@ public class SkillsService implements ISkillService {
 
 		List<Integer> skillId = new ArrayList<Integer>();
 		for (Skills skills : list) {
-			skillId.add(skills.getId());
+			if (skills.isFrontend()) {
+				skillId.add(skills.getId());
+			}
 		}
 		return skillId;
 	}

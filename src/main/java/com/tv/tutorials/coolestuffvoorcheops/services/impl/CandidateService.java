@@ -57,11 +57,20 @@ public class CandidateService implements ICandidateService {
 					expertise.append(".Net");
 					if (skill.isJava() || skill.isFrontend()) {
 						expertise.append(", ");
+						if (skill.isJava()) {
+							expertise.append("Java");
+						}
+						if (skill.isFrontend()) {
+							expertise.append(", ");
+							expertise.append("Front-End");
+						}
+
 					}
 				} else if (skill.isJava()) {
 					expertise.append("Java");
 					if (skill.isFrontend()) {
 						expertise.append(", ");
+						expertise.append("Front-End");
 					}
 				} else if (skill.isFrontend()) {
 					expertise.append("Front-End");
@@ -79,6 +88,8 @@ public class CandidateService implements ICandidateService {
 					applicationStatus = "Technisch interview";
 				} else if (applicationProcess.getIsRecruited()) {
 					applicationStatus = "In dienst";
+				} else {
+					applicationStatus = "(Nog) niet uitgenodigd";
 				}
 			}
 
