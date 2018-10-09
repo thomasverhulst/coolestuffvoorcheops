@@ -5,14 +5,16 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
+import java.time.Instant;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.test.context.junit4.SpringRunner;
 
 import com.tv.tutorials.coolestuffvoorcheops.models.ApplicationProcess;
 import com.tv.tutorials.coolestuffvoorcheops.models.Candidate;
@@ -22,7 +24,7 @@ import com.tv.tutorials.coolestuffvoorcheops.services.IApplicationProcessService
 import com.tv.tutorials.coolestuffvoorcheops.services.ICandidateService;
 import com.tv.tutorials.coolestuffvoorcheops.services.ISkillService;
 
-@RunWith(SpringJUnit4ClassRunner.class)
+@RunWith(SpringRunner.class)
 @SpringBootTest
 public class CandidateServiceImplTest {
 
@@ -161,6 +163,18 @@ public class CandidateServiceImplTest {
 		List<CandidateSearchResolver> candidates = candidateService.getAllCandidates();
 		candidates = candidateService.findByExperienceGreaterThan(EXPERIENCE, candidates);
 		assertThat(candidates).isNotEmpty();
+	}
+
+	@Test
+	public void addCandidateTest() {
+		Integer count = candidateService.getAllCandidates().size();
+		Candidate candidate = new Candidate("Henkie", "Penkie", "henkie.penkie@gmail.com", Date.from(Instant.now()),
+				"5555", "6666", "", "male");
+
+		candidateService.addCandidate(candidate);
+
+		assertThat(candidateService.getAllCandidates().size()).isEqualTo(++count);
+
 	}
 
 }
