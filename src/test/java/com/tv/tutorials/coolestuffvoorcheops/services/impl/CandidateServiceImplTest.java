@@ -1,7 +1,9 @@
 package com.tv.tutorials.coolestuffvoorcheops.services.impl;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 
 import java.util.Arrays;
 import java.util.List;
@@ -115,7 +117,7 @@ public class CandidateServiceImplTest {
 	}
 
 	@Test
-	public void getAllCandidatesWithActiveApplicationProcessTest() {
+	public void findAllRecruitedInTest() {
 		List<CandidateSearchResolver> candidateList = candidateService.findAllRecruitedIn(APPLICATIONPROCESSID);
 		assertThat(!candidateList.isEmpty());
 
@@ -129,6 +131,28 @@ public class CandidateServiceImplTest {
 			assertNotNull(appProcess.getIsRecruited());
 		}
 
+	}
+
+	@Test
+	public void getAllCandidatesWithActiveApplicationProcessTest() {
+		List<CandidateSearchResolver> candidateList = candidateService.getAllCandidatesWithActiveApplicationProcess();
+		for (CandidateSearchResolver candidateSR : candidateList) {
+			Candidate candidate = candidateSR.getCandidate();
+			ApplicationProcess appProcess = applicationService
+					.getApplicationProcessById(candidate.getApplicationProcessId());
+			assertFalse(appProcess.getIsRecruited());
+			assertTrue(appProcess.getToBeInvitedForFirstConversation());
+		}
+	}
+
+	@Test
+	public void getAllCandidatesWithoutActiveApplicationProcessTest() {
+		List<Candidate> candidateList = candidateService.getAllCandidatesWithoutActiveApplicationProcess();
+		for (Candidate candidate : candidateList) {
+			ApplicationProcess appProcess = applicationService
+					.getApplicationProcessById(candidate.getApplicationProcessId());
+			assertFalse(appProcess.getToBeInvitedForFirstConversation());
+		}
 	}
 
 }
