@@ -30,6 +30,7 @@ public class CandidateServiceImplTest {
 	private static final String SURNAME = "Verhulst";
 	private static final Integer CANDIDATEID = 1;
 	private static final List<Integer> APPLICATIONPROCESSID = Arrays.asList(new Integer[] { 1, 4, 13, 15 });
+	private static final Integer EXPERIENCE = 3;
 
 	@Autowired
 	private ICandidateService candidateService;
@@ -41,7 +42,7 @@ public class CandidateServiceImplTest {
 	@Test
 	public void getAllCandidatesTest() {
 		List<CandidateSearchResolver> listCandidates = candidateService.getAllCandidates();
-		assertThat(!listCandidates.isEmpty());
+		assertThat(listCandidates).isNotEmpty();
 	}
 
 	@Test
@@ -59,13 +60,13 @@ public class CandidateServiceImplTest {
 	@Test
 	public void getCandidateByIdTest() {
 		Candidate candidate = candidateService.getCandidateById(CANDIDATEID);
-		assertThat(candidate != null);
+		assertThat(candidate).isNotNull();
 	}
 
 	@Test
 	public void findAllDotnetTest() {
 		List<CandidateSearchResolver> candidateList = candidateService.findAllDotnet();
-		assertThat(!candidateList.isEmpty());
+		assertThat(candidateList).isNotEmpty();
 
 		Candidate candidate = candidateList.get(0).getCandidate();
 		assertNotNull(candidate);
@@ -79,7 +80,7 @@ public class CandidateServiceImplTest {
 	@Test
 	public void findAllJavaTest() {
 		List<CandidateSearchResolver> candidateList = candidateService.findAllJava();
-		assertThat(!candidateList.isEmpty());
+		assertThat(candidateList).isNotEmpty();
 
 		Candidate candidate = candidateList.get(0).getCandidate();
 		assertNotNull(candidate);
@@ -92,7 +93,7 @@ public class CandidateServiceImplTest {
 	@Test
 	public void findAllFrontEndTest() {
 		List<CandidateSearchResolver> candidateList = candidateService.findAllFrontend();
-		assertThat(!candidateList.isEmpty());
+		assertThat(candidateList).isNotEmpty();
 
 		Candidate candidate = candidateList.get(0).getCandidate();
 		assertNotNull(candidate);
@@ -105,7 +106,7 @@ public class CandidateServiceImplTest {
 	@Test
 	public void findAllRecruitedTest() {
 		List<CandidateSearchResolver> candidateList = candidateService.findAllRecruited();
-		assertThat(!candidateList.isEmpty());
+		assertThat(candidateList).isNotEmpty();
 
 		Candidate candidate = candidateList.get(0).getCandidate();
 		assertNotNull(candidate);
@@ -119,7 +120,7 @@ public class CandidateServiceImplTest {
 	@Test
 	public void findAllRecruitedInTest() {
 		List<CandidateSearchResolver> candidateList = candidateService.findAllRecruitedIn(APPLICATIONPROCESSID);
-		assertThat(!candidateList.isEmpty());
+		assertThat(candidateList).isNotEmpty();
 
 		for (CandidateSearchResolver candidateSearchResolver : candidateList) {
 			Candidate candidate = candidateSearchResolver.getCandidate();
@@ -153,6 +154,12 @@ public class CandidateServiceImplTest {
 					.getApplicationProcessById(candidate.getApplicationProcessId());
 			assertFalse(appProcess.getToBeInvitedForFirstConversation());
 		}
+	}
+
+	public void findByExperienceGreaterThanTest() {
+		List<CandidateSearchResolver> candidates = candidateService.getAllCandidates();
+		candidates = candidateService.findByExperienceGreaterThan(EXPERIENCE, candidates);
+		assertThat(candidates).isNotEmpty();
 	}
 
 }
