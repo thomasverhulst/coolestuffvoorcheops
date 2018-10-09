@@ -221,7 +221,10 @@ public class CandidateService implements ICandidateService {
 					.findAllByIsRecruitedIn(t);
 
 			for (ApplicationProcess applicationProcess : applicationProcessIdsRecruited) {
-				candidates.add(candidateRepository.findByapplicationProcessId(applicationProcess.getId()));
+				Candidate candidate = candidateRepository.findByapplicationProcessId(applicationProcess.getId());
+				if (candidate != null) {
+					candidates.add(candidate);
+				}
 			}
 
 		}
