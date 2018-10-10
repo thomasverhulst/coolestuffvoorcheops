@@ -117,6 +117,9 @@ public class SalaryPackageController {
 			return "updatesalarypackage";
 		}
 
+		if (id != 0) {
+			salaryPackage.setId(id);
+		}
 		salaryPackageService.addSalaryPackage(salaryPackage);
 		redirect.addFlashAttribute("success", "Saved employee successfully!");
 

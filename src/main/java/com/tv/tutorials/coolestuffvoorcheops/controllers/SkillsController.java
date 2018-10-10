@@ -52,7 +52,7 @@ public class SkillsController {
 		if (result.hasErrors()) {
 			return "updateskills";
 		}
-
+		skills.setId(id);
 		skillsService.updateSkills(skills);
 		return "updatesucces";
 	}

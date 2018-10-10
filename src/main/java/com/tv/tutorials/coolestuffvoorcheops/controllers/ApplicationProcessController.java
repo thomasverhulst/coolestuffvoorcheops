@@ -40,7 +40,9 @@ public class ApplicationProcessController {
 
 			return "updateapplicationprocess";
 		}
-		applicationProcess.setId(id);
+		if (id != 0) {
+			applicationProcess.setId(id);
+		}
 		applicationProcessService.updateApplicationProcess(applicationProcess);
 		redirect.addFlashAttribute("success", "Saved employee successfully!");
 		return "updatesucces";
