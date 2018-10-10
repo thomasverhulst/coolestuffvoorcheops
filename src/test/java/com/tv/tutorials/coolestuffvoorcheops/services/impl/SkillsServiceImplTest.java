@@ -5,6 +5,8 @@ import static org.junit.Assert.assertNotNull;
 
 import java.util.List;
 
+import org.junit.After;
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,20 +22,41 @@ public class SkillsServiceImplTest {
 
 	private final static int testId = 1;
 	@Autowired
-	SkillsService SkillsService;
+	SkillsService skillsService;
 
 	@Autowired
 	SkillsRepository skillsRepository;
 
+	@Before
+	public void fillDb() {
+
+		// Skills
+		Skills skillDotNet = new Skills("DotNet", 3, "Brussel", "DotNet", true, false, false);
+		Skills skillJava = new Skills("Java", 3, "Brussel", "Java", false, true, false);
+		Skills skillFE = new Skills("FrontEnd", 3, "Brussel", "Front-End", false, false, true);
+		Skills skillJavaFE = new Skills("Java", 3, "Brussel", "Java", false, true, true);
+
+		skillDotNet = skillsService.addSkills(skillDotNet);
+		skillJava = skillsService.addSkills(skillJava);
+		skillFE = skillsService.addSkills(skillFE);
+		skillJavaFE = skillsService.addSkills(skillJavaFE);
+
+	}
+
+	@After
+	public void flushDb() {
+		skillsRepository.deleteAll();
+	}
+
 	@Test
 	public void getAllSkillsTest() {
-		List<Skills> listSkills = SkillsService.getAllSkills();
+		List<Skills> listSkills = skillsService.getAllSkills();
 		assertThat(!listSkills.isEmpty());
 	}
 
 	@Test
 	public void getSkillsIdTest() {
-		Skills skills = skillsRepository.findById(testId).get();
+		Skills skills = skillsRepository.findById(skillsService.getAllSkills().get(0).getId()).get();
 		assertNotNull(skills);
 	}
 
