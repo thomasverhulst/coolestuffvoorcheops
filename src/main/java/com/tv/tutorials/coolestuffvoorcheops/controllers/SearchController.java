@@ -1,11 +1,23 @@
 package com.tv.tutorials.coolestuffvoorcheops.controllers;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
 import javax.servlet.http.HttpSession;
 
+import org.apache.commons.fileupload.FileItem;
+import org.apache.commons.fileupload.FileItemFactory;
+import org.apache.commons.fileupload.FileUploadException;
+import org.apache.commons.fileupload.disk.DiskFileItemFactory;
+import org.apache.commons.fileupload.servlet.ServletFileUpload;
+
+//import org.apache.commons.fileupload.FileItem;
+import org.apache.commons.io.IOUtils;
+import org.apache.tomcat.util.http.fileupload.disk.DiskFileItem;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,6 +28,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.commons.CommonsMultipartFile;
 import org.thymeleaf.util.StringUtils;
 
 import com.tv.tutorials.coolestuffvoorcheops.models.CandaidateSearchModel;
@@ -32,6 +46,8 @@ import com.tv.tutorials.coolestuffvoorcheops.services.impl.SkillsService;
 @Controller
 public class SearchController {
 
+	private static final String uploadDirectory = System.getProperty("user.dir") + "/uploads/";
+	
 	// https://www.mkyong.com/spring-boot/spring-boot-hibernate-search-example/
 	// https://stackoverflow.com/questions/48800517/how-to-search-multiple-fields-in-a-search-box-in-spring-data-jpa
 	@Autowired
@@ -189,8 +205,8 @@ public class SearchController {
 	}
 
 	@RequestMapping(value = "searchcandidatedetails/{candidateId}", method = RequestMethod.GET)
-	public String searchCandidateDetails(ModelMap map, @PathVariable("candidateId") int candidateId) {
-
+	public String searchCandidateDetails(ModelMap map, @PathVariable("candidateId") int candidateId) throws IOException {
+		
 		map.addAttribute("candidate", candidateservice.getCandidateById(candidateId));
 
 		map.addAttribute("address",
