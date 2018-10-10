@@ -41,7 +41,7 @@ public class ApplicationProcessController {
 			return "updateapplicationprocess";
 		}
 
-		applicationProcessService.saveOrUpdateApplicationProcess(id, applicationProcess);
+		applicationProcessService.updateApplicationProcess(applicationProcess);
 		redirect.addFlashAttribute("success", "Saved employee successfully!");
 		return "updatesucces";
 	}

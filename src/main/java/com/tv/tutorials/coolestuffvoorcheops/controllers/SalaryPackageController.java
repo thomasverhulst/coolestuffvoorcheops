@@ -43,8 +43,6 @@ public class SalaryPackageController {
 			session.setAttribute("isupdate", true);
 			session.setAttribute("currentSalaryPackage0OrProposedSalarypackage1", 0);
 
-			
-			
 			Update update = new Update();
 			update.setCurrentSalaryPackage0OrProposedSalarypackage1(0);
 			model.addAttribute("currentSalaryPackage0OrProposedSalarypackage1", update);
@@ -78,7 +76,7 @@ public class SalaryPackageController {
 			Update update = new Update();
 			update.setCurrentSalaryPackage0OrProposedSalarypackage1(1);
 			model.addAttribute("currentSalaryPackage0OrProposedSalarypackage1", update);
-		
+
 			return "toupdatesalarypackage";
 		} else {
 			model.addAttribute("salaryPackage", salaryPackageService.getSalaryPackageById(salaryPackageId));
@@ -119,7 +117,7 @@ public class SalaryPackageController {
 			return "updatesalarypackage";
 		}
 
-		salaryPackageService.saveOrUpdateSalaryPackage(id, salaryPackage);
+		salaryPackageService.addSalaryPackage(salaryPackage);
 		redirect.addFlashAttribute("success", "Saved employee successfully!");
 
 		return "updatesucces";

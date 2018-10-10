@@ -14,5 +14,5 @@ public interface IApplicationProcessService {
 
 	void updateApplicationProcess(ApplicationProcess applicationProcess);
 
-	void deleteAdress(int applicationProcessId);
+	void deleteApplicationProcess(int applicationProcessId);
 }

@@ -3,9 +3,6 @@ package com.tv.tutorials.coolestuffvoorcheops.services.impl;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-import java.util.Optional;
-
-import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -44,20 +41,8 @@ public class ApplicationProcessService implements IApplicationProcessService {
 	}
 
 	@Override
-	public void deleteAdress(int applicationProcessId) {
+	public void deleteApplicationProcess(int applicationProcessId) {
 		applicationProcessRepository.delete(getApplicationProcessById(applicationProcessId));
-	}
-
-	public void saveOrUpdateApplicationProcess(int id, @Valid ApplicationProcess applicationProcess) {
-		Optional<ApplicationProcess> tmp = applicationProcessRepository.findById(id);
-		if (tmp.isPresent()) {
-			ApplicationProcess s = tmp.get();
-			s = applicationProcess;
-			s.setId(id);
-			applicationProcessRepository.save(s);
-		} else {
-			applicationProcessRepository.save(applicationProcess);
-		}
 	}
 
 	public List<Integer> findAllRecruited() {
@@ -101,10 +86,6 @@ public class ApplicationProcessService implements IApplicationProcessService {
 			applicationProcessId.add(applicationProcess.getId());
 		}
 		return applicationProcessId;
-	}
-
-	public List<Integer> findAllRecruitedInoud(List<Integer> applicationProcessIds) {
-		return null;
 	}
 
 	public List<ApplicationProcess> getAllApplicationProcessById(List<Integer> applicationProcessId) {

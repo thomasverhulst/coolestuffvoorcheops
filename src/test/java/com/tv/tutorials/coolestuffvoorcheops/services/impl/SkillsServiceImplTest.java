@@ -81,6 +81,24 @@ public class SkillsServiceImplTest {
 		assertNotNull(listSkills);
 	}
 
+	@Test
+	public void updateSkillsTest() {
+		Skills skill = skillsService.getAllSkills().get(0);
+		skill.setExperience(18);
+		skillsService.updateSkills(skill);
+		assertThat(skillsService.getSkillsById(skill.getId()).getExperience()).isEqualTo(18);
+	}
+
+	@Test
+	public void deleteSkillsTest() {
+		Integer count = skillsService.getAllSkills().size();
+		Skills skillJavaFE = new Skills("Java", 3, "Brussel", "Java", false, true, true);
+		skillsService.addSkills(skillJavaFE);
+		assertThat(skillsService.getAllSkills().size()).isEqualTo(count + 1);
+		skillsService.deleteSkills(skillJavaFE.getId());
+		assertThat(skillsService.getAllSkills().size()).isEqualTo(count);
+	}
+
 	// ArrayList<Skills> l = (ArrayList<Skills>)
 	// skillsRepository.findAllById(skillId);
 

@@ -3,10 +3,7 @@ package com.tv.tutorials.coolestuffvoorcheops.services.impl;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-import java.util.Optional;
 import java.util.stream.Collectors;
-
-import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -23,7 +20,7 @@ public class SkillsService implements ISkillService {
 	@Override
 	public List<Skills> getAllSkills() {
 		List<Skills> list = new ArrayList<>();
-		 skillsRepository.findAll().forEach(e -> list.add(e));
+		skillsRepository.findAll().forEach(e -> list.add(e));
 		return list;
 	}
 
@@ -41,30 +38,11 @@ public class SkillsService implements ISkillService {
 	@Override
 	public void updateSkills(Skills skills) {
 		skillsRepository.save(skills);
-
-		if (getSkillsById(skills.getId()) == null) {
-		} else {
-			skillsRepository.save(skills);
-		}
 	}
 
 	@Override
 	public void deleteSkills(int skillsId) {
 		skillsRepository.delete(getSkillsById(skillsId));
-	}
-
-	public void saveOrUpdateSkills(int id, @Valid Skills skills) {
-
-		Optional<Skills> tmp = skillsRepository.findById(id);
-		if (tmp.isPresent()) {
-			Skills s = tmp.get();
-
-			s = skills;
-			s.setId(id);
-			skillsRepository.save(s);
-		} else {
-			skillsRepository.save(skills);
-		}
 	}
 
 	public List<Integer> findAllDotnet() {

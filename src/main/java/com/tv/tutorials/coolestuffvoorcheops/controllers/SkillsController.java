@@ -53,7 +53,7 @@ public class SkillsController {
 			return "updateskills";
 		}
 
-		skillsService.saveOrUpdateSkills(id, skills);
+		skillsService.updateSkills(skills);
 		return "updatesucces";
 	}
 
