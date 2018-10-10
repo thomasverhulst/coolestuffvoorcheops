@@ -34,9 +34,7 @@
 		<div class="row">
 			<div class="col-sm-2"></div>
 
-			<form
-				th:action="@{/updateapplicationProcess/{applicationProcessId}(applicationProcessId=${applicationProcess.id})}"
-				th:object="${applicationProcess}" method="POST">
+			<form th:action="@{/updateApplicationProcess/{applicationProcessId}(applicationProcessId=${applicationProcess.id})}" th:object="${applicationProcess}" method="POST">
 				<div class="container">
 					<div class="row">
 						<div class="col-sm-3">
