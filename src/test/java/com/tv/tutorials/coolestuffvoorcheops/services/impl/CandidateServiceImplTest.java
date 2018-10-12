@@ -35,7 +35,6 @@ public class CandidateServiceImplTest {
 
 	private static final String NAME = "Thomas";
 	private static final String SURNAME = "Verhulst";
-	private static final Integer CANDIDATEID = 1;
 	private static final Integer EXPERIENCE = 3;
 
 	@Autowired
@@ -133,7 +132,8 @@ public class CandidateServiceImplTest {
 
 	@Test
 	public void getCandidateByIdTest() {
-		Candidate candidate = candidateService.getCandidateById(CANDIDATEID);
+		Candidate candidate = candidateService
+				.getCandidateById(candidateService.getAllCandidates().get(0).getCandidate().getId());
 		assertThat(candidate).isNotNull();
 	}
 
