@@ -74,13 +74,13 @@ public class SearchController {
 	public String gpostCandidateByNameAndSirName(@RequestParam("name") String name,
 			@RequestParam("sirName") String sirName, ModelMap modelMap, HttpSession session) {
 
-		if (!(StringUtils.isEmpty(name) && StringUtils.isEmpty(sirName))) {
+		if (StringUtils.isEmpty(name) || StringUtils.isEmpty(sirName)) {
 			if (name.equals("")) {
-				name = "!";
+				name = "%";
 			}
 
 			if (sirName.equals("")) {
-				sirName = "!";
+				sirName = "%";
 			}
 		}
 
