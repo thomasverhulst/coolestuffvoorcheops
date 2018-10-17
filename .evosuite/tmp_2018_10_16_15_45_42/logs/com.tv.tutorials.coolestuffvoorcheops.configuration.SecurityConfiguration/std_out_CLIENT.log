@@ -1,0 +1,24 @@
+[MASTER] 15:58:34.417 [pool-2-thread-1] WARN  TimeController - Phase INITIALIZATION lasted too long, 5 seconds more than allowed.
+[MASTER] 15:58:34.488 [pool-2-thread-1] WARN  FunctionalMockStatement - Problem with class org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder: java.lang.NoClassDefFoundError: org/springframework/security/config/annotation/authentication/configurers/ldap/LdapAuthenticationProviderConfigurer
+[MASTER] 15:58:36.177 [pool-2-thread-1] WARN  InheritanceTree - Class not in inheritance graph: javax.faces.context.FacesContext
+[MASTER] 15:58:37.126 [pool-2-thread-1] WARN  CheapPurityAnalyzer - kotlin.reflect.jvm.ReflectJvmMapping was not found in the inheritance tree. Using DEFAULT value for cheap-purity analysis
+[MASTER] 15:58:37.126 [pool-2-thread-1] WARN  InheritanceTree - Class not in inheritance graph: kotlin.reflect.jvm.ReflectJvmMapping
+[MASTER] 15:58:37.542 [pool-2-thread-1] WARN  InheritanceTree - Class not in inheritance graph: javax.faces.context.ExceptionHandler
+[MASTER] 15:58:37.549 [pool-2-thread-1] WARN  InheritanceTree - Class not in inheritance graph: javax.faces.context.ResponseStream
+[MASTER] 15:58:37.550 [pool-2-thread-1] WARN  InheritanceTree - Class not in inheritance graph: javax.faces.context.ResponseWriter
+[MASTER] 15:58:40.208 [pool-2-thread-1] WARN  InheritanceTree - Class not in inheritance graph: javax.faces.component.behavior.ClientBehavior
+[MASTER] 15:58:40.212 [pool-2-thread-1] WARN  InheritanceTree - Class not in inheritance graph: javax.faces.component.UIComponent
+[MASTER] 15:58:40.216 [pool-2-thread-1] WARN  InheritanceTree - Class not in inheritance graph: javax.faces.event.FacesEvent
+[MASTER] 15:58:40.219 [pool-2-thread-1] WARN  InheritanceTree - Class not in inheritance graph: javax.faces.component.ContextCallback
+[MASTER] 15:58:40.220 [pool-2-thread-1] WARN  InheritanceTree - Class not in inheritance graph: javax.faces.event.ComponentSystemEvent
+[MASTER] 15:58:40.228 [pool-2-thread-1] WARN  InheritanceTree - Class not in inheritance graph: javax.faces.el.ValueBinding
+[MASTER] 15:58:40.235 [pool-2-thread-1] WARN  InheritanceTree - Class not in inheritance graph: javax.faces.event.ComponentSystemEventListener
+[MASTER] 15:58:40.236 [pool-2-thread-1] WARN  InheritanceTree - Class not in inheritance graph: javax.faces.event.SystemEventListener
+[MASTER] 15:58:40.237 [pool-2-thread-1] WARN  InheritanceTree - Class not in inheritance graph: javax.faces.component.visit.VisitContext
+[MASTER] 15:58:40.240 [pool-2-thread-1] WARN  InheritanceTree - Class not in inheritance graph: javax.faces.component.visit.VisitCallback
+[MASTER] 15:58:41.077 [pool-2-thread-1] WARN  CheapPurityAnalyzer - kotlin.jvm.internal.Intrinsics was not found in the inheritance tree. Using DEFAULT value for cheap-purity analysis
+[MASTER] 15:58:41.078 [pool-2-thread-1] WARN  InheritanceTree - Class not in inheritance graph: kotlin.jvm.internal.Intrinsics
+[MASTER] 15:58:44.844 [pool-2-thread-1] WARN  CheapPurityAnalyzer - joptsimple.OptionSet was not found in the inheritance tree. Using DEFAULT value for cheap-purity analysis
+[MASTER] 15:58:44.845 [pool-2-thread-1] WARN  InheritanceTree - Class not in inheritance graph: joptsimple.OptionSet
+[MASTER] 15:58:46.504 [pool-2-thread-1] WARN  InheritanceTree - Class not in inheritance graph: javax.faces.lifecycle.Lifecycle
+[MASTER] 15:58:51.254 [pool-2-thread-1] WARN  FunctionalMockStatement - Problem with class org.springframework.security.config.annotation.web.builders.HttpSecurity: java.lang.NoClassDefFoundError: org/springframework/security/config/annotation/web/configurers/oauth2/client/OAuth2LoginConfigurer
