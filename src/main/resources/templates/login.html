@@ -1,123 +1,213 @@
-<!-- All the files that are required -->
-<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"/>
-<link href='http://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'/>
-<link rel="stylesheet" type="text/css" href="../master.css"/>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Please Login</title>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.13.1/jquery.validate.min.js"></script>
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+<link
+	href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css"
+	rel="stylesheet" id="bootstrap-css">
+<script
+	src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+</head>
 
-<!-- Where all the magic happens -->
-<!-- LOGIN FORM -->
-<div class="text-center" style="padding:50px 0">
-	<div class="logo">login</div>
-	<!-- Main Form -->
-	<div class="login-form-1">
-		<form id="login-form" class="text-left">
-			<div class="login-form-main-message"></div>
-			<div class="main-login-form">
-				<div class="login-group">
-					<div class="form-group">
-						<label for="lg_username" class="sr-only">Username</label>
-						<input type="text" class="form-control" id="lg_username" name="lg_username" placeholder="username"/>
-					</div>
-					<div class="form-group">
-						<label for="lg_password" class="sr-only">Password</label>
-						<input type="password" class="form-control" id="lg_password" name="lg_password" placeholder="password"/>
-					</div>
-					<div class="form-group login-group-checkbox">
-						<input type="checkbox" id="lg_remember" name="lg_remember"/>
-						<label for="lg_remember">remember</label>
+<style>
+@import
+	url("http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,400,300,700")
+	;
+
+@import
+	url("http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600|Roboto Mono")
+	;
+
+@font-face {
+	font-family: 'Dosis';
+	font-style: normal;
+	font-weight: 300;
+	src: local('Dosis Light'), local('Dosis-Light'),
+		url(http://fonts.gstatic.com/l/font?kit=RoNoOKoxvxVq4Mi9I4xIReCW9eLPAnScftSvRB4WBxg&skey=a88ea9d907460694)
+		format('woff2');
+}
+
+@font-face {
+	font-family: 'Dosis';
+	font-style: normal;
+	font-weight: 500;
+	src: local('Dosis Medium'), local('Dosis-Medium'),
+		url(http://fonts.gstatic.com/l/font?kit=Z1ETVwepOmEGkbaFPefd_-CW9eLPAnScftSvRB4WBxg&skey=21884fc543bb1165)
+		format('woff2');
+}
+
+body {
+	background: #d2d6de;
+	font-family: 'Source Sans Pro', 'Helvetica Neue', Arial, sans-serif,
+		Open Sans;
+	font-size: 14px;
+	line-height: 1.42857;
+	height: 350px;
+	padding: 0;
+	margin: 0;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	font-weight: 400;
+	overflow-x: hidden;
+	overflow-y: auto;
+}
+
+.form-control {
+	background-color: #ffffff;
+	background-image: none;
+	border: 1px solid #999999;
+	border-radius: 0;
+	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+	color: #333333;
+	display: block;
+	font-size: 14px;
+	height: 34px;
+	line-height: 1.42857;
+	padding: 6px 12px;
+	transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s
+		ease-in-out 0s;
+	width: 100%;
+}
+
+.login-box, .register-box {
+	width: 360px;
+	margin: 7% auto;
+}
+
+.login-page, .register-page {
+	background: #d2d6de;
+}
+
+.login-logo, .register-logo {
+	font-size: 35px;
+	text-align: center;
+	margin-bottom: 25px;
+	font-weight: 300;
+}
+
+.login-box-msg, .register-box-msg {
+	margin: 0;
+	text-align: center;
+	padding: 0 20px 20px 20px;
+}
+
+.login-box-body, .register-box-body {
+	background: #fff;
+	padding: 20px;
+	border-top: 0;
+	color: #666;
+}
+
+.has-feedback {
+	position: relative;
+}
+
+.form-group {
+	margin-bottom: 15px;
+}
+
+.has-feedback .form-control {
+	padding-right: 42.5px;
+}
+
+.login-box-body .form-control-feedback, .register-box-body .form-control-feedback
+	{
+	color: #777;
+}
+
+.form-control-feedback {
+	position: absolute;
+	top: 0;
+	right: 0;
+	z-index: 2;
+	display: block;
+	width: 34px;
+	height: 34px;
+	line-height: 34px;
+	text-align: center;
+	pointer-events: none;
+}
+
+.checkbox, .radio {
+	position: relative;
+	display: block;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+.icheck>label {
+	padding-left: 0;
+}
+
+.checkbox label, .radio label {
+	min-height: 20px;
+	padding-left: 20px;
+	margin-bottom: 0;
+	font-weight: 400;
+	cursor: pointer;
+}
+</style>
+<body>
+	<!-- <div class="text-center" style="padding: 50px 0">
+		<div class="logo">login</div>
+		Main Form
+		<div class="login-form-1">
+			<form name="f" th:action="@{/login}" method="post">
+            <fieldset>
+                <legend>Please Login</legend>
+                <div th:if="${param.error}" class="alert alert-error">
+                    Invalid username and password.
+                </div>
+                <div th:if="${param.logout}" class="alert alert-success">
+                    You have been logged out.
+                </div>
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username"/>
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password"/>
+                <div class="form-actions">
+                    <button type="submit" class="btn">Log in</button>
+                </div>
+            </fieldset>
+        </form>
+		</div>
+		end:Main Form
+	</div> -->
+
+	<div class="login-box">
+
+		<!-- /.login-logo -->
+		<div class="login-box-body">
+			<div class="login-logo">
+				<a href="https://www.cheops.com/"><img
+					src="images\cheopslogo.jpg" width="253px" height="116px"
+					alt="Cheops"></a>
+			</div>
+			<p class="login-box-msg">Sign in to enter the application</p>
+			<form th:action="@{/login}" method="post" accept-charset="utf-8">
+				<div class="form-group has-feedback">
+					<input type="text" id="username" name="username" value=""
+						placeholder="Username" class="form-control" maxlength="80"
+						size="30"> <span
+						class="glyphicon glyphicon-user form-control-feedback"></span> <span><font
+						color="red"></font></span>
+				</div>
+				<div class="form-group has-feedback">
+					<input type="password" id="password" name="password" value=""
+						placeholder="Password" class="form-control" size="30"> <span
+						class="glyphicon glyphicon-lock form-control-feedback"></span> <span><font
+						color="red"></font></span>
+				</div>
+				<div class="row">
+					<div class="col-xs-12">
+						<input type="submit" name="submit" value="Sign In" id="submit"
+							class="btn btn-primary btn-block btn-flat">
 					</div>
 				</div>
-				<button type="submit" class="login-button"><i class="fa fa-chevron-right"></i></button>
-			</div>
-			<div class="etc-login-form">
-				<p>forgot your password? <a href="#">click here</a></p>
-				<p>new user? <a href="#">create new account</a></p>
-			</div>
-		</form>
+			</form>
+		</div>
+		<!-- /.login-box-body -->
 	</div>
-	<!-- end:Main Form -->
-</div>
-
-<!-- REGISTRATION FORM -->
-<div class="text-center" style="padding:50px 0">
-	<div class="logo">register</div>
-	<!-- Main Form -->
-	<div class="login-form-1">
-		<form id="register-form" class="text-left">
-			<div class="login-form-main-message"></div>
-			<div class="main-login-form">
-				<div class="login-group">
-					<div class="form-group">
-						<label for="reg_username" class="sr-only">Email address</label>
-						<input type="text" class="form-control" id="reg_username" name="reg_username" placeholder="username"/>
-					</div>
-					<div class="form-group">
-						<label for="reg_password" class="sr-only">Password</label>
-						<input type="password" class="form-control" id="reg_password" name="reg_password" placeholder="password"/>
-					</div>
-					<div class="form-group">
-						<label for="reg_password_confirm" class="sr-only">Password Confirm</label>
-						<input type="password" class="form-control" id="reg_password_confirm" name="reg_password_confirm" placeholder="confirm password"/>
-					</div>
-					
-					<div class="form-group">
-						<label for="reg_email" class="sr-only">Email</label>
-						<input type="text" class="form-control" id="reg_email" name="reg_email" placeholder="email"/>
-					</div>
-					<div class="form-group">
-						<label for="reg_fullname" class="sr-only">Full Name</label>
-						<input type="text" class="form-control" id="reg_fullname" name="reg_fullname" placeholder="full name"/>
-					</div>
-					
-					<div class="form-group login-group-checkbox">
-						<input type="radio" class="" name="reg_gender" id="male" placeholder="username"/>
-						<label for="male">male</label>
-						
-						<input type="radio" class="" name="reg_gender" id="female" placeholder="username"/>
-						<label for="female">female</label>
-					</div>
-					
-					<div class="form-group login-group-checkbox">
-						<input type="checkbox" class="" id="reg_agree" name="reg_agree"/>
-						<label for="reg_agree">i agree with <a href="#">terms</a></label>
-					</div>
-				</div>
-				<button type="submit" class="login-button"><i class="fa fa-chevron-right"></i></button>
-			</div>
-			<div class="etc-login-form">
-				<p>already have an account? <a href="#">login here</a></p>
-			</div>
-		</form>
-	</div>
-	<!-- end:Main Form -->
-</div>
-
-<!-- FORGOT PASSWORD FORM -->
-<div class="text-center" style="padding:50px 0">
-	<div class="logo">forgot password</div>
-	<!-- Main Form -->
-	<div class="login-form-1">
-		<form id="forgot-password-form" class="text-left">
-			<div class="etc-login-form">
-				<p>When you fill in your registered email address, you will be sent instructions on how to reset your password.</p>
-			</div>
-			<div class="login-form-main-message"></div>
-			<div class="main-login-form">
-				<div class="login-group">
-					<div class="form-group">
-						<label for="fp_email" class="sr-only">Email address</label>
-						<input type="text" class="form-control" id="fp_email" name="fp_email" placeholder="email address"/>
-					</div>
-				</div>
-				<button type="submit" class="login-button"><i class="fa fa-chevron-right"></i></button>
-			</div>
-			<div class="etc-login-form">
-				<p>already have an account? <a href="#">login here</a></p>
-				<p>new user? <a href="#">create new account</a></p>
-			</div>
-		</form>
-	</div>
-	<!-- end:Main Form -->
-</div>
+</body>
+</html>
