@@ -1,0 +1,2 @@
+[MASTER] 15:55:04.876 [pool-2-thread-1] WARN  TestSuiteSerialization - Cannot load tests because file does not exist: C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\evosuite-seeds\com.tv.tutorials.coolestuffvoorcheops.controllers.ApplicationProcessController.seed
+[MASTER] 15:55:05.096 [pool-2-thread-1] WARN  TimeController - Phase INITIALIZATION lasted too long, 3 seconds more than allowed.
