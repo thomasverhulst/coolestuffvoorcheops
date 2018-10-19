@@ -50,13 +50,14 @@ public class SearchController {
 	private SalaryPackageService salaryPackageService;
 
 	@GetMapping("/search")
-	public String showRegister(Model modelMap) {
+	public String showRegister(ModelMap modelMap, HttpSession session) {
 
 		// https://stackoverflow.com/questions/13242394/spring-mvc-multiple-modelattribute-on-the-same-form
-
-		modelMap.addAttribute("candidate", new Candidate());
-		modelMap.addAttribute("saerch", new Search());
-		return "search";
+		List<CandidateSearchResolver> candidates = candidateservice.getAllCandidates();
+		return goToResultpage(modelMap, candidates, session);
+//		modelMap.addAttribute("candidate", new Candidate());
+//		modelMap.addAttribute("saerch", new Search());
+//		return "search";
 	}
 
 	@RequestMapping(value = "/searchCandidate")

@@ -37,7 +37,16 @@ th {
 			<div class="col-sm-6">
 				<h1>Zoekresultaten kandidaat</h1>
 			</div>
-			<div class="col-sm-3"></div>
+			<div class="col-sm-3">
+			<form th:action="@{/searchAllRecruitedCandidates}"
+					th:object="${saerch}" method="POST">
+					<div class=form-group>
+						<button class="btn-lg btn-primary btn-block" type="submit">Zoek
+							iedereen in dienst ></button>
+					</div>
+				</form>
+			
+			</div>
 		</div>
 		<div class="row">
 			<div class="col-sm-2"></div>
