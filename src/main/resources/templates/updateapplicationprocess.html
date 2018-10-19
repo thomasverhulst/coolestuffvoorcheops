@@ -84,6 +84,14 @@
 				<input type="checkbox"  th:field=*{toBeSendFinancialProposal} id="tobesendfinancialproposal" class="form-control"  >
 			</div>
 			<div class=form-group>
+				<label for="feedbackfilename">C.V. naam:</label>
+				<input type="text" th:field=*{feedbackFileName} id="feedbackfilename" class="form-control" placeholder="Nog geen feedback file toegevoegd" disabled="disabled">
+			</div>
+			<div class=form-group>
+				<label for="notrecruited"> niet aangenomen omdat</label>
+				<textarea rows=5 cols=40  th:field=*{notRecruited} id="tobesendfinancialproposal" class="form-control"  ></textarea>
+			</div>
+			<div class=form-group>
 				<label for="financialproposaldate">Datum financieel voorstel:</label>
 				<input type="date" th:field=*{financialProposalDate} th:value="${#dates.format(applicationProcess.financialProposalDate,'yyyy/MM/dd')}" id="financialproposaldate" class="form-control"  >
 			</div>

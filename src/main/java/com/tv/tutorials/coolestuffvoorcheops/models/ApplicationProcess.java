@@ -8,8 +8,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.web.multipart.MultipartFile;
 
 @Entity
 @Table(name = "applicationprocess")
@@ -66,18 +68,34 @@ public class ApplicationProcess {
 
 	@Column(name = "isrecruited")
 	private Boolean isRecruited;
+	
+	@Column(name = "feedbackfile")
+	private byte[] feedBackFile;
 
+	@Transient
+	private MultipartFile file;
+	
+	@Column(name = "feedbackfilename")
+	private String feedbackFileName;
+	
+	@Column(name = "notrecruited")
+	private String notRecruited;
+	
 	public ApplicationProcess() {
 
 	}
 
-	public ApplicationProcess(Date applicationDate, Boolean toBeInvitedForFirstConversation, Date invitationDate,
-			Date firstConversationDate, String staffNameFirstConversation, String feedbackFirstConversation,
-			Boolean toBeInvitedForTechnicalConversation, Date technicalConversationDate,
-			String staffNameTechnicalConversation, String feedbackTechnicalConversation,
+	
+
+	public ApplicationProcess(Integer id, Date applicationDate, Boolean toBeInvitedForFirstConversation,
+			Date invitationDate, Date firstConversationDate, String staffNameFirstConversation,
+			String feedbackFirstConversation, Boolean toBeInvitedForTechnicalConversation,
+			Date technicalConversationDate, String staffNameTechnicalConversation, String feedbackTechnicalConversation,
 			Boolean toBeSendFinancialProposal, Date financialProposalDate, String feedbackFinancialProposal,
-			Boolean isRecruited) {
+			Boolean isRecruited, byte[] feedBackFile, MultipartFile file, String feedbackFileName,
+			String notRecruited) {
 		super();
+		this.id = id;
 		this.applicationDate = applicationDate;
 		this.toBeInvitedForFirstConversation = toBeInvitedForFirstConversation;
 		this.invitationDate = invitationDate;
@@ -92,7 +110,13 @@ public class ApplicationProcess {
 		this.financialProposalDate = financialProposalDate;
 		this.feedbackFinancialProposal = feedbackFinancialProposal;
 		this.isRecruited = isRecruited;
+		this.feedBackFile = feedBackFile;
+		this.file = file;
+		this.feedbackFileName = feedbackFileName;
+		this.notRecruited = notRecruited;
 	}
+
+
 
 	@Override
 	public boolean equals(Object obj) {
@@ -224,6 +248,38 @@ public class ApplicationProcess {
 
 	public void setId(Integer id) {
 		this.id = id;
+	}
+
+	public byte[] getFeedBackFile() {
+		return feedBackFile;
+	}
+
+	public void setFeedBackFile(byte[] bytes) {
+		this.feedBackFile = bytes;
+	}
+
+	public String getNotRecruited() {
+		return notRecruited;
+	}
+
+	public void setNotRecruited(String notRecruited) {
+		this.notRecruited = notRecruited;
+	}
+
+	public MultipartFile getFile() {
+		return file;
+	}
+
+	public void setFile(MultipartFile file) {
+		this.file = file;
+	}
+
+	public String getFeedbackFileName() {
+		return feedbackFileName;
+	}
+
+	public void setFeedbackFileName(String feedbackFileName) {
+		this.feedbackFileName = feedbackFileName;
 	}
 
 }

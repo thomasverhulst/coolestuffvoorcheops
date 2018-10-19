@@ -1,5 +1,6 @@
 package com.tv.tutorials.coolestuffvoorcheops.controllers;
 
+import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -233,7 +234,19 @@ public class CancidateController {
 
 	@RequestMapping(value = "/registerApplicationProcess", method = RequestMethod.POST)
 	public String registerApplicationProcess(Model model,
-			@ModelAttribute("applicationprocess") ApplicationProcess applicationProcess, HttpSession session) {
+			@ModelAttribute("applicationprocess") ApplicationProcess applicationProcess, HttpSession session) throws IOException {
+	
+		if (applicationProcess.getFile() != null && applicationProcess.getFile().isEmpty()) {
+			MultipartFile file = applicationProcess.getFile();
+			// add file to byte variable, for blob
+			System.out.println("filenaam = "+file.getOriginalFilename());
+			applicationProcess.setFeedbackFileName(file.getOriginalFilename());
+			applicationProcess.setFeedBackFile(file.getBytes());
+			
+
+			logger.debug("Upload feedbackfile = " + uploadDirectory);		
+		}
+	
 		ApplicationProcess tmpApplicationprocess = applicationProcessService.addApplicationProcess(applicationProcess);
 		// get candidate from session
 		Candidate sessionCandidate = (Candidate) session.getAttribute("candidate");
@@ -243,10 +256,10 @@ public class CancidateController {
 		candidateservice.updateCandidate(sessionCandidate);
 		// Update candidate in session (not needed?)
 		session.setAttribute("candidate", sessionCandidate);
-		Boolean t = (Boolean) session.getAttribute("isupdate");
+		Boolean isUpdate = (Boolean) session.getAttribute("isupdate");
 		String returning;
 
-		if (!t) {
+		if (!isUpdate) {
 			// de eigelijke update moet hier nog gebeuren, uiteindelijk moet dit ook naar
 			// een service?
 
