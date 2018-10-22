@@ -1,0 +1,13 @@
+.a-form {
+  &-input {
+    &-text,
+    &-password {
+      border: 0;
+      border-bottom: $input-border-width solid $border-color;
+
+      &:focus {
+        box-shadow: none;
+      }
+    }
+  }
+}

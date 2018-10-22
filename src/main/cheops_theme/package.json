@@ -1,0 +1,45 @@
+{
+  "name": "cheops_theme",
+  "version": "1.0.0",
+  "config": {
+    "localhost": "https://localhost:8443/",
+    "components_src": "src",
+    "styles_dest": "../resources/static/css",
+    "scripts_dest": "../resources/static/js"
+  },
+  "scripts": {
+    "dev": "npm-run-all build:css",
+    "deploy": "npm-run-all build:css && npm run autoprefixer && npm run cssnano",
+    "watch": "run-p watch:css && npm run browser-sync",
+    "build:css": "node-sass-chokidar $npm_package_config_components_src -o $npm_package_config_styles_dest --importer node_modules/node-sass-glob-importer/dist/cli.js --include-path node_modules/;",
+    "watch:css": "onchange -i 'src/**/*.scss' -- npm-run-all build:css ",
+    "autoprefixer": "postcss $npm_package_config_styles_dest'/*.css' -u autoprefixer -b 'last 2 versions' -r --map",
+    "cssnano": "postcss --use cssnano -r $npm_package_config_styles_dest'/*.css' --map",
+    "browser-sync": "browser-sync start --proxy $npm_package_config_localhost -f src/"
+  },
+  "dependencies": {
+    "popper.js": "^1.14.4"
+  },
+  "devDependencies": {
+    "@fortawesome/fontawesome-free": "^5.2.0",
+    "autoprefixer": "^9.1.0",
+    "bootstrap": "^4.1.3",
+    "browser-sync": "^2.24.6",
+    "cssnano": "^4.0.5",
+    "eslint": "^5.6.1",
+    "eslint-config-prettier": "^3.1.0",
+    "eslint-plugin-prettier": "^3.0.0",
+    "family.scss": "^1.0.8",
+    "node-sass-chokidar": "1.3.0",
+    "node-sass-glob-importer": "^5.2.0",
+    "npm-run-all": "^4.1.3",
+    "onchange": "^4.1.0",
+    "postcss-cli": "^6.0.0",
+    "prettier": "^1.14.3",
+    "stylelint": "^9.6.0",
+    "stylelint-config-sass-guidelines": "^5.2.0",
+    "stylelint-scss": "^3.3.1",
+    "uglify-js": "^3.4.9",
+    "uglifyjs-folder": "^1.5.1"
+  }
+}
