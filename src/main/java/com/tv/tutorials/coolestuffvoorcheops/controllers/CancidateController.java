@@ -49,6 +49,8 @@ public class CancidateController {
 
 	private final IStorageService storageService;
 	public String uploadDirectory = System.getProperty("user.dir") + "/uploads";
+	public String feedbackuploadDirectory = System.getProperty("user.dir") + "/uploadsfeedback";
+	
 	// goede uitleg
 	// https://www.mkyong.com/spring-boot/spring-boot-hibernate-search-example/
 	@Autowired
@@ -234,18 +236,30 @@ public class CancidateController {
 
 	@RequestMapping(value = "/registerApplicationProcess", method = RequestMethod.POST)
 	public String registerApplicationProcess(Model model,
-			@ModelAttribute("applicationprocess") ApplicationProcess applicationProcess, HttpSession session) throws IOException {
-	
-		if (applicationProcess.getFile() != null && applicationProcess.getFile().isEmpty()) {
+			@ModelAttribute("applicationprocess") ApplicationProcess applicationProcess, BindingResult bindingResult, HttpSession session) throws IOException {
+	System.out.println("hoi we zijn hier");
+		if (applicationProcess.getFile() != null && !applicationProcess.getFile().isEmpty()) {
+			System.out.println("hoi we zijn er in");
 			MultipartFile file = applicationProcess.getFile();
 			// add file to byte variable, for blob
-			System.out.println("filenaam = "+file.getOriginalFilename());
+//			System.out.println("filenaam = "+file.getOriginalFilename());
+//			applicationProcess.setFeedbackFileName(file.getOriginalFilename());
+//			applicationProcess.setFeedBackFile(file.getBytes());
+			Path filenameAndPath = Paths.get(feedbackuploadDirectory, file.getOriginalFilename());
+			Files.write(filenameAndPath, file.getBytes());
+			// set link to cv
 			applicationProcess.setFeedbackFileName(file.getOriginalFilename());
-			applicationProcess.setFeedBackFile(file.getBytes());
 			
-
-			logger.debug("Upload feedbackfile = " + uploadDirectory);		
+			System.out.println("hoi we zijn hier");
+			
 		}
+		
+		
+
+		
+		System.out.println("hoi we zijn hier");
+		
+		
 	
 		ApplicationProcess tmpApplicationprocess = applicationProcessService.addApplicationProcess(applicationProcess);
 		// get candidate from session

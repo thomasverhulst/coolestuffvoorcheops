@@ -69,8 +69,8 @@ public class ApplicationProcess {
 	@Column(name = "isrecruited")
 	private Boolean isRecruited;
 	
-	@Column(name = "feedbackfile")
-	private byte[] feedBackFile;
+//	@Column(name = "feedbackfile")
+//	private byte[] feedBackFile;
 
 	@Transient
 	private MultipartFile file;
@@ -92,7 +92,7 @@ public class ApplicationProcess {
 			String feedbackFirstConversation, Boolean toBeInvitedForTechnicalConversation,
 			Date technicalConversationDate, String staffNameTechnicalConversation, String feedbackTechnicalConversation,
 			Boolean toBeSendFinancialProposal, Date financialProposalDate, String feedbackFinancialProposal,
-			Boolean isRecruited, byte[] feedBackFile, MultipartFile file, String feedbackFileName,
+			Boolean isRecruited,  String feedbackFileName,
 			String notRecruited) {
 		super();
 		this.id = id;
@@ -110,8 +110,8 @@ public class ApplicationProcess {
 		this.financialProposalDate = financialProposalDate;
 		this.feedbackFinancialProposal = feedbackFinancialProposal;
 		this.isRecruited = isRecruited;
-		this.feedBackFile = feedBackFile;
-		this.file = file;
+		//this.feedBackFile = feedBackFile;
+		//this.file = file;
 		this.feedbackFileName = feedbackFileName;
 		this.notRecruited = notRecruited;
 	}
@@ -250,13 +250,13 @@ public class ApplicationProcess {
 		this.id = id;
 	}
 
-	public byte[] getFeedBackFile() {
-		return feedBackFile;
-	}
-
-	public void setFeedBackFile(byte[] bytes) {
-		this.feedBackFile = bytes;
-	}
+//	public byte[] getFeedBackFile() {
+//		return feedBackFile;
+//	}
+//
+//	public void setFeedBackFile(byte[] bytes) {
+//		this.feedBackFile = bytes;
+//	}
 
 	public String getNotRecruited() {
 		return notRecruited;
