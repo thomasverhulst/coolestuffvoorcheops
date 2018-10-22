@@ -1,0 +1,66 @@
+@mixin icomoon($icon) {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  &:before {
+    @if $icon == "list" {
+      content: "\e901";
+    } @else if $icon == "telephone" {
+      content: "\e900";
+    } @else if $icon == "quick-menu" {
+      content: "\e909";
+    } @else if $icon == "empty-file" {
+      content: "\e90a";
+    } @else if $icon == "icon-dots" {
+      content: "\e90b";
+    } @else if $icon == "profile" {
+      content: "\e90c";
+    } @else if $icon == "people" {
+      content: "\e90d";
+    } @else if $icon == "filters" {
+      content: "\e90e";
+    } @else if $icon == "mail" {
+      content: "\e90f";
+    } @else if $icon == "delete" {
+      content: "\e910";
+    } @else if $icon == "knowledge" {
+      content: "\e911";
+    } @else if $icon == "update-file" {
+      content: "\e912";
+    } @else if $icon == "add-file" {
+      content: "\e913";
+    } @else if $icon == "download-file" {
+      content: "\e914";
+    } @else if $icon == "edit" {
+      content: "\e915";
+    } @else if $icon == "status" {
+      content: "\e916";
+    } @else if $icon == "arrow" {
+      content: "\e918";
+    } @else if $icon == "grid" {
+      content: "\e91a";
+    } @else if $icon == "add-people" {
+      content: "\e91b";
+    } @else if $icon == "location" {
+      content: "\e91c";
+    } @else if $icon == "experience" {
+      content: "\e91d";
+    } @else if $icon == "search" {
+      content: "\e91f";
+    } @else if $icon == "bell" {
+      content: "\e920";
+    } @else if $icon == "config" {
+      content: "\e921";
+    }
+  }
+}
