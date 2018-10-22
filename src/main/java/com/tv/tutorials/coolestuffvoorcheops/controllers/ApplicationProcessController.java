@@ -27,6 +27,13 @@ public class ApplicationProcessController {
 	@RequestMapping(value = "searchapplicationproces2/{candidateId}", method = RequestMethod.GET)
 	public String searchApplicationProcess(Model model, @PathVariable("candidateId") int candidateId) {
 		Integer applicationProcessId = candidateservice.getCandidateById(candidateId).getApplicationProcessId();
+//		ApplicationProcess applicationProcess = applicationProcessService.getApplicationProcessById(applicationProcessId);
+//		// if blof is not null add filename from blob to feedbackfilename
+//			if (applicationProcess.getFeedBackFile() != null) {
+//				
+//				applicationProcess.setFeedbackFileName(feedbackFileName);
+//			}
+		
 		model.addAttribute("applicationProcess",
 				applicationProcessService.getApplicationProcessById(applicationProcessId));
 		return "updateapplicationprocess";
