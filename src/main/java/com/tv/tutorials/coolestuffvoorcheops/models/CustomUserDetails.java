@@ -28,19 +28,16 @@ public class CustomUserDetails extends User implements UserDetails {
 
 	@Override
 	public String getPassword() {
-		// TODO Auto-generated method stub
 		return super.getPassword();
 	}
 
 	@Override
 	public String getUsername() {
-		// TODO Auto-generated method stub
 		return super.getName();
 	}
 
 	@Override
 	public boolean isAccountNonExpired() {
-		// TODO Auto-generated method stub
 		return true;
 	}
 

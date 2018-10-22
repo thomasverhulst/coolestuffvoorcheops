@@ -17,7 +17,7 @@ html, body, .container {
 
 .second {
 	float: left;
-	width: 37%;
+	width: 38%;
 	height: 50%;
 	background-color: green;
 }
@@ -47,12 +47,15 @@ img {
 	display: block;
 	margin-left: auto;
 	margin-right: auto;
+	
+    horizontal-align: middle;
+
 }
 
 .test {
 	/* margin-top: 1%; */
 	margin-bottom: 1%;
-	margin-right: 1%;
+/* 	margin-right: 1%; */
 	margin-left: 1%;
 }
 
@@ -62,6 +65,17 @@ a.fill-div {
 	width: 100%;
 	text-decoration: none;
 }
+
+.header-div {
+	background-color: red !important;
+}
+
+.footer-div {    
+     background-color: lightblue !important;
+     width: 1024px !important;
+}
+
+
 </style>
 <meta charset="utf-8">
 
@@ -98,12 +112,16 @@ a.fill-div {
 </head>
 <body>
 	<div th:fragment="header">
+	<div class="text-center header-div">
 		<h1>Cheops Candidate Manager</h1>
 	</div>
-
-	<div th:fragment="footer">
-		<p>&copy; 2018 Footer</p>
 	</div>
+
+	<footer th:fragment="footer" class="page-footer font-small blue">	
+	<div class="footer-copyright text-center py-3 footer-div">© 2018 Copyright:
+    	<a href="https://www.cheops.com/" target="_blank"> Cheops.com</a>
+ 	 </div>	
+	</footer>
 
 </body>
 </html>

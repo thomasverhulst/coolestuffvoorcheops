@@ -1,0 +1,10 @@
+[MASTER] 15:50:51.488 [pool-2-thread-1] WARN  CheapPurityAnalyzer - org.apache.commons.fileupload.FileItem was not found in the inheritance tree. Using DEFAULT value for cheap-purity analysis
+[MASTER] 15:50:51.499 [pool-2-thread-1] WARN  InheritanceTree - Class not in inheritance graph: org.apache.commons.fileupload.FileItem
+[MASTER] 15:50:51.500 [pool-2-thread-1] WARN  CheapPurityAnalyzer - org.apache.commons.fileupload.FileItem was not found in the inheritance tree. Using DEFAULT value for cheap-purity analysis
+[MASTER] 15:50:51.500 [pool-2-thread-1] WARN  CheapPurityAnalyzer - org.apache.commons.fileupload.FileItem was not found in the inheritance tree. Using DEFAULT value for cheap-purity analysis
+[MASTER] 15:50:55.076 [pool-2-thread-1] WARN  CheapPurityAnalyzer - kotlin.jvm.internal.Intrinsics was not found in the inheritance tree. Using DEFAULT value for cheap-purity analysis
+[MASTER] 15:50:55.076 [pool-2-thread-1] WARN  InheritanceTree - Class not in inheritance graph: kotlin.jvm.internal.Intrinsics
+[MASTER] 15:50:59.554 [pool-2-thread-1] WARN  CheapPurityAnalyzer - kotlin.reflect.jvm.ReflectJvmMapping was not found in the inheritance tree. Using DEFAULT value for cheap-purity analysis
+[MASTER] 15:50:59.555 [pool-2-thread-1] WARN  InheritanceTree - Class not in inheritance graph: kotlin.reflect.jvm.ReflectJvmMapping
+[MASTER] 15:51:01.252 [pool-2-thread-1] WARN  InheritanceTree - Class not in inheritance graph: javax.faces.context.FacesContext
+[MASTER] 15:51:05.163 [pool-2-thread-1] WARN  TestSuiteSerialization - Cannot load tests because file does not exist: C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\evosuite-seeds\com.tv.tutorials.coolestuffvoorcheops.controllers.SearchController.seed

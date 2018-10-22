@@ -3,6 +3,7 @@ package com.tv.tutorials.coolestuffvoorcheops.controllers;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -22,6 +23,8 @@ import com.tv.tutorials.coolestuffvoorcheops.services.impl.SalaryPackageService;
 @Controller
 public class SalaryPackageController {
 
+	Logger logger = Logger.getLogger(SalaryPackageController.class);
+
 	@Autowired
 	private CandidateService candidateservice;
 	@Autowired
@@ -34,21 +37,17 @@ public class SalaryPackageController {
 		// model.addAttribute("salaryPackage",salaryPackageRepository.findById(salaryPackageId).get());//shortcut
 		// service
 		if (salaryPackageId <= 0) {
-			System.out.println("deze heeft nog geen salarypackage");
+			logger.debug("Geen salarispakket gevonden");
 			Candidate c = candidateservice.getCandidateById(candidateId);
 			session.setAttribute("candidate", c);
 			session.setAttribute("isupdate", true);
 			session.setAttribute("currentSalaryPackage0OrProposedSalarypackage1", 0);
 
-			// model.addAttribute("salarypackage", new SalaryPackage());
-			// map.addAttribute("lateCreate", true);
-			model.addAttribute("candidate", c);
 			Update update = new Update();
-			System.out.println("HOI WE ZIJN DAAR");
 			update.setCurrentSalaryPackage0OrProposedSalarypackage1(0);
 			model.addAttribute("currentSalaryPackage0OrProposedSalarypackage1", update);
+			model.addAttribute("candidate", c);
 			return "toupdatesalarypackage";
-			// return "test";
 		} else {
 			model.addAttribute("salaryPackage", salaryPackageService.getSalaryPackageById(salaryPackageId));// via
 																											// service
@@ -69,30 +68,18 @@ public class SalaryPackageController {
 		// model.addAttribute("salaryPackage",salaryPackageRepository.findById(salaryPackageId).get());//shortcut
 		// service
 		if (salaryPackageId <= 0) {
-			System.out.println("deze heeft nog geen voorgesteld salarypackage");
 			Candidate c = candidateservice.getCandidateById(candidateId);
 			session.setAttribute("candidate", c);
 			session.setAttribute("isupdate", true);
 			session.setAttribute("currentSalaryPackage0OrProposedSalarypackage1", 1);
-			// model.addAttribute("currentSalaryPackage0OrProposedSalarypackage1", 1);
 			model.addAttribute("candidate", c);
 			Update update = new Update();
-			System.out.println("HOI WE ZIJN GIER");
 			update.setCurrentSalaryPackage0OrProposedSalarypackage1(1);
 			model.addAttribute("currentSalaryPackage0OrProposedSalarypackage1", update);
-			// model.addAttribute("salarypackage", new SalaryPackage());
-			// map.addAttribute("lateCreate", true);
+
 			return "toupdatesalarypackage";
-			// return "test";
 		} else {
-			model.addAttribute("salaryPackage", salaryPackageService.getSalaryPackageById(salaryPackageId));// via
-																											// service
-																											// =>
-																											// nullpointer?
-																											// (niet bij
-																											// skills)
-																											// AUTOWIRD
-																											// STOND UIT
+			model.addAttribute("salaryPackage", salaryPackageService.getSalaryPackageById(salaryPackageId));
 		}
 		return "updatesalarypackage";
 	}
@@ -109,10 +96,8 @@ public class SalaryPackageController {
 
 			int tmp = (int) session.getAttribute("currentSalaryPackage0OrProposedSalarypackage1");
 			if (tmp == 0) {
-				System.out.println("update y");
 				returning = "salarypackage";
 			} else {
-				System.out.println("update x");
 				returning = "salarypackageproposal";
 			}
 
@@ -132,7 +117,10 @@ public class SalaryPackageController {
 			return "updatesalarypackage";
 		}
 
-		salaryPackageService.saveOrUpdateSalaryPackage(id, salaryPackage);
+		if (id != 0) {
+			salaryPackage.setId(id);
+		}
+		salaryPackageService.addSalaryPackage(salaryPackage);
 		redirect.addFlashAttribute("success", "Saved employee successfully!");
 
 		return "updatesucces";

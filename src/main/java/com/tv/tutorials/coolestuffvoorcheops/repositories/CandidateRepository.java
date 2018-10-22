@@ -21,9 +21,9 @@ public interface CandidateRepository extends CrudRepository<Candidate, Integer> 
 
 	// Iterable<Candidate> findAllByskillsIdIn(List<Integer> skillsId);
 
-	Iterable<Candidate> findAllBySkillsIdIn(List<Integer> skillsIds);
+	List<Candidate> findAllBySkillsIdIn(List<Integer> skillsIds);
 
-	Iterable<Candidate> findAllByApplicationProcessIdIn(List<Integer> applicationProcessIds);
+	List<Candidate> findAllByApplicationProcessIdIn(List<Integer> applicationProcessIds);
 
 	Candidate findByapplicationProcessId(Integer id);
 

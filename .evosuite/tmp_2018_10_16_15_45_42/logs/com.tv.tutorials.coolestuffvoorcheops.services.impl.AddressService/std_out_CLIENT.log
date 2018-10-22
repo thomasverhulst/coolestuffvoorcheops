@@ -1,0 +1,4 @@
+[MASTER] 16:00:01.734 [pool-2-thread-1] WARN  TimeController - Phase INITIALIZATION lasted too long, 4 seconds more than allowed.
+[MASTER] 16:00:05.361 [pool-2-thread-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Have no generator for java.util.Optional<com.tv.tutorials.coolestuffvoorcheops.models.Address> canUseFunctionalMocks=true, canBeMocked: false
+[MASTER] 16:00:08.583 [pool-2-thread-1] WARN  TestFactory - Bounded variable issue when calling createVariable()
+[MASTER] 16:00:08.583 [pool-2-thread-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: No objects and generators for type class com.tv.tutorials.coolestuffvoorcheops.services.impl.AddressService

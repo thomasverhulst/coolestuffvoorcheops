@@ -32,8 +32,6 @@ public class AddressService implements IAddressService {
 	@Override
 	public Address addAddress(Address address) {
 		addressRepository.save(address);
-
-		System.out.println("hoihoi");
 		return address;
 	}
 
@@ -48,4 +46,3 @@ public class AddressService implements IAddressService {
 	}
 
 }
-// https://www.concretepage.com/spring-boot/spring-boot-crudrepository-example

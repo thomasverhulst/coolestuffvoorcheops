@@ -17,6 +17,8 @@ import org.springframework.stereotype.Service;
 import com.tv.tutorials.coolestuffvoorcheops.models.Address;
 import com.tv.tutorials.coolestuffvoorcheops.models.ApplicationProcess;
 import com.tv.tutorials.coolestuffvoorcheops.models.Candidate;
+import com.tv.tutorials.coolestuffvoorcheops.models.CandidateSearchResolver;
+import com.tv.tutorials.coolestuffvoorcheops.models.Skills;
 import com.tv.tutorials.coolestuffvoorcheops.repositories.AddressRepository;
 import com.tv.tutorials.coolestuffvoorcheops.repositories.CandidateRepository;
 import com.tv.tutorials.coolestuffvoorcheops.services.ICandidateService;
@@ -36,10 +38,75 @@ public class CandidateService implements ICandidateService {
 	ApplicationProcessService applicationProcessService;
 
 	@Override
-	public List<Candidate> getAllCandidates() {
-		List<Candidate> list = new ArrayList<>();
-		candidateRepository.findAll().forEach(e -> list.add(e));
-		return list;
+	public List<CandidateSearchResolver> findAllByNameLikeOrSirNameLike(String name, String sirName) {
+
+		List<Candidate> candidates = candidateRepository.findAllByNameLikeOrSirNameLike(name, sirName);
+
+		return fillExpertiseAndStatus(candidates);
+	}
+
+	private List<CandidateSearchResolver> fillExpertiseAndStatus(List<Candidate> candidates) {
+		List<CandidateSearchResolver> candidateResolverList = new ArrayList<CandidateSearchResolver>();
+		for (Candidate candidate : candidates) {
+			// Everything related to the skill
+			StringBuffer expertise = new StringBuffer("");
+			if (candidate.getSkillsId() != 0) {
+				Skills skill = skillsService.getSkillsById(candidate.getSkillsId());
+
+				if (skill.isDotnet()) {
+					expertise.append(".Net");
+					if (skill.isJava() || skill.isFrontend()) {
+						expertise.append(", ");
+						if (skill.isJava()) {
+							expertise.append("Java");
+						}
+						if (skill.isFrontend()) {
+							expertise.append(", ");
+							expertise.append("Front-End");
+						}
+
+					}
+				} else if (skill.isJava()) {
+					expertise.append("Java");
+					if (skill.isFrontend()) {
+						expertise.append(", ");
+						expertise.append("Front-End");
+					}
+				} else if (skill.isFrontend()) {
+					expertise.append("Front-End");
+				}
+			}
+
+			// ApplicationProcess Logic
+			String applicationStatus = "";
+			if (candidate.getApplicationProcessId() != 0) {
+				ApplicationProcess applicationProcess = applicationProcessService
+						.getApplicationProcessById(candidate.getApplicationProcessId());
+				if (applicationProcess.getToBeInvitedForFirstConversation()) {
+					applicationStatus = "Eerste interview";
+				} else if (applicationProcess.getToBeInvitedForTechnicalConversation()) {
+					applicationStatus = "Technisch interview";
+				} else if (applicationProcess.getIsRecruited()) {
+					applicationStatus = "In dienst";
+				} else {
+					applicationStatus = "(Nog) niet uitgenodigd";
+				}
+			}
+
+			CandidateSearchResolver candidateSearchResolver = new CandidateSearchResolver(candidate,
+					expertise.toString(), applicationStatus);
+			candidateResolverList.add(candidateSearchResolver);
+		}
+		return candidateResolverList;
+	}
+
+	@Override
+	public List<CandidateSearchResolver> getAllCandidates() {
+
+		List<Candidate> candidates = new ArrayList<>();
+		candidateRepository.findAll().forEach(e -> candidates.add(e));
+
+		return fillExpertiseAndStatus(candidates);
 	}
 
 	@Override
@@ -64,29 +131,30 @@ public class CandidateService implements ICandidateService {
 		candidateRepository.delete(getCandidateById(candidateId));
 	}
 
-	public List<Candidate> findAllByNameLikeOrSirNameLike(String name, String sirName) {
-		List<Candidate> list = candidateRepository.findAllByNameLikeOrSirNameLike(name, sirName);
-		return list;
-	}
+	@Override
+	public List<CandidateSearchResolver> findAllDotnet() {
 
-	public List<Candidate> findAllDotnet() {
 		List<Integer> skillsIds = skillsService.findAllDotnet();
-		Iterable<Candidate> candidates = candidateRepository.findAllBySkillsIdIn(skillsIds);
-		return (List<Candidate>) candidates;
+		List<Candidate> candidates = candidateRepository.findAllBySkillsIdIn(skillsIds);
+
+		return fillExpertiseAndStatus(candidates);
 	}
 
-	public List<Candidate> findAllJava() {
+	@Override
+	public List<CandidateSearchResolver> findAllJava() {
 		List<Integer> skillsIds = skillsService.findAllJava();
-		Iterable<Candidate> candidates = candidateRepository.findAllBySkillsIdIn(skillsIds);
-		return (List<Candidate>) candidates;
+		List<Candidate> candidates = candidateRepository.findAllBySkillsIdIn(skillsIds);
+		return fillExpertiseAndStatus(candidates);
 	}
 
-	public List<Candidate> findAllFrontend() {
+	@Override
+	public List<CandidateSearchResolver> findAllFrontend() {
 		List<Integer> skillsIds = skillsService.findAllFrontend();
-		Iterable<Candidate> candidates = candidateRepository.findAllBySkillsIdIn(skillsIds);
-		return (List<Candidate>) candidates;
+		List<Candidate> candidates = candidateRepository.findAllBySkillsIdIn(skillsIds);
+		return fillExpertiseAndStatus(candidates);
 	}
 
+	@Override
 	public void saveOrUpdateCandidate(int id, @Valid Candidate candidate, @Valid Address address,
 			@Valid int addressId) {
 		Optional<Candidate> tmp = candidateRepository.findById(id);
@@ -97,7 +165,6 @@ public class CandidateService implements ICandidateService {
 			s.setId(id);
 
 			// update address
-			System.out.println("addressidttt = " + addressId);
 			Optional<Address> tmpAddress = addressRepository.findById(addressId);
 			if (tmpAddress.isPresent()) {
 				Address s2 = tmpAddress.get();
@@ -108,13 +175,13 @@ public class CandidateService implements ICandidateService {
 			//
 
 			candidateRepository.save(s);
-			System.out.println("het updaten is gelukt");
 		} else {
 			candidateRepository.save(candidate);
 		}
 
 	}
 
+	@Override
 	public void downloadCv(String cvLink, HttpServletResponse response) throws IOException {
 		response.setContentType("text/html");
 		PrintWriter out;
@@ -136,43 +203,43 @@ public class CandidateService implements ICandidateService {
 		out.close();
 	}
 
-	public List<Candidate> findAllRecruited() {
+	@Override
+	public List<CandidateSearchResolver> findAllRecruited() {
 		List<Integer> applicationProcessIds = applicationProcessService.findAllRecruited();
-		// Iterable<Candidate> candidates=
-		// candidateRepository.findAllById(candidateIds);
-		Iterable<Candidate> candidates = candidateRepository.findAllByApplicationProcessIdIn(applicationProcessIds);
-		return (List<Candidate>) candidates;
+		List<Candidate> candidates = candidateRepository.findAllByApplicationProcessIdIn(applicationProcessIds);
+		return fillExpertiseAndStatus(candidates);
 	}
 
-	public List<Candidate> findAllRecruitedIn(List<Integer> applicationProcessId) {
-		System.out.println("lengte " + applicationProcessId.size());
+	@Override
+	public List<CandidateSearchResolver> findAllRecruitedIn(List<Integer> applicationProcessId) {
 
 		List<Candidate> candidates = new ArrayList<Candidate>();
 
 		List<ApplicationProcess> t = applicationProcessService.getAllApplicationProcessById(applicationProcessId);
-		System.out.println("lengte " + t.size());
 		if (t != null) {
 			List<ApplicationProcess> applicationProcessIdsRecruited = applicationProcessService
 					.findAllByIsRecruitedIn(t);
 
 			for (ApplicationProcess applicationProcess : applicationProcessIdsRecruited) {
-				candidates.add(candidateRepository.findByapplicationProcessId(applicationProcess.getId()));
+				Candidate candidate = candidateRepository.findByapplicationProcessId(applicationProcess.getId());
+				if (candidate != null) {
+					candidates.add(candidate);
+				}
 			}
 
 		}
+		return fillExpertiseAndStatus(candidates);
 
-		if (candidates != null) {
-		}
-
-		return candidates;
 	}
 
-	public List<Candidate> getAllCandidatesWithActiveApplicationProcess() {
+	@Override
+	public List<CandidateSearchResolver> getAllCandidatesWithActiveApplicationProcess() {
 		List<Integer> applicationProcessIds = applicationProcessService.getAllCandidatesWithActiveApplicationProcess();
-		Iterable<Candidate> candidates = candidateRepository.findAllByApplicationProcessIdIn(applicationProcessIds);
-		return (List<Candidate>) candidates;
+		List<Candidate> candidates = candidateRepository.findAllByApplicationProcessIdIn(applicationProcessIds);
+		return fillExpertiseAndStatus(candidates);
 	}
 
+	@Override
 	public List<Candidate> getAllCandidatesWithoutActiveApplicationProcess() {
 		List<Integer> applicationProcessIds = applicationProcessService
 				.getAllCandidatesWithoutActiveApplicationProcess();
@@ -180,19 +247,17 @@ public class CandidateService implements ICandidateService {
 		return (List<Candidate>) candidates;
 	}
 
-	public List<Candidate> findByExperienceGreaterThan(int experience, List<Candidate> candidates) {
+	@Override
+	public List<CandidateSearchResolver> findByExperienceGreaterThan(int experience,
+			List<CandidateSearchResolver> candidates) {
 
-		List<Integer> skillsIdList = candidates.stream().map(Candidate::getSkillsId).collect(Collectors.toList());
+		List<Integer> skillsIdList = candidates.stream().map(c -> c.getCandidate().getSkillsId())
+				.collect(Collectors.toList());
 
-		// List<Integer> skillId= candidateRepository.findAllBySkillsIdIn(skillsIdList)
 		List<Integer> filteredSkillsId = skillsService.findAllByExperienceGreaterThan(experience, skillsIdList);
-		// 1 skillid komt terug
-		candidates = (List<Candidate>) candidateRepository.findAllBySkillsIdIn(filteredSkillsId);
-		// candidates.addAll((Collection<? extends Candidate>)
-		// candidateRepository.findAllBySkillsIdIn(filteredSkillsId));
-		System.out.println("lengtelijsty" + candidates.size());
 
-		return candidates;
+		List<Candidate> candidatesList = candidateRepository.findAllBySkillsIdIn(filteredSkillsId);
+		return fillExpertiseAndStatus(candidatesList);
 	}
 
 }

@@ -50,6 +50,9 @@ public class Candidate {
 	@Transient
 	private MultipartFile file;
 
+	@Column(name = "contactChannel")
+	private String contactChannel;
+	
 	// ids
 	@Column(name = "currentsallarypackageId")
 	private int currentSallaryPackageId;
@@ -146,6 +149,14 @@ public class Candidate {
 
 	public void setGender(String sex) {
 		this.gender = sex;
+	}
+
+	public String getContactChannel() {
+		return contactChannel;
+	}
+
+	public void setContactChannel(String contactChannel) {
+		this.contactChannel = contactChannel;
 	}
 
 	public MultipartFile getFile() {

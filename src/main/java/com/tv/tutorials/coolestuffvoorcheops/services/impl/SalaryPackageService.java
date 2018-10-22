@@ -2,7 +2,6 @@ package com.tv.tutorials.coolestuffvoorcheops.services.impl;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -26,10 +25,7 @@ public class SalaryPackageService implements ISalaryPackageService {
 
 	@Override
 	public SalaryPackage getSalaryPackageById(int salaryPackageId) {
-		// salaryPackageRepository.findById(salaryPackageId).
-		System.out.println("id " + salaryPackageId);
 		SalaryPackage e = salaryPackageRepository.findById(salaryPackageId).get();
-		System.out.println("id is  = " + e.getId());
 		return e;
 	}
 
@@ -46,19 +42,6 @@ public class SalaryPackageService implements ISalaryPackageService {
 	@Override
 	public void deleteSalaryPackage(int salaryPackageId) {
 		salaryPackageRepository.delete(getSalaryPackageById(salaryPackageId));
-	}
-
-	public void saveOrUpdateSalaryPackage(int id, SalaryPackage salaryPackage) {
-		Optional<SalaryPackage> tmp = salaryPackageRepository.findById(id);
-		if (tmp.isPresent()) {
-			SalaryPackage s = tmp.get();
-
-			s = salaryPackage;
-			s.setId(id);
-			salaryPackageRepository.save(s);
-		} else {
-			salaryPackageRepository.save(salaryPackage);
-		}
 	}
 
 }
