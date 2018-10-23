@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 
 <html xmlns:th="http://thymeleaf.org">
-<head th:insert="fragments/fragment.html :: headerfiles">
+<head th:insert="fragments/general.html :: headTag(title=' - Cheops Kandidatenbeheer')">
 
 </head>
 <body>
 	<div class="container">
 		<div class="row">
-			<header th:insert="fragments/fragment.html :: header"> </header>
+			<header th:insert="fragments/general.html :: header"> </header>
 		</div>
 
 
@@ -73,7 +73,7 @@
 			</div>
 		</div>
 		<div class="row">
-			<p th:insert="fragments/fragment.html :: footer"></p>
+			<p th:insert="fragments/general.html :: footer"></p>
 		</div>
 </div>
 </body>

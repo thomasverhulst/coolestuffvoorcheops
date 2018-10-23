@@ -1,0 +1,10 @@
+.m-header {
+  &--login {
+    margin: $grid-gutter-width*2.5 auto $grid-gutter-width*2;
+    text-align: center;
+
+    @include media-breakpoint-up(md) {
+      margin-top: 0;
+    }
+  }
+}
