@@ -42,7 +42,7 @@
 			<div class="col-sm-2"></div>
 
 			<form th:action="@{/registerApplicationProcess}"
-				th:object="${applicationprocess}" method="POST">
+				th:object="${applicationprocess}" method="POST" enctype="multipart/form-data">
 				<div class="container">
 					<div class="row">
 						<div class="col-sm-3">
@@ -109,7 +109,7 @@
 
 								<div class=form-group>
 									<label for="staffnametechnicalconversation">Naam
-										gesprekspartner eerste gesprek:</label> <input type="text"
+										gesprekspartner tweede gesprek:</label> <input type="text"
 										th:field=*{staffNameTechnicalConversation}
 										id="staffnametechnicalconversation" class="form-control"
 										placeholder="Alain">
@@ -121,6 +121,18 @@
 										th:field=*{feedbackTechnicalConversation}
 										id="feedbacktechnicalconversation" class="form-control"
 										placeholder="Feedback technisch gesprek"></textarea>
+								</div>
+								<div class=form-group>
+									<label for="file">Voeg feedback file toe </label> 
+									<input type="file" th:field=*{file} id="file" class="form-control" placeholder="feedback bestand" value="test">
+								</div>
+								<div class=form-group>
+									<label for="notRecruited">Niet aangenomen
+										</label>
+									<textarea rows=5 cols=40
+										th:field=*{notRecruited}
+										id="notRecruited" class="form-control"
+										placeholder="Niet aangenomen, omdat..."></textarea>
 								</div>
 								<div class=form-group>
 									<label for="tobesendfinancialproposal"> Financieel
