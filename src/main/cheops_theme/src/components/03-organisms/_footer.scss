@@ -1,0 +1,11 @@
+footer {
+  text-align: center;
+  font-size: 0.625rem;
+  color: $gray-400;
+  padding: $grid-gutter-width $grid-gutter-width/2;
+
+  @include media-breakpoint-up(lg) {
+    padding: $grid-gutter-width $grid-gutter-width*1.5;
+    text-align: left;
+  }
+}

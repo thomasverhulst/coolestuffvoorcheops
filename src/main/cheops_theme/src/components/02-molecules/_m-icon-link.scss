@@ -1,0 +1,18 @@
+.m-icon-link {
+  &.h-big {
+    text-align: center;
+    padding: $grid-gutter-width*1.5 $grid-gutter-width/3;
+
+    .icon {
+      font-size: 40px;
+      color: $gray-400;
+      margin-bottom: $grid-gutter-width/2;
+    }
+
+    &--text {
+      color: $primary;
+      font-weight: 500;
+      font-size: 0.625rem;
+    }
+  }
+}

@@ -4,15 +4,18 @@
   "config": {
     "localhost": "https://localhost:8443/",
     "components_src": "src",
+    "js_src": "js",
     "styles_dest": "../resources/static/css",
     "scripts_dest": "../resources/static/js"
   },
   "scripts": {
-    "dev": "npm-run-all build:css",
+    "dev": "npm-run-all build:css build:js",
     "deploy": "npm-run-all build:css && npm run autoprefixer && npm run cssnano",
-    "watch": "run-p watch:css && npm run browser-sync",
+    "watch": "run-p watch:css watch:js && npm run browser-sync",
     "build:css": "node-sass-chokidar $npm_package_config_components_src -o $npm_package_config_styles_dest --importer node_modules/node-sass-glob-importer/dist/cli.js --include-path node_modules/;",
+    "build:js": "uglifyjs-folder $npm_package_config_js_src --config-file '.uglifyjs.json' -y -o ../resources/static/js/base.min.js",
     "watch:css": "onchange -i 'src/**/*.scss' -- npm-run-all build:css ",
+    "watch:js": "onchange -i 'js/**/*.js' -- npm-run-all build:js",
     "autoprefixer": "postcss $npm_package_config_styles_dest'/*.css' -u autoprefixer -b 'last 2 versions' -r --map",
     "cssnano": "postcss --use cssnano -r $npm_package_config_styles_dest'/*.css' --map",
     "browser-sync": "browser-sync start --proxy $npm_package_config_localhost -f src/"
@@ -39,7 +42,6 @@
     "stylelint": "^9.6.0",
     "stylelint-config-sass-guidelines": "^5.2.0",
     "stylelint-scss": "^3.3.1",
-    "uglify-js": "^3.4.9",
     "uglifyjs-folder": "^1.5.1"
   }
 }

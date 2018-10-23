@@ -1,0 +1,23 @@
+.o-user-info {
+  a:not(.icon):not(.btn) {
+    border-bottom: 0;
+
+    @include hover-focus-active {
+      .o-user-info--message {
+        border-bottom-color: inherit;
+      }
+    }
+  }
+
+  &--message {
+    font-weight: 500;
+    border-bottom: 1px solid transparent;
+  }
+
+  .icon {
+    @include transition($btn-transition);
+    color: $white;
+    font-size: 1.875rem;
+    margin-right: $grid-gutter-width/2;
+  }
+}

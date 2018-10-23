@@ -1,0 +1,60 @@
+.a-hamburger {
+  @include size(27px, 19px);
+
+  &--inner {
+    transition-timing-function: cubic-bezier(.55, .055, .675, .19);
+    transition-duration: .3s;
+    transition-property: transform;
+    width: 27px;
+    height: 3px;
+    background: $white;
+    position: relative;
+    margin: 0 auto;
+    top: 8px;
+
+    &:after,
+    &:before {
+      transition-property: transform;
+      transition-duration: .15s;
+      transition-timing-function: ease;
+      content: '';
+      width: 27px;
+      height: 3px;
+      background: $white;
+      position: absolute;
+      left: 0;
+    }
+
+    &:before {
+      transition: top .1s .34s ease-in, opacity .1s ease-in;
+      top: -8px;
+    }
+
+    &:after {
+      transition: bottom .1s .34s ease-in, transform .3s cubic-bezier(.55, .055, .675, .19);
+      bottom: -8px;
+    }
+  }
+
+  &.active .a-hamburger--inner {
+    transition-delay: .14s;
+    transition-timing-function: cubic-bezier(.215, .61, .355, 1);
+    transform: rotate(225deg);
+
+    &:before {
+      transition: top .1s ease-out, opacity .1s .14s ease-out;
+      top: 0;
+      opacity: 0;
+    }
+
+    &:after {
+      transition: bottom .1s ease-out, transform .3s .14s cubic-bezier(.215, .61, .355, 1);
+      transform: rotate(-90deg);
+      bottom: 0;
+    }
+  }
+
+  @include media-breakpoint-up(md) {
+    display: none;
+  }
+}

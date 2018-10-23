@@ -1,10 +1,32 @@
 // Colors.
-$gray-900: #4a4a4a;
-$gray-300: #eeeeee;
-$gray-200: #bbbbbb;
-$red: #da291c;
+$gray-900: #4A4A4A;
+$gray-400: #9B9B9B;
+$gray-300: #EEEEEE;
+$gray-200: #BBBBBB;
+
+$red: #DA291C;
+$blue: #1485CC;
+$green: #54CC14;
+
+$white: #FFFFFF;
+$black: #000000;
 
 $primary: $red;
+$secondary: $black;
+
+$theme-colors: (
+  primary: $primary,
+  secondary: $secondary,
+  blue: $blue,
+  green: $green,
+  white: $white,
+  black: $black,
+  gray: $gray-900
+);
+
+// Links.
+$link-hover-color: $primary;
+$link-hover-decoration: none;
 
 // Fonts.
 $font-family-sans-serif: "Poppins", Arial, sans-serif;
@@ -20,6 +42,7 @@ $h3-font-size: 1.5rem;
 $h4-font-size: 1.25rem;
 $h5-font-size: 1.125rem;
 
+// Inputs.
 $input-padding-y: 1.375rem;
 $input-padding-x: 0;
 $input-color: $gray-900;
@@ -29,6 +52,14 @@ $input-height: auto;
 $input-placeholder-color: $gray-200;
 $input-focus-color: $gray-900;
 $input-focus-border-color: $primary;
+
+// Buttons.
+$btn-padding-y: 15.5px;
+$btn-padding-y-sm: 5.5px;
+$btn-padding-x: 2rem;
+$btn-padding-x-sm: 1rem;
+$btn-border-radius: 25px;
+$btn-border-radius-sm: 25px;
 
 
 

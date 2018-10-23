@@ -1,0 +1,17 @@
+.m-navigation {
+  &--item {
+    font-size: 0.9375rem;
+    padding: $grid-gutter-width/4 0;
+
+    a {
+      display: block;
+      color: $white;
+    }
+
+    @include media-breakpoint-up(md) {
+      display: inline-block;
+      margin: 0 $grid-gutter-width/3;
+      padding: 0;
+    }
+  }
+}
