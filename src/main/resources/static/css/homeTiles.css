@@ -1,62 +1,62 @@
-@charset "ISO-8859-1";
-<style>
-html, body, .container {
-	height: 80%;
-	min-height: 100%;
-}
+/*@charset "ISO-8859-1";*/
+/*<style>*/
+/*html, body, .container {*/
+	/*height: 80%;*/
+	/*min-height: 100%;*/
+/*}*/
 
-.first {
-	float: left;
-	width: 38%;
-	height: 50%;
-	background-color: red;
-}
+/*.first {*/
+	/*float: left;*/
+	/*width: 38%;*/
+	/*height: 50%;*/
+	/*background-color: red;*/
+/*}*/
 
-.second {
-	float: left;
-	width: 37%;
-	height: 50%;
-	background-color: green;
-}
+/*.second {*/
+	/*float: left;*/
+	/*width: 37%;*/
+	/*height: 50%;*/
+	/*background-color: green;*/
+/*}*/
 
-.third {
-	float: right;
-	width: 61%;
-	height: 50%;
-	background-color: blue;
-}
+/*.third {*/
+	/*float: right;*/
+	/*width: 61%;*/
+	/*height: 50%;*/
+	/*background-color: blue;*/
+/*}*/
 
-.fourth {
-	float: right;
-	width: 30%;
-	height: 50%;
-	background-color: #DDDDDD;
-}
+/*.fourth {*/
+	/*float: right;*/
+	/*width: 30%;*/
+	/*height: 50%;*/
+	/*background-color: #DDDDDD;*/
+/*}*/
 
-.last {
-	float: right;
-	width: 30%;
-	height: 50%;
-	background-color: yellow;
-}
+/*.last {*/
+	/*float: right;*/
+	/*width: 30%;*/
+	/*height: 50%;*/
+	/*background-color: yellow;*/
+/*}*/
 
-img {
-	display: block;
-	margin-left: auto;
-	margin-right: auto;
-}
+/*img {*/
+	/*display: block;*/
+	/*margin-left: auto;*/
+	/*margin-right: auto;*/
+/*}*/
 
-.test {
-	/* margin-top: 1%; */
-	margin-bottom: 1%;
-	margin-right: 1%;
-	margin-left: 1%;
-}
+/*.test {*/
+	/*!* margin-top: 1%; *!*/
+	/*margin-bottom: 1%;*/
+	/*margin-right: 1%;*/
+	/*margin-left: 1%;*/
+/*}*/
 
-a.fill-div {
-	display: block;
-	height: 100%;
-	width: 100%;
-	text-decoration: none;
-}
-</style>
+/*a.fill-div {*/
+	/*display: block;*/
+	/*height: 100%;*/
+	/*width: 100%;*/
+	/*text-decoration: none;*/
+/*}*/
+/*</style>*/
