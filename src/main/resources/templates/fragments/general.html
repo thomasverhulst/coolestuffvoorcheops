@@ -92,10 +92,10 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script th:src="@{~/js/base.min.js}"></script>
   </div>
-	<footer th:fragment="footer" class="page-footer font-small blue">	
-	<div class="footer-copyright text-center py-3 footer-div">© 2018 Copyright:
-    	<a href="https://www.cheops.com/" target="_blank"> Cheops.com</a>
- 	 </div>	
+	<footer th:fragment="footer" class="page-footer font-small blue">
+    <div class="container-fluid">
+      &copy; Copyright Cheops <span th:text="${#dates.year(#dates.createNow())}" th:remove="tag"></span>
+    </div>
 	</footer>
 </body>
 </html>

@@ -4496,6 +4496,16 @@ a {
       margin: 0 10px;
       padding: 0; } }
 
+footer {
+  text-align: center;
+  font-size: 0.625rem;
+  color: #9B9B9B;
+  padding: 30px 15px; }
+  @media (min-width: 992px) {
+    footer {
+      padding: 30px 45px;
+      text-align: left; } }
+
 header {
   background: #DA291C; }
   header .header--middle,
