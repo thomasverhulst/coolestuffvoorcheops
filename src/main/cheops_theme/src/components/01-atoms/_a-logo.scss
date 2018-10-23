@@ -3,4 +3,12 @@
     margin-bottom: $grid-gutter-width*1.5;
     width: 200px;
   }
+
+  &--header {
+    width: 160px;
+
+    path {
+      fill: $white;
+    }
+  }
 }

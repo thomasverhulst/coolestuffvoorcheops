@@ -1,4 +1,6 @@
-// Load utlities as absolute first.
+@charset "UTF-8";
+
+// Load utilities & mixins as absolute first.
 @import "utils/mixins/*.scss";
 @import "utils/variables/*.scss";
 
@@ -38,6 +40,9 @@
 //@import "../node_modules/bootstrap/scss/carousel";
 @import "../node_modules/bootstrap/scss/utilities";
 //@import "../node_modules/bootstrap/scss/print";
+
+// Load family.scss.
+@import "../node_modules/family.scss/source/src/_family.scss";
 
 // Load others.
 @import "utils/classes/*.scss";

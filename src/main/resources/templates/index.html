@@ -1,15 +1,13 @@
-<!DOCTYPE html>
-
-<html xmlns:th="http://thymeleaf.org">
-<head th:insert="fragments/general.html :: headTag(title=' - Cheops Kandidatenbeheer')">
-
-</head>
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/general.html :: headTag(title='Dashboard - Cheops Kandidatenbeheer')"></head>
 <body>
-	<div class="container">
-		<div class="row">
-			<header th:insert="fragments/general.html :: header"> </header>
-		</div>
+	<header th:replace="fragments/general.html :: header(${user})"></header>
 
+	<div class="container">
+		<!--<div class="row">-->
+			<!--<header th:insert="fragments/general.html :: header"> </header>-->
+		<!--</div>-->
 
 		<div class="row">
 			<div class="container">
@@ -19,9 +17,8 @@
 					<h1 style="text-align: center;">LOGIN</h1>
 					<div>
 		<!-- 				class="first test" -->
-					<a href="/login"  class="first fill-div" style="text-align: center; display: inline;"> <img
-						src="images\User_login_Icon_256.png"  style="text-align: center; display: inline;" class="icon" alt="Login">
-					</a>
+					<a href="/login"> Inloggen</a>
+
 					</div>
 				</div>
 		
@@ -75,6 +72,7 @@
 		<div class="row">
 			<p th:insert="fragments/general.html :: footer"></p>
 		</div>
-</div>
+  </div>
+  <div th:replace="fragments/general.html :: foot"></div>
 </body>
 </html>

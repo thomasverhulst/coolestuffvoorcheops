@@ -27,3 +27,20 @@ h4 {
 h5 {
   font-size: $h5-font-size;
 }
+
+a {
+  @include transition($btn-transition);
+
+  &:not(.icon):not(.btn) {
+    display: inline-block;
+    border-bottom: 1px solid transparent;
+
+    @include hover-focus-active {
+      border-bottom-color: inherit;
+    }
+  }
+}
+
+:focus {
+  outline: none;
+}

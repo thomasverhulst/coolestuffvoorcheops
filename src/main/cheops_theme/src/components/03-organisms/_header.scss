@@ -1,0 +1,121 @@
+header {
+  background: $primary;
+
+  .#{&}--middle,
+  .#{&}--right {
+    display: none;
+    background: $black;
+  }
+
+  .#{&}--left {
+    padding-top: $grid-gutter-width/1.5;
+    padding-bottom: $grid-gutter-width/1.5;
+  }
+
+  .#{&}--middle {
+    &--inner {
+      padding: $grid-gutter-width/1.5;
+    }
+  }
+
+  .#{&}--right {
+    &--inner {
+      padding-top: $grid-gutter-width/1.5;
+      padding-bottom: $grid-gutter-width/1.5;
+      justify-content: space-evenly;
+    }
+  }
+
+  .icon {
+    color: $white;
+
+    &:active,
+    &:focus {
+      color: $white;
+    }
+  }
+
+  .icon-icon-dots {
+    @include transition($transition-base);
+    font-size: 1.75rem;
+  }
+
+  .icon-quick-menu {
+    @include transition($transition-base);
+    font-size: 1.25rem;
+    display: block;
+    transform: rotate(0deg);
+
+    &.active {
+      transform: rotate(90deg);
+    }
+  }
+
+  .o-user-info a {
+    color: $white;
+  }
+
+  @include media-breakpoint-up(md) {
+    padding: $grid-gutter-width/1.5 0;
+
+    .icon-icon-dots {
+      display: none;
+    }
+
+    .#{&}--middle,
+    .#{&}--right {
+      display: flex;
+      background: none;
+    }
+
+    .#{&}--left {
+      padding-top: 0;
+      padding-bottom: 0;
+    }
+
+    .#{&}--middle {
+      &--inner {
+        padding: 0;
+      }
+    }
+
+    .#{&}--right {
+      &--inner {
+        justify-content: flex-end;
+        width: 100%;
+      }
+
+      .o-header-block {
+        margin-right: $grid-gutter-width/1.5;
+
+        @include last-child() {
+          margin-right: 0;
+        }
+      }
+    }
+  }
+
+  @include media-breakpoint-up(lg) {
+    padding: $grid-gutter-width/1.5 $grid-gutter-width*1.5;
+
+    .#{&}--middle {
+      margin-left: $grid-gutter-width;
+    }
+
+    .#{&}--right {
+      .o-header-block {
+        margin-right: $grid-gutter-width*1.5;
+
+        @include last-child() {
+          margin-right: 0;
+        }
+      }
+    }
+
+    .icon-quick-menu {
+      &:hover {
+        color: $secondary;
+      }
+    }
+  }
+}
