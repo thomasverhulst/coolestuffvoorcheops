@@ -1,5 +1,6 @@
 // Colors.
 $gray-900: #4A4A4A;
+$gray-500: #CCCCCC;
 $gray-400: #9B9B9B;
 $gray-300: #EEEEEE;
 $gray-200: #BBBBBB;
@@ -30,9 +31,9 @@ $link-hover-decoration: none;
 
 // Fonts.
 $font-family-sans-serif: "Poppins", Arial, sans-serif;
-$font-size-base: 0.875rem;
+$font-size-base: .875rem;
 $font-size-lg: 1.125rem;
-$font-size-sm: 0.625rem;
+$font-size-sm: .625rem;
 
 $line-height-base: 1.25;
 
@@ -53,6 +54,7 @@ $input-placeholder-color: $gray-200;
 $input-focus-color: $gray-900;
 $input-focus-border-color: $primary;
 $input-focus-box-shadow: none;
+$input-disabled: $gray-400;
 
   // Buttons.
 $btn-padding-y: 15.5px;

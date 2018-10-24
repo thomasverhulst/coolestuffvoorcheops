@@ -1,0 +1,21 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+  <div th:fragment="card-stat(color, title, number, percentage)" class="card">
+    <div class="card--body">
+      <div class="m-stats" th:classappend="'h-' + ${color} ">
+        <div class="m-stats--top d-flex align-items-center">
+          <div class="m-stats--title" th:inline="text">
+            [[${title}]]
+            <span>Deze week</span>
+          </div>
+          <div class="m-stats--number ml-auto" th:text="${number}"></div>
+        </div>
+        <div class="m-stats--bar">
+          <div class="m-stats--bar-inner" th:style="'width:' + ${percentage} + '%;'"></div>
+        </div>
+        <div class="m-stats--percentage mt-1" th:text="${percentage}+'%'"></div>
+      </div>
+    </div>
+</div>
+</body>

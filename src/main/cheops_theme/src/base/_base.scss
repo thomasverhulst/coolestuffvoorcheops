@@ -3,6 +3,11 @@ body {
   height: 100%;
 }
 
+body {
+  display: flex;
+  flex-direction: column;
+}
+
 img {
   max-width: 100%;
   height: auto;
@@ -38,6 +43,15 @@ a {
     @include hover-focus-active {
       border-bottom-color: inherit;
     }
+  }
+}
+
+main {
+  flex: 1 1 auto;
+  padding-top: $grid-gutter-width;
+
+  @include media-breakpoint-up(lg) {
+    padding: $grid-gutter-width*1.5 $grid-gutter-width 0;
   }
 }
 

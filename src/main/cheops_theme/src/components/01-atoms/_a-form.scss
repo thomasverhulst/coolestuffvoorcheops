@@ -10,4 +10,57 @@
       }
     }
   }
+
+  &-checkbox {
+    opacity: 0;
+
+    &:not(:disabled) + label {
+      cursor: pointer;
+    }
+
+    & + label {
+      position: relative;
+      padding-left: $grid-gutter-width;
+
+      svg {
+        display: none;
+      }
+    }
+
+    & + label:before {
+      content: "";
+      position: absolute;
+      border-radius: 2px;
+      border: 1px solid $primary;
+      cursor: pointer;
+      left: 0;
+      top: 0;
+      width: 1rem;
+      height: 1rem;
+      background: $white;
+      color: $primary;
+      font-size: .625rem;
+      text-align: center;
+      line-height: .875rem;
+    }
+
+    &:checked + label:before {
+      content: "\f00c";
+      font-family: $font-awesome-5;
+      font-weight: 900;
+    }
+
+    &:disabled {
+      opacity: 0;
+
+      + label,
+      +label:before {
+        color: $input-disabled;
+      }
+
+      + label:before {
+        border-color: $input-disabled;
+      }
+    }
+  }
 }
