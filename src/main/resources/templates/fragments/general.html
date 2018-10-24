@@ -49,8 +49,8 @@
                   <div class="o-card-hover--subtitle">Snelkoppelingen</div>
                 </div>
                 <div class="card--body">
-                  <!-- TODO add links -->
                   <div class="m-icon-link h-big">
+                    <!-- TODO Add link -->
                     <a href="#">
                       <div class="icon icon-add-people"></div>
                       <div class="m-icon-link--text">Kandidaat toevoegen</div>
@@ -68,7 +68,7 @@
             </div>
             <div class="o-header-block">
               <div class="o-user-info">
-                <!-- TODO add link to profile page or settings page? -->
+                <!-- TODO Add link to profile page or settings page? -->
                 <a href="#" class="d-flex align-items-center d-block">
                   <div class="icon icon-profile"></div>
                   <div class="o-user-info--message" th:text="${'Hallo, ' + #authentication.name}"></div>
@@ -86,7 +86,13 @@
   <div th:fragment="foot" th:remove="tag">
     <!-- JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.4.1/js/all.js" integrity="sha384-L469/ELG4Bg9sDQbl0hvjMq8pOcqFgkSpwhwnslzvVVGpDjYJ6wJJyYjvG3u8XW7" crossorigin="anonymous"></script>
     <script th:src="@{~/js/base.min.js}"></script>
+    <script>
+      window.FontAwesomeConfig = {
+        searchPseudoElements: true
+      }
+    </script>
   </div>
 	<footer th:fragment="footer" class="page-footer font-small blue">
     <div class="container-fluid">

@@ -30,7 +30,10 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http.csrf().disable();
-		http.authorizeRequests().antMatchers("/").authenticated().anyRequest().permitAll().and().formLogin().loginPage("/login").permitAll();
+		http.authorizeRequests()
+        .antMatchers("/").authenticated().anyRequest().permitAll()
+        .and().formLogin().loginPage("/login").permitAll()
+        .and().rememberMe().key("uniqueAndSecret").tokenValiditySeconds(604800);
 	}
 
 	private PasswordEncoder getPasswordEncoder() {

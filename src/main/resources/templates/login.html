@@ -3,7 +3,7 @@
 <head th:replace="fragments/general.html :: headTag(title='Login - Cheops Kandidatenbeheer')"></head>
 <body>
 	<div class="container-fluid p-0 h-100">
-    <div class="row h-100">
+    <div class="row h-100 m-0">
       <div class="col-md-4 order-2 order-md-1">
         <div class="d-md-flex flex-column justify-content-center h-100">
           <div class="m-header--login">
@@ -25,11 +25,14 @@
               <input type="password" id="password" name="password" value="" placeholder="Wachtwoord" class="form-control a-form-input-password" size="30" required>
               <div class="invalid-feedback">Voer een wachtwoord in.</div>
             </div>
+            <div class="form-group m-form-group mt-4">
+              <input type="checkbox" name="remember-me" id="rememberme" class="form-control a-form-checkbox"><label for="rememberme">Onthoud mij</label>
+            </div>
             <input type="submit" name="submit" value="Inloggen" id="submit" class="btn btn-primary d-block mx-auto mt-5">
           </form>
         </div>
       </div>
-      <div class="col-md-8 order-1 order-md-2">
+      <div class="col-md-8 order-1 order-md-2 p-0">
         <div class="o-login-banner d-flex justify-content-center align-items-center">
           <div class="a-image--c">
             <img th:src="@{~/images/c.png}" />

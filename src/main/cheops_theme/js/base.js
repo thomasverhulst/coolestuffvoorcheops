@@ -72,10 +72,40 @@
     }
   };
 
+  $.SubNav = function(element) {
+    this.element = (element instanceof $) ? element : $(element);
+    this.link = this.element.find('.nav-link');
+    this.nav = this.element.find('.nav-sub');
+
+    this.InitSubNav();
+  };
+
+  $.SubNav.prototype = {
+    InitSubNav: function() {
+      this.link.on('click', this.ToggleHandler.bind(this));
+    },
+    ToggleHandler: function(e) {
+      e.preventDefault();
+
+      this.nav.stop().slideToggle();
+
+      // Changing FA5 icons with JS must be achieved with vanilla JS. jQuery will not work.
+      let chevron = document.querySelector('.js-has-nav-sub > .nav-link svg');
+      if (chevron.classList.contains('fa-chevron-down')){
+        chevron.classList.add('fa-chevron-up');
+        chevron.classList.remove('fa-chevron-down');
+      } else {
+        chevron.classList.add('fa-chevron-down');
+        chevron.classList.remove('fa-chevron-up');
+      }
+    }
+  };
+
   // Initalize
   new $.MobileMenu($('.header--middle'));
   new $.QuickMenu($('.header--right '));
   new $.QuickActions($('.icon-quick-menu ~ .o-card-hover'));
+  new $.SubNav($('.js-has-nav-sub'));
 
   // Form validation.
   $('.js-needs-validation').each(function(e) {

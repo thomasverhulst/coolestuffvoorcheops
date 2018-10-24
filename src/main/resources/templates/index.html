@@ -3,19 +3,81 @@
 <head th:replace="fragments/general.html :: headTag(title='Dashboard - Cheops Kandidatenbeheer')"></head>
 <body>
 	<header th:replace="fragments/general.html :: header"></header>
-	<div class="container">
-		<div class="row">
-			<div class="col-md">
-				<a href="/register">Registreren</a>
-			</div>
-			<div class="col-md">
-				<a href="/search">Zoeken</a>
-			</div>
-			<div class="col-md">
-				<a href="/test">Test</a>
+	<main class="d-flex flex-fill">
+		<div class="container-fluid">
+			<div class="row h-100">
+        <div class="col-md-3 mb-4 mb-md-0">
+          <div class="card h-100">
+            <div class="card--body">
+              <nav class="nav m-navigation--dashboard">
+                <div class="nav-item m-navigation--item js-has-nav-sub">
+                  <a href="#" class="nav-link"><span class="icon icon-people"></span>Kandidaten<i class="fas fa-chevron-down"></i></a>
+                  <div class="nav-sub">
+                    <!-- Todo Add links-->
+                    <div class="nav-item m-navigation--item m-navigation--subitem">
+                      <a href="#" class="nav-link">Alle</a>
+                    </div>
+                    <div class="nav-item m-navigation--item m-navigation--subitem">
+                      <a href="#" class="nav-link">Nieuw</a>
+                    </div>
+                    <div class="nav-item m-navigation--item m-navigation--subitem">
+                      <a href="#" class="nav-link">Uitgenodigd</a>
+                    </div>
+                    <div class="nav-item m-navigation--item m-navigation--subitem">
+                      <a href="#" class="nav-link">Kennismakingsgesprek</a>
+                    </div>
+                    <div class="nav-item m-navigation--item m-navigation--subitem">
+                      <a href="#" class="nav-link">Technische screening</a>
+                    </div>
+                    <div class="nav-item m-navigation--item m-navigation--subitem">
+                      <a href="#" class="nav-link">Aangenomen</a>
+                    </div>
+                    <div class="nav-item m-navigation--item m-navigation--subitem">
+                      <a href="#" class="nav-link">Niet aangenomen</a>
+                    </div>
+                    <div class="nav-item m-navigation--item m-navigation--subitem">
+                      <a href="#" class="nav-link">Ex-werknemers</a>
+                    </div>
+                  </div>
+                </div>
+                <div class="nav-item m-navigation--item">
+                  <!-- Todo Add link -->
+                  <a href="#" class="nav-link"><span class="icon icon-add-people"></span>Kandidaat toevoegen</a>
+                </div>
+                <div class="nav-item m-navigation--item">
+                  <a href="/search" class="nav-link"><span class="icon icon-search"></span>Kandidaat zoeken</a>
+                </div>
+              </nav>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-9">
+          <div class="row align-items-center justify-content-between mb-3">
+            <div class="col-auto">
+              <h4>Dashboard</h4>
+            </div>
+            <div class="col-auto">
+              <div class="a-dashboard--date">
+                Vandaag <span th:text="${#dates.format(#dates.createNow(), 'dd MMMM yyyy')}"></span>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <!-- Todo Make content dynamic -->
+            <div class="col-md-4">
+              <div th:replace="fragments/card.html :: card-stat(blue, 'Interviews', 2, 10)"></div>
+            </div>
+            <div class="col-md-4">
+              <div th:replace="fragments/card.html :: card-stat(green, 'Technische screening', 0, 0)"></div>
+            </div>
+            <div class="col-md-4">
+              <div th:replace="fragments/card.html :: card-stat(red, 'Nieuwe aanwervingen', 4, 40)"></div>
+            </div>
+          </div>
+        </div>
 			</div>
 		</div>
-  </div>
+	</main>
   <footer th:replace="fragments/general.html :: footer"></footer>
   <div th:replace="fragments/general.html :: foot"></div>
 </body>

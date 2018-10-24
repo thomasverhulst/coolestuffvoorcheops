@@ -1,0 +1,26 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  background: $white;
+  box-shadow: 0 0 15px 1px rgba($gray-900, .2);
+  border-radius: 4px;
+
+  &--header {
+    box-shadow: 1px 5px 14px -10px rgba($gray-900, .3);
+    padding: $grid-gutter-width/1.5;
+    text-align: center;
+  }
+
+  &--body {
+    display: flex;
+    padding: $grid-gutter-width/1.5;
+
+    > * {
+      flex: 1 0 50%;
+
+      @include each(2) {
+        border-left: 1px solid $border-color;
+      }
+    }
+  }
+}
