@@ -3,17 +3,17 @@
  * Tue Oct 16 13:56:07 GMT 2018
  */
 
-package com.tv.tutorials.coolestuffvoorcheops.controllers;
+package com.cheops.candidatemanager.controllers;
 
 import org.junit.Test;
 import static org.junit.Assert.*;
 import static org.evosuite.shaded.org.mockito.Mockito.*;
 import static org.evosuite.runtime.EvoAssertions.*;
-import com.tv.tutorials.coolestuffvoorcheops.controllers.ApplicationProcessController;
-import com.tv.tutorials.coolestuffvoorcheops.models.ApplicationProcess;
-import com.tv.tutorials.coolestuffvoorcheops.models.Candidate;
-import com.tv.tutorials.coolestuffvoorcheops.services.impl.ApplicationProcessService;
-import com.tv.tutorials.coolestuffvoorcheops.services.impl.CandidateService;
+import com.cheops.candidatemanager.controllers.ApplicationProcessController;
+import com.cheops.candidatemanager.models.ApplicationProcess;
+import com.cheops.candidatemanager.models.Candidate;
+import com.cheops.candidatemanager.services.impl.ApplicationProcessService;
+import com.cheops.candidatemanager.services.impl.CandidateService;
 import org.evosuite.runtime.EvoRunner;
 import org.evosuite.runtime.EvoRunnerParameters;
 import org.evosuite.runtime.ViolatedAssumptionAnswer;
@@ -79,7 +79,7 @@ public class ApplicationProcessController_ESTest extends ApplicationProcessContr
          //
          // no message in exception (getMessage() returned null)
          //
-         verifyException("com.tv.tutorials.coolestuffvoorcheops.controllers.ApplicationProcessController", e);
+         verifyException("ApplicationProcessController", e);
       }
   }
 
@@ -137,7 +137,7 @@ public class ApplicationProcessController_ESTest extends ApplicationProcessContr
          //
          // no message in exception (getMessage() returned null)
          //
-         verifyException("com.tv.tutorials.coolestuffvoorcheops.controllers.ApplicationProcessController", e);
+         verifyException("ApplicationProcessController", e);
       }
   }
 

@@ -3,24 +3,24 @@
  * Tue Oct 16 13:51:09 GMT 2018
  */
 
-package com.tv.tutorials.coolestuffvoorcheops.services.impl;
+package com.cheops.candidatemanager.services.impl;
 
 import org.junit.Test;
 import static org.junit.Assert.*;
 import static org.evosuite.shaded.org.mockito.Mockito.*;
 import static org.evosuite.runtime.EvoAssertions.*;
-import com.tv.tutorials.coolestuffvoorcheops.models.Address;
-import com.tv.tutorials.coolestuffvoorcheops.models.ApplicationProcess;
-import com.tv.tutorials.coolestuffvoorcheops.models.Candidate;
-import com.tv.tutorials.coolestuffvoorcheops.models.CandidateSearchResolver;
-import com.tv.tutorials.coolestuffvoorcheops.models.Skills;
-import com.tv.tutorials.coolestuffvoorcheops.repositories.AddressRepository;
-import com.tv.tutorials.coolestuffvoorcheops.repositories.ApplicationProcessRepository;
-import com.tv.tutorials.coolestuffvoorcheops.repositories.CandidateRepository;
-import com.tv.tutorials.coolestuffvoorcheops.repositories.SkillsRepository;
-import com.tv.tutorials.coolestuffvoorcheops.services.impl.ApplicationProcessService;
-import com.tv.tutorials.coolestuffvoorcheops.services.impl.CandidateService;
-import com.tv.tutorials.coolestuffvoorcheops.services.impl.SkillsService;
+import com.cheops.candidatemanager.models.Address;
+import com.cheops.candidatemanager.models.ApplicationProcess;
+import com.cheops.candidatemanager.models.Candidate;
+import com.cheops.candidatemanager.models.CandidateSearchResolver;
+import com.cheops.candidatemanager.models.Skills;
+import com.cheops.candidatemanager.repositories.AddressRepository;
+import com.cheops.candidatemanager.repositories.ApplicationProcessRepository;
+import com.cheops.candidatemanager.repositories.CandidateRepository;
+import com.cheops.candidatemanager.repositories.SkillsRepository;
+import com.cheops.candidatemanager.services.impl.ApplicationProcessService;
+import com.cheops.candidatemanager.services.impl.CandidateService;
+import com.cheops.candidatemanager.services.impl.SkillsService;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayDeque;
@@ -84,16 +84,16 @@ public class CandidateService_ESTest extends CandidateService_ESTest_scaffolding
       
       } catch(ClassCastException e) {
          //
-         // java.lang.String cannot be cast to com.tv.tutorials.coolestuffvoorcheops.models.Candidate
+         // java.lang.String cannot be cast to Candidate
          //
-         verifyException("com.tv.tutorials.coolestuffvoorcheops.repositories.CandidateRepository$MockitoMock$258269404", e);
+         verifyException("CandidateRepository$MockitoMock$258269404", e);
       }
   }
 
   @Test(timeout = 4000)
   public void test01()  throws Throwable  {
       CandidateService candidateService0 = new CandidateService();
-      Address address0 = new Address("C:Users\thomas.verhulstDocumentsworkspace-sts-3.9.5.RELEASEcoolestuffvoorcheops/uploads", "C:Users\thomas.verhulstDocumentsworkspace-sts-3.9.5.RELEASEcoolestuffvoorcheops/uploads", "C:Users\thomas.verhulstDocumentsworkspace-sts-3.9.5.RELEASEcoolestuffvoorcheops/uploads", "C:Users\thomas.verhulstDocumentsworkspace-sts-3.9.5.RELEASEcoolestuffvoorcheops/uploads", "+|}@|+nd=gj!", "C:Users\thomas.verhulstDocumentsworkspace-sts-3.9.5.RELEASEcoolestuffvoorcheops/uploads");
+      Address address0 = new Address("C:Users\thomas.verhulstDocumentsworkspace-sts-3.9.5.RELEASEcandidatemanager/uploads", "C:Users\thomas.verhulstDocumentsworkspace-sts-3.9.5.RELEASEcandidatemanager/uploads", "C:Users\thomas.verhulstDocumentsworkspace-sts-3.9.5.RELEASEcandidatemanager/uploads", "C:Users\thomas.verhulstDocumentsworkspace-sts-3.9.5.RELEASEcandidatemanager/uploads", "+|}@|+nd=gj!", "C:Users\thomas.verhulstDocumentsworkspace-sts-3.9.5.RELEASEcandidatemanager/uploads");
       Optional<Address> optional0 = Optional.of(address0);
       AddressRepository addressRepository0 = mock(AddressRepository.class, new ViolatedAssumptionAnswer());
       doReturn(optional0).when(addressRepository0).findById(anyInt());
@@ -123,9 +123,9 @@ public class CandidateService_ESTest extends CandidateService_ESTest_scaffolding
       
       } catch(ClassCastException e) {
          //
-         // java.util.Optional cannot be cast to com.tv.tutorials.coolestuffvoorcheops.models.Address
+         // java.util.Optional cannot be cast to Address
          //
-         verifyException("com.tv.tutorials.coolestuffvoorcheops.repositories.AddressRepository$MockitoMock$732688054", e);
+         verifyException("AddressRepository$MockitoMock$732688054", e);
       }
   }
 
@@ -152,7 +152,7 @@ public class CandidateService_ESTest extends CandidateService_ESTest_scaffolding
       Injector.inject(candidateService0, (Class<?>) CandidateService.class, "skillsService", (Object) skillsService0);
       Injector.validateBean(candidateService0, (Class<?>) CandidateService.class);
       Candidate candidate1 = new Candidate();
-      Address address0 = new Address("C:Users\thomas.verhulstDocumentsworkspace-sts-3.9.5.RELEASEcoolestuffvoorcheops/uploads", "C:Users\thomas.verhulstDocumentsworkspace-sts-3.9.5.RELEASEcoolestuffvoorcheops/uploads", "TKdxgx?oofK", "C:Users\thomas.verhulstDocumentsworkspace-sts-3.9.5.RELEASEcoolestuffvoorcheops/uploads", "TKdxgx?oofK", "Handling completed with error: ");
+      Address address0 = new Address("C:Users\thomas.verhulstDocumentsworkspace-sts-3.9.5.RELEASEcandidatemanager/uploads", "C:Users\thomas.verhulstDocumentsworkspace-sts-3.9.5.RELEASEcandidatemanager/uploads", "TKdxgx?oofK", "C:Users\thomas.verhulstDocumentsworkspace-sts-3.9.5.RELEASEcandidatemanager/uploads", "TKdxgx?oofK", "Handling completed with error: ");
       // Undeclared exception!
       try { 
         candidateService0.saveOrUpdateCandidate(0, candidate1, address0, 0);
@@ -162,7 +162,7 @@ public class CandidateService_ESTest extends CandidateService_ESTest_scaffolding
          //
          // no message in exception (getMessage() returned null)
          //
-         verifyException("com.tv.tutorials.coolestuffvoorcheops.services.impl.CandidateService", e);
+         verifyException("CandidateService", e);
       }
   }
 
@@ -427,7 +427,7 @@ public class CandidateService_ESTest extends CandidateService_ESTest_scaffolding
          //
          // no message in exception (getMessage() returned null)
          //
-         verifyException("com.tv.tutorials.coolestuffvoorcheops.services.impl.CandidateService", e);
+         verifyException("CandidateService", e);
       }
   }
 
@@ -533,7 +533,7 @@ public class CandidateService_ESTest extends CandidateService_ESTest_scaffolding
          //
          // no message in exception (getMessage() returned null)
          //
-         verifyException("com.tv.tutorials.coolestuffvoorcheops.services.impl.CandidateService", e);
+         verifyException("CandidateService", e);
       }
   }
 
@@ -599,7 +599,7 @@ public class CandidateService_ESTest extends CandidateService_ESTest_scaffolding
          //
          // no message in exception (getMessage() returned null)
          //
-         verifyException("com.tv.tutorials.coolestuffvoorcheops.services.impl.SkillsService", e);
+         verifyException("SkillsService", e);
       }
   }
 
@@ -617,7 +617,7 @@ public class CandidateService_ESTest extends CandidateService_ESTest_scaffolding
          //
          // no message in exception (getMessage() returned null)
          //
-         verifyException("com.tv.tutorials.coolestuffvoorcheops.services.impl.CandidateService", e);
+         verifyException("CandidateService", e);
       }
   }
 
@@ -649,7 +649,7 @@ public class CandidateService_ESTest extends CandidateService_ESTest_scaffolding
          //
          // no message in exception (getMessage() returned null)
          //
-         verifyException("com.tv.tutorials.coolestuffvoorcheops.services.impl.ApplicationProcessService", e);
+         verifyException("ApplicationProcessService", e);
       }
   }
 
@@ -683,7 +683,7 @@ public class CandidateService_ESTest extends CandidateService_ESTest_scaffolding
          //
          // java.util.Vector cannot be cast to java.util.ArrayList
          //
-         verifyException("com.tv.tutorials.coolestuffvoorcheops.services.impl.SkillsService", e);
+         verifyException("SkillsService", e);
       }
   }
 
@@ -722,7 +722,7 @@ public class CandidateService_ESTest extends CandidateService_ESTest_scaffolding
          //
          // no message in exception (getMessage() returned null)
          //
-         verifyException("com.tv.tutorials.coolestuffvoorcheops.services.impl.ApplicationProcessService", e);
+         verifyException("ApplicationProcessService", e);
       }
   }
 
@@ -756,7 +756,7 @@ public class CandidateService_ESTest extends CandidateService_ESTest_scaffolding
          //
          // java.util.ArrayDeque cannot be cast to java.util.List
          //
-         verifyException("com.tv.tutorials.coolestuffvoorcheops.services.impl.ApplicationProcessService", e);
+         verifyException("ApplicationProcessService", e);
       }
   }
 
@@ -788,7 +788,7 @@ public class CandidateService_ESTest extends CandidateService_ESTest_scaffolding
          //
          // no message in exception (getMessage() returned null)
          //
-         verifyException("com.tv.tutorials.coolestuffvoorcheops.services.impl.ApplicationProcessService", e);
+         verifyException("ApplicationProcessService", e);
       }
   }
 
@@ -827,7 +827,7 @@ public class CandidateService_ESTest extends CandidateService_ESTest_scaffolding
          //
          // no message in exception (getMessage() returned null)
          //
-         verifyException("com.tv.tutorials.coolestuffvoorcheops.services.impl.SkillsService", e);
+         verifyException("SkillsService", e);
       }
   }
 
@@ -874,7 +874,7 @@ public class CandidateService_ESTest extends CandidateService_ESTest_scaffolding
          //
          // no message in exception (getMessage() returned null)
          //
-         verifyException("com.tv.tutorials.coolestuffvoorcheops.services.impl.ApplicationProcessService", e);
+         verifyException("ApplicationProcessService", e);
       }
   }
 
@@ -906,7 +906,7 @@ public class CandidateService_ESTest extends CandidateService_ESTest_scaffolding
          //
          // no message in exception (getMessage() returned null)
          //
-         verifyException("com.tv.tutorials.coolestuffvoorcheops.services.impl.SkillsService", e);
+         verifyException("SkillsService", e);
       }
   }
 
@@ -956,7 +956,7 @@ public class CandidateService_ESTest extends CandidateService_ESTest_scaffolding
          //
          // no message in exception (getMessage() returned null)
          //
-         verifyException("com.tv.tutorials.coolestuffvoorcheops.services.impl.ApplicationProcessService", e);
+         verifyException("ApplicationProcessService", e);
       }
   }
 
@@ -1012,7 +1012,7 @@ public class CandidateService_ESTest extends CandidateService_ESTest_scaffolding
          //
          // no message in exception (getMessage() returned null)
          //
-         verifyException("com.tv.tutorials.coolestuffvoorcheops.services.impl.ApplicationProcessService", e);
+         verifyException("ApplicationProcessService", e);
       }
   }
 
@@ -1034,7 +1034,7 @@ public class CandidateService_ESTest extends CandidateService_ESTest_scaffolding
       Injector.validateBean(skillsService0, (Class<?>) SkillsService.class);
       Injector.inject(candidateService0, (Class<?>) CandidateService.class, "skillsService", (Object) skillsService0);
       Injector.validateBean(candidateService0, (Class<?>) CandidateService.class);
-      MockPrintWriter mockPrintWriter0 = new MockPrintWriter("C:Users\thomas.verhulstDocumentsworkspace-sts-3.9.5.RELEASEcoolestuffvoorcheops/uploads");
+      MockPrintWriter mockPrintWriter0 = new MockPrintWriter("C:Users\thomas.verhulstDocumentsworkspace-sts-3.9.5.RELEASEcandidatemanager/uploads");
       EvoSuiteFile evoSuiteFile0 = new EvoSuiteFile("uploads");
       byte[] byteArray0 = new byte[3];
       FileSystemHandling.shouldAllThrowIOExceptions();
@@ -1072,7 +1072,7 @@ public class CandidateService_ESTest extends CandidateService_ESTest_scaffolding
       Injector.validateBean(skillsService0, (Class<?>) SkillsService.class);
       Injector.inject(candidateService0, (Class<?>) CandidateService.class, "skillsService", (Object) skillsService0);
       Injector.validateBean(candidateService0, (Class<?>) CandidateService.class);
-      MockPrintWriter mockPrintWriter0 = new MockPrintWriter("C:Users\thomas.verhulstDocumentsworkspace-sts-3.9.5.RELEASEcoolestuffvoorcheops/uploads");
+      MockPrintWriter mockPrintWriter0 = new MockPrintWriter("C:Users\thomas.verhulstDocumentsworkspace-sts-3.9.5.RELEASEcandidatemanager/uploads");
       HttpServletResponse httpServletResponse0 = mock(HttpServletResponse.class, new ViolatedAssumptionAnswer());
       doReturn(mockPrintWriter0).when(httpServletResponse0).getWriter();
       HttpServletResponseWrapper httpServletResponseWrapper0 = new HttpServletResponseWrapper(httpServletResponse0);
@@ -1114,7 +1114,7 @@ public class CandidateService_ESTest extends CandidateService_ESTest_scaffolding
          //
          // no message in exception (getMessage() returned null)
          //
-         verifyException("com.tv.tutorials.coolestuffvoorcheops.services.impl.SkillsService", e);
+         verifyException("SkillsService", e);
       }
   }
 
@@ -1125,7 +1125,7 @@ public class CandidateService_ESTest extends CandidateService_ESTest_scaffolding
       Injector.inject(candidateService0, (Class<?>) CandidateService.class, "addressRepository", (Object) addressRepository0);
       byte[] byteArray0 = new byte[3];
       MockDate mockDate0 = new MockDate();
-      Candidate candidate0 = new Candidate("C:Users\thomas.verhulstDocumentsworkspace-sts-3.9.5.RELEASEcoolestuffvoorcheops/uploads", "vr", "O(|>\"X0Xs0dC5a", mockDate0, "C:Users\thomas.verhulstDocumentsworkspace-sts-3.9.5.RELEASEcoolestuffvoorcheops/uploads", ":c(\"hhDh~", "", "O(|>\"X0Xs0dC5a");
+      Candidate candidate0 = new Candidate("C:Users\thomas.verhulstDocumentsworkspace-sts-3.9.5.RELEASEcandidatemanager/uploads", "vr", "O(|>\"X0Xs0dC5a", mockDate0, "C:Users\thomas.verhulstDocumentsworkspace-sts-3.9.5.RELEASEcandidatemanager/uploads", ":c(\"hhDh~", "", "O(|>\"X0Xs0dC5a");
       // Undeclared exception!
       try { 
         candidateService0.addCandidate(candidate0);
@@ -1135,7 +1135,7 @@ public class CandidateService_ESTest extends CandidateService_ESTest_scaffolding
          //
          // no message in exception (getMessage() returned null)
          //
-         verifyException("com.tv.tutorials.coolestuffvoorcheops.services.impl.CandidateService", e);
+         verifyException("CandidateService", e);
       }
   }
 
@@ -1170,7 +1170,7 @@ public class CandidateService_ESTest extends CandidateService_ESTest_scaffolding
          //
          // no message in exception (getMessage() returned null)
          //
-         verifyException("com.tv.tutorials.coolestuffvoorcheops.services.impl.SkillsService", e);
+         verifyException("SkillsService", e);
       }
   }
 
@@ -1266,7 +1266,7 @@ public class CandidateService_ESTest extends CandidateService_ESTest_scaffolding
       ApplicationProcessService applicationProcessService0 = new ApplicationProcessService();
       ApplicationProcess applicationProcess0 = new ApplicationProcess();
       Optional<ApplicationProcess> optional0 = Optional.ofNullable(applicationProcess0);
-      Boolean boolean0 = new Boolean("C:Users\thomas.verhulstDocumentsworkspace-sts-3.9.5.RELEASEcoolestuffvoorcheops/uploads");
+      Boolean boolean0 = new Boolean("C:Users\thomas.verhulstDocumentsworkspace-sts-3.9.5.RELEASEcandidatemanager/uploads");
       applicationProcess0.setToBeInvitedForFirstConversation(boolean0);
       ApplicationProcessRepository applicationProcessRepository0 = mock(ApplicationProcessRepository.class, new ViolatedAssumptionAnswer());
       doReturn(optional0).when(applicationProcessRepository0).findById(anyInt());
@@ -1295,7 +1295,7 @@ public class CandidateService_ESTest extends CandidateService_ESTest_scaffolding
          //
          // no message in exception (getMessage() returned null)
          //
-         verifyException("com.tv.tutorials.coolestuffvoorcheops.services.impl.CandidateService", e);
+         verifyException("CandidateService", e);
       }
   }
 
@@ -1343,7 +1343,7 @@ public class CandidateService_ESTest extends CandidateService_ESTest_scaffolding
       ArrayList<Candidate> arrayList0 = new ArrayList<Candidate>();
       Candidate candidate0 = new Candidate();
       arrayList0.add(candidate0);
-      Skills skills0 = new Skills("C:Users\thomas.verhulstDocumentsworkspace-sts-3.9.5.RELEASEcoolestuffvoorcheops/uploads", 1, "C:Users\thomas.verhulstDocumentsworkspace-sts-3.9.5.RELEASEcoolestuffvoorcheops/uploads", "C:Users\thomas.verhulstDocumentsworkspace-sts-3.9.5.RELEASEcoolestuffvoorcheops/uploads", true, true, true);
+      Skills skills0 = new Skills("C:Users\thomas.verhulstDocumentsworkspace-sts-3.9.5.RELEASEcandidatemanager/uploads", 1, "C:Users\thomas.verhulstDocumentsworkspace-sts-3.9.5.RELEASEcandidatemanager/uploads", "C:Users\thomas.verhulstDocumentsworkspace-sts-3.9.5.RELEASEcandidatemanager/uploads", true, true, true);
       CandidateRepository candidateRepository0 = mock(CandidateRepository.class, new ViolatedAssumptionAnswer());
       doReturn(arrayList0).when(candidateRepository0).findAllByNameLikeOrSirNameLike(anyString() , anyString());
       Injector.inject(candidateService0, (Class<?>) CandidateService.class, "candidateRepository", (Object) candidateRepository0);
@@ -1405,7 +1405,7 @@ public class CandidateService_ESTest extends CandidateService_ESTest_scaffolding
       ArrayList<Candidate> arrayList0 = new ArrayList<Candidate>(1);
       Candidate candidate0 = new Candidate();
       arrayList0.add(candidate0);
-      Skills skills0 = new Skills("C:Users\thomas.verhulstDocumentsworkspace-sts-3.9.5.RELEASEcoolestuffvoorcheops/uploads", 1, "C:Users\thomas.verhulstDocumentsworkspace-sts-3.9.5.RELEASEcoolestuffvoorcheops/uploads", "C:Users\thomas.verhulstDocumentsworkspace-sts-3.9.5.RELEASEcoolestuffvoorcheops/uploads", true, true, true);
+      Skills skills0 = new Skills("C:Users\thomas.verhulstDocumentsworkspace-sts-3.9.5.RELEASEcandidatemanager/uploads", 1, "C:Users\thomas.verhulstDocumentsworkspace-sts-3.9.5.RELEASEcandidatemanager/uploads", "C:Users\thomas.verhulstDocumentsworkspace-sts-3.9.5.RELEASEcandidatemanager/uploads", true, true, true);
       CandidateRepository candidateRepository0 = mock(CandidateRepository.class, new ViolatedAssumptionAnswer());
       doReturn(arrayList0).when(candidateRepository0).findAllByNameLikeOrSirNameLike(anyString() , anyString());
       Injector.inject(candidateService0, (Class<?>) CandidateService.class, "candidateRepository", (Object) candidateRepository0);
@@ -1450,7 +1450,7 @@ public class CandidateService_ESTest extends CandidateService_ESTest_scaffolding
          //
          // no message in exception (getMessage() returned null)
          //
-         verifyException("com.tv.tutorials.coolestuffvoorcheops.services.impl.CandidateService", e);
+         verifyException("CandidateService", e);
       }
   }
 
@@ -1534,7 +1534,7 @@ public class CandidateService_ESTest extends CandidateService_ESTest_scaffolding
          //
          // no message in exception (getMessage() returned null)
          //
-         verifyException("com.tv.tutorials.coolestuffvoorcheops.services.impl.CandidateService", e);
+         verifyException("CandidateService", e);
       }
   }
 }

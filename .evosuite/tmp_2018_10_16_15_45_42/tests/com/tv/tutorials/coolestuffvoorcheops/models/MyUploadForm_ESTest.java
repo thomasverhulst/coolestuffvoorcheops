@@ -3,11 +3,11 @@
  * Tue Oct 16 13:58:16 GMT 2018
  */
 
-package com.tv.tutorials.coolestuffvoorcheops.models;
+package com.cheops.candidatemanager.models;
 
 import org.junit.Test;
 import static org.junit.Assert.*;
-import com.tv.tutorials.coolestuffvoorcheops.models.MyUploadForm;
+import com.cheops.candidatemanager.models.MyUploadForm;
 import org.evosuite.runtime.EvoRunner;
 import org.evosuite.runtime.EvoRunnerParameters;
 import org.junit.runner.RunWith;

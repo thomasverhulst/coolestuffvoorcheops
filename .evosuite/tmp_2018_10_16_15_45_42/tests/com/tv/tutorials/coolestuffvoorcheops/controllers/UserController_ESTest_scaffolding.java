@@ -4,7 +4,7 @@
  * Tue Oct 16 14:02:15 GMT 2018
  */
 
-package com.tv.tutorials.coolestuffvoorcheops.controllers;
+package com.cheops.candidatemanager.controllers;
 
 import org.evosuite.runtime.annotation.EvoSuiteClassExclude;
 import org.junit.BeforeClass;
@@ -28,7 +28,7 @@ public class UserController_ESTest_scaffolding {
 
   @BeforeClass 
   public static void initEvoSuiteFramework() { 
-    org.evosuite.runtime.RuntimeSettings.className = "com.tv.tutorials.coolestuffvoorcheops.controllers.UserController"; 
+    org.evosuite.runtime.RuntimeSettings.className = "UserController";
     org.evosuite.runtime.GuiSupport.initialize(); 
     org.evosuite.runtime.RuntimeSettings.maxNumberOfThreads = 100; 
     org.evosuite.runtime.RuntimeSettings.maxNumberOfIterationsPerLoop = 10000; 
@@ -78,7 +78,7 @@ public class UserController_ESTest_scaffolding {
     java.lang.System.setProperty("java.awt.headless", "true"); 
     java.lang.System.setProperty("java.io.tmpdir", "C:\\Users\\THOMAS~1.VER\\AppData\\Local\\Temp\\"); 
     java.lang.System.setProperty("user.country", "US"); 
-    java.lang.System.setProperty("user.dir", "C:\\Users\\thomas.verhulst\\Documents\\workspace-sts-3.9.5.RELEASE\\coolestuffvoorcheops"); 
+    java.lang.System.setProperty("user.dir", "C:\\Users\\thomas.verhulst\\Documents\\workspace-sts-3.9.5.RELEASE\\candidatemanager");
     java.lang.System.setProperty("user.home", "C:\\Users\\thomas.verhulst"); 
     java.lang.System.setProperty("user.language", "en"); 
     java.lang.System.setProperty("user.name", "Thomas.Verhulst"); 
@@ -87,26 +87,26 @@ public class UserController_ESTest_scaffolding {
 
   private static void initializeClasses() {
     org.evosuite.runtime.classhandling.ClassStateSupport.initializeClasses(UserController_ESTest_scaffolding.class.getClassLoader() ,
-      "com.tv.tutorials.coolestuffvoorcheops.services.impl.CustomUserDetailService",
-      "com.tv.tutorials.coolestuffvoorcheops.models.User",
+      "CustomUserDetailService",
+      "User",
       "org.springframework.security.core.userdetails.UsernameNotFoundException",
       "org.springframework.security.core.userdetails.UserDetailsService",
       "org.springframework.beans.factory.annotation.Autowired",
       "org.springframework.stereotype.Controller",
       "org.springframework.ui.Model",
       "org.springframework.stereotype.Component",
-      "com.tv.tutorials.coolestuffvoorcheops.models.Role",
+      "Role",
       "org.springframework.stereotype.Service",
       "org.springframework.security.core.userdetails.UserDetails",
       "org.springframework.security.core.AuthenticationException",
       "org.springframework.stereotype.Indexed",
       "org.springframework.lang.Nullable",
-      "com.tv.tutorials.coolestuffvoorcheops.controllers.UserController"
+      "UserController"
     );
   } 
   private static void initMocksToAvoidTimeoutsInTheTests() throws ClassNotFoundException { 
-    mock(Class.forName("com.tv.tutorials.coolestuffvoorcheops.models.User", false, UserController_ESTest_scaffolding.class.getClassLoader()));
-    mock(Class.forName("com.tv.tutorials.coolestuffvoorcheops.services.impl.CustomUserDetailService", false, UserController_ESTest_scaffolding.class.getClassLoader()));
+    mock(Class.forName("User", false, UserController_ESTest_scaffolding.class.getClassLoader()));
+    mock(Class.forName("CustomUserDetailService", false, UserController_ESTest_scaffolding.class.getClassLoader()));
     mock(Class.forName("org.springframework.ui.Model", false, UserController_ESTest_scaffolding.class.getClassLoader()));
   }
 
@@ -114,11 +114,11 @@ public class UserController_ESTest_scaffolding {
     org.evosuite.runtime.classhandling.ClassResetter.getInstance().setClassLoader(UserController_ESTest_scaffolding.class.getClassLoader()); 
 
     org.evosuite.runtime.classhandling.ClassStateSupport.resetClasses(
-      "com.tv.tutorials.coolestuffvoorcheops.controllers.UserController",
+      "UserController",
       "org.springframework.web.bind.annotation.RequestMethod",
-      "com.tv.tutorials.coolestuffvoorcheops.services.impl.CustomUserDetailService",
-      "com.tv.tutorials.coolestuffvoorcheops.models.User",
-      "com.tv.tutorials.coolestuffvoorcheops.models.Role"
+      "CustomUserDetailService",
+      "User",
+      "Role"
     );
   }
 }

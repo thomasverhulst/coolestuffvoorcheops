@@ -3,7 +3,7 @@
  * Tue Oct 16 13:59:07 GMT 2018
  */
 
-package com.tv.tutorials.coolestuffvoorcheops.configuration;
+package com.cheops.candidatemanager.configuration;
 
 import org.junit.Test;
 import static org.junit.Assert.*;

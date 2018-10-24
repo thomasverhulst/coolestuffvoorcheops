@@ -1,2 +1,2 @@
 [MASTER] 16:00:20.893 [pool-2-thread-1] WARN  TimeController - Phase INITIALIZATION lasted too long, 5 seconds more than allowed.
-[MASTER] 16:00:26.077 [pool-2-thread-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Have no generator for java.util.Optional<com.tv.tutorials.coolestuffvoorcheops.models.User> canUseFunctionalMocks=true, canBeMocked: false
+[MASTER] 16:00:26.077 [pool-2-thread-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Have no generator for java.util.Optional<com.cheops.candidatemanager.models.User> canUseFunctionalMocks=true, canBeMocked: false

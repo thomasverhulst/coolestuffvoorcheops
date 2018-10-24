@@ -3,13 +3,13 @@
  * Tue Oct 16 13:57:50 GMT 2018
  */
 
-package com.tv.tutorials.coolestuffvoorcheops.controllers;
+package com.cheops.candidatemanager.controllers;
 
 import org.junit.Test;
 import static org.junit.Assert.*;
 import static org.evosuite.shaded.org.mockito.Mockito.*;
 import static org.evosuite.runtime.EvoAssertions.*;
-import com.tv.tutorials.coolestuffvoorcheops.controllers.MessageOfTheDayController;
+import com.cheops.candidatemanager.controllers.MessageOfTheDayController;
 import java.security.Principal;
 import org.evosuite.runtime.EvoRunner;
 import org.evosuite.runtime.EvoRunnerParameters;
@@ -31,7 +31,7 @@ public class MessageOfTheDayController_ESTest extends MessageOfTheDayController_
          //
          // no message in exception (getMessage() returned null)
          //
-         verifyException("com.tv.tutorials.coolestuffvoorcheops.controllers.MessageOfTheDayController", e);
+         verifyException("MessageOfTheDayController", e);
       }
   }
 

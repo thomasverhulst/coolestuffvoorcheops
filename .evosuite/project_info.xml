@@ -2,18 +2,18 @@
 <Project>
     <totalNumberOfTestableClasses>32</totalNumberOfTestableClasses>
     <cut>
-        <fullNameOfTargetClass>com.tv.tutorials.coolestuffvoorcheops.controllers.SearchController</fullNameOfTargetClass>
-        <fullNameOfTestSuite>com.tv.tutorials.coolestuffvoorcheops.controllers.SearchController_ESTest</fullNameOfTestSuite>
+        <fullNameOfTargetClass>com.cheops.candidatemanager.controllers.SearchController</fullNameOfTargetClass>
+        <fullNameOfTestSuite>com.cheops.candidatemanager.controllers.SearchController_ESTest</fullNameOfTestSuite>
         <generation>
             <id>0</id>
             <failed>true</failed>
             <modified>true</modified>
             <timeBudgetInSeconds>268</timeBudgetInSeconds>
             <memoryInMB>1000</memoryInMB>
-            <std_err_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_14_49_51\logs\com.tv.tutorials.coolestuffvoorcheops.controllers.SearchController\std_err_CLIENT.log</std_err_CLIENT>
-            <std_out_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_14_49_51\logs\com.tv.tutorials.coolestuffvoorcheops.controllers.SearchController\std_out_CLIENT.log</std_out_CLIENT>
-            <std_err_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_14_49_51\logs\com.tv.tutorials.coolestuffvoorcheops.controllers.SearchController\std_err_MASTER.log</std_err_MASTER>
-            <std_out_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_14_49_51\logs\com.tv.tutorials.coolestuffvoorcheops.controllers.SearchController\std_out_MASTER.log</std_out_MASTER>
+            <std_err_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_14_49_51\logs\com.cheops.candidatemanager.controllers.SearchController\std_err_CLIENT.log</std_err_CLIENT>
+            <std_out_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_14_49_51\logs\com.cheops.candidatemanager.controllers.SearchController\std_out_CLIENT.log</std_out_CLIENT>
+            <std_err_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_14_49_51\logs\com.cheops.candidatemanager.controllers.SearchController\std_err_MASTER.log</std_err_MASTER>
+            <std_out_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_14_49_51\logs\com.cheops.candidatemanager.controllers.SearchController\std_out_MASTER.log</std_out_MASTER>
         </generation>
         <generation>
             <id>1</id>
@@ -21,27 +21,27 @@
             <modified>true</modified>
             <timeBudgetInSeconds>268</timeBudgetInSeconds>
             <memoryInMB>1000</memoryInMB>
-            <std_err_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_15_45_42\logs\com.tv.tutorials.coolestuffvoorcheops.controllers.SearchController\std_err_CLIENT.log</std_err_CLIENT>
-            <std_out_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_15_45_42\logs\com.tv.tutorials.coolestuffvoorcheops.controllers.SearchController\std_out_CLIENT.log</std_out_CLIENT>
-            <std_err_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_15_45_42\logs\com.tv.tutorials.coolestuffvoorcheops.controllers.SearchController\std_err_MASTER.log</std_err_MASTER>
-            <std_out_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_15_45_42\logs\com.tv.tutorials.coolestuffvoorcheops.controllers.SearchController\std_out_MASTER.log</std_out_MASTER>
+            <std_err_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_15_45_42\logs\com.cheops.candidatemanager.controllers.SearchController\std_err_CLIENT.log</std_err_CLIENT>
+            <std_out_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_15_45_42\logs\com.cheops.candidatemanager.controllers.SearchController\std_out_CLIENT.log</std_out_CLIENT>
+            <std_err_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_15_45_42\logs\com.cheops.candidatemanager.controllers.SearchController\std_err_MASTER.log</std_err_MASTER>
+            <std_out_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_15_45_42\logs\com.cheops.candidatemanager.controllers.SearchController\std_out_MASTER.log</std_out_MASTER>
         </generation>
     </cut>
     <cut>
-        <fullNameOfTargetClass>com.tv.tutorials.coolestuffvoorcheops.services.impl.SkillsService</fullNameOfTargetClass>
-        <fullNameOfTestSuite>com.tv.tutorials.coolestuffvoorcheops.services.impl.SkillsService_ESTest</fullNameOfTestSuite>
+        <fullNameOfTargetClass>com.cheops.candidatemanager.services.impl.SkillsService</fullNameOfTargetClass>
+        <fullNameOfTestSuite>com.cheops.candidatemanager.services.impl.SkillsService_ESTest</fullNameOfTestSuite>
         <generation>
             <id>0</id>
             <failed>false</failed>
             <modified>true</modified>
             <timeBudgetInSeconds>226</timeBudgetInSeconds>
             <memoryInMB>1000</memoryInMB>
-            <std_err_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_14_49_51\logs\com.tv.tutorials.coolestuffvoorcheops.services.impl.SkillsService\std_err_CLIENT.log</std_err_CLIENT>
-            <std_out_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_14_49_51\logs\com.tv.tutorials.coolestuffvoorcheops.services.impl.SkillsService\std_out_CLIENT.log</std_out_CLIENT>
-            <std_err_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_14_49_51\logs\com.tv.tutorials.coolestuffvoorcheops.services.impl.SkillsService\std_err_MASTER.log</std_err_MASTER>
-            <std_out_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_14_49_51\logs\com.tv.tutorials.coolestuffvoorcheops.services.impl.SkillsService\std_out_MASTER.log</std_out_MASTER>
+            <std_err_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_14_49_51\logs\com.cheops.candidatemanager.services.impl.SkillsService\std_err_CLIENT.log</std_err_CLIENT>
+            <std_out_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_14_49_51\logs\com.cheops.candidatemanager.services.impl.SkillsService\std_out_CLIENT.log</std_out_CLIENT>
+            <std_err_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_14_49_51\logs\com.cheops.candidatemanager.services.impl.SkillsService\std_err_MASTER.log</std_err_MASTER>
+            <std_out_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_14_49_51\logs\com.cheops.candidatemanager.services.impl.SkillsService\std_out_MASTER.log</std_out_MASTER>
             <suite>
-                <fullPathOfTestSuite>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_14_49_51\tests\com\tv\tutorials\coolestuffvoorcheops\services\impl\SkillsService_ESTest.java</fullPathOfTestSuite>
+                <fullPathOfTestSuite>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_14_49_51\tests\com\tv\tutorials\candidatemanager\services\impl\SkillsService_ESTest.java</fullPathOfTestSuite>
                 <numberOfTests>30</numberOfTests>
                 <totalNumberOfStatements>255</totalNumberOfStatements>
                 <totalEffortInSeconds>141</totalEffortInSeconds>
@@ -93,12 +93,12 @@
             <modified>true</modified>
             <timeBudgetInSeconds>226</timeBudgetInSeconds>
             <memoryInMB>1000</memoryInMB>
-            <std_err_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_15_45_42\logs\com.tv.tutorials.coolestuffvoorcheops.services.impl.SkillsService\std_err_CLIENT.log</std_err_CLIENT>
-            <std_out_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_15_45_42\logs\com.tv.tutorials.coolestuffvoorcheops.services.impl.SkillsService\std_out_CLIENT.log</std_out_CLIENT>
-            <std_err_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_15_45_42\logs\com.tv.tutorials.coolestuffvoorcheops.services.impl.SkillsService\std_err_MASTER.log</std_err_MASTER>
-            <std_out_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_15_45_42\logs\com.tv.tutorials.coolestuffvoorcheops.services.impl.SkillsService\std_out_MASTER.log</std_out_MASTER>
+            <std_err_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_15_45_42\logs\com.cheops.candidatemanager.services.impl.SkillsService\std_err_CLIENT.log</std_err_CLIENT>
+            <std_out_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_15_45_42\logs\com.cheops.candidatemanager.services.impl.SkillsService\std_out_CLIENT.log</std_out_CLIENT>
+            <std_err_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_15_45_42\logs\com.cheops.candidatemanager.services.impl.SkillsService\std_err_MASTER.log</std_err_MASTER>
+            <std_out_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_15_45_42\logs\com.cheops.candidatemanager.services.impl.SkillsService\std_out_MASTER.log</std_out_MASTER>
             <suite>
-                <fullPathOfTestSuite>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_15_45_42\tests\com\tv\tutorials\coolestuffvoorcheops\services\impl\SkillsService_ESTest.java</fullPathOfTestSuite>
+                <fullPathOfTestSuite>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_15_45_42\tests\com\tv\tutorials\candidatemanager\services\impl\SkillsService_ESTest.java</fullPathOfTestSuite>
                 <numberOfTests>29</numberOfTests>
                 <totalNumberOfStatements>248</totalNumberOfStatements>
                 <totalEffortInSeconds>143</totalEffortInSeconds>
@@ -146,18 +146,18 @@
         </generation>
     </cut>
     <cut>
-        <fullNameOfTargetClass>com.tv.tutorials.coolestuffvoorcheops.controllers.MyFileUploadController</fullNameOfTargetClass>
-        <fullNameOfTestSuite>com.tv.tutorials.coolestuffvoorcheops.controllers.MyFileUploadController_ESTest</fullNameOfTestSuite>
+        <fullNameOfTargetClass>com.cheops.candidatemanager.controllers.MyFileUploadController</fullNameOfTargetClass>
+        <fullNameOfTestSuite>com.cheops.candidatemanager.controllers.MyFileUploadController_ESTest</fullNameOfTestSuite>
         <generation>
             <id>0</id>
             <failed>true</failed>
             <modified>true</modified>
             <timeBudgetInSeconds>143</timeBudgetInSeconds>
             <memoryInMB>1000</memoryInMB>
-            <std_err_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_14_49_51\logs\com.tv.tutorials.coolestuffvoorcheops.controllers.MyFileUploadController\std_err_CLIENT.log</std_err_CLIENT>
-            <std_out_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_14_49_51\logs\com.tv.tutorials.coolestuffvoorcheops.controllers.MyFileUploadController\std_out_CLIENT.log</std_out_CLIENT>
-            <std_err_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_14_49_51\logs\com.tv.tutorials.coolestuffvoorcheops.controllers.MyFileUploadController\std_err_MASTER.log</std_err_MASTER>
-            <std_out_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_14_49_51\logs\com.tv.tutorials.coolestuffvoorcheops.controllers.MyFileUploadController\std_out_MASTER.log</std_out_MASTER>
+            <std_err_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_14_49_51\logs\com.cheops.candidatemanager.controllers.MyFileUploadController\std_err_CLIENT.log</std_err_CLIENT>
+            <std_out_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_14_49_51\logs\com.cheops.candidatemanager.controllers.MyFileUploadController\std_out_CLIENT.log</std_out_CLIENT>
+            <std_err_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_14_49_51\logs\com.cheops.candidatemanager.controllers.MyFileUploadController\std_err_MASTER.log</std_err_MASTER>
+            <std_out_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_14_49_51\logs\com.cheops.candidatemanager.controllers.MyFileUploadController\std_out_MASTER.log</std_out_MASTER>
         </generation>
         <generation>
             <id>1</id>
@@ -165,27 +165,27 @@
             <modified>true</modified>
             <timeBudgetInSeconds>143</timeBudgetInSeconds>
             <memoryInMB>1000</memoryInMB>
-            <std_err_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_15_45_42\logs\com.tv.tutorials.coolestuffvoorcheops.controllers.MyFileUploadController\std_err_CLIENT.log</std_err_CLIENT>
-            <std_out_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_15_45_42\logs\com.tv.tutorials.coolestuffvoorcheops.controllers.MyFileUploadController\std_out_CLIENT.log</std_out_CLIENT>
-            <std_err_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_15_45_42\logs\com.tv.tutorials.coolestuffvoorcheops.controllers.MyFileUploadController\std_err_MASTER.log</std_err_MASTER>
-            <std_out_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_15_45_42\logs\com.tv.tutorials.coolestuffvoorcheops.controllers.MyFileUploadController\std_out_MASTER.log</std_out_MASTER>
+            <std_err_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_15_45_42\logs\com.cheops.candidatemanager.controllers.MyFileUploadController\std_err_CLIENT.log</std_err_CLIENT>
+            <std_out_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_15_45_42\logs\com.cheops.candidatemanager.controllers.MyFileUploadController\std_out_CLIENT.log</std_out_CLIENT>
+            <std_err_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_15_45_42\logs\com.cheops.candidatemanager.controllers.MyFileUploadController\std_err_MASTER.log</std_err_MASTER>
+            <std_out_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_15_45_42\logs\com.cheops.candidatemanager.controllers.MyFileUploadController\std_out_MASTER.log</std_out_MASTER>
         </generation>
     </cut>
     <cut>
-        <fullNameOfTargetClass>com.tv.tutorials.coolestuffvoorcheops.services.impl.SalaryPackageService</fullNameOfTargetClass>
-        <fullNameOfTestSuite>com.tv.tutorials.coolestuffvoorcheops.services.impl.SalaryPackageService_ESTest</fullNameOfTestSuite>
+        <fullNameOfTargetClass>com.cheops.candidatemanager.services.impl.SalaryPackageService</fullNameOfTargetClass>
+        <fullNameOfTestSuite>com.cheops.candidatemanager.services.impl.SalaryPackageService_ESTest</fullNameOfTestSuite>
         <generation>
             <id>0</id>
             <failed>false</failed>
             <modified>true</modified>
             <timeBudgetInSeconds>60</timeBudgetInSeconds>
             <memoryInMB>1000</memoryInMB>
-            <std_err_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_14_49_51\logs\com.tv.tutorials.coolestuffvoorcheops.services.impl.SalaryPackageService\std_err_CLIENT.log</std_err_CLIENT>
-            <std_out_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_14_49_51\logs\com.tv.tutorials.coolestuffvoorcheops.services.impl.SalaryPackageService\std_out_CLIENT.log</std_out_CLIENT>
-            <std_err_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_14_49_51\logs\com.tv.tutorials.coolestuffvoorcheops.services.impl.SalaryPackageService\std_err_MASTER.log</std_err_MASTER>
-            <std_out_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_14_49_51\logs\com.tv.tutorials.coolestuffvoorcheops.services.impl.SalaryPackageService\std_out_MASTER.log</std_out_MASTER>
+            <std_err_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_14_49_51\logs\com.cheops.candidatemanager.services.impl.SalaryPackageService\std_err_CLIENT.log</std_err_CLIENT>
+            <std_out_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_14_49_51\logs\com.cheops.candidatemanager.services.impl.SalaryPackageService\std_out_CLIENT.log</std_out_CLIENT>
+            <std_err_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_14_49_51\logs\com.cheops.candidatemanager.services.impl.SalaryPackageService\std_err_MASTER.log</std_err_MASTER>
+            <std_out_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_14_49_51\logs\com.cheops.candidatemanager.services.impl.SalaryPackageService\std_out_MASTER.log</std_out_MASTER>
             <suite>
-                <fullPathOfTestSuite>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_14_49_51\tests\com\tv\tutorials\coolestuffvoorcheops\services\impl\SalaryPackageService_ESTest.java</fullPathOfTestSuite>
+                <fullPathOfTestSuite>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_14_49_51\tests\com\tv\tutorials\candidatemanager\services\impl\SalaryPackageService_ESTest.java</fullPathOfTestSuite>
                 <numberOfTests>11</numberOfTests>
                 <totalNumberOfStatements>72</totalNumberOfStatements>
                 <totalEffortInSeconds>40</totalEffortInSeconds>
@@ -237,27 +237,27 @@
             <modified>true</modified>
             <timeBudgetInSeconds>60</timeBudgetInSeconds>
             <memoryInMB>1000</memoryInMB>
-            <std_err_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_15_45_42\logs\com.tv.tutorials.coolestuffvoorcheops.services.impl.SalaryPackageService\std_err_CLIENT.log</std_err_CLIENT>
-            <std_out_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_15_45_42\logs\com.tv.tutorials.coolestuffvoorcheops.services.impl.SalaryPackageService\std_out_CLIENT.log</std_out_CLIENT>
-            <std_err_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_15_45_42\logs\com.tv.tutorials.coolestuffvoorcheops.services.impl.SalaryPackageService\std_err_MASTER.log</std_err_MASTER>
-            <std_out_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_15_45_42\logs\com.tv.tutorials.coolestuffvoorcheops.services.impl.SalaryPackageService\std_out_MASTER.log</std_out_MASTER>
+            <std_err_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_15_45_42\logs\com.cheops.candidatemanager.services.impl.SalaryPackageService\std_err_CLIENT.log</std_err_CLIENT>
+            <std_out_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_15_45_42\logs\com.cheops.candidatemanager.services.impl.SalaryPackageService\std_out_CLIENT.log</std_out_CLIENT>
+            <std_err_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_15_45_42\logs\com.cheops.candidatemanager.services.impl.SalaryPackageService\std_err_MASTER.log</std_err_MASTER>
+            <std_out_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_15_45_42\logs\com.cheops.candidatemanager.services.impl.SalaryPackageService\std_out_MASTER.log</std_out_MASTER>
         </generation>
     </cut>
     <cut>
-        <fullNameOfTargetClass>com.tv.tutorials.coolestuffvoorcheops.CoolestuffvoorcheopsApplication</fullNameOfTargetClass>
-        <fullNameOfTestSuite>com.tv.tutorials.coolestuffvoorcheops.CoolestuffvoorcheopsApplication_ESTest</fullNameOfTestSuite>
+        <fullNameOfTargetClass>com.cheops.candidatemanager.CandidateManagerApplication</fullNameOfTargetClass>
+        <fullNameOfTestSuite>com.cheops.candidatemanager.candidatemanagerApplication_ESTest</fullNameOfTestSuite>
         <generation>
             <id>0</id>
             <failed>false</failed>
             <modified>true</modified>
             <timeBudgetInSeconds>60</timeBudgetInSeconds>
             <memoryInMB>1000</memoryInMB>
-            <std_err_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_14_49_51\logs\com.tv.tutorials.coolestuffvoorcheops.CoolestuffvoorcheopsApplication\std_err_CLIENT.log</std_err_CLIENT>
-            <std_out_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_14_49_51\logs\com.tv.tutorials.coolestuffvoorcheops.CoolestuffvoorcheopsApplication\std_out_CLIENT.log</std_out_CLIENT>
-            <std_err_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_14_49_51\logs\com.tv.tutorials.coolestuffvoorcheops.CoolestuffvoorcheopsApplication\std_err_MASTER.log</std_err_MASTER>
-            <std_out_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_14_49_51\logs\com.tv.tutorials.coolestuffvoorcheops.CoolestuffvoorcheopsApplication\std_out_MASTER.log</std_out_MASTER>
+            <std_err_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_14_49_51\logs\com.cheops.candidatemanager.candidatemanagerApplication\std_err_CLIENT.log</std_err_CLIENT>
+            <std_out_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_14_49_51\logs\com.cheops.candidatemanager.candidatemanagerApplication\std_out_CLIENT.log</std_out_CLIENT>
+            <std_err_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_14_49_51\logs\com.cheops.candidatemanager.candidatemanagerApplication\std_err_MASTER.log</std_err_MASTER>
+            <std_out_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_14_49_51\logs\com.cheops.candidatemanager.candidatemanagerApplication\std_out_MASTER.log</std_out_MASTER>
             <suite>
-                <fullPathOfTestSuite>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_14_49_51\tests\com\tv\tutorials\coolestuffvoorcheops\CoolestuffvoorcheopsApplication_ESTest.java</fullPathOfTestSuite>
+                <fullPathOfTestSuite>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_14_49_51\tests\com\tv\tutorials\candidatemanager\candidatemanagerApplication_ESTest.java</fullPathOfTestSuite>
                 <numberOfTests>4</numberOfTests>
                 <totalNumberOfStatements>8</totalNumberOfStatements>
                 <totalEffortInSeconds>38</totalEffortInSeconds>
@@ -309,12 +309,12 @@
             <modified>true</modified>
             <timeBudgetInSeconds>60</timeBudgetInSeconds>
             <memoryInMB>1000</memoryInMB>
-            <std_err_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_15_45_42\logs\com.tv.tutorials.coolestuffvoorcheops.CoolestuffvoorcheopsApplication\std_err_CLIENT.log</std_err_CLIENT>
-            <std_out_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_15_45_42\logs\com.tv.tutorials.coolestuffvoorcheops.CoolestuffvoorcheopsApplication\std_out_CLIENT.log</std_out_CLIENT>
-            <std_err_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_15_45_42\logs\com.tv.tutorials.coolestuffvoorcheops.CoolestuffvoorcheopsApplication\std_err_MASTER.log</std_err_MASTER>
-            <std_out_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_15_45_42\logs\com.tv.tutorials.coolestuffvoorcheops.CoolestuffvoorcheopsApplication\std_out_MASTER.log</std_out_MASTER>
+            <std_err_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_15_45_42\logs\com.cheops.candidatemanager.candidatemanagerApplication\std_err_CLIENT.log</std_err_CLIENT>
+            <std_out_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_15_45_42\logs\com.cheops.candidatemanager.candidatemanagerApplication\std_out_CLIENT.log</std_out_CLIENT>
+            <std_err_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_15_45_42\logs\com.cheops.candidatemanager.candidatemanagerApplication\std_err_MASTER.log</std_err_MASTER>
+            <std_out_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_15_45_42\logs\com.cheops.candidatemanager.candidatemanagerApplication\std_out_MASTER.log</std_out_MASTER>
             <suite>
-                <fullPathOfTestSuite>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_15_45_42\tests\com\tv\tutorials\coolestuffvoorcheops\CoolestuffvoorcheopsApplication_ESTest.java</fullPathOfTestSuite>
+                <fullPathOfTestSuite>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_15_45_42\tests\com\tv\tutorials\candidatemanager\candidatemanagerApplication_ESTest.java</fullPathOfTestSuite>
                 <numberOfTests>4</numberOfTests>
                 <totalNumberOfStatements>8</totalNumberOfStatements>
                 <totalEffortInSeconds>40</totalEffortInSeconds>
@@ -362,20 +362,20 @@
         </generation>
     </cut>
     <cut>
-        <fullNameOfTargetClass>com.tv.tutorials.coolestuffvoorcheops.models.CandidateSearchResolver</fullNameOfTargetClass>
-        <fullNameOfTestSuite>com.tv.tutorials.coolestuffvoorcheops.models.CandidateSearchResolver_ESTest</fullNameOfTestSuite>
+        <fullNameOfTargetClass>com.cheops.candidatemanager.models.CandidateSearchResolver</fullNameOfTargetClass>
+        <fullNameOfTestSuite>com.cheops.candidatemanager.models.CandidateSearchResolver_ESTest</fullNameOfTestSuite>
         <generation>
             <id>0</id>
             <failed>false</failed>
             <modified>true</modified>
             <timeBudgetInSeconds>60</timeBudgetInSeconds>
             <memoryInMB>1000</memoryInMB>
-            <std_err_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_14_49_51\logs\com.tv.tutorials.coolestuffvoorcheops.models.CandidateSearchResolver\std_err_CLIENT.log</std_err_CLIENT>
-            <std_out_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_14_49_51\logs\com.tv.tutorials.coolestuffvoorcheops.models.CandidateSearchResolver\std_out_CLIENT.log</std_out_CLIENT>
-            <std_err_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_14_49_51\logs\com.tv.tutorials.coolestuffvoorcheops.models.CandidateSearchResolver\std_err_MASTER.log</std_err_MASTER>
-            <std_out_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_14_49_51\logs\com.tv.tutorials.coolestuffvoorcheops.models.CandidateSearchResolver\std_out_MASTER.log</std_out_MASTER>
+            <std_err_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_14_49_51\logs\com.cheops.candidatemanager.models.CandidateSearchResolver\std_err_CLIENT.log</std_err_CLIENT>
+            <std_out_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_14_49_51\logs\com.cheops.candidatemanager.models.CandidateSearchResolver\std_out_CLIENT.log</std_out_CLIENT>
+            <std_err_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_14_49_51\logs\com.cheops.candidatemanager.models.CandidateSearchResolver\std_err_MASTER.log</std_err_MASTER>
+            <std_out_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_14_49_51\logs\com.cheops.candidatemanager.models.CandidateSearchResolver\std_out_MASTER.log</std_out_MASTER>
             <suite>
-                <fullPathOfTestSuite>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_14_49_51\tests\com\tv\tutorials\coolestuffvoorcheops\models\CandidateSearchResolver_ESTest.java</fullPathOfTestSuite>
+                <fullPathOfTestSuite>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_14_49_51\tests\com\tv\tutorials\candidatemanager\models\CandidateSearchResolver_ESTest.java</fullPathOfTestSuite>
                 <numberOfTests>8</numberOfTests>
                 <totalNumberOfStatements>19</totalNumberOfStatements>
                 <totalEffortInSeconds>37</totalEffortInSeconds>
@@ -427,12 +427,12 @@
             <modified>true</modified>
             <timeBudgetInSeconds>60</timeBudgetInSeconds>
             <memoryInMB>1000</memoryInMB>
-            <std_err_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_15_45_42\logs\com.tv.tutorials.coolestuffvoorcheops.models.CandidateSearchResolver\std_err_CLIENT.log</std_err_CLIENT>
-            <std_out_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_15_45_42\logs\com.tv.tutorials.coolestuffvoorcheops.models.CandidateSearchResolver\std_out_CLIENT.log</std_out_CLIENT>
-            <std_err_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_15_45_42\logs\com.tv.tutorials.coolestuffvoorcheops.models.CandidateSearchResolver\std_err_MASTER.log</std_err_MASTER>
-            <std_out_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_15_45_42\logs\com.tv.tutorials.coolestuffvoorcheops.models.CandidateSearchResolver\std_out_MASTER.log</std_out_MASTER>
+            <std_err_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_15_45_42\logs\com.cheops.candidatemanager.models.CandidateSearchResolver\std_err_CLIENT.log</std_err_CLIENT>
+            <std_out_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_15_45_42\logs\com.cheops.candidatemanager.models.CandidateSearchResolver\std_out_CLIENT.log</std_out_CLIENT>
+            <std_err_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_15_45_42\logs\com.cheops.candidatemanager.models.CandidateSearchResolver\std_err_MASTER.log</std_err_MASTER>
+            <std_out_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_15_45_42\logs\com.cheops.candidatemanager.models.CandidateSearchResolver\std_out_MASTER.log</std_out_MASTER>
             <suite>
-                <fullPathOfTestSuite>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_15_45_42\tests\com\tv\tutorials\coolestuffvoorcheops\models\CandidateSearchResolver_ESTest.java</fullPathOfTestSuite>
+                <fullPathOfTestSuite>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_15_45_42\tests\com\tv\tutorials\candidatemanager\models\CandidateSearchResolver_ESTest.java</fullPathOfTestSuite>
                 <numberOfTests>8</numberOfTests>
                 <totalNumberOfStatements>19</totalNumberOfStatements>
                 <totalEffortInSeconds>39</totalEffortInSeconds>
@@ -480,20 +480,20 @@
         </generation>
     </cut>
     <cut>
-        <fullNameOfTargetClass>com.tv.tutorials.coolestuffvoorcheops.controllers.SignInWidgetConfigController</fullNameOfTargetClass>
-        <fullNameOfTestSuite>com.tv.tutorials.coolestuffvoorcheops.controllers.SignInWidgetConfigController_ESTest</fullNameOfTestSuite>
+        <fullNameOfTargetClass>com.cheops.candidatemanager.controllers.SignInWidgetConfigController</fullNameOfTargetClass>
+        <fullNameOfTestSuite>com.cheops.candidatemanager.controllers.SignInWidgetConfigController_ESTest</fullNameOfTestSuite>
         <generation>
             <id>0</id>
             <failed>false</failed>
             <modified>true</modified>
             <timeBudgetInSeconds>60</timeBudgetInSeconds>
             <memoryInMB>1000</memoryInMB>
-            <std_err_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_14_49_51\logs\com.tv.tutorials.coolestuffvoorcheops.controllers.SignInWidgetConfigController\std_err_CLIENT.log</std_err_CLIENT>
-            <std_out_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_14_49_51\logs\com.tv.tutorials.coolestuffvoorcheops.controllers.SignInWidgetConfigController\std_out_CLIENT.log</std_out_CLIENT>
-            <std_err_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_14_49_51\logs\com.tv.tutorials.coolestuffvoorcheops.controllers.SignInWidgetConfigController\std_err_MASTER.log</std_err_MASTER>
-            <std_out_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_14_49_51\logs\com.tv.tutorials.coolestuffvoorcheops.controllers.SignInWidgetConfigController\std_out_MASTER.log</std_out_MASTER>
+            <std_err_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_14_49_51\logs\com.cheops.candidatemanager.controllers.SignInWidgetConfigController\std_err_CLIENT.log</std_err_CLIENT>
+            <std_out_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_14_49_51\logs\com.cheops.candidatemanager.controllers.SignInWidgetConfigController\std_out_CLIENT.log</std_out_CLIENT>
+            <std_err_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_14_49_51\logs\com.cheops.candidatemanager.controllers.SignInWidgetConfigController\std_err_MASTER.log</std_err_MASTER>
+            <std_out_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_14_49_51\logs\com.cheops.candidatemanager.controllers.SignInWidgetConfigController\std_out_MASTER.log</std_out_MASTER>
             <suite>
-                <fullPathOfTestSuite>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_14_49_51\tests\com\tv\tutorials\coolestuffvoorcheops\controllers\SignInWidgetConfigController_ESTest.java</fullPathOfTestSuite>
+                <fullPathOfTestSuite>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_14_49_51\tests\com\tv\tutorials\candidatemanager\controllers\SignInWidgetConfigController_ESTest.java</fullPathOfTestSuite>
                 <numberOfTests>3</numberOfTests>
                 <totalNumberOfStatements>4</totalNumberOfStatements>
                 <totalEffortInSeconds>37</totalEffortInSeconds>
@@ -545,12 +545,12 @@
             <modified>true</modified>
             <timeBudgetInSeconds>60</timeBudgetInSeconds>
             <memoryInMB>1000</memoryInMB>
-            <std_err_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_15_45_42\logs\com.tv.tutorials.coolestuffvoorcheops.controllers.SignInWidgetConfigController\std_err_CLIENT.log</std_err_CLIENT>
-            <std_out_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_15_45_42\logs\com.tv.tutorials.coolestuffvoorcheops.controllers.SignInWidgetConfigController\std_out_CLIENT.log</std_out_CLIENT>
-            <std_err_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_15_45_42\logs\com.tv.tutorials.coolestuffvoorcheops.controllers.SignInWidgetConfigController\std_err_MASTER.log</std_err_MASTER>
-            <std_out_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_15_45_42\logs\com.tv.tutorials.coolestuffvoorcheops.controllers.SignInWidgetConfigController\std_out_MASTER.log</std_out_MASTER>
+            <std_err_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_15_45_42\logs\com.cheops.candidatemanager.controllers.SignInWidgetConfigController\std_err_CLIENT.log</std_err_CLIENT>
+            <std_out_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_15_45_42\logs\com.cheops.candidatemanager.controllers.SignInWidgetConfigController\std_out_CLIENT.log</std_out_CLIENT>
+            <std_err_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_15_45_42\logs\com.cheops.candidatemanager.controllers.SignInWidgetConfigController\std_err_MASTER.log</std_err_MASTER>
+            <std_out_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_15_45_42\logs\com.cheops.candidatemanager.controllers.SignInWidgetConfigController\std_out_MASTER.log</std_out_MASTER>
             <suite>
-                <fullPathOfTestSuite>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_15_45_42\tests\com\tv\tutorials\coolestuffvoorcheops\controllers\SignInWidgetConfigController_ESTest.java</fullPathOfTestSuite>
+                <fullPathOfTestSuite>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_15_45_42\tests\com\tv\tutorials\candidatemanager\controllers\SignInWidgetConfigController_ESTest.java</fullPathOfTestSuite>
                 <numberOfTests>3</numberOfTests>
                 <totalNumberOfStatements>4</totalNumberOfStatements>
                 <totalEffortInSeconds>38</totalEffortInSeconds>
@@ -598,20 +598,20 @@
         </generation>
     </cut>
     <cut>
-        <fullNameOfTargetClass>com.tv.tutorials.coolestuffvoorcheops.controllers.MessageOfTheDayController</fullNameOfTargetClass>
-        <fullNameOfTestSuite>com.tv.tutorials.coolestuffvoorcheops.controllers.MessageOfTheDayController_ESTest</fullNameOfTestSuite>
+        <fullNameOfTargetClass>com.cheops.candidatemanager.controllers.MessageOfTheDayController</fullNameOfTargetClass>
+        <fullNameOfTestSuite>com.cheops.candidatemanager.controllers.MessageOfTheDayController_ESTest</fullNameOfTestSuite>
         <generation>
             <id>0</id>
             <failed>false</failed>
             <modified>true</modified>
             <timeBudgetInSeconds>60</timeBudgetInSeconds>
             <memoryInMB>1000</memoryInMB>
-            <std_err_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_14_49_51\logs\com.tv.tutorials.coolestuffvoorcheops.controllers.MessageOfTheDayController\std_err_CLIENT.log</std_err_CLIENT>
-            <std_out_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_14_49_51\logs\com.tv.tutorials.coolestuffvoorcheops.controllers.MessageOfTheDayController\std_out_CLIENT.log</std_out_CLIENT>
-            <std_err_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_14_49_51\logs\com.tv.tutorials.coolestuffvoorcheops.controllers.MessageOfTheDayController\std_err_MASTER.log</std_err_MASTER>
-            <std_out_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_14_49_51\logs\com.tv.tutorials.coolestuffvoorcheops.controllers.MessageOfTheDayController\std_out_MASTER.log</std_out_MASTER>
+            <std_err_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_14_49_51\logs\com.cheops.candidatemanager.controllers.MessageOfTheDayController\std_err_CLIENT.log</std_err_CLIENT>
+            <std_out_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_14_49_51\logs\com.cheops.candidatemanager.controllers.MessageOfTheDayController\std_out_CLIENT.log</std_out_CLIENT>
+            <std_err_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_14_49_51\logs\com.cheops.candidatemanager.controllers.MessageOfTheDayController\std_err_MASTER.log</std_err_MASTER>
+            <std_out_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_14_49_51\logs\com.cheops.candidatemanager.controllers.MessageOfTheDayController\std_out_MASTER.log</std_out_MASTER>
             <suite>
-                <fullPathOfTestSuite>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_14_49_51\tests\com\tv\tutorials\coolestuffvoorcheops\controllers\MessageOfTheDayController_ESTest.java</fullPathOfTestSuite>
+                <fullPathOfTestSuite>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_14_49_51\tests\com\tv\tutorials\candidatemanager\controllers\MessageOfTheDayController_ESTest.java</fullPathOfTestSuite>
                 <numberOfTests>2</numberOfTests>
                 <totalNumberOfStatements>5</totalNumberOfStatements>
                 <totalEffortInSeconds>36</totalEffortInSeconds>
@@ -663,12 +663,12 @@
             <modified>true</modified>
             <timeBudgetInSeconds>60</timeBudgetInSeconds>
             <memoryInMB>1000</memoryInMB>
-            <std_err_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_15_45_42\logs\com.tv.tutorials.coolestuffvoorcheops.controllers.MessageOfTheDayController\std_err_CLIENT.log</std_err_CLIENT>
-            <std_out_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_15_45_42\logs\com.tv.tutorials.coolestuffvoorcheops.controllers.MessageOfTheDayController\std_out_CLIENT.log</std_out_CLIENT>
-            <std_err_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_15_45_42\logs\com.tv.tutorials.coolestuffvoorcheops.controllers.MessageOfTheDayController\std_err_MASTER.log</std_err_MASTER>
-            <std_out_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_15_45_42\logs\com.tv.tutorials.coolestuffvoorcheops.controllers.MessageOfTheDayController\std_out_MASTER.log</std_out_MASTER>
+            <std_err_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_15_45_42\logs\com.cheops.candidatemanager.controllers.MessageOfTheDayController\std_err_CLIENT.log</std_err_CLIENT>
+            <std_out_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_15_45_42\logs\com.cheops.candidatemanager.controllers.MessageOfTheDayController\std_out_CLIENT.log</std_out_CLIENT>
+            <std_err_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_15_45_42\logs\com.cheops.candidatemanager.controllers.MessageOfTheDayController\std_err_MASTER.log</std_err_MASTER>
+            <std_out_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_15_45_42\logs\com.cheops.candidatemanager.controllers.MessageOfTheDayController\std_out_MASTER.log</std_out_MASTER>
             <suite>
-                <fullPathOfTestSuite>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_15_45_42\tests\com\tv\tutorials\coolestuffvoorcheops\controllers\MessageOfTheDayController_ESTest.java</fullPathOfTestSuite>
+                <fullPathOfTestSuite>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_15_45_42\tests\com\tv\tutorials\candidatemanager\controllers\MessageOfTheDayController_ESTest.java</fullPathOfTestSuite>
                 <numberOfTests>2</numberOfTests>
                 <totalNumberOfStatements>5</totalNumberOfStatements>
                 <totalEffortInSeconds>37</totalEffortInSeconds>
@@ -716,20 +716,20 @@
         </generation>
     </cut>
     <cut>
-        <fullNameOfTargetClass>com.tv.tutorials.coolestuffvoorcheops.models.Update</fullNameOfTargetClass>
-        <fullNameOfTestSuite>com.tv.tutorials.coolestuffvoorcheops.models.Update_ESTest</fullNameOfTestSuite>
+        <fullNameOfTargetClass>com.cheops.candidatemanager.models.Update</fullNameOfTargetClass>
+        <fullNameOfTestSuite>com.cheops.candidatemanager.models.Update_ESTest</fullNameOfTestSuite>
         <generation>
             <id>0</id>
             <failed>false</failed>
             <modified>true</modified>
             <timeBudgetInSeconds>60</timeBudgetInSeconds>
             <memoryInMB>1000</memoryInMB>
-            <std_err_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_14_49_51\logs\com.tv.tutorials.coolestuffvoorcheops.models.Update\std_err_CLIENT.log</std_err_CLIENT>
-            <std_out_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_14_49_51\logs\com.tv.tutorials.coolestuffvoorcheops.models.Update\std_out_CLIENT.log</std_out_CLIENT>
-            <std_err_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_14_49_51\logs\com.tv.tutorials.coolestuffvoorcheops.models.Update\std_err_MASTER.log</std_err_MASTER>
-            <std_out_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_14_49_51\logs\com.tv.tutorials.coolestuffvoorcheops.models.Update\std_out_MASTER.log</std_out_MASTER>
+            <std_err_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_14_49_51\logs\com.cheops.candidatemanager.models.Update\std_err_CLIENT.log</std_err_CLIENT>
+            <std_out_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_14_49_51\logs\com.cheops.candidatemanager.models.Update\std_out_CLIENT.log</std_out_CLIENT>
+            <std_err_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_14_49_51\logs\com.cheops.candidatemanager.models.Update\std_err_MASTER.log</std_err_MASTER>
+            <std_out_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_14_49_51\logs\com.cheops.candidatemanager.models.Update\std_out_MASTER.log</std_out_MASTER>
             <suite>
-                <fullPathOfTestSuite>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_14_49_51\tests\com\tv\tutorials\coolestuffvoorcheops\models\Update_ESTest.java</fullPathOfTestSuite>
+                <fullPathOfTestSuite>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_14_49_51\tests\com\tv\tutorials\candidatemanager\models\Update_ESTest.java</fullPathOfTestSuite>
                 <numberOfTests>7</numberOfTests>
                 <totalNumberOfStatements>17</totalNumberOfStatements>
                 <totalEffortInSeconds>7</totalEffortInSeconds>
@@ -781,12 +781,12 @@
             <modified>true</modified>
             <timeBudgetInSeconds>60</timeBudgetInSeconds>
             <memoryInMB>1000</memoryInMB>
-            <std_err_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_15_45_42\logs\com.tv.tutorials.coolestuffvoorcheops.models.Update\std_err_CLIENT.log</std_err_CLIENT>
-            <std_out_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_15_45_42\logs\com.tv.tutorials.coolestuffvoorcheops.models.Update\std_out_CLIENT.log</std_out_CLIENT>
-            <std_err_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_15_45_42\logs\com.tv.tutorials.coolestuffvoorcheops.models.Update\std_err_MASTER.log</std_err_MASTER>
-            <std_out_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_15_45_42\logs\com.tv.tutorials.coolestuffvoorcheops.models.Update\std_out_MASTER.log</std_out_MASTER>
+            <std_err_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_15_45_42\logs\com.cheops.candidatemanager.models.Update\std_err_CLIENT.log</std_err_CLIENT>
+            <std_out_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_15_45_42\logs\com.cheops.candidatemanager.models.Update\std_out_CLIENT.log</std_out_CLIENT>
+            <std_err_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_15_45_42\logs\com.cheops.candidatemanager.models.Update\std_err_MASTER.log</std_err_MASTER>
+            <std_out_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_15_45_42\logs\com.cheops.candidatemanager.models.Update\std_out_MASTER.log</std_out_MASTER>
             <suite>
-                <fullPathOfTestSuite>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_15_45_42\tests\com\tv\tutorials\coolestuffvoorcheops\models\Update_ESTest.java</fullPathOfTestSuite>
+                <fullPathOfTestSuite>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_15_45_42\tests\com\tv\tutorials\candidatemanager\models\Update_ESTest.java</fullPathOfTestSuite>
                 <numberOfTests>5</numberOfTests>
                 <totalNumberOfStatements>13</totalNumberOfStatements>
                 <totalEffortInSeconds>9</totalEffortInSeconds>
@@ -834,20 +834,20 @@
         </generation>
     </cut>
     <cut>
-        <fullNameOfTargetClass>com.tv.tutorials.coolestuffvoorcheops.controllers.FileUploadController2</fullNameOfTargetClass>
-        <fullNameOfTestSuite>com.tv.tutorials.coolestuffvoorcheops.controllers.FileUploadController2_ESTest</fullNameOfTestSuite>
+        <fullNameOfTargetClass>com.cheops.candidatemanager.controllers.FileUploadController2</fullNameOfTargetClass>
+        <fullNameOfTestSuite>com.cheops.candidatemanager.controllers.FileUploadController2_ESTest</fullNameOfTestSuite>
         <generation>
             <id>0</id>
             <failed>false</failed>
             <modified>true</modified>
             <timeBudgetInSeconds>310</timeBudgetInSeconds>
             <memoryInMB>1000</memoryInMB>
-            <std_err_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_14_49_51\logs\com.tv.tutorials.coolestuffvoorcheops.controllers.FileUploadController2\std_err_CLIENT.log</std_err_CLIENT>
-            <std_out_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_14_49_51\logs\com.tv.tutorials.coolestuffvoorcheops.controllers.FileUploadController2\std_out_CLIENT.log</std_out_CLIENT>
-            <std_err_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_14_49_51\logs\com.tv.tutorials.coolestuffvoorcheops.controllers.FileUploadController2\std_err_MASTER.log</std_err_MASTER>
-            <std_out_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_14_49_51\logs\com.tv.tutorials.coolestuffvoorcheops.controllers.FileUploadController2\std_out_MASTER.log</std_out_MASTER>
+            <std_err_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_14_49_51\logs\com.cheops.candidatemanager.controllers.FileUploadController2\std_err_CLIENT.log</std_err_CLIENT>
+            <std_out_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_14_49_51\logs\com.cheops.candidatemanager.controllers.FileUploadController2\std_out_CLIENT.log</std_out_CLIENT>
+            <std_err_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_14_49_51\logs\com.cheops.candidatemanager.controllers.FileUploadController2\std_err_MASTER.log</std_err_MASTER>
+            <std_out_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_14_49_51\logs\com.cheops.candidatemanager.controllers.FileUploadController2\std_out_MASTER.log</std_out_MASTER>
             <suite>
-                <fullPathOfTestSuite>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_14_49_51\tests\com\tv\tutorials\coolestuffvoorcheops\controllers\FileUploadController2_ESTest.java</fullPathOfTestSuite>
+                <fullPathOfTestSuite>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_14_49_51\tests\com\tv\tutorials\candidatemanager\controllers\FileUploadController2_ESTest.java</fullPathOfTestSuite>
                 <numberOfTests>7</numberOfTests>
                 <totalNumberOfStatements>56</totalNumberOfStatements>
                 <totalEffortInSeconds>185</totalEffortInSeconds>
@@ -899,12 +899,12 @@
             <modified>true</modified>
             <timeBudgetInSeconds>310</timeBudgetInSeconds>
             <memoryInMB>1000</memoryInMB>
-            <std_err_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_15_45_42\logs\com.tv.tutorials.coolestuffvoorcheops.controllers.FileUploadController2\std_err_CLIENT.log</std_err_CLIENT>
-            <std_out_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_15_45_42\logs\com.tv.tutorials.coolestuffvoorcheops.controllers.FileUploadController2\std_out_CLIENT.log</std_out_CLIENT>
-            <std_err_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_15_45_42\logs\com.tv.tutorials.coolestuffvoorcheops.controllers.FileUploadController2\std_err_MASTER.log</std_err_MASTER>
-            <std_out_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_15_45_42\logs\com.tv.tutorials.coolestuffvoorcheops.controllers.FileUploadController2\std_out_MASTER.log</std_out_MASTER>
+            <std_err_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_15_45_42\logs\com.cheops.candidatemanager.controllers.FileUploadController2\std_err_CLIENT.log</std_err_CLIENT>
+            <std_out_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_15_45_42\logs\com.cheops.candidatemanager.controllers.FileUploadController2\std_out_CLIENT.log</std_out_CLIENT>
+            <std_err_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_15_45_42\logs\com.cheops.candidatemanager.controllers.FileUploadController2\std_err_MASTER.log</std_err_MASTER>
+            <std_out_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_15_45_42\logs\com.cheops.candidatemanager.controllers.FileUploadController2\std_out_MASTER.log</std_out_MASTER>
             <suite>
-                <fullPathOfTestSuite>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_15_45_42\tests\com\tv\tutorials\coolestuffvoorcheops\controllers\FileUploadController2_ESTest.java</fullPathOfTestSuite>
+                <fullPathOfTestSuite>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_15_45_42\tests\com\tv\tutorials\candidatemanager\controllers\FileUploadController2_ESTest.java</fullPathOfTestSuite>
                 <numberOfTests>6</numberOfTests>
                 <totalNumberOfStatements>50</totalNumberOfStatements>
                 <totalEffortInSeconds>212</totalEffortInSeconds>
@@ -952,20 +952,20 @@
         </generation>
     </cut>
     <cut>
-        <fullNameOfTargetClass>com.tv.tutorials.coolestuffvoorcheops.services.impl.CandidateService</fullNameOfTargetClass>
-        <fullNameOfTestSuite>com.tv.tutorials.coolestuffvoorcheops.services.impl.CandidateService_ESTest</fullNameOfTestSuite>
+        <fullNameOfTargetClass>com.cheops.candidatemanager.services.impl.CandidateService</fullNameOfTargetClass>
+        <fullNameOfTestSuite>com.cheops.candidatemanager.services.impl.CandidateService_ESTest</fullNameOfTestSuite>
         <generation>
             <id>0</id>
             <failed>false</failed>
             <modified>true</modified>
             <timeBudgetInSeconds>477</timeBudgetInSeconds>
             <memoryInMB>1000</memoryInMB>
-            <std_err_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_14_49_51\logs\com.tv.tutorials.coolestuffvoorcheops.services.impl.CandidateService\std_err_CLIENT.log</std_err_CLIENT>
-            <std_out_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_14_49_51\logs\com.tv.tutorials.coolestuffvoorcheops.services.impl.CandidateService\std_out_CLIENT.log</std_out_CLIENT>
-            <std_err_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_14_49_51\logs\com.tv.tutorials.coolestuffvoorcheops.services.impl.CandidateService\std_err_MASTER.log</std_err_MASTER>
-            <std_out_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_14_49_51\logs\com.tv.tutorials.coolestuffvoorcheops.services.impl.CandidateService\std_out_MASTER.log</std_out_MASTER>
+            <std_err_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_14_49_51\logs\com.cheops.candidatemanager.services.impl.CandidateService\std_err_CLIENT.log</std_err_CLIENT>
+            <std_out_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_14_49_51\logs\com.cheops.candidatemanager.services.impl.CandidateService\std_out_CLIENT.log</std_out_CLIENT>
+            <std_err_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_14_49_51\logs\com.cheops.candidatemanager.services.impl.CandidateService\std_err_MASTER.log</std_err_MASTER>
+            <std_out_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_14_49_51\logs\com.cheops.candidatemanager.services.impl.CandidateService\std_out_MASTER.log</std_out_MASTER>
             <suite>
-                <fullPathOfTestSuite>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_14_49_51\tests\com\tv\tutorials\coolestuffvoorcheops\services\impl\CandidateService_ESTest.java</fullPathOfTestSuite>
+                <fullPathOfTestSuite>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_14_49_51\tests\com\tv\tutorials\candidatemanager\services\impl\CandidateService_ESTest.java</fullPathOfTestSuite>
                 <numberOfTests>45</numberOfTests>
                 <totalNumberOfStatements>949</totalNumberOfStatements>
                 <totalEffortInSeconds>311</totalEffortInSeconds>
@@ -1017,12 +1017,12 @@
             <modified>true</modified>
             <timeBudgetInSeconds>477</timeBudgetInSeconds>
             <memoryInMB>1000</memoryInMB>
-            <std_err_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_15_45_42\logs\com.tv.tutorials.coolestuffvoorcheops.services.impl.CandidateService\std_err_CLIENT.log</std_err_CLIENT>
-            <std_out_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_15_45_42\logs\com.tv.tutorials.coolestuffvoorcheops.services.impl.CandidateService\std_out_CLIENT.log</std_out_CLIENT>
-            <std_err_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_15_45_42\logs\com.tv.tutorials.coolestuffvoorcheops.services.impl.CandidateService\std_err_MASTER.log</std_err_MASTER>
-            <std_out_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_15_45_42\logs\com.tv.tutorials.coolestuffvoorcheops.services.impl.CandidateService\std_out_MASTER.log</std_out_MASTER>
+            <std_err_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_15_45_42\logs\com.cheops.candidatemanager.services.impl.CandidateService\std_err_CLIENT.log</std_err_CLIENT>
+            <std_out_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_15_45_42\logs\com.cheops.candidatemanager.services.impl.CandidateService\std_out_CLIENT.log</std_out_CLIENT>
+            <std_err_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_15_45_42\logs\com.cheops.candidatemanager.services.impl.CandidateService\std_err_MASTER.log</std_err_MASTER>
+            <std_out_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_15_45_42\logs\com.cheops.candidatemanager.services.impl.CandidateService\std_out_MASTER.log</std_out_MASTER>
             <suite>
-                <fullPathOfTestSuite>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_15_45_42\tests\com\tv\tutorials\coolestuffvoorcheops\services\impl\CandidateService_ESTest.java</fullPathOfTestSuite>
+                <fullPathOfTestSuite>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_15_45_42\tests\com\tv\tutorials\candidatemanager\services\impl\CandidateService_ESTest.java</fullPathOfTestSuite>
                 <numberOfTests>57</numberOfTests>
                 <totalNumberOfStatements>1226</totalNumberOfStatements>
                 <totalEffortInSeconds>315</totalEffortInSeconds>
@@ -1070,20 +1070,20 @@
         </generation>
     </cut>
     <cut>
-        <fullNameOfTargetClass>com.tv.tutorials.coolestuffvoorcheops.exceptions.StorageFileNotFoundException</fullNameOfTargetClass>
-        <fullNameOfTestSuite>com.tv.tutorials.coolestuffvoorcheops.exceptions.StorageFileNotFoundException_ESTest</fullNameOfTestSuite>
+        <fullNameOfTargetClass>com.cheops.candidatemanager.exceptions.StorageFileNotFoundException</fullNameOfTargetClass>
+        <fullNameOfTestSuite>com.cheops.candidatemanager.exceptions.StorageFileNotFoundException_ESTest</fullNameOfTestSuite>
         <generation>
             <id>0</id>
             <failed>false</failed>
             <modified>true</modified>
             <timeBudgetInSeconds>60</timeBudgetInSeconds>
             <memoryInMB>1000</memoryInMB>
-            <std_err_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_14_49_51\logs\com.tv.tutorials.coolestuffvoorcheops.exceptions.StorageFileNotFoundException\std_err_CLIENT.log</std_err_CLIENT>
-            <std_out_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_14_49_51\logs\com.tv.tutorials.coolestuffvoorcheops.exceptions.StorageFileNotFoundException\std_out_CLIENT.log</std_out_CLIENT>
-            <std_err_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_14_49_51\logs\com.tv.tutorials.coolestuffvoorcheops.exceptions.StorageFileNotFoundException\std_err_MASTER.log</std_err_MASTER>
-            <std_out_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_14_49_51\logs\com.tv.tutorials.coolestuffvoorcheops.exceptions.StorageFileNotFoundException\std_out_MASTER.log</std_out_MASTER>
+            <std_err_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_14_49_51\logs\com.cheops.candidatemanager.exceptions.StorageFileNotFoundException\std_err_CLIENT.log</std_err_CLIENT>
+            <std_out_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_14_49_51\logs\com.cheops.candidatemanager.exceptions.StorageFileNotFoundException\std_out_CLIENT.log</std_out_CLIENT>
+            <std_err_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_14_49_51\logs\com.cheops.candidatemanager.exceptions.StorageFileNotFoundException\std_err_MASTER.log</std_err_MASTER>
+            <std_out_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_14_49_51\logs\com.cheops.candidatemanager.exceptions.StorageFileNotFoundException\std_out_MASTER.log</std_out_MASTER>
             <suite>
-                <fullPathOfTestSuite>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_14_49_51\tests\com\tv\tutorials\coolestuffvoorcheops\exceptions\StorageFileNotFoundException_ESTest.java</fullPathOfTestSuite>
+                <fullPathOfTestSuite>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_14_49_51\tests\com\tv\tutorials\candidatemanager\exceptions\StorageFileNotFoundException_ESTest.java</fullPathOfTestSuite>
                 <numberOfTests>1</numberOfTests>
                 <totalNumberOfStatements>3</totalNumberOfStatements>
                 <totalEffortInSeconds>8</totalEffortInSeconds>
@@ -1135,12 +1135,12 @@
             <modified>true</modified>
             <timeBudgetInSeconds>60</timeBudgetInSeconds>
             <memoryInMB>1000</memoryInMB>
-            <std_err_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_15_45_42\logs\com.tv.tutorials.coolestuffvoorcheops.exceptions.StorageFileNotFoundException\std_err_CLIENT.log</std_err_CLIENT>
-            <std_out_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_15_45_42\logs\com.tv.tutorials.coolestuffvoorcheops.exceptions.StorageFileNotFoundException\std_out_CLIENT.log</std_out_CLIENT>
-            <std_err_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_15_45_42\logs\com.tv.tutorials.coolestuffvoorcheops.exceptions.StorageFileNotFoundException\std_err_MASTER.log</std_err_MASTER>
-            <std_out_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_15_45_42\logs\com.tv.tutorials.coolestuffvoorcheops.exceptions.StorageFileNotFoundException\std_out_MASTER.log</std_out_MASTER>
+            <std_err_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_15_45_42\logs\com.cheops.candidatemanager.exceptions.StorageFileNotFoundException\std_err_CLIENT.log</std_err_CLIENT>
+            <std_out_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_15_45_42\logs\com.cheops.candidatemanager.exceptions.StorageFileNotFoundException\std_out_CLIENT.log</std_out_CLIENT>
+            <std_err_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_15_45_42\logs\com.cheops.candidatemanager.exceptions.StorageFileNotFoundException\std_err_MASTER.log</std_err_MASTER>
+            <std_out_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_15_45_42\logs\com.cheops.candidatemanager.exceptions.StorageFileNotFoundException\std_out_MASTER.log</std_out_MASTER>
             <suite>
-                <fullPathOfTestSuite>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_15_45_42\tests\com\tv\tutorials\coolestuffvoorcheops\exceptions\StorageFileNotFoundException_ESTest.java</fullPathOfTestSuite>
+                <fullPathOfTestSuite>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_15_45_42\tests\com\tv\tutorials\candidatemanager\exceptions\StorageFileNotFoundException_ESTest.java</fullPathOfTestSuite>
                 <numberOfTests>2</numberOfTests>
                 <totalNumberOfStatements>3</totalNumberOfStatements>
                 <totalEffortInSeconds>12</totalEffortInSeconds>
@@ -1188,20 +1188,20 @@
         </generation>
     </cut>
     <cut>
-        <fullNameOfTargetClass>com.tv.tutorials.coolestuffvoorcheops.services.impl.StorageService</fullNameOfTargetClass>
-        <fullNameOfTestSuite>com.tv.tutorials.coolestuffvoorcheops.services.impl.StorageService_ESTest</fullNameOfTestSuite>
+        <fullNameOfTargetClass>com.cheops.candidatemanager.services.impl.StorageService</fullNameOfTargetClass>
+        <fullNameOfTestSuite>com.cheops.candidatemanager.services.impl.StorageService_ESTest</fullNameOfTestSuite>
         <generation>
             <id>0</id>
             <failed>false</failed>
             <modified>true</modified>
             <timeBudgetInSeconds>226</timeBudgetInSeconds>
             <memoryInMB>1000</memoryInMB>
-            <std_err_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_14_49_51\logs\com.tv.tutorials.coolestuffvoorcheops.services.impl.StorageService\std_err_CLIENT.log</std_err_CLIENT>
-            <std_out_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_14_49_51\logs\com.tv.tutorials.coolestuffvoorcheops.services.impl.StorageService\std_out_CLIENT.log</std_out_CLIENT>
-            <std_err_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_14_49_51\logs\com.tv.tutorials.coolestuffvoorcheops.services.impl.StorageService\std_err_MASTER.log</std_err_MASTER>
-            <std_out_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_14_49_51\logs\com.tv.tutorials.coolestuffvoorcheops.services.impl.StorageService\std_out_MASTER.log</std_out_MASTER>
+            <std_err_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_14_49_51\logs\com.cheops.candidatemanager.services.impl.StorageService\std_err_CLIENT.log</std_err_CLIENT>
+            <std_out_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_14_49_51\logs\com.cheops.candidatemanager.services.impl.StorageService\std_out_CLIENT.log</std_out_CLIENT>
+            <std_err_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_14_49_51\logs\com.cheops.candidatemanager.services.impl.StorageService\std_err_MASTER.log</std_err_MASTER>
+            <std_out_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_14_49_51\logs\com.cheops.candidatemanager.services.impl.StorageService\std_out_MASTER.log</std_out_MASTER>
             <suite>
-                <fullPathOfTestSuite>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_14_49_51\tests\com\tv\tutorials\coolestuffvoorcheops\services\impl\StorageService_ESTest.java</fullPathOfTestSuite>
+                <fullPathOfTestSuite>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_14_49_51\tests\com\tv\tutorials\candidatemanager\services\impl\StorageService_ESTest.java</fullPathOfTestSuite>
                 <numberOfTests>21</numberOfTests>
                 <totalNumberOfStatements>80</totalNumberOfStatements>
                 <totalEffortInSeconds>144</totalEffortInSeconds>
@@ -1253,12 +1253,12 @@
             <modified>true</modified>
             <timeBudgetInSeconds>226</timeBudgetInSeconds>
             <memoryInMB>1000</memoryInMB>
-            <std_err_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_15_45_42\logs\com.tv.tutorials.coolestuffvoorcheops.services.impl.StorageService\std_err_CLIENT.log</std_err_CLIENT>
-            <std_out_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_15_45_42\logs\com.tv.tutorials.coolestuffvoorcheops.services.impl.StorageService\std_out_CLIENT.log</std_out_CLIENT>
-            <std_err_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_15_45_42\logs\com.tv.tutorials.coolestuffvoorcheops.services.impl.StorageService\std_err_MASTER.log</std_err_MASTER>
-            <std_out_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_15_45_42\logs\com.tv.tutorials.coolestuffvoorcheops.services.impl.StorageService\std_out_MASTER.log</std_out_MASTER>
+            <std_err_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_15_45_42\logs\com.cheops.candidatemanager.services.impl.StorageService\std_err_CLIENT.log</std_err_CLIENT>
+            <std_out_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_15_45_42\logs\com.cheops.candidatemanager.services.impl.StorageService\std_out_CLIENT.log</std_out_CLIENT>
+            <std_err_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_15_45_42\logs\com.cheops.candidatemanager.services.impl.StorageService\std_err_MASTER.log</std_err_MASTER>
+            <std_out_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_15_45_42\logs\com.cheops.candidatemanager.services.impl.StorageService\std_out_MASTER.log</std_out_MASTER>
             <suite>
-                <fullPathOfTestSuite>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_15_45_42\tests\com\tv\tutorials\coolestuffvoorcheops\services\impl\StorageService_ESTest.java</fullPathOfTestSuite>
+                <fullPathOfTestSuite>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_15_45_42\tests\com\tv\tutorials\candidatemanager\services\impl\StorageService_ESTest.java</fullPathOfTestSuite>
                 <numberOfTests>21</numberOfTests>
                 <totalNumberOfStatements>80</totalNumberOfStatements>
                 <totalEffortInSeconds>143</totalEffortInSeconds>
@@ -1306,20 +1306,20 @@
         </generation>
     </cut>
     <cut>
-        <fullNameOfTargetClass>com.tv.tutorials.coolestuffvoorcheops.models.MyUploadForm</fullNameOfTargetClass>
-        <fullNameOfTestSuite>com.tv.tutorials.coolestuffvoorcheops.models.MyUploadForm_ESTest</fullNameOfTestSuite>
+        <fullNameOfTargetClass>com.cheops.candidatemanager.models.MyUploadForm</fullNameOfTargetClass>
+        <fullNameOfTestSuite>com.cheops.candidatemanager.models.MyUploadForm_ESTest</fullNameOfTestSuite>
         <generation>
             <id>0</id>
             <failed>false</failed>
             <modified>true</modified>
             <timeBudgetInSeconds>60</timeBudgetInSeconds>
             <memoryInMB>1000</memoryInMB>
-            <std_err_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_14_49_51\logs\com.tv.tutorials.coolestuffvoorcheops.models.MyUploadForm\std_err_CLIENT.log</std_err_CLIENT>
-            <std_out_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_14_49_51\logs\com.tv.tutorials.coolestuffvoorcheops.models.MyUploadForm\std_out_CLIENT.log</std_out_CLIENT>
-            <std_err_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_14_49_51\logs\com.tv.tutorials.coolestuffvoorcheops.models.MyUploadForm\std_err_MASTER.log</std_err_MASTER>
-            <std_out_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_14_49_51\logs\com.tv.tutorials.coolestuffvoorcheops.models.MyUploadForm\std_out_MASTER.log</std_out_MASTER>
+            <std_err_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_14_49_51\logs\com.cheops.candidatemanager.models.MyUploadForm\std_err_CLIENT.log</std_err_CLIENT>
+            <std_out_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_14_49_51\logs\com.cheops.candidatemanager.models.MyUploadForm\std_out_CLIENT.log</std_out_CLIENT>
+            <std_err_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_14_49_51\logs\com.cheops.candidatemanager.models.MyUploadForm\std_err_MASTER.log</std_err_MASTER>
+            <std_out_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_14_49_51\logs\com.cheops.candidatemanager.models.MyUploadForm\std_out_MASTER.log</std_out_MASTER>
             <suite>
-                <fullPathOfTestSuite>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_14_49_51\tests\com\tv\tutorials\coolestuffvoorcheops\models\MyUploadForm_ESTest.java</fullPathOfTestSuite>
+                <fullPathOfTestSuite>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_14_49_51\tests\com\tv\tutorials\candidatemanager\models\MyUploadForm_ESTest.java</fullPathOfTestSuite>
                 <numberOfTests>6</numberOfTests>
                 <totalNumberOfStatements>18</totalNumberOfStatements>
                 <totalEffortInSeconds>8</totalEffortInSeconds>
@@ -1371,12 +1371,12 @@
             <modified>true</modified>
             <timeBudgetInSeconds>60</timeBudgetInSeconds>
             <memoryInMB>1000</memoryInMB>
-            <std_err_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_15_45_42\logs\com.tv.tutorials.coolestuffvoorcheops.models.MyUploadForm\std_err_CLIENT.log</std_err_CLIENT>
-            <std_out_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_15_45_42\logs\com.tv.tutorials.coolestuffvoorcheops.models.MyUploadForm\std_out_CLIENT.log</std_out_CLIENT>
-            <std_err_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_15_45_42\logs\com.tv.tutorials.coolestuffvoorcheops.models.MyUploadForm\std_err_MASTER.log</std_err_MASTER>
-            <std_out_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_15_45_42\logs\com.tv.tutorials.coolestuffvoorcheops.models.MyUploadForm\std_out_MASTER.log</std_out_MASTER>
+            <std_err_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_15_45_42\logs\com.cheops.candidatemanager.models.MyUploadForm\std_err_CLIENT.log</std_err_CLIENT>
+            <std_out_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_15_45_42\logs\com.cheops.candidatemanager.models.MyUploadForm\std_out_CLIENT.log</std_out_CLIENT>
+            <std_err_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_15_45_42\logs\com.cheops.candidatemanager.models.MyUploadForm\std_err_MASTER.log</std_err_MASTER>
+            <std_out_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_15_45_42\logs\com.cheops.candidatemanager.models.MyUploadForm\std_out_MASTER.log</std_out_MASTER>
             <suite>
-                <fullPathOfTestSuite>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_15_45_42\tests\com\tv\tutorials\coolestuffvoorcheops\models\MyUploadForm_ESTest.java</fullPathOfTestSuite>
+                <fullPathOfTestSuite>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_15_45_42\tests\com\tv\tutorials\candidatemanager\models\MyUploadForm_ESTest.java</fullPathOfTestSuite>
                 <numberOfTests>6</numberOfTests>
                 <totalNumberOfStatements>18</totalNumberOfStatements>
                 <totalEffortInSeconds>11</totalEffortInSeconds>
@@ -1424,18 +1424,18 @@
         </generation>
     </cut>
     <cut>
-        <fullNameOfTargetClass>com.tv.tutorials.coolestuffvoorcheops.controllers.SkillsController</fullNameOfTargetClass>
-        <fullNameOfTestSuite>com.tv.tutorials.coolestuffvoorcheops.controllers.SkillsController_ESTest</fullNameOfTestSuite>
+        <fullNameOfTargetClass>com.cheops.candidatemanager.controllers.SkillsController</fullNameOfTargetClass>
+        <fullNameOfTestSuite>com.cheops.candidatemanager.controllers.SkillsController_ESTest</fullNameOfTestSuite>
         <generation>
             <id>0</id>
             <failed>true</failed>
             <modified>true</modified>
             <timeBudgetInSeconds>122</timeBudgetInSeconds>
             <memoryInMB>1000</memoryInMB>
-            <std_err_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_14_49_51\logs\com.tv.tutorials.coolestuffvoorcheops.controllers.SkillsController\std_err_CLIENT.log</std_err_CLIENT>
-            <std_out_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_14_49_51\logs\com.tv.tutorials.coolestuffvoorcheops.controllers.SkillsController\std_out_CLIENT.log</std_out_CLIENT>
-            <std_err_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_14_49_51\logs\com.tv.tutorials.coolestuffvoorcheops.controllers.SkillsController\std_err_MASTER.log</std_err_MASTER>
-            <std_out_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_14_49_51\logs\com.tv.tutorials.coolestuffvoorcheops.controllers.SkillsController\std_out_MASTER.log</std_out_MASTER>
+            <std_err_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_14_49_51\logs\com.cheops.candidatemanager.controllers.SkillsController\std_err_CLIENT.log</std_err_CLIENT>
+            <std_out_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_14_49_51\logs\com.cheops.candidatemanager.controllers.SkillsController\std_out_CLIENT.log</std_out_CLIENT>
+            <std_err_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_14_49_51\logs\com.cheops.candidatemanager.controllers.SkillsController\std_err_MASTER.log</std_err_MASTER>
+            <std_out_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_14_49_51\logs\com.cheops.candidatemanager.controllers.SkillsController\std_out_MASTER.log</std_out_MASTER>
         </generation>
         <generation>
             <id>1</id>
@@ -1443,27 +1443,27 @@
             <modified>true</modified>
             <timeBudgetInSeconds>122</timeBudgetInSeconds>
             <memoryInMB>1000</memoryInMB>
-            <std_err_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_15_45_42\logs\com.tv.tutorials.coolestuffvoorcheops.controllers.SkillsController\std_err_CLIENT.log</std_err_CLIENT>
-            <std_out_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_15_45_42\logs\com.tv.tutorials.coolestuffvoorcheops.controllers.SkillsController\std_out_CLIENT.log</std_out_CLIENT>
-            <std_err_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_15_45_42\logs\com.tv.tutorials.coolestuffvoorcheops.controllers.SkillsController\std_err_MASTER.log</std_err_MASTER>
-            <std_out_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_15_45_42\logs\com.tv.tutorials.coolestuffvoorcheops.controllers.SkillsController\std_out_MASTER.log</std_out_MASTER>
+            <std_err_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_15_45_42\logs\com.cheops.candidatemanager.controllers.SkillsController\std_err_CLIENT.log</std_err_CLIENT>
+            <std_out_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_15_45_42\logs\com.cheops.candidatemanager.controllers.SkillsController\std_out_CLIENT.log</std_out_CLIENT>
+            <std_err_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_15_45_42\logs\com.cheops.candidatemanager.controllers.SkillsController\std_err_MASTER.log</std_err_MASTER>
+            <std_out_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_15_45_42\logs\com.cheops.candidatemanager.controllers.SkillsController\std_out_MASTER.log</std_out_MASTER>
         </generation>
     </cut>
     <cut>
-        <fullNameOfTargetClass>com.tv.tutorials.coolestuffvoorcheops.models.CandaidateSearchModel</fullNameOfTargetClass>
-        <fullNameOfTestSuite>com.tv.tutorials.coolestuffvoorcheops.models.CandaidateSearchModel_ESTest</fullNameOfTestSuite>
+        <fullNameOfTargetClass>com.cheops.candidatemanager.models.CandaidateSearchModel</fullNameOfTargetClass>
+        <fullNameOfTestSuite>com.cheops.candidatemanager.models.CandaidateSearchModel_ESTest</fullNameOfTestSuite>
         <generation>
             <id>0</id>
             <failed>false</failed>
             <modified>true</modified>
             <timeBudgetInSeconds>60</timeBudgetInSeconds>
             <memoryInMB>1000</memoryInMB>
-            <std_err_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_14_49_51\logs\com.tv.tutorials.coolestuffvoorcheops.models.CandaidateSearchModel\std_err_CLIENT.log</std_err_CLIENT>
-            <std_out_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_14_49_51\logs\com.tv.tutorials.coolestuffvoorcheops.models.CandaidateSearchModel\std_out_CLIENT.log</std_out_CLIENT>
-            <std_err_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_14_49_51\logs\com.tv.tutorials.coolestuffvoorcheops.models.CandaidateSearchModel\std_err_MASTER.log</std_err_MASTER>
-            <std_out_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_14_49_51\logs\com.tv.tutorials.coolestuffvoorcheops.models.CandaidateSearchModel\std_out_MASTER.log</std_out_MASTER>
+            <std_err_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_14_49_51\logs\com.cheops.candidatemanager.models.CandaidateSearchModel\std_err_CLIENT.log</std_err_CLIENT>
+            <std_out_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_14_49_51\logs\com.cheops.candidatemanager.models.CandaidateSearchModel\std_out_CLIENT.log</std_out_CLIENT>
+            <std_err_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_14_49_51\logs\com.cheops.candidatemanager.models.CandaidateSearchModel\std_err_MASTER.log</std_err_MASTER>
+            <std_out_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_14_49_51\logs\com.cheops.candidatemanager.models.CandaidateSearchModel\std_out_MASTER.log</std_out_MASTER>
             <suite>
-                <fullPathOfTestSuite>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_14_49_51\tests\com\tv\tutorials\coolestuffvoorcheops\models\CandaidateSearchModel_ESTest.java</fullPathOfTestSuite>
+                <fullPathOfTestSuite>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_14_49_51\tests\com\tv\tutorials\candidatemanager\models\CandaidateSearchModel_ESTest.java</fullPathOfTestSuite>
                 <numberOfTests>7</numberOfTests>
                 <totalNumberOfStatements>17</totalNumberOfStatements>
                 <totalEffortInSeconds>8</totalEffortInSeconds>
@@ -1515,12 +1515,12 @@
             <modified>true</modified>
             <timeBudgetInSeconds>60</timeBudgetInSeconds>
             <memoryInMB>1000</memoryInMB>
-            <std_err_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_15_45_42\logs\com.tv.tutorials.coolestuffvoorcheops.models.CandaidateSearchModel\std_err_CLIENT.log</std_err_CLIENT>
-            <std_out_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_15_45_42\logs\com.tv.tutorials.coolestuffvoorcheops.models.CandaidateSearchModel\std_out_CLIENT.log</std_out_CLIENT>
-            <std_err_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_15_45_42\logs\com.tv.tutorials.coolestuffvoorcheops.models.CandaidateSearchModel\std_err_MASTER.log</std_err_MASTER>
-            <std_out_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_15_45_42\logs\com.tv.tutorials.coolestuffvoorcheops.models.CandaidateSearchModel\std_out_MASTER.log</std_out_MASTER>
+            <std_err_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_15_45_42\logs\com.cheops.candidatemanager.models.CandaidateSearchModel\std_err_CLIENT.log</std_err_CLIENT>
+            <std_out_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_15_45_42\logs\com.cheops.candidatemanager.models.CandaidateSearchModel\std_out_CLIENT.log</std_out_CLIENT>
+            <std_err_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_15_45_42\logs\com.cheops.candidatemanager.models.CandaidateSearchModel\std_err_MASTER.log</std_err_MASTER>
+            <std_out_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_15_45_42\logs\com.cheops.candidatemanager.models.CandaidateSearchModel\std_out_MASTER.log</std_out_MASTER>
             <suite>
-                <fullPathOfTestSuite>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_15_45_42\tests\com\tv\tutorials\coolestuffvoorcheops\models\CandaidateSearchModel_ESTest.java</fullPathOfTestSuite>
+                <fullPathOfTestSuite>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_15_45_42\tests\com\tv\tutorials\candidatemanager\models\CandaidateSearchModel_ESTest.java</fullPathOfTestSuite>
                 <numberOfTests>6</numberOfTests>
                 <totalNumberOfStatements>15</totalNumberOfStatements>
                 <totalEffortInSeconds>10</totalEffortInSeconds>
@@ -1568,18 +1568,18 @@
         </generation>
     </cut>
     <cut>
-        <fullNameOfTargetClass>com.tv.tutorials.coolestuffvoorcheops.controllers.SalaryPackageController</fullNameOfTargetClass>
-        <fullNameOfTestSuite>com.tv.tutorials.coolestuffvoorcheops.controllers.SalaryPackageController_ESTest</fullNameOfTestSuite>
+        <fullNameOfTargetClass>com.cheops.candidatemanager.controllers.SalaryPackageController</fullNameOfTargetClass>
+        <fullNameOfTestSuite>com.cheops.candidatemanager.controllers.SalaryPackageController_ESTest</fullNameOfTestSuite>
         <generation>
             <id>0</id>
             <failed>true</failed>
             <modified>true</modified>
             <timeBudgetInSeconds>185</timeBudgetInSeconds>
             <memoryInMB>1000</memoryInMB>
-            <std_err_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_14_49_51\logs\com.tv.tutorials.coolestuffvoorcheops.controllers.SalaryPackageController\std_err_CLIENT.log</std_err_CLIENT>
-            <std_out_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_14_49_51\logs\com.tv.tutorials.coolestuffvoorcheops.controllers.SalaryPackageController\std_out_CLIENT.log</std_out_CLIENT>
-            <std_err_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_14_49_51\logs\com.tv.tutorials.coolestuffvoorcheops.controllers.SalaryPackageController\std_err_MASTER.log</std_err_MASTER>
-            <std_out_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_14_49_51\logs\com.tv.tutorials.coolestuffvoorcheops.controllers.SalaryPackageController\std_out_MASTER.log</std_out_MASTER>
+            <std_err_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_14_49_51\logs\com.cheops.candidatemanager.controllers.SalaryPackageController\std_err_CLIENT.log</std_err_CLIENT>
+            <std_out_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_14_49_51\logs\com.cheops.candidatemanager.controllers.SalaryPackageController\std_out_CLIENT.log</std_out_CLIENT>
+            <std_err_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_14_49_51\logs\com.cheops.candidatemanager.controllers.SalaryPackageController\std_err_MASTER.log</std_err_MASTER>
+            <std_out_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_14_49_51\logs\com.cheops.candidatemanager.controllers.SalaryPackageController\std_out_MASTER.log</std_out_MASTER>
         </generation>
         <generation>
             <id>1</id>
@@ -1587,27 +1587,27 @@
             <modified>true</modified>
             <timeBudgetInSeconds>185</timeBudgetInSeconds>
             <memoryInMB>1000</memoryInMB>
-            <std_err_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_15_45_42\logs\com.tv.tutorials.coolestuffvoorcheops.controllers.SalaryPackageController\std_err_CLIENT.log</std_err_CLIENT>
-            <std_out_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_15_45_42\logs\com.tv.tutorials.coolestuffvoorcheops.controllers.SalaryPackageController\std_out_CLIENT.log</std_out_CLIENT>
-            <std_err_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_15_45_42\logs\com.tv.tutorials.coolestuffvoorcheops.controllers.SalaryPackageController\std_err_MASTER.log</std_err_MASTER>
-            <std_out_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_15_45_42\logs\com.tv.tutorials.coolestuffvoorcheops.controllers.SalaryPackageController\std_out_MASTER.log</std_out_MASTER>
+            <std_err_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_15_45_42\logs\com.cheops.candidatemanager.controllers.SalaryPackageController\std_err_CLIENT.log</std_err_CLIENT>
+            <std_out_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_15_45_42\logs\com.cheops.candidatemanager.controllers.SalaryPackageController\std_out_CLIENT.log</std_out_CLIENT>
+            <std_err_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_15_45_42\logs\com.cheops.candidatemanager.controllers.SalaryPackageController\std_err_MASTER.log</std_err_MASTER>
+            <std_out_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_15_45_42\logs\com.cheops.candidatemanager.controllers.SalaryPackageController\std_out_MASTER.log</std_out_MASTER>
         </generation>
     </cut>
     <cut>
-        <fullNameOfTargetClass>com.tv.tutorials.coolestuffvoorcheops.configuration.SecurityConfiguration</fullNameOfTargetClass>
-        <fullNameOfTestSuite>com.tv.tutorials.coolestuffvoorcheops.configuration.SecurityConfiguration_ESTest</fullNameOfTestSuite>
+        <fullNameOfTargetClass>com.cheops.candidatemanager.configuration.SecurityConfiguration</fullNameOfTargetClass>
+        <fullNameOfTestSuite>com.cheops.candidatemanager.configuration.SecurityConfiguration_ESTest</fullNameOfTestSuite>
         <generation>
             <id>0</id>
             <failed>false</failed>
             <modified>true</modified>
             <timeBudgetInSeconds>60</timeBudgetInSeconds>
             <memoryInMB>1000</memoryInMB>
-            <std_err_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_14_49_51\logs\com.tv.tutorials.coolestuffvoorcheops.configuration.SecurityConfiguration\std_err_CLIENT.log</std_err_CLIENT>
-            <std_out_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_14_49_51\logs\com.tv.tutorials.coolestuffvoorcheops.configuration.SecurityConfiguration\std_out_CLIENT.log</std_out_CLIENT>
-            <std_err_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_14_49_51\logs\com.tv.tutorials.coolestuffvoorcheops.configuration.SecurityConfiguration\std_err_MASTER.log</std_err_MASTER>
-            <std_out_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_14_49_51\logs\com.tv.tutorials.coolestuffvoorcheops.configuration.SecurityConfiguration\std_out_MASTER.log</std_out_MASTER>
+            <std_err_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_14_49_51\logs\com.cheops.candidatemanager.configuration.SecurityConfiguration\std_err_CLIENT.log</std_err_CLIENT>
+            <std_out_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_14_49_51\logs\com.cheops.candidatemanager.configuration.SecurityConfiguration\std_out_CLIENT.log</std_out_CLIENT>
+            <std_err_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_14_49_51\logs\com.cheops.candidatemanager.configuration.SecurityConfiguration\std_err_MASTER.log</std_err_MASTER>
+            <std_out_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_14_49_51\logs\com.cheops.candidatemanager.configuration.SecurityConfiguration\std_out_MASTER.log</std_out_MASTER>
             <suite>
-                <fullPathOfTestSuite>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_14_49_51\tests\com\tv\tutorials\coolestuffvoorcheops\configuration\SecurityConfiguration_ESTest.java</fullPathOfTestSuite>
+                <fullPathOfTestSuite>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_14_49_51\tests\com\tv\tutorials\candidatemanager\configuration\SecurityConfiguration_ESTest.java</fullPathOfTestSuite>
                 <numberOfTests>1</numberOfTests>
                 <totalNumberOfStatements>1</totalNumberOfStatements>
                 <totalEffortInSeconds>37</totalEffortInSeconds>
@@ -1659,12 +1659,12 @@
             <modified>true</modified>
             <timeBudgetInSeconds>60</timeBudgetInSeconds>
             <memoryInMB>1000</memoryInMB>
-            <std_err_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_15_45_42\logs\com.tv.tutorials.coolestuffvoorcheops.configuration.SecurityConfiguration\std_err_CLIENT.log</std_err_CLIENT>
-            <std_out_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_15_45_42\logs\com.tv.tutorials.coolestuffvoorcheops.configuration.SecurityConfiguration\std_out_CLIENT.log</std_out_CLIENT>
-            <std_err_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_15_45_42\logs\com.tv.tutorials.coolestuffvoorcheops.configuration.SecurityConfiguration\std_err_MASTER.log</std_err_MASTER>
-            <std_out_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_15_45_42\logs\com.tv.tutorials.coolestuffvoorcheops.configuration.SecurityConfiguration\std_out_MASTER.log</std_out_MASTER>
+            <std_err_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_15_45_42\logs\com.cheops.candidatemanager.configuration.SecurityConfiguration\std_err_CLIENT.log</std_err_CLIENT>
+            <std_out_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_15_45_42\logs\com.cheops.candidatemanager.configuration.SecurityConfiguration\std_out_CLIENT.log</std_out_CLIENT>
+            <std_err_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_15_45_42\logs\com.cheops.candidatemanager.configuration.SecurityConfiguration\std_err_MASTER.log</std_err_MASTER>
+            <std_out_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_15_45_42\logs\com.cheops.candidatemanager.configuration.SecurityConfiguration\std_out_MASTER.log</std_out_MASTER>
             <suite>
-                <fullPathOfTestSuite>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_15_45_42\tests\com\tv\tutorials\coolestuffvoorcheops\configuration\SecurityConfiguration_ESTest.java</fullPathOfTestSuite>
+                <fullPathOfTestSuite>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_15_45_42\tests\com\tv\tutorials\candidatemanager\configuration\SecurityConfiguration_ESTest.java</fullPathOfTestSuite>
                 <numberOfTests>0</numberOfTests>
                 <totalNumberOfStatements>0</totalNumberOfStatements>
                 <totalEffortInSeconds>37</totalEffortInSeconds>
@@ -1712,20 +1712,20 @@
         </generation>
     </cut>
     <cut>
-        <fullNameOfTargetClass>com.tv.tutorials.coolestuffvoorcheops.exceptions.StorageException</fullNameOfTargetClass>
-        <fullNameOfTestSuite>com.tv.tutorials.coolestuffvoorcheops.exceptions.StorageException_ESTest</fullNameOfTestSuite>
+        <fullNameOfTargetClass>com.cheops.candidatemanager.exceptions.StorageException</fullNameOfTargetClass>
+        <fullNameOfTestSuite>com.cheops.candidatemanager.exceptions.StorageException_ESTest</fullNameOfTestSuite>
         <generation>
             <id>0</id>
             <failed>false</failed>
             <modified>true</modified>
             <timeBudgetInSeconds>60</timeBudgetInSeconds>
             <memoryInMB>1000</memoryInMB>
-            <std_err_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_14_49_51\logs\com.tv.tutorials.coolestuffvoorcheops.exceptions.StorageException\std_err_CLIENT.log</std_err_CLIENT>
-            <std_out_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_14_49_51\logs\com.tv.tutorials.coolestuffvoorcheops.exceptions.StorageException\std_out_CLIENT.log</std_out_CLIENT>
-            <std_err_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_14_49_51\logs\com.tv.tutorials.coolestuffvoorcheops.exceptions.StorageException\std_err_MASTER.log</std_err_MASTER>
-            <std_out_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_14_49_51\logs\com.tv.tutorials.coolestuffvoorcheops.exceptions.StorageException\std_out_MASTER.log</std_out_MASTER>
+            <std_err_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_14_49_51\logs\com.cheops.candidatemanager.exceptions.StorageException\std_err_CLIENT.log</std_err_CLIENT>
+            <std_out_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_14_49_51\logs\com.cheops.candidatemanager.exceptions.StorageException\std_out_CLIENT.log</std_out_CLIENT>
+            <std_err_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_14_49_51\logs\com.cheops.candidatemanager.exceptions.StorageException\std_err_MASTER.log</std_err_MASTER>
+            <std_out_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_14_49_51\logs\com.cheops.candidatemanager.exceptions.StorageException\std_out_MASTER.log</std_out_MASTER>
             <suite>
-                <fullPathOfTestSuite>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_14_49_51\tests\com\tv\tutorials\coolestuffvoorcheops\exceptions\StorageException_ESTest.java</fullPathOfTestSuite>
+                <fullPathOfTestSuite>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_14_49_51\tests\com\tv\tutorials\candidatemanager\exceptions\StorageException_ESTest.java</fullPathOfTestSuite>
                 <numberOfTests>2</numberOfTests>
                 <totalNumberOfStatements>2</totalNumberOfStatements>
                 <totalEffortInSeconds>10</totalEffortInSeconds>
@@ -1777,12 +1777,12 @@
             <modified>true</modified>
             <timeBudgetInSeconds>60</timeBudgetInSeconds>
             <memoryInMB>1000</memoryInMB>
-            <std_err_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_15_45_42\logs\com.tv.tutorials.coolestuffvoorcheops.exceptions.StorageException\std_err_CLIENT.log</std_err_CLIENT>
-            <std_out_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_15_45_42\logs\com.tv.tutorials.coolestuffvoorcheops.exceptions.StorageException\std_out_CLIENT.log</std_out_CLIENT>
-            <std_err_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_15_45_42\logs\com.tv.tutorials.coolestuffvoorcheops.exceptions.StorageException\std_err_MASTER.log</std_err_MASTER>
-            <std_out_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_15_45_42\logs\com.tv.tutorials.coolestuffvoorcheops.exceptions.StorageException\std_out_MASTER.log</std_out_MASTER>
+            <std_err_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_15_45_42\logs\com.cheops.candidatemanager.exceptions.StorageException\std_err_CLIENT.log</std_err_CLIENT>
+            <std_out_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_15_45_42\logs\com.cheops.candidatemanager.exceptions.StorageException\std_out_CLIENT.log</std_out_CLIENT>
+            <std_err_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_15_45_42\logs\com.cheops.candidatemanager.exceptions.StorageException\std_err_MASTER.log</std_err_MASTER>
+            <std_out_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_15_45_42\logs\com.cheops.candidatemanager.exceptions.StorageException\std_out_MASTER.log</std_out_MASTER>
             <suite>
-                <fullPathOfTestSuite>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_15_45_42\tests\com\tv\tutorials\coolestuffvoorcheops\exceptions\StorageException_ESTest.java</fullPathOfTestSuite>
+                <fullPathOfTestSuite>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_15_45_42\tests\com\tv\tutorials\candidatemanager\exceptions\StorageException_ESTest.java</fullPathOfTestSuite>
                 <numberOfTests>2</numberOfTests>
                 <totalNumberOfStatements>2</totalNumberOfStatements>
                 <totalEffortInSeconds>13</totalEffortInSeconds>
@@ -1830,18 +1830,18 @@
         </generation>
     </cut>
     <cut>
-        <fullNameOfTargetClass>com.tv.tutorials.coolestuffvoorcheops.controllers.FileUploaderController</fullNameOfTargetClass>
-        <fullNameOfTestSuite>com.tv.tutorials.coolestuffvoorcheops.controllers.FileUploaderController_ESTest</fullNameOfTestSuite>
+        <fullNameOfTargetClass>com.cheops.candidatemanager.controllers.FileUploaderController</fullNameOfTargetClass>
+        <fullNameOfTestSuite>com.cheops.candidatemanager.controllers.FileUploaderController_ESTest</fullNameOfTestSuite>
         <generation>
             <id>0</id>
             <failed>true</failed>
             <modified>true</modified>
             <timeBudgetInSeconds>60</timeBudgetInSeconds>
             <memoryInMB>1000</memoryInMB>
-            <std_err_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_14_49_51\logs\com.tv.tutorials.coolestuffvoorcheops.controllers.FileUploaderController\std_err_CLIENT.log</std_err_CLIENT>
-            <std_out_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_14_49_51\logs\com.tv.tutorials.coolestuffvoorcheops.controllers.FileUploaderController\std_out_CLIENT.log</std_out_CLIENT>
-            <std_err_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_14_49_51\logs\com.tv.tutorials.coolestuffvoorcheops.controllers.FileUploaderController\std_err_MASTER.log</std_err_MASTER>
-            <std_out_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_14_49_51\logs\com.tv.tutorials.coolestuffvoorcheops.controllers.FileUploaderController\std_out_MASTER.log</std_out_MASTER>
+            <std_err_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_14_49_51\logs\com.cheops.candidatemanager.controllers.FileUploaderController\std_err_CLIENT.log</std_err_CLIENT>
+            <std_out_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_14_49_51\logs\com.cheops.candidatemanager.controllers.FileUploaderController\std_out_CLIENT.log</std_out_CLIENT>
+            <std_err_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_14_49_51\logs\com.cheops.candidatemanager.controllers.FileUploaderController\std_err_MASTER.log</std_err_MASTER>
+            <std_out_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_14_49_51\logs\com.cheops.candidatemanager.controllers.FileUploaderController\std_out_MASTER.log</std_out_MASTER>
         </generation>
         <generation>
             <id>1</id>
@@ -1849,27 +1849,27 @@
             <modified>true</modified>
             <timeBudgetInSeconds>60</timeBudgetInSeconds>
             <memoryInMB>1000</memoryInMB>
-            <std_err_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_15_45_42\logs\com.tv.tutorials.coolestuffvoorcheops.controllers.FileUploaderController\std_err_CLIENT.log</std_err_CLIENT>
-            <std_out_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_15_45_42\logs\com.tv.tutorials.coolestuffvoorcheops.controllers.FileUploaderController\std_out_CLIENT.log</std_out_CLIENT>
-            <std_err_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_15_45_42\logs\com.tv.tutorials.coolestuffvoorcheops.controllers.FileUploaderController\std_err_MASTER.log</std_err_MASTER>
-            <std_out_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_15_45_42\logs\com.tv.tutorials.coolestuffvoorcheops.controllers.FileUploaderController\std_out_MASTER.log</std_out_MASTER>
+            <std_err_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_15_45_42\logs\com.cheops.candidatemanager.controllers.FileUploaderController\std_err_CLIENT.log</std_err_CLIENT>
+            <std_out_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_15_45_42\logs\com.cheops.candidatemanager.controllers.FileUploaderController\std_out_CLIENT.log</std_out_CLIENT>
+            <std_err_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_15_45_42\logs\com.cheops.candidatemanager.controllers.FileUploaderController\std_err_MASTER.log</std_err_MASTER>
+            <std_out_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_15_45_42\logs\com.cheops.candidatemanager.controllers.FileUploaderController\std_out_MASTER.log</std_out_MASTER>
         </generation>
     </cut>
     <cut>
-        <fullNameOfTargetClass>com.tv.tutorials.coolestuffvoorcheops.controllers.OpenIdController</fullNameOfTargetClass>
-        <fullNameOfTestSuite>com.tv.tutorials.coolestuffvoorcheops.controllers.OpenIdController_ESTest</fullNameOfTestSuite>
+        <fullNameOfTargetClass>com.cheops.candidatemanager.controllers.OpenIdController</fullNameOfTargetClass>
+        <fullNameOfTestSuite>com.cheops.candidatemanager.controllers.OpenIdController_ESTest</fullNameOfTestSuite>
         <generation>
             <id>0</id>
             <failed>false</failed>
             <modified>true</modified>
             <timeBudgetInSeconds>60</timeBudgetInSeconds>
             <memoryInMB>1000</memoryInMB>
-            <std_err_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_14_49_51\logs\com.tv.tutorials.coolestuffvoorcheops.controllers.OpenIdController\std_err_CLIENT.log</std_err_CLIENT>
-            <std_out_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_14_49_51\logs\com.tv.tutorials.coolestuffvoorcheops.controllers.OpenIdController\std_out_CLIENT.log</std_out_CLIENT>
-            <std_err_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_14_49_51\logs\com.tv.tutorials.coolestuffvoorcheops.controllers.OpenIdController\std_err_MASTER.log</std_err_MASTER>
-            <std_out_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_14_49_51\logs\com.tv.tutorials.coolestuffvoorcheops.controllers.OpenIdController\std_out_MASTER.log</std_out_MASTER>
+            <std_err_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_14_49_51\logs\com.cheops.candidatemanager.controllers.OpenIdController\std_err_CLIENT.log</std_err_CLIENT>
+            <std_out_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_14_49_51\logs\com.cheops.candidatemanager.controllers.OpenIdController\std_out_CLIENT.log</std_out_CLIENT>
+            <std_err_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_14_49_51\logs\com.cheops.candidatemanager.controllers.OpenIdController\std_err_MASTER.log</std_err_MASTER>
+            <std_out_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_14_49_51\logs\com.cheops.candidatemanager.controllers.OpenIdController\std_out_MASTER.log</std_out_MASTER>
             <suite>
-                <fullPathOfTestSuite>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_14_49_51\tests\com\tv\tutorials\coolestuffvoorcheops\controllers\OpenIdController_ESTest.java</fullPathOfTestSuite>
+                <fullPathOfTestSuite>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_14_49_51\tests\com\tv\tutorials\candidatemanager\controllers\OpenIdController_ESTest.java</fullPathOfTestSuite>
                 <numberOfTests>1</numberOfTests>
                 <totalNumberOfStatements>2</totalNumberOfStatements>
                 <totalEffortInSeconds>36</totalEffortInSeconds>
@@ -1921,12 +1921,12 @@
             <modified>true</modified>
             <timeBudgetInSeconds>60</timeBudgetInSeconds>
             <memoryInMB>1000</memoryInMB>
-            <std_err_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_15_45_42\logs\com.tv.tutorials.coolestuffvoorcheops.controllers.OpenIdController\std_err_CLIENT.log</std_err_CLIENT>
-            <std_out_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_15_45_42\logs\com.tv.tutorials.coolestuffvoorcheops.controllers.OpenIdController\std_out_CLIENT.log</std_out_CLIENT>
-            <std_err_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_15_45_42\logs\com.tv.tutorials.coolestuffvoorcheops.controllers.OpenIdController\std_err_MASTER.log</std_err_MASTER>
-            <std_out_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_15_45_42\logs\com.tv.tutorials.coolestuffvoorcheops.controllers.OpenIdController\std_out_MASTER.log</std_out_MASTER>
+            <std_err_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_15_45_42\logs\com.cheops.candidatemanager.controllers.OpenIdController\std_err_CLIENT.log</std_err_CLIENT>
+            <std_out_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_15_45_42\logs\com.cheops.candidatemanager.controllers.OpenIdController\std_out_CLIENT.log</std_out_CLIENT>
+            <std_err_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_15_45_42\logs\com.cheops.candidatemanager.controllers.OpenIdController\std_err_MASTER.log</std_err_MASTER>
+            <std_out_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_15_45_42\logs\com.cheops.candidatemanager.controllers.OpenIdController\std_out_MASTER.log</std_out_MASTER>
             <suite>
-                <fullPathOfTestSuite>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_15_45_42\tests\com\tv\tutorials\coolestuffvoorcheops\controllers\OpenIdController_ESTest.java</fullPathOfTestSuite>
+                <fullPathOfTestSuite>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_15_45_42\tests\com\tv\tutorials\candidatemanager\controllers\OpenIdController_ESTest.java</fullPathOfTestSuite>
                 <numberOfTests>1</numberOfTests>
                 <totalNumberOfStatements>2</totalNumberOfStatements>
                 <totalEffortInSeconds>38</totalEffortInSeconds>
@@ -1974,20 +1974,20 @@
         </generation>
     </cut>
     <cut>
-        <fullNameOfTargetClass>com.tv.tutorials.coolestuffvoorcheops.services.impl.AddressService</fullNameOfTargetClass>
-        <fullNameOfTestSuite>com.tv.tutorials.coolestuffvoorcheops.services.impl.AddressService_ESTest</fullNameOfTestSuite>
+        <fullNameOfTargetClass>com.cheops.candidatemanager.services.impl.AddressService</fullNameOfTargetClass>
+        <fullNameOfTestSuite>com.cheops.candidatemanager.services.impl.AddressService_ESTest</fullNameOfTestSuite>
         <generation>
             <id>0</id>
             <failed>false</failed>
             <modified>true</modified>
             <timeBudgetInSeconds>60</timeBudgetInSeconds>
             <memoryInMB>1000</memoryInMB>
-            <std_err_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_14_49_51\logs\com.tv.tutorials.coolestuffvoorcheops.services.impl.AddressService\std_err_CLIENT.log</std_err_CLIENT>
-            <std_out_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_14_49_51\logs\com.tv.tutorials.coolestuffvoorcheops.services.impl.AddressService\std_out_CLIENT.log</std_out_CLIENT>
-            <std_err_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_14_49_51\logs\com.tv.tutorials.coolestuffvoorcheops.services.impl.AddressService\std_err_MASTER.log</std_err_MASTER>
-            <std_out_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_14_49_51\logs\com.tv.tutorials.coolestuffvoorcheops.services.impl.AddressService\std_out_MASTER.log</std_out_MASTER>
+            <std_err_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_14_49_51\logs\com.cheops.candidatemanager.services.impl.AddressService\std_err_CLIENT.log</std_err_CLIENT>
+            <std_out_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_14_49_51\logs\com.cheops.candidatemanager.services.impl.AddressService\std_out_CLIENT.log</std_out_CLIENT>
+            <std_err_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_14_49_51\logs\com.cheops.candidatemanager.services.impl.AddressService\std_err_MASTER.log</std_err_MASTER>
+            <std_out_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_14_49_51\logs\com.cheops.candidatemanager.services.impl.AddressService\std_out_MASTER.log</std_out_MASTER>
             <suite>
-                <fullPathOfTestSuite>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_14_49_51\tests\com\tv\tutorials\coolestuffvoorcheops\services\impl\AddressService_ESTest.java</fullPathOfTestSuite>
+                <fullPathOfTestSuite>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_14_49_51\tests\com\tv\tutorials\candidatemanager\services\impl\AddressService_ESTest.java</fullPathOfTestSuite>
                 <numberOfTests>11</numberOfTests>
                 <totalNumberOfStatements>56</totalNumberOfStatements>
                 <totalEffortInSeconds>39</totalEffortInSeconds>
@@ -2039,12 +2039,12 @@
             <modified>true</modified>
             <timeBudgetInSeconds>60</timeBudgetInSeconds>
             <memoryInMB>1000</memoryInMB>
-            <std_err_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_15_45_42\logs\com.tv.tutorials.coolestuffvoorcheops.services.impl.AddressService\std_err_CLIENT.log</std_err_CLIENT>
-            <std_out_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_15_45_42\logs\com.tv.tutorials.coolestuffvoorcheops.services.impl.AddressService\std_out_CLIENT.log</std_out_CLIENT>
-            <std_err_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_15_45_42\logs\com.tv.tutorials.coolestuffvoorcheops.services.impl.AddressService\std_err_MASTER.log</std_err_MASTER>
-            <std_out_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_15_45_42\logs\com.tv.tutorials.coolestuffvoorcheops.services.impl.AddressService\std_out_MASTER.log</std_out_MASTER>
+            <std_err_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_15_45_42\logs\com.cheops.candidatemanager.services.impl.AddressService\std_err_CLIENT.log</std_err_CLIENT>
+            <std_out_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_15_45_42\logs\com.cheops.candidatemanager.services.impl.AddressService\std_out_CLIENT.log</std_out_CLIENT>
+            <std_err_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_15_45_42\logs\com.cheops.candidatemanager.services.impl.AddressService\std_err_MASTER.log</std_err_MASTER>
+            <std_out_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_15_45_42\logs\com.cheops.candidatemanager.services.impl.AddressService\std_out_MASTER.log</std_out_MASTER>
             <suite>
-                <fullPathOfTestSuite>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_15_45_42\tests\com\tv\tutorials\coolestuffvoorcheops\services\impl\AddressService_ESTest.java</fullPathOfTestSuite>
+                <fullPathOfTestSuite>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_15_45_42\tests\com\tv\tutorials\candidatemanager\services\impl\AddressService_ESTest.java</fullPathOfTestSuite>
                 <numberOfTests>9</numberOfTests>
                 <totalNumberOfStatements>44</totalNumberOfStatements>
                 <totalEffortInSeconds>40</totalEffortInSeconds>
@@ -2092,18 +2092,18 @@
         </generation>
     </cut>
     <cut>
-        <fullNameOfTargetClass>com.tv.tutorials.coolestuffvoorcheops.controllers.ApplicationProcessController</fullNameOfTargetClass>
-        <fullNameOfTestSuite>com.tv.tutorials.coolestuffvoorcheops.controllers.ApplicationProcessController_ESTest</fullNameOfTestSuite>
+        <fullNameOfTargetClass>com.cheops.candidatemanager.controllers.ApplicationProcessController</fullNameOfTargetClass>
+        <fullNameOfTestSuite>com.cheops.candidatemanager.controllers.ApplicationProcessController_ESTest</fullNameOfTestSuite>
         <generation>
             <id>0</id>
             <failed>true</failed>
             <modified>true</modified>
             <timeBudgetInSeconds>101</timeBudgetInSeconds>
             <memoryInMB>1000</memoryInMB>
-            <std_err_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_14_49_51\logs\com.tv.tutorials.coolestuffvoorcheops.controllers.ApplicationProcessController\std_err_CLIENT.log</std_err_CLIENT>
-            <std_out_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_14_49_51\logs\com.tv.tutorials.coolestuffvoorcheops.controllers.ApplicationProcessController\std_out_CLIENT.log</std_out_CLIENT>
-            <std_err_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_14_49_51\logs\com.tv.tutorials.coolestuffvoorcheops.controllers.ApplicationProcessController\std_err_MASTER.log</std_err_MASTER>
-            <std_out_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_14_49_51\logs\com.tv.tutorials.coolestuffvoorcheops.controllers.ApplicationProcessController\std_out_MASTER.log</std_out_MASTER>
+            <std_err_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_14_49_51\logs\com.cheops.candidatemanager.controllers.ApplicationProcessController\std_err_CLIENT.log</std_err_CLIENT>
+            <std_out_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_14_49_51\logs\com.cheops.candidatemanager.controllers.ApplicationProcessController\std_out_CLIENT.log</std_out_CLIENT>
+            <std_err_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_14_49_51\logs\com.cheops.candidatemanager.controllers.ApplicationProcessController\std_err_MASTER.log</std_err_MASTER>
+            <std_out_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_14_49_51\logs\com.cheops.candidatemanager.controllers.ApplicationProcessController\std_out_MASTER.log</std_out_MASTER>
         </generation>
         <generation>
             <id>1</id>
@@ -2111,12 +2111,12 @@
             <modified>true</modified>
             <timeBudgetInSeconds>101</timeBudgetInSeconds>
             <memoryInMB>1000</memoryInMB>
-            <std_err_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_15_45_42\logs\com.tv.tutorials.coolestuffvoorcheops.controllers.ApplicationProcessController\std_err_CLIENT.log</std_err_CLIENT>
-            <std_out_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_15_45_42\logs\com.tv.tutorials.coolestuffvoorcheops.controllers.ApplicationProcessController\std_out_CLIENT.log</std_out_CLIENT>
-            <std_err_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_15_45_42\logs\com.tv.tutorials.coolestuffvoorcheops.controllers.ApplicationProcessController\std_err_MASTER.log</std_err_MASTER>
-            <std_out_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_15_45_42\logs\com.tv.tutorials.coolestuffvoorcheops.controllers.ApplicationProcessController\std_out_MASTER.log</std_out_MASTER>
+            <std_err_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_15_45_42\logs\com.cheops.candidatemanager.controllers.ApplicationProcessController\std_err_CLIENT.log</std_err_CLIENT>
+            <std_out_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_15_45_42\logs\com.cheops.candidatemanager.controllers.ApplicationProcessController\std_out_CLIENT.log</std_out_CLIENT>
+            <std_err_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_15_45_42\logs\com.cheops.candidatemanager.controllers.ApplicationProcessController\std_err_MASTER.log</std_err_MASTER>
+            <std_out_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_15_45_42\logs\com.cheops.candidatemanager.controllers.ApplicationProcessController\std_out_MASTER.log</std_out_MASTER>
             <suite>
-                <fullPathOfTestSuite>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_15_45_42\tests\com\tv\tutorials\coolestuffvoorcheops\controllers\ApplicationProcessController_ESTest.java</fullPathOfTestSuite>
+                <fullPathOfTestSuite>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_15_45_42\tests\com\tv\tutorials\candidatemanager\controllers\ApplicationProcessController_ESTest.java</fullPathOfTestSuite>
                 <numberOfTests>7</numberOfTests>
                 <totalNumberOfStatements>66</totalNumberOfStatements>
                 <totalEffortInSeconds>66</totalEffortInSeconds>
@@ -2164,20 +2164,20 @@
         </generation>
     </cut>
     <cut>
-        <fullNameOfTargetClass>com.tv.tutorials.coolestuffvoorcheops.services.impl.CustomUserDetailService</fullNameOfTargetClass>
-        <fullNameOfTestSuite>com.tv.tutorials.coolestuffvoorcheops.services.impl.CustomUserDetailService_ESTest</fullNameOfTestSuite>
+        <fullNameOfTargetClass>com.cheops.candidatemanager.services.impl.CustomUserDetailService</fullNameOfTargetClass>
+        <fullNameOfTestSuite>com.cheops.candidatemanager.services.impl.CustomUserDetailService_ESTest</fullNameOfTestSuite>
         <generation>
             <id>0</id>
             <failed>false</failed>
             <modified>true</modified>
             <timeBudgetInSeconds>60</timeBudgetInSeconds>
             <memoryInMB>1000</memoryInMB>
-            <std_err_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_14_49_51\logs\com.tv.tutorials.coolestuffvoorcheops.services.impl.CustomUserDetailService\std_err_CLIENT.log</std_err_CLIENT>
-            <std_out_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_14_49_51\logs\com.tv.tutorials.coolestuffvoorcheops.services.impl.CustomUserDetailService\std_out_CLIENT.log</std_out_CLIENT>
-            <std_err_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_14_49_51\logs\com.tv.tutorials.coolestuffvoorcheops.services.impl.CustomUserDetailService\std_err_MASTER.log</std_err_MASTER>
-            <std_out_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_14_49_51\logs\com.tv.tutorials.coolestuffvoorcheops.services.impl.CustomUserDetailService\std_out_MASTER.log</std_out_MASTER>
+            <std_err_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_14_49_51\logs\com.cheops.candidatemanager.services.impl.CustomUserDetailService\std_err_CLIENT.log</std_err_CLIENT>
+            <std_out_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_14_49_51\logs\com.cheops.candidatemanager.services.impl.CustomUserDetailService\std_out_CLIENT.log</std_out_CLIENT>
+            <std_err_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_14_49_51\logs\com.cheops.candidatemanager.services.impl.CustomUserDetailService\std_err_MASTER.log</std_err_MASTER>
+            <std_out_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_14_49_51\logs\com.cheops.candidatemanager.services.impl.CustomUserDetailService\std_out_MASTER.log</std_out_MASTER>
             <suite>
-                <fullPathOfTestSuite>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_14_49_51\tests\com\tv\tutorials\coolestuffvoorcheops\services\impl\CustomUserDetailService_ESTest.java</fullPathOfTestSuite>
+                <fullPathOfTestSuite>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_14_49_51\tests\com\tv\tutorials\candidatemanager\services\impl\CustomUserDetailService_ESTest.java</fullPathOfTestSuite>
                 <numberOfTests>2</numberOfTests>
                 <totalNumberOfStatements>10</totalNumberOfStatements>
                 <totalEffortInSeconds>37</totalEffortInSeconds>
@@ -2229,12 +2229,12 @@
             <modified>true</modified>
             <timeBudgetInSeconds>60</timeBudgetInSeconds>
             <memoryInMB>1000</memoryInMB>
-            <std_err_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_15_45_42\logs\com.tv.tutorials.coolestuffvoorcheops.services.impl.CustomUserDetailService\std_err_CLIENT.log</std_err_CLIENT>
-            <std_out_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_15_45_42\logs\com.tv.tutorials.coolestuffvoorcheops.services.impl.CustomUserDetailService\std_out_CLIENT.log</std_out_CLIENT>
-            <std_err_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_15_45_42\logs\com.tv.tutorials.coolestuffvoorcheops.services.impl.CustomUserDetailService\std_err_MASTER.log</std_err_MASTER>
-            <std_out_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_15_45_42\logs\com.tv.tutorials.coolestuffvoorcheops.services.impl.CustomUserDetailService\std_out_MASTER.log</std_out_MASTER>
+            <std_err_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_15_45_42\logs\com.cheops.candidatemanager.services.impl.CustomUserDetailService\std_err_CLIENT.log</std_err_CLIENT>
+            <std_out_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_15_45_42\logs\com.cheops.candidatemanager.services.impl.CustomUserDetailService\std_out_CLIENT.log</std_out_CLIENT>
+            <std_err_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_15_45_42\logs\com.cheops.candidatemanager.services.impl.CustomUserDetailService\std_err_MASTER.log</std_err_MASTER>
+            <std_out_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_15_45_42\logs\com.cheops.candidatemanager.services.impl.CustomUserDetailService\std_out_MASTER.log</std_out_MASTER>
             <suite>
-                <fullPathOfTestSuite>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_15_45_42\tests\com\tv\tutorials\coolestuffvoorcheops\services\impl\CustomUserDetailService_ESTest.java</fullPathOfTestSuite>
+                <fullPathOfTestSuite>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_15_45_42\tests\com\tv\tutorials\candidatemanager\services\impl\CustomUserDetailService_ESTest.java</fullPathOfTestSuite>
                 <numberOfTests>2</numberOfTests>
                 <totalNumberOfStatements>10</totalNumberOfStatements>
                 <totalEffortInSeconds>39</totalEffortInSeconds>
@@ -2282,18 +2282,18 @@
         </generation>
     </cut>
     <cut>
-        <fullNameOfTargetClass>com.tv.tutorials.coolestuffvoorcheops.services.impl.ApplicationProcessService</fullNameOfTargetClass>
-        <fullNameOfTestSuite>com.tv.tutorials.coolestuffvoorcheops.services.impl.ApplicationProcessService_ESTest</fullNameOfTestSuite>
+        <fullNameOfTargetClass>com.cheops.candidatemanager.services.impl.ApplicationProcessService</fullNameOfTargetClass>
+        <fullNameOfTestSuite>com.cheops.candidatemanager.services.impl.ApplicationProcessService_ESTest</fullNameOfTestSuite>
         <generation>
             <id>0</id>
             <failed>true</failed>
             <modified>true</modified>
             <timeBudgetInSeconds>206</timeBudgetInSeconds>
             <memoryInMB>1000</memoryInMB>
-            <std_err_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_14_49_51\logs\com.tv.tutorials.coolestuffvoorcheops.services.impl.ApplicationProcessService\std_err_CLIENT.log</std_err_CLIENT>
-            <std_out_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_14_49_51\logs\com.tv.tutorials.coolestuffvoorcheops.services.impl.ApplicationProcessService\std_out_CLIENT.log</std_out_CLIENT>
-            <std_err_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_14_49_51\logs\com.tv.tutorials.coolestuffvoorcheops.services.impl.ApplicationProcessService\std_err_MASTER.log</std_err_MASTER>
-            <std_out_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_14_49_51\logs\com.tv.tutorials.coolestuffvoorcheops.services.impl.ApplicationProcessService\std_out_MASTER.log</std_out_MASTER>
+            <std_err_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_14_49_51\logs\com.cheops.candidatemanager.services.impl.ApplicationProcessService\std_err_CLIENT.log</std_err_CLIENT>
+            <std_out_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_14_49_51\logs\com.cheops.candidatemanager.services.impl.ApplicationProcessService\std_out_CLIENT.log</std_out_CLIENT>
+            <std_err_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_14_49_51\logs\com.cheops.candidatemanager.services.impl.ApplicationProcessService\std_err_MASTER.log</std_err_MASTER>
+            <std_out_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_14_49_51\logs\com.cheops.candidatemanager.services.impl.ApplicationProcessService\std_out_MASTER.log</std_out_MASTER>
         </generation>
         <generation>
             <id>1</id>
@@ -2301,25 +2301,25 @@
             <modified>true</modified>
             <timeBudgetInSeconds>206</timeBudgetInSeconds>
             <memoryInMB>1000</memoryInMB>
-            <std_err_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_15_45_42\logs\com.tv.tutorials.coolestuffvoorcheops.services.impl.ApplicationProcessService\std_err_CLIENT.log</std_err_CLIENT>
-            <std_out_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_15_45_42\logs\com.tv.tutorials.coolestuffvoorcheops.services.impl.ApplicationProcessService\std_out_CLIENT.log</std_out_CLIENT>
-            <std_err_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_15_45_42\logs\com.tv.tutorials.coolestuffvoorcheops.services.impl.ApplicationProcessService\std_err_MASTER.log</std_err_MASTER>
-            <std_out_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_15_45_42\logs\com.tv.tutorials.coolestuffvoorcheops.services.impl.ApplicationProcessService\std_out_MASTER.log</std_out_MASTER>
+            <std_err_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_15_45_42\logs\com.cheops.candidatemanager.services.impl.ApplicationProcessService\std_err_CLIENT.log</std_err_CLIENT>
+            <std_out_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_15_45_42\logs\com.cheops.candidatemanager.services.impl.ApplicationProcessService\std_out_CLIENT.log</std_out_CLIENT>
+            <std_err_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_15_45_42\logs\com.cheops.candidatemanager.services.impl.ApplicationProcessService\std_err_MASTER.log</std_err_MASTER>
+            <std_out_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_15_45_42\logs\com.cheops.candidatemanager.services.impl.ApplicationProcessService\std_out_MASTER.log</std_out_MASTER>
         </generation>
     </cut>
     <cut>
-        <fullNameOfTargetClass>com.tv.tutorials.coolestuffvoorcheops.configuration.StorageProperties</fullNameOfTargetClass>
-        <fullNameOfTestSuite>com.tv.tutorials.coolestuffvoorcheops.configuration.StorageProperties_ESTest</fullNameOfTestSuite>
+        <fullNameOfTargetClass>com.cheops.candidatemanager.configuration.StorageProperties</fullNameOfTargetClass>
+        <fullNameOfTestSuite>com.cheops.candidatemanager.configuration.StorageProperties_ESTest</fullNameOfTestSuite>
         <generation>
             <id>0</id>
             <failed>true</failed>
             <modified>true</modified>
             <timeBudgetInSeconds>60</timeBudgetInSeconds>
             <memoryInMB>1000</memoryInMB>
-            <std_err_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_14_49_51\logs\com.tv.tutorials.coolestuffvoorcheops.configuration.StorageProperties\std_err_CLIENT.log</std_err_CLIENT>
-            <std_out_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_14_49_51\logs\com.tv.tutorials.coolestuffvoorcheops.configuration.StorageProperties\std_out_CLIENT.log</std_out_CLIENT>
-            <std_err_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_14_49_51\logs\com.tv.tutorials.coolestuffvoorcheops.configuration.StorageProperties\std_err_MASTER.log</std_err_MASTER>
-            <std_out_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_14_49_51\logs\com.tv.tutorials.coolestuffvoorcheops.configuration.StorageProperties\std_out_MASTER.log</std_out_MASTER>
+            <std_err_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_14_49_51\logs\com.cheops.candidatemanager.configuration.StorageProperties\std_err_CLIENT.log</std_err_CLIENT>
+            <std_out_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_14_49_51\logs\com.cheops.candidatemanager.configuration.StorageProperties\std_out_CLIENT.log</std_out_CLIENT>
+            <std_err_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_14_49_51\logs\com.cheops.candidatemanager.configuration.StorageProperties\std_err_MASTER.log</std_err_MASTER>
+            <std_out_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_14_49_51\logs\com.cheops.candidatemanager.configuration.StorageProperties\std_out_MASTER.log</std_out_MASTER>
         </generation>
         <generation>
             <id>1</id>
@@ -2327,12 +2327,12 @@
             <modified>true</modified>
             <timeBudgetInSeconds>60</timeBudgetInSeconds>
             <memoryInMB>1000</memoryInMB>
-            <std_err_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_15_45_42\logs\com.tv.tutorials.coolestuffvoorcheops.configuration.StorageProperties\std_err_CLIENT.log</std_err_CLIENT>
-            <std_out_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_15_45_42\logs\com.tv.tutorials.coolestuffvoorcheops.configuration.StorageProperties\std_out_CLIENT.log</std_out_CLIENT>
-            <std_err_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_15_45_42\logs\com.tv.tutorials.coolestuffvoorcheops.configuration.StorageProperties\std_err_MASTER.log</std_err_MASTER>
-            <std_out_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_15_45_42\logs\com.tv.tutorials.coolestuffvoorcheops.configuration.StorageProperties\std_out_MASTER.log</std_out_MASTER>
+            <std_err_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_15_45_42\logs\com.cheops.candidatemanager.configuration.StorageProperties\std_err_CLIENT.log</std_err_CLIENT>
+            <std_out_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_15_45_42\logs\com.cheops.candidatemanager.configuration.StorageProperties\std_out_CLIENT.log</std_out_CLIENT>
+            <std_err_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_15_45_42\logs\com.cheops.candidatemanager.configuration.StorageProperties\std_err_MASTER.log</std_err_MASTER>
+            <std_out_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_15_45_42\logs\com.cheops.candidatemanager.configuration.StorageProperties\std_out_MASTER.log</std_out_MASTER>
             <suite>
-                <fullPathOfTestSuite>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_15_45_42\tests\com\tv\tutorials\coolestuffvoorcheops\configuration\StorageProperties_ESTest.java</fullPathOfTestSuite>
+                <fullPathOfTestSuite>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_15_45_42\tests\com\tv\tutorials\candidatemanager\configuration\StorageProperties_ESTest.java</fullPathOfTestSuite>
                 <numberOfTests>3</numberOfTests>
                 <totalNumberOfStatements>8</totalNumberOfStatements>
                 <totalEffortInSeconds>8</totalEffortInSeconds>
@@ -2380,18 +2380,18 @@
         </generation>
     </cut>
     <cut>
-        <fullNameOfTargetClass>com.tv.tutorials.coolestuffvoorcheops.services.impl.FileStorageService</fullNameOfTargetClass>
-        <fullNameOfTestSuite>com.tv.tutorials.coolestuffvoorcheops.services.impl.FileStorageService_ESTest</fullNameOfTestSuite>
+        <fullNameOfTargetClass>com.cheops.candidatemanager.services.impl.FileStorageService</fullNameOfTargetClass>
+        <fullNameOfTestSuite>com.cheops.candidatemanager.services.impl.FileStorageService_ESTest</fullNameOfTestSuite>
         <generation>
             <id>0</id>
             <failed>true</failed>
             <modified>true</modified>
             <timeBudgetInSeconds>60</timeBudgetInSeconds>
             <memoryInMB>1000</memoryInMB>
-            <std_err_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_14_49_51\logs\com.tv.tutorials.coolestuffvoorcheops.services.impl.FileStorageService\std_err_CLIENT.log</std_err_CLIENT>
-            <std_out_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_14_49_51\logs\com.tv.tutorials.coolestuffvoorcheops.services.impl.FileStorageService\std_out_CLIENT.log</std_out_CLIENT>
-            <std_err_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_14_49_51\logs\com.tv.tutorials.coolestuffvoorcheops.services.impl.FileStorageService\std_err_MASTER.log</std_err_MASTER>
-            <std_out_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_14_49_51\logs\com.tv.tutorials.coolestuffvoorcheops.services.impl.FileStorageService\std_out_MASTER.log</std_out_MASTER>
+            <std_err_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_14_49_51\logs\com.cheops.candidatemanager.services.impl.FileStorageService\std_err_CLIENT.log</std_err_CLIENT>
+            <std_out_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_14_49_51\logs\com.cheops.candidatemanager.services.impl.FileStorageService\std_out_CLIENT.log</std_out_CLIENT>
+            <std_err_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_14_49_51\logs\com.cheops.candidatemanager.services.impl.FileStorageService\std_err_MASTER.log</std_err_MASTER>
+            <std_out_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_14_49_51\logs\com.cheops.candidatemanager.services.impl.FileStorageService\std_out_MASTER.log</std_out_MASTER>
         </generation>
         <generation>
             <id>1</id>
@@ -2399,12 +2399,12 @@
             <modified>true</modified>
             <timeBudgetInSeconds>60</timeBudgetInSeconds>
             <memoryInMB>1000</memoryInMB>
-            <std_err_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_15_45_42\logs\com.tv.tutorials.coolestuffvoorcheops.services.impl.FileStorageService\std_err_CLIENT.log</std_err_CLIENT>
-            <std_out_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_15_45_42\logs\com.tv.tutorials.coolestuffvoorcheops.services.impl.FileStorageService\std_out_CLIENT.log</std_out_CLIENT>
-            <std_err_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_15_45_42\logs\com.tv.tutorials.coolestuffvoorcheops.services.impl.FileStorageService\std_err_MASTER.log</std_err_MASTER>
-            <std_out_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_15_45_42\logs\com.tv.tutorials.coolestuffvoorcheops.services.impl.FileStorageService\std_out_MASTER.log</std_out_MASTER>
+            <std_err_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_15_45_42\logs\com.cheops.candidatemanager.services.impl.FileStorageService\std_err_CLIENT.log</std_err_CLIENT>
+            <std_out_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_15_45_42\logs\com.cheops.candidatemanager.services.impl.FileStorageService\std_out_CLIENT.log</std_out_CLIENT>
+            <std_err_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_15_45_42\logs\com.cheops.candidatemanager.services.impl.FileStorageService\std_err_MASTER.log</std_err_MASTER>
+            <std_out_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_15_45_42\logs\com.cheops.candidatemanager.services.impl.FileStorageService\std_out_MASTER.log</std_out_MASTER>
             <suite>
-                <fullPathOfTestSuite>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_15_45_42\tests\com\tv\tutorials\coolestuffvoorcheops\services\impl\FileStorageService_ESTest.java</fullPathOfTestSuite>
+                <fullPathOfTestSuite>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_15_45_42\tests\com\tv\tutorials\candidatemanager\services\impl\FileStorageService_ESTest.java</fullPathOfTestSuite>
                 <numberOfTests>1</numberOfTests>
                 <totalNumberOfStatements>1</totalNumberOfStatements>
                 <totalEffortInSeconds>8</totalEffortInSeconds>
@@ -2452,20 +2452,20 @@
         </generation>
     </cut>
     <cut>
-        <fullNameOfTargetClass>com.tv.tutorials.coolestuffvoorcheops.controllers.RoleController</fullNameOfTargetClass>
-        <fullNameOfTestSuite>com.tv.tutorials.coolestuffvoorcheops.controllers.RoleController_ESTest</fullNameOfTestSuite>
+        <fullNameOfTargetClass>com.cheops.candidatemanager.controllers.RoleController</fullNameOfTargetClass>
+        <fullNameOfTestSuite>com.cheops.candidatemanager.controllers.RoleController_ESTest</fullNameOfTestSuite>
         <generation>
             <id>0</id>
             <failed>false</failed>
             <modified>true</modified>
             <timeBudgetInSeconds>60</timeBudgetInSeconds>
             <memoryInMB>1000</memoryInMB>
-            <std_err_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_14_49_51\logs\com.tv.tutorials.coolestuffvoorcheops.controllers.RoleController\std_err_CLIENT.log</std_err_CLIENT>
-            <std_out_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_14_49_51\logs\com.tv.tutorials.coolestuffvoorcheops.controllers.RoleController\std_out_CLIENT.log</std_out_CLIENT>
-            <std_err_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_14_49_51\logs\com.tv.tutorials.coolestuffvoorcheops.controllers.RoleController\std_err_MASTER.log</std_err_MASTER>
-            <std_out_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_14_49_51\logs\com.tv.tutorials.coolestuffvoorcheops.controllers.RoleController\std_out_MASTER.log</std_out_MASTER>
+            <std_err_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_14_49_51\logs\com.cheops.candidatemanager.controllers.RoleController\std_err_CLIENT.log</std_err_CLIENT>
+            <std_out_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_14_49_51\logs\com.cheops.candidatemanager.controllers.RoleController\std_out_CLIENT.log</std_out_CLIENT>
+            <std_err_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_14_49_51\logs\com.cheops.candidatemanager.controllers.RoleController\std_err_MASTER.log</std_err_MASTER>
+            <std_out_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_14_49_51\logs\com.cheops.candidatemanager.controllers.RoleController\std_out_MASTER.log</std_out_MASTER>
             <suite>
-                <fullPathOfTestSuite>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_14_49_51\tests\com\tv\tutorials\coolestuffvoorcheops\controllers\RoleController_ESTest.java</fullPathOfTestSuite>
+                <fullPathOfTestSuite>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_14_49_51\tests\com\tv\tutorials\candidatemanager\controllers\RoleController_ESTest.java</fullPathOfTestSuite>
                 <numberOfTests>1</numberOfTests>
                 <totalNumberOfStatements>1</totalNumberOfStatements>
                 <totalEffortInSeconds>6</totalEffortInSeconds>
@@ -2517,12 +2517,12 @@
             <modified>true</modified>
             <timeBudgetInSeconds>60</timeBudgetInSeconds>
             <memoryInMB>1000</memoryInMB>
-            <std_err_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_15_45_42\logs\com.tv.tutorials.coolestuffvoorcheops.controllers.RoleController\std_err_CLIENT.log</std_err_CLIENT>
-            <std_out_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_15_45_42\logs\com.tv.tutorials.coolestuffvoorcheops.controllers.RoleController\std_out_CLIENT.log</std_out_CLIENT>
-            <std_err_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_15_45_42\logs\com.tv.tutorials.coolestuffvoorcheops.controllers.RoleController\std_err_MASTER.log</std_err_MASTER>
-            <std_out_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_15_45_42\logs\com.tv.tutorials.coolestuffvoorcheops.controllers.RoleController\std_out_MASTER.log</std_out_MASTER>
+            <std_err_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_15_45_42\logs\com.cheops.candidatemanager.controllers.RoleController\std_err_CLIENT.log</std_err_CLIENT>
+            <std_out_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_15_45_42\logs\com.cheops.candidatemanager.controllers.RoleController\std_out_CLIENT.log</std_out_CLIENT>
+            <std_err_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_15_45_42\logs\com.cheops.candidatemanager.controllers.RoleController\std_err_MASTER.log</std_err_MASTER>
+            <std_out_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_15_45_42\logs\com.cheops.candidatemanager.controllers.RoleController\std_out_MASTER.log</std_out_MASTER>
             <suite>
-                <fullPathOfTestSuite>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_15_45_42\tests\com\tv\tutorials\coolestuffvoorcheops\controllers\RoleController_ESTest.java</fullPathOfTestSuite>
+                <fullPathOfTestSuite>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_15_45_42\tests\com\tv\tutorials\candidatemanager\controllers\RoleController_ESTest.java</fullPathOfTestSuite>
                 <numberOfTests>1</numberOfTests>
                 <totalNumberOfStatements>1</totalNumberOfStatements>
                 <totalEffortInSeconds>7</totalEffortInSeconds>
@@ -2570,18 +2570,18 @@
         </generation>
     </cut>
     <cut>
-        <fullNameOfTargetClass>com.tv.tutorials.coolestuffvoorcheops.controllers.CancidateController</fullNameOfTargetClass>
-        <fullNameOfTestSuite>com.tv.tutorials.coolestuffvoorcheops.controllers.CancidateController_ESTest</fullNameOfTestSuite>
+        <fullNameOfTargetClass>com.cheops.candidatemanager.controllers.CancidateController</fullNameOfTargetClass>
+        <fullNameOfTestSuite>com.cheops.candidatemanager.controllers.CancidateController_ESTest</fullNameOfTestSuite>
         <generation>
             <id>0</id>
             <failed>true</failed>
             <modified>true</modified>
             <timeBudgetInSeconds>310</timeBudgetInSeconds>
             <memoryInMB>1000</memoryInMB>
-            <std_err_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_14_49_51\logs\com.tv.tutorials.coolestuffvoorcheops.controllers.CancidateController\std_err_CLIENT.log</std_err_CLIENT>
-            <std_out_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_14_49_51\logs\com.tv.tutorials.coolestuffvoorcheops.controllers.CancidateController\std_out_CLIENT.log</std_out_CLIENT>
-            <std_err_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_14_49_51\logs\com.tv.tutorials.coolestuffvoorcheops.controllers.CancidateController\std_err_MASTER.log</std_err_MASTER>
-            <std_out_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_14_49_51\logs\com.tv.tutorials.coolestuffvoorcheops.controllers.CancidateController\std_out_MASTER.log</std_out_MASTER>
+            <std_err_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_14_49_51\logs\com.cheops.candidatemanager.controllers.CancidateController\std_err_CLIENT.log</std_err_CLIENT>
+            <std_out_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_14_49_51\logs\com.cheops.candidatemanager.controllers.CancidateController\std_out_CLIENT.log</std_out_CLIENT>
+            <std_err_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_14_49_51\logs\com.cheops.candidatemanager.controllers.CancidateController\std_err_MASTER.log</std_err_MASTER>
+            <std_out_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_14_49_51\logs\com.cheops.candidatemanager.controllers.CancidateController\std_out_MASTER.log</std_out_MASTER>
         </generation>
         <generation>
             <id>1</id>
@@ -2589,27 +2589,27 @@
             <modified>true</modified>
             <timeBudgetInSeconds>310</timeBudgetInSeconds>
             <memoryInMB>1000</memoryInMB>
-            <std_err_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_15_45_42\logs\com.tv.tutorials.coolestuffvoorcheops.controllers.CancidateController\std_err_CLIENT.log</std_err_CLIENT>
-            <std_out_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_15_45_42\logs\com.tv.tutorials.coolestuffvoorcheops.controllers.CancidateController\std_out_CLIENT.log</std_out_CLIENT>
-            <std_err_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_15_45_42\logs\com.tv.tutorials.coolestuffvoorcheops.controllers.CancidateController\std_err_MASTER.log</std_err_MASTER>
-            <std_out_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_15_45_42\logs\com.tv.tutorials.coolestuffvoorcheops.controllers.CancidateController\std_out_MASTER.log</std_out_MASTER>
+            <std_err_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_15_45_42\logs\com.cheops.candidatemanager.controllers.CancidateController\std_err_CLIENT.log</std_err_CLIENT>
+            <std_out_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_15_45_42\logs\com.cheops.candidatemanager.controllers.CancidateController\std_out_CLIENT.log</std_out_CLIENT>
+            <std_err_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_15_45_42\logs\com.cheops.candidatemanager.controllers.CancidateController\std_err_MASTER.log</std_err_MASTER>
+            <std_out_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_15_45_42\logs\com.cheops.candidatemanager.controllers.CancidateController\std_out_MASTER.log</std_out_MASTER>
         </generation>
     </cut>
     <cut>
-        <fullNameOfTargetClass>com.tv.tutorials.coolestuffvoorcheops.models.CustomUserDetails</fullNameOfTargetClass>
-        <fullNameOfTestSuite>com.tv.tutorials.coolestuffvoorcheops.models.CustomUserDetails_ESTest</fullNameOfTestSuite>
+        <fullNameOfTargetClass>com.cheops.candidatemanager.models.CustomUserDetails</fullNameOfTargetClass>
+        <fullNameOfTestSuite>com.cheops.candidatemanager.models.CustomUserDetails_ESTest</fullNameOfTestSuite>
         <generation>
             <id>0</id>
             <failed>false</failed>
             <modified>true</modified>
             <timeBudgetInSeconds>60</timeBudgetInSeconds>
             <memoryInMB>1000</memoryInMB>
-            <std_err_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_14_49_51\logs\com.tv.tutorials.coolestuffvoorcheops.models.CustomUserDetails\std_err_CLIENT.log</std_err_CLIENT>
-            <std_out_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_14_49_51\logs\com.tv.tutorials.coolestuffvoorcheops.models.CustomUserDetails\std_out_CLIENT.log</std_out_CLIENT>
-            <std_err_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_14_49_51\logs\com.tv.tutorials.coolestuffvoorcheops.models.CustomUserDetails\std_err_MASTER.log</std_err_MASTER>
-            <std_out_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_14_49_51\logs\com.tv.tutorials.coolestuffvoorcheops.models.CustomUserDetails\std_out_MASTER.log</std_out_MASTER>
+            <std_err_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_14_49_51\logs\com.cheops.candidatemanager.models.CustomUserDetails\std_err_CLIENT.log</std_err_CLIENT>
+            <std_out_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_14_49_51\logs\com.cheops.candidatemanager.models.CustomUserDetails\std_out_CLIENT.log</std_out_CLIENT>
+            <std_err_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_14_49_51\logs\com.cheops.candidatemanager.models.CustomUserDetails\std_err_MASTER.log</std_err_MASTER>
+            <std_out_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_14_49_51\logs\com.cheops.candidatemanager.models.CustomUserDetails\std_out_MASTER.log</std_out_MASTER>
             <suite>
-                <fullPathOfTestSuite>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_14_49_51\tests\com\tv\tutorials\coolestuffvoorcheops\models\CustomUserDetails_ESTest.java</fullPathOfTestSuite>
+                <fullPathOfTestSuite>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_14_49_51\tests\com\tv\tutorials\candidatemanager\models\CustomUserDetails_ESTest.java</fullPathOfTestSuite>
                 <numberOfTests>9</numberOfTests>
                 <totalNumberOfStatements>26</totalNumberOfStatements>
                 <totalEffortInSeconds>37</totalEffortInSeconds>
@@ -2661,27 +2661,27 @@
             <modified>true</modified>
             <timeBudgetInSeconds>60</timeBudgetInSeconds>
             <memoryInMB>1000</memoryInMB>
-            <std_err_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_15_45_42\logs\com.tv.tutorials.coolestuffvoorcheops.models.CustomUserDetails\std_err_CLIENT.log</std_err_CLIENT>
-            <std_out_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_15_45_42\logs\com.tv.tutorials.coolestuffvoorcheops.models.CustomUserDetails\std_out_CLIENT.log</std_out_CLIENT>
-            <std_err_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_15_45_42\logs\com.tv.tutorials.coolestuffvoorcheops.models.CustomUserDetails\std_err_MASTER.log</std_err_MASTER>
-            <std_out_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_15_45_42\logs\com.tv.tutorials.coolestuffvoorcheops.models.CustomUserDetails\std_out_MASTER.log</std_out_MASTER>
+            <std_err_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_15_45_42\logs\com.cheops.candidatemanager.models.CustomUserDetails\std_err_CLIENT.log</std_err_CLIENT>
+            <std_out_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_15_45_42\logs\com.cheops.candidatemanager.models.CustomUserDetails\std_out_CLIENT.log</std_out_CLIENT>
+            <std_err_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_15_45_42\logs\com.cheops.candidatemanager.models.CustomUserDetails\std_err_MASTER.log</std_err_MASTER>
+            <std_out_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_15_45_42\logs\com.cheops.candidatemanager.models.CustomUserDetails\std_out_MASTER.log</std_out_MASTER>
         </generation>
     </cut>
     <cut>
-        <fullNameOfTargetClass>com.tv.tutorials.coolestuffvoorcheops.controllers.UserController</fullNameOfTargetClass>
-        <fullNameOfTestSuite>com.tv.tutorials.coolestuffvoorcheops.controllers.UserController_ESTest</fullNameOfTestSuite>
+        <fullNameOfTargetClass>com.cheops.candidatemanager.controllers.UserController</fullNameOfTargetClass>
+        <fullNameOfTestSuite>com.cheops.candidatemanager.controllers.UserController_ESTest</fullNameOfTestSuite>
         <generation>
             <id>0</id>
             <failed>false</failed>
             <modified>true</modified>
             <timeBudgetInSeconds>60</timeBudgetInSeconds>
             <memoryInMB>1000</memoryInMB>
-            <std_err_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_14_49_51\logs\com.tv.tutorials.coolestuffvoorcheops.controllers.UserController\std_err_CLIENT.log</std_err_CLIENT>
-            <std_out_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_14_49_51\logs\com.tv.tutorials.coolestuffvoorcheops.controllers.UserController\std_out_CLIENT.log</std_out_CLIENT>
-            <std_err_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_14_49_51\logs\com.tv.tutorials.coolestuffvoorcheops.controllers.UserController\std_err_MASTER.log</std_err_MASTER>
-            <std_out_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_14_49_51\logs\com.tv.tutorials.coolestuffvoorcheops.controllers.UserController\std_out_MASTER.log</std_out_MASTER>
+            <std_err_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_14_49_51\logs\com.cheops.candidatemanager.controllers.UserController\std_err_CLIENT.log</std_err_CLIENT>
+            <std_out_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_14_49_51\logs\com.cheops.candidatemanager.controllers.UserController\std_out_CLIENT.log</std_out_CLIENT>
+            <std_err_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_14_49_51\logs\com.cheops.candidatemanager.controllers.UserController\std_err_MASTER.log</std_err_MASTER>
+            <std_out_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_14_49_51\logs\com.cheops.candidatemanager.controllers.UserController\std_out_MASTER.log</std_out_MASTER>
             <suite>
-                <fullPathOfTestSuite>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_14_49_51\tests\com\tv\tutorials\coolestuffvoorcheops\controllers\UserController_ESTest.java</fullPathOfTestSuite>
+                <fullPathOfTestSuite>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_14_49_51\tests\com\tv\tutorials\candidatemanager\controllers\UserController_ESTest.java</fullPathOfTestSuite>
                 <numberOfTests>4</numberOfTests>
                 <totalNumberOfStatements>22</totalNumberOfStatements>
                 <totalEffortInSeconds>37</totalEffortInSeconds>
@@ -2733,12 +2733,12 @@
             <modified>true</modified>
             <timeBudgetInSeconds>60</timeBudgetInSeconds>
             <memoryInMB>1000</memoryInMB>
-            <std_err_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_15_45_42\logs\com.tv.tutorials.coolestuffvoorcheops.controllers.UserController\std_err_CLIENT.log</std_err_CLIENT>
-            <std_out_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_15_45_42\logs\com.tv.tutorials.coolestuffvoorcheops.controllers.UserController\std_out_CLIENT.log</std_out_CLIENT>
-            <std_err_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_15_45_42\logs\com.tv.tutorials.coolestuffvoorcheops.controllers.UserController\std_err_MASTER.log</std_err_MASTER>
-            <std_out_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_15_45_42\logs\com.tv.tutorials.coolestuffvoorcheops.controllers.UserController\std_out_MASTER.log</std_out_MASTER>
+            <std_err_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_15_45_42\logs\com.cheops.candidatemanager.controllers.UserController\std_err_CLIENT.log</std_err_CLIENT>
+            <std_out_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_15_45_42\logs\com.cheops.candidatemanager.controllers.UserController\std_out_CLIENT.log</std_out_CLIENT>
+            <std_err_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_15_45_42\logs\com.cheops.candidatemanager.controllers.UserController\std_err_MASTER.log</std_err_MASTER>
+            <std_out_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_15_45_42\logs\com.cheops.candidatemanager.controllers.UserController\std_out_MASTER.log</std_out_MASTER>
             <suite>
-                <fullPathOfTestSuite>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_15_45_42\tests\com\tv\tutorials\coolestuffvoorcheops\controllers\UserController_ESTest.java</fullPathOfTestSuite>
+                <fullPathOfTestSuite>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_15_45_42\tests\com\tv\tutorials\candidatemanager\controllers\UserController_ESTest.java</fullPathOfTestSuite>
                 <numberOfTests>4</numberOfTests>
                 <totalNumberOfStatements>22</totalNumberOfStatements>
                 <totalEffortInSeconds>39</totalEffortInSeconds>
@@ -2786,20 +2786,20 @@
         </generation>
     </cut>
     <cut>
-        <fullNameOfTargetClass>com.tv.tutorials.coolestuffvoorcheops.controllers.TestController</fullNameOfTargetClass>
-        <fullNameOfTestSuite>com.tv.tutorials.coolestuffvoorcheops.controllers.TestController_ESTest</fullNameOfTestSuite>
+        <fullNameOfTargetClass>com.cheops.candidatemanager.controllers.TestController</fullNameOfTargetClass>
+        <fullNameOfTestSuite>com.cheops.candidatemanager.controllers.TestController_ESTest</fullNameOfTestSuite>
         <generation>
             <id>0</id>
             <failed>false</failed>
             <modified>true</modified>
             <timeBudgetInSeconds>60</timeBudgetInSeconds>
             <memoryInMB>1000</memoryInMB>
-            <std_err_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_14_49_51\logs\com.tv.tutorials.coolestuffvoorcheops.controllers.TestController\std_err_CLIENT.log</std_err_CLIENT>
-            <std_out_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_14_49_51\logs\com.tv.tutorials.coolestuffvoorcheops.controllers.TestController\std_out_CLIENT.log</std_out_CLIENT>
-            <std_err_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_14_49_51\logs\com.tv.tutorials.coolestuffvoorcheops.controllers.TestController\std_err_MASTER.log</std_err_MASTER>
-            <std_out_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_14_49_51\logs\com.tv.tutorials.coolestuffvoorcheops.controllers.TestController\std_out_MASTER.log</std_out_MASTER>
+            <std_err_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_14_49_51\logs\com.cheops.candidatemanager.controllers.TestController\std_err_CLIENT.log</std_err_CLIENT>
+            <std_out_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_14_49_51\logs\com.cheops.candidatemanager.controllers.TestController\std_out_CLIENT.log</std_out_CLIENT>
+            <std_err_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_14_49_51\logs\com.cheops.candidatemanager.controllers.TestController\std_err_MASTER.log</std_err_MASTER>
+            <std_out_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_14_49_51\logs\com.cheops.candidatemanager.controllers.TestController\std_out_MASTER.log</std_out_MASTER>
             <suite>
-                <fullPathOfTestSuite>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_14_49_51\tests\com\tv\tutorials\coolestuffvoorcheops\controllers\TestController_ESTest.java</fullPathOfTestSuite>
+                <fullPathOfTestSuite>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_14_49_51\tests\com\tv\tutorials\candidatemanager\controllers\TestController_ESTest.java</fullPathOfTestSuite>
                 <numberOfTests>1</numberOfTests>
                 <totalNumberOfStatements>2</totalNumberOfStatements>
                 <totalEffortInSeconds>36</totalEffortInSeconds>
@@ -2851,12 +2851,12 @@
             <modified>true</modified>
             <timeBudgetInSeconds>60</timeBudgetInSeconds>
             <memoryInMB>1000</memoryInMB>
-            <std_err_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_15_45_42\logs\com.tv.tutorials.coolestuffvoorcheops.controllers.TestController\std_err_CLIENT.log</std_err_CLIENT>
-            <std_out_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_15_45_42\logs\com.tv.tutorials.coolestuffvoorcheops.controllers.TestController\std_out_CLIENT.log</std_out_CLIENT>
-            <std_err_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_15_45_42\logs\com.tv.tutorials.coolestuffvoorcheops.controllers.TestController\std_err_MASTER.log</std_err_MASTER>
-            <std_out_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_15_45_42\logs\com.tv.tutorials.coolestuffvoorcheops.controllers.TestController\std_out_MASTER.log</std_out_MASTER>
+            <std_err_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_15_45_42\logs\com.cheops.candidatemanager.controllers.TestController\std_err_CLIENT.log</std_err_CLIENT>
+            <std_out_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_15_45_42\logs\com.cheops.candidatemanager.controllers.TestController\std_out_CLIENT.log</std_out_CLIENT>
+            <std_err_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_15_45_42\logs\com.cheops.candidatemanager.controllers.TestController\std_err_MASTER.log</std_err_MASTER>
+            <std_out_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_15_45_42\logs\com.cheops.candidatemanager.controllers.TestController\std_out_MASTER.log</std_out_MASTER>
             <suite>
-                <fullPathOfTestSuite>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_16_15_45_42\tests\com\tv\tutorials\coolestuffvoorcheops\controllers\TestController_ESTest.java</fullPathOfTestSuite>
+                <fullPathOfTestSuite>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_15_45_42\tests\com\tv\tutorials\candidatemanager\controllers\TestController_ESTest.java</fullPathOfTestSuite>
                 <numberOfTests>1</numberOfTests>
                 <totalNumberOfStatements>2</totalNumberOfStatements>
                 <totalEffortInSeconds>38</totalEffortInSeconds>

@@ -4,7 +4,7 @@
  * Tue Oct 16 13:51:10 GMT 2018
  */
 
-package com.tv.tutorials.coolestuffvoorcheops.services.impl;
+package com.cheops.candidatemanager.services.impl;
 
 import org.evosuite.runtime.annotation.EvoSuiteClassExclude;
 import org.junit.BeforeClass;
@@ -12,7 +12,6 @@ import org.junit.Before;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.evosuite.runtime.sandbox.Sandbox;
-import org.evosuite.runtime.sandbox.Sandbox.SandboxMode;
 
 import static org.evosuite.shaded.org.mockito.Mockito.*;
 @EvoSuiteClassExclude
@@ -28,7 +27,7 @@ public class CandidateService_ESTest_scaffolding {
 
   @BeforeClass 
   public static void initEvoSuiteFramework() { 
-    org.evosuite.runtime.RuntimeSettings.className = "com.tv.tutorials.coolestuffvoorcheops.services.impl.CandidateService"; 
+    org.evosuite.runtime.RuntimeSettings.className = "CandidateService";
     org.evosuite.runtime.GuiSupport.initialize(); 
     org.evosuite.runtime.RuntimeSettings.maxNumberOfThreads = 100; 
     org.evosuite.runtime.RuntimeSettings.maxNumberOfIterationsPerLoop = 10000; 
@@ -78,7 +77,7 @@ public class CandidateService_ESTest_scaffolding {
     java.lang.System.setProperty("java.awt.headless", "true"); 
     java.lang.System.setProperty("java.io.tmpdir", "C:\\Users\\THOMAS~1.VER\\AppData\\Local\\Temp\\"); 
     java.lang.System.setProperty("user.country", "US"); 
-    java.lang.System.setProperty("user.dir", "C:\\Users\\thomas.verhulst\\Documents\\workspace-sts-3.9.5.RELEASE\\coolestuffvoorcheops"); 
+    java.lang.System.setProperty("user.dir", "C:\\Users\\thomas.verhulst\\Documents\\workspace-sts-3.9.5.RELEASE\\candidatemanager");
     java.lang.System.setProperty("user.home", "C:\\Users\\thomas.verhulst"); 
     java.lang.System.setProperty("user.language", "en"); 
     java.lang.System.setProperty("user.name", "Thomas.Verhulst"); 
@@ -87,38 +86,38 @@ public class CandidateService_ESTest_scaffolding {
 
   private static void initializeClasses() {
     org.evosuite.runtime.classhandling.ClassStateSupport.initializeClasses(CandidateService_ESTest_scaffolding.class.getClassLoader() ,
-      "com.tv.tutorials.coolestuffvoorcheops.services.impl.SkillsService",
-      "com.tv.tutorials.coolestuffvoorcheops.models.Skills",
-      "com.tv.tutorials.coolestuffvoorcheops.models.Candidate",
-      "com.tv.tutorials.coolestuffvoorcheops.services.IApplicationProcessService",
+      "SkillsService",
+      "Skills",
+      "Candidate",
+      "IApplicationProcessService",
       "org.springframework.beans.factory.annotation.Autowired",
-      "com.tv.tutorials.coolestuffvoorcheops.models.Address",
+      "Address",
       "org.springframework.data.repository.CrudRepository",
-      "com.tv.tutorials.coolestuffvoorcheops.models.CandidateSearchResolver",
+      "CandidateSearchResolver",
       "org.springframework.stereotype.Service",
       "org.springframework.data.repository.Repository",
-      "com.tv.tutorials.coolestuffvoorcheops.repositories.ApplicationProcessRepository",
-      "com.tv.tutorials.coolestuffvoorcheops.repositories.AddressRepository",
-      "com.tv.tutorials.coolestuffvoorcheops.repositories.SkillsRepository",
-      "com.tv.tutorials.coolestuffvoorcheops.services.impl.ApplicationProcessService",
-      "com.tv.tutorials.coolestuffvoorcheops.models.ApplicationProcess",
-      "com.tv.tutorials.coolestuffvoorcheops.services.impl.CandidateService",
-      "com.tv.tutorials.coolestuffvoorcheops.services.ICandidateService",
+      "ApplicationProcessRepository",
+      "AddressRepository",
+      "SkillsRepository",
+      "ApplicationProcessService",
+      "ApplicationProcess",
+      "CandidateService",
+      "ICandidateService",
       "org.springframework.boot.test.context.FilteredClassLoader",
       "org.springframework.stereotype.Component",
-      "com.tv.tutorials.coolestuffvoorcheops.services.ISkillService",
+      "ISkillService",
       "org.springframework.boot.test.context.FilteredClassLoader$PackageFilter",
       "org.springframework.core.io.InputStreamSource",
       "org.springframework.web.multipart.MultipartFile",
       "org.springframework.boot.test.context.FilteredClassLoader$ClassFilter",
-      "com.tv.tutorials.coolestuffvoorcheops.repositories.CandidateRepository"
+      "CandidateRepository"
     );
   } 
   private static void initMocksToAvoidTimeoutsInTheTests() throws ClassNotFoundException { 
-    mock(Class.forName("com.tv.tutorials.coolestuffvoorcheops.repositories.AddressRepository", false, CandidateService_ESTest_scaffolding.class.getClassLoader()));
-    mock(Class.forName("com.tv.tutorials.coolestuffvoorcheops.repositories.ApplicationProcessRepository", false, CandidateService_ESTest_scaffolding.class.getClassLoader()));
-    mock(Class.forName("com.tv.tutorials.coolestuffvoorcheops.repositories.CandidateRepository", false, CandidateService_ESTest_scaffolding.class.getClassLoader()));
-    mock(Class.forName("com.tv.tutorials.coolestuffvoorcheops.repositories.SkillsRepository", false, CandidateService_ESTest_scaffolding.class.getClassLoader()));
+    mock(Class.forName("com.cheops.candidatemanager.repositories.AddressRepository", false, CandidateService_ESTest_scaffolding.class.getClassLoader()));
+    mock(Class.forName("com.cheops.candidatemanager.repositories.ApplicationProcessRepository", false, CandidateService_ESTest_scaffolding.class.getClassLoader()));
+    mock(Class.forName("com.cheops.candidatemanager.repositories.CandidateRepository", false, CandidateService_ESTest_scaffolding.class.getClassLoader()));
+    mock(Class.forName("com.cheops.candidatemanager.repositories.SkillsRepository", false, CandidateService_ESTest_scaffolding.class.getClassLoader()));
     mock(Class.forName("java.util.Comparator", false, CandidateService_ESTest_scaffolding.class.getClassLoader()));
     mock(Class.forName("javax.servlet.http.HttpServletResponse", false, CandidateService_ESTest_scaffolding.class.getClassLoader()));
   }
@@ -127,15 +126,15 @@ public class CandidateService_ESTest_scaffolding {
     org.evosuite.runtime.classhandling.ClassResetter.getInstance().setClassLoader(CandidateService_ESTest_scaffolding.class.getClassLoader()); 
 
     org.evosuite.runtime.classhandling.ClassStateSupport.resetClasses(
-      "com.tv.tutorials.coolestuffvoorcheops.services.impl.CandidateService",
+      "CandidateService",
       "org.springframework.format.annotation.DateTimeFormat$ISO",
-      "com.tv.tutorials.coolestuffvoorcheops.services.impl.ApplicationProcessService",
-      "com.tv.tutorials.coolestuffvoorcheops.models.ApplicationProcess",
-      "com.tv.tutorials.coolestuffvoorcheops.models.Candidate",
-      "com.tv.tutorials.coolestuffvoorcheops.models.Skills",
-      "com.tv.tutorials.coolestuffvoorcheops.models.Address",
-      "com.tv.tutorials.coolestuffvoorcheops.services.impl.SkillsService",
-      "com.tv.tutorials.coolestuffvoorcheops.models.CandidateSearchResolver",
+      "ApplicationProcessService",
+      "ApplicationProcess",
+      "Candidate",
+      "Skills",
+      "Address",
+      "SkillsService",
+      "CandidateSearchResolver",
       "com.mysql.jdbc.AbandonedConnectionCleanupThread$1",
       "com.mysql.jdbc.AbandonedConnectionCleanupThread",
       "com.mysql.jdbc.NonRegisteringDriver",

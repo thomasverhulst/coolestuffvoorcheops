@@ -4,7 +4,7 @@
  * Tue Oct 16 13:59:07 GMT 2018
  */
 
-package com.tv.tutorials.coolestuffvoorcheops.configuration;
+package com.cheops.candidatemanager.configuration;
 
 import org.evosuite.runtime.annotation.EvoSuiteClassExclude;
 import org.junit.BeforeClass;
@@ -24,7 +24,7 @@ public class SecurityConfiguration_ESTest_scaffolding {
 
   @BeforeClass 
   public static void initEvoSuiteFramework() { 
-    org.evosuite.runtime.RuntimeSettings.className = "com.tv.tutorials.coolestuffvoorcheops.configuration.SecurityConfiguration"; 
+    org.evosuite.runtime.RuntimeSettings.className = "SecurityConfiguration";
     org.evosuite.runtime.GuiSupport.initialize(); 
     org.evosuite.runtime.RuntimeSettings.maxNumberOfThreads = 100; 
     org.evosuite.runtime.RuntimeSettings.maxNumberOfIterationsPerLoop = 10000; 
@@ -69,7 +69,7 @@ public class SecurityConfiguration_ESTest_scaffolding {
       "org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter$DefaultPasswordEncoderAuthenticationManagerBuilder",
       "org.springframework.security.authentication.AuthenticationManager",
       "org.springframework.security.config.annotation.web.configurers.DefaultLoginPageConfigurer",
-      "com.tv.tutorials.coolestuffvoorcheops.configuration.SecurityConfiguration",
+      "SecurityConfiguration",
       "org.springframework.security.core.userdetails.UserDetailsService",
       "org.springframework.security.config.annotation.SecurityConfigurerAdapter",
       "org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter$3",
@@ -95,8 +95,8 @@ public class SecurityConfiguration_ESTest_scaffolding {
 
     org.evosuite.runtime.classhandling.ClassStateSupport.resetClasses(
       "org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter",
-      "com.tv.tutorials.coolestuffvoorcheops.configuration.SecurityConfiguration",
-      "com.tv.tutorials.coolestuffvoorcheops.configuration.SecurityConfiguration$1",
+      "SecurityConfiguration",
+      "SecurityConfiguration$1",
       "org.springframework.context.annotation.AdviceMode",
       "org.springframework.data.repository.query.QueryLookupStrategy$Key"
     );

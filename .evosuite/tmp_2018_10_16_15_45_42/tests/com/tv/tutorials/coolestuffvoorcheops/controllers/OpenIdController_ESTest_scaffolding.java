@@ -4,7 +4,7 @@
  * Tue Oct 16 14:00:00 GMT 2018
  */
 
-package com.tv.tutorials.coolestuffvoorcheops.controllers;
+package com.cheops.candidatemanager.controllers;
 
 import org.evosuite.runtime.annotation.EvoSuiteClassExclude;
 import org.junit.BeforeClass;
@@ -27,7 +27,7 @@ public class OpenIdController_ESTest_scaffolding {
 
   @BeforeClass 
   public static void initEvoSuiteFramework() { 
-    org.evosuite.runtime.RuntimeSettings.className = "com.tv.tutorials.coolestuffvoorcheops.controllers.OpenIdController"; 
+    org.evosuite.runtime.RuntimeSettings.className = "OpenIdController";
     org.evosuite.runtime.GuiSupport.initialize(); 
     org.evosuite.runtime.RuntimeSettings.maxNumberOfThreads = 100; 
     org.evosuite.runtime.RuntimeSettings.maxNumberOfIterationsPerLoop = 10000; 
@@ -76,7 +76,7 @@ public class OpenIdController_ESTest_scaffolding {
     java.lang.System.setProperty("java.awt.headless", "true"); 
     java.lang.System.setProperty("java.io.tmpdir", "C:\\Users\\THOMAS~1.VER\\AppData\\Local\\Temp\\"); 
     java.lang.System.setProperty("user.country", "US"); 
-    java.lang.System.setProperty("user.dir", "C:\\Users\\thomas.verhulst\\Documents\\workspace-sts-3.9.5.RELEASE\\coolestuffvoorcheops"); 
+    java.lang.System.setProperty("user.dir", "C:\\Users\\thomas.verhulst\\Documents\\workspace-sts-3.9.5.RELEASE\\candidatemanager");
     java.lang.System.setProperty("user.home", "C:\\Users\\thomas.verhulst"); 
     java.lang.System.setProperty("user.language", "en"); 
     java.lang.System.setProperty("user.name", "Thomas.Verhulst"); 
@@ -88,7 +88,7 @@ public class OpenIdController_ESTest_scaffolding {
       "org.springframework.stereotype.Component",
       "org.springframework.security.core.context.ThreadLocalSecurityContextHolderStrategy",
       "org.springframework.security.core.context.SecurityContext",
-      "com.tv.tutorials.coolestuffvoorcheops.controllers.OpenIdController",
+      "OpenIdController",
       "org.springframework.security.core.context.SecurityContextImpl",
       "org.springframework.stereotype.Controller",
       "org.springframework.security.core.context.SecurityContextHolder",
@@ -102,7 +102,7 @@ public class OpenIdController_ESTest_scaffolding {
     org.evosuite.runtime.classhandling.ClassResetter.getInstance().setClassLoader(OpenIdController_ESTest_scaffolding.class.getClassLoader()); 
 
     org.evosuite.runtime.classhandling.ClassStateSupport.resetClasses(
-      "com.tv.tutorials.coolestuffvoorcheops.controllers.OpenIdController",
+      "OpenIdController",
       "org.springframework.util.StringUtils",
       "org.springframework.security.core.context.ThreadLocalSecurityContextHolderStrategy",
       "org.springframework.security.core.context.SecurityContextHolder",

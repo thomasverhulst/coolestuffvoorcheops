@@ -3,15 +3,15 @@
  * Tue Oct 16 13:53:41 GMT 2018
  */
 
-package com.tv.tutorials.coolestuffvoorcheops.services.impl;
+package com.cheops.candidatemanager.services.impl;
 
 import org.junit.Test;
 import static org.junit.Assert.*;
 import static org.evosuite.shaded.org.mockito.Mockito.*;
 import static org.evosuite.runtime.EvoAssertions.*;
-import com.tv.tutorials.coolestuffvoorcheops.models.Skills;
-import com.tv.tutorials.coolestuffvoorcheops.repositories.SkillsRepository;
-import com.tv.tutorials.coolestuffvoorcheops.services.impl.SkillsService;
+import com.cheops.candidatemanager.models.Skills;
+import com.cheops.candidatemanager.repositories.SkillsRepository;
+import com.cheops.candidatemanager.services.impl.SkillsService;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
@@ -63,7 +63,7 @@ public class SkillsService_ESTest extends SkillsService_ESTest_scaffolding {
          //
          // no message in exception (getMessage() returned null)
          //
-         verifyException("com.tv.tutorials.coolestuffvoorcheops.services.impl.SkillsService", e);
+         verifyException("SkillsService", e);
       }
   }
 
@@ -142,7 +142,7 @@ public class SkillsService_ESTest extends SkillsService_ESTest_scaffolding {
          //
          // no message in exception (getMessage() returned null)
          //
-         verifyException("com.tv.tutorials.coolestuffvoorcheops.services.impl.SkillsService", e);
+         verifyException("SkillsService", e);
       }
   }
 
@@ -162,9 +162,9 @@ public class SkillsService_ESTest extends SkillsService_ESTest_scaffolding {
       
       } catch(ClassCastException e) {
          //
-         // java.util.LinkedList cannot be cast to com.tv.tutorials.coolestuffvoorcheops.models.Skills
+         // java.util.LinkedList cannot be cast to Skills
          //
-         verifyException("com.tv.tutorials.coolestuffvoorcheops.repositories.SkillsRepository$MockitoMock$1904746507", e);
+         verifyException("SkillsRepository$MockitoMock$1904746507", e);
       }
   }
 
@@ -185,7 +185,7 @@ public class SkillsService_ESTest extends SkillsService_ESTest_scaffolding {
          //
          // no message in exception (getMessage() returned null)
          //
-         verifyException("com.tv.tutorials.coolestuffvoorcheops.services.impl.SkillsService", e);
+         verifyException("SkillsService", e);
       }
   }
 
@@ -201,7 +201,7 @@ public class SkillsService_ESTest extends SkillsService_ESTest_scaffolding {
          //
          // no message in exception (getMessage() returned null)
          //
-         verifyException("com.tv.tutorials.coolestuffvoorcheops.services.impl.SkillsService", e);
+         verifyException("SkillsService", e);
       }
   }
 
@@ -221,7 +221,7 @@ public class SkillsService_ESTest extends SkillsService_ESTest_scaffolding {
          //
          // no message in exception (getMessage() returned null)
          //
-         verifyException("com.tv.tutorials.coolestuffvoorcheops.services.impl.SkillsService", e);
+         verifyException("SkillsService", e);
       }
   }
 
@@ -243,7 +243,7 @@ public class SkillsService_ESTest extends SkillsService_ESTest_scaffolding {
          //
          // no message in exception (getMessage() returned null)
          //
-         verifyException("com.tv.tutorials.coolestuffvoorcheops.services.impl.SkillsService", e);
+         verifyException("SkillsService", e);
       }
   }
 
@@ -263,7 +263,7 @@ public class SkillsService_ESTest extends SkillsService_ESTest_scaffolding {
          //
          // no message in exception (getMessage() returned null)
          //
-         verifyException("com.tv.tutorials.coolestuffvoorcheops.services.impl.SkillsService", e);
+         verifyException("SkillsService", e);
       }
   }
 
@@ -284,7 +284,7 @@ public class SkillsService_ESTest extends SkillsService_ESTest_scaffolding {
          //
          // no message in exception (getMessage() returned null)
          //
-         verifyException("com.tv.tutorials.coolestuffvoorcheops.services.impl.SkillsService", e);
+         verifyException("SkillsService", e);
       }
   }
 
@@ -307,7 +307,7 @@ public class SkillsService_ESTest extends SkillsService_ESTest_scaffolding {
          //
          // java.util.LinkedList cannot be cast to java.util.ArrayList
          //
-         verifyException("com.tv.tutorials.coolestuffvoorcheops.services.impl.SkillsService", e);
+         verifyException("SkillsService", e);
       }
   }
 
@@ -323,7 +323,7 @@ public class SkillsService_ESTest extends SkillsService_ESTest_scaffolding {
          //
          // no message in exception (getMessage() returned null)
          //
-         verifyException("com.tv.tutorials.coolestuffvoorcheops.services.impl.SkillsService", e);
+         verifyException("SkillsService", e);
       }
   }
 
@@ -469,7 +469,7 @@ public class SkillsService_ESTest extends SkillsService_ESTest_scaffolding {
          //
          // no message in exception (getMessage() returned null)
          //
-         verifyException("com.tv.tutorials.coolestuffvoorcheops.services.impl.SkillsService", e);
+         verifyException("SkillsService", e);
       }
   }
 }

@@ -3,11 +3,11 @@
  * Tue Oct 16 13:58:11 GMT 2018
  */
 
-package com.tv.tutorials.coolestuffvoorcheops.exceptions;
+package com.cheops.candidatemanager.exceptions;
 
 import org.junit.Test;
 import static org.junit.Assert.*;
-import com.tv.tutorials.coolestuffvoorcheops.exceptions.StorageFileNotFoundException;
+import com.cheops.candidatemanager.exceptions.StorageFileNotFoundException;
 import org.evosuite.runtime.EvoRunner;
 import org.evosuite.runtime.EvoRunnerParameters;
 import org.evosuite.runtime.mock.java.lang.MockThrowable;

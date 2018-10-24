@@ -1,4 +1,4 @@
-[MASTER] 15:54:10.642 [pool-2-thread-1] ERROR ConcreteClassAnalyzer - Problem for com.tv.tutorials.coolestuffvoorcheops.controllers.SalaryPackageController. Class not found: org.springframework.context.support.GenericGroovyApplicationContext
+[MASTER] 15:54:10.642 [pool-2-thread-1] ERROR ConcreteClassAnalyzer - Problem for com.cheops.candidatemanager.controllers.SalaryPackageController. Class not found: org.springframework.context.support.GenericGroovyApplicationContext
 java.lang.ClassNotFoundException: groovy/lang/GroovyObject
 	at org.evosuite.instrumentation.InstrumentingClassLoader.instrumentClass(InstrumentingClassLoader.java:201)
 	at org.evosuite.instrumentation.InstrumentingClassLoader.loadClass(InstrumentingClassLoader.java:168)
@@ -35,7 +35,7 @@ Caused by: java.lang.ClassNotFoundException: groovy.lang.GroovyObject
 	at org.evosuite.instrumentation.InstrumentingClassLoader.loadClass(InstrumentingClassLoader.java:159)
 	... 24 common frames omitted
 [MASTER] 15:54:10.653 [pool-2-thread-1] ERROR ConcreteClassAnalyzer - Removing class from inheritance tree
-[MASTER] 15:54:11.711 [pool-2-thread-1] ERROR ClientNodeImpl - Error when generating tests for: com.tv.tutorials.coolestuffvoorcheops.controllers.SalaryPackageController with seed 1539698035397. Configuration id : default
+[MASTER] 15:54:11.711 [pool-2-thread-1] ERROR ClientNodeImpl - Error when generating tests for: com.cheops.candidatemanager.controllers.SalaryPackageController with seed 1539698035397. Configuration id : default
 java.lang.TypeNotPresentException: Type reactor.ipc.netty.http.server.HttpServerRequest not present
 	at sun.reflect.generics.factory.CoreReflectionFactory.makeNamedType(CoreReflectionFactory.java:117)
 	at sun.reflect.generics.visitor.Reifier.visitClassTypeSignature(Reifier.java:125)

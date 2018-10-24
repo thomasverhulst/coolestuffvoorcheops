@@ -77,4 +77,15 @@
   new $.QuickMenu($('.header--right '));
   new $.QuickActions($('.icon-quick-menu ~ .o-card-hover'));
 
+  // Form validation.
+  $('.js-needs-validation').each(function(e) {
+    $(this).submit(function(ev) {
+      if ($(this)[0].checkValidity() === false) {
+        ev.preventDefault();
+        ev.stopPropagation();
+      }
+      $(this).addClass('was-validated');
+    });
+  });
+
 })(jQuery);

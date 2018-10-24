@@ -3,15 +3,15 @@
  * Tue Oct 16 14:00:56 GMT 2018
  */
 
-package com.tv.tutorials.coolestuffvoorcheops.services.impl;
+package com.cheops.candidatemanager.services.impl;
 
 import org.junit.Test;
 import static org.junit.Assert.*;
 import static org.evosuite.shaded.org.mockito.Mockito.*;
 import static org.evosuite.runtime.EvoAssertions.*;
-import com.tv.tutorials.coolestuffvoorcheops.models.User;
-import com.tv.tutorials.coolestuffvoorcheops.repositories.UserRepository;
-import com.tv.tutorials.coolestuffvoorcheops.services.impl.CustomUserDetailService;
+import com.cheops.candidatemanager.models.User;
+import com.cheops.candidatemanager.repositories.UserRepository;
+import com.cheops.candidatemanager.services.impl.CustomUserDetailService;
 import java.util.Optional;
 import org.evosuite.runtime.EvoRunner;
 import org.evosuite.runtime.EvoRunnerParameters;
@@ -47,7 +47,7 @@ public class CustomUserDetailService_ESTest extends CustomUserDetailService_ESTe
          //
          // no message in exception (getMessage() returned null)
          //
-         verifyException("com.tv.tutorials.coolestuffvoorcheops.services.impl.CustomUserDetailService", e);
+         verifyException("CustomUserDetailService", e);
       }
   }
 }

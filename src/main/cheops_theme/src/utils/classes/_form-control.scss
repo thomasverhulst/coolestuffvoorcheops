@@ -1,0 +1,8 @@
+.form-control {
+  .was-validated &:invalid,
+  .was-validated &:valid {
+    &:focus {
+      box-shadow: none;
+    }
+  }
+}

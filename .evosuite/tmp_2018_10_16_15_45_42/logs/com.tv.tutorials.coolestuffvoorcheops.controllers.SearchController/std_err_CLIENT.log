@@ -1,4 +1,4 @@
-[MASTER] 15:50:53.229 [pool-2-thread-1] ERROR ConcreteClassAnalyzer - Problem for com.tv.tutorials.coolestuffvoorcheops.controllers.SearchController. Class not found: org.springframework.web.context.support.GroovyWebApplicationContext
+[MASTER] 15:50:53.229 [pool-2-thread-1] ERROR ConcreteClassAnalyzer - Problem for com.cheops.candidatemanager.controllers.SearchController. Class not found: org.springframework.web.context.support.GroovyWebApplicationContext
 java.lang.ClassNotFoundException: groovy/lang/GroovyObject
 	at org.evosuite.instrumentation.InstrumentingClassLoader.instrumentClass(InstrumentingClassLoader.java:201)
 	at org.evosuite.instrumentation.InstrumentingClassLoader.loadClass(InstrumentingClassLoader.java:168)
@@ -35,7 +35,7 @@ Caused by: java.lang.ClassNotFoundException: groovy.lang.GroovyObject
 	at org.evosuite.instrumentation.InstrumentingClassLoader.loadClass(InstrumentingClassLoader.java:159)
 	... 24 common frames omitted
 [MASTER] 15:50:53.230 [pool-2-thread-1] ERROR ConcreteClassAnalyzer - Removing class from inheritance tree
-[MASTER] 15:50:53.426 [pool-2-thread-1] ERROR ConcreteClassAnalyzer - Problem for com.tv.tutorials.coolestuffvoorcheops.controllers.SearchController. Class not found: org.springframework.context.support.GenericGroovyApplicationContext
+[MASTER] 15:50:53.426 [pool-2-thread-1] ERROR ConcreteClassAnalyzer - Problem for com.cheops.candidatemanager.controllers.SearchController. Class not found: org.springframework.context.support.GenericGroovyApplicationContext
 java.lang.ClassNotFoundException: groovy/lang/GroovyObject
 	at org.evosuite.instrumentation.InstrumentingClassLoader.instrumentClass(InstrumentingClassLoader.java:201)
 	at org.evosuite.instrumentation.InstrumentingClassLoader.loadClass(InstrumentingClassLoader.java:168)
@@ -72,7 +72,7 @@ Caused by: java.lang.ClassNotFoundException: groovy.lang.GroovyObject
 	at org.evosuite.instrumentation.InstrumentingClassLoader.loadClass(InstrumentingClassLoader.java:159)
 	... 24 common frames omitted
 [MASTER] 15:50:53.427 [pool-2-thread-1] ERROR ConcreteClassAnalyzer - Removing class from inheritance tree
-[MASTER] 15:50:59.789 [pool-2-thread-1] ERROR ConcreteClassAnalyzer - Problem for com.tv.tutorials.coolestuffvoorcheops.controllers.SearchController. Class not found: org.springframework.core.io.buffer.DataBufferUtils$AsynchronousFileChannelWriteCompletionHandler
+[MASTER] 15:50:59.789 [pool-2-thread-1] ERROR ConcreteClassAnalyzer - Problem for com.cheops.candidatemanager.controllers.SearchController. Class not found: org.springframework.core.io.buffer.DataBufferUtils$AsynchronousFileChannelWriteCompletionHandler
 java.lang.ClassNotFoundException: reactor/core/publisher/BaseSubscriber
 	at org.evosuite.instrumentation.InstrumentingClassLoader.instrumentClass(InstrumentingClassLoader.java:201)
 	at org.evosuite.instrumentation.InstrumentingClassLoader.loadClass(InstrumentingClassLoader.java:168)
@@ -112,7 +112,7 @@ Caused by: java.lang.ClassNotFoundException: Class 'reactor/core/publisher/BaseS
 [MASTER] 15:51:05.511 [pool-2-thread-1] ERROR TestCluster - Failed to check cache for java.util.LinkedList<E> : Type points to itself
 [MASTER] 15:51:05.514 [pool-2-thread-1] ERROR TestCluster - Failed to check cache for java.lang.reflect.Constructor<T> : Type points to itself
 [MASTER] 15:51:05.850 [pool-2-thread-1] ERROR TestCluster - Failed to check cache for java.util.concurrent.ForkJoinTask<V> : Type points to itself
-[MASTER] 15:51:06.371 [pool-2-thread-1] ERROR ClientNodeImpl - Error when generating tests for: com.tv.tutorials.coolestuffvoorcheops.controllers.SearchController with seed 1539697841187. Configuration id : default
+[MASTER] 15:51:06.371 [pool-2-thread-1] ERROR ClientNodeImpl - Error when generating tests for: com.cheops.candidatemanager.controllers.SearchController with seed 1539697841187. Configuration id : default
 java.lang.TypeNotPresentException: Type reactor.ipc.netty.http.server.HttpServerRequest not present
 	at sun.reflect.generics.factory.CoreReflectionFactory.makeNamedType(CoreReflectionFactory.java:117)
 	at sun.reflect.generics.visitor.Reifier.visitClassTypeSignature(Reifier.java:125)

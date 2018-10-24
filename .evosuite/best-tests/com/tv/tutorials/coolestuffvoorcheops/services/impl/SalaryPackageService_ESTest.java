@@ -3,15 +3,15 @@
  * Tue Oct 16 13:00:11 GMT 2018
  */
 
-package com.tv.tutorials.coolestuffvoorcheops.services.impl;
+package com.cheops.candidatemanager.services.impl;
 
 import org.junit.Test;
 import static org.junit.Assert.*;
 import static org.evosuite.shaded.org.mockito.Mockito.*;
 import static org.evosuite.runtime.EvoAssertions.*;
-import com.tv.tutorials.coolestuffvoorcheops.models.SalaryPackage;
-import com.tv.tutorials.coolestuffvoorcheops.repositories.SalaryPackageRepository;
-import com.tv.tutorials.coolestuffvoorcheops.services.impl.SalaryPackageService;
+import com.cheops.candidatemanager.models.SalaryPackage;
+import com.cheops.candidatemanager.repositories.SalaryPackageRepository;
+import com.cheops.candidatemanager.services.impl.SalaryPackageService;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
@@ -110,9 +110,9 @@ public class SalaryPackageService_ESTest extends SalaryPackageService_ESTest_sca
       
       } catch(ClassCastException e) {
          //
-         // java.lang.String cannot be cast to com.tv.tutorials.coolestuffvoorcheops.models.SalaryPackage
+         // java.lang.String cannot be cast to SalaryPackage
          //
-         verifyException("com.tv.tutorials.coolestuffvoorcheops.repositories.SalaryPackageRepository$MockitoMock$715869215", e);
+         verifyException("SalaryPackageRepository$MockitoMock$715869215", e);
       }
   }
 
@@ -132,7 +132,7 @@ public class SalaryPackageService_ESTest extends SalaryPackageService_ESTest_sca
          //
          // no message in exception (getMessage() returned null)
          //
-         verifyException("com.tv.tutorials.coolestuffvoorcheops.services.impl.SalaryPackageService", e);
+         verifyException("SalaryPackageService", e);
       }
   }
 
@@ -152,7 +152,7 @@ public class SalaryPackageService_ESTest extends SalaryPackageService_ESTest_sca
          //
          // no message in exception (getMessage() returned null)
          //
-         verifyException("com.tv.tutorials.coolestuffvoorcheops.services.impl.SalaryPackageService", e);
+         verifyException("SalaryPackageService", e);
       }
   }
 
@@ -170,9 +170,9 @@ public class SalaryPackageService_ESTest extends SalaryPackageService_ESTest_sca
       
       } catch(ClassCastException e) {
          //
-         // java.lang.String cannot be cast to com.tv.tutorials.coolestuffvoorcheops.models.SalaryPackage
+         // java.lang.String cannot be cast to SalaryPackage
          //
-         verifyException("com.tv.tutorials.coolestuffvoorcheops.repositories.SalaryPackageRepository$MockitoMock$715869215", e);
+         verifyException("SalaryPackageRepository$MockitoMock$715869215", e);
       }
   }
 
@@ -204,7 +204,7 @@ public class SalaryPackageService_ESTest extends SalaryPackageService_ESTest_sca
          //
          // no message in exception (getMessage() returned null)
          //
-         verifyException("com.tv.tutorials.coolestuffvoorcheops.services.impl.SalaryPackageService", e);
+         verifyException("SalaryPackageService", e);
       }
   }
 }

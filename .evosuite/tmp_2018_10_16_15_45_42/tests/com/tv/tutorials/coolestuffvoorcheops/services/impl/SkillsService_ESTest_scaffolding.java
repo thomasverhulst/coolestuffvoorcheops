@@ -4,7 +4,7 @@
  * Tue Oct 16 13:53:41 GMT 2018
  */
 
-package com.tv.tutorials.coolestuffvoorcheops.services.impl;
+package com.cheops.candidatemanager.services.impl;
 
 import org.evosuite.runtime.annotation.EvoSuiteClassExclude;
 import org.junit.BeforeClass;
@@ -28,7 +28,7 @@ public class SkillsService_ESTest_scaffolding {
 
   @BeforeClass 
   public static void initEvoSuiteFramework() { 
-    org.evosuite.runtime.RuntimeSettings.className = "com.tv.tutorials.coolestuffvoorcheops.services.impl.SkillsService"; 
+    org.evosuite.runtime.RuntimeSettings.className = "SkillsService";
     org.evosuite.runtime.GuiSupport.initialize(); 
     org.evosuite.runtime.RuntimeSettings.maxNumberOfThreads = 100; 
     org.evosuite.runtime.RuntimeSettings.maxNumberOfIterationsPerLoop = 10000; 
@@ -78,7 +78,7 @@ public class SkillsService_ESTest_scaffolding {
     java.lang.System.setProperty("java.awt.headless", "true"); 
     java.lang.System.setProperty("java.io.tmpdir", "C:\\Users\\THOMAS~1.VER\\AppData\\Local\\Temp\\"); 
     java.lang.System.setProperty("user.country", "US"); 
-    java.lang.System.setProperty("user.dir", "C:\\Users\\thomas.verhulst\\Documents\\workspace-sts-3.9.5.RELEASE\\coolestuffvoorcheops"); 
+    java.lang.System.setProperty("user.dir", "C:\\Users\\thomas.verhulst\\Documents\\workspace-sts-3.9.5.RELEASE\\candidatemanager");
     java.lang.System.setProperty("user.home", "C:\\Users\\thomas.verhulst"); 
     java.lang.System.setProperty("user.language", "en"); 
     java.lang.System.setProperty("user.name", "Thomas.Verhulst"); 
@@ -87,27 +87,27 @@ public class SkillsService_ESTest_scaffolding {
 
   private static void initializeClasses() {
     org.evosuite.runtime.classhandling.ClassStateSupport.initializeClasses(SkillsService_ESTest_scaffolding.class.getClassLoader() ,
-      "com.tv.tutorials.coolestuffvoorcheops.services.impl.SkillsService",
+      "SkillsService",
       "org.springframework.stereotype.Component",
-      "com.tv.tutorials.coolestuffvoorcheops.models.Skills",
-      "com.tv.tutorials.coolestuffvoorcheops.services.ISkillService",
+      "Skills",
+      "ISkillService",
       "org.springframework.stereotype.Service",
       "org.springframework.data.repository.Repository",
       "org.springframework.beans.factory.annotation.Autowired",
       "org.springframework.data.repository.CrudRepository",
-      "com.tv.tutorials.coolestuffvoorcheops.repositories.SkillsRepository"
+      "SkillsRepository"
     );
   } 
   private static void initMocksToAvoidTimeoutsInTheTests() throws ClassNotFoundException { 
-    mock(Class.forName("com.tv.tutorials.coolestuffvoorcheops.repositories.SkillsRepository", false, SkillsService_ESTest_scaffolding.class.getClassLoader()));
+    mock(Class.forName("SkillsRepository", false, SkillsService_ESTest_scaffolding.class.getClassLoader()));
   }
 
   private static void resetClasses() {
     org.evosuite.runtime.classhandling.ClassResetter.getInstance().setClassLoader(SkillsService_ESTest_scaffolding.class.getClassLoader()); 
 
     org.evosuite.runtime.classhandling.ClassStateSupport.resetClasses(
-      "com.tv.tutorials.coolestuffvoorcheops.services.impl.SkillsService",
-      "com.tv.tutorials.coolestuffvoorcheops.models.Skills",
+      "SkillsService",
+      "Skills",
       "com.mysql.jdbc.AbandonedConnectionCleanupThread$1",
       "com.mysql.jdbc.AbandonedConnectionCleanupThread",
       "com.mysql.jdbc.NonRegisteringDriver",

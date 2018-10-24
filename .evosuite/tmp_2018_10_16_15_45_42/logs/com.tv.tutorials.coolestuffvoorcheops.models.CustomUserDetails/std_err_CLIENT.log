@@ -1,5 +1,5 @@
 [MASTER] 16:01:23.078 [Thread-2] ERROR System - Error while initializing System: null
-[MASTER] 16:01:23.297 [pool-2-thread-1] ERROR TestSuiteGenerator - Problem for com.tv.tutorials.coolestuffvoorcheops.models.CustomUserDetails. Full stack:
+[MASTER] 16:01:23.297 [pool-2-thread-1] ERROR TestSuiteGenerator - Problem for com.cheops.candidatemanager.models.CustomUserDetails. Full stack:
 java.lang.NullPointerException: null
 	at org.evosuite.runtime.System.restoreProperties(System.java:100)
 	at org.evosuite.runtime.System.resetRuntime(System.java:328)

@@ -1,4 +1,4 @@
-[MASTER] 15:54:48.582 [pool-2-thread-1] ERROR ConcreteClassAnalyzer - Problem for com.tv.tutorials.coolestuffvoorcheops.controllers.SkillsController. Class not found: org.springframework.web.context.support.GroovyWebApplicationContext
+[MASTER] 15:54:48.582 [pool-2-thread-1] ERROR ConcreteClassAnalyzer - Problem for com.cheops.candidatemanager.controllers.SkillsController. Class not found: org.springframework.web.context.support.GroovyWebApplicationContext
 java.lang.ClassNotFoundException: groovy/lang/GroovyObject
 	at org.evosuite.instrumentation.InstrumentingClassLoader.instrumentClass(InstrumentingClassLoader.java:201)
 	at org.evosuite.instrumentation.InstrumentingClassLoader.loadClass(InstrumentingClassLoader.java:168)
@@ -61,7 +61,7 @@ Caused by: java.lang.ClassNotFoundException: groovy.lang.GroovyObject
 	at org.evosuite.instrumentation.InstrumentingClassLoader.loadClass(InstrumentingClassLoader.java:159)
 	... 50 common frames omitted
 [MASTER] 15:54:48.583 [pool-2-thread-1] ERROR ConcreteClassAnalyzer - Removing class from inheritance tree
-[MASTER] 15:54:48.786 [pool-2-thread-1] ERROR ConcreteClassAnalyzer - Problem for com.tv.tutorials.coolestuffvoorcheops.controllers.SkillsController. Class not found: org.springframework.context.support.GenericGroovyApplicationContext
+[MASTER] 15:54:48.786 [pool-2-thread-1] ERROR ConcreteClassAnalyzer - Problem for com.cheops.candidatemanager.controllers.SkillsController. Class not found: org.springframework.context.support.GenericGroovyApplicationContext
 java.lang.ClassNotFoundException: groovy/lang/GroovyObject
 	at org.evosuite.instrumentation.InstrumentingClassLoader.instrumentClass(InstrumentingClassLoader.java:201)
 	at org.evosuite.instrumentation.InstrumentingClassLoader.loadClass(InstrumentingClassLoader.java:168)
@@ -124,7 +124,7 @@ Caused by: java.lang.ClassNotFoundException: groovy.lang.GroovyObject
 	at org.evosuite.instrumentation.InstrumentingClassLoader.loadClass(InstrumentingClassLoader.java:159)
 	... 50 common frames omitted
 [MASTER] 15:54:48.787 [pool-2-thread-1] ERROR ConcreteClassAnalyzer - Removing class from inheritance tree
-[MASTER] 15:54:59.578 [pool-2-thread-1] ERROR ConcreteClassAnalyzer - Problem for com.tv.tutorials.coolestuffvoorcheops.controllers.SkillsController. Class not found: org.springframework.core.io.buffer.DataBufferUtils$AsynchronousFileChannelWriteCompletionHandler
+[MASTER] 15:54:59.578 [pool-2-thread-1] ERROR ConcreteClassAnalyzer - Problem for com.cheops.candidatemanager.controllers.SkillsController. Class not found: org.springframework.core.io.buffer.DataBufferUtils$AsynchronousFileChannelWriteCompletionHandler
 java.lang.ClassNotFoundException: reactor/core/publisher/BaseSubscriber
 	at org.evosuite.instrumentation.InstrumentingClassLoader.instrumentClass(InstrumentingClassLoader.java:201)
 	at org.evosuite.instrumentation.InstrumentingClassLoader.loadClass(InstrumentingClassLoader.java:168)
@@ -188,7 +188,7 @@ Caused by: java.lang.ClassNotFoundException: Class 'reactor/core/publisher/BaseS
 	... 51 common frames omitted
 [MASTER] 15:54:59.579 [pool-2-thread-1] ERROR ConcreteClassAnalyzer - Removing class from inheritance tree
 [MASTER] 15:55:09.233 [pool-2-thread-1] ERROR TestCluster - Failed to check cache for java.util.concurrent.ForkJoinTask<V> : Type points to itself
-[MASTER] 15:55:26.139 [pool-2-thread-1] ERROR ClientNodeImpl - Error when generating tests for: com.tv.tutorials.coolestuffvoorcheops.controllers.SkillsController with seed 1539698077374. Configuration id : default
+[MASTER] 15:55:26.139 [pool-2-thread-1] ERROR ClientNodeImpl - Error when generating tests for: com.cheops.candidatemanager.controllers.SkillsController with seed 1539698077374. Configuration id : default
 java.lang.TypeNotPresentException: Type reactor.ipc.netty.http.server.HttpServerRequest not present
 	at sun.reflect.generics.factory.CoreReflectionFactory.makeNamedType(CoreReflectionFactory.java:117)
 	at sun.reflect.generics.visitor.Reifier.visitClassTypeSignature(Reifier.java:125)

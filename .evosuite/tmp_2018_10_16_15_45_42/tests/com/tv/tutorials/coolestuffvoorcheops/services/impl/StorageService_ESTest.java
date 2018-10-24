@@ -3,14 +3,14 @@
  * Tue Oct 16 13:53:48 GMT 2018
  */
 
-package com.tv.tutorials.coolestuffvoorcheops.services.impl;
+package com.cheops.candidatemanager.services.impl;
 
 import org.junit.Test;
 import static org.junit.Assert.*;
 import static org.evosuite.shaded.org.mockito.Mockito.*;
 import static org.evosuite.runtime.EvoAssertions.*;
-import com.tv.tutorials.coolestuffvoorcheops.configuration.StorageProperties;
-import com.tv.tutorials.coolestuffvoorcheops.services.impl.StorageService;
+import com.cheops.candidatemanager.configuration.StorageProperties;
+import com.cheops.candidatemanager.services.impl.StorageService;
 import java.io.IOError;
 import java.io.InputStream;
 import java.io.PipedInputStream;
@@ -112,7 +112,7 @@ public class StorageService_ESTest extends StorageService_ESTest_scaffolding {
          //
          // no message in exception (getMessage() returned null)
          //
-         verifyException("com.tv.tutorials.coolestuffvoorcheops.services.impl.StorageService", e);
+         verifyException("StorageService", e);
       }
   }
 
@@ -160,7 +160,7 @@ public class StorageService_ESTest extends StorageService_ESTest_scaffolding {
          //
          // Failed to read stored files
          //
-         verifyException("com.tv.tutorials.coolestuffvoorcheops.services.impl.StorageService", e);
+         verifyException("StorageService", e);
       }
   }
 
@@ -221,7 +221,7 @@ public class StorageService_ESTest extends StorageService_ESTest_scaffolding {
          //
          // no message in exception (getMessage() returned null)
          //
-         verifyException("com.tv.tutorials.coolestuffvoorcheops.services.impl.StorageService", e);
+         verifyException("StorageService", e);
       }
   }
 
@@ -252,7 +252,7 @@ public class StorageService_ESTest extends StorageService_ESTest_scaffolding {
          //
          // Cannot store file with relative path outside current directory ..
          //
-         verifyException("com.tv.tutorials.coolestuffvoorcheops.services.impl.StorageService", e);
+         verifyException("StorageService", e);
       }
   }
 
@@ -271,7 +271,7 @@ public class StorageService_ESTest extends StorageService_ESTest_scaffolding {
          //
          // Failed to store empty file 
          //
-         verifyException("com.tv.tutorials.coolestuffvoorcheops.services.impl.StorageService", e);
+         verifyException("StorageService", e);
       }
   }
 
@@ -305,7 +305,7 @@ public class StorageService_ESTest extends StorageService_ESTest_scaffolding {
          //
          // Could not read file: 
          //
-         verifyException("com.tv.tutorials.coolestuffvoorcheops.services.impl.StorageService", e);
+         verifyException("StorageService", e);
       }
   }
 
@@ -321,7 +321,7 @@ public class StorageService_ESTest extends StorageService_ESTest_scaffolding {
          //
          // no message in exception (getMessage() returned null)
          //
-         verifyException("com.tv.tutorials.coolestuffvoorcheops.services.impl.StorageService", e);
+         verifyException("StorageService", e);
       }
   }
 
@@ -353,7 +353,7 @@ public class StorageService_ESTest extends StorageService_ESTest_scaffolding {
          //
          // no message in exception (getMessage() returned null)
          //
-         verifyException("com.tv.tutorials.coolestuffvoorcheops.services.impl.StorageService", e);
+         verifyException("StorageService", e);
       }
   }
 }

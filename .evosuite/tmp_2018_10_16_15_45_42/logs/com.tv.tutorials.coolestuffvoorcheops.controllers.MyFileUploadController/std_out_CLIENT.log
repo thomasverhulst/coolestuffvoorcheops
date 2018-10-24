@@ -2,4 +2,4 @@
 [MASTER] 15:54:29.009 [pool-2-thread-1] WARN  InheritanceTree - Class not in inheritance graph: org.apache.commons.fileupload.FileItem
 [MASTER] 15:54:29.010 [pool-2-thread-1] WARN  CheapPurityAnalyzer - org.apache.commons.fileupload.FileItem was not found in the inheritance tree. Using DEFAULT value for cheap-purity analysis
 [MASTER] 15:54:29.011 [pool-2-thread-1] WARN  CheapPurityAnalyzer - org.apache.commons.fileupload.FileItem was not found in the inheritance tree. Using DEFAULT value for cheap-purity analysis
-[MASTER] 15:54:30.007 [pool-2-thread-1] WARN  TestSuiteSerialization - Cannot load tests because file does not exist: C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\evosuite-seeds\com.tv.tutorials.coolestuffvoorcheops.controllers.MyFileUploadController.seed
+[MASTER] 15:54:30.007 [pool-2-thread-1] WARN  TestSuiteSerialization - Cannot load tests because file does not exist: C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\evosuite-seeds\com.cheops.candidatemanager.controllers.MyFileUploadController.seed
