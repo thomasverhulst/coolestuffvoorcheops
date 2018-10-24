@@ -3,15 +3,15 @@
  * Tue Oct 16 14:00:39 GMT 2018
  */
 
-package com.tv.tutorials.coolestuffvoorcheops.services.impl;
+package com.cheops.candidatemanager.services.impl;
 
 import org.junit.Test;
 import static org.junit.Assert.*;
 import static org.evosuite.shaded.org.mockito.Mockito.*;
 import static org.evosuite.runtime.EvoAssertions.*;
-import com.tv.tutorials.coolestuffvoorcheops.models.Address;
-import com.tv.tutorials.coolestuffvoorcheops.repositories.AddressRepository;
-import com.tv.tutorials.coolestuffvoorcheops.services.impl.AddressService;
+import com.cheops.candidatemanager.models.Address;
+import com.cheops.candidatemanager.repositories.AddressRepository;
+import com.cheops.candidatemanager.services.impl.AddressService;
 import java.time.chrono.ChronoLocalDate;
 import java.util.HashSet;
 import java.util.List;
@@ -51,7 +51,7 @@ public class AddressService_ESTest extends AddressService_ESTest_scaffolding {
          //
          // no message in exception (getMessage() returned null)
          //
-         verifyException("com.tv.tutorials.coolestuffvoorcheops.services.impl.AddressService", e);
+         verifyException("AddressService", e);
       }
   }
 
@@ -70,9 +70,9 @@ public class AddressService_ESTest extends AddressService_ESTest_scaffolding {
       
       } catch(ClassCastException e) {
          //
-         // java.lang.Object cannot be cast to com.tv.tutorials.coolestuffvoorcheops.models.Address
+         // java.lang.Object cannot be cast to Address
          //
-         verifyException("com.tv.tutorials.coolestuffvoorcheops.repositories.AddressRepository$MockitoMock$258995563", e);
+         verifyException("AddressRepository$MockitoMock$258995563", e);
       }
   }
 
@@ -92,7 +92,7 @@ public class AddressService_ESTest extends AddressService_ESTest_scaffolding {
          //
          // no message in exception (getMessage() returned null)
          //
-         verifyException("com.tv.tutorials.coolestuffvoorcheops.services.impl.AddressService", e);
+         verifyException("AddressService", e);
       }
   }
 
@@ -112,7 +112,7 @@ public class AddressService_ESTest extends AddressService_ESTest_scaffolding {
          //
          // no message in exception (getMessage() returned null)
          //
-         verifyException("com.tv.tutorials.coolestuffvoorcheops.services.impl.AddressService", e);
+         verifyException("AddressService", e);
       }
   }
 
@@ -128,7 +128,7 @@ public class AddressService_ESTest extends AddressService_ESTest_scaffolding {
          //
          // no message in exception (getMessage() returned null)
          //
-         verifyException("com.tv.tutorials.coolestuffvoorcheops.services.impl.AddressService", e);
+         verifyException("AddressService", e);
       }
   }
 
@@ -147,9 +147,9 @@ public class AddressService_ESTest extends AddressService_ESTest_scaffolding {
       
       } catch(ClassCastException e) {
          //
-         // java.lang.String cannot be cast to com.tv.tutorials.coolestuffvoorcheops.models.Address
+         // java.lang.String cannot be cast to Address
          //
-         verifyException("com.tv.tutorials.coolestuffvoorcheops.repositories.AddressRepository$MockitoMock$258995563", e);
+         verifyException("AddressRepository$MockitoMock$258995563", e);
       }
   }
 
@@ -179,7 +179,7 @@ public class AddressService_ESTest extends AddressService_ESTest_scaffolding {
          //
          // no message in exception (getMessage() returned null)
          //
-         verifyException("com.tv.tutorials.coolestuffvoorcheops.services.impl.AddressService", e);
+         verifyException("AddressService", e);
       }
   }
 }

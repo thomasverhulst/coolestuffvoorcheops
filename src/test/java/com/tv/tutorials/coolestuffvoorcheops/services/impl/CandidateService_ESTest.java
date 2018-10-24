@@ -3,1540 +3,1540 @@
  * Tue Oct 16 13:51:09 GMT 2018
  */
 
-package com.tv.tutorials.coolestuffvoorcheops.services.impl;
-
-import org.junit.Ignore;
-import org.junit.Test;
-import static org.junit.Assert.*;
-import static org.evosuite.shaded.org.mockito.Mockito.*;
-import static org.evosuite.runtime.EvoAssertions.*;
-import com.tv.tutorials.coolestuffvoorcheops.models.Address;
-import com.tv.tutorials.coolestuffvoorcheops.models.ApplicationProcess;
-import com.tv.tutorials.coolestuffvoorcheops.models.Candidate;
-import com.tv.tutorials.coolestuffvoorcheops.models.CandidateSearchResolver;
-import com.tv.tutorials.coolestuffvoorcheops.models.Skills;
-import com.tv.tutorials.coolestuffvoorcheops.repositories.AddressRepository;
-import com.tv.tutorials.coolestuffvoorcheops.repositories.ApplicationProcessRepository;
-import com.tv.tutorials.coolestuffvoorcheops.repositories.CandidateRepository;
-import com.tv.tutorials.coolestuffvoorcheops.repositories.SkillsRepository;
-import com.tv.tutorials.coolestuffvoorcheops.services.impl.ApplicationProcessService;
-import com.tv.tutorials.coolestuffvoorcheops.services.impl.CandidateService;
-import com.tv.tutorials.coolestuffvoorcheops.services.impl.SkillsService;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.util.ArrayDeque;
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.Date;
-import java.util.HashSet;
-import java.util.List;
-import java.util.NoSuchElementException;
-import java.util.Optional;
-import java.util.PriorityQueue;
-import java.util.Stack;
-import java.util.Vector;
-import java.util.function.Predicate;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpServletResponseWrapper;
-import org.evosuite.runtime.EvoRunner;
-import org.evosuite.runtime.EvoRunnerParameters;
-import org.evosuite.runtime.ViolatedAssumptionAnswer;
-import org.evosuite.runtime.javaee.injection.Injector;
-import org.evosuite.runtime.mock.java.io.MockFile;
-import org.evosuite.runtime.mock.java.io.MockPrintWriter;
-import org.evosuite.runtime.mock.java.util.MockDate;
-import org.evosuite.runtime.testdata.EvoSuiteFile;
-import org.evosuite.runtime.testdata.FileSystemHandling;
-import org.junit.runner.RunWith;
-
-@RunWith(EvoRunner.class) @EvoRunnerParameters(mockJVMNonDeterminism = true, useVFS = true, useVNET = true, resetStaticState = true, separateClassLoader = true, useJEE = true) 
-public class CandidateService_ESTest extends CandidateService_ESTest_scaffolding {
-
-  @Test(timeout = 4000)
-  public void test00()  throws Throwable  {
-      CandidateService candidateService0 = new CandidateService();
-      Address address0 = new Address();
-      Optional<Address> optional0 = Optional.of(address0);
-      AddressRepository addressRepository0 = mock(AddressRepository.class, new ViolatedAssumptionAnswer());
-      doReturn(optional0).when(addressRepository0).findById(anyInt());
-      doReturn((Object) null).when(addressRepository0).save(new Address());
-      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "addressRepository", (Object) addressRepository0);
-      ApplicationProcessService applicationProcessService0 = new ApplicationProcessService();
-      ApplicationProcessRepository applicationProcessRepository0 = mock(ApplicationProcessRepository.class, new ViolatedAssumptionAnswer());
-      Injector.inject(applicationProcessService0, (Class<?>) ApplicationProcessService.class, "applicationProcessRepository", (Object) applicationProcessRepository0);
-      Injector.validateBean(applicationProcessService0, (Class<?>) ApplicationProcessService.class);
-      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "applicationProcessService", (Object) applicationProcessService0);
-      Candidate candidate0 = new Candidate();
-      Optional<Candidate> optional1 = Optional.ofNullable(candidate0);
-      CandidateRepository candidateRepository0 = mock(CandidateRepository.class, new ViolatedAssumptionAnswer());
-      doReturn(optional1).when(candidateRepository0).findById(anyInt());
-      doReturn(", ").when(candidateRepository0).save(new Candidate());
-      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "candidateRepository", (Object) candidateRepository0);
-      SkillsService skillsService0 = new SkillsService();
-      SkillsRepository skillsRepository0 = mock(SkillsRepository.class, new ViolatedAssumptionAnswer());
-      Injector.inject(skillsService0, (Class<?>) SkillsService.class, "skillsRepository", (Object) skillsRepository0);
-      Injector.validateBean(skillsService0, (Class<?>) SkillsService.class);
-      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "skillsService", (Object) skillsService0);
-      Injector.validateBean(candidateService0, (Class<?>) CandidateService.class);
-      // Undeclared exception!
-      try { 
-        candidateService0.saveOrUpdateCandidate((-2149), candidate0, address0, 112);
-        fail("Expecting exception: ClassCastException");
-      
-      } catch(ClassCastException e) {
-         //
-         // java.lang.String cannot be cast to com.tv.tutorials.coolestuffvoorcheops.models.Candidate
-         //
-         verifyException("com.tv.tutorials.coolestuffvoorcheops.repositories.CandidateRepository$MockitoMock$258269404", e);
-      }
-  }
-
-  @Test(timeout = 4000)
-  public void test01()  throws Throwable  {
-      CandidateService candidateService0 = new CandidateService();
-      Address address0 = new Address("C:Users\thomas.verhulstDocumentsworkspace-sts-3.9.5.RELEASEcoolestuffvoorcheops/uploads", "C:Users\thomas.verhulstDocumentsworkspace-sts-3.9.5.RELEASEcoolestuffvoorcheops/uploads", "C:Users\thomas.verhulstDocumentsworkspace-sts-3.9.5.RELEASEcoolestuffvoorcheops/uploads", "C:Users\thomas.verhulstDocumentsworkspace-sts-3.9.5.RELEASEcoolestuffvoorcheops/uploads", "+|}@|+nd=gj!", "C:Users\thomas.verhulstDocumentsworkspace-sts-3.9.5.RELEASEcoolestuffvoorcheops/uploads");
-      Optional<Address> optional0 = Optional.of(address0);
-      AddressRepository addressRepository0 = mock(AddressRepository.class, new ViolatedAssumptionAnswer());
-      doReturn(optional0).when(addressRepository0).findById(anyInt());
-      doReturn(optional0).when(addressRepository0).save(new Address());
-      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "addressRepository", (Object) addressRepository0);
-      ApplicationProcessService applicationProcessService0 = new ApplicationProcessService();
-      ApplicationProcessRepository applicationProcessRepository0 = mock(ApplicationProcessRepository.class, new ViolatedAssumptionAnswer());
-      Injector.inject(applicationProcessService0, (Class<?>) ApplicationProcessService.class, "applicationProcessRepository", (Object) applicationProcessRepository0);
-      Injector.validateBean(applicationProcessService0, (Class<?>) ApplicationProcessService.class);
-      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "applicationProcessService", (Object) applicationProcessService0);
-      Candidate candidate0 = new Candidate();
-      Optional<Candidate> optional1 = Optional.ofNullable(candidate0);
-      CandidateRepository candidateRepository0 = mock(CandidateRepository.class, new ViolatedAssumptionAnswer());
-      doReturn(optional1).when(candidateRepository0).findById(anyInt());
-      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "candidateRepository", (Object) candidateRepository0);
-      SkillsService skillsService0 = new SkillsService();
-      SkillsRepository skillsRepository0 = mock(SkillsRepository.class, new ViolatedAssumptionAnswer());
-      Injector.inject(skillsService0, (Class<?>) SkillsService.class, "skillsRepository", (Object) skillsRepository0);
-      Injector.validateBean(skillsService0, (Class<?>) SkillsService.class);
-      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "skillsService", (Object) skillsService0);
-      Injector.validateBean(candidateService0, (Class<?>) CandidateService.class);
-      Address address1 = new Address();
-      // Undeclared exception!
-      try { 
-        candidateService0.saveOrUpdateCandidate(1, candidate0, address1, 1);
-        fail("Expecting exception: ClassCastException");
-      
-      } catch(ClassCastException e) {
-         //
-         // java.util.Optional cannot be cast to com.tv.tutorials.coolestuffvoorcheops.models.Address
-         //
-         verifyException("com.tv.tutorials.coolestuffvoorcheops.repositories.AddressRepository$MockitoMock$732688054", e);
-      }
-  }
-
-  @Test(timeout = 4000)
-  public void test02()  throws Throwable  {
-      CandidateService candidateService0 = new CandidateService();
-      AddressRepository addressRepository0 = mock(AddressRepository.class, new ViolatedAssumptionAnswer());
-      doReturn((Optional) null).when(addressRepository0).findById(anyInt());
-      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "addressRepository", (Object) addressRepository0);
-      ApplicationProcessService applicationProcessService0 = new ApplicationProcessService();
-      ApplicationProcessRepository applicationProcessRepository0 = mock(ApplicationProcessRepository.class, new ViolatedAssumptionAnswer());
-      Injector.inject(applicationProcessService0, (Class<?>) ApplicationProcessService.class, "applicationProcessRepository", (Object) applicationProcessRepository0);
-      Injector.validateBean(applicationProcessService0, (Class<?>) ApplicationProcessService.class);
-      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "applicationProcessService", (Object) applicationProcessService0);
-      Candidate candidate0 = new Candidate();
-      Optional<Candidate> optional0 = Optional.of(candidate0);
-      CandidateRepository candidateRepository0 = mock(CandidateRepository.class, new ViolatedAssumptionAnswer());
-      doReturn(optional0).when(candidateRepository0).findById(anyInt());
-      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "candidateRepository", (Object) candidateRepository0);
-      SkillsService skillsService0 = new SkillsService();
-      SkillsRepository skillsRepository0 = mock(SkillsRepository.class, new ViolatedAssumptionAnswer());
-      Injector.inject(skillsService0, (Class<?>) SkillsService.class, "skillsRepository", (Object) skillsRepository0);
-      Injector.validateBean(skillsService0, (Class<?>) SkillsService.class);
-      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "skillsService", (Object) skillsService0);
-      Injector.validateBean(candidateService0, (Class<?>) CandidateService.class);
-      Candidate candidate1 = new Candidate();
-      Address address0 = new Address("C:Users\thomas.verhulstDocumentsworkspace-sts-3.9.5.RELEASEcoolestuffvoorcheops/uploads", "C:Users\thomas.verhulstDocumentsworkspace-sts-3.9.5.RELEASEcoolestuffvoorcheops/uploads", "TKdxgx?oofK", "C:Users\thomas.verhulstDocumentsworkspace-sts-3.9.5.RELEASEcoolestuffvoorcheops/uploads", "TKdxgx?oofK", "Handling completed with error: ");
-      // Undeclared exception!
-      try { 
-        candidateService0.saveOrUpdateCandidate(0, candidate1, address0, 0);
-        fail("Expecting exception: NullPointerException");
-      
-      } catch(NullPointerException e) {
-         //
-         // no message in exception (getMessage() returned null)
-         //
-         verifyException("com.tv.tutorials.coolestuffvoorcheops.services.impl.CandidateService", e);
-      }
-  }
-
-  @Test(timeout = 4000)
-  @Ignore
-  public void test03()  throws Throwable  {
-      CandidateService candidateService0 = new CandidateService();
-      AddressRepository addressRepository0 = mock(AddressRepository.class, new ViolatedAssumptionAnswer());
-      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "addressRepository", (Object) addressRepository0);
-      ApplicationProcessService applicationProcessService0 = new ApplicationProcessService();
-      ArrayList<ApplicationProcess> arrayList0 = new ArrayList<ApplicationProcess>();
-      ApplicationProcessRepository applicationProcessRepository0 = mock(ApplicationProcessRepository.class, new ViolatedAssumptionAnswer());
-      doReturn(arrayList0, arrayList0).when(applicationProcessRepository0).findAllBytoBeInvitedForFirstConversation(anyBoolean());
-      Injector.inject(applicationProcessService0, (Class<?>) ApplicationProcessService.class, "applicationProcessRepository", (Object) applicationProcessRepository0);
-      Injector.validateBean(applicationProcessService0, (Class<?>) ApplicationProcessService.class);
-      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "applicationProcessService", (Object) applicationProcessService0);
-      Stack<Candidate> stack0 = new Stack<Candidate>();
-      Candidate candidate0 = new Candidate();
-      stack0.add(candidate0);
-      CandidateRepository candidateRepository0 = mock(CandidateRepository.class, new ViolatedAssumptionAnswer());
-      doReturn((List<Object>) null, stack0).when(candidateRepository0).findAllByApplicationProcessIdIn(anyList());
-      candidate0.setSkillsId((-2300));
-      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "candidateRepository", (Object) candidateRepository0);
-      SkillsService skillsService0 = new SkillsService();
-      SkillsRepository skillsRepository0 = mock(SkillsRepository.class, new ViolatedAssumptionAnswer());
-      doReturn((Optional) null).when(skillsRepository0).findById(anyInt());
-      Injector.inject(skillsService0, (Class<?>) SkillsService.class, "skillsRepository", (Object) skillsRepository0);
-      Injector.validateBean(skillsService0, (Class<?>) SkillsService.class);
-      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "skillsService", (Object) skillsService0);
-      candidateService0.getAllCandidatesWithoutActiveApplicationProcess();
-      Injector.validateBean(candidateService0, (Class<?>) CandidateService.class);
-      // Undeclared exception!
-      try { 
-        candidateService0.getAllCandidatesWithActiveApplicationProcess();
-        fail("Expecting exception: NoSuchElementException");
-      
-      } catch(NoSuchElementException e) {
-         //
-         // No value present
-         //
-         verifyException("java.util.Optional", e);
-      }
-  }
-
-  @Test(timeout = 4000)
-  public void test04()  throws Throwable  {
-      CandidateService candidateService0 = new CandidateService();
-      AddressRepository addressRepository0 = mock(AddressRepository.class, new ViolatedAssumptionAnswer());
-      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "addressRepository", (Object) addressRepository0);
-      ApplicationProcessService applicationProcessService0 = new ApplicationProcessService();
-      ApplicationProcessRepository applicationProcessRepository0 = mock(ApplicationProcessRepository.class, new ViolatedAssumptionAnswer());
-      Injector.inject(applicationProcessService0, (Class<?>) ApplicationProcessService.class, "applicationProcessRepository", (Object) applicationProcessRepository0);
-      Injector.validateBean(applicationProcessService0, (Class<?>) ApplicationProcessService.class);
-      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "applicationProcessService", (Object) applicationProcessService0);
-      Candidate candidate0 = new Candidate();
-      Optional<Candidate> optional0 = Optional.of(candidate0);
-      CandidateRepository candidateRepository0 = mock(CandidateRepository.class, new ViolatedAssumptionAnswer());
-      doReturn(optional0).when(candidateRepository0).findById(anyInt());
-      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "candidateRepository", (Object) candidateRepository0);
-      SkillsService skillsService0 = new SkillsService();
-      SkillsRepository skillsRepository0 = mock(SkillsRepository.class, new ViolatedAssumptionAnswer());
-      Injector.inject(skillsService0, (Class<?>) SkillsService.class, "skillsRepository", (Object) skillsRepository0);
-      Injector.validateBean(skillsService0, (Class<?>) SkillsService.class);
-      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "skillsService", (Object) skillsService0);
-      Injector.validateBean(candidateService0, (Class<?>) CandidateService.class);
-      candidateService0.deleteCandidate(0);
-  }
-
-  @Test(timeout = 4000)
-  public void test05()  throws Throwable  {
-      CandidateService candidateService0 = new CandidateService();
-      AddressRepository addressRepository0 = mock(AddressRepository.class, new ViolatedAssumptionAnswer());
-      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "addressRepository", (Object) addressRepository0);
-      ApplicationProcessService applicationProcessService0 = new ApplicationProcessService();
-      ApplicationProcessRepository applicationProcessRepository0 = mock(ApplicationProcessRepository.class, new ViolatedAssumptionAnswer());
-      Injector.inject(applicationProcessService0, (Class<?>) ApplicationProcessService.class, "applicationProcessRepository", (Object) applicationProcessRepository0);
-      Injector.validateBean(applicationProcessService0, (Class<?>) ApplicationProcessService.class);
-      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "applicationProcessService", (Object) applicationProcessService0);
-      Candidate candidate0 = new Candidate();
-      Optional<Candidate> optional0 = Optional.ofNullable(candidate0);
-      candidate0.setSkillsId(97);
-      CandidateRepository candidateRepository0 = mock(CandidateRepository.class, new ViolatedAssumptionAnswer());
-      doReturn(optional0).when(candidateRepository0).findById(anyInt());
-      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "candidateRepository", (Object) candidateRepository0);
-      SkillsService skillsService0 = new SkillsService();
-      SkillsRepository skillsRepository0 = mock(SkillsRepository.class, new ViolatedAssumptionAnswer());
-      Injector.inject(skillsService0, (Class<?>) SkillsService.class, "skillsRepository", (Object) skillsRepository0);
-      Injector.validateBean(skillsService0, (Class<?>) SkillsService.class);
-      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "skillsService", (Object) skillsService0);
-      Injector.validateBean(candidateService0, (Class<?>) CandidateService.class);
-      Candidate candidate1 = candidateService0.getCandidateById(0);
-      assertEquals(0, candidate1.getProposedSallaryPackageId());
-  }
-
-  @Test(timeout = 4000)
-  public void test06()  throws Throwable  {
-      CandidateService candidateService0 = new CandidateService();
-      AddressRepository addressRepository0 = mock(AddressRepository.class, new ViolatedAssumptionAnswer());
-      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "addressRepository", (Object) addressRepository0);
-      ApplicationProcessService applicationProcessService0 = new ApplicationProcessService();
-      ApplicationProcessRepository applicationProcessRepository0 = mock(ApplicationProcessRepository.class, new ViolatedAssumptionAnswer());
-      Injector.inject(applicationProcessService0, (Class<?>) ApplicationProcessService.class, "applicationProcessRepository", (Object) applicationProcessRepository0);
-      Injector.validateBean(applicationProcessService0, (Class<?>) ApplicationProcessService.class);
-      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "applicationProcessService", (Object) applicationProcessService0);
-      Candidate candidate0 = new Candidate();
-      Optional<Candidate> optional0 = Optional.ofNullable(candidate0);
-      candidate0.setSkillsId((-1));
-      CandidateRepository candidateRepository0 = mock(CandidateRepository.class, new ViolatedAssumptionAnswer());
-      doReturn(optional0).when(candidateRepository0).findById(anyInt());
-      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "candidateRepository", (Object) candidateRepository0);
-      SkillsService skillsService0 = new SkillsService();
-      SkillsRepository skillsRepository0 = mock(SkillsRepository.class, new ViolatedAssumptionAnswer());
-      Injector.inject(skillsService0, (Class<?>) SkillsService.class, "skillsRepository", (Object) skillsRepository0);
-      Injector.validateBean(skillsService0, (Class<?>) SkillsService.class);
-      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "skillsService", (Object) skillsService0);
-      Injector.validateBean(candidateService0, (Class<?>) CandidateService.class);
-      Candidate candidate1 = candidateService0.getCandidateById(3563);
-      assertSame(candidate1, candidate0);
-  }
-
-  @Test(timeout = 4000)
-  public void test07()  throws Throwable  {
-      CandidateService candidateService0 = new CandidateService();
-      AddressRepository addressRepository0 = mock(AddressRepository.class, new ViolatedAssumptionAnswer());
-      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "addressRepository", (Object) addressRepository0);
-      ApplicationProcessService applicationProcessService0 = new ApplicationProcessService();
-      ApplicationProcessRepository applicationProcessRepository0 = mock(ApplicationProcessRepository.class, new ViolatedAssumptionAnswer());
-      Injector.inject(applicationProcessService0, (Class<?>) ApplicationProcessService.class, "applicationProcessRepository", (Object) applicationProcessRepository0);
-      Injector.validateBean(applicationProcessService0, (Class<?>) ApplicationProcessService.class);
-      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "applicationProcessService", (Object) applicationProcessService0);
-      Candidate candidate0 = new Candidate();
-      candidate0.setProposedSallaryPackageId(40);
-      Optional<Candidate> optional0 = Optional.ofNullable(candidate0);
-      CandidateRepository candidateRepository0 = mock(CandidateRepository.class, new ViolatedAssumptionAnswer());
-      doReturn(optional0).when(candidateRepository0).findById(anyInt());
-      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "candidateRepository", (Object) candidateRepository0);
-      SkillsService skillsService0 = new SkillsService();
-      SkillsRepository skillsRepository0 = mock(SkillsRepository.class, new ViolatedAssumptionAnswer());
-      Injector.inject(skillsService0, (Class<?>) SkillsService.class, "skillsRepository", (Object) skillsRepository0);
-      Injector.validateBean(skillsService0, (Class<?>) SkillsService.class);
-      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "skillsService", (Object) skillsService0);
-      Injector.validateBean(candidateService0, (Class<?>) CandidateService.class);
-      Candidate candidate1 = candidateService0.getCandidateById(0);
-      assertNull(candidate1.getCvLink());
-  }
-
-  @Test(timeout = 4000)
-  public void test08()  throws Throwable  {
-      CandidateService candidateService0 = new CandidateService();
-      AddressRepository addressRepository0 = mock(AddressRepository.class, new ViolatedAssumptionAnswer());
-      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "addressRepository", (Object) addressRepository0);
-      ApplicationProcessService applicationProcessService0 = new ApplicationProcessService();
-      ApplicationProcessRepository applicationProcessRepository0 = mock(ApplicationProcessRepository.class, new ViolatedAssumptionAnswer());
-      Injector.inject(applicationProcessService0, (Class<?>) ApplicationProcessService.class, "applicationProcessRepository", (Object) applicationProcessRepository0);
-      Injector.validateBean(applicationProcessService0, (Class<?>) ApplicationProcessService.class);
-      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "applicationProcessService", (Object) applicationProcessService0);
-      Candidate candidate0 = new Candidate();
-      Optional<Candidate> optional0 = Optional.ofNullable(candidate0);
-      candidate0.setCurrentSallaryPackageId(181);
-      CandidateRepository candidateRepository0 = mock(CandidateRepository.class, new ViolatedAssumptionAnswer());
-      doReturn(optional0).when(candidateRepository0).findById(anyInt());
-      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "candidateRepository", (Object) candidateRepository0);
-      SkillsService skillsService0 = new SkillsService();
-      SkillsRepository skillsRepository0 = mock(SkillsRepository.class, new ViolatedAssumptionAnswer());
-      Injector.inject(skillsService0, (Class<?>) SkillsService.class, "skillsRepository", (Object) skillsRepository0);
-      Injector.validateBean(skillsService0, (Class<?>) SkillsService.class);
-      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "skillsService", (Object) skillsService0);
-      Injector.validateBean(candidateService0, (Class<?>) CandidateService.class);
-      Candidate candidate1 = candidateService0.getCandidateById(0);
-      assertSame(candidate1, candidate0);
-  }
-
-  @Test(timeout = 4000)
-  public void test09()  throws Throwable  {
-      CandidateService candidateService0 = new CandidateService();
-      AddressRepository addressRepository0 = mock(AddressRepository.class, new ViolatedAssumptionAnswer());
-      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "addressRepository", (Object) addressRepository0);
-      ApplicationProcessService applicationProcessService0 = new ApplicationProcessService();
-      ApplicationProcessRepository applicationProcessRepository0 = mock(ApplicationProcessRepository.class, new ViolatedAssumptionAnswer());
-      Injector.inject(applicationProcessService0, (Class<?>) ApplicationProcessService.class, "applicationProcessRepository", (Object) applicationProcessRepository0);
-      Injector.validateBean(applicationProcessService0, (Class<?>) ApplicationProcessService.class);
-      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "applicationProcessService", (Object) applicationProcessService0);
-      Candidate candidate0 = new Candidate();
-      Optional<Candidate> optional0 = Optional.ofNullable(candidate0);
-      candidate0.setApplicationProcessId((-1));
-      CandidateRepository candidateRepository0 = mock(CandidateRepository.class, new ViolatedAssumptionAnswer());
-      doReturn(optional0).when(candidateRepository0).findById(anyInt());
-      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "candidateRepository", (Object) candidateRepository0);
-      SkillsService skillsService0 = new SkillsService();
-      SkillsRepository skillsRepository0 = mock(SkillsRepository.class, new ViolatedAssumptionAnswer());
-      Injector.inject(skillsService0, (Class<?>) SkillsService.class, "skillsRepository", (Object) skillsRepository0);
-      Injector.validateBean(skillsService0, (Class<?>) SkillsService.class);
-      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "skillsService", (Object) skillsService0);
-      Injector.validateBean(candidateService0, (Class<?>) CandidateService.class);
-      Candidate candidate1 = candidateService0.getCandidateById(0);
-      assertNull(candidate1.getCvLink());
-  }
-
-  @Test(timeout = 4000)
-  public void test10()  throws Throwable  {
-      CandidateService candidateService0 = new CandidateService();
-      AddressRepository addressRepository0 = mock(AddressRepository.class, new ViolatedAssumptionAnswer());
-      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "addressRepository", (Object) addressRepository0);
-      ApplicationProcessService applicationProcessService0 = new ApplicationProcessService();
-      ArrayList<ApplicationProcess> arrayList0 = new ArrayList<ApplicationProcess>();
-      ApplicationProcessRepository applicationProcessRepository0 = mock(ApplicationProcessRepository.class, new ViolatedAssumptionAnswer());
-      doReturn(arrayList0).when(applicationProcessRepository0).findAllBytoBeInvitedForFirstConversation(anyBoolean());
-      Injector.inject(applicationProcessService0, (Class<?>) ApplicationProcessService.class, "applicationProcessRepository", (Object) applicationProcessRepository0);
-      Injector.validateBean(applicationProcessService0, (Class<?>) ApplicationProcessService.class);
-      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "applicationProcessService", (Object) applicationProcessService0);
-      ArrayList<Candidate> arrayList1 = new ArrayList<Candidate>();
-      Candidate candidate0 = new Candidate();
-      arrayList1.add(candidate0);
-      CandidateRepository candidateRepository0 = mock(CandidateRepository.class, new ViolatedAssumptionAnswer());
-      doReturn(arrayList1).when(candidateRepository0).findAllByApplicationProcessIdIn(anyList());
-      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "candidateRepository", (Object) candidateRepository0);
-      SkillsService skillsService0 = new SkillsService();
-      SkillsRepository skillsRepository0 = mock(SkillsRepository.class, new ViolatedAssumptionAnswer());
-      Injector.inject(skillsService0, (Class<?>) SkillsService.class, "skillsRepository", (Object) skillsRepository0);
-      Injector.validateBean(skillsService0, (Class<?>) SkillsService.class);
-      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "skillsService", (Object) skillsService0);
-      Injector.validateBean(candidateService0, (Class<?>) CandidateService.class);
-      List<Candidate> list0 = candidateService0.getAllCandidatesWithoutActiveApplicationProcess();
-      assertEquals(1, list0.size());
-  }
-
-  @Test(timeout = 4000)
-  public void test11()  throws Throwable  {
-      CandidateService candidateService0 = new CandidateService();
-      Address address0 = new Address();
-      Optional.of(address0);
-      Long long0 = new Long(1719L);
-      AddressRepository addressRepository0 = mock(AddressRepository.class, new ViolatedAssumptionAnswer());
-      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "addressRepository", (Object) addressRepository0);
-      ApplicationProcessService applicationProcessService0 = new ApplicationProcessService();
-      ArrayList<ApplicationProcess> arrayList0 = new ArrayList<ApplicationProcess>();
-      ApplicationProcessRepository applicationProcessRepository0 = mock(ApplicationProcessRepository.class, new ViolatedAssumptionAnswer());
-      doReturn(arrayList0).when(applicationProcessRepository0).findAllBytoBeInvitedForFirstConversation(anyBoolean());
-      Injector.inject(applicationProcessService0, (Class<?>) ApplicationProcessService.class, "applicationProcessRepository", (Object) applicationProcessRepository0);
-      Injector.validateBean(applicationProcessService0, (Class<?>) ApplicationProcessService.class);
-      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "applicationProcessService", (Object) applicationProcessService0);
-      Candidate candidate0 = new Candidate();
-      candidate0.setProposedSallaryPackageId((-3869));
-      Optional<Candidate> optional0 = Optional.ofNullable(candidate0);
-      CandidateRepository candidateRepository0 = mock(CandidateRepository.class, new ViolatedAssumptionAnswer());
-      doReturn((List) null).when(candidateRepository0).findAllByApplicationProcessIdIn(anyList());
-      doReturn(optional0).when(candidateRepository0).findById(anyInt());
-      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "candidateRepository", (Object) candidateRepository0);
-      SkillsService skillsService0 = new SkillsService();
-      ArrayDeque<Skills> arrayDeque0 = new ArrayDeque<Skills>(835);
-      SkillsRepository skillsRepository0 = mock(SkillsRepository.class, new ViolatedAssumptionAnswer());
-      Injector.inject(skillsService0, (Class<?>) SkillsService.class, "skillsRepository", (Object) skillsRepository0);
-      Injector.validateBean(skillsService0, (Class<?>) SkillsService.class);
-      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "skillsService", (Object) skillsService0);
-      Injector.validateBean(candidateService0, (Class<?>) CandidateService.class);
-      candidateService0.getCandidateById(3904);
-      // Undeclared exception!
-      try { 
-        candidateService0.getAllCandidatesWithActiveApplicationProcess();
-        fail("Expecting exception: NullPointerException");
-      
-      } catch(NullPointerException e) {
-         //
-         // no message in exception (getMessage() returned null)
-         //
-         verifyException("com.tv.tutorials.coolestuffvoorcheops.services.impl.CandidateService", e);
-      }
-  }
-
-  @Test(timeout = 4000)
-  public void test12()  throws Throwable  {
-      CandidateService candidateService0 = new CandidateService();
-      AddressRepository addressRepository0 = mock(AddressRepository.class, new ViolatedAssumptionAnswer());
-      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "addressRepository", (Object) addressRepository0);
-      ApplicationProcessService applicationProcessService0 = new ApplicationProcessService();
-      ArrayList<ApplicationProcess> arrayList0 = new ArrayList<ApplicationProcess>();
-      ApplicationProcessRepository applicationProcessRepository0 = mock(ApplicationProcessRepository.class, new ViolatedAssumptionAnswer());
-      doReturn(arrayList0, arrayList0).when(applicationProcessRepository0).findAllBytoBeInvitedForFirstConversation(anyBoolean());
-      Injector.inject(applicationProcessService0, (Class<?>) ApplicationProcessService.class, "applicationProcessRepository", (Object) applicationProcessRepository0);
-      Injector.validateBean(applicationProcessService0, (Class<?>) ApplicationProcessService.class);
-      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "applicationProcessService", (Object) applicationProcessService0);
-      Stack<Candidate> stack0 = new Stack<Candidate>();
-      Candidate candidate0 = new Candidate();
-      stack0.add(candidate0);
-      CandidateRepository candidateRepository0 = mock(CandidateRepository.class, new ViolatedAssumptionAnswer());
-      doReturn((List<Object>) null, stack0).when(candidateRepository0).findAllByApplicationProcessIdIn(anyList());
-      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "candidateRepository", (Object) candidateRepository0);
-      SkillsService skillsService0 = new SkillsService();
-      SkillsRepository skillsRepository0 = mock(SkillsRepository.class, new ViolatedAssumptionAnswer());
-      Injector.inject(skillsService0, (Class<?>) SkillsService.class, "skillsRepository", (Object) skillsRepository0);
-      Injector.validateBean(skillsService0, (Class<?>) SkillsService.class);
-      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "skillsService", (Object) skillsService0);
-      candidateService0.getAllCandidatesWithoutActiveApplicationProcess();
-      Injector.validateBean(candidateService0, (Class<?>) CandidateService.class);
-      List<CandidateSearchResolver> list0 = candidateService0.getAllCandidatesWithActiveApplicationProcess();
-      assertFalse(list0.isEmpty());
-  }
-
-  @Test(timeout = 4000)
-  public void test13()  throws Throwable  {
-      CandidateService candidateService0 = new CandidateService();
-      AddressRepository addressRepository0 = mock(AddressRepository.class, new ViolatedAssumptionAnswer());
-      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "addressRepository", (Object) addressRepository0);
-      ApplicationProcessService applicationProcessService0 = new ApplicationProcessService();
-      ApplicationProcessRepository applicationProcessRepository0 = mock(ApplicationProcessRepository.class, new ViolatedAssumptionAnswer());
-      Injector.inject(applicationProcessService0, (Class<?>) ApplicationProcessService.class, "applicationProcessRepository", (Object) applicationProcessRepository0);
-      Injector.validateBean(applicationProcessService0, (Class<?>) ApplicationProcessService.class);
-      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "applicationProcessService", (Object) applicationProcessService0);
-      ArrayList<Candidate> arrayList0 = new ArrayList<Candidate>(1);
-      Candidate candidate0 = new Candidate();
-      arrayList0.add(candidate0);
-      CandidateRepository candidateRepository0 = mock(CandidateRepository.class, new ViolatedAssumptionAnswer());
-      doReturn(arrayList0).when(candidateRepository0).findAll();
-      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "candidateRepository", (Object) candidateRepository0);
-      SkillsService skillsService0 = new SkillsService();
-      SkillsRepository skillsRepository0 = mock(SkillsRepository.class, new ViolatedAssumptionAnswer());
-      Injector.inject(skillsService0, (Class<?>) SkillsService.class, "skillsRepository", (Object) skillsRepository0);
-      Injector.validateBean(skillsService0, (Class<?>) SkillsService.class);
-      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "skillsService", (Object) skillsService0);
-      Injector.validateBean(candidateService0, (Class<?>) CandidateService.class);
-      List<CandidateSearchResolver> list0 = candidateService0.getAllCandidates();
-      assertFalse(list0.isEmpty());
-  }
-
-  @Test(timeout = 4000)
-  public void test14()  throws Throwable  {
-      CandidateService candidateService0 = new CandidateService();
-      AddressRepository addressRepository0 = mock(AddressRepository.class, new ViolatedAssumptionAnswer());
-      doReturn((Optional) null).when(addressRepository0).findById(anyInt());
-      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "addressRepository", (Object) addressRepository0);
-      ApplicationProcessService applicationProcessService0 = new ApplicationProcessService();
-      ApplicationProcessRepository applicationProcessRepository0 = mock(ApplicationProcessRepository.class, new ViolatedAssumptionAnswer());
-      Injector.inject(applicationProcessService0, (Class<?>) ApplicationProcessService.class, "applicationProcessRepository", (Object) applicationProcessRepository0);
-      Injector.validateBean(applicationProcessService0, (Class<?>) ApplicationProcessService.class);
-      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "applicationProcessService", (Object) applicationProcessService0);
-      ArrayList<Candidate> arrayList0 = new ArrayList<Candidate>(1);
-      Candidate candidate0 = new Candidate();
-      arrayList0.add(candidate0);
-      Optional<Candidate> optional0 = Optional.ofNullable(candidate0);
-      CandidateRepository candidateRepository0 = mock(CandidateRepository.class, new ViolatedAssumptionAnswer());
-      doReturn(arrayList0).when(candidateRepository0).findAllByNameLikeOrSirNameLike(anyString() , anyString());
-      doReturn(arrayList0).when(candidateRepository0).findAllBySkillsIdIn(anyList());
-      doReturn(optional0).when(candidateRepository0).findById(anyInt());
-      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "candidateRepository", (Object) candidateRepository0);
-      SkillsService skillsService0 = new SkillsService();
-      Stack<Skills> stack0 = new Stack<Skills>();
-      SkillsRepository skillsRepository0 = mock(SkillsRepository.class, new ViolatedAssumptionAnswer());
-      doReturn(stack0).when(skillsRepository0).findAllByDotnet(anyBoolean());
-      Injector.inject(skillsService0, (Class<?>) SkillsService.class, "skillsRepository", (Object) skillsRepository0);
-      Injector.validateBean(skillsService0, (Class<?>) SkillsService.class);
-      FileSystemHandling fileSystemHandling0 = new FileSystemHandling();
-      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "skillsService", (Object) skillsService0);
-      Injector.validateBean(candidateService0, (Class<?>) CandidateService.class);
-      MockFile mockFile0 = new MockFile("/uploads", "], stored ");
-      MockPrintWriter mockPrintWriter0 = new MockPrintWriter(mockFile0);
-      candidateService0.findAllByNameLikeOrSirNameLike("ALL", "], stored ");
-      candidateService0.findAllDotnet();
-      HttpServletResponse httpServletResponse0 = mock(HttpServletResponse.class, new ViolatedAssumptionAnswer());
-      doReturn(mockPrintWriter0).when(httpServletResponse0).getWriter();
-      HttpServletResponseWrapper httpServletResponseWrapper0 = new HttpServletResponseWrapper(httpServletResponse0);
-      candidateService0.downloadCv("], stored ", httpServletResponseWrapper0);
-      Address address0 = new Address();
-      // Undeclared exception!
-      try { 
-        candidateService0.saveOrUpdateCandidate(1, candidate0, address0, 161);
-        fail("Expecting exception: NullPointerException");
-      
-      } catch(NullPointerException e) {
-         //
-         // no message in exception (getMessage() returned null)
-         //
-         verifyException("com.tv.tutorials.coolestuffvoorcheops.services.impl.CandidateService", e);
-      }
-  }
-
-  @Test(timeout = 4000)
-  public void test15()  throws Throwable  {
-      CandidateService candidateService0 = new CandidateService();
-      AddressRepository addressRepository0 = mock(AddressRepository.class, new ViolatedAssumptionAnswer());
-      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "addressRepository", (Object) addressRepository0);
-      ApplicationProcessService applicationProcessService0 = new ApplicationProcessService();
-      ArrayList<ApplicationProcess> arrayList0 = new ArrayList<ApplicationProcess>();
-      ApplicationProcessRepository applicationProcessRepository0 = mock(ApplicationProcessRepository.class, new ViolatedAssumptionAnswer());
-      doReturn(arrayList0).when(applicationProcessRepository0).findAllByIsRecruited(anyBoolean());
-      Injector.inject(applicationProcessService0, (Class<?>) ApplicationProcessService.class, "applicationProcessRepository", (Object) applicationProcessRepository0);
-      Injector.validateBean(applicationProcessService0, (Class<?>) ApplicationProcessService.class);
-      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "applicationProcessService", (Object) applicationProcessService0);
-      ArrayList<Candidate> arrayList1 = new ArrayList<Candidate>();
-      Candidate candidate0 = new Candidate();
-      arrayList1.add(candidate0);
-      CandidateRepository candidateRepository0 = mock(CandidateRepository.class, new ViolatedAssumptionAnswer());
-      doReturn(arrayList1).when(candidateRepository0).findAllByApplicationProcessIdIn(anyList());
-      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "candidateRepository", (Object) candidateRepository0);
-      SkillsService skillsService0 = new SkillsService();
-      SkillsRepository skillsRepository0 = mock(SkillsRepository.class, new ViolatedAssumptionAnswer());
-      Injector.inject(skillsService0, (Class<?>) SkillsService.class, "skillsRepository", (Object) skillsRepository0);
-      Injector.validateBean(skillsService0, (Class<?>) SkillsService.class);
-      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "skillsService", (Object) skillsService0);
-      Injector.validateBean(candidateService0, (Class<?>) CandidateService.class);
-      List<CandidateSearchResolver> list0 = candidateService0.findAllRecruited();
-      assertEquals(1, list0.size());
-  }
-
-  @Test(timeout = 4000)
-  public void test16()  throws Throwable  {
-      CandidateService candidateService0 = new CandidateService();
-      AddressRepository addressRepository0 = mock(AddressRepository.class, new ViolatedAssumptionAnswer());
-      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "addressRepository", (Object) addressRepository0);
-      ApplicationProcessService applicationProcessService0 = new ApplicationProcessService();
-      ApplicationProcessRepository applicationProcessRepository0 = mock(ApplicationProcessRepository.class, new ViolatedAssumptionAnswer());
-      Injector.inject(applicationProcessService0, (Class<?>) ApplicationProcessService.class, "applicationProcessRepository", (Object) applicationProcessRepository0);
-      Injector.validateBean(applicationProcessService0, (Class<?>) ApplicationProcessService.class);
-      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "applicationProcessService", (Object) applicationProcessService0);
-      ArrayList<Candidate> arrayList0 = new ArrayList<Candidate>(1);
-      Candidate candidate0 = new Candidate();
-      arrayList0.add(candidate0);
-      Optional.empty();
-      CandidateRepository candidateRepository0 = mock(CandidateRepository.class, new ViolatedAssumptionAnswer());
-      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "candidateRepository", (Object) candidateRepository0);
-      SkillsService skillsService0 = new SkillsService();
-      Stack<Skills> stack0 = new Stack<Skills>();
-      SkillsRepository skillsRepository0 = mock(SkillsRepository.class, new ViolatedAssumptionAnswer());
-      doReturn((List) null).when(skillsRepository0).findAllByFrontend(anyBoolean());
-      Injector.inject(skillsService0, (Class<?>) SkillsService.class, "skillsRepository", (Object) skillsRepository0);
-      Injector.validateBean(skillsService0, (Class<?>) SkillsService.class);
-      FileSystemHandling fileSystemHandling0 = new FileSystemHandling();
-      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "skillsService", (Object) skillsService0);
-      Injector.validateBean(candidateService0, (Class<?>) CandidateService.class);
-      // Undeclared exception!
-      try { 
-        candidateService0.findAllFrontend();
-        fail("Expecting exception: NullPointerException");
-      
-      } catch(NullPointerException e) {
-         //
-         // no message in exception (getMessage() returned null)
-         //
-         verifyException("com.tv.tutorials.coolestuffvoorcheops.services.impl.SkillsService", e);
-      }
-  }
-
-  @Test(timeout = 4000)
-  public void test17()  throws Throwable  {
-      CandidateService candidateService0 = new CandidateService();
-      AddressRepository addressRepository0 = mock(AddressRepository.class, new ViolatedAssumptionAnswer());
-      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "addressRepository", (Object) addressRepository0);
-      // Undeclared exception!
-      try { 
-        candidateService0.updateCandidate((Candidate) null);
-        fail("Expecting exception: NullPointerException");
-      
-      } catch(NullPointerException e) {
-         //
-         // no message in exception (getMessage() returned null)
-         //
-         verifyException("com.tv.tutorials.coolestuffvoorcheops.services.impl.CandidateService", e);
-      }
-  }
-
-  @Test(timeout = 4000)
-  public void test18()  throws Throwable  {
-      CandidateService candidateService0 = new CandidateService();
-      AddressRepository addressRepository0 = mock(AddressRepository.class, new ViolatedAssumptionAnswer());
-      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "addressRepository", (Object) addressRepository0);
-      ApplicationProcessService applicationProcessService0 = new ApplicationProcessService();
-      ApplicationProcessRepository applicationProcessRepository0 = mock(ApplicationProcessRepository.class, new ViolatedAssumptionAnswer());
-      doReturn((List<Object>) null).when(applicationProcessRepository0).findAllBytoBeInvitedForFirstConversation(anyBoolean());
-      Injector.inject(applicationProcessService0, (Class<?>) ApplicationProcessService.class, "applicationProcessRepository", (Object) applicationProcessRepository0);
-      Injector.validateBean(applicationProcessService0, (Class<?>) ApplicationProcessService.class);
-      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "applicationProcessService", (Object) applicationProcessService0);
-      CandidateRepository candidateRepository0 = mock(CandidateRepository.class, new ViolatedAssumptionAnswer());
-      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "candidateRepository", (Object) candidateRepository0);
-      SkillsService skillsService0 = new SkillsService();
-      SkillsRepository skillsRepository0 = mock(SkillsRepository.class, new ViolatedAssumptionAnswer());
-      Injector.inject(skillsService0, (Class<?>) SkillsService.class, "skillsRepository", (Object) skillsRepository0);
-      Injector.validateBean(skillsService0, (Class<?>) SkillsService.class);
-      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "skillsService", (Object) skillsService0);
-      Injector.validateBean(candidateService0, (Class<?>) CandidateService.class);
-      // Undeclared exception!
-      try { 
-        candidateService0.getAllCandidatesWithoutActiveApplicationProcess();
-        fail("Expecting exception: NullPointerException");
-      
-      } catch(NullPointerException e) {
-         //
-         // no message in exception (getMessage() returned null)
-         //
-         verifyException("com.tv.tutorials.coolestuffvoorcheops.services.impl.ApplicationProcessService", e);
-      }
-  }
-
-  @Test(timeout = 4000)
-  public void test19()  throws Throwable  {
-      CandidateService candidateService0 = new CandidateService();
-      AddressRepository addressRepository0 = mock(AddressRepository.class, new ViolatedAssumptionAnswer());
-      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "addressRepository", (Object) addressRepository0);
-      ApplicationProcessService applicationProcessService0 = new ApplicationProcessService();
-      ApplicationProcessRepository applicationProcessRepository0 = mock(ApplicationProcessRepository.class, new ViolatedAssumptionAnswer());
-      Injector.inject(applicationProcessService0, (Class<?>) ApplicationProcessService.class, "applicationProcessRepository", (Object) applicationProcessRepository0);
-      Injector.validateBean(applicationProcessService0, (Class<?>) ApplicationProcessService.class);
-      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "applicationProcessService", (Object) applicationProcessService0);
-      CandidateRepository candidateRepository0 = mock(CandidateRepository.class, new ViolatedAssumptionAnswer());
-      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "candidateRepository", (Object) candidateRepository0);
-      SkillsService skillsService0 = new SkillsService();
-      Vector<Skills> vector0 = new Vector<Skills>();
-      SkillsRepository skillsRepository0 = mock(SkillsRepository.class, new ViolatedAssumptionAnswer());
-      doReturn(vector0).when(skillsRepository0).findAllById(anyIterable());
-      Injector.inject(skillsService0, (Class<?>) SkillsService.class, "skillsRepository", (Object) skillsRepository0);
-      Injector.validateBean(skillsService0, (Class<?>) SkillsService.class);
-      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "skillsService", (Object) skillsService0);
-      Injector.validateBean(candidateService0, (Class<?>) CandidateService.class);
-      ArrayList<CandidateSearchResolver> arrayList0 = new ArrayList<CandidateSearchResolver>();
-      // Undeclared exception!
-      try { 
-        candidateService0.findByExperienceGreaterThan((-1), arrayList0);
-        fail("Expecting exception: ClassCastException");
-      
-      } catch(ClassCastException e) {
-         //
-         // java.util.Vector cannot be cast to java.util.ArrayList
-         //
-         verifyException("com.tv.tutorials.coolestuffvoorcheops.services.impl.SkillsService", e);
-      }
-  }
-
-  @Test(timeout = 4000)
-  public void test20()  throws Throwable  {
-      CandidateService candidateService0 = new CandidateService();
-      AddressRepository addressRepository0 = mock(AddressRepository.class, new ViolatedAssumptionAnswer());
-      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "addressRepository", (Object) addressRepository0);
-      ApplicationProcessService applicationProcessService0 = new ApplicationProcessService();
-      Stack<ApplicationProcess> stack0 = new Stack<ApplicationProcess>();
-      ApplicationProcess applicationProcess0 = new ApplicationProcess();
-      stack0.add(applicationProcess0);
-      ApplicationProcessRepository applicationProcessRepository0 = mock(ApplicationProcessRepository.class, new ViolatedAssumptionAnswer());
-      doReturn(stack0).when(applicationProcessRepository0).findAllById(anyIterable());
-      Injector.inject(applicationProcessService0, (Class<?>) ApplicationProcessService.class, "applicationProcessRepository", (Object) applicationProcessRepository0);
-      Injector.validateBean(applicationProcessService0, (Class<?>) ApplicationProcessService.class);
-      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "applicationProcessService", (Object) applicationProcessService0);
-      CandidateRepository candidateRepository0 = mock(CandidateRepository.class, new ViolatedAssumptionAnswer());
-      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "candidateRepository", (Object) candidateRepository0);
-      SkillsService skillsService0 = new SkillsService();
-      Vector<Skills> vector0 = new Vector<Skills>();
-      HashSet<Skills> hashSet0 = new HashSet<Skills>(vector0);
-      SkillsRepository skillsRepository0 = mock(SkillsRepository.class, new ViolatedAssumptionAnswer());
-      doReturn(hashSet0).when(skillsRepository0).findAllById(anyIterable());
-      Injector.inject(skillsService0, (Class<?>) SkillsService.class, "skillsRepository", (Object) skillsRepository0);
-      Injector.validateBean(skillsService0, (Class<?>) SkillsService.class);
-      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "skillsService", (Object) skillsService0);
-      Injector.validateBean(candidateService0, (Class<?>) CandidateService.class);
-      List<Integer> list0 = skillsService0.findAllByExperienceGreaterThan(0, (List<Integer>) null);
-      // Undeclared exception!
-      try { 
-        candidateService0.findAllRecruitedIn(list0);
-        fail("Expecting exception: NullPointerException");
-      
-      } catch(NullPointerException e) {
-         //
-         // no message in exception (getMessage() returned null)
-         //
-         verifyException("com.tv.tutorials.coolestuffvoorcheops.services.impl.ApplicationProcessService", e);
-      }
-  }
-
-  @Test(timeout = 4000)
-  public void test21()  throws Throwable  {
-      CandidateService candidateService0 = new CandidateService();
-      AddressRepository addressRepository0 = mock(AddressRepository.class, new ViolatedAssumptionAnswer());
-      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "addressRepository", (Object) addressRepository0);
-      ApplicationProcessService applicationProcessService0 = new ApplicationProcessService();
-      ArrayDeque<ApplicationProcess> arrayDeque0 = new ArrayDeque<ApplicationProcess>();
-      ApplicationProcessRepository applicationProcessRepository0 = mock(ApplicationProcessRepository.class, new ViolatedAssumptionAnswer());
-      doReturn(arrayDeque0).when(applicationProcessRepository0).findAllById(anyIterable());
-      Injector.inject(applicationProcessService0, (Class<?>) ApplicationProcessService.class, "applicationProcessRepository", (Object) applicationProcessRepository0);
-      Injector.validateBean(applicationProcessService0, (Class<?>) ApplicationProcessService.class);
-      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "applicationProcessService", (Object) applicationProcessService0);
-      CandidateRepository candidateRepository0 = mock(CandidateRepository.class, new ViolatedAssumptionAnswer());
-      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "candidateRepository", (Object) candidateRepository0);
-      SkillsService skillsService0 = new SkillsService();
-      SkillsRepository skillsRepository0 = mock(SkillsRepository.class, new ViolatedAssumptionAnswer());
-      Injector.inject(skillsService0, (Class<?>) SkillsService.class, "skillsRepository", (Object) skillsRepository0);
-      Injector.validateBean(skillsService0, (Class<?>) SkillsService.class);
-      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "skillsService", (Object) skillsService0);
-      Injector.validateBean(candidateService0, (Class<?>) CandidateService.class);
-      ArrayList<Integer> arrayList0 = new ArrayList<Integer>();
-      // Undeclared exception!
-      try { 
-        candidateService0.findAllRecruitedIn(arrayList0);
-        fail("Expecting exception: ClassCastException");
-      
-      } catch(ClassCastException e) {
-         //
-         // java.util.ArrayDeque cannot be cast to java.util.List
-         //
-         verifyException("com.tv.tutorials.coolestuffvoorcheops.services.impl.ApplicationProcessService", e);
-      }
-  }
-
-  @Test(timeout = 4000)
-  public void test22()  throws Throwable  {
-      CandidateService candidateService0 = new CandidateService();
-      AddressRepository addressRepository0 = mock(AddressRepository.class, new ViolatedAssumptionAnswer());
-      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "addressRepository", (Object) addressRepository0);
-      ApplicationProcessService applicationProcessService0 = new ApplicationProcessService();
-      ApplicationProcessRepository applicationProcessRepository0 = mock(ApplicationProcessRepository.class, new ViolatedAssumptionAnswer());
-      doReturn((List<Object>) null).when(applicationProcessRepository0).findAllByIsRecruited(anyBoolean());
-      Injector.inject(applicationProcessService0, (Class<?>) ApplicationProcessService.class, "applicationProcessRepository", (Object) applicationProcessRepository0);
-      Injector.validateBean(applicationProcessService0, (Class<?>) ApplicationProcessService.class);
-      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "applicationProcessService", (Object) applicationProcessService0);
-      CandidateRepository candidateRepository0 = mock(CandidateRepository.class, new ViolatedAssumptionAnswer());
-      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "candidateRepository", (Object) candidateRepository0);
-      SkillsService skillsService0 = new SkillsService();
-      SkillsRepository skillsRepository0 = mock(SkillsRepository.class, new ViolatedAssumptionAnswer());
-      Injector.inject(skillsService0, (Class<?>) SkillsService.class, "skillsRepository", (Object) skillsRepository0);
-      Injector.validateBean(skillsService0, (Class<?>) SkillsService.class);
-      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "skillsService", (Object) skillsService0);
-      Injector.validateBean(candidateService0, (Class<?>) CandidateService.class);
-      // Undeclared exception!
-      try { 
-        candidateService0.findAllRecruited();
-        fail("Expecting exception: NullPointerException");
-      
-      } catch(NullPointerException e) {
-         //
-         // no message in exception (getMessage() returned null)
-         //
-         verifyException("com.tv.tutorials.coolestuffvoorcheops.services.impl.ApplicationProcessService", e);
-      }
-  }
-
-  @Test(timeout = 4000)
-  public void test23()  throws Throwable  {
-      ApplicationProcessService applicationProcessService0 = new ApplicationProcessService();
-      ApplicationProcessRepository applicationProcessRepository0 = mock(ApplicationProcessRepository.class, new ViolatedAssumptionAnswer());
-      Injector.inject(applicationProcessService0, (Class<?>) ApplicationProcessService.class, "applicationProcessRepository", (Object) applicationProcessRepository0);
-      Injector.validateBean(applicationProcessService0, (Class<?>) ApplicationProcessService.class);
-      ArrayList<Candidate> arrayList0 = new ArrayList<Candidate>(1);
-      Candidate candidate0 = new Candidate();
-      arrayList0.add(candidate0);
-      Stack<Skills> stack0 = new Stack<Skills>();
-      candidate0.setSkillsId(1);
-      CandidateService candidateService0 = new CandidateService();
-      AddressRepository addressRepository0 = mock(AddressRepository.class, new ViolatedAssumptionAnswer());
-      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "addressRepository", (Object) addressRepository0);
-      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "applicationProcessService", (Object) applicationProcessService0);
-      CandidateRepository candidateRepository0 = mock(CandidateRepository.class, new ViolatedAssumptionAnswer());
-      doReturn(arrayList0).when(candidateRepository0).findAllBySkillsIdIn(anyList());
-      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "candidateRepository", (Object) candidateRepository0);
-      SkillsService skillsService0 = new SkillsService();
-      SkillsRepository skillsRepository0 = mock(SkillsRepository.class, new ViolatedAssumptionAnswer());
-      doReturn(stack0).when(skillsRepository0).findAllByJava(anyBoolean());
-      doReturn((Optional) null).when(skillsRepository0).findById(anyInt());
-      Injector.inject(skillsService0, (Class<?>) SkillsService.class, "skillsRepository", (Object) skillsRepository0);
-      Injector.validateBean(skillsService0, (Class<?>) SkillsService.class);
-      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "skillsService", (Object) skillsService0);
-      Injector.validateBean(candidateService0, (Class<?>) CandidateService.class);
-      // Undeclared exception!
-      try { 
-        candidateService0.findAllJava();
-        fail("Expecting exception: NullPointerException");
-      
-      } catch(NullPointerException e) {
-         //
-         // no message in exception (getMessage() returned null)
-         //
-         verifyException("com.tv.tutorials.coolestuffvoorcheops.services.impl.SkillsService", e);
-      }
-  }
-
-  @Test(timeout = 4000)
-  public void test24()  throws Throwable  {
-      CandidateService candidateService0 = new CandidateService();
-      AddressRepository addressRepository0 = mock(AddressRepository.class, new ViolatedAssumptionAnswer());
-      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "addressRepository", (Object) addressRepository0);
-      ApplicationProcessService applicationProcessService0 = new ApplicationProcessService();
-      ApplicationProcess applicationProcess0 = new ApplicationProcess();
-      Optional<ApplicationProcess> optional0 = Optional.ofNullable(applicationProcess0);
-      Boolean boolean0 = Boolean.TRUE;
-      applicationProcess0.setToBeInvitedForFirstConversation(boolean0);
-      Predicate<Object> predicate0 = Predicate.isEqual((Object) applicationProcess0);
-      optional0.filter(predicate0);
-      ApplicationProcessRepository applicationProcessRepository0 = mock(ApplicationProcessRepository.class, new ViolatedAssumptionAnswer());
-      doReturn(optional0, (Optional) null).when(applicationProcessRepository0).findById(anyInt());
-      Injector.inject(applicationProcessService0, (Class<?>) ApplicationProcessService.class, "applicationProcessRepository", (Object) applicationProcessRepository0);
-      Injector.validateBean(applicationProcessService0, (Class<?>) ApplicationProcessService.class);
-      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "applicationProcessService", (Object) applicationProcessService0);
-      ArrayList<Candidate> arrayList0 = new ArrayList<Candidate>(1);
-      Candidate candidate0 = new Candidate();
-      arrayList0.add(candidate0);
-      CandidateRepository candidateRepository0 = mock(CandidateRepository.class, new ViolatedAssumptionAnswer());
-      doReturn(arrayList0).when(candidateRepository0).findAllByNameLikeOrSirNameLike(anyString() , anyString());
-      doReturn(arrayList0).when(candidateRepository0).findAllBySkillsIdIn(anyList());
-      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "candidateRepository", (Object) candidateRepository0);
-      SkillsService skillsService0 = new SkillsService();
-      Stack<Skills> stack0 = new Stack<Skills>();
-      SkillsRepository skillsRepository0 = mock(SkillsRepository.class, new ViolatedAssumptionAnswer());
-      doReturn(stack0).when(skillsRepository0).findAllByDotnet(anyBoolean());
-      Injector.inject(skillsService0, (Class<?>) SkillsService.class, "skillsRepository", (Object) skillsRepository0);
-      Injector.validateBean(skillsService0, (Class<?>) SkillsService.class);
-      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "skillsService", (Object) skillsService0);
-      Injector.validateBean(candidateService0, (Class<?>) CandidateService.class);
-      candidate0.setApplicationProcessId(1);
-      candidateService0.findAllByNameLikeOrSirNameLike("ANY", "ANY");
-      // Undeclared exception!
-      try { 
-        candidateService0.findAllDotnet();
-        fail("Expecting exception: NullPointerException");
-      
-      } catch(NullPointerException e) {
-         //
-         // no message in exception (getMessage() returned null)
-         //
-         verifyException("com.tv.tutorials.coolestuffvoorcheops.services.impl.ApplicationProcessService", e);
-      }
-  }
-
-  @Test(timeout = 4000)
-  public void test25()  throws Throwable  {
-      CandidateService candidateService0 = new CandidateService();
-      AddressRepository addressRepository0 = mock(AddressRepository.class, new ViolatedAssumptionAnswer());
-      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "addressRepository", (Object) addressRepository0);
-      ApplicationProcessService applicationProcessService0 = new ApplicationProcessService();
-      ApplicationProcessRepository applicationProcessRepository0 = mock(ApplicationProcessRepository.class, new ViolatedAssumptionAnswer());
-      Injector.inject(applicationProcessService0, (Class<?>) ApplicationProcessService.class, "applicationProcessRepository", (Object) applicationProcessRepository0);
-      Injector.validateBean(applicationProcessService0, (Class<?>) ApplicationProcessService.class);
-      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "applicationProcessService", (Object) applicationProcessService0);
-      CandidateRepository candidateRepository0 = mock(CandidateRepository.class, new ViolatedAssumptionAnswer());
-      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "candidateRepository", (Object) candidateRepository0);
-      SkillsService skillsService0 = new SkillsService();
-      SkillsRepository skillsRepository0 = mock(SkillsRepository.class, new ViolatedAssumptionAnswer());
-      doReturn((List) null).when(skillsRepository0).findAllByDotnet(anyBoolean());
-      Injector.inject(skillsService0, (Class<?>) SkillsService.class, "skillsRepository", (Object) skillsRepository0);
-      Injector.validateBean(skillsService0, (Class<?>) SkillsService.class);
-      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "skillsService", (Object) skillsService0);
-      Injector.validateBean(candidateService0, (Class<?>) CandidateService.class);
-      // Undeclared exception!
-      try { 
-        candidateService0.findAllDotnet();
-        fail("Expecting exception: NullPointerException");
-      
-      } catch(NullPointerException e) {
-         //
-         // no message in exception (getMessage() returned null)
-         //
-         verifyException("com.tv.tutorials.coolestuffvoorcheops.services.impl.SkillsService", e);
-      }
-  }
-
-  @Test(timeout = 4000)
-  public void test26()  throws Throwable  {
-      CandidateService candidateService0 = new CandidateService();
-      AddressRepository addressRepository0 = mock(AddressRepository.class, new ViolatedAssumptionAnswer());
-      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "addressRepository", (Object) addressRepository0);
-      ApplicationProcessService applicationProcessService0 = new ApplicationProcessService();
-      ApplicationProcess applicationProcess0 = new ApplicationProcess();
-      Optional.ofNullable(applicationProcess0);
-      MockDate mockDate0 = new MockDate();
-      applicationProcess0.setTechnicalConversationDate(mockDate0);
-      ApplicationProcessRepository applicationProcessRepository0 = mock(ApplicationProcessRepository.class, new ViolatedAssumptionAnswer());
-      doReturn((Optional) null).when(applicationProcessRepository0).findById(anyInt());
-      Injector.inject(applicationProcessService0, (Class<?>) ApplicationProcessService.class, "applicationProcessRepository", (Object) applicationProcessRepository0);
-      Injector.validateBean(applicationProcessService0, (Class<?>) ApplicationProcessService.class);
-      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "applicationProcessService", (Object) applicationProcessService0);
-      ArrayList<Candidate> arrayList0 = new ArrayList<Candidate>(1);
-      Candidate candidate0 = new Candidate();
-      arrayList0.add(candidate0);
-      Optional.ofNullable(candidate0);
-      Skills skills0 = new Skills();
-      CandidateRepository candidateRepository0 = mock(CandidateRepository.class, new ViolatedAssumptionAnswer());
-      doReturn(arrayList0).when(candidateRepository0).findAllByNameLikeOrSirNameLike(anyString() , anyString());
-      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "candidateRepository", (Object) candidateRepository0);
-      SkillsService skillsService0 = new SkillsService();
-      Stack<Skills> stack0 = new Stack<Skills>();
-      Optional<Skills> optional0 = Optional.ofNullable(skills0);
-      SkillsRepository skillsRepository0 = mock(SkillsRepository.class, new ViolatedAssumptionAnswer());
-      doReturn(optional0).when(skillsRepository0).findById(anyInt());
-      Injector.inject(skillsService0, (Class<?>) SkillsService.class, "skillsRepository", (Object) skillsRepository0);
-      Injector.validateBean(skillsService0, (Class<?>) SkillsService.class);
-      FileSystemHandling fileSystemHandling0 = new FileSystemHandling();
-      candidate0.setSkillsId(1);
-      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "skillsService", (Object) skillsService0);
-      Injector.validateBean(candidateService0, (Class<?>) CandidateService.class);
-      candidate0.setApplicationProcessId(1);
-      String string0 = "], stored ";
-      String string1 = "/uploads";
-      // Undeclared exception!
-      try { 
-        candidateService0.findAllByNameLikeOrSirNameLike("ANY", "ANY");
-        fail("Expecting exception: NullPointerException");
-      
-      } catch(NullPointerException e) {
-         //
-         // no message in exception (getMessage() returned null)
-         //
-         verifyException("com.tv.tutorials.coolestuffvoorcheops.services.impl.ApplicationProcessService", e);
-      }
-  }
-
-  @Test(timeout = 4000)
-  public void test27()  throws Throwable  {
-      CandidateService candidateService0 = new CandidateService();
-      AddressRepository addressRepository0 = mock(AddressRepository.class, new ViolatedAssumptionAnswer());
-      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "addressRepository", (Object) addressRepository0);
-      ApplicationProcessService applicationProcessService0 = new ApplicationProcessService();
-      ApplicationProcessRepository applicationProcessRepository0 = mock(ApplicationProcessRepository.class, new ViolatedAssumptionAnswer());
-      Injector.inject(applicationProcessService0, (Class<?>) ApplicationProcessService.class, "applicationProcessRepository", (Object) applicationProcessRepository0);
-      Injector.validateBean(applicationProcessService0, (Class<?>) ApplicationProcessService.class);
-      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "applicationProcessService", (Object) applicationProcessService0);
-      CandidateRepository candidateRepository0 = mock(CandidateRepository.class, new ViolatedAssumptionAnswer());
-      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "candidateRepository", (Object) candidateRepository0);
-      SkillsService skillsService0 = new SkillsService();
-      SkillsRepository skillsRepository0 = mock(SkillsRepository.class, new ViolatedAssumptionAnswer());
-      Injector.inject(skillsService0, (Class<?>) SkillsService.class, "skillsRepository", (Object) skillsRepository0);
-      Injector.validateBean(skillsService0, (Class<?>) SkillsService.class);
-      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "skillsService", (Object) skillsService0);
-      Injector.validateBean(candidateService0, (Class<?>) CandidateService.class);
-      HttpServletResponse httpServletResponse0 = mock(HttpServletResponse.class, new ViolatedAssumptionAnswer());
-      HttpServletResponseWrapper httpServletResponseWrapper0 = new HttpServletResponseWrapper(httpServletResponse0);
-      httpServletResponseWrapper0.setResponse(httpServletResponseWrapper0);
-      // Undeclared exception!
-      try { 
-        candidateService0.downloadCv("\"'", httpServletResponseWrapper0);
-        fail("Expecting exception: StackOverflowError");
-      
-      } catch(StackOverflowError e) {
-         //
-         // no message in exception (getMessage() returned null)
-         //
-      }
-  }
-
-  @Test(timeout = 4000)
-  public void test28()  throws Throwable  {
-      CandidateService candidateService0 = new CandidateService();
-      AddressRepository addressRepository0 = mock(AddressRepository.class, new ViolatedAssumptionAnswer());
-      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "addressRepository", (Object) addressRepository0);
-      ApplicationProcessService applicationProcessService0 = new ApplicationProcessService();
-      ApplicationProcessRepository applicationProcessRepository0 = mock(ApplicationProcessRepository.class, new ViolatedAssumptionAnswer());
-      doReturn((List) null).when(applicationProcessRepository0).findAllByIsRecruited(anyBoolean());
-      Injector.inject(applicationProcessService0, (Class<?>) ApplicationProcessService.class, "applicationProcessRepository", (Object) applicationProcessRepository0);
-      Injector.validateBean(applicationProcessService0, (Class<?>) ApplicationProcessService.class);
-      // Undeclared exception!
-      try { 
-        applicationProcessService0.findAllRecruited();
-        fail("Expecting exception: NullPointerException");
-      
-      } catch(NullPointerException e) {
-         //
-         // no message in exception (getMessage() returned null)
-         //
-         verifyException("com.tv.tutorials.coolestuffvoorcheops.services.impl.ApplicationProcessService", e);
-      }
-  }
-
-  @Test(timeout = 4000)
-  public void test29()  throws Throwable  {
-      CandidateService candidateService0 = new CandidateService();
-      AddressRepository addressRepository0 = mock(AddressRepository.class, new ViolatedAssumptionAnswer());
-      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "addressRepository", (Object) addressRepository0);
-      ApplicationProcessService applicationProcessService0 = new ApplicationProcessService();
-      ApplicationProcessRepository applicationProcessRepository0 = mock(ApplicationProcessRepository.class, new ViolatedAssumptionAnswer());
-      Injector.inject(applicationProcessService0, (Class<?>) ApplicationProcessService.class, "applicationProcessRepository", (Object) applicationProcessRepository0);
-      Injector.validateBean(applicationProcessService0, (Class<?>) ApplicationProcessService.class);
-      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "applicationProcessService", (Object) applicationProcessService0);
-      CandidateRepository candidateRepository0 = mock(CandidateRepository.class, new ViolatedAssumptionAnswer());
-      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "candidateRepository", (Object) candidateRepository0);
-      SkillsService skillsService0 = new SkillsService();
-      SkillsRepository skillsRepository0 = mock(SkillsRepository.class, new ViolatedAssumptionAnswer());
-      Injector.inject(skillsService0, (Class<?>) SkillsService.class, "skillsRepository", (Object) skillsRepository0);
-      Injector.validateBean(skillsService0, (Class<?>) SkillsService.class);
-      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "skillsService", (Object) skillsService0);
-      Injector.validateBean(candidateService0, (Class<?>) CandidateService.class);
-      MockPrintWriter mockPrintWriter0 = new MockPrintWriter("C:Users\thomas.verhulstDocumentsworkspace-sts-3.9.5.RELEASEcoolestuffvoorcheops/uploads");
-      EvoSuiteFile evoSuiteFile0 = new EvoSuiteFile("uploads");
-      byte[] byteArray0 = new byte[3];
-      FileSystemHandling.shouldAllThrowIOExceptions();
-      FileSystemHandling.appendDataToFile(evoSuiteFile0, byteArray0);
-      HttpServletResponse httpServletResponse0 = mock(HttpServletResponse.class, new ViolatedAssumptionAnswer());
-      doReturn(mockPrintWriter0).when(httpServletResponse0).getWriter();
-      HttpServletResponseWrapper httpServletResponseWrapper0 = new HttpServletResponseWrapper(httpServletResponse0);
-      try { 
-        candidateService0.downloadCv("", httpServletResponseWrapper0);
-        fail("Expecting exception: IOException");
-      
-      } catch(IOException e) {
-         //
-         // Simulated IOException
-         //
-         verifyException("org.evosuite.runtime.vfs.VirtualFileSystem", e);
-      }
-  }
-
-  @Test(timeout = 4000)
-  public void test30()  throws Throwable  {
-      CandidateService candidateService0 = new CandidateService();
-      AddressRepository addressRepository0 = mock(AddressRepository.class, new ViolatedAssumptionAnswer());
-      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "addressRepository", (Object) addressRepository0);
-      ApplicationProcessService applicationProcessService0 = new ApplicationProcessService();
-      ApplicationProcessRepository applicationProcessRepository0 = mock(ApplicationProcessRepository.class, new ViolatedAssumptionAnswer());
-      Injector.inject(applicationProcessService0, (Class<?>) ApplicationProcessService.class, "applicationProcessRepository", (Object) applicationProcessRepository0);
-      Injector.validateBean(applicationProcessService0, (Class<?>) ApplicationProcessService.class);
-      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "applicationProcessService", (Object) applicationProcessService0);
-      CandidateRepository candidateRepository0 = mock(CandidateRepository.class, new ViolatedAssumptionAnswer());
-      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "candidateRepository", (Object) candidateRepository0);
-      SkillsService skillsService0 = new SkillsService();
-      SkillsRepository skillsRepository0 = mock(SkillsRepository.class, new ViolatedAssumptionAnswer());
-      Injector.inject(skillsService0, (Class<?>) SkillsService.class, "skillsRepository", (Object) skillsRepository0);
-      Injector.validateBean(skillsService0, (Class<?>) SkillsService.class);
-      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "skillsService", (Object) skillsService0);
-      Injector.validateBean(candidateService0, (Class<?>) CandidateService.class);
-      MockPrintWriter mockPrintWriter0 = new MockPrintWriter("C:Users\thomas.verhulstDocumentsworkspace-sts-3.9.5.RELEASEcoolestuffvoorcheops/uploads");
-      HttpServletResponse httpServletResponse0 = mock(HttpServletResponse.class, new ViolatedAssumptionAnswer());
-      doReturn(mockPrintWriter0).when(httpServletResponse0).getWriter();
-      HttpServletResponseWrapper httpServletResponseWrapper0 = new HttpServletResponseWrapper(httpServletResponse0);
-      try { 
-        candidateService0.downloadCv("", httpServletResponseWrapper0);
-        fail("Expecting exception: FileNotFoundException");
-      
-      } catch(FileNotFoundException e) {
-         //
-         // no message in exception (getMessage() returned null)
-         //
-         verifyException("org.evosuite.runtime.mock.java.io.MockFileInputStream", e);
-      }
-  }
-
-  @Test(timeout = 4000)
-  public void test31()  throws Throwable  {
-      CandidateService candidateService0 = new CandidateService();
-      AddressRepository addressRepository0 = mock(AddressRepository.class, new ViolatedAssumptionAnswer());
-      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "addressRepository", (Object) addressRepository0);
-      ApplicationProcessService applicationProcessService0 = new ApplicationProcessService();
-      ApplicationProcessRepository applicationProcessRepository0 = mock(ApplicationProcessRepository.class, new ViolatedAssumptionAnswer());
-      Injector.inject(applicationProcessService0, (Class<?>) ApplicationProcessService.class, "applicationProcessRepository", (Object) applicationProcessRepository0);
-      Injector.validateBean(applicationProcessService0, (Class<?>) ApplicationProcessService.class);
-      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "applicationProcessService", (Object) applicationProcessService0);
-      CandidateRepository candidateRepository0 = mock(CandidateRepository.class, new ViolatedAssumptionAnswer());
-      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "candidateRepository", (Object) candidateRepository0);
-      SkillsService skillsService0 = new SkillsService();
-      SkillsRepository skillsRepository0 = mock(SkillsRepository.class, new ViolatedAssumptionAnswer());
-      doReturn((List) null).when(skillsRepository0).findAllByDotnet(anyBoolean());
-      Injector.inject(skillsService0, (Class<?>) SkillsService.class, "skillsRepository", (Object) skillsRepository0);
-      Injector.validateBean(skillsService0, (Class<?>) SkillsService.class);
-      // Undeclared exception!
-      try { 
-        skillsService0.findAllDotnet();
-        fail("Expecting exception: NullPointerException");
-      
-      } catch(NullPointerException e) {
-         //
-         // no message in exception (getMessage() returned null)
-         //
-         verifyException("com.tv.tutorials.coolestuffvoorcheops.services.impl.SkillsService", e);
-      }
-  }
-
-  @Test(timeout = 4000)
-  public void test32()  throws Throwable  {
-      CandidateService candidateService0 = new CandidateService();
-      AddressRepository addressRepository0 = mock(AddressRepository.class, new ViolatedAssumptionAnswer());
-      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "addressRepository", (Object) addressRepository0);
-      byte[] byteArray0 = new byte[3];
-      MockDate mockDate0 = new MockDate();
-      Candidate candidate0 = new Candidate("C:Users\thomas.verhulstDocumentsworkspace-sts-3.9.5.RELEASEcoolestuffvoorcheops/uploads", "vr", "O(|>\"X0Xs0dC5a", mockDate0, "C:Users\thomas.verhulstDocumentsworkspace-sts-3.9.5.RELEASEcoolestuffvoorcheops/uploads", ":c(\"hhDh~", "", "O(|>\"X0Xs0dC5a");
-      // Undeclared exception!
-      try { 
-        candidateService0.addCandidate(candidate0);
-        fail("Expecting exception: NullPointerException");
-      
-      } catch(NullPointerException e) {
-         //
-         // no message in exception (getMessage() returned null)
-         //
-         verifyException("com.tv.tutorials.coolestuffvoorcheops.services.impl.CandidateService", e);
-      }
-  }
-
-  @Test(timeout = 4000)
-  public void test33()  throws Throwable  {
-      CandidateService candidateService0 = new CandidateService();
-      AddressRepository addressRepository0 = mock(AddressRepository.class, new ViolatedAssumptionAnswer());
-      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "addressRepository", (Object) addressRepository0);
-      ApplicationProcessService applicationProcessService0 = new ApplicationProcessService();
-      ApplicationProcessRepository applicationProcessRepository0 = mock(ApplicationProcessRepository.class, new ViolatedAssumptionAnswer());
-      Injector.inject(applicationProcessService0, (Class<?>) ApplicationProcessService.class, "applicationProcessRepository", (Object) applicationProcessRepository0);
-      Injector.validateBean(applicationProcessService0, (Class<?>) ApplicationProcessService.class);
-      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "applicationProcessService", (Object) applicationProcessService0);
-      ArrayList<Candidate> arrayList0 = new ArrayList<Candidate>(1);
-      CandidateRepository candidateRepository0 = mock(CandidateRepository.class, new ViolatedAssumptionAnswer());
-      doReturn(arrayList0).when(candidateRepository0).findAllByNameLikeOrSirNameLike(anyString() , anyString());
-      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "candidateRepository", (Object) candidateRepository0);
-      SkillsService skillsService0 = new SkillsService();
-      SkillsRepository skillsRepository0 = mock(SkillsRepository.class, new ViolatedAssumptionAnswer());
-      doReturn((Iterable) null).when(skillsRepository0).findAllById(anyIterable());
-      Injector.inject(skillsService0, (Class<?>) SkillsService.class, "skillsRepository", (Object) skillsRepository0);
-      Injector.validateBean(skillsService0, (Class<?>) SkillsService.class);
-      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "skillsService", (Object) skillsService0);
-      Injector.validateBean(candidateService0, (Class<?>) CandidateService.class);
-      List<CandidateSearchResolver> list0 = candidateService0.findAllByNameLikeOrSirNameLike("ALL", "], stored ");
-      // Undeclared exception!
-      try { 
-        candidateService0.findByExperienceGreaterThan(1, list0);
-        fail("Expecting exception: NullPointerException");
-      
-      } catch(NullPointerException e) {
-         //
-         // no message in exception (getMessage() returned null)
-         //
-         verifyException("com.tv.tutorials.coolestuffvoorcheops.services.impl.SkillsService", e);
-      }
-  }
-
-  @Test(timeout = 4000)
-  public void test34()  throws Throwable  {
-      CandidateService candidateService0 = new CandidateService();
-      AddressRepository addressRepository0 = mock(AddressRepository.class, new ViolatedAssumptionAnswer());
-      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "addressRepository", (Object) addressRepository0);
-      ApplicationProcessService applicationProcessService0 = new ApplicationProcessService();
-      Stack<ApplicationProcess> stack0 = new Stack<ApplicationProcess>();
-      MockDate mockDate0 = new MockDate();
-      Boolean boolean0 = Boolean.FALSE;
-      Boolean boolean1 = Boolean.TRUE;
-      ApplicationProcess applicationProcess0 = new ApplicationProcess(mockDate0, boolean0, (Date) null, mockDate0, "o5h&uSy/rtmy]", "o5h&uSy/rtmy]", boolean1, mockDate0, "Ln", "o5h&uSy/rtmy]", boolean1, (Date) null, "o5h&uSy/rtmy]", boolean1);
-      stack0.add(applicationProcess0);
-      ApplicationProcessRepository applicationProcessRepository0 = mock(ApplicationProcessRepository.class, new ViolatedAssumptionAnswer());
-      doReturn(stack0).when(applicationProcessRepository0).findAllById(anyIterable());
-      Injector.inject(applicationProcessService0, (Class<?>) ApplicationProcessService.class, "applicationProcessRepository", (Object) applicationProcessRepository0);
-      Injector.validateBean(applicationProcessService0, (Class<?>) ApplicationProcessService.class);
-      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "applicationProcessService", (Object) applicationProcessService0);
-      CandidateRepository candidateRepository0 = mock(CandidateRepository.class, new ViolatedAssumptionAnswer());
-      doReturn((Candidate) null).when(candidateRepository0).findByapplicationProcessId(anyInt());
-      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "candidateRepository", (Object) candidateRepository0);
-      SkillsService skillsService0 = new SkillsService();
-      Comparator<Object> comparator0 = (Comparator<Object>) mock(Comparator.class, new ViolatedAssumptionAnswer());
-      PriorityQueue<Skills> priorityQueue0 = new PriorityQueue<Skills>(comparator0);
-      SkillsRepository skillsRepository0 = mock(SkillsRepository.class, new ViolatedAssumptionAnswer());
-      doReturn(priorityQueue0).when(skillsRepository0).findAllById(anyIterable());
-      Injector.inject(skillsService0, (Class<?>) SkillsService.class, "skillsRepository", (Object) skillsRepository0);
-      List<Integer> list0 = skillsService0.findAllByExperienceGreaterThan((-2185), (List<Integer>) null);
-      List<CandidateSearchResolver> list1 = candidateService0.findAllRecruitedIn(list0);
-      assertEquals(0, list1.size());
-  }
-
-  @Test(timeout = 4000)
-  public void test35()  throws Throwable  {
-      CandidateService candidateService0 = new CandidateService();
-      AddressRepository addressRepository0 = mock(AddressRepository.class, new ViolatedAssumptionAnswer());
-      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "addressRepository", (Object) addressRepository0);
-      ApplicationProcessService applicationProcessService0 = new ApplicationProcessService();
-      ApplicationProcessRepository applicationProcessRepository0 = mock(ApplicationProcessRepository.class, new ViolatedAssumptionAnswer());
-      doReturn((Iterable) null).when(applicationProcessRepository0).findAllById(anyIterable());
-      Injector.inject(applicationProcessService0, (Class<?>) ApplicationProcessService.class, "applicationProcessRepository", (Object) applicationProcessRepository0);
-      Injector.validateBean(applicationProcessService0, (Class<?>) ApplicationProcessService.class);
-      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "applicationProcessService", (Object) applicationProcessService0);
-      CandidateRepository candidateRepository0 = mock(CandidateRepository.class, new ViolatedAssumptionAnswer());
-      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "candidateRepository", (Object) candidateRepository0);
-      SkillsService skillsService0 = new SkillsService();
-      SkillsRepository skillsRepository0 = mock(SkillsRepository.class, new ViolatedAssumptionAnswer());
-      doReturn((Iterable) null).when(skillsRepository0).findAllById(anyIterable());
-      Injector.inject(skillsService0, (Class<?>) SkillsService.class, "skillsRepository", (Object) skillsRepository0);
-      Injector.validateBean(skillsService0, (Class<?>) SkillsService.class);
-      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "skillsService", (Object) skillsService0);
-      Injector.validateBean(candidateService0, (Class<?>) CandidateService.class);
-      List<Integer> list0 = skillsService0.findAllByExperienceGreaterThan(0, (List<Integer>) null);
-      List<CandidateSearchResolver> list1 = candidateService0.findAllRecruitedIn(list0);
-      assertEquals(0, list1.size());
-  }
-
-  @Test(timeout = 4000)
-  public void test36()  throws Throwable  {
-      CandidateService candidateService0 = new CandidateService();
-      AddressRepository addressRepository0 = mock(AddressRepository.class, new ViolatedAssumptionAnswer());
-      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "addressRepository", (Object) addressRepository0);
-      ApplicationProcessService applicationProcessService0 = new ApplicationProcessService();
-      ApplicationProcessRepository applicationProcessRepository0 = mock(ApplicationProcessRepository.class, new ViolatedAssumptionAnswer());
-      Injector.inject(applicationProcessService0, (Class<?>) ApplicationProcessService.class, "applicationProcessRepository", (Object) applicationProcessRepository0);
-      Injector.validateBean(applicationProcessService0, (Class<?>) ApplicationProcessService.class);
-      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "applicationProcessService", (Object) applicationProcessService0);
-      CandidateRepository candidateRepository0 = mock(CandidateRepository.class, new ViolatedAssumptionAnswer());
-      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "candidateRepository", (Object) candidateRepository0);
-      SkillsService skillsService0 = new SkillsService();
-      SkillsRepository skillsRepository0 = mock(SkillsRepository.class, new ViolatedAssumptionAnswer());
-      Injector.inject(skillsService0, (Class<?>) SkillsService.class, "skillsRepository", (Object) skillsRepository0);
-      Injector.validateBean(skillsService0, (Class<?>) SkillsService.class);
-      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "skillsService", (Object) skillsService0);
-      Injector.validateBean(candidateService0, (Class<?>) CandidateService.class);
-      MockFile mockFile0 = new MockFile("/uploads", "], stored ");
-      MockPrintWriter mockPrintWriter0 = new MockPrintWriter(mockFile0);
-      EvoSuiteFile evoSuiteFile0 = new EvoSuiteFile("uploads\\], stored ");
-      FileSystemHandling.appendLineToFile(evoSuiteFile0, "EP-,$(Uzt:Ij(W");
-      HttpServletResponse httpServletResponse0 = mock(HttpServletResponse.class, new ViolatedAssumptionAnswer());
-      doReturn(mockPrintWriter0).when(httpServletResponse0).getWriter();
-      HttpServletResponseWrapper httpServletResponseWrapper0 = new HttpServletResponseWrapper(httpServletResponse0);
-      candidateService0.downloadCv("], stored ", httpServletResponseWrapper0);
-  }
-
-  @Test(timeout = 4000)
-  public void test37()  throws Throwable  {
-      CandidateService candidateService0 = new CandidateService();
-      AddressRepository addressRepository0 = mock(AddressRepository.class, new ViolatedAssumptionAnswer());
-      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "addressRepository", (Object) addressRepository0);
-      ApplicationProcessService applicationProcessService0 = new ApplicationProcessService();
-      ApplicationProcess applicationProcess0 = new ApplicationProcess();
-      Optional<ApplicationProcess> optional0 = Optional.ofNullable(applicationProcess0);
-      Boolean boolean0 = new Boolean("C:Users\thomas.verhulstDocumentsworkspace-sts-3.9.5.RELEASEcoolestuffvoorcheops/uploads");
-      applicationProcess0.setToBeInvitedForFirstConversation(boolean0);
-      ApplicationProcessRepository applicationProcessRepository0 = mock(ApplicationProcessRepository.class, new ViolatedAssumptionAnswer());
-      doReturn(optional0).when(applicationProcessRepository0).findById(anyInt());
-      Injector.inject(applicationProcessService0, (Class<?>) ApplicationProcessService.class, "applicationProcessRepository", (Object) applicationProcessRepository0);
-      Injector.validateBean(applicationProcessService0, (Class<?>) ApplicationProcessService.class);
-      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "applicationProcessService", (Object) applicationProcessService0);
-      ArrayList<Candidate> arrayList0 = new ArrayList<Candidate>(1);
-      Candidate candidate0 = new Candidate();
-      arrayList0.add(candidate0);
-      CandidateRepository candidateRepository0 = mock(CandidateRepository.class, new ViolatedAssumptionAnswer());
-      doReturn(arrayList0).when(candidateRepository0).findAllByNameLikeOrSirNameLike(anyString() , anyString());
-      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "candidateRepository", (Object) candidateRepository0);
-      SkillsService skillsService0 = new SkillsService();
-      SkillsRepository skillsRepository0 = mock(SkillsRepository.class, new ViolatedAssumptionAnswer());
-      Injector.inject(skillsService0, (Class<?>) SkillsService.class, "skillsRepository", (Object) skillsRepository0);
-      Injector.validateBean(skillsService0, (Class<?>) SkillsService.class);
-      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "skillsService", (Object) skillsService0);
-      Injector.validateBean(candidateService0, (Class<?>) CandidateService.class);
-      candidate0.setApplicationProcessId(1);
-      // Undeclared exception!
-      try { 
-        candidateService0.findAllByNameLikeOrSirNameLike("ANY", "ANY");
-        fail("Expecting exception: NullPointerException");
-      
-      } catch(NullPointerException e) {
-         //
-         // no message in exception (getMessage() returned null)
-         //
-         verifyException("com.tv.tutorials.coolestuffvoorcheops.services.impl.CandidateService", e);
-      }
-  }
-
-  @Test(timeout = 4000)
-  public void test38()  throws Throwable  {
-      CandidateService candidateService0 = new CandidateService();
-      AddressRepository addressRepository0 = mock(AddressRepository.class, new ViolatedAssumptionAnswer());
-      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "addressRepository", (Object) addressRepository0);
-      ApplicationProcessService applicationProcessService0 = new ApplicationProcessService();
-      ApplicationProcessRepository applicationProcessRepository0 = mock(ApplicationProcessRepository.class, new ViolatedAssumptionAnswer());
-      Injector.inject(applicationProcessService0, (Class<?>) ApplicationProcessService.class, "applicationProcessRepository", (Object) applicationProcessRepository0);
-      Injector.validateBean(applicationProcessService0, (Class<?>) ApplicationProcessService.class);
-      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "applicationProcessService", (Object) applicationProcessService0);
-      ArrayList<Candidate> arrayList0 = new ArrayList<Candidate>(1);
-      Candidate candidate0 = new Candidate();
-      arrayList0.add(candidate0);
-      Skills skills0 = new Skills();
-      CandidateRepository candidateRepository0 = mock(CandidateRepository.class, new ViolatedAssumptionAnswer());
-      doReturn(arrayList0).when(candidateRepository0).findAllByNameLikeOrSirNameLike(anyString() , anyString());
-      skills0.setJava(true);
-      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "candidateRepository", (Object) candidateRepository0);
-      SkillsService skillsService0 = new SkillsService();
-      Optional<Skills> optional0 = Optional.ofNullable(skills0);
-      SkillsRepository skillsRepository0 = mock(SkillsRepository.class, new ViolatedAssumptionAnswer());
-      doReturn(optional0).when(skillsRepository0).findById(anyInt());
-      Injector.inject(skillsService0, (Class<?>) SkillsService.class, "skillsRepository", (Object) skillsRepository0);
-      Injector.validateBean(skillsService0, (Class<?>) SkillsService.class);
-      candidate0.setSkillsId(1);
-      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "skillsService", (Object) skillsService0);
-      Injector.validateBean(candidateService0, (Class<?>) CandidateService.class);
-      List<CandidateSearchResolver> list0 = candidateService0.findAllByNameLikeOrSirNameLike("ANY", "ANY");
-      assertEquals(1, list0.size());
-  }
-
-  @Test(timeout = 4000)
-  public void test39()  throws Throwable  {
-      CandidateService candidateService0 = new CandidateService();
-      AddressRepository addressRepository0 = mock(AddressRepository.class, new ViolatedAssumptionAnswer());
-      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "addressRepository", (Object) addressRepository0);
-      ApplicationProcessService applicationProcessService0 = new ApplicationProcessService();
-      ApplicationProcessRepository applicationProcessRepository0 = mock(ApplicationProcessRepository.class, new ViolatedAssumptionAnswer());
-      Injector.inject(applicationProcessService0, (Class<?>) ApplicationProcessService.class, "applicationProcessRepository", (Object) applicationProcessRepository0);
-      Injector.validateBean(applicationProcessService0, (Class<?>) ApplicationProcessService.class);
-      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "applicationProcessService", (Object) applicationProcessService0);
-      ArrayList<Candidate> arrayList0 = new ArrayList<Candidate>();
-      Candidate candidate0 = new Candidate();
-      arrayList0.add(candidate0);
-      Skills skills0 = new Skills("C:Users\thomas.verhulstDocumentsworkspace-sts-3.9.5.RELEASEcoolestuffvoorcheops/uploads", 1, "C:Users\thomas.verhulstDocumentsworkspace-sts-3.9.5.RELEASEcoolestuffvoorcheops/uploads", "C:Users\thomas.verhulstDocumentsworkspace-sts-3.9.5.RELEASEcoolestuffvoorcheops/uploads", true, true, true);
-      CandidateRepository candidateRepository0 = mock(CandidateRepository.class, new ViolatedAssumptionAnswer());
-      doReturn(arrayList0).when(candidateRepository0).findAllByNameLikeOrSirNameLike(anyString() , anyString());
-      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "candidateRepository", (Object) candidateRepository0);
-      SkillsService skillsService0 = new SkillsService();
-      skills0.setDotnet(false);
-      Optional<Skills> optional0 = Optional.ofNullable(skills0);
-      SkillsRepository skillsRepository0 = mock(SkillsRepository.class, new ViolatedAssumptionAnswer());
-      doReturn(optional0).when(skillsRepository0).findById(anyInt());
-      Injector.inject(skillsService0, (Class<?>) SkillsService.class, "skillsRepository", (Object) skillsRepository0);
-      Injector.validateBean(skillsService0, (Class<?>) SkillsService.class);
-      candidate0.setSkillsId(1);
-      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "skillsService", (Object) skillsService0);
-      Injector.validateBean(candidateService0, (Class<?>) CandidateService.class);
-      List<CandidateSearchResolver> list0 = candidateService0.findAllByNameLikeOrSirNameLike("ANY", "ANY");
-      assertEquals(1, list0.size());
-  }
-
-  @Test(timeout = 4000)
-  public void test40()  throws Throwable  {
-      CandidateService candidateService0 = new CandidateService();
-      AddressRepository addressRepository0 = mock(AddressRepository.class, new ViolatedAssumptionAnswer());
-      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "addressRepository", (Object) addressRepository0);
-      ApplicationProcessService applicationProcessService0 = new ApplicationProcessService();
-      ApplicationProcessRepository applicationProcessRepository0 = mock(ApplicationProcessRepository.class, new ViolatedAssumptionAnswer());
-      Injector.inject(applicationProcessService0, (Class<?>) ApplicationProcessService.class, "applicationProcessRepository", (Object) applicationProcessRepository0);
-      Injector.validateBean(applicationProcessService0, (Class<?>) ApplicationProcessService.class);
-      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "applicationProcessService", (Object) applicationProcessService0);
-      ArrayList<Candidate> arrayList0 = new ArrayList<Candidate>(1);
-      Candidate candidate0 = new Candidate();
-      arrayList0.add(candidate0);
-      Skills skills0 = new Skills();
-      CandidateRepository candidateRepository0 = mock(CandidateRepository.class, new ViolatedAssumptionAnswer());
-      doReturn(arrayList0).when(candidateRepository0).findAllByNameLikeOrSirNameLike(anyString() , anyString());
-      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "candidateRepository", (Object) candidateRepository0);
-      SkillsService skillsService0 = new SkillsService();
-      skills0.setDotnet(true);
-      Optional<Skills> optional0 = Optional.ofNullable(skills0);
-      SkillsRepository skillsRepository0 = mock(SkillsRepository.class, new ViolatedAssumptionAnswer());
-      doReturn(optional0).when(skillsRepository0).findById(anyInt());
-      Injector.inject(skillsService0, (Class<?>) SkillsService.class, "skillsRepository", (Object) skillsRepository0);
-      Injector.validateBean(skillsService0, (Class<?>) SkillsService.class);
-      candidate0.setSkillsId(1);
-      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "skillsService", (Object) skillsService0);
-      Injector.validateBean(candidateService0, (Class<?>) CandidateService.class);
-      List<CandidateSearchResolver> list0 = candidateService0.findAllByNameLikeOrSirNameLike("ANY", "ANY");
-      assertFalse(list0.isEmpty());
-  }
-
-  @Test(timeout = 4000)
-  public void test41()  throws Throwable  {
-      CandidateService candidateService0 = new CandidateService();
-      AddressRepository addressRepository0 = mock(AddressRepository.class, new ViolatedAssumptionAnswer());
-      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "addressRepository", (Object) addressRepository0);
-      ApplicationProcessService applicationProcessService0 = new ApplicationProcessService();
-      ApplicationProcessRepository applicationProcessRepository0 = mock(ApplicationProcessRepository.class, new ViolatedAssumptionAnswer());
-      Injector.inject(applicationProcessService0, (Class<?>) ApplicationProcessService.class, "applicationProcessRepository", (Object) applicationProcessRepository0);
-      Injector.validateBean(applicationProcessService0, (Class<?>) ApplicationProcessService.class);
-      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "applicationProcessService", (Object) applicationProcessService0);
-      ArrayList<Candidate> arrayList0 = new ArrayList<Candidate>(1);
-      Candidate candidate0 = new Candidate();
-      arrayList0.add(candidate0);
-      Skills skills0 = new Skills("C:Users\thomas.verhulstDocumentsworkspace-sts-3.9.5.RELEASEcoolestuffvoorcheops/uploads", 1, "C:Users\thomas.verhulstDocumentsworkspace-sts-3.9.5.RELEASEcoolestuffvoorcheops/uploads", "C:Users\thomas.verhulstDocumentsworkspace-sts-3.9.5.RELEASEcoolestuffvoorcheops/uploads", true, true, true);
-      CandidateRepository candidateRepository0 = mock(CandidateRepository.class, new ViolatedAssumptionAnswer());
-      doReturn(arrayList0).when(candidateRepository0).findAllByNameLikeOrSirNameLike(anyString() , anyString());
-      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "candidateRepository", (Object) candidateRepository0);
-      SkillsService skillsService0 = new SkillsService();
-      Optional<Skills> optional0 = Optional.ofNullable(skills0);
-      SkillsRepository skillsRepository0 = mock(SkillsRepository.class, new ViolatedAssumptionAnswer());
-      doReturn(optional0).when(skillsRepository0).findById(anyInt());
-      Injector.inject(skillsService0, (Class<?>) SkillsService.class, "skillsRepository", (Object) skillsRepository0);
-      Injector.validateBean(skillsService0, (Class<?>) SkillsService.class);
-      candidate0.setSkillsId(1);
-      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "skillsService", (Object) skillsService0);
-      Injector.validateBean(candidateService0, (Class<?>) CandidateService.class);
-      List<CandidateSearchResolver> list0 = candidateService0.findAllByNameLikeOrSirNameLike("ANY", "ANY");
-      assertEquals(1, list0.size());
-  }
-
-  @Test(timeout = 4000)
-  public void test42()  throws Throwable  {
-      CandidateService candidateService0 = new CandidateService();
-      AddressRepository addressRepository0 = mock(AddressRepository.class, new ViolatedAssumptionAnswer());
-      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "addressRepository", (Object) addressRepository0);
-      ApplicationProcessService applicationProcessService0 = new ApplicationProcessService();
-      ApplicationProcessRepository applicationProcessRepository0 = mock(ApplicationProcessRepository.class, new ViolatedAssumptionAnswer());
-      Injector.inject(applicationProcessService0, (Class<?>) ApplicationProcessService.class, "applicationProcessRepository", (Object) applicationProcessRepository0);
-      Injector.validateBean(applicationProcessService0, (Class<?>) ApplicationProcessService.class);
-      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "applicationProcessService", (Object) applicationProcessService0);
-      CandidateRepository candidateRepository0 = mock(CandidateRepository.class, new ViolatedAssumptionAnswer());
-      doReturn((Optional<Candidate>) null).when(candidateRepository0).findById(anyInt());
-      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "candidateRepository", (Object) candidateRepository0);
-      SkillsService skillsService0 = new SkillsService();
-      SkillsRepository skillsRepository0 = mock(SkillsRepository.class, new ViolatedAssumptionAnswer());
-      Injector.inject(skillsService0, (Class<?>) SkillsService.class, "skillsRepository", (Object) skillsRepository0);
-      Injector.validateBean(skillsService0, (Class<?>) SkillsService.class);
-      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "skillsService", (Object) skillsService0);
-      Injector.validateBean(candidateService0, (Class<?>) CandidateService.class);
-      // Undeclared exception!
-      try { 
-        candidateService0.deleteCandidate(1172);
-        fail("Expecting exception: NullPointerException");
-      
-      } catch(NullPointerException e) {
-         //
-         // no message in exception (getMessage() returned null)
-         //
-         verifyException("com.tv.tutorials.coolestuffvoorcheops.services.impl.CandidateService", e);
-      }
-  }
-
-  @Test(timeout = 4000)
-  public void test43()  throws Throwable  {
-      CandidateService candidateService0 = new CandidateService();
-      AddressRepository addressRepository0 = mock(AddressRepository.class, new ViolatedAssumptionAnswer());
-      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "addressRepository", (Object) addressRepository0);
-      ApplicationProcessService applicationProcessService0 = new ApplicationProcessService();
-      Vector<ApplicationProcess> vector0 = new Vector<ApplicationProcess>();
-      ApplicationProcessRepository applicationProcessRepository0 = mock(ApplicationProcessRepository.class, new ViolatedAssumptionAnswer());
-      doReturn(vector0).when(applicationProcessRepository0).findAllBytoBeInvitedForFirstConversation(anyBoolean());
-      Injector.inject(applicationProcessService0, (Class<?>) ApplicationProcessService.class, "applicationProcessRepository", (Object) applicationProcessRepository0);
-      Injector.validateBean(applicationProcessService0, (Class<?>) ApplicationProcessService.class);
-      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "applicationProcessService", (Object) applicationProcessService0);
-      Vector<Candidate> vector1 = new Vector<Candidate>();
-      CandidateRepository candidateRepository0 = mock(CandidateRepository.class, new ViolatedAssumptionAnswer());
-      doReturn(vector1).when(candidateRepository0).findAllByApplicationProcessIdIn(anyList());
-      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "candidateRepository", (Object) candidateRepository0);
-      SkillsService skillsService0 = new SkillsService();
-      SkillsRepository skillsRepository0 = mock(SkillsRepository.class, new ViolatedAssumptionAnswer());
-      Injector.inject(skillsService0, (Class<?>) SkillsService.class, "skillsRepository", (Object) skillsRepository0);
-      Injector.validateBean(skillsService0, (Class<?>) SkillsService.class);
-      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "skillsService", (Object) skillsService0);
-      Injector.validateBean(candidateService0, (Class<?>) CandidateService.class);
-      List<Candidate> list0 = candidateService0.getAllCandidatesWithoutActiveApplicationProcess();
-      assertTrue(list0.isEmpty());
-  }
-
-  @Test(timeout = 4000)
-  public void test44()  throws Throwable  {
-      CandidateService candidateService0 = new CandidateService();
-      AddressRepository addressRepository0 = mock(AddressRepository.class, new ViolatedAssumptionAnswer());
-      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "addressRepository", (Object) addressRepository0);
-      ApplicationProcessService applicationProcessService0 = new ApplicationProcessService();
-      ApplicationProcessRepository applicationProcessRepository0 = mock(ApplicationProcessRepository.class, new ViolatedAssumptionAnswer());
-      Injector.inject(applicationProcessService0, (Class<?>) ApplicationProcessService.class, "applicationProcessRepository", (Object) applicationProcessRepository0);
-      Injector.validateBean(applicationProcessService0, (Class<?>) ApplicationProcessService.class);
-      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "applicationProcessService", (Object) applicationProcessService0);
-      ArrayList<Candidate> arrayList0 = new ArrayList<Candidate>(1);
-      CandidateRepository candidateRepository0 = mock(CandidateRepository.class, new ViolatedAssumptionAnswer());
-      doReturn(arrayList0).when(candidateRepository0).findAllBySkillsIdIn(anyList());
-      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "candidateRepository", (Object) candidateRepository0);
-      SkillsService skillsService0 = new SkillsService();
-      Stack<Skills> stack0 = new Stack<Skills>();
-      SkillsRepository skillsRepository0 = mock(SkillsRepository.class, new ViolatedAssumptionAnswer());
-      doReturn(stack0).when(skillsRepository0).findAllByDotnet(anyBoolean());
-      Injector.inject(skillsService0, (Class<?>) SkillsService.class, "skillsRepository", (Object) skillsRepository0);
-      Injector.validateBean(skillsService0, (Class<?>) SkillsService.class);
-      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "skillsService", (Object) skillsService0);
-      Injector.validateBean(candidateService0, (Class<?>) CandidateService.class);
-      List<CandidateSearchResolver> list0 = candidateService0.findAllDotnet();
-      assertTrue(list0.isEmpty());
-  }
-
-  @Test(timeout = 4000)
-  public void test45()  throws Throwable  {
-      CandidateService candidateService0 = new CandidateService();
-      AddressRepository addressRepository0 = mock(AddressRepository.class, new ViolatedAssumptionAnswer());
-      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "addressRepository", (Object) addressRepository0);
-      ApplicationProcessService applicationProcessService0 = new ApplicationProcessService();
-      ApplicationProcessRepository applicationProcessRepository0 = mock(ApplicationProcessRepository.class, new ViolatedAssumptionAnswer());
-      Injector.inject(applicationProcessService0, (Class<?>) ApplicationProcessService.class, "applicationProcessRepository", (Object) applicationProcessRepository0);
-      Injector.validateBean(applicationProcessService0, (Class<?>) ApplicationProcessService.class);
-      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "applicationProcessService", (Object) applicationProcessService0);
-      CandidateRepository candidateRepository0 = mock(CandidateRepository.class, new ViolatedAssumptionAnswer());
-      doReturn((Iterable) null).when(candidateRepository0).findAll();
-      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "candidateRepository", (Object) candidateRepository0);
-      SkillsService skillsService0 = new SkillsService();
-      SkillsRepository skillsRepository0 = mock(SkillsRepository.class, new ViolatedAssumptionAnswer());
-      Injector.inject(skillsService0, (Class<?>) SkillsService.class, "skillsRepository", (Object) skillsRepository0);
-      Injector.validateBean(skillsService0, (Class<?>) SkillsService.class);
-      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "skillsService", (Object) skillsService0);
-      Injector.validateBean(candidateService0, (Class<?>) CandidateService.class);
-      // Undeclared exception!
-      try { 
-        candidateService0.getAllCandidates();
-        fail("Expecting exception: NullPointerException");
-      
-      } catch(NullPointerException e) {
-         //
-         // no message in exception (getMessage() returned null)
-         //
-         verifyException("com.tv.tutorials.coolestuffvoorcheops.services.impl.CandidateService", e);
-      }
-  }
-}
+//package com.cheops.candidatemanager.services.impl;
+//
+//import org.junit.Ignore;
+//import org.junit.Test;
+//import static org.junit.Assert.*;
+//import static org.evosuite.shaded.org.mockito.Mockito.*;
+//import static org.evosuite.runtime.EvoAssertions.*;
+//import Address;
+//import ApplicationProcess;
+//import Candidate;
+//import CandidateSearchResolver;
+//import Skills;
+//import AddressRepository;
+//import ApplicationProcessRepository;
+//import CandidateRepository;
+//import SkillsRepository;
+//import ApplicationProcessService;
+//import CandidateService;
+//import SkillsService;
+//import java.io.FileNotFoundException;
+//import java.io.IOException;
+//import java.util.ArrayDeque;
+//import java.util.ArrayList;
+//import java.util.Comparator;
+//import java.util.Date;
+//import java.util.HashSet;
+//import java.util.List;
+//import java.util.NoSuchElementException;
+//import java.util.Optional;
+//import java.util.PriorityQueue;
+//import java.util.Stack;
+//import java.util.Vector;
+//import java.util.function.Predicate;
+//import javax.servlet.http.HttpServletResponse;
+//import javax.servlet.http.HttpServletResponseWrapper;
+//import org.evosuite.runtime.EvoRunner;
+//import org.evosuite.runtime.EvoRunnerParameters;
+//import org.evosuite.runtime.ViolatedAssumptionAnswer;
+//import org.evosuite.runtime.javaee.injection.Injector;
+//import org.evosuite.runtime.mock.java.io.MockFile;
+//import org.evosuite.runtime.mock.java.io.MockPrintWriter;
+//import org.evosuite.runtime.mock.java.util.MockDate;
+//import org.evosuite.runtime.testdata.EvoSuiteFile;
+//import org.evosuite.runtime.testdata.FileSystemHandling;
+//import org.junit.runner.RunWith;
+//
+//@RunWith(EvoRunner.class) @EvoRunnerParameters(mockJVMNonDeterminism = true, useVFS = true, useVNET = true, resetStaticState = true, separateClassLoader = true, useJEE = true)
+//public class CandidateService_ESTest extends CandidateService_ESTest_scaffolding {
+//
+//  @Test(timeout = 4000)
+//  public void test00()  throws Throwable  {
+//      CandidateService candidateService0 = new CandidateService();
+//      Address address0 = new Address();
+//      Optional<Address> optional0 = Optional.of(address0);
+//      AddressRepository addressRepository0 = mock(AddressRepository.class, new ViolatedAssumptionAnswer());
+//      doReturn(optional0).when(addressRepository0).findById(anyInt());
+//      doReturn((Object) null).when(addressRepository0).save(new Address());
+//      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "addressRepository", (Object) addressRepository0);
+//      ApplicationProcessService applicationProcessService0 = new ApplicationProcessService();
+//      ApplicationProcessRepository applicationProcessRepository0 = mock(ApplicationProcessRepository.class, new ViolatedAssumptionAnswer());
+//      Injector.inject(applicationProcessService0, (Class<?>) ApplicationProcessService.class, "applicationProcessRepository", (Object) applicationProcessRepository0);
+//      Injector.validateBean(applicationProcessService0, (Class<?>) ApplicationProcessService.class);
+//      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "applicationProcessService", (Object) applicationProcessService0);
+//      Candidate candidate0 = new Candidate();
+//      Optional<Candidate> optional1 = Optional.ofNullable(candidate0);
+//      CandidateRepository candidateRepository0 = mock(CandidateRepository.class, new ViolatedAssumptionAnswer());
+//      doReturn(optional1).when(candidateRepository0).findById(anyInt());
+//      doReturn(", ").when(candidateRepository0).save(new Candidate());
+//      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "candidateRepository", (Object) candidateRepository0);
+//      SkillsService skillsService0 = new SkillsService();
+//      SkillsRepository skillsRepository0 = mock(SkillsRepository.class, new ViolatedAssumptionAnswer());
+//      Injector.inject(skillsService0, (Class<?>) SkillsService.class, "skillsRepository", (Object) skillsRepository0);
+//      Injector.validateBean(skillsService0, (Class<?>) SkillsService.class);
+//      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "skillsService", (Object) skillsService0);
+//      Injector.validateBean(candidateService0, (Class<?>) CandidateService.class);
+//      // Undeclared exception!
+//      try {
+//        candidateService0.saveOrUpdateCandidate((-2149), candidate0, address0, 112);
+//        fail("Expecting exception: ClassCastException");
+//
+//      } catch(ClassCastException e) {
+//         //
+//         // java.lang.String cannot be cast to Candidate
+//         //
+//         verifyException("CandidateRepository$MockitoMock$258269404", e);
+//      }
+//  }
+//
+//  @Test(timeout = 4000)
+//  public void test01()  throws Throwable  {
+//      CandidateService candidateService0 = new CandidateService();
+//      Address address0 = new Address("C:Users\thomas.verhulstDocumentsworkspace-sts-3.9.5.RELEASEcandidatemanager/uploads", "C:Users\thomas.verhulstDocumentsworkspace-sts-3.9.5.RELEASEcandidatemanager/uploads", "C:Users\thomas.verhulstDocumentsworkspace-sts-3.9.5.RELEASEcandidatemanager/uploads", "C:Users\thomas.verhulstDocumentsworkspace-sts-3.9.5.RELEASEcandidatemanager/uploads", "+|}@|+nd=gj!", "C:Users\thomas.verhulstDocumentsworkspace-sts-3.9.5.RELEASEcandidatemanager/uploads");
+//      Optional<Address> optional0 = Optional.of(address0);
+//      AddressRepository addressRepository0 = mock(AddressRepository.class, new ViolatedAssumptionAnswer());
+//      doReturn(optional0).when(addressRepository0).findById(anyInt());
+//      doReturn(optional0).when(addressRepository0).save(new Address());
+//      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "addressRepository", (Object) addressRepository0);
+//      ApplicationProcessService applicationProcessService0 = new ApplicationProcessService();
+//      ApplicationProcessRepository applicationProcessRepository0 = mock(ApplicationProcessRepository.class, new ViolatedAssumptionAnswer());
+//      Injector.inject(applicationProcessService0, (Class<?>) ApplicationProcessService.class, "applicationProcessRepository", (Object) applicationProcessRepository0);
+//      Injector.validateBean(applicationProcessService0, (Class<?>) ApplicationProcessService.class);
+//      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "applicationProcessService", (Object) applicationProcessService0);
+//      Candidate candidate0 = new Candidate();
+//      Optional<Candidate> optional1 = Optional.ofNullable(candidate0);
+//      CandidateRepository candidateRepository0 = mock(CandidateRepository.class, new ViolatedAssumptionAnswer());
+//      doReturn(optional1).when(candidateRepository0).findById(anyInt());
+//      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "candidateRepository", (Object) candidateRepository0);
+//      SkillsService skillsService0 = new SkillsService();
+//      SkillsRepository skillsRepository0 = mock(SkillsRepository.class, new ViolatedAssumptionAnswer());
+//      Injector.inject(skillsService0, (Class<?>) SkillsService.class, "skillsRepository", (Object) skillsRepository0);
+//      Injector.validateBean(skillsService0, (Class<?>) SkillsService.class);
+//      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "skillsService", (Object) skillsService0);
+//      Injector.validateBean(candidateService0, (Class<?>) CandidateService.class);
+//      Address address1 = new Address();
+//      // Undeclared exception!
+//      try {
+//        candidateService0.saveOrUpdateCandidate(1, candidate0, address1, 1);
+//        fail("Expecting exception: ClassCastException");
+//
+//      } catch(ClassCastException e) {
+//         //
+//         // java.util.Optional cannot be cast to Address
+//         //
+//         verifyException("AddressRepository$MockitoMock$732688054", e);
+//      }
+//  }
+//
+//  @Test(timeout = 4000)
+//  public void test02()  throws Throwable  {
+//      CandidateService candidateService0 = new CandidateService();
+//      AddressRepository addressRepository0 = mock(AddressRepository.class, new ViolatedAssumptionAnswer());
+//      doReturn((Optional) null).when(addressRepository0).findById(anyInt());
+//      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "addressRepository", (Object) addressRepository0);
+//      ApplicationProcessService applicationProcessService0 = new ApplicationProcessService();
+//      ApplicationProcessRepository applicationProcessRepository0 = mock(ApplicationProcessRepository.class, new ViolatedAssumptionAnswer());
+//      Injector.inject(applicationProcessService0, (Class<?>) ApplicationProcessService.class, "applicationProcessRepository", (Object) applicationProcessRepository0);
+//      Injector.validateBean(applicationProcessService0, (Class<?>) ApplicationProcessService.class);
+//      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "applicationProcessService", (Object) applicationProcessService0);
+//      Candidate candidate0 = new Candidate();
+//      Optional<Candidate> optional0 = Optional.of(candidate0);
+//      CandidateRepository candidateRepository0 = mock(CandidateRepository.class, new ViolatedAssumptionAnswer());
+//      doReturn(optional0).when(candidateRepository0).findById(anyInt());
+//      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "candidateRepository", (Object) candidateRepository0);
+//      SkillsService skillsService0 = new SkillsService();
+//      SkillsRepository skillsRepository0 = mock(SkillsRepository.class, new ViolatedAssumptionAnswer());
+//      Injector.inject(skillsService0, (Class<?>) SkillsService.class, "skillsRepository", (Object) skillsRepository0);
+//      Injector.validateBean(skillsService0, (Class<?>) SkillsService.class);
+//      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "skillsService", (Object) skillsService0);
+//      Injector.validateBean(candidateService0, (Class<?>) CandidateService.class);
+//      Candidate candidate1 = new Candidate();
+//      Address address0 = new Address("C:Users\thomas.verhulstDocumentsworkspace-sts-3.9.5.RELEASEcandidatemanager/uploads", "C:Users\thomas.verhulstDocumentsworkspace-sts-3.9.5.RELEASEcandidatemanager/uploads", "TKdxgx?oofK", "C:Users\thomas.verhulstDocumentsworkspace-sts-3.9.5.RELEASEcandidatemanager/uploads", "TKdxgx?oofK", "Handling completed with error: ");
+//      // Undeclared exception!
+//      try {
+//        candidateService0.saveOrUpdateCandidate(0, candidate1, address0, 0);
+//        fail("Expecting exception: NullPointerException");
+//
+//      } catch(NullPointerException e) {
+//         //
+//         // no message in exception (getMessage() returned null)
+//         //
+//         verifyException("CandidateService", e);
+//      }
+//  }
+//
+//  @Test(timeout = 4000)
+//  @Ignore
+//  public void test03()  throws Throwable  {
+//      CandidateService candidateService0 = new CandidateService();
+//      AddressRepository addressRepository0 = mock(AddressRepository.class, new ViolatedAssumptionAnswer());
+//      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "addressRepository", (Object) addressRepository0);
+//      ApplicationProcessService applicationProcessService0 = new ApplicationProcessService();
+//      ArrayList<ApplicationProcess> arrayList0 = new ArrayList<ApplicationProcess>();
+//      ApplicationProcessRepository applicationProcessRepository0 = mock(ApplicationProcessRepository.class, new ViolatedAssumptionAnswer());
+//      doReturn(arrayList0, arrayList0).when(applicationProcessRepository0).findAllBytoBeInvitedForFirstConversation(anyBoolean());
+//      Injector.inject(applicationProcessService0, (Class<?>) ApplicationProcessService.class, "applicationProcessRepository", (Object) applicationProcessRepository0);
+//      Injector.validateBean(applicationProcessService0, (Class<?>) ApplicationProcessService.class);
+//      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "applicationProcessService", (Object) applicationProcessService0);
+//      Stack<Candidate> stack0 = new Stack<Candidate>();
+//      Candidate candidate0 = new Candidate();
+//      stack0.add(candidate0);
+//      CandidateRepository candidateRepository0 = mock(CandidateRepository.class, new ViolatedAssumptionAnswer());
+//      doReturn((List<Object>) null, stack0).when(candidateRepository0).findAllByApplicationProcessIdIn(anyList());
+//      candidate0.setSkillsId((-2300));
+//      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "candidateRepository", (Object) candidateRepository0);
+//      SkillsService skillsService0 = new SkillsService();
+//      SkillsRepository skillsRepository0 = mock(SkillsRepository.class, new ViolatedAssumptionAnswer());
+//      doReturn((Optional) null).when(skillsRepository0).findById(anyInt());
+//      Injector.inject(skillsService0, (Class<?>) SkillsService.class, "skillsRepository", (Object) skillsRepository0);
+//      Injector.validateBean(skillsService0, (Class<?>) SkillsService.class);
+//      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "skillsService", (Object) skillsService0);
+//      candidateService0.getAllCandidatesWithoutActiveApplicationProcess();
+//      Injector.validateBean(candidateService0, (Class<?>) CandidateService.class);
+//      // Undeclared exception!
+//      try {
+//        candidateService0.getAllCandidatesWithActiveApplicationProcess();
+//        fail("Expecting exception: NoSuchElementException");
+//
+//      } catch(NoSuchElementException e) {
+//         //
+//         // No value present
+//         //
+//         verifyException("java.util.Optional", e);
+//      }
+//  }
+//
+//  @Test(timeout = 4000)
+//  public void test04()  throws Throwable  {
+//      CandidateService candidateService0 = new CandidateService();
+//      AddressRepository addressRepository0 = mock(AddressRepository.class, new ViolatedAssumptionAnswer());
+//      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "addressRepository", (Object) addressRepository0);
+//      ApplicationProcessService applicationProcessService0 = new ApplicationProcessService();
+//      ApplicationProcessRepository applicationProcessRepository0 = mock(ApplicationProcessRepository.class, new ViolatedAssumptionAnswer());
+//      Injector.inject(applicationProcessService0, (Class<?>) ApplicationProcessService.class, "applicationProcessRepository", (Object) applicationProcessRepository0);
+//      Injector.validateBean(applicationProcessService0, (Class<?>) ApplicationProcessService.class);
+//      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "applicationProcessService", (Object) applicationProcessService0);
+//      Candidate candidate0 = new Candidate();
+//      Optional<Candidate> optional0 = Optional.of(candidate0);
+//      CandidateRepository candidateRepository0 = mock(CandidateRepository.class, new ViolatedAssumptionAnswer());
+//      doReturn(optional0).when(candidateRepository0).findById(anyInt());
+//      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "candidateRepository", (Object) candidateRepository0);
+//      SkillsService skillsService0 = new SkillsService();
+//      SkillsRepository skillsRepository0 = mock(SkillsRepository.class, new ViolatedAssumptionAnswer());
+//      Injector.inject(skillsService0, (Class<?>) SkillsService.class, "skillsRepository", (Object) skillsRepository0);
+//      Injector.validateBean(skillsService0, (Class<?>) SkillsService.class);
+//      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "skillsService", (Object) skillsService0);
+//      Injector.validateBean(candidateService0, (Class<?>) CandidateService.class);
+//      candidateService0.deleteCandidate(0);
+//  }
+//
+//  @Test(timeout = 4000)
+//  public void test05()  throws Throwable  {
+//      CandidateService candidateService0 = new CandidateService();
+//      AddressRepository addressRepository0 = mock(AddressRepository.class, new ViolatedAssumptionAnswer());
+//      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "addressRepository", (Object) addressRepository0);
+//      ApplicationProcessService applicationProcessService0 = new ApplicationProcessService();
+//      ApplicationProcessRepository applicationProcessRepository0 = mock(ApplicationProcessRepository.class, new ViolatedAssumptionAnswer());
+//      Injector.inject(applicationProcessService0, (Class<?>) ApplicationProcessService.class, "applicationProcessRepository", (Object) applicationProcessRepository0);
+//      Injector.validateBean(applicationProcessService0, (Class<?>) ApplicationProcessService.class);
+//      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "applicationProcessService", (Object) applicationProcessService0);
+//      Candidate candidate0 = new Candidate();
+//      Optional<Candidate> optional0 = Optional.ofNullable(candidate0);
+//      candidate0.setSkillsId(97);
+//      CandidateRepository candidateRepository0 = mock(CandidateRepository.class, new ViolatedAssumptionAnswer());
+//      doReturn(optional0).when(candidateRepository0).findById(anyInt());
+//      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "candidateRepository", (Object) candidateRepository0);
+//      SkillsService skillsService0 = new SkillsService();
+//      SkillsRepository skillsRepository0 = mock(SkillsRepository.class, new ViolatedAssumptionAnswer());
+//      Injector.inject(skillsService0, (Class<?>) SkillsService.class, "skillsRepository", (Object) skillsRepository0);
+//      Injector.validateBean(skillsService0, (Class<?>) SkillsService.class);
+//      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "skillsService", (Object) skillsService0);
+//      Injector.validateBean(candidateService0, (Class<?>) CandidateService.class);
+//      Candidate candidate1 = candidateService0.getCandidateById(0);
+//      assertEquals(0, candidate1.getProposedSallaryPackageId());
+//  }
+//
+//  @Test(timeout = 4000)
+//  public void test06()  throws Throwable  {
+//      CandidateService candidateService0 = new CandidateService();
+//      AddressRepository addressRepository0 = mock(AddressRepository.class, new ViolatedAssumptionAnswer());
+//      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "addressRepository", (Object) addressRepository0);
+//      ApplicationProcessService applicationProcessService0 = new ApplicationProcessService();
+//      ApplicationProcessRepository applicationProcessRepository0 = mock(ApplicationProcessRepository.class, new ViolatedAssumptionAnswer());
+//      Injector.inject(applicationProcessService0, (Class<?>) ApplicationProcessService.class, "applicationProcessRepository", (Object) applicationProcessRepository0);
+//      Injector.validateBean(applicationProcessService0, (Class<?>) ApplicationProcessService.class);
+//      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "applicationProcessService", (Object) applicationProcessService0);
+//      Candidate candidate0 = new Candidate();
+//      Optional<Candidate> optional0 = Optional.ofNullable(candidate0);
+//      candidate0.setSkillsId((-1));
+//      CandidateRepository candidateRepository0 = mock(CandidateRepository.class, new ViolatedAssumptionAnswer());
+//      doReturn(optional0).when(candidateRepository0).findById(anyInt());
+//      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "candidateRepository", (Object) candidateRepository0);
+//      SkillsService skillsService0 = new SkillsService();
+//      SkillsRepository skillsRepository0 = mock(SkillsRepository.class, new ViolatedAssumptionAnswer());
+//      Injector.inject(skillsService0, (Class<?>) SkillsService.class, "skillsRepository", (Object) skillsRepository0);
+//      Injector.validateBean(skillsService0, (Class<?>) SkillsService.class);
+//      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "skillsService", (Object) skillsService0);
+//      Injector.validateBean(candidateService0, (Class<?>) CandidateService.class);
+//      Candidate candidate1 = candidateService0.getCandidateById(3563);
+//      assertSame(candidate1, candidate0);
+//  }
+//
+//  @Test(timeout = 4000)
+//  public void test07()  throws Throwable  {
+//      CandidateService candidateService0 = new CandidateService();
+//      AddressRepository addressRepository0 = mock(AddressRepository.class, new ViolatedAssumptionAnswer());
+//      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "addressRepository", (Object) addressRepository0);
+//      ApplicationProcessService applicationProcessService0 = new ApplicationProcessService();
+//      ApplicationProcessRepository applicationProcessRepository0 = mock(ApplicationProcessRepository.class, new ViolatedAssumptionAnswer());
+//      Injector.inject(applicationProcessService0, (Class<?>) ApplicationProcessService.class, "applicationProcessRepository", (Object) applicationProcessRepository0);
+//      Injector.validateBean(applicationProcessService0, (Class<?>) ApplicationProcessService.class);
+//      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "applicationProcessService", (Object) applicationProcessService0);
+//      Candidate candidate0 = new Candidate();
+//      candidate0.setProposedSallaryPackageId(40);
+//      Optional<Candidate> optional0 = Optional.ofNullable(candidate0);
+//      CandidateRepository candidateRepository0 = mock(CandidateRepository.class, new ViolatedAssumptionAnswer());
+//      doReturn(optional0).when(candidateRepository0).findById(anyInt());
+//      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "candidateRepository", (Object) candidateRepository0);
+//      SkillsService skillsService0 = new SkillsService();
+//      SkillsRepository skillsRepository0 = mock(SkillsRepository.class, new ViolatedAssumptionAnswer());
+//      Injector.inject(skillsService0, (Class<?>) SkillsService.class, "skillsRepository", (Object) skillsRepository0);
+//      Injector.validateBean(skillsService0, (Class<?>) SkillsService.class);
+//      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "skillsService", (Object) skillsService0);
+//      Injector.validateBean(candidateService0, (Class<?>) CandidateService.class);
+//      Candidate candidate1 = candidateService0.getCandidateById(0);
+//      assertNull(candidate1.getCvLink());
+//  }
+//
+//  @Test(timeout = 4000)
+//  public void test08()  throws Throwable  {
+//      CandidateService candidateService0 = new CandidateService();
+//      AddressRepository addressRepository0 = mock(AddressRepository.class, new ViolatedAssumptionAnswer());
+//      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "addressRepository", (Object) addressRepository0);
+//      ApplicationProcessService applicationProcessService0 = new ApplicationProcessService();
+//      ApplicationProcessRepository applicationProcessRepository0 = mock(ApplicationProcessRepository.class, new ViolatedAssumptionAnswer());
+//      Injector.inject(applicationProcessService0, (Class<?>) ApplicationProcessService.class, "applicationProcessRepository", (Object) applicationProcessRepository0);
+//      Injector.validateBean(applicationProcessService0, (Class<?>) ApplicationProcessService.class);
+//      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "applicationProcessService", (Object) applicationProcessService0);
+//      Candidate candidate0 = new Candidate();
+//      Optional<Candidate> optional0 = Optional.ofNullable(candidate0);
+//      candidate0.setCurrentSallaryPackageId(181);
+//      CandidateRepository candidateRepository0 = mock(CandidateRepository.class, new ViolatedAssumptionAnswer());
+//      doReturn(optional0).when(candidateRepository0).findById(anyInt());
+//      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "candidateRepository", (Object) candidateRepository0);
+//      SkillsService skillsService0 = new SkillsService();
+//      SkillsRepository skillsRepository0 = mock(SkillsRepository.class, new ViolatedAssumptionAnswer());
+//      Injector.inject(skillsService0, (Class<?>) SkillsService.class, "skillsRepository", (Object) skillsRepository0);
+//      Injector.validateBean(skillsService0, (Class<?>) SkillsService.class);
+//      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "skillsService", (Object) skillsService0);
+//      Injector.validateBean(candidateService0, (Class<?>) CandidateService.class);
+//      Candidate candidate1 = candidateService0.getCandidateById(0);
+//      assertSame(candidate1, candidate0);
+//  }
+//
+//  @Test(timeout = 4000)
+//  public void test09()  throws Throwable  {
+//      CandidateService candidateService0 = new CandidateService();
+//      AddressRepository addressRepository0 = mock(AddressRepository.class, new ViolatedAssumptionAnswer());
+//      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "addressRepository", (Object) addressRepository0);
+//      ApplicationProcessService applicationProcessService0 = new ApplicationProcessService();
+//      ApplicationProcessRepository applicationProcessRepository0 = mock(ApplicationProcessRepository.class, new ViolatedAssumptionAnswer());
+//      Injector.inject(applicationProcessService0, (Class<?>) ApplicationProcessService.class, "applicationProcessRepository", (Object) applicationProcessRepository0);
+//      Injector.validateBean(applicationProcessService0, (Class<?>) ApplicationProcessService.class);
+//      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "applicationProcessService", (Object) applicationProcessService0);
+//      Candidate candidate0 = new Candidate();
+//      Optional<Candidate> optional0 = Optional.ofNullable(candidate0);
+//      candidate0.setApplicationProcessId((-1));
+//      CandidateRepository candidateRepository0 = mock(CandidateRepository.class, new ViolatedAssumptionAnswer());
+//      doReturn(optional0).when(candidateRepository0).findById(anyInt());
+//      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "candidateRepository", (Object) candidateRepository0);
+//      SkillsService skillsService0 = new SkillsService();
+//      SkillsRepository skillsRepository0 = mock(SkillsRepository.class, new ViolatedAssumptionAnswer());
+//      Injector.inject(skillsService0, (Class<?>) SkillsService.class, "skillsRepository", (Object) skillsRepository0);
+//      Injector.validateBean(skillsService0, (Class<?>) SkillsService.class);
+//      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "skillsService", (Object) skillsService0);
+//      Injector.validateBean(candidateService0, (Class<?>) CandidateService.class);
+//      Candidate candidate1 = candidateService0.getCandidateById(0);
+//      assertNull(candidate1.getCvLink());
+//  }
+//
+//  @Test(timeout = 4000)
+//  public void test10()  throws Throwable  {
+//      CandidateService candidateService0 = new CandidateService();
+//      AddressRepository addressRepository0 = mock(AddressRepository.class, new ViolatedAssumptionAnswer());
+//      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "addressRepository", (Object) addressRepository0);
+//      ApplicationProcessService applicationProcessService0 = new ApplicationProcessService();
+//      ArrayList<ApplicationProcess> arrayList0 = new ArrayList<ApplicationProcess>();
+//      ApplicationProcessRepository applicationProcessRepository0 = mock(ApplicationProcessRepository.class, new ViolatedAssumptionAnswer());
+//      doReturn(arrayList0).when(applicationProcessRepository0).findAllBytoBeInvitedForFirstConversation(anyBoolean());
+//      Injector.inject(applicationProcessService0, (Class<?>) ApplicationProcessService.class, "applicationProcessRepository", (Object) applicationProcessRepository0);
+//      Injector.validateBean(applicationProcessService0, (Class<?>) ApplicationProcessService.class);
+//      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "applicationProcessService", (Object) applicationProcessService0);
+//      ArrayList<Candidate> arrayList1 = new ArrayList<Candidate>();
+//      Candidate candidate0 = new Candidate();
+//      arrayList1.add(candidate0);
+//      CandidateRepository candidateRepository0 = mock(CandidateRepository.class, new ViolatedAssumptionAnswer());
+//      doReturn(arrayList1).when(candidateRepository0).findAllByApplicationProcessIdIn(anyList());
+//      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "candidateRepository", (Object) candidateRepository0);
+//      SkillsService skillsService0 = new SkillsService();
+//      SkillsRepository skillsRepository0 = mock(SkillsRepository.class, new ViolatedAssumptionAnswer());
+//      Injector.inject(skillsService0, (Class<?>) SkillsService.class, "skillsRepository", (Object) skillsRepository0);
+//      Injector.validateBean(skillsService0, (Class<?>) SkillsService.class);
+//      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "skillsService", (Object) skillsService0);
+//      Injector.validateBean(candidateService0, (Class<?>) CandidateService.class);
+//      List<Candidate> list0 = candidateService0.getAllCandidatesWithoutActiveApplicationProcess();
+//      assertEquals(1, list0.size());
+//  }
+//
+//  @Test(timeout = 4000)
+//  public void test11()  throws Throwable  {
+//      CandidateService candidateService0 = new CandidateService();
+//      Address address0 = new Address();
+//      Optional.of(address0);
+//      Long long0 = new Long(1719L);
+//      AddressRepository addressRepository0 = mock(AddressRepository.class, new ViolatedAssumptionAnswer());
+//      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "addressRepository", (Object) addressRepository0);
+//      ApplicationProcessService applicationProcessService0 = new ApplicationProcessService();
+//      ArrayList<ApplicationProcess> arrayList0 = new ArrayList<ApplicationProcess>();
+//      ApplicationProcessRepository applicationProcessRepository0 = mock(ApplicationProcessRepository.class, new ViolatedAssumptionAnswer());
+//      doReturn(arrayList0).when(applicationProcessRepository0).findAllBytoBeInvitedForFirstConversation(anyBoolean());
+//      Injector.inject(applicationProcessService0, (Class<?>) ApplicationProcessService.class, "applicationProcessRepository", (Object) applicationProcessRepository0);
+//      Injector.validateBean(applicationProcessService0, (Class<?>) ApplicationProcessService.class);
+//      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "applicationProcessService", (Object) applicationProcessService0);
+//      Candidate candidate0 = new Candidate();
+//      candidate0.setProposedSallaryPackageId((-3869));
+//      Optional<Candidate> optional0 = Optional.ofNullable(candidate0);
+//      CandidateRepository candidateRepository0 = mock(CandidateRepository.class, new ViolatedAssumptionAnswer());
+//      doReturn((List) null).when(candidateRepository0).findAllByApplicationProcessIdIn(anyList());
+//      doReturn(optional0).when(candidateRepository0).findById(anyInt());
+//      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "candidateRepository", (Object) candidateRepository0);
+//      SkillsService skillsService0 = new SkillsService();
+//      ArrayDeque<Skills> arrayDeque0 = new ArrayDeque<Skills>(835);
+//      SkillsRepository skillsRepository0 = mock(SkillsRepository.class, new ViolatedAssumptionAnswer());
+//      Injector.inject(skillsService0, (Class<?>) SkillsService.class, "skillsRepository", (Object) skillsRepository0);
+//      Injector.validateBean(skillsService0, (Class<?>) SkillsService.class);
+//      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "skillsService", (Object) skillsService0);
+//      Injector.validateBean(candidateService0, (Class<?>) CandidateService.class);
+//      candidateService0.getCandidateById(3904);
+//      // Undeclared exception!
+//      try {
+//        candidateService0.getAllCandidatesWithActiveApplicationProcess();
+//        fail("Expecting exception: NullPointerException");
+//
+//      } catch(NullPointerException e) {
+//         //
+//         // no message in exception (getMessage() returned null)
+//         //
+//         verifyException("CandidateService", e);
+//      }
+//  }
+//
+//  @Test(timeout = 4000)
+//  public void test12()  throws Throwable  {
+//      CandidateService candidateService0 = new CandidateService();
+//      AddressRepository addressRepository0 = mock(AddressRepository.class, new ViolatedAssumptionAnswer());
+//      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "addressRepository", (Object) addressRepository0);
+//      ApplicationProcessService applicationProcessService0 = new ApplicationProcessService();
+//      ArrayList<ApplicationProcess> arrayList0 = new ArrayList<ApplicationProcess>();
+//      ApplicationProcessRepository applicationProcessRepository0 = mock(ApplicationProcessRepository.class, new ViolatedAssumptionAnswer());
+//      doReturn(arrayList0, arrayList0).when(applicationProcessRepository0).findAllBytoBeInvitedForFirstConversation(anyBoolean());
+//      Injector.inject(applicationProcessService0, (Class<?>) ApplicationProcessService.class, "applicationProcessRepository", (Object) applicationProcessRepository0);
+//      Injector.validateBean(applicationProcessService0, (Class<?>) ApplicationProcessService.class);
+//      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "applicationProcessService", (Object) applicationProcessService0);
+//      Stack<Candidate> stack0 = new Stack<Candidate>();
+//      Candidate candidate0 = new Candidate();
+//      stack0.add(candidate0);
+//      CandidateRepository candidateRepository0 = mock(CandidateRepository.class, new ViolatedAssumptionAnswer());
+//      doReturn((List<Object>) null, stack0).when(candidateRepository0).findAllByApplicationProcessIdIn(anyList());
+//      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "candidateRepository", (Object) candidateRepository0);
+//      SkillsService skillsService0 = new SkillsService();
+//      SkillsRepository skillsRepository0 = mock(SkillsRepository.class, new ViolatedAssumptionAnswer());
+//      Injector.inject(skillsService0, (Class<?>) SkillsService.class, "skillsRepository", (Object) skillsRepository0);
+//      Injector.validateBean(skillsService0, (Class<?>) SkillsService.class);
+//      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "skillsService", (Object) skillsService0);
+//      candidateService0.getAllCandidatesWithoutActiveApplicationProcess();
+//      Injector.validateBean(candidateService0, (Class<?>) CandidateService.class);
+//      List<CandidateSearchResolver> list0 = candidateService0.getAllCandidatesWithActiveApplicationProcess();
+//      assertFalse(list0.isEmpty());
+//  }
+//
+//  @Test(timeout = 4000)
+//  public void test13()  throws Throwable  {
+//      CandidateService candidateService0 = new CandidateService();
+//      AddressRepository addressRepository0 = mock(AddressRepository.class, new ViolatedAssumptionAnswer());
+//      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "addressRepository", (Object) addressRepository0);
+//      ApplicationProcessService applicationProcessService0 = new ApplicationProcessService();
+//      ApplicationProcessRepository applicationProcessRepository0 = mock(ApplicationProcessRepository.class, new ViolatedAssumptionAnswer());
+//      Injector.inject(applicationProcessService0, (Class<?>) ApplicationProcessService.class, "applicationProcessRepository", (Object) applicationProcessRepository0);
+//      Injector.validateBean(applicationProcessService0, (Class<?>) ApplicationProcessService.class);
+//      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "applicationProcessService", (Object) applicationProcessService0);
+//      ArrayList<Candidate> arrayList0 = new ArrayList<Candidate>(1);
+//      Candidate candidate0 = new Candidate();
+//      arrayList0.add(candidate0);
+//      CandidateRepository candidateRepository0 = mock(CandidateRepository.class, new ViolatedAssumptionAnswer());
+//      doReturn(arrayList0).when(candidateRepository0).findAll();
+//      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "candidateRepository", (Object) candidateRepository0);
+//      SkillsService skillsService0 = new SkillsService();
+//      SkillsRepository skillsRepository0 = mock(SkillsRepository.class, new ViolatedAssumptionAnswer());
+//      Injector.inject(skillsService0, (Class<?>) SkillsService.class, "skillsRepository", (Object) skillsRepository0);
+//      Injector.validateBean(skillsService0, (Class<?>) SkillsService.class);
+//      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "skillsService", (Object) skillsService0);
+//      Injector.validateBean(candidateService0, (Class<?>) CandidateService.class);
+//      List<CandidateSearchResolver> list0 = candidateService0.getAllCandidates();
+//      assertFalse(list0.isEmpty());
+//  }
+//
+//  @Test(timeout = 4000)
+//  public void test14()  throws Throwable  {
+//      CandidateService candidateService0 = new CandidateService();
+//      AddressRepository addressRepository0 = mock(AddressRepository.class, new ViolatedAssumptionAnswer());
+//      doReturn((Optional) null).when(addressRepository0).findById(anyInt());
+//      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "addressRepository", (Object) addressRepository0);
+//      ApplicationProcessService applicationProcessService0 = new ApplicationProcessService();
+//      ApplicationProcessRepository applicationProcessRepository0 = mock(ApplicationProcessRepository.class, new ViolatedAssumptionAnswer());
+//      Injector.inject(applicationProcessService0, (Class<?>) ApplicationProcessService.class, "applicationProcessRepository", (Object) applicationProcessRepository0);
+//      Injector.validateBean(applicationProcessService0, (Class<?>) ApplicationProcessService.class);
+//      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "applicationProcessService", (Object) applicationProcessService0);
+//      ArrayList<Candidate> arrayList0 = new ArrayList<Candidate>(1);
+//      Candidate candidate0 = new Candidate();
+//      arrayList0.add(candidate0);
+//      Optional<Candidate> optional0 = Optional.ofNullable(candidate0);
+//      CandidateRepository candidateRepository0 = mock(CandidateRepository.class, new ViolatedAssumptionAnswer());
+//      doReturn(arrayList0).when(candidateRepository0).findAllByNameLikeOrSirNameLike(anyString() , anyString());
+//      doReturn(arrayList0).when(candidateRepository0).findAllBySkillsIdIn(anyList());
+//      doReturn(optional0).when(candidateRepository0).findById(anyInt());
+//      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "candidateRepository", (Object) candidateRepository0);
+//      SkillsService skillsService0 = new SkillsService();
+//      Stack<Skills> stack0 = new Stack<Skills>();
+//      SkillsRepository skillsRepository0 = mock(SkillsRepository.class, new ViolatedAssumptionAnswer());
+//      doReturn(stack0).when(skillsRepository0).findAllByDotnet(anyBoolean());
+//      Injector.inject(skillsService0, (Class<?>) SkillsService.class, "skillsRepository", (Object) skillsRepository0);
+//      Injector.validateBean(skillsService0, (Class<?>) SkillsService.class);
+//      FileSystemHandling fileSystemHandling0 = new FileSystemHandling();
+//      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "skillsService", (Object) skillsService0);
+//      Injector.validateBean(candidateService0, (Class<?>) CandidateService.class);
+//      MockFile mockFile0 = new MockFile("/uploads", "], stored ");
+//      MockPrintWriter mockPrintWriter0 = new MockPrintWriter(mockFile0);
+//      candidateService0.findAllByNameLikeOrSirNameLike("ALL", "], stored ");
+//      candidateService0.findAllDotnet();
+//      HttpServletResponse httpServletResponse0 = mock(HttpServletResponse.class, new ViolatedAssumptionAnswer());
+//      doReturn(mockPrintWriter0).when(httpServletResponse0).getWriter();
+//      HttpServletResponseWrapper httpServletResponseWrapper0 = new HttpServletResponseWrapper(httpServletResponse0);
+//      candidateService0.downloadCv("], stored ", httpServletResponseWrapper0);
+//      Address address0 = new Address();
+//      // Undeclared exception!
+//      try {
+//        candidateService0.saveOrUpdateCandidate(1, candidate0, address0, 161);
+//        fail("Expecting exception: NullPointerException");
+//
+//      } catch(NullPointerException e) {
+//         //
+//         // no message in exception (getMessage() returned null)
+//         //
+//         verifyException("CandidateService", e);
+//      }
+//  }
+//
+//  @Test(timeout = 4000)
+//  public void test15()  throws Throwable  {
+//      CandidateService candidateService0 = new CandidateService();
+//      AddressRepository addressRepository0 = mock(AddressRepository.class, new ViolatedAssumptionAnswer());
+//      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "addressRepository", (Object) addressRepository0);
+//      ApplicationProcessService applicationProcessService0 = new ApplicationProcessService();
+//      ArrayList<ApplicationProcess> arrayList0 = new ArrayList<ApplicationProcess>();
+//      ApplicationProcessRepository applicationProcessRepository0 = mock(ApplicationProcessRepository.class, new ViolatedAssumptionAnswer());
+//      doReturn(arrayList0).when(applicationProcessRepository0).findAllByIsRecruited(anyBoolean());
+//      Injector.inject(applicationProcessService0, (Class<?>) ApplicationProcessService.class, "applicationProcessRepository", (Object) applicationProcessRepository0);
+//      Injector.validateBean(applicationProcessService0, (Class<?>) ApplicationProcessService.class);
+//      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "applicationProcessService", (Object) applicationProcessService0);
+//      ArrayList<Candidate> arrayList1 = new ArrayList<Candidate>();
+//      Candidate candidate0 = new Candidate();
+//      arrayList1.add(candidate0);
+//      CandidateRepository candidateRepository0 = mock(CandidateRepository.class, new ViolatedAssumptionAnswer());
+//      doReturn(arrayList1).when(candidateRepository0).findAllByApplicationProcessIdIn(anyList());
+//      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "candidateRepository", (Object) candidateRepository0);
+//      SkillsService skillsService0 = new SkillsService();
+//      SkillsRepository skillsRepository0 = mock(SkillsRepository.class, new ViolatedAssumptionAnswer());
+//      Injector.inject(skillsService0, (Class<?>) SkillsService.class, "skillsRepository", (Object) skillsRepository0);
+//      Injector.validateBean(skillsService0, (Class<?>) SkillsService.class);
+//      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "skillsService", (Object) skillsService0);
+//      Injector.validateBean(candidateService0, (Class<?>) CandidateService.class);
+//      List<CandidateSearchResolver> list0 = candidateService0.findAllRecruited();
+//      assertEquals(1, list0.size());
+//  }
+//
+//  @Test(timeout = 4000)
+//  public void test16()  throws Throwable  {
+//      CandidateService candidateService0 = new CandidateService();
+//      AddressRepository addressRepository0 = mock(AddressRepository.class, new ViolatedAssumptionAnswer());
+//      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "addressRepository", (Object) addressRepository0);
+//      ApplicationProcessService applicationProcessService0 = new ApplicationProcessService();
+//      ApplicationProcessRepository applicationProcessRepository0 = mock(ApplicationProcessRepository.class, new ViolatedAssumptionAnswer());
+//      Injector.inject(applicationProcessService0, (Class<?>) ApplicationProcessService.class, "applicationProcessRepository", (Object) applicationProcessRepository0);
+//      Injector.validateBean(applicationProcessService0, (Class<?>) ApplicationProcessService.class);
+//      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "applicationProcessService", (Object) applicationProcessService0);
+//      ArrayList<Candidate> arrayList0 = new ArrayList<Candidate>(1);
+//      Candidate candidate0 = new Candidate();
+//      arrayList0.add(candidate0);
+//      Optional.empty();
+//      CandidateRepository candidateRepository0 = mock(CandidateRepository.class, new ViolatedAssumptionAnswer());
+//      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "candidateRepository", (Object) candidateRepository0);
+//      SkillsService skillsService0 = new SkillsService();
+//      Stack<Skills> stack0 = new Stack<Skills>();
+//      SkillsRepository skillsRepository0 = mock(SkillsRepository.class, new ViolatedAssumptionAnswer());
+//      doReturn((List) null).when(skillsRepository0).findAllByFrontend(anyBoolean());
+//      Injector.inject(skillsService0, (Class<?>) SkillsService.class, "skillsRepository", (Object) skillsRepository0);
+//      Injector.validateBean(skillsService0, (Class<?>) SkillsService.class);
+//      FileSystemHandling fileSystemHandling0 = new FileSystemHandling();
+//      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "skillsService", (Object) skillsService0);
+//      Injector.validateBean(candidateService0, (Class<?>) CandidateService.class);
+//      // Undeclared exception!
+//      try {
+//        candidateService0.findAllFrontend();
+//        fail("Expecting exception: NullPointerException");
+//
+//      } catch(NullPointerException e) {
+//         //
+//         // no message in exception (getMessage() returned null)
+//         //
+//         verifyException("SkillsService", e);
+//      }
+//  }
+//
+//  @Test(timeout = 4000)
+//  public void test17()  throws Throwable  {
+//      CandidateService candidateService0 = new CandidateService();
+//      AddressRepository addressRepository0 = mock(AddressRepository.class, new ViolatedAssumptionAnswer());
+//      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "addressRepository", (Object) addressRepository0);
+//      // Undeclared exception!
+//      try {
+//        candidateService0.updateCandidate((Candidate) null);
+//        fail("Expecting exception: NullPointerException");
+//
+//      } catch(NullPointerException e) {
+//         //
+//         // no message in exception (getMessage() returned null)
+//         //
+//         verifyException("CandidateService", e);
+//      }
+//  }
+//
+//  @Test(timeout = 4000)
+//  public void test18()  throws Throwable  {
+//      CandidateService candidateService0 = new CandidateService();
+//      AddressRepository addressRepository0 = mock(AddressRepository.class, new ViolatedAssumptionAnswer());
+//      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "addressRepository", (Object) addressRepository0);
+//      ApplicationProcessService applicationProcessService0 = new ApplicationProcessService();
+//      ApplicationProcessRepository applicationProcessRepository0 = mock(ApplicationProcessRepository.class, new ViolatedAssumptionAnswer());
+//      doReturn((List<Object>) null).when(applicationProcessRepository0).findAllBytoBeInvitedForFirstConversation(anyBoolean());
+//      Injector.inject(applicationProcessService0, (Class<?>) ApplicationProcessService.class, "applicationProcessRepository", (Object) applicationProcessRepository0);
+//      Injector.validateBean(applicationProcessService0, (Class<?>) ApplicationProcessService.class);
+//      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "applicationProcessService", (Object) applicationProcessService0);
+//      CandidateRepository candidateRepository0 = mock(CandidateRepository.class, new ViolatedAssumptionAnswer());
+//      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "candidateRepository", (Object) candidateRepository0);
+//      SkillsService skillsService0 = new SkillsService();
+//      SkillsRepository skillsRepository0 = mock(SkillsRepository.class, new ViolatedAssumptionAnswer());
+//      Injector.inject(skillsService0, (Class<?>) SkillsService.class, "skillsRepository", (Object) skillsRepository0);
+//      Injector.validateBean(skillsService0, (Class<?>) SkillsService.class);
+//      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "skillsService", (Object) skillsService0);
+//      Injector.validateBean(candidateService0, (Class<?>) CandidateService.class);
+//      // Undeclared exception!
+//      try {
+//        candidateService0.getAllCandidatesWithoutActiveApplicationProcess();
+//        fail("Expecting exception: NullPointerException");
+//
+//      } catch(NullPointerException e) {
+//         //
+//         // no message in exception (getMessage() returned null)
+//         //
+//         verifyException("ApplicationProcessService", e);
+//      }
+//  }
+//
+//  @Test(timeout = 4000)
+//  public void test19()  throws Throwable  {
+//      CandidateService candidateService0 = new CandidateService();
+//      AddressRepository addressRepository0 = mock(AddressRepository.class, new ViolatedAssumptionAnswer());
+//      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "addressRepository", (Object) addressRepository0);
+//      ApplicationProcessService applicationProcessService0 = new ApplicationProcessService();
+//      ApplicationProcessRepository applicationProcessRepository0 = mock(ApplicationProcessRepository.class, new ViolatedAssumptionAnswer());
+//      Injector.inject(applicationProcessService0, (Class<?>) ApplicationProcessService.class, "applicationProcessRepository", (Object) applicationProcessRepository0);
+//      Injector.validateBean(applicationProcessService0, (Class<?>) ApplicationProcessService.class);
+//      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "applicationProcessService", (Object) applicationProcessService0);
+//      CandidateRepository candidateRepository0 = mock(CandidateRepository.class, new ViolatedAssumptionAnswer());
+//      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "candidateRepository", (Object) candidateRepository0);
+//      SkillsService skillsService0 = new SkillsService();
+//      Vector<Skills> vector0 = new Vector<Skills>();
+//      SkillsRepository skillsRepository0 = mock(SkillsRepository.class, new ViolatedAssumptionAnswer());
+//      doReturn(vector0).when(skillsRepository0).findAllById(anyIterable());
+//      Injector.inject(skillsService0, (Class<?>) SkillsService.class, "skillsRepository", (Object) skillsRepository0);
+//      Injector.validateBean(skillsService0, (Class<?>) SkillsService.class);
+//      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "skillsService", (Object) skillsService0);
+//      Injector.validateBean(candidateService0, (Class<?>) CandidateService.class);
+//      ArrayList<CandidateSearchResolver> arrayList0 = new ArrayList<CandidateSearchResolver>();
+//      // Undeclared exception!
+//      try {
+//        candidateService0.findByExperienceGreaterThan((-1), arrayList0);
+//        fail("Expecting exception: ClassCastException");
+//
+//      } catch(ClassCastException e) {
+//         //
+//         // java.util.Vector cannot be cast to java.util.ArrayList
+//         //
+//         verifyException("SkillsService", e);
+//      }
+//  }
+//
+//  @Test(timeout = 4000)
+//  public void test20()  throws Throwable  {
+//      CandidateService candidateService0 = new CandidateService();
+//      AddressRepository addressRepository0 = mock(AddressRepository.class, new ViolatedAssumptionAnswer());
+//      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "addressRepository", (Object) addressRepository0);
+//      ApplicationProcessService applicationProcessService0 = new ApplicationProcessService();
+//      Stack<ApplicationProcess> stack0 = new Stack<ApplicationProcess>();
+//      ApplicationProcess applicationProcess0 = new ApplicationProcess();
+//      stack0.add(applicationProcess0);
+//      ApplicationProcessRepository applicationProcessRepository0 = mock(ApplicationProcessRepository.class, new ViolatedAssumptionAnswer());
+//      doReturn(stack0).when(applicationProcessRepository0).findAllById(anyIterable());
+//      Injector.inject(applicationProcessService0, (Class<?>) ApplicationProcessService.class, "applicationProcessRepository", (Object) applicationProcessRepository0);
+//      Injector.validateBean(applicationProcessService0, (Class<?>) ApplicationProcessService.class);
+//      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "applicationProcessService", (Object) applicationProcessService0);
+//      CandidateRepository candidateRepository0 = mock(CandidateRepository.class, new ViolatedAssumptionAnswer());
+//      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "candidateRepository", (Object) candidateRepository0);
+//      SkillsService skillsService0 = new SkillsService();
+//      Vector<Skills> vector0 = new Vector<Skills>();
+//      HashSet<Skills> hashSet0 = new HashSet<Skills>(vector0);
+//      SkillsRepository skillsRepository0 = mock(SkillsRepository.class, new ViolatedAssumptionAnswer());
+//      doReturn(hashSet0).when(skillsRepository0).findAllById(anyIterable());
+//      Injector.inject(skillsService0, (Class<?>) SkillsService.class, "skillsRepository", (Object) skillsRepository0);
+//      Injector.validateBean(skillsService0, (Class<?>) SkillsService.class);
+//      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "skillsService", (Object) skillsService0);
+//      Injector.validateBean(candidateService0, (Class<?>) CandidateService.class);
+//      List<Integer> list0 = skillsService0.findAllByExperienceGreaterThan(0, (List<Integer>) null);
+//      // Undeclared exception!
+//      try {
+//        candidateService0.findAllRecruitedIn(list0);
+//        fail("Expecting exception: NullPointerException");
+//
+//      } catch(NullPointerException e) {
+//         //
+//         // no message in exception (getMessage() returned null)
+//         //
+//         verifyException("ApplicationProcessService", e);
+//      }
+//  }
+//
+//  @Test(timeout = 4000)
+//  public void test21()  throws Throwable  {
+//      CandidateService candidateService0 = new CandidateService();
+//      AddressRepository addressRepository0 = mock(AddressRepository.class, new ViolatedAssumptionAnswer());
+//      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "addressRepository", (Object) addressRepository0);
+//      ApplicationProcessService applicationProcessService0 = new ApplicationProcessService();
+//      ArrayDeque<ApplicationProcess> arrayDeque0 = new ArrayDeque<ApplicationProcess>();
+//      ApplicationProcessRepository applicationProcessRepository0 = mock(ApplicationProcessRepository.class, new ViolatedAssumptionAnswer());
+//      doReturn(arrayDeque0).when(applicationProcessRepository0).findAllById(anyIterable());
+//      Injector.inject(applicationProcessService0, (Class<?>) ApplicationProcessService.class, "applicationProcessRepository", (Object) applicationProcessRepository0);
+//      Injector.validateBean(applicationProcessService0, (Class<?>) ApplicationProcessService.class);
+//      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "applicationProcessService", (Object) applicationProcessService0);
+//      CandidateRepository candidateRepository0 = mock(CandidateRepository.class, new ViolatedAssumptionAnswer());
+//      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "candidateRepository", (Object) candidateRepository0);
+//      SkillsService skillsService0 = new SkillsService();
+//      SkillsRepository skillsRepository0 = mock(SkillsRepository.class, new ViolatedAssumptionAnswer());
+//      Injector.inject(skillsService0, (Class<?>) SkillsService.class, "skillsRepository", (Object) skillsRepository0);
+//      Injector.validateBean(skillsService0, (Class<?>) SkillsService.class);
+//      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "skillsService", (Object) skillsService0);
+//      Injector.validateBean(candidateService0, (Class<?>) CandidateService.class);
+//      ArrayList<Integer> arrayList0 = new ArrayList<Integer>();
+//      // Undeclared exception!
+//      try {
+//        candidateService0.findAllRecruitedIn(arrayList0);
+//        fail("Expecting exception: ClassCastException");
+//
+//      } catch(ClassCastException e) {
+//         //
+//         // java.util.ArrayDeque cannot be cast to java.util.List
+//         //
+//         verifyException("ApplicationProcessService", e);
+//      }
+//  }
+//
+//  @Test(timeout = 4000)
+//  public void test22()  throws Throwable  {
+//      CandidateService candidateService0 = new CandidateService();
+//      AddressRepository addressRepository0 = mock(AddressRepository.class, new ViolatedAssumptionAnswer());
+//      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "addressRepository", (Object) addressRepository0);
+//      ApplicationProcessService applicationProcessService0 = new ApplicationProcessService();
+//      ApplicationProcessRepository applicationProcessRepository0 = mock(ApplicationProcessRepository.class, new ViolatedAssumptionAnswer());
+//      doReturn((List<Object>) null).when(applicationProcessRepository0).findAllByIsRecruited(anyBoolean());
+//      Injector.inject(applicationProcessService0, (Class<?>) ApplicationProcessService.class, "applicationProcessRepository", (Object) applicationProcessRepository0);
+//      Injector.validateBean(applicationProcessService0, (Class<?>) ApplicationProcessService.class);
+//      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "applicationProcessService", (Object) applicationProcessService0);
+//      CandidateRepository candidateRepository0 = mock(CandidateRepository.class, new ViolatedAssumptionAnswer());
+//      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "candidateRepository", (Object) candidateRepository0);
+//      SkillsService skillsService0 = new SkillsService();
+//      SkillsRepository skillsRepository0 = mock(SkillsRepository.class, new ViolatedAssumptionAnswer());
+//      Injector.inject(skillsService0, (Class<?>) SkillsService.class, "skillsRepository", (Object) skillsRepository0);
+//      Injector.validateBean(skillsService0, (Class<?>) SkillsService.class);
+//      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "skillsService", (Object) skillsService0);
+//      Injector.validateBean(candidateService0, (Class<?>) CandidateService.class);
+//      // Undeclared exception!
+//      try {
+//        candidateService0.findAllRecruited();
+//        fail("Expecting exception: NullPointerException");
+//
+//      } catch(NullPointerException e) {
+//         //
+//         // no message in exception (getMessage() returned null)
+//         //
+//         verifyException("ApplicationProcessService", e);
+//      }
+//  }
+//
+//  @Test(timeout = 4000)
+//  public void test23()  throws Throwable  {
+//      ApplicationProcessService applicationProcessService0 = new ApplicationProcessService();
+//      ApplicationProcessRepository applicationProcessRepository0 = mock(ApplicationProcessRepository.class, new ViolatedAssumptionAnswer());
+//      Injector.inject(applicationProcessService0, (Class<?>) ApplicationProcessService.class, "applicationProcessRepository", (Object) applicationProcessRepository0);
+//      Injector.validateBean(applicationProcessService0, (Class<?>) ApplicationProcessService.class);
+//      ArrayList<Candidate> arrayList0 = new ArrayList<Candidate>(1);
+//      Candidate candidate0 = new Candidate();
+//      arrayList0.add(candidate0);
+//      Stack<Skills> stack0 = new Stack<Skills>();
+//      candidate0.setSkillsId(1);
+//      CandidateService candidateService0 = new CandidateService();
+//      AddressRepository addressRepository0 = mock(AddressRepository.class, new ViolatedAssumptionAnswer());
+//      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "addressRepository", (Object) addressRepository0);
+//      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "applicationProcessService", (Object) applicationProcessService0);
+//      CandidateRepository candidateRepository0 = mock(CandidateRepository.class, new ViolatedAssumptionAnswer());
+//      doReturn(arrayList0).when(candidateRepository0).findAllBySkillsIdIn(anyList());
+//      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "candidateRepository", (Object) candidateRepository0);
+//      SkillsService skillsService0 = new SkillsService();
+//      SkillsRepository skillsRepository0 = mock(SkillsRepository.class, new ViolatedAssumptionAnswer());
+//      doReturn(stack0).when(skillsRepository0).findAllByJava(anyBoolean());
+//      doReturn((Optional) null).when(skillsRepository0).findById(anyInt());
+//      Injector.inject(skillsService0, (Class<?>) SkillsService.class, "skillsRepository", (Object) skillsRepository0);
+//      Injector.validateBean(skillsService0, (Class<?>) SkillsService.class);
+//      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "skillsService", (Object) skillsService0);
+//      Injector.validateBean(candidateService0, (Class<?>) CandidateService.class);
+//      // Undeclared exception!
+//      try {
+//        candidateService0.findAllJava();
+//        fail("Expecting exception: NullPointerException");
+//
+//      } catch(NullPointerException e) {
+//         //
+//         // no message in exception (getMessage() returned null)
+//         //
+//         verifyException("SkillsService", e);
+//      }
+//  }
+//
+//  @Test(timeout = 4000)
+//  public void test24()  throws Throwable  {
+//      CandidateService candidateService0 = new CandidateService();
+//      AddressRepository addressRepository0 = mock(AddressRepository.class, new ViolatedAssumptionAnswer());
+//      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "addressRepository", (Object) addressRepository0);
+//      ApplicationProcessService applicationProcessService0 = new ApplicationProcessService();
+//      ApplicationProcess applicationProcess0 = new ApplicationProcess();
+//      Optional<ApplicationProcess> optional0 = Optional.ofNullable(applicationProcess0);
+//      Boolean boolean0 = Boolean.TRUE;
+//      applicationProcess0.setToBeInvitedForFirstConversation(boolean0);
+//      Predicate<Object> predicate0 = Predicate.isEqual((Object) applicationProcess0);
+//      optional0.filter(predicate0);
+//      ApplicationProcessRepository applicationProcessRepository0 = mock(ApplicationProcessRepository.class, new ViolatedAssumptionAnswer());
+//      doReturn(optional0, (Optional) null).when(applicationProcessRepository0).findById(anyInt());
+//      Injector.inject(applicationProcessService0, (Class<?>) ApplicationProcessService.class, "applicationProcessRepository", (Object) applicationProcessRepository0);
+//      Injector.validateBean(applicationProcessService0, (Class<?>) ApplicationProcessService.class);
+//      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "applicationProcessService", (Object) applicationProcessService0);
+//      ArrayList<Candidate> arrayList0 = new ArrayList<Candidate>(1);
+//      Candidate candidate0 = new Candidate();
+//      arrayList0.add(candidate0);
+//      CandidateRepository candidateRepository0 = mock(CandidateRepository.class, new ViolatedAssumptionAnswer());
+//      doReturn(arrayList0).when(candidateRepository0).findAllByNameLikeOrSirNameLike(anyString() , anyString());
+//      doReturn(arrayList0).when(candidateRepository0).findAllBySkillsIdIn(anyList());
+//      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "candidateRepository", (Object) candidateRepository0);
+//      SkillsService skillsService0 = new SkillsService();
+//      Stack<Skills> stack0 = new Stack<Skills>();
+//      SkillsRepository skillsRepository0 = mock(SkillsRepository.class, new ViolatedAssumptionAnswer());
+//      doReturn(stack0).when(skillsRepository0).findAllByDotnet(anyBoolean());
+//      Injector.inject(skillsService0, (Class<?>) SkillsService.class, "skillsRepository", (Object) skillsRepository0);
+//      Injector.validateBean(skillsService0, (Class<?>) SkillsService.class);
+//      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "skillsService", (Object) skillsService0);
+//      Injector.validateBean(candidateService0, (Class<?>) CandidateService.class);
+//      candidate0.setApplicationProcessId(1);
+//      candidateService0.findAllByNameLikeOrSirNameLike("ANY", "ANY");
+//      // Undeclared exception!
+//      try {
+//        candidateService0.findAllDotnet();
+//        fail("Expecting exception: NullPointerException");
+//
+//      } catch(NullPointerException e) {
+//         //
+//         // no message in exception (getMessage() returned null)
+//         //
+//         verifyException("ApplicationProcessService", e);
+//      }
+//  }
+//
+//  @Test(timeout = 4000)
+//  public void test25()  throws Throwable  {
+//      CandidateService candidateService0 = new CandidateService();
+//      AddressRepository addressRepository0 = mock(AddressRepository.class, new ViolatedAssumptionAnswer());
+//      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "addressRepository", (Object) addressRepository0);
+//      ApplicationProcessService applicationProcessService0 = new ApplicationProcessService();
+//      ApplicationProcessRepository applicationProcessRepository0 = mock(ApplicationProcessRepository.class, new ViolatedAssumptionAnswer());
+//      Injector.inject(applicationProcessService0, (Class<?>) ApplicationProcessService.class, "applicationProcessRepository", (Object) applicationProcessRepository0);
+//      Injector.validateBean(applicationProcessService0, (Class<?>) ApplicationProcessService.class);
+//      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "applicationProcessService", (Object) applicationProcessService0);
+//      CandidateRepository candidateRepository0 = mock(CandidateRepository.class, new ViolatedAssumptionAnswer());
+//      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "candidateRepository", (Object) candidateRepository0);
+//      SkillsService skillsService0 = new SkillsService();
+//      SkillsRepository skillsRepository0 = mock(SkillsRepository.class, new ViolatedAssumptionAnswer());
+//      doReturn((List) null).when(skillsRepository0).findAllByDotnet(anyBoolean());
+//      Injector.inject(skillsService0, (Class<?>) SkillsService.class, "skillsRepository", (Object) skillsRepository0);
+//      Injector.validateBean(skillsService0, (Class<?>) SkillsService.class);
+//      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "skillsService", (Object) skillsService0);
+//      Injector.validateBean(candidateService0, (Class<?>) CandidateService.class);
+//      // Undeclared exception!
+//      try {
+//        candidateService0.findAllDotnet();
+//        fail("Expecting exception: NullPointerException");
+//
+//      } catch(NullPointerException e) {
+//         //
+//         // no message in exception (getMessage() returned null)
+//         //
+//         verifyException("SkillsService", e);
+//      }
+//  }
+//
+//  @Test(timeout = 4000)
+//  public void test26()  throws Throwable  {
+//      CandidateService candidateService0 = new CandidateService();
+//      AddressRepository addressRepository0 = mock(AddressRepository.class, new ViolatedAssumptionAnswer());
+//      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "addressRepository", (Object) addressRepository0);
+//      ApplicationProcessService applicationProcessService0 = new ApplicationProcessService();
+//      ApplicationProcess applicationProcess0 = new ApplicationProcess();
+//      Optional.ofNullable(applicationProcess0);
+//      MockDate mockDate0 = new MockDate();
+//      applicationProcess0.setTechnicalConversationDate(mockDate0);
+//      ApplicationProcessRepository applicationProcessRepository0 = mock(ApplicationProcessRepository.class, new ViolatedAssumptionAnswer());
+//      doReturn((Optional) null).when(applicationProcessRepository0).findById(anyInt());
+//      Injector.inject(applicationProcessService0, (Class<?>) ApplicationProcessService.class, "applicationProcessRepository", (Object) applicationProcessRepository0);
+//      Injector.validateBean(applicationProcessService0, (Class<?>) ApplicationProcessService.class);
+//      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "applicationProcessService", (Object) applicationProcessService0);
+//      ArrayList<Candidate> arrayList0 = new ArrayList<Candidate>(1);
+//      Candidate candidate0 = new Candidate();
+//      arrayList0.add(candidate0);
+//      Optional.ofNullable(candidate0);
+//      Skills skills0 = new Skills();
+//      CandidateRepository candidateRepository0 = mock(CandidateRepository.class, new ViolatedAssumptionAnswer());
+//      doReturn(arrayList0).when(candidateRepository0).findAllByNameLikeOrSirNameLike(anyString() , anyString());
+//      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "candidateRepository", (Object) candidateRepository0);
+//      SkillsService skillsService0 = new SkillsService();
+//      Stack<Skills> stack0 = new Stack<Skills>();
+//      Optional<Skills> optional0 = Optional.ofNullable(skills0);
+//      SkillsRepository skillsRepository0 = mock(SkillsRepository.class, new ViolatedAssumptionAnswer());
+//      doReturn(optional0).when(skillsRepository0).findById(anyInt());
+//      Injector.inject(skillsService0, (Class<?>) SkillsService.class, "skillsRepository", (Object) skillsRepository0);
+//      Injector.validateBean(skillsService0, (Class<?>) SkillsService.class);
+//      FileSystemHandling fileSystemHandling0 = new FileSystemHandling();
+//      candidate0.setSkillsId(1);
+//      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "skillsService", (Object) skillsService0);
+//      Injector.validateBean(candidateService0, (Class<?>) CandidateService.class);
+//      candidate0.setApplicationProcessId(1);
+//      String string0 = "], stored ";
+//      String string1 = "/uploads";
+//      // Undeclared exception!
+//      try {
+//        candidateService0.findAllByNameLikeOrSirNameLike("ANY", "ANY");
+//        fail("Expecting exception: NullPointerException");
+//
+//      } catch(NullPointerException e) {
+//         //
+//         // no message in exception (getMessage() returned null)
+//         //
+//         verifyException("ApplicationProcessService", e);
+//      }
+//  }
+//
+//  @Test(timeout = 4000)
+//  public void test27()  throws Throwable  {
+//      CandidateService candidateService0 = new CandidateService();
+//      AddressRepository addressRepository0 = mock(AddressRepository.class, new ViolatedAssumptionAnswer());
+//      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "addressRepository", (Object) addressRepository0);
+//      ApplicationProcessService applicationProcessService0 = new ApplicationProcessService();
+//      ApplicationProcessRepository applicationProcessRepository0 = mock(ApplicationProcessRepository.class, new ViolatedAssumptionAnswer());
+//      Injector.inject(applicationProcessService0, (Class<?>) ApplicationProcessService.class, "applicationProcessRepository", (Object) applicationProcessRepository0);
+//      Injector.validateBean(applicationProcessService0, (Class<?>) ApplicationProcessService.class);
+//      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "applicationProcessService", (Object) applicationProcessService0);
+//      CandidateRepository candidateRepository0 = mock(CandidateRepository.class, new ViolatedAssumptionAnswer());
+//      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "candidateRepository", (Object) candidateRepository0);
+//      SkillsService skillsService0 = new SkillsService();
+//      SkillsRepository skillsRepository0 = mock(SkillsRepository.class, new ViolatedAssumptionAnswer());
+//      Injector.inject(skillsService0, (Class<?>) SkillsService.class, "skillsRepository", (Object) skillsRepository0);
+//      Injector.validateBean(skillsService0, (Class<?>) SkillsService.class);
+//      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "skillsService", (Object) skillsService0);
+//      Injector.validateBean(candidateService0, (Class<?>) CandidateService.class);
+//      HttpServletResponse httpServletResponse0 = mock(HttpServletResponse.class, new ViolatedAssumptionAnswer());
+//      HttpServletResponseWrapper httpServletResponseWrapper0 = new HttpServletResponseWrapper(httpServletResponse0);
+//      httpServletResponseWrapper0.setResponse(httpServletResponseWrapper0);
+//      // Undeclared exception!
+//      try {
+//        candidateService0.downloadCv("\"'", httpServletResponseWrapper0);
+//        fail("Expecting exception: StackOverflowError");
+//
+//      } catch(StackOverflowError e) {
+//         //
+//         // no message in exception (getMessage() returned null)
+//         //
+//      }
+//  }
+//
+//  @Test(timeout = 4000)
+//  public void test28()  throws Throwable  {
+//      CandidateService candidateService0 = new CandidateService();
+//      AddressRepository addressRepository0 = mock(AddressRepository.class, new ViolatedAssumptionAnswer());
+//      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "addressRepository", (Object) addressRepository0);
+//      ApplicationProcessService applicationProcessService0 = new ApplicationProcessService();
+//      ApplicationProcessRepository applicationProcessRepository0 = mock(ApplicationProcessRepository.class, new ViolatedAssumptionAnswer());
+//      doReturn((List) null).when(applicationProcessRepository0).findAllByIsRecruited(anyBoolean());
+//      Injector.inject(applicationProcessService0, (Class<?>) ApplicationProcessService.class, "applicationProcessRepository", (Object) applicationProcessRepository0);
+//      Injector.validateBean(applicationProcessService0, (Class<?>) ApplicationProcessService.class);
+//      // Undeclared exception!
+//      try {
+//        applicationProcessService0.findAllRecruited();
+//        fail("Expecting exception: NullPointerException");
+//
+//      } catch(NullPointerException e) {
+//         //
+//         // no message in exception (getMessage() returned null)
+//         //
+//         verifyException("ApplicationProcessService", e);
+//      }
+//  }
+//
+//  @Test(timeout = 4000)
+//  public void test29()  throws Throwable  {
+//      CandidateService candidateService0 = new CandidateService();
+//      AddressRepository addressRepository0 = mock(AddressRepository.class, new ViolatedAssumptionAnswer());
+//      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "addressRepository", (Object) addressRepository0);
+//      ApplicationProcessService applicationProcessService0 = new ApplicationProcessService();
+//      ApplicationProcessRepository applicationProcessRepository0 = mock(ApplicationProcessRepository.class, new ViolatedAssumptionAnswer());
+//      Injector.inject(applicationProcessService0, (Class<?>) ApplicationProcessService.class, "applicationProcessRepository", (Object) applicationProcessRepository0);
+//      Injector.validateBean(applicationProcessService0, (Class<?>) ApplicationProcessService.class);
+//      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "applicationProcessService", (Object) applicationProcessService0);
+//      CandidateRepository candidateRepository0 = mock(CandidateRepository.class, new ViolatedAssumptionAnswer());
+//      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "candidateRepository", (Object) candidateRepository0);
+//      SkillsService skillsService0 = new SkillsService();
+//      SkillsRepository skillsRepository0 = mock(SkillsRepository.class, new ViolatedAssumptionAnswer());
+//      Injector.inject(skillsService0, (Class<?>) SkillsService.class, "skillsRepository", (Object) skillsRepository0);
+//      Injector.validateBean(skillsService0, (Class<?>) SkillsService.class);
+//      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "skillsService", (Object) skillsService0);
+//      Injector.validateBean(candidateService0, (Class<?>) CandidateService.class);
+//      MockPrintWriter mockPrintWriter0 = new MockPrintWriter("C:Users\thomas.verhulstDocumentsworkspace-sts-3.9.5.RELEASEcandidatemanager/uploads");
+//      EvoSuiteFile evoSuiteFile0 = new EvoSuiteFile("uploads");
+//      byte[] byteArray0 = new byte[3];
+//      FileSystemHandling.shouldAllThrowIOExceptions();
+//      FileSystemHandling.appendDataToFile(evoSuiteFile0, byteArray0);
+//      HttpServletResponse httpServletResponse0 = mock(HttpServletResponse.class, new ViolatedAssumptionAnswer());
+//      doReturn(mockPrintWriter0).when(httpServletResponse0).getWriter();
+//      HttpServletResponseWrapper httpServletResponseWrapper0 = new HttpServletResponseWrapper(httpServletResponse0);
+//      try {
+//        candidateService0.downloadCv("", httpServletResponseWrapper0);
+//        fail("Expecting exception: IOException");
+//
+//      } catch(IOException e) {
+//         //
+//         // Simulated IOException
+//         //
+//         verifyException("org.evosuite.runtime.vfs.VirtualFileSystem", e);
+//      }
+//  }
+//
+//  @Test(timeout = 4000)
+//  public void test30()  throws Throwable  {
+//      CandidateService candidateService0 = new CandidateService();
+//      AddressRepository addressRepository0 = mock(AddressRepository.class, new ViolatedAssumptionAnswer());
+//      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "addressRepository", (Object) addressRepository0);
+//      ApplicationProcessService applicationProcessService0 = new ApplicationProcessService();
+//      ApplicationProcessRepository applicationProcessRepository0 = mock(ApplicationProcessRepository.class, new ViolatedAssumptionAnswer());
+//      Injector.inject(applicationProcessService0, (Class<?>) ApplicationProcessService.class, "applicationProcessRepository", (Object) applicationProcessRepository0);
+//      Injector.validateBean(applicationProcessService0, (Class<?>) ApplicationProcessService.class);
+//      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "applicationProcessService", (Object) applicationProcessService0);
+//      CandidateRepository candidateRepository0 = mock(CandidateRepository.class, new ViolatedAssumptionAnswer());
+//      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "candidateRepository", (Object) candidateRepository0);
+//      SkillsService skillsService0 = new SkillsService();
+//      SkillsRepository skillsRepository0 = mock(SkillsRepository.class, new ViolatedAssumptionAnswer());
+//      Injector.inject(skillsService0, (Class<?>) SkillsService.class, "skillsRepository", (Object) skillsRepository0);
+//      Injector.validateBean(skillsService0, (Class<?>) SkillsService.class);
+//      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "skillsService", (Object) skillsService0);
+//      Injector.validateBean(candidateService0, (Class<?>) CandidateService.class);
+//      MockPrintWriter mockPrintWriter0 = new MockPrintWriter("C:Users\thomas.verhulstDocumentsworkspace-sts-3.9.5.RELEASEcandidatemanager/uploads");
+//      HttpServletResponse httpServletResponse0 = mock(HttpServletResponse.class, new ViolatedAssumptionAnswer());
+//      doReturn(mockPrintWriter0).when(httpServletResponse0).getWriter();
+//      HttpServletResponseWrapper httpServletResponseWrapper0 = new HttpServletResponseWrapper(httpServletResponse0);
+//      try {
+//        candidateService0.downloadCv("", httpServletResponseWrapper0);
+//        fail("Expecting exception: FileNotFoundException");
+//
+//      } catch(FileNotFoundException e) {
+//         //
+//         // no message in exception (getMessage() returned null)
+//         //
+//         verifyException("org.evosuite.runtime.mock.java.io.MockFileInputStream", e);
+//      }
+//  }
+//
+//  @Test(timeout = 4000)
+//  public void test31()  throws Throwable  {
+//      CandidateService candidateService0 = new CandidateService();
+//      AddressRepository addressRepository0 = mock(AddressRepository.class, new ViolatedAssumptionAnswer());
+//      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "addressRepository", (Object) addressRepository0);
+//      ApplicationProcessService applicationProcessService0 = new ApplicationProcessService();
+//      ApplicationProcessRepository applicationProcessRepository0 = mock(ApplicationProcessRepository.class, new ViolatedAssumptionAnswer());
+//      Injector.inject(applicationProcessService0, (Class<?>) ApplicationProcessService.class, "applicationProcessRepository", (Object) applicationProcessRepository0);
+//      Injector.validateBean(applicationProcessService0, (Class<?>) ApplicationProcessService.class);
+//      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "applicationProcessService", (Object) applicationProcessService0);
+//      CandidateRepository candidateRepository0 = mock(CandidateRepository.class, new ViolatedAssumptionAnswer());
+//      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "candidateRepository", (Object) candidateRepository0);
+//      SkillsService skillsService0 = new SkillsService();
+//      SkillsRepository skillsRepository0 = mock(SkillsRepository.class, new ViolatedAssumptionAnswer());
+//      doReturn((List) null).when(skillsRepository0).findAllByDotnet(anyBoolean());
+//      Injector.inject(skillsService0, (Class<?>) SkillsService.class, "skillsRepository", (Object) skillsRepository0);
+//      Injector.validateBean(skillsService0, (Class<?>) SkillsService.class);
+//      // Undeclared exception!
+//      try {
+//        skillsService0.findAllDotnet();
+//        fail("Expecting exception: NullPointerException");
+//
+//      } catch(NullPointerException e) {
+//         //
+//         // no message in exception (getMessage() returned null)
+//         //
+//         verifyException("SkillsService", e);
+//      }
+//  }
+//
+//  @Test(timeout = 4000)
+//  public void test32()  throws Throwable  {
+//      CandidateService candidateService0 = new CandidateService();
+//      AddressRepository addressRepository0 = mock(AddressRepository.class, new ViolatedAssumptionAnswer());
+//      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "addressRepository", (Object) addressRepository0);
+//      byte[] byteArray0 = new byte[3];
+//      MockDate mockDate0 = new MockDate();
+//      Candidate candidate0 = new Candidate("C:Users\thomas.verhulstDocumentsworkspace-sts-3.9.5.RELEASEcandidatemanager/uploads", "vr", "O(|>\"X0Xs0dC5a", mockDate0, "C:Users\thomas.verhulstDocumentsworkspace-sts-3.9.5.RELEASEcandidatemanager/uploads", ":c(\"hhDh~", "", "O(|>\"X0Xs0dC5a");
+//      // Undeclared exception!
+//      try {
+//        candidateService0.addCandidate(candidate0);
+//        fail("Expecting exception: NullPointerException");
+//
+//      } catch(NullPointerException e) {
+//         //
+//         // no message in exception (getMessage() returned null)
+//         //
+//         verifyException("CandidateService", e);
+//      }
+//  }
+//
+//  @Test(timeout = 4000)
+//  public void test33()  throws Throwable  {
+//      CandidateService candidateService0 = new CandidateService();
+//      AddressRepository addressRepository0 = mock(AddressRepository.class, new ViolatedAssumptionAnswer());
+//      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "addressRepository", (Object) addressRepository0);
+//      ApplicationProcessService applicationProcessService0 = new ApplicationProcessService();
+//      ApplicationProcessRepository applicationProcessRepository0 = mock(ApplicationProcessRepository.class, new ViolatedAssumptionAnswer());
+//      Injector.inject(applicationProcessService0, (Class<?>) ApplicationProcessService.class, "applicationProcessRepository", (Object) applicationProcessRepository0);
+//      Injector.validateBean(applicationProcessService0, (Class<?>) ApplicationProcessService.class);
+//      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "applicationProcessService", (Object) applicationProcessService0);
+//      ArrayList<Candidate> arrayList0 = new ArrayList<Candidate>(1);
+//      CandidateRepository candidateRepository0 = mock(CandidateRepository.class, new ViolatedAssumptionAnswer());
+//      doReturn(arrayList0).when(candidateRepository0).findAllByNameLikeOrSirNameLike(anyString() , anyString());
+//      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "candidateRepository", (Object) candidateRepository0);
+//      SkillsService skillsService0 = new SkillsService();
+//      SkillsRepository skillsRepository0 = mock(SkillsRepository.class, new ViolatedAssumptionAnswer());
+//      doReturn((Iterable) null).when(skillsRepository0).findAllById(anyIterable());
+//      Injector.inject(skillsService0, (Class<?>) SkillsService.class, "skillsRepository", (Object) skillsRepository0);
+//      Injector.validateBean(skillsService0, (Class<?>) SkillsService.class);
+//      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "skillsService", (Object) skillsService0);
+//      Injector.validateBean(candidateService0, (Class<?>) CandidateService.class);
+//      List<CandidateSearchResolver> list0 = candidateService0.findAllByNameLikeOrSirNameLike("ALL", "], stored ");
+//      // Undeclared exception!
+//      try {
+//        candidateService0.findByExperienceGreaterThan(1, list0);
+//        fail("Expecting exception: NullPointerException");
+//
+//      } catch(NullPointerException e) {
+//         //
+//         // no message in exception (getMessage() returned null)
+//         //
+//         verifyException("SkillsService", e);
+//      }
+//  }
+//
+//  @Test(timeout = 4000)
+//  public void test34()  throws Throwable  {
+//      CandidateService candidateService0 = new CandidateService();
+//      AddressRepository addressRepository0 = mock(AddressRepository.class, new ViolatedAssumptionAnswer());
+//      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "addressRepository", (Object) addressRepository0);
+//      ApplicationProcessService applicationProcessService0 = new ApplicationProcessService();
+//      Stack<ApplicationProcess> stack0 = new Stack<ApplicationProcess>();
+//      MockDate mockDate0 = new MockDate();
+//      Boolean boolean0 = Boolean.FALSE;
+//      Boolean boolean1 = Boolean.TRUE;
+//      ApplicationProcess applicationProcess0 = new ApplicationProcess(mockDate0, boolean0, (Date) null, mockDate0, "o5h&uSy/rtmy]", "o5h&uSy/rtmy]", boolean1, mockDate0, "Ln", "o5h&uSy/rtmy]", boolean1, (Date) null, "o5h&uSy/rtmy]", boolean1);
+//      stack0.add(applicationProcess0);
+//      ApplicationProcessRepository applicationProcessRepository0 = mock(ApplicationProcessRepository.class, new ViolatedAssumptionAnswer());
+//      doReturn(stack0).when(applicationProcessRepository0).findAllById(anyIterable());
+//      Injector.inject(applicationProcessService0, (Class<?>) ApplicationProcessService.class, "applicationProcessRepository", (Object) applicationProcessRepository0);
+//      Injector.validateBean(applicationProcessService0, (Class<?>) ApplicationProcessService.class);
+//      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "applicationProcessService", (Object) applicationProcessService0);
+//      CandidateRepository candidateRepository0 = mock(CandidateRepository.class, new ViolatedAssumptionAnswer());
+//      doReturn((Candidate) null).when(candidateRepository0).findByapplicationProcessId(anyInt());
+//      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "candidateRepository", (Object) candidateRepository0);
+//      SkillsService skillsService0 = new SkillsService();
+//      Comparator<Object> comparator0 = (Comparator<Object>) mock(Comparator.class, new ViolatedAssumptionAnswer());
+//      PriorityQueue<Skills> priorityQueue0 = new PriorityQueue<Skills>(comparator0);
+//      SkillsRepository skillsRepository0 = mock(SkillsRepository.class, new ViolatedAssumptionAnswer());
+//      doReturn(priorityQueue0).when(skillsRepository0).findAllById(anyIterable());
+//      Injector.inject(skillsService0, (Class<?>) SkillsService.class, "skillsRepository", (Object) skillsRepository0);
+//      List<Integer> list0 = skillsService0.findAllByExperienceGreaterThan((-2185), (List<Integer>) null);
+//      List<CandidateSearchResolver> list1 = candidateService0.findAllRecruitedIn(list0);
+//      assertEquals(0, list1.size());
+//  }
+//
+//  @Test(timeout = 4000)
+//  public void test35()  throws Throwable  {
+//      CandidateService candidateService0 = new CandidateService();
+//      AddressRepository addressRepository0 = mock(AddressRepository.class, new ViolatedAssumptionAnswer());
+//      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "addressRepository", (Object) addressRepository0);
+//      ApplicationProcessService applicationProcessService0 = new ApplicationProcessService();
+//      ApplicationProcessRepository applicationProcessRepository0 = mock(ApplicationProcessRepository.class, new ViolatedAssumptionAnswer());
+//      doReturn((Iterable) null).when(applicationProcessRepository0).findAllById(anyIterable());
+//      Injector.inject(applicationProcessService0, (Class<?>) ApplicationProcessService.class, "applicationProcessRepository", (Object) applicationProcessRepository0);
+//      Injector.validateBean(applicationProcessService0, (Class<?>) ApplicationProcessService.class);
+//      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "applicationProcessService", (Object) applicationProcessService0);
+//      CandidateRepository candidateRepository0 = mock(CandidateRepository.class, new ViolatedAssumptionAnswer());
+//      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "candidateRepository", (Object) candidateRepository0);
+//      SkillsService skillsService0 = new SkillsService();
+//      SkillsRepository skillsRepository0 = mock(SkillsRepository.class, new ViolatedAssumptionAnswer());
+//      doReturn((Iterable) null).when(skillsRepository0).findAllById(anyIterable());
+//      Injector.inject(skillsService0, (Class<?>) SkillsService.class, "skillsRepository", (Object) skillsRepository0);
+//      Injector.validateBean(skillsService0, (Class<?>) SkillsService.class);
+//      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "skillsService", (Object) skillsService0);
+//      Injector.validateBean(candidateService0, (Class<?>) CandidateService.class);
+//      List<Integer> list0 = skillsService0.findAllByExperienceGreaterThan(0, (List<Integer>) null);
+//      List<CandidateSearchResolver> list1 = candidateService0.findAllRecruitedIn(list0);
+//      assertEquals(0, list1.size());
+//  }
+//
+//  @Test(timeout = 4000)
+//  public void test36()  throws Throwable  {
+//      CandidateService candidateService0 = new CandidateService();
+//      AddressRepository addressRepository0 = mock(AddressRepository.class, new ViolatedAssumptionAnswer());
+//      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "addressRepository", (Object) addressRepository0);
+//      ApplicationProcessService applicationProcessService0 = new ApplicationProcessService();
+//      ApplicationProcessRepository applicationProcessRepository0 = mock(ApplicationProcessRepository.class, new ViolatedAssumptionAnswer());
+//      Injector.inject(applicationProcessService0, (Class<?>) ApplicationProcessService.class, "applicationProcessRepository", (Object) applicationProcessRepository0);
+//      Injector.validateBean(applicationProcessService0, (Class<?>) ApplicationProcessService.class);
+//      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "applicationProcessService", (Object) applicationProcessService0);
+//      CandidateRepository candidateRepository0 = mock(CandidateRepository.class, new ViolatedAssumptionAnswer());
+//      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "candidateRepository", (Object) candidateRepository0);
+//      SkillsService skillsService0 = new SkillsService();
+//      SkillsRepository skillsRepository0 = mock(SkillsRepository.class, new ViolatedAssumptionAnswer());
+//      Injector.inject(skillsService0, (Class<?>) SkillsService.class, "skillsRepository", (Object) skillsRepository0);
+//      Injector.validateBean(skillsService0, (Class<?>) SkillsService.class);
+//      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "skillsService", (Object) skillsService0);
+//      Injector.validateBean(candidateService0, (Class<?>) CandidateService.class);
+//      MockFile mockFile0 = new MockFile("/uploads", "], stored ");
+//      MockPrintWriter mockPrintWriter0 = new MockPrintWriter(mockFile0);
+//      EvoSuiteFile evoSuiteFile0 = new EvoSuiteFile("uploads\\], stored ");
+//      FileSystemHandling.appendLineToFile(evoSuiteFile0, "EP-,$(Uzt:Ij(W");
+//      HttpServletResponse httpServletResponse0 = mock(HttpServletResponse.class, new ViolatedAssumptionAnswer());
+//      doReturn(mockPrintWriter0).when(httpServletResponse0).getWriter();
+//      HttpServletResponseWrapper httpServletResponseWrapper0 = new HttpServletResponseWrapper(httpServletResponse0);
+//      candidateService0.downloadCv("], stored ", httpServletResponseWrapper0);
+//  }
+//
+//  @Test(timeout = 4000)
+//  public void test37()  throws Throwable  {
+//      CandidateService candidateService0 = new CandidateService();
+//      AddressRepository addressRepository0 = mock(AddressRepository.class, new ViolatedAssumptionAnswer());
+//      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "addressRepository", (Object) addressRepository0);
+//      ApplicationProcessService applicationProcessService0 = new ApplicationProcessService();
+//      ApplicationProcess applicationProcess0 = new ApplicationProcess();
+//      Optional<ApplicationProcess> optional0 = Optional.ofNullable(applicationProcess0);
+//      Boolean boolean0 = new Boolean("C:Users\thomas.verhulstDocumentsworkspace-sts-3.9.5.RELEASEcandidatemanager/uploads");
+//      applicationProcess0.setToBeInvitedForFirstConversation(boolean0);
+//      ApplicationProcessRepository applicationProcessRepository0 = mock(ApplicationProcessRepository.class, new ViolatedAssumptionAnswer());
+//      doReturn(optional0).when(applicationProcessRepository0).findById(anyInt());
+//      Injector.inject(applicationProcessService0, (Class<?>) ApplicationProcessService.class, "applicationProcessRepository", (Object) applicationProcessRepository0);
+//      Injector.validateBean(applicationProcessService0, (Class<?>) ApplicationProcessService.class);
+//      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "applicationProcessService", (Object) applicationProcessService0);
+//      ArrayList<Candidate> arrayList0 = new ArrayList<Candidate>(1);
+//      Candidate candidate0 = new Candidate();
+//      arrayList0.add(candidate0);
+//      CandidateRepository candidateRepository0 = mock(CandidateRepository.class, new ViolatedAssumptionAnswer());
+//      doReturn(arrayList0).when(candidateRepository0).findAllByNameLikeOrSirNameLike(anyString() , anyString());
+//      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "candidateRepository", (Object) candidateRepository0);
+//      SkillsService skillsService0 = new SkillsService();
+//      SkillsRepository skillsRepository0 = mock(SkillsRepository.class, new ViolatedAssumptionAnswer());
+//      Injector.inject(skillsService0, (Class<?>) SkillsService.class, "skillsRepository", (Object) skillsRepository0);
+//      Injector.validateBean(skillsService0, (Class<?>) SkillsService.class);
+//      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "skillsService", (Object) skillsService0);
+//      Injector.validateBean(candidateService0, (Class<?>) CandidateService.class);
+//      candidate0.setApplicationProcessId(1);
+//      // Undeclared exception!
+//      try {
+//        candidateService0.findAllByNameLikeOrSirNameLike("ANY", "ANY");
+//        fail("Expecting exception: NullPointerException");
+//
+//      } catch(NullPointerException e) {
+//         //
+//         // no message in exception (getMessage() returned null)
+//         //
+//         verifyException("CandidateService", e);
+//      }
+//  }
+//
+//  @Test(timeout = 4000)
+//  public void test38()  throws Throwable  {
+//      CandidateService candidateService0 = new CandidateService();
+//      AddressRepository addressRepository0 = mock(AddressRepository.class, new ViolatedAssumptionAnswer());
+//      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "addressRepository", (Object) addressRepository0);
+//      ApplicationProcessService applicationProcessService0 = new ApplicationProcessService();
+//      ApplicationProcessRepository applicationProcessRepository0 = mock(ApplicationProcessRepository.class, new ViolatedAssumptionAnswer());
+//      Injector.inject(applicationProcessService0, (Class<?>) ApplicationProcessService.class, "applicationProcessRepository", (Object) applicationProcessRepository0);
+//      Injector.validateBean(applicationProcessService0, (Class<?>) ApplicationProcessService.class);
+//      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "applicationProcessService", (Object) applicationProcessService0);
+//      ArrayList<Candidate> arrayList0 = new ArrayList<Candidate>(1);
+//      Candidate candidate0 = new Candidate();
+//      arrayList0.add(candidate0);
+//      Skills skills0 = new Skills();
+//      CandidateRepository candidateRepository0 = mock(CandidateRepository.class, new ViolatedAssumptionAnswer());
+//      doReturn(arrayList0).when(candidateRepository0).findAllByNameLikeOrSirNameLike(anyString() , anyString());
+//      skills0.setJava(true);
+//      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "candidateRepository", (Object) candidateRepository0);
+//      SkillsService skillsService0 = new SkillsService();
+//      Optional<Skills> optional0 = Optional.ofNullable(skills0);
+//      SkillsRepository skillsRepository0 = mock(SkillsRepository.class, new ViolatedAssumptionAnswer());
+//      doReturn(optional0).when(skillsRepository0).findById(anyInt());
+//      Injector.inject(skillsService0, (Class<?>) SkillsService.class, "skillsRepository", (Object) skillsRepository0);
+//      Injector.validateBean(skillsService0, (Class<?>) SkillsService.class);
+//      candidate0.setSkillsId(1);
+//      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "skillsService", (Object) skillsService0);
+//      Injector.validateBean(candidateService0, (Class<?>) CandidateService.class);
+//      List<CandidateSearchResolver> list0 = candidateService0.findAllByNameLikeOrSirNameLike("ANY", "ANY");
+//      assertEquals(1, list0.size());
+//  }
+//
+//  @Test(timeout = 4000)
+//  public void test39()  throws Throwable  {
+//      CandidateService candidateService0 = new CandidateService();
+//      AddressRepository addressRepository0 = mock(AddressRepository.class, new ViolatedAssumptionAnswer());
+//      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "addressRepository", (Object) addressRepository0);
+//      ApplicationProcessService applicationProcessService0 = new ApplicationProcessService();
+//      ApplicationProcessRepository applicationProcessRepository0 = mock(ApplicationProcessRepository.class, new ViolatedAssumptionAnswer());
+//      Injector.inject(applicationProcessService0, (Class<?>) ApplicationProcessService.class, "applicationProcessRepository", (Object) applicationProcessRepository0);
+//      Injector.validateBean(applicationProcessService0, (Class<?>) ApplicationProcessService.class);
+//      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "applicationProcessService", (Object) applicationProcessService0);
+//      ArrayList<Candidate> arrayList0 = new ArrayList<Candidate>();
+//      Candidate candidate0 = new Candidate();
+//      arrayList0.add(candidate0);
+//      Skills skills0 = new Skills("C:Users\thomas.verhulstDocumentsworkspace-sts-3.9.5.RELEASEcandidatemanager/uploads", 1, "C:Users\thomas.verhulstDocumentsworkspace-sts-3.9.5.RELEASEcandidatemanager/uploads", "C:Users\thomas.verhulstDocumentsworkspace-sts-3.9.5.RELEASEcandidatemanager/uploads", true, true, true);
+//      CandidateRepository candidateRepository0 = mock(CandidateRepository.class, new ViolatedAssumptionAnswer());
+//      doReturn(arrayList0).when(candidateRepository0).findAllByNameLikeOrSirNameLike(anyString() , anyString());
+//      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "candidateRepository", (Object) candidateRepository0);
+//      SkillsService skillsService0 = new SkillsService();
+//      skills0.setDotnet(false);
+//      Optional<Skills> optional0 = Optional.ofNullable(skills0);
+//      SkillsRepository skillsRepository0 = mock(SkillsRepository.class, new ViolatedAssumptionAnswer());
+//      doReturn(optional0).when(skillsRepository0).findById(anyInt());
+//      Injector.inject(skillsService0, (Class<?>) SkillsService.class, "skillsRepository", (Object) skillsRepository0);
+//      Injector.validateBean(skillsService0, (Class<?>) SkillsService.class);
+//      candidate0.setSkillsId(1);
+//      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "skillsService", (Object) skillsService0);
+//      Injector.validateBean(candidateService0, (Class<?>) CandidateService.class);
+//      List<CandidateSearchResolver> list0 = candidateService0.findAllByNameLikeOrSirNameLike("ANY", "ANY");
+//      assertEquals(1, list0.size());
+//  }
+//
+//  @Test(timeout = 4000)
+//  public void test40()  throws Throwable  {
+//      CandidateService candidateService0 = new CandidateService();
+//      AddressRepository addressRepository0 = mock(AddressRepository.class, new ViolatedAssumptionAnswer());
+//      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "addressRepository", (Object) addressRepository0);
+//      ApplicationProcessService applicationProcessService0 = new ApplicationProcessService();
+//      ApplicationProcessRepository applicationProcessRepository0 = mock(ApplicationProcessRepository.class, new ViolatedAssumptionAnswer());
+//      Injector.inject(applicationProcessService0, (Class<?>) ApplicationProcessService.class, "applicationProcessRepository", (Object) applicationProcessRepository0);
+//      Injector.validateBean(applicationProcessService0, (Class<?>) ApplicationProcessService.class);
+//      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "applicationProcessService", (Object) applicationProcessService0);
+//      ArrayList<Candidate> arrayList0 = new ArrayList<Candidate>(1);
+//      Candidate candidate0 = new Candidate();
+//      arrayList0.add(candidate0);
+//      Skills skills0 = new Skills();
+//      CandidateRepository candidateRepository0 = mock(CandidateRepository.class, new ViolatedAssumptionAnswer());
+//      doReturn(arrayList0).when(candidateRepository0).findAllByNameLikeOrSirNameLike(anyString() , anyString());
+//      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "candidateRepository", (Object) candidateRepository0);
+//      SkillsService skillsService0 = new SkillsService();
+//      skills0.setDotnet(true);
+//      Optional<Skills> optional0 = Optional.ofNullable(skills0);
+//      SkillsRepository skillsRepository0 = mock(SkillsRepository.class, new ViolatedAssumptionAnswer());
+//      doReturn(optional0).when(skillsRepository0).findById(anyInt());
+//      Injector.inject(skillsService0, (Class<?>) SkillsService.class, "skillsRepository", (Object) skillsRepository0);
+//      Injector.validateBean(skillsService0, (Class<?>) SkillsService.class);
+//      candidate0.setSkillsId(1);
+//      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "skillsService", (Object) skillsService0);
+//      Injector.validateBean(candidateService0, (Class<?>) CandidateService.class);
+//      List<CandidateSearchResolver> list0 = candidateService0.findAllByNameLikeOrSirNameLike("ANY", "ANY");
+//      assertFalse(list0.isEmpty());
+//  }
+//
+//  @Test(timeout = 4000)
+//  public void test41()  throws Throwable  {
+//      CandidateService candidateService0 = new CandidateService();
+//      AddressRepository addressRepository0 = mock(AddressRepository.class, new ViolatedAssumptionAnswer());
+//      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "addressRepository", (Object) addressRepository0);
+//      ApplicationProcessService applicationProcessService0 = new ApplicationProcessService();
+//      ApplicationProcessRepository applicationProcessRepository0 = mock(ApplicationProcessRepository.class, new ViolatedAssumptionAnswer());
+//      Injector.inject(applicationProcessService0, (Class<?>) ApplicationProcessService.class, "applicationProcessRepository", (Object) applicationProcessRepository0);
+//      Injector.validateBean(applicationProcessService0, (Class<?>) ApplicationProcessService.class);
+//      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "applicationProcessService", (Object) applicationProcessService0);
+//      ArrayList<Candidate> arrayList0 = new ArrayList<Candidate>(1);
+//      Candidate candidate0 = new Candidate();
+//      arrayList0.add(candidate0);
+//      Skills skills0 = new Skills("C:Users\thomas.verhulstDocumentsworkspace-sts-3.9.5.RELEASEcandidatemanager/uploads", 1, "C:Users\thomas.verhulstDocumentsworkspace-sts-3.9.5.RELEASEcandidatemanager/uploads", "C:Users\thomas.verhulstDocumentsworkspace-sts-3.9.5.RELEASEcandidatemanager/uploads", true, true, true);
+//      CandidateRepository candidateRepository0 = mock(CandidateRepository.class, new ViolatedAssumptionAnswer());
+//      doReturn(arrayList0).when(candidateRepository0).findAllByNameLikeOrSirNameLike(anyString() , anyString());
+//      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "candidateRepository", (Object) candidateRepository0);
+//      SkillsService skillsService0 = new SkillsService();
+//      Optional<Skills> optional0 = Optional.ofNullable(skills0);
+//      SkillsRepository skillsRepository0 = mock(SkillsRepository.class, new ViolatedAssumptionAnswer());
+//      doReturn(optional0).when(skillsRepository0).findById(anyInt());
+//      Injector.inject(skillsService0, (Class<?>) SkillsService.class, "skillsRepository", (Object) skillsRepository0);
+//      Injector.validateBean(skillsService0, (Class<?>) SkillsService.class);
+//      candidate0.setSkillsId(1);
+//      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "skillsService", (Object) skillsService0);
+//      Injector.validateBean(candidateService0, (Class<?>) CandidateService.class);
+//      List<CandidateSearchResolver> list0 = candidateService0.findAllByNameLikeOrSirNameLike("ANY", "ANY");
+//      assertEquals(1, list0.size());
+//  }
+//
+//  @Test(timeout = 4000)
+//  public void test42()  throws Throwable  {
+//      CandidateService candidateService0 = new CandidateService();
+//      AddressRepository addressRepository0 = mock(AddressRepository.class, new ViolatedAssumptionAnswer());
+//      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "addressRepository", (Object) addressRepository0);
+//      ApplicationProcessService applicationProcessService0 = new ApplicationProcessService();
+//      ApplicationProcessRepository applicationProcessRepository0 = mock(ApplicationProcessRepository.class, new ViolatedAssumptionAnswer());
+//      Injector.inject(applicationProcessService0, (Class<?>) ApplicationProcessService.class, "applicationProcessRepository", (Object) applicationProcessRepository0);
+//      Injector.validateBean(applicationProcessService0, (Class<?>) ApplicationProcessService.class);
+//      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "applicationProcessService", (Object) applicationProcessService0);
+//      CandidateRepository candidateRepository0 = mock(CandidateRepository.class, new ViolatedAssumptionAnswer());
+//      doReturn((Optional<Candidate>) null).when(candidateRepository0).findById(anyInt());
+//      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "candidateRepository", (Object) candidateRepository0);
+//      SkillsService skillsService0 = new SkillsService();
+//      SkillsRepository skillsRepository0 = mock(SkillsRepository.class, new ViolatedAssumptionAnswer());
+//      Injector.inject(skillsService0, (Class<?>) SkillsService.class, "skillsRepository", (Object) skillsRepository0);
+//      Injector.validateBean(skillsService0, (Class<?>) SkillsService.class);
+//      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "skillsService", (Object) skillsService0);
+//      Injector.validateBean(candidateService0, (Class<?>) CandidateService.class);
+//      // Undeclared exception!
+//      try {
+//        candidateService0.deleteCandidate(1172);
+//        fail("Expecting exception: NullPointerException");
+//
+//      } catch(NullPointerException e) {
+//         //
+//         // no message in exception (getMessage() returned null)
+//         //
+//         verifyException("CandidateService", e);
+//      }
+//  }
+//
+//  @Test(timeout = 4000)
+//  public void test43()  throws Throwable  {
+//      CandidateService candidateService0 = new CandidateService();
+//      AddressRepository addressRepository0 = mock(AddressRepository.class, new ViolatedAssumptionAnswer());
+//      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "addressRepository", (Object) addressRepository0);
+//      ApplicationProcessService applicationProcessService0 = new ApplicationProcessService();
+//      Vector<ApplicationProcess> vector0 = new Vector<ApplicationProcess>();
+//      ApplicationProcessRepository applicationProcessRepository0 = mock(ApplicationProcessRepository.class, new ViolatedAssumptionAnswer());
+//      doReturn(vector0).when(applicationProcessRepository0).findAllBytoBeInvitedForFirstConversation(anyBoolean());
+//      Injector.inject(applicationProcessService0, (Class<?>) ApplicationProcessService.class, "applicationProcessRepository", (Object) applicationProcessRepository0);
+//      Injector.validateBean(applicationProcessService0, (Class<?>) ApplicationProcessService.class);
+//      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "applicationProcessService", (Object) applicationProcessService0);
+//      Vector<Candidate> vector1 = new Vector<Candidate>();
+//      CandidateRepository candidateRepository0 = mock(CandidateRepository.class, new ViolatedAssumptionAnswer());
+//      doReturn(vector1).when(candidateRepository0).findAllByApplicationProcessIdIn(anyList());
+//      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "candidateRepository", (Object) candidateRepository0);
+//      SkillsService skillsService0 = new SkillsService();
+//      SkillsRepository skillsRepository0 = mock(SkillsRepository.class, new ViolatedAssumptionAnswer());
+//      Injector.inject(skillsService0, (Class<?>) SkillsService.class, "skillsRepository", (Object) skillsRepository0);
+//      Injector.validateBean(skillsService0, (Class<?>) SkillsService.class);
+//      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "skillsService", (Object) skillsService0);
+//      Injector.validateBean(candidateService0, (Class<?>) CandidateService.class);
+//      List<Candidate> list0 = candidateService0.getAllCandidatesWithoutActiveApplicationProcess();
+//      assertTrue(list0.isEmpty());
+//  }
+//
+//  @Test(timeout = 4000)
+//  public void test44()  throws Throwable  {
+//      CandidateService candidateService0 = new CandidateService();
+//      AddressRepository addressRepository0 = mock(AddressRepository.class, new ViolatedAssumptionAnswer());
+//      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "addressRepository", (Object) addressRepository0);
+//      ApplicationProcessService applicationProcessService0 = new ApplicationProcessService();
+//      ApplicationProcessRepository applicationProcessRepository0 = mock(ApplicationProcessRepository.class, new ViolatedAssumptionAnswer());
+//      Injector.inject(applicationProcessService0, (Class<?>) ApplicationProcessService.class, "applicationProcessRepository", (Object) applicationProcessRepository0);
+//      Injector.validateBean(applicationProcessService0, (Class<?>) ApplicationProcessService.class);
+//      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "applicationProcessService", (Object) applicationProcessService0);
+//      ArrayList<Candidate> arrayList0 = new ArrayList<Candidate>(1);
+//      CandidateRepository candidateRepository0 = mock(CandidateRepository.class, new ViolatedAssumptionAnswer());
+//      doReturn(arrayList0).when(candidateRepository0).findAllBySkillsIdIn(anyList());
+//      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "candidateRepository", (Object) candidateRepository0);
+//      SkillsService skillsService0 = new SkillsService();
+//      Stack<Skills> stack0 = new Stack<Skills>();
+//      SkillsRepository skillsRepository0 = mock(SkillsRepository.class, new ViolatedAssumptionAnswer());
+//      doReturn(stack0).when(skillsRepository0).findAllByDotnet(anyBoolean());
+//      Injector.inject(skillsService0, (Class<?>) SkillsService.class, "skillsRepository", (Object) skillsRepository0);
+//      Injector.validateBean(skillsService0, (Class<?>) SkillsService.class);
+//      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "skillsService", (Object) skillsService0);
+//      Injector.validateBean(candidateService0, (Class<?>) CandidateService.class);
+//      List<CandidateSearchResolver> list0 = candidateService0.findAllDotnet();
+//      assertTrue(list0.isEmpty());
+//  }
+//
+//  @Test(timeout = 4000)
+//  public void test45()  throws Throwable  {
+//      CandidateService candidateService0 = new CandidateService();
+//      AddressRepository addressRepository0 = mock(AddressRepository.class, new ViolatedAssumptionAnswer());
+//      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "addressRepository", (Object) addressRepository0);
+//      ApplicationProcessService applicationProcessService0 = new ApplicationProcessService();
+//      ApplicationProcessRepository applicationProcessRepository0 = mock(ApplicationProcessRepository.class, new ViolatedAssumptionAnswer());
+//      Injector.inject(applicationProcessService0, (Class<?>) ApplicationProcessService.class, "applicationProcessRepository", (Object) applicationProcessRepository0);
+//      Injector.validateBean(applicationProcessService0, (Class<?>) ApplicationProcessService.class);
+//      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "applicationProcessService", (Object) applicationProcessService0);
+//      CandidateRepository candidateRepository0 = mock(CandidateRepository.class, new ViolatedAssumptionAnswer());
+//      doReturn((Iterable) null).when(candidateRepository0).findAll();
+//      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "candidateRepository", (Object) candidateRepository0);
+//      SkillsService skillsService0 = new SkillsService();
+//      SkillsRepository skillsRepository0 = mock(SkillsRepository.class, new ViolatedAssumptionAnswer());
+//      Injector.inject(skillsService0, (Class<?>) SkillsService.class, "skillsRepository", (Object) skillsRepository0);
+//      Injector.validateBean(skillsService0, (Class<?>) SkillsService.class);
+//      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "skillsService", (Object) skillsService0);
+//      Injector.validateBean(candidateService0, (Class<?>) CandidateService.class);
+//      // Undeclared exception!
+//      try {
+//        candidateService0.getAllCandidates();
+//        fail("Expecting exception: NullPointerException");
+//
+//      } catch(NullPointerException e) {
+//         //
+//         // no message in exception (getMessage() returned null)
+//         //
+//         verifyException("CandidateService", e);
+//      }
+//  }
+//}

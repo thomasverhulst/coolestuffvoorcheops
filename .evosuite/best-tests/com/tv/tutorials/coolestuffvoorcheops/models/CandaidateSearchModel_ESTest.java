@@ -3,11 +3,11 @@
  * Tue Oct 16 13:58:33 GMT 2018
  */
 
-package com.tv.tutorials.coolestuffvoorcheops.models;
+package com.cheops.candidatemanager.models;
 
 import org.junit.Test;
 import static org.junit.Assert.*;
-import com.tv.tutorials.coolestuffvoorcheops.models.CandaidateSearchModel;
+import com.cheops.candidatemanager.models.CandaidateSearchModel;
 import org.evosuite.runtime.EvoRunner;
 import org.evosuite.runtime.EvoRunnerParameters;
 import org.junit.runner.RunWith;

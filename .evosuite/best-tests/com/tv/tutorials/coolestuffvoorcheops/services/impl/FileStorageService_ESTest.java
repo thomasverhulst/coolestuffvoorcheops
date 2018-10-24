@@ -3,11 +3,11 @@
  * Tue Oct 16 14:01:16 GMT 2018
  */
 
-package com.tv.tutorials.coolestuffvoorcheops.services.impl;
+package com.cheops.candidatemanager.services.impl;
 
 import org.junit.Test;
 import static org.junit.Assert.*;
-import com.tv.tutorials.coolestuffvoorcheops.services.impl.FileStorageService;
+import com.cheops.candidatemanager.services.impl.FileStorageService;
 import org.evosuite.runtime.EvoRunner;
 import org.evosuite.runtime.EvoRunnerParameters;
 import org.junit.runner.RunWith;

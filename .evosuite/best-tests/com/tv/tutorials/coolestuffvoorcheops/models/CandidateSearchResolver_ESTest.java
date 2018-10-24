@@ -3,12 +3,12 @@
  * Tue Oct 16 13:56:59 GMT 2018
  */
 
-package com.tv.tutorials.coolestuffvoorcheops.models;
+package com.cheops.candidatemanager.models;
 
 import org.junit.Test;
 import static org.junit.Assert.*;
-import com.tv.tutorials.coolestuffvoorcheops.models.Candidate;
-import com.tv.tutorials.coolestuffvoorcheops.models.CandidateSearchResolver;
+import com.cheops.candidatemanager.models.Candidate;
+import com.cheops.candidatemanager.models.CandidateSearchResolver;
 import org.evosuite.runtime.EvoRunner;
 import org.evosuite.runtime.EvoRunnerParameters;
 import org.junit.runner.RunWith;
@@ -49,9 +49,9 @@ public class CandidateSearchResolver_ESTest extends CandidateSearchResolver_ESTe
   @Test(timeout = 4000)
   public void test4()  throws Throwable  {
       CandidateSearchResolver candidateSearchResolver0 = new CandidateSearchResolver();
-      candidateSearchResolver0.setApplicationStatus("com.tv.tutorials.coolestuffvoorcheops.models.Candidate");
+      candidateSearchResolver0.setApplicationStatus("Candidate");
       String string0 = candidateSearchResolver0.getApplicationStatus();
-      assertEquals("com.tv.tutorials.coolestuffvoorcheops.models.Candidate", string0);
+      assertEquals("Candidate", string0);
   }
 
   @Test(timeout = 4000)

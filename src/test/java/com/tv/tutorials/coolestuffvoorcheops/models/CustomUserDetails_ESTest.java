@@ -3,14 +3,14 @@
  * Tue Oct 16 13:05:15 GMT 2018
  */
 
-package com.tv.tutorials.coolestuffvoorcheops.models;
+package com.cheops.candidatemanager.models;
 
 import org.junit.Test;
 import static org.junit.Assert.*;
 import static org.evosuite.shaded.org.mockito.Mockito.*;
 import static org.evosuite.runtime.EvoAssertions.*;
-import com.tv.tutorials.coolestuffvoorcheops.models.CustomUserDetails;
-import com.tv.tutorials.coolestuffvoorcheops.models.User;
+import com.cheops.candidatemanager.models.CustomUserDetails;
+import com.cheops.candidatemanager.models.User;
 import java.util.Set;
 import org.evosuite.runtime.EvoRunner;
 import org.evosuite.runtime.EvoRunnerParameters;
@@ -86,7 +86,7 @@ public class CustomUserDetails_ESTest extends CustomUserDetails_ESTest_scaffoldi
          //
          // no message in exception (getMessage() returned null)
          //
-         verifyException("com.tv.tutorials.coolestuffvoorcheops.models.CustomUserDetails", e);
+         verifyException("CustomUserDetails", e);
       }
   }
 
@@ -161,7 +161,7 @@ public class CustomUserDetails_ESTest extends CustomUserDetails_ESTest_scaffoldi
          //
          // no message in exception (getMessage() returned null)
          //
-         verifyException("com.tv.tutorials.coolestuffvoorcheops.models.User", e);
+         verifyException("User", e);
       }
   }
 }

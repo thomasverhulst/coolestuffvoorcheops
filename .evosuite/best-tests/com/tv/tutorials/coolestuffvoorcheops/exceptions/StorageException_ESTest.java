@@ -3,11 +3,11 @@
  * Tue Oct 16 13:59:03 GMT 2018
  */
 
-package com.tv.tutorials.coolestuffvoorcheops.exceptions;
+package com.cheops.candidatemanager.exceptions;
 
 import org.junit.Test;
 import static org.junit.Assert.*;
-import com.tv.tutorials.coolestuffvoorcheops.exceptions.StorageException;
+import com.cheops.candidatemanager.exceptions.StorageException;
 import org.evosuite.runtime.EvoRunner;
 import org.evosuite.runtime.EvoRunnerParameters;
 import org.junit.runner.RunWith;

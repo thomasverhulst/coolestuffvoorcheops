@@ -3,15 +3,15 @@
  * Tue Oct 16 14:02:15 GMT 2018
  */
 
-package com.tv.tutorials.coolestuffvoorcheops.controllers;
+package com.cheops.candidatemanager.controllers;
 
 import org.junit.Test;
 import static org.junit.Assert.*;
 import static org.evosuite.shaded.org.mockito.Mockito.*;
 import static org.evosuite.runtime.EvoAssertions.*;
-import com.tv.tutorials.coolestuffvoorcheops.controllers.UserController;
-import com.tv.tutorials.coolestuffvoorcheops.models.User;
-import com.tv.tutorials.coolestuffvoorcheops.services.impl.CustomUserDetailService;
+import com.cheops.candidatemanager.controllers.UserController;
+import com.cheops.candidatemanager.models.User;
+import com.cheops.candidatemanager.services.impl.CustomUserDetailService;
 import org.evosuite.runtime.EvoRunner;
 import org.evosuite.runtime.EvoRunnerParameters;
 import org.evosuite.runtime.ViolatedAssumptionAnswer;
@@ -49,7 +49,7 @@ public class UserController_ESTest extends UserController_ESTest_scaffolding {
          //
          // no message in exception (getMessage() returned null)
          //
-         verifyException("com.tv.tutorials.coolestuffvoorcheops.controllers.UserController", e);
+         verifyException("UserController", e);
       }
   }
 
@@ -79,7 +79,7 @@ public class UserController_ESTest extends UserController_ESTest_scaffolding {
          //
          // no message in exception (getMessage() returned null)
          //
-         verifyException("com.tv.tutorials.coolestuffvoorcheops.controllers.UserController", e);
+         verifyException("UserController", e);
       }
   }
 }

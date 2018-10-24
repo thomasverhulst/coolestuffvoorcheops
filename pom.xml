@@ -4,12 +4,12 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>com.tv.tutorials.springboot</groupId>
-	<artifactId>coolestuffvoorcheops</artifactId>
+	<groupId>com.cheops.candidatemanager</groupId>
+	<artifactId>candidatemanager</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<name>coolestuffvoorcheops</name>
+	<name>Candidate Manager</name>
 	<description>Demo project for Spring Boot</description>
 
 	<parent>
@@ -24,6 +24,7 @@
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
 		<evosuiteVersion>1.0.6</evosuiteVersion>
+    <thymeleafspringsecurity5.version>3.0.3.RELEASE</thymeleafspringsecurity5.version>
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
 	</properties>
@@ -85,11 +86,6 @@
 			<artifactId>spring-boot-configuration-processor</artifactId>
 			<optional>true</optional>
 		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-configuration-processor</artifactId>
-			<optional>true</optional>
-		</dependency>
 		<!-- https://mvnrepository.com/artifact/log4j/log4j -->
 		<dependency>
 			<groupId>log4j</groupId>
@@ -106,6 +102,12 @@
   			<artifactId>evosuite-standalone-runtime</artifactId>
   			<version>${evosuiteVersion}</version>
   			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.thymeleaf.extras</groupId>
+			<artifactId>thymeleaf-extras-springsecurity4</artifactId>
+			<version>3.0.3.RELEASE</version>
+			<scope>compile</scope>
 		</dependency>
 	</dependencies>
 
@@ -148,14 +150,7 @@
         <artifactId>maven-surefire-plugin</artifactId>
         <version>2.21.0</version>
         <configuration>
-          <argLine>${surefireArgLine}</argLine>
-        </configuration>
-      </plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-surefire-plugin</artifactId>
-        <version>2.21.0</version>
-        <configuration>
+					<argLine>${surefireArgLine}</argLine>
           <properties>
             <property>
               <name>listener</name>

@@ -1,30 +1,10 @@
-<!DOCTYPE html>
-<html xmlns:th="http://thymeleaf.org">
-<head>
-<meta charset="utf-8">
-
-<meta name="viewport" content="width=device-width, initial-scale=1">
-
-
-<link rel="shortcut icon" href="favicon.png" type="image/png" />
-
-<!-- Latest compiled and minified CSS -->
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-
-<!-- jQuery library -->
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-
-<!-- Latest compiled JavaScript -->
-<script
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<title>Search a candidate</title>
-</head>
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/general.html :: headTag(title='Zoeken - Cheops Kandidatenbeheer')"></head>
 <body>
+	<header th:replace="fragments/general.html :: header"></header>
 
 	<div class=container-fluid>
-	<header th:insert="fragments/general.html :: header"> </header>
 		<div class="row">
 			<div class="col-sm-3"></div>
 			<div class="col-sm-6">
@@ -139,9 +119,8 @@
 			</div>
 
 		</div>
-		<div class="col-sm-3"></div>
-		<p th:insert="fragments/general.html :: footer"> </p>
 	</div>
-
+	<footer th:replace="fragments/general.html :: footer"></footer>
+	<div th:replace="fragments/general.html :: foot"></div>
 </body>
 </html>

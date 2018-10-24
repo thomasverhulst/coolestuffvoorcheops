@@ -1,4 +1,4 @@
-[MASTER] 15:55:54.701 [pool-2-thread-1] ERROR ConcreteClassAnalyzer - Problem for com.tv.tutorials.coolestuffvoorcheops.CoolestuffvoorcheopsApplication. Class not found: org.springframework.context.support.GenericGroovyApplicationContext
+[MASTER] 15:55:54.701 [pool-2-thread-1] ERROR ConcreteClassAnalyzer - Problem for com.cheops.candidatemanager.candidatemanagerApplication. Class not found: org.springframework.context.support.GenericGroovyApplicationContext
 java.lang.ClassNotFoundException: groovy/lang/GroovyObject
 	at org.evosuite.instrumentation.InstrumentingClassLoader.instrumentClass(InstrumentingClassLoader.java:201)
 	at org.evosuite.instrumentation.InstrumentingClassLoader.loadClass(InstrumentingClassLoader.java:168)

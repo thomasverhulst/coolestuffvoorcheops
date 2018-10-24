@@ -3,12 +3,12 @@
  * Tue Oct 16 14:00:00 GMT 2018
  */
 
-package com.tv.tutorials.coolestuffvoorcheops.controllers;
+package com.cheops.candidatemanager.controllers;
 
 import org.junit.Test;
 import static org.junit.Assert.*;
 import static org.evosuite.runtime.EvoAssertions.*;
-import com.tv.tutorials.coolestuffvoorcheops.controllers.OpenIdController;
+import com.cheops.candidatemanager.controllers.OpenIdController;
 import org.evosuite.runtime.EvoRunner;
 import org.evosuite.runtime.EvoRunnerParameters;
 import org.junit.runner.RunWith;
@@ -28,7 +28,7 @@ public class OpenIdController_ESTest extends OpenIdController_ESTest_scaffolding
          //
          // no message in exception (getMessage() returned null)
          //
-         verifyException("com.tv.tutorials.coolestuffvoorcheops.controllers.OpenIdController", e);
+         verifyException("OpenIdController", e);
       }
   }
 }

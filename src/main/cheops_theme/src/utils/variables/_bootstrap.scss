@@ -52,8 +52,9 @@ $input-height: auto;
 $input-placeholder-color: $gray-200;
 $input-focus-color: $gray-900;
 $input-focus-border-color: $primary;
+$input-focus-box-shadow: none;
 
-// Buttons.
+  // Buttons.
 $btn-padding-y: 15.5px;
 $btn-padding-y-sm: 5.5px;
 $btn-padding-x: 2rem;

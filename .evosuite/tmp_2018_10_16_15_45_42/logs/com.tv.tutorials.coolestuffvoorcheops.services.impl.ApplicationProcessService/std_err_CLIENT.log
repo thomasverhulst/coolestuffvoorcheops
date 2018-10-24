@@ -3,7 +3,7 @@
 [MASTER] 15:54:04.018 [pool-2-thread-1] ERROR TestCluster - Failed to check cache for java.util.function.Function<T, R> : Type points to itself
 [MASTER] 15:54:25.302 [pool-2-thread-1] ERROR TestCluster - Failed to check cache for java.util.function.Predicate<T> : Type points to itself
 [MASTER] 15:54:34.902 [pool-2-thread-1] ERROR TestCluster - Failed to check cache for java.util.Optional<T> : Type points to itself
-[MASTER] 15:54:38.390 [pool-2-thread-1] ERROR ClientNodeImpl - Error when generating tests for: com.tv.tutorials.coolestuffvoorcheops.services.impl.ApplicationProcessService with seed 1539698028037. Configuration id : default
+[MASTER] 15:54:38.390 [pool-2-thread-1] ERROR ClientNodeImpl - Error when generating tests for: com.cheops.candidatemanager.services.impl.ApplicationProcessService with seed 1539698028037. Configuration id : default
 java.lang.TypeNotPresentException: Type reactor.ipc.netty.http.server.HttpServerRequest not present
 	at sun.reflect.generics.factory.CoreReflectionFactory.makeNamedType(CoreReflectionFactory.java:117)
 	at sun.reflect.generics.visitor.Reifier.visitClassTypeSignature(Reifier.java:125)

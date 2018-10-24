@@ -1,4 +1,4 @@
-[MASTER] 15:58:33.664 [pool-2-thread-1] ERROR ConcreteClassAnalyzer - Problem for com.tv.tutorials.coolestuffvoorcheops.configuration.SecurityConfiguration. Class not found: org.springframework.context.support.GenericGroovyApplicationContext
+[MASTER] 15:58:33.664 [pool-2-thread-1] ERROR ConcreteClassAnalyzer - Problem for com.cheops.candidatemanager.configuration.SecurityConfiguration. Class not found: org.springframework.context.support.GenericGroovyApplicationContext
 java.lang.ClassNotFoundException: groovy/lang/GroovyObject
 	at org.evosuite.instrumentation.InstrumentingClassLoader.instrumentClass(InstrumentingClassLoader.java:201)
 	at org.evosuite.instrumentation.InstrumentingClassLoader.loadClass(InstrumentingClassLoader.java:168)
@@ -34,7 +34,7 @@ Caused by: java.lang.ClassNotFoundException: groovy.lang.GroovyObject
 	at org.evosuite.instrumentation.InstrumentingClassLoader.loadClass(InstrumentingClassLoader.java:159)
 	... 23 common frames omitted
 [MASTER] 15:58:33.674 [pool-2-thread-1] ERROR ConcreteClassAnalyzer - Removing class from inheritance tree
-[MASTER] 15:58:35.370 [pool-2-thread-1] ERROR ConcreteClassAnalyzer - Problem for com.tv.tutorials.coolestuffvoorcheops.configuration.SecurityConfiguration. Class not found: org.springframework.web.context.support.GroovyWebApplicationContext
+[MASTER] 15:58:35.370 [pool-2-thread-1] ERROR ConcreteClassAnalyzer - Problem for com.cheops.candidatemanager.configuration.SecurityConfiguration. Class not found: org.springframework.web.context.support.GroovyWebApplicationContext
 java.lang.ClassNotFoundException: groovy/lang/GroovyObject
 	at org.evosuite.instrumentation.InstrumentingClassLoader.instrumentClass(InstrumentingClassLoader.java:201)
 	at org.evosuite.instrumentation.InstrumentingClassLoader.loadClass(InstrumentingClassLoader.java:168)
@@ -90,7 +90,7 @@ Caused by: java.lang.ClassNotFoundException: groovy.lang.GroovyObject
 	at org.evosuite.instrumentation.InstrumentingClassLoader.loadClass(InstrumentingClassLoader.java:159)
 	... 43 common frames omitted
 [MASTER] 15:58:35.371 [pool-2-thread-1] ERROR ConcreteClassAnalyzer - Removing class from inheritance tree
-[MASTER] 15:58:49.863 [pool-2-thread-1] ERROR ConcreteClassAnalyzer - Problem for com.tv.tutorials.coolestuffvoorcheops.configuration.SecurityConfiguration. Class not found: org.springframework.core.io.buffer.DataBufferUtils$AsynchronousFileChannelWriteCompletionHandler
+[MASTER] 15:58:49.863 [pool-2-thread-1] ERROR ConcreteClassAnalyzer - Problem for com.cheops.candidatemanager.configuration.SecurityConfiguration. Class not found: org.springframework.core.io.buffer.DataBufferUtils$AsynchronousFileChannelWriteCompletionHandler
 java.lang.ClassNotFoundException: reactor/core/publisher/BaseSubscriber
 	at org.evosuite.instrumentation.InstrumentingClassLoader.instrumentClass(InstrumentingClassLoader.java:201)
 	at org.evosuite.instrumentation.InstrumentingClassLoader.loadClass(InstrumentingClassLoader.java:168)

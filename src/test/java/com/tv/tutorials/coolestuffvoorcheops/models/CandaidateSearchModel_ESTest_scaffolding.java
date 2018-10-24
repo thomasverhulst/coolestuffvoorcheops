@@ -4,7 +4,7 @@
  * Tue Oct 16 13:58:33 GMT 2018
  */
 
-package com.tv.tutorials.coolestuffvoorcheops.models;
+package com.cheops.candidatemanager.models;
 
 import org.evosuite.runtime.annotation.EvoSuiteClassExclude;
 import org.junit.BeforeClass;
@@ -27,7 +27,7 @@ public class CandaidateSearchModel_ESTest_scaffolding {
 
   @BeforeClass 
   public static void initEvoSuiteFramework() { 
-    org.evosuite.runtime.RuntimeSettings.className = "com.tv.tutorials.coolestuffvoorcheops.models.CandaidateSearchModel"; 
+    org.evosuite.runtime.RuntimeSettings.className = "CandaidateSearchModel";
     org.evosuite.runtime.GuiSupport.initialize(); 
     org.evosuite.runtime.RuntimeSettings.maxNumberOfThreads = 100; 
     org.evosuite.runtime.RuntimeSettings.maxNumberOfIterationsPerLoop = 10000; 
@@ -76,7 +76,7 @@ public class CandaidateSearchModel_ESTest_scaffolding {
     java.lang.System.setProperty("java.awt.headless", "true"); 
     java.lang.System.setProperty("java.io.tmpdir", "C:\\Users\\THOMAS~1.VER\\AppData\\Local\\Temp\\"); 
     java.lang.System.setProperty("user.country", "US"); 
-    java.lang.System.setProperty("user.dir", "C:\\Users\\thomas.verhulst\\Documents\\workspace-sts-3.9.5.RELEASE\\coolestuffvoorcheops"); 
+    java.lang.System.setProperty("user.dir", "C:\\Users\\thomas.verhulst\\Documents\\workspace-sts-3.9.5.RELEASE\\candidatemanager");
     java.lang.System.setProperty("user.home", "C:\\Users\\thomas.verhulst"); 
     java.lang.System.setProperty("user.language", "en"); 
     java.lang.System.setProperty("user.name", "Thomas.Verhulst"); 
@@ -85,7 +85,7 @@ public class CandaidateSearchModel_ESTest_scaffolding {
 
   private static void initializeClasses() {
     org.evosuite.runtime.classhandling.ClassStateSupport.initializeClasses(CandaidateSearchModel_ESTest_scaffolding.class.getClassLoader() ,
-      "com.tv.tutorials.coolestuffvoorcheops.models.CandaidateSearchModel"
+      "CandaidateSearchModel"
     );
   } 
 
@@ -93,7 +93,7 @@ public class CandaidateSearchModel_ESTest_scaffolding {
     org.evosuite.runtime.classhandling.ClassResetter.getInstance().setClassLoader(CandaidateSearchModel_ESTest_scaffolding.class.getClassLoader()); 
 
     org.evosuite.runtime.classhandling.ClassStateSupport.resetClasses(
-      "com.tv.tutorials.coolestuffvoorcheops.models.CandaidateSearchModel"
+      "CandaidateSearchModel"
     );
   }
 }

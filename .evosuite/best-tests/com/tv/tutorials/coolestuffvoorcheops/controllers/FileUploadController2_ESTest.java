@@ -3,13 +3,13 @@
  * Tue Oct 16 13:49:27 GMT 2018
  */
 
-package com.tv.tutorials.coolestuffvoorcheops.controllers;
+package com.cheops.candidatemanager.controllers;
 
 import org.junit.Test;
 import static org.junit.Assert.*;
 import static org.evosuite.shaded.org.mockito.Mockito.*;
 import static org.evosuite.runtime.EvoAssertions.*;
-import com.tv.tutorials.coolestuffvoorcheops.controllers.FileUploadController2;
+import com.cheops.candidatemanager.controllers.FileUploadController2;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.PrintWriter;
@@ -73,7 +73,7 @@ public class FileUploadController2_ESTest extends FileUploadController2_ESTest_s
          //
          // no message in exception (getMessage() returned null)
          //
-         verifyException("com.tv.tutorials.coolestuffvoorcheops.controllers.FileUploadController2", e);
+         verifyException("FileUploadController2", e);
       }
   }
 

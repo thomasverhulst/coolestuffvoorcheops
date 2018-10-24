@@ -16,7 +16,7 @@
   <link rel="stylesheet" th:href="@{~/css/main.css}">
 </head>
 <body>
-	<header th:fragment="header(user)">
+	<header th:fragment="header">
     <div class="container-fluid">
       <div class="row">
         <div class="col-md-auto header--left d-flex align-items-center">
@@ -29,15 +29,13 @@
         <div class="col-md-auto header--middle align-items-center">
           <div class="header--middle--inner d-flex align-items-center">
             <nav class="nav m-navigation--main">
-              <!-- TODO add links -->
               <div class="nav-item m-navigation--item">
-                <a href="#" class="nav-link">Dashboard</a>
+                <a href="/" class="nav-link">Dashboard</a>
               </div>
               <div class="nav-item m-navigation--item">
-                <a href="#" class="nav-link">Kandidaten</a>
+                <a href="/search" class="nav-link">Kandidaten</a>
               </div>
-              <!-- TODO add link -->
-              <a href="#" class="btn btn-outline-white btn-sm d-inline-block d-md-none mt-3 mb-2">Uitloggen</a>
+              <a href="/logout" class="btn btn-outline-white btn-sm d-inline-block d-md-none mt-3 mb-2">Uitloggen</a>
             </nav>
           </div>
         </div>
@@ -59,7 +57,7 @@
                     </a>
                   </div>
                   <div class="m-icon-link h-big">
-                    <a href="#">
+                    <a href="/search">
                       <div class="icon icon-search"></div>
                       <div class="m-icon-link--text">Kandidaat zoeken</div>
                     </a>
@@ -73,14 +71,12 @@
                 <!-- TODO add link to profile page or settings page? -->
                 <a href="#" class="d-flex align-items-center d-block">
                   <div class="icon icon-profile"></div>
-                  <!--/*@thymesVar id="user" type="com.tv.tutorials.coolestuffvoorcheops.models.User"*/-->
-                  <div class="o-user-info--message" th:text="${'Hallo, ' + user.name}"></div>
+                  <div class="o-user-info--message" th:text="${'Hallo, ' + #authentication.name}"></div>
                 </a>
               </div>
             </div>
             <div class="o-header-block d-none d-md-block">
-              <!-- TODO add link -->
-              <a href="#" class="btn btn-outline-white btn-sm">Uitloggen</a>
+              <a href="/logout" class="btn btn-outline-white btn-sm">Uitloggen</a>
             </div>
           </div>
         </div>

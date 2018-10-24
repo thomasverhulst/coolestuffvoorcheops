@@ -3,11 +3,11 @@
  * Tue Oct 16 14:01:02 GMT 2018
  */
 
-package com.tv.tutorials.coolestuffvoorcheops.configuration;
+package com.cheops.candidatemanager.configuration;
 
 import org.junit.Test;
 import static org.junit.Assert.*;
-import com.tv.tutorials.coolestuffvoorcheops.configuration.StorageProperties;
+import com.cheops.candidatemanager.configuration.StorageProperties;
 import org.evosuite.runtime.EvoRunner;
 import org.evosuite.runtime.EvoRunnerParameters;
 import org.junit.runner.RunWith;

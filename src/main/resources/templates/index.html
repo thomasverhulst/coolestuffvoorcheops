@@ -2,71 +2,17 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head th:replace="fragments/general.html :: headTag(title='Dashboard - Cheops Kandidatenbeheer')"></head>
 <body>
-	<header th:replace="fragments/general.html :: header(${user})"></header>
-
+	<header th:replace="fragments/general.html :: header"></header>
 	<div class="container">
-		<!--<div class="row">-->
-			<!--<header th:insert="fragments/general.html :: header"> </header>-->
-		<!--</div>-->
-
 		<div class="row">
-			<div class="container">
-		
-				<div class="first" style="margin-right: 1%; margin-bottom: 1%;">
-		
-					<h1 style="text-align: center;">LOGIN</h1>
-					<div>
-		<!-- 				class="first test" -->
-					<a href="/login"> Inloggen</a>
-
-					</div>
-				</div>
-		
-				<div class="third" style="margin-bottom: 1%;">
-					<div>
-						<h1 style="text-align: center;">REGISTREER</h1>
-		
-					</div>
-					<div>
-						<a href="/register" class="third fill-div" style="text-align: center; display: inline; "> <img
-							src="images\Add_Male_User_Icon_256.png" style="text-align: center; display: inline; "class="icon" alt="Registreer">
-						</a>
-					</div>
-				</div>
-		
-				<div class="second" style="margin-right: 1%;">
-					<div>
-						<h1 style="text-align: center;">ZOEK</h1>
-					</div>
-					<div>
-						<a href="/search" class="second fill-div" style="text-align: center; display: inline; "> <img
-							src="images\Search_Search_Folder_Icon_256.png" class="icon" style="text-align: center;  display: inline;" alt="Zoek">
-						</a>
-					</div>
-				</div>			
-				
-				<div class="test last" style="margin-bottom: 1%;">
-					<div>
-						<h1 style="text-align: center;">TEST</h1>
-		
-					</div>
-					<div>
-						<a href="/test" class="last fill-div" style="text-align: center; display: inline; "> <img
-							src="images\Physical_sciences_Icon_256.png" style="text-align: center; display: inline; "class="icon" alt="Test">
-						</a>
-					</div>
-				</div>
-						
-				<div class="fourth">
-					<div>
-						<h1 style="text-align: center;">INSTELLINGEN</h1>
-					</div>
-					<div>
-						<a  href="/instellingen" class="fourth fill-div" style="text-align: center; display: inline;"><img
-							src="images\Configuration_Settings_Icon_256.png" style="text-align: center; display: inline;" class="icon" alt="Instellingen">
-						</a>
-					</div>
-				</div>
+			<div class="col-md">
+				<a href="/register">Registreren</a>
+			</div>
+			<div class="col-md">
+				<a href="/search">Zoeken</a>
+			</div>
+			<div class="col-md">
+				<a href="/test">Test</a>
 			</div>
 		</div>
   </div>
