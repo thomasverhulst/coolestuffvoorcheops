@@ -71,7 +71,7 @@ hr {
   height: 0;
   overflow: visible; }
 
-h1, h2, h3, h4, h5, h6 {
+h1, h2, h3, h4, .a-title--page, h5, h6 {
   margin-top: 0;
   margin-bottom: 0.5rem; }
 
@@ -4456,7 +4456,9 @@ a.text-gray:hover, a.text-gray:focus {
   .card--header {
     box-shadow: 1px 5px 14px -10px rgba(74, 74, 74, 0.3);
     padding: 20px;
-    text-align: center; }
+    text-align: center;
+    font-weight: 500;
+    font-size: .9375rem; }
   .card--body {
     display: flex;
     padding: 20px; }
@@ -4464,10 +4466,56 @@ a.text-gray:hover, a.text-gray:focus {
       flex: 1 0 50%; }
       .card--body > *:nth-child(2n) {
         border-left: 1px solid #EEEEEE; }
+  .card--arrow {
+    position: absolute;
+    top: -4px;
+    left: calc(50% - 7.5px);
+    transform: translateX(-50%); }
+    .card--arrow:after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 0 7.5px 4px 7.5px;
+      border-color: transparent transparent #FFFFFF transparent;
+      box-shadow: -10px 0 15px 1px rgba(74, 74, 74, 0.2); }
+  @media (min-width: 768px) {
+    .card--header {
+      text-align: left; } }
 
 .was-validated .form-control:invalid:focus,
 .was-validated .form-control:valid:focus {
   box-shadow: none; }
+
+.h-background-blue {
+  background: #1485CC; }
+
+.h-background-red {
+  background: #DA291C; }
+
+.h-background-green {
+  background: #54CC14; }
+
+.h-background-after-blue:after {
+  background: #1485CC; }
+
+.h-background-after-red:after {
+  background: #DA291C; }
+
+.h-background-after-green:after {
+  background: #54CC14; }
+
+.h-color-blue {
+  color: #1485CC; }
+
+.h-color-red {
+  color: #DA291C; }
+
+.h-color-green {
+  color: #54CC14; }
 
 .icon {
   /* use !important to prevent issues with browser extensions that change fonts */
@@ -4493,6 +4541,12 @@ a.text-gray:hover, a.text-gray:focus {
     content: "\e90c"; }
   .icon.icon-people:before {
     content: "\e90d"; }
+  .icon.icon-config:before {
+    content: "\e921"; }
+  .icon.icon-delete:before {
+    content: "\e910"; }
+  .icon.icon-edit:before {
+    content: "\e915"; }
 
 html,
 body {
@@ -4515,7 +4569,7 @@ h2 {
 h3 {
   font-size: 1.5rem; }
 
-h4 {
+h4, .a-title--page {
   font-size: 1.25rem; }
 
 h5 {
@@ -4545,6 +4599,9 @@ main {
 :focus {
   outline: none; }
 
+.flex-grow-2 {
+  flex-grow: 2 !important; }
+
 @font-face {
   font-family: 'Icomoon';
   src: url("../fonts/icomoon/icomoon.eot?v54s9p");
@@ -4552,12 +4609,33 @@ main {
   font-weight: normal;
   font-style: normal; }
 
-.a-dashboard--date {
+.a-dashboard-date {
   font-size: .625rem;
   color: #9B9B9B; }
-  .a-dashboard--date span {
+  .a-dashboard-date span {
     font-weight: bold;
     color: #4A4A4A; }
+
+.a-event--date, .a-event--name {
+  font-size: .8125rem; }
+
+.a-event--date {
+  font-weight: 300;
+  position: relative;
+  margin-right: 23px;
+  width: 35px; }
+  .a-event--date:after {
+    content: "";
+    width: 3px;
+    border-radius: 4px;
+    position: absolute;
+    right: -13px;
+    top: -3px;
+    bottom: -3px; }
+    .h-blue .a-event--date:after {
+      background-color: #1485CC; }
+    .h-blue .a-event--date:after {
+      background-color: #1485CC; }
 
 .a-form-input-text, .a-form-input-password {
   border: 0;
@@ -4666,6 +4744,15 @@ main {
   .a-logo--header path {
     fill: #FFFFFF; }
 
+.a-pill {
+  font-size: .5rem;
+  color: #FFFFFF;
+  font-weight: 500;
+  text-transform: uppercase;
+  display: inline-block;
+  border-radius: 10px;
+  padding: 2px 7px; }
+
 .a-title--login {
   font-size: 2rem;
   padding: 0 15px;
@@ -4692,17 +4779,18 @@ main {
     .m-header--login {
       margin-top: 0; } }
 
+.h-big .m-icon-link--text {
+  color: #DA291C;
+  font-weight: 500;
+  font-size: .625rem; }
+
 .m-icon-link.h-big {
   text-align: center;
   padding: 45px 10px; }
   .m-icon-link.h-big .icon {
-    font-size: 40px;
+    font-size: 2.5rem;
     color: #9B9B9B;
     margin-bottom: 15px; }
-  .m-icon-link.h-big--text {
-    color: #DA291C;
-    font-weight: 500;
-    font-size: .625rem; }
 
 .m-navigation--main .m-navigation--item {
   font-size: .9375rem;
@@ -4761,12 +4849,6 @@ main {
 .m-stats--number {
   font-size: 1.875rem;
   font-weight: bold; }
-  .h-blue .m-stats--number {
-    color: #1485CC; }
-  .h-red .m-stats--number {
-    color: #DA291C; }
-  .h-green .m-stats--number {
-    color: #54CC14; }
 
 .m-stats--bar {
   width: 100%;
@@ -4780,17 +4862,43 @@ main {
     position: absolute;
     top: 0;
     left: 0; }
-    .h-blue .m-stats--bar-inner {
-      background-color: #1485CC; }
-    .h-red .m-stats--bar-inner {
-      background-color: #DA291C; }
-    .h-green .m-stats--bar-inner {
-      background-color: #54CC14; }
 
 .m-stats--percentage {
   font-size: .75rem;
   color: #CCCCCC;
   text-align: right; }
+
+.m-table-candidates--name {
+  font-weight: 500; }
+
+.m-table-candidates--function {
+  color: #9B9B9B; }
+
+.m-table-candidates--icon {
+  font-size: 1.125rem; }
+  .m-table-candidates--icon a {
+    color: #CCCCCC;
+    position: relative;
+    z-index: 1; }
+    .m-table-candidates--icon a:after {
+      width: 35px;
+      height: 35px;
+      transition: opacity 0.15s linear;
+      content: "";
+      position: absolute;
+      background: #DA291C;
+      border-radius: 100%;
+      top: -50%;
+      left: -50%;
+      z-index: -1;
+      opacity: 0; }
+      @media screen and (prefers-reduced-motion: reduce) {
+        .m-table-candidates--icon a:after {
+          transition: none; } }
+    .m-table-candidates--icon a:hover, .m-table-candidates--icon a:focus, .m-table-candidates--icon a:active {
+      color: #FFFFFF; }
+      .m-table-candidates--icon a:hover:after, .m-table-candidates--icon a:focus:after, .m-table-candidates--icon a:active:after {
+        opacity: 1; }
 
 footer {
   text-align: center;
@@ -4821,6 +4929,10 @@ header {
     color: #FFFFFF; }
     header .icon:active, header .icon:focus {
       color: #FFFFFF; }
+  header .icon-config,
+  header .icon-quick-menu {
+    font-size: 1.25rem;
+    display: block; }
   header .icon-icon-dots {
     transition: all 0.2s ease-in-out;
     font-size: 1.75rem; }
@@ -4829,8 +4941,6 @@ header {
         transition: none; } }
   header .icon-quick-menu {
     transition: all 0.2s ease-in-out;
-    font-size: 1.25rem;
-    display: block;
     transform: rotate(0deg); }
     @media screen and (prefers-reduced-motion: reduce) {
       header .icon-quick-menu {
@@ -4855,54 +4965,38 @@ header {
         padding: 0; }
       header .header--right--inner {
         justify-content: flex-end;
-        width: 100%; }
-      header .header--right .o-header-block {
-        margin-right: 20px; }
-        header .header--right .o-header-block:last-of-type {
-          margin-right: 0; } }
+        width: 100%; } }
   @media (min-width: 992px) {
     header {
       padding: 20px 45px; }
       header .header--middle {
         margin-left: 30px; }
-      header .header--right .o-header-block {
-        margin-right: 45px; }
-        header .header--right .o-header-block:last-of-type {
-          margin-right: 0; }
+      header .icon-config:hover,
       header .icon-quick-menu:hover {
         color: #000000; } }
 
 .o-card-hover {
-  width: calc(100vw - 30px/1.5); }
+  width: calc(100vw - 30px/1.5);
+  z-index: 100; }
   .o-card-hover--title {
-    font-weight: 500;
     margin-bottom: 5px; }
   .o-card-hover--subtitle {
     font-weight: 300;
     font-size: .625rem; }
   .o-card-hover .card--body {
     padding: 0; }
-  .o-card-hover .card--arrow {
-    position: absolute;
-    top: -4px;
-    left: calc(50% - 7.5px);
-    transform: translateX(-50%); }
-    .o-card-hover .card--arrow:after {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 0;
-      height: 0;
-      border-style: solid;
-      border-width: 0 7.5px 4px 7.5px;
-      border-color: transparent transparent #FFFFFF transparent;
-      box-shadow: -10px 0 15px 1px rgba(74, 74, 74, 0.2); }
   .o-header-block .o-card-hover {
     display: none; }
   @media (min-width: 768px) {
     .o-card-hover {
-      width: 300px; } }
+      width: 300px; }
+      .o-card-hover .card--header {
+        text-align: center; } }
+
+.o-events-list .a-event {
+  margin-bottom: 20px; }
+  .o-events-list .a-event:last-of-type {
+    margin-bottom: 0; }
 
 .o-form--login {
   padding: 0 30px; }
@@ -4940,3 +5034,12 @@ header {
   @media screen and (prefers-reduced-motion: reduce) {
     .o-user-info .icon {
       transition: none; } }
+
+table {
+  font-size: .8125rem;
+  width: 100%; }
+  table thead {
+    color: #CCCCCC; }
+  table th,
+  table td {
+    padding: 10px 0; }

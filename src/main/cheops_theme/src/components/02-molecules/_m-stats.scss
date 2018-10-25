@@ -16,18 +16,6 @@
   &--number {
     font-size: 1.875rem;
     font-weight: bold;
-
-    .h-blue & {
-      color: $blue;
-    }
-
-    .h-red & {
-      color: $red;
-    }
-
-    .h-green & {
-      color: $green;
-    }
   }
 
   &--bar {
@@ -43,18 +31,6 @@
       position: absolute;
       top: 0;
       left: 0;
-
-      .h-blue & {
-        background-color: $blue;
-      }
-
-      .h-red & {
-        background-color: $red;
-      }
-
-      .h-green & {
-        background-color: $green;
-      }
     }
   }
 

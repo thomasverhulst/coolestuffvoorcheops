@@ -1,4 +1,8 @@
 .a-title {
+  &--page {
+    @extend h4;
+  }
+
   &--login {
     font-size: 2rem;
     padding: 0 $grid-gutter-width / 2;

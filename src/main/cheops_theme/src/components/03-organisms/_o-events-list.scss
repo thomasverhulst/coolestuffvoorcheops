@@ -1,0 +1,9 @@
+.o-events-list {
+  .a-event {
+    margin-bottom: $grid-gutter-width/1.5;
+
+    @include last-child {
+      margin-bottom: 0;
+    }
+  }
+}
