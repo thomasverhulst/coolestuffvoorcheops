@@ -1,2 +1,0 @@
-[MASTER] 11:27:44.896 [pool-2-thread-1] WARN  TestSuiteSerialization - Cannot load tests because file does not exist: C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\evosuite-seeds\com.cheops.candidatemanager.controllers.LoginController.seed
-[MASTER] 11:27:45.000 [pool-2-thread-1] WARN  TimeController - Phase INITIALIZATION lasted too long, 1 seconds more than allowed.

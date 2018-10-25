@@ -115,7 +115,7 @@ public class ApplicationProcessService_ESTest extends ApplicationProcessService_
       ApplicationProcessService applicationProcessService0 = new ApplicationProcessService();
       ApplicationProcess applicationProcess0 = new ApplicationProcess();
       ApplicationProcessRepository applicationProcessRepository0 = mock(ApplicationProcessRepository.class, new ViolatedAssumptionAnswer());
-      doReturn(applicationProcess0, "GodLRT#wWO[!y5*qj}|").when(applicationProcessRepository0).save(nullable(java.lang.Object.class));
+      doReturn(applicationProcess0, "GodLRT#wWO[!y5*qj}|").when(applicationProcessRepository0).save(new ApplicationProcess());
       Injector.inject(applicationProcessService0, (Class<?>) ApplicationProcessService.class, "applicationProcessRepository", (Object) applicationProcessRepository0);
       Injector.validateBean(applicationProcessService0, (Class<?>) ApplicationProcessService.class);
       ApplicationProcess applicationProcess1 = applicationProcessService0.addApplicationProcess((ApplicationProcess) null);
