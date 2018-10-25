@@ -1,0 +1,25 @@
+[MASTER] 11:25:12.744 [pool-2-thread-1] WARN  TestSuiteSerialization - Cannot load tests because file does not exist: C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\evosuite-seeds\com.cheops.candidatemanager.controllers.SkillsController.seed
+[MASTER] 11:25:16.008 [pool-2-thread-1] WARN  CheapPurityAnalyzer - kotlin.jvm.internal.Intrinsics was not found in the inheritance tree. Using DEFAULT value for cheap-purity analysis
+[MASTER] 11:25:16.010 [pool-2-thread-1] WARN  InheritanceTree - Class not in inheritance graph: kotlin.jvm.internal.Intrinsics
+[MASTER] 11:25:16.454 [pool-2-thread-1] WARN  CheapPurityAnalyzer - kotlin.reflect.jvm.ReflectJvmMapping was not found in the inheritance tree. Using DEFAULT value for cheap-purity analysis
+[MASTER] 11:25:16.454 [pool-2-thread-1] WARN  InheritanceTree - Class not in inheritance graph: kotlin.reflect.jvm.ReflectJvmMapping
+[MASTER] 11:25:21.279 [pool-2-thread-1] WARN  CheapPurityAnalyzer - org.apache.commons.fileupload.FileItem was not found in the inheritance tree. Using DEFAULT value for cheap-purity analysis
+[MASTER] 11:25:21.279 [pool-2-thread-1] WARN  InheritanceTree - Class not in inheritance graph: org.apache.commons.fileupload.FileItem
+[MASTER] 11:25:21.279 [pool-2-thread-1] WARN  CheapPurityAnalyzer - org.apache.commons.fileupload.FileItem was not found in the inheritance tree. Using DEFAULT value for cheap-purity analysis
+[MASTER] 11:25:21.279 [pool-2-thread-1] WARN  CheapPurityAnalyzer - org.apache.commons.fileupload.FileItem was not found in the inheritance tree. Using DEFAULT value for cheap-purity analysis
+[MASTER] 11:25:23.484 [pool-2-thread-1] WARN  InheritanceTree - Class not in inheritance graph: javax.faces.context.FacesContext
+[MASTER] 11:25:25.885 [pool-2-thread-1] WARN  InheritanceTree - Class not in inheritance graph: javax.faces.context.ExceptionHandler
+[MASTER] 11:25:25.890 [pool-2-thread-1] WARN  InheritanceTree - Class not in inheritance graph: javax.faces.context.ResponseStream
+[MASTER] 11:25:25.890 [pool-2-thread-1] WARN  InheritanceTree - Class not in inheritance graph: javax.faces.context.ResponseWriter
+[MASTER] 11:25:26.576 [pool-2-thread-1] WARN  InheritanceTree - Class not in inheritance graph: javax.faces.component.behavior.ClientBehavior
+[MASTER] 11:25:26.578 [pool-2-thread-1] WARN  InheritanceTree - Class not in inheritance graph: javax.faces.component.UIComponent
+[MASTER] 11:25:26.579 [pool-2-thread-1] WARN  InheritanceTree - Class not in inheritance graph: javax.faces.event.FacesEvent
+[MASTER] 11:25:26.580 [pool-2-thread-1] WARN  InheritanceTree - Class not in inheritance graph: javax.faces.component.ContextCallback
+[MASTER] 11:25:26.581 [pool-2-thread-1] WARN  InheritanceTree - Class not in inheritance graph: javax.faces.event.ComponentSystemEvent
+[MASTER] 11:25:26.584 [pool-2-thread-1] WARN  InheritanceTree - Class not in inheritance graph: javax.faces.el.ValueBinding
+[MASTER] 11:25:26.588 [pool-2-thread-1] WARN  InheritanceTree - Class not in inheritance graph: javax.faces.event.ComponentSystemEventListener
+[MASTER] 11:25:26.588 [pool-2-thread-1] WARN  InheritanceTree - Class not in inheritance graph: javax.faces.event.SystemEventListener
+[MASTER] 11:25:26.589 [pool-2-thread-1] WARN  InheritanceTree - Class not in inheritance graph: javax.faces.component.visit.VisitContext
+[MASTER] 11:25:26.590 [pool-2-thread-1] WARN  InheritanceTree - Class not in inheritance graph: javax.faces.component.visit.VisitCallback
+[MASTER] 11:25:26.596 [pool-2-thread-1] WARN  CheapPurityAnalyzer - joptsimple.OptionSet was not found in the inheritance tree. Using DEFAULT value for cheap-purity analysis
+[MASTER] 11:25:26.597 [pool-2-thread-1] WARN  InheritanceTree - Class not in inheritance graph: joptsimple.OptionSet

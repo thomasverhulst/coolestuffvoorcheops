@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <Project>
-    <totalNumberOfTestableClasses>32</totalNumberOfTestableClasses>
+    <totalNumberOfTestableClasses>34</totalNumberOfTestableClasses>
     <cut>
         <fullNameOfTargetClass>com.cheops.candidatemanager.controllers.SearchController</fullNameOfTargetClass>
         <fullNameOfTestSuite>com.cheops.candidatemanager.controllers.SearchController_ESTest</fullNameOfTestSuite>
@@ -25,6 +25,17 @@
             <std_out_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_15_45_42\logs\com.cheops.candidatemanager.controllers.SearchController\std_out_CLIENT.log</std_out_CLIENT>
             <std_err_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_15_45_42\logs\com.cheops.candidatemanager.controllers.SearchController\std_err_MASTER.log</std_err_MASTER>
             <std_out_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_15_45_42\logs\com.cheops.candidatemanager.controllers.SearchController\std_out_MASTER.log</std_out_MASTER>
+        </generation>
+        <generation>
+            <id>2</id>
+            <failed>true</failed>
+            <modified>true</modified>
+            <timeBudgetInSeconds>277</timeBudgetInSeconds>
+            <memoryInMB>1000</memoryInMB>
+            <std_err_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_25_11_16_57\logs\com.cheops.candidatemanager.controllers.SearchController\std_err_CLIENT.log</std_err_CLIENT>
+            <std_out_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_25_11_16_57\logs\com.cheops.candidatemanager.controllers.SearchController\std_out_CLIENT.log</std_out_CLIENT>
+            <std_err_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_25_11_16_57\logs\com.cheops.candidatemanager.controllers.SearchController\std_err_MASTER.log</std_err_MASTER>
+            <std_out_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_25_11_16_57\logs\com.cheops.candidatemanager.controllers.SearchController\std_out_MASTER.log</std_out_MASTER>
         </generation>
     </cut>
     <cut>
@@ -144,6 +155,17 @@
                 </coverage>
             </suite>
         </generation>
+        <generation>
+            <id>2</id>
+            <failed>true</failed>
+            <modified>true</modified>
+            <timeBudgetInSeconds>233</timeBudgetInSeconds>
+            <memoryInMB>1000</memoryInMB>
+            <std_err_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_25_11_16_57\logs\com.cheops.candidatemanager.services.impl.SkillsService\std_err_CLIENT.log</std_err_CLIENT>
+            <std_out_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_25_11_16_57\logs\com.cheops.candidatemanager.services.impl.SkillsService\std_out_CLIENT.log</std_out_CLIENT>
+            <std_err_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_25_11_16_57\logs\com.cheops.candidatemanager.services.impl.SkillsService\std_err_MASTER.log</std_err_MASTER>
+            <std_out_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_25_11_16_57\logs\com.cheops.candidatemanager.services.impl.SkillsService\std_out_MASTER.log</std_out_MASTER>
+        </generation>
     </cut>
     <cut>
         <fullNameOfTargetClass>com.cheops.candidatemanager.controllers.MyFileUploadController</fullNameOfTargetClass>
@@ -169,6 +191,17 @@
             <std_out_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_15_45_42\logs\com.cheops.candidatemanager.controllers.MyFileUploadController\std_out_CLIENT.log</std_out_CLIENT>
             <std_err_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_15_45_42\logs\com.cheops.candidatemanager.controllers.MyFileUploadController\std_err_MASTER.log</std_err_MASTER>
             <std_out_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_15_45_42\logs\com.cheops.candidatemanager.controllers.MyFileUploadController\std_out_MASTER.log</std_out_MASTER>
+        </generation>
+        <generation>
+            <id>2</id>
+            <failed>true</failed>
+            <modified>true</modified>
+            <timeBudgetInSeconds>146</timeBudgetInSeconds>
+            <memoryInMB>1000</memoryInMB>
+            <std_err_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_25_11_16_57\logs\com.cheops.candidatemanager.controllers.MyFileUploadController\std_err_CLIENT.log</std_err_CLIENT>
+            <std_out_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_25_11_16_57\logs\com.cheops.candidatemanager.controllers.MyFileUploadController\std_out_CLIENT.log</std_out_CLIENT>
+            <std_err_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_25_11_16_57\logs\com.cheops.candidatemanager.controllers.MyFileUploadController\std_err_MASTER.log</std_err_MASTER>
+            <std_out_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_25_11_16_57\logs\com.cheops.candidatemanager.controllers.MyFileUploadController\std_out_MASTER.log</std_out_MASTER>
         </generation>
     </cut>
     <cut>
@@ -241,6 +274,63 @@
             <std_out_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_15_45_42\logs\com.cheops.candidatemanager.services.impl.SalaryPackageService\std_out_CLIENT.log</std_out_CLIENT>
             <std_err_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_15_45_42\logs\com.cheops.candidatemanager.services.impl.SalaryPackageService\std_err_MASTER.log</std_err_MASTER>
             <std_out_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_15_45_42\logs\com.cheops.candidatemanager.services.impl.SalaryPackageService\std_out_MASTER.log</std_out_MASTER>
+        </generation>
+        <generation>
+            <id>2</id>
+            <failed>false</failed>
+            <modified>true</modified>
+            <timeBudgetInSeconds>60</timeBudgetInSeconds>
+            <memoryInMB>1000</memoryInMB>
+            <std_err_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_25_11_16_57\logs\com.cheops.candidatemanager.services.impl.SalaryPackageService\std_err_CLIENT.log</std_err_CLIENT>
+            <std_out_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_25_11_16_57\logs\com.cheops.candidatemanager.services.impl.SalaryPackageService\std_out_CLIENT.log</std_out_CLIENT>
+            <std_err_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_25_11_16_57\logs\com.cheops.candidatemanager.services.impl.SalaryPackageService\std_err_MASTER.log</std_err_MASTER>
+            <std_out_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_25_11_16_57\logs\com.cheops.candidatemanager.services.impl.SalaryPackageService\std_out_MASTER.log</std_out_MASTER>
+            <suite>
+                <fullPathOfTestSuite>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_25_11_16_57\tests\com\cheops\candidatemanager\services\impl\SalaryPackageService_ESTest.java</fullPathOfTestSuite>
+                <numberOfTests>11</numberOfTests>
+                <totalNumberOfStatements>65</totalNumberOfStatements>
+                <totalEffortInSeconds>37</totalEffortInSeconds>
+                <coverage>
+                    <criterion>LineCoverage</criterion>
+                    <coverageValue>0.82</coverageValue>
+                    <coverageBitString>11101111011</coverageBitString>
+                </coverage>
+                <coverage>
+                    <criterion>BranchCoverage</criterion>
+                    <coverageValue>1.0</coverageValue>
+                    <coverageBitString>111111</coverageBitString>
+                </coverage>
+                <coverage>
+                    <criterion>ExceptionCoverage</criterion>
+                    <coverageValue>0.6</coverageValue>
+                    <coverageBitString>1011101010</coverageBitString>
+                </coverage>
+                <coverage>
+                    <criterion>WeakMutationScore</criterion>
+                    <coverageValue>1.0</coverageValue>
+                    <coverageBitString>111111</coverageBitString>
+                </coverage>
+                <coverage>
+                    <criterion>OutputCoverage</criterion>
+                    <coverageValue>0.45</coverageValue>
+                    <coverageBitString>1111111110010000000000</coverageBitString>
+                </coverage>
+                <coverage>
+                    <criterion>MethodCoverage</criterion>
+                    <coverageValue>1.0</coverageValue>
+                    <coverageBitString>111111</coverageBitString>
+                </coverage>
+                <coverage>
+                    <criterion>MethodNoExceptionCoverage</criterion>
+                    <coverageValue>0.67</coverageValue>
+                    <coverageBitString>110101</coverageBitString>
+                </coverage>
+                <coverage>
+                    <criterion>CBranchCoverage</criterion>
+                    <coverageValue>1.0</coverageValue>
+                    <coverageBitString>111111</coverageBitString>
+                </coverage>
+            </suite>
         </generation>
     </cut>
     <cut>
@@ -360,6 +450,63 @@
                 </coverage>
             </suite>
         </generation>
+        <generation>
+            <id>2</id>
+            <failed>false</failed>
+            <modified>true</modified>
+            <timeBudgetInSeconds>60</timeBudgetInSeconds>
+            <memoryInMB>1000</memoryInMB>
+            <std_err_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_25_11_16_57\logs\com.cheops.candidatemanager.CandidateManagerApplication\std_err_CLIENT.log</std_err_CLIENT>
+            <std_out_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_25_11_16_57\logs\com.cheops.candidatemanager.CandidateManagerApplication\std_out_CLIENT.log</std_out_CLIENT>
+            <std_err_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_25_11_16_57\logs\com.cheops.candidatemanager.CandidateManagerApplication\std_err_MASTER.log</std_err_MASTER>
+            <std_out_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_25_11_16_57\logs\com.cheops.candidatemanager.CandidateManagerApplication\std_out_MASTER.log</std_out_MASTER>
+            <suite>
+                <fullPathOfTestSuite>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_25_11_16_57\tests\com\cheops\candidatemanager\CandidateManagerApplication_ESTest.java</fullPathOfTestSuite>
+                <numberOfTests>4</numberOfTests>
+                <totalNumberOfStatements>8</totalNumberOfStatements>
+                <totalEffortInSeconds>38</totalEffortInSeconds>
+                <coverage>
+                    <criterion>LineCoverage</criterion>
+                    <coverageValue>0.4</coverageValue>
+                    <coverageBitString>1110100000</coverageBitString>
+                </coverage>
+                <coverage>
+                    <criterion>BranchCoverage</criterion>
+                    <coverageValue>0.75</coverageValue>
+                    <coverageBitString>11110110</coverageBitString>
+                </coverage>
+                <coverage>
+                    <criterion>ExceptionCoverage</criterion>
+                    <coverageValue>1.0</coverageValue>
+                    <coverageBitString>1</coverageBitString>
+                </coverage>
+                <coverage>
+                    <criterion>WeakMutationScore</criterion>
+                    <coverageValue>0.0</coverageValue>
+                    <coverageBitString>00000000000000</coverageBitString>
+                </coverage>
+                <coverage>
+                    <criterion>OutputCoverage</criterion>
+                    <coverageValue>0.5</coverageValue>
+                    <coverageBitString>1010</coverageBitString>
+                </coverage>
+                <coverage>
+                    <criterion>MethodCoverage</criterion>
+                    <coverageValue>0.83</coverageValue>
+                    <coverageBitString>111110</coverageBitString>
+                </coverage>
+                <coverage>
+                    <criterion>MethodNoExceptionCoverage</criterion>
+                    <coverageValue>0.5</coverageValue>
+                    <coverageBitString>110100</coverageBitString>
+                </coverage>
+                <coverage>
+                    <criterion>CBranchCoverage</criterion>
+                    <coverageValue>0.62</coverageValue>
+                    <coverageBitString>10101101</coverageBitString>
+                </coverage>
+            </suite>
+        </generation>
     </cut>
     <cut>
         <fullNameOfTargetClass>com.cheops.candidatemanager.models.CandidateSearchResolver</fullNameOfTargetClass>
@@ -436,6 +583,63 @@
                 <numberOfTests>8</numberOfTests>
                 <totalNumberOfStatements>19</totalNumberOfStatements>
                 <totalEffortInSeconds>39</totalEffortInSeconds>
+                <coverage>
+                    <criterion>LineCoverage</criterion>
+                    <coverageValue>1.0</coverageValue>
+                    <coverageBitString>1111111111111111</coverageBitString>
+                </coverage>
+                <coverage>
+                    <criterion>BranchCoverage</criterion>
+                    <coverageValue>1.0</coverageValue>
+                    <coverageBitString>11111111</coverageBitString>
+                </coverage>
+                <coverage>
+                    <criterion>ExceptionCoverage</criterion>
+                    <coverageValue>1.0</coverageValue>
+                    <coverageBitString></coverageBitString>
+                </coverage>
+                <coverage>
+                    <criterion>WeakMutationScore</criterion>
+                    <coverageValue>1.0</coverageValue>
+                    <coverageBitString></coverageBitString>
+                </coverage>
+                <coverage>
+                    <criterion>OutputCoverage</criterion>
+                    <coverageValue>0.37</coverageValue>
+                    <coverageBitString>1110000000000001111</coverageBitString>
+                </coverage>
+                <coverage>
+                    <criterion>MethodCoverage</criterion>
+                    <coverageValue>1.0</coverageValue>
+                    <coverageBitString>11111111</coverageBitString>
+                </coverage>
+                <coverage>
+                    <criterion>MethodNoExceptionCoverage</criterion>
+                    <coverageValue>1.0</coverageValue>
+                    <coverageBitString>11111111</coverageBitString>
+                </coverage>
+                <coverage>
+                    <criterion>CBranchCoverage</criterion>
+                    <coverageValue>1.0</coverageValue>
+                    <coverageBitString>11111111</coverageBitString>
+                </coverage>
+            </suite>
+        </generation>
+        <generation>
+            <id>2</id>
+            <failed>false</failed>
+            <modified>true</modified>
+            <timeBudgetInSeconds>60</timeBudgetInSeconds>
+            <memoryInMB>1000</memoryInMB>
+            <std_err_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_25_11_16_57\logs\com.cheops.candidatemanager.models.CandidateSearchResolver\std_err_CLIENT.log</std_err_CLIENT>
+            <std_out_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_25_11_16_57\logs\com.cheops.candidatemanager.models.CandidateSearchResolver\std_out_CLIENT.log</std_out_CLIENT>
+            <std_err_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_25_11_16_57\logs\com.cheops.candidatemanager.models.CandidateSearchResolver\std_err_MASTER.log</std_err_MASTER>
+            <std_out_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_25_11_16_57\logs\com.cheops.candidatemanager.models.CandidateSearchResolver\std_out_MASTER.log</std_out_MASTER>
+            <suite>
+                <fullPathOfTestSuite>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_25_11_16_57\tests\com\cheops\candidatemanager\models\CandidateSearchResolver_ESTest.java</fullPathOfTestSuite>
+                <numberOfTests>8</numberOfTests>
+                <totalNumberOfStatements>20</totalNumberOfStatements>
+                <totalEffortInSeconds>38</totalEffortInSeconds>
                 <coverage>
                     <criterion>LineCoverage</criterion>
                     <coverageValue>1.0</coverageValue>
@@ -596,6 +800,63 @@
                 </coverage>
             </suite>
         </generation>
+        <generation>
+            <id>2</id>
+            <failed>false</failed>
+            <modified>true</modified>
+            <timeBudgetInSeconds>60</timeBudgetInSeconds>
+            <memoryInMB>1000</memoryInMB>
+            <std_err_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_25_11_16_57\logs\com.cheops.candidatemanager.controllers.SignInWidgetConfigController\std_err_CLIENT.log</std_err_CLIENT>
+            <std_out_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_25_11_16_57\logs\com.cheops.candidatemanager.controllers.SignInWidgetConfigController\std_out_CLIENT.log</std_out_CLIENT>
+            <std_err_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_25_11_16_57\logs\com.cheops.candidatemanager.controllers.SignInWidgetConfigController\std_err_MASTER.log</std_err_MASTER>
+            <std_out_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_25_11_16_57\logs\com.cheops.candidatemanager.controllers.SignInWidgetConfigController\std_out_MASTER.log</std_out_MASTER>
+            <suite>
+                <fullPathOfTestSuite>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_25_11_16_57\tests\com\cheops\candidatemanager\controllers\SignInWidgetConfigController_ESTest.java</fullPathOfTestSuite>
+                <numberOfTests>3</numberOfTests>
+                <totalNumberOfStatements>4</totalNumberOfStatements>
+                <totalEffortInSeconds>37</totalEffortInSeconds>
+                <coverage>
+                    <criterion>LineCoverage</criterion>
+                    <coverageValue>1.0</coverageValue>
+                    <coverageBitString>1111111111111</coverageBitString>
+                </coverage>
+                <coverage>
+                    <criterion>BranchCoverage</criterion>
+                    <coverageValue>1.0</coverageValue>
+                    <coverageBitString>111</coverageBitString>
+                </coverage>
+                <coverage>
+                    <criterion>ExceptionCoverage</criterion>
+                    <coverageValue>1.0</coverageValue>
+                    <coverageBitString>1</coverageBitString>
+                </coverage>
+                <coverage>
+                    <criterion>WeakMutationScore</criterion>
+                    <coverageValue>1.0</coverageValue>
+                    <coverageBitString>111111111</coverageBitString>
+                </coverage>
+                <coverage>
+                    <criterion>OutputCoverage</criterion>
+                    <coverageValue>0.5</coverageValue>
+                    <coverageBitString>10</coverageBitString>
+                </coverage>
+                <coverage>
+                    <criterion>MethodCoverage</criterion>
+                    <coverageValue>1.0</coverageValue>
+                    <coverageBitString>111</coverageBitString>
+                </coverage>
+                <coverage>
+                    <criterion>MethodNoExceptionCoverage</criterion>
+                    <coverageValue>1.0</coverageValue>
+                    <coverageBitString>111</coverageBitString>
+                </coverage>
+                <coverage>
+                    <criterion>CBranchCoverage</criterion>
+                    <coverageValue>1.0</coverageValue>
+                    <coverageBitString>111</coverageBitString>
+                </coverage>
+            </suite>
+        </generation>
     </cut>
     <cut>
         <fullNameOfTargetClass>com.cheops.candidatemanager.controllers.MessageOfTheDayController</fullNameOfTargetClass>
@@ -714,6 +975,63 @@
                 </coverage>
             </suite>
         </generation>
+        <generation>
+            <id>2</id>
+            <failed>false</failed>
+            <modified>true</modified>
+            <timeBudgetInSeconds>60</timeBudgetInSeconds>
+            <memoryInMB>1000</memoryInMB>
+            <std_err_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_25_11_16_57\logs\com.cheops.candidatemanager.controllers.MessageOfTheDayController\std_err_CLIENT.log</std_err_CLIENT>
+            <std_out_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_25_11_16_57\logs\com.cheops.candidatemanager.controllers.MessageOfTheDayController\std_out_CLIENT.log</std_out_CLIENT>
+            <std_err_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_25_11_16_57\logs\com.cheops.candidatemanager.controllers.MessageOfTheDayController\std_err_MASTER.log</std_err_MASTER>
+            <std_out_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_25_11_16_57\logs\com.cheops.candidatemanager.controllers.MessageOfTheDayController\std_out_MASTER.log</std_out_MASTER>
+            <suite>
+                <fullPathOfTestSuite>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_25_11_16_57\tests\com\cheops\candidatemanager\controllers\MessageOfTheDayController_ESTest.java</fullPathOfTestSuite>
+                <numberOfTests>2</numberOfTests>
+                <totalNumberOfStatements>5</totalNumberOfStatements>
+                <totalEffortInSeconds>38</totalEffortInSeconds>
+                <coverage>
+                    <criterion>LineCoverage</criterion>
+                    <coverageValue>1.0</coverageValue>
+                    <coverageBitString>11</coverageBitString>
+                </coverage>
+                <coverage>
+                    <criterion>BranchCoverage</criterion>
+                    <coverageValue>1.0</coverageValue>
+                    <coverageBitString>11</coverageBitString>
+                </coverage>
+                <coverage>
+                    <criterion>ExceptionCoverage</criterion>
+                    <coverageValue>1.0</coverageValue>
+                    <coverageBitString>1</coverageBitString>
+                </coverage>
+                <coverage>
+                    <criterion>WeakMutationScore</criterion>
+                    <coverageValue>1.0</coverageValue>
+                    <coverageBitString>1</coverageBitString>
+                </coverage>
+                <coverage>
+                    <criterion>OutputCoverage</criterion>
+                    <coverageValue>0.33</coverageValue>
+                    <coverageBitString>010</coverageBitString>
+                </coverage>
+                <coverage>
+                    <criterion>MethodCoverage</criterion>
+                    <coverageValue>1.0</coverageValue>
+                    <coverageBitString>11</coverageBitString>
+                </coverage>
+                <coverage>
+                    <criterion>MethodNoExceptionCoverage</criterion>
+                    <coverageValue>1.0</coverageValue>
+                    <coverageBitString>11</coverageBitString>
+                </coverage>
+                <coverage>
+                    <criterion>CBranchCoverage</criterion>
+                    <coverageValue>1.0</coverageValue>
+                    <coverageBitString>11</coverageBitString>
+                </coverage>
+            </suite>
+        </generation>
     </cut>
     <cut>
         <fullNameOfTargetClass>com.cheops.candidatemanager.models.Update</fullNameOfTargetClass>
@@ -789,6 +1107,63 @@
                 <fullPathOfTestSuite>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_15_45_42\tests\com\tv\tutorials\candidatemanager\models\Update_ESTest.java</fullPathOfTestSuite>
                 <numberOfTests>5</numberOfTests>
                 <totalNumberOfStatements>13</totalNumberOfStatements>
+                <totalEffortInSeconds>9</totalEffortInSeconds>
+                <coverage>
+                    <criterion>LineCoverage</criterion>
+                    <coverageValue>1.0</coverageValue>
+                    <coverageBitString>11111111111</coverageBitString>
+                </coverage>
+                <coverage>
+                    <criterion>BranchCoverage</criterion>
+                    <coverageValue>1.0</coverageValue>
+                    <coverageBitString>111111</coverageBitString>
+                </coverage>
+                <coverage>
+                    <criterion>ExceptionCoverage</criterion>
+                    <coverageValue>1.0</coverageValue>
+                    <coverageBitString></coverageBitString>
+                </coverage>
+                <coverage>
+                    <criterion>WeakMutationScore</criterion>
+                    <coverageValue>1.0</coverageValue>
+                    <coverageBitString>111111111111</coverageBitString>
+                </coverage>
+                <coverage>
+                    <criterion>OutputCoverage</criterion>
+                    <coverageValue>1.0</coverageValue>
+                    <coverageBitString>11111</coverageBitString>
+                </coverage>
+                <coverage>
+                    <criterion>MethodCoverage</criterion>
+                    <coverageValue>1.0</coverageValue>
+                    <coverageBitString>111111</coverageBitString>
+                </coverage>
+                <coverage>
+                    <criterion>MethodNoExceptionCoverage</criterion>
+                    <coverageValue>1.0</coverageValue>
+                    <coverageBitString>111111</coverageBitString>
+                </coverage>
+                <coverage>
+                    <criterion>CBranchCoverage</criterion>
+                    <coverageValue>1.0</coverageValue>
+                    <coverageBitString>111111</coverageBitString>
+                </coverage>
+            </suite>
+        </generation>
+        <generation>
+            <id>2</id>
+            <failed>false</failed>
+            <modified>true</modified>
+            <timeBudgetInSeconds>60</timeBudgetInSeconds>
+            <memoryInMB>1000</memoryInMB>
+            <std_err_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_25_11_16_57\logs\com.cheops.candidatemanager.models.Update\std_err_CLIENT.log</std_err_CLIENT>
+            <std_out_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_25_11_16_57\logs\com.cheops.candidatemanager.models.Update\std_out_CLIENT.log</std_out_CLIENT>
+            <std_err_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_25_11_16_57\logs\com.cheops.candidatemanager.models.Update\std_err_MASTER.log</std_err_MASTER>
+            <std_out_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_25_11_16_57\logs\com.cheops.candidatemanager.models.Update\std_out_MASTER.log</std_out_MASTER>
+            <suite>
+                <fullPathOfTestSuite>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_25_11_16_57\tests\com\cheops\candidatemanager\models\Update_ESTest.java</fullPathOfTestSuite>
+                <numberOfTests>7</numberOfTests>
+                <totalNumberOfStatements>17</totalNumberOfStatements>
                 <totalEffortInSeconds>9</totalEffortInSeconds>
                 <coverage>
                     <criterion>LineCoverage</criterion>
@@ -950,6 +1325,63 @@
                 </coverage>
             </suite>
         </generation>
+        <generation>
+            <id>2</id>
+            <failed>false</failed>
+            <modified>true</modified>
+            <timeBudgetInSeconds>320</timeBudgetInSeconds>
+            <memoryInMB>1000</memoryInMB>
+            <std_err_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_25_11_16_57\logs\com.cheops.candidatemanager.controllers.FileUploadController2\std_err_CLIENT.log</std_err_CLIENT>
+            <std_out_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_25_11_16_57\logs\com.cheops.candidatemanager.controllers.FileUploadController2\std_out_CLIENT.log</std_out_CLIENT>
+            <std_err_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_25_11_16_57\logs\com.cheops.candidatemanager.controllers.FileUploadController2\std_err_MASTER.log</std_err_MASTER>
+            <std_out_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_25_11_16_57\logs\com.cheops.candidatemanager.controllers.FileUploadController2\std_out_MASTER.log</std_out_MASTER>
+            <suite>
+                <fullPathOfTestSuite>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_25_11_16_57\tests\com\cheops\candidatemanager\controllers\FileUploadController2_ESTest.java</fullPathOfTestSuite>
+                <numberOfTests>7</numberOfTests>
+                <totalNumberOfStatements>78</totalNumberOfStatements>
+                <totalEffortInSeconds>185</totalEffortInSeconds>
+                <coverage>
+                    <criterion>LineCoverage</criterion>
+                    <coverageValue>1.0</coverageValue>
+                    <coverageBitString>111111111111111111111111111111</coverageBitString>
+                </coverage>
+                <coverage>
+                    <criterion>BranchCoverage</criterion>
+                    <coverageValue>0.76</coverageValue>
+                    <coverageBitString>1110110110110110101111111</coverageBitString>
+                </coverage>
+                <coverage>
+                    <criterion>ExceptionCoverage</criterion>
+                    <coverageValue>1.0</coverageValue>
+                    <coverageBitString>11111</coverageBitString>
+                </coverage>
+                <coverage>
+                    <criterion>WeakMutationScore</criterion>
+                    <coverageValue>0.95</coverageValue>
+                    <coverageBitString>1111111111111111111111111101111011111111111</coverageBitString>
+                </coverage>
+                <coverage>
+                    <criterion>OutputCoverage</criterion>
+                    <coverageValue>1.0</coverageValue>
+                    <coverageBitString></coverageBitString>
+                </coverage>
+                <coverage>
+                    <criterion>MethodCoverage</criterion>
+                    <coverageValue>1.0</coverageValue>
+                    <coverageBitString>11</coverageBitString>
+                </coverage>
+                <coverage>
+                    <criterion>MethodNoExceptionCoverage</criterion>
+                    <coverageValue>1.0</coverageValue>
+                    <coverageBitString>11</coverageBitString>
+                </coverage>
+                <coverage>
+                    <criterion>CBranchCoverage</criterion>
+                    <coverageValue>0.76</coverageValue>
+                    <coverageBitString>1110111010111011001111111</coverageBitString>
+                </coverage>
+            </suite>
+        </generation>
     </cut>
     <cut>
         <fullNameOfTargetClass>com.cheops.candidatemanager.services.impl.CandidateService</fullNameOfTargetClass>
@@ -1068,6 +1500,63 @@
                 </coverage>
             </suite>
         </generation>
+        <generation>
+            <id>2</id>
+            <failed>false</failed>
+            <modified>true</modified>
+            <timeBudgetInSeconds>494</timeBudgetInSeconds>
+            <memoryInMB>1000</memoryInMB>
+            <std_err_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_25_11_16_57\logs\com.cheops.candidatemanager.services.impl.CandidateService\std_err_CLIENT.log</std_err_CLIENT>
+            <std_out_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_25_11_16_57\logs\com.cheops.candidatemanager.services.impl.CandidateService\std_out_CLIENT.log</std_out_CLIENT>
+            <std_err_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_25_11_16_57\logs\com.cheops.candidatemanager.services.impl.CandidateService\std_err_MASTER.log</std_err_MASTER>
+            <std_out_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_25_11_16_57\logs\com.cheops.candidatemanager.services.impl.CandidateService\std_out_MASTER.log</std_out_MASTER>
+            <suite>
+                <fullPathOfTestSuite>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_25_11_16_57\tests\com\cheops\candidatemanager\services\impl\CandidateService_ESTest.java</fullPathOfTestSuite>
+                <numberOfTests>45</numberOfTests>
+                <totalNumberOfStatements>969</totalNumberOfStatements>
+                <totalEffortInSeconds>305</totalEffortInSeconds>
+                <coverage>
+                    <criterion>LineCoverage</criterion>
+                    <coverageValue>0.77</coverageValue>
+                    <coverageBitString>111111111111100000111110000000000000000111110111111111111111111111111111111000011111111111111111111111111111111111</coverageBitString>
+                </coverage>
+                <coverage>
+                    <criterion>BranchCoverage</criterion>
+                    <coverageValue>0.59</coverageValue>
+                    <coverageBitString>111111111111111111000000000000000011101111111100111000</coverageBitString>
+                </coverage>
+                <coverage>
+                    <criterion>ExceptionCoverage</criterion>
+                    <coverageValue>0.9</coverageValue>
+                    <coverageBitString>111111011111110111111011111111</coverageBitString>
+                </coverage>
+                <coverage>
+                    <criterion>WeakMutationScore</criterion>
+                    <coverageValue>0.68</coverageValue>
+                    <coverageBitString>11111111100000000000000111111111111111011111111111101111001111110111101101000000000111111110110000111111111111</coverageBitString>
+                </coverage>
+                <coverage>
+                    <criterion>OutputCoverage</criterion>
+                    <coverageValue>0.66</coverageValue>
+                    <coverageBitString>10111111111111101101101101101101101101101100100101101101101101101100100111010011011110</coverageBitString>
+                </coverage>
+                <coverage>
+                    <criterion>MethodCoverage</criterion>
+                    <coverageValue>1.0</coverageValue>
+                    <coverageBitString>11111111111111111</coverageBitString>
+                </coverage>
+                <coverage>
+                    <criterion>MethodNoExceptionCoverage</criterion>
+                    <coverageValue>0.94</coverageValue>
+                    <coverageBitString>11101111111111111</coverageBitString>
+                </coverage>
+                <coverage>
+                    <criterion>CBranchCoverage</criterion>
+                    <coverageValue>0.59</coverageValue>
+                    <coverageBitString>111111111111111111000000000000000011011111111100110100</coverageBitString>
+                </coverage>
+            </suite>
+        </generation>
     </cut>
     <cut>
         <fullNameOfTargetClass>com.cheops.candidatemanager.exceptions.StorageFileNotFoundException</fullNameOfTargetClass>
@@ -1144,6 +1633,63 @@
                 <numberOfTests>2</numberOfTests>
                 <totalNumberOfStatements>3</totalNumberOfStatements>
                 <totalEffortInSeconds>12</totalEffortInSeconds>
+                <coverage>
+                    <criterion>LineCoverage</criterion>
+                    <coverageValue>1.0</coverageValue>
+                    <coverageBitString>1111</coverageBitString>
+                </coverage>
+                <coverage>
+                    <criterion>BranchCoverage</criterion>
+                    <coverageValue>1.0</coverageValue>
+                    <coverageBitString>11</coverageBitString>
+                </coverage>
+                <coverage>
+                    <criterion>ExceptionCoverage</criterion>
+                    <coverageValue>1.0</coverageValue>
+                    <coverageBitString></coverageBitString>
+                </coverage>
+                <coverage>
+                    <criterion>WeakMutationScore</criterion>
+                    <coverageValue>1.0</coverageValue>
+                    <coverageBitString></coverageBitString>
+                </coverage>
+                <coverage>
+                    <criterion>OutputCoverage</criterion>
+                    <coverageValue>1.0</coverageValue>
+                    <coverageBitString></coverageBitString>
+                </coverage>
+                <coverage>
+                    <criterion>MethodCoverage</criterion>
+                    <coverageValue>1.0</coverageValue>
+                    <coverageBitString>11</coverageBitString>
+                </coverage>
+                <coverage>
+                    <criterion>MethodNoExceptionCoverage</criterion>
+                    <coverageValue>1.0</coverageValue>
+                    <coverageBitString>11</coverageBitString>
+                </coverage>
+                <coverage>
+                    <criterion>CBranchCoverage</criterion>
+                    <coverageValue>1.0</coverageValue>
+                    <coverageBitString>11</coverageBitString>
+                </coverage>
+            </suite>
+        </generation>
+        <generation>
+            <id>2</id>
+            <failed>false</failed>
+            <modified>true</modified>
+            <timeBudgetInSeconds>60</timeBudgetInSeconds>
+            <memoryInMB>1000</memoryInMB>
+            <std_err_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_25_11_16_57\logs\com.cheops.candidatemanager.exceptions.StorageFileNotFoundException\std_err_CLIENT.log</std_err_CLIENT>
+            <std_out_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_25_11_16_57\logs\com.cheops.candidatemanager.exceptions.StorageFileNotFoundException\std_out_CLIENT.log</std_out_CLIENT>
+            <std_err_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_25_11_16_57\logs\com.cheops.candidatemanager.exceptions.StorageFileNotFoundException\std_err_MASTER.log</std_err_MASTER>
+            <std_out_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_25_11_16_57\logs\com.cheops.candidatemanager.exceptions.StorageFileNotFoundException\std_out_MASTER.log</std_out_MASTER>
+            <suite>
+                <fullPathOfTestSuite>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_25_11_16_57\tests\com\cheops\candidatemanager\exceptions\StorageFileNotFoundException_ESTest.java</fullPathOfTestSuite>
+                <numberOfTests>1</numberOfTests>
+                <totalNumberOfStatements>2</totalNumberOfStatements>
+                <totalEffortInSeconds>8</totalEffortInSeconds>
                 <coverage>
                     <criterion>LineCoverage</criterion>
                     <coverageValue>1.0</coverageValue>
@@ -1304,6 +1850,63 @@
                 </coverage>
             </suite>
         </generation>
+        <generation>
+            <id>2</id>
+            <failed>false</failed>
+            <modified>true</modified>
+            <timeBudgetInSeconds>233</timeBudgetInSeconds>
+            <memoryInMB>1000</memoryInMB>
+            <std_err_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_25_11_16_57\logs\com.cheops.candidatemanager.services.impl.StorageService\std_err_CLIENT.log</std_err_CLIENT>
+            <std_out_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_25_11_16_57\logs\com.cheops.candidatemanager.services.impl.StorageService\std_out_CLIENT.log</std_out_CLIENT>
+            <std_err_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_25_11_16_57\logs\com.cheops.candidatemanager.services.impl.StorageService\std_err_MASTER.log</std_err_MASTER>
+            <std_out_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_25_11_16_57\logs\com.cheops.candidatemanager.services.impl.StorageService\std_out_MASTER.log</std_out_MASTER>
+            <suite>
+                <fullPathOfTestSuite>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_25_11_16_57\tests\com\cheops\candidatemanager\services\impl\StorageService_ESTest.java</fullPathOfTestSuite>
+                <numberOfTests>21</numberOfTests>
+                <totalNumberOfStatements>77</totalNumberOfStatements>
+                <totalEffortInSeconds>144</totalEffortInSeconds>
+                <coverage>
+                    <criterion>LineCoverage</criterion>
+                    <coverageValue>0.71</coverageValue>
+                    <coverageBitString>1111110000111111111100111111110000</coverageBitString>
+                </coverage>
+                <coverage>
+                    <criterion>BranchCoverage</criterion>
+                    <coverageValue>0.73</coverageValue>
+                    <coverageBitString>1111111111000011011110</coverageBitString>
+                </coverage>
+                <coverage>
+                    <criterion>ExceptionCoverage</criterion>
+                    <coverageValue>1.0</coverageValue>
+                    <coverageBitString>1111111111111111</coverageBitString>
+                </coverage>
+                <coverage>
+                    <criterion>WeakMutationScore</criterion>
+                    <coverageValue>0.81</coverageValue>
+                    <coverageBitString>111111110011111111010</coverageBitString>
+                </coverage>
+                <coverage>
+                    <criterion>OutputCoverage</criterion>
+                    <coverageValue>0.16</coverageValue>
+                    <coverageBitString>1010000000010000000</coverageBitString>
+                </coverage>
+                <coverage>
+                    <criterion>MethodCoverage</criterion>
+                    <coverageValue>1.0</coverageValue>
+                    <coverageBitString>11111111</coverageBitString>
+                </coverage>
+                <coverage>
+                    <criterion>MethodNoExceptionCoverage</criterion>
+                    <coverageValue>0.75</coverageValue>
+                    <coverageBitString>11101110</coverageBitString>
+                </coverage>
+                <coverage>
+                    <criterion>CBranchCoverage</criterion>
+                    <coverageValue>0.73</coverageValue>
+                    <coverageBitString>1111111111100101001110</coverageBitString>
+                </coverage>
+            </suite>
+        </generation>
     </cut>
     <cut>
         <fullNameOfTargetClass>com.cheops.candidatemanager.models.MyUploadForm</fullNameOfTargetClass>
@@ -1422,6 +2025,63 @@
                 </coverage>
             </suite>
         </generation>
+        <generation>
+            <id>2</id>
+            <failed>false</failed>
+            <modified>true</modified>
+            <timeBudgetInSeconds>60</timeBudgetInSeconds>
+            <memoryInMB>1000</memoryInMB>
+            <std_err_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_25_11_16_57\logs\com.cheops.candidatemanager.models.MyUploadForm\std_err_CLIENT.log</std_err_CLIENT>
+            <std_out_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_25_11_16_57\logs\com.cheops.candidatemanager.models.MyUploadForm\std_out_CLIENT.log</std_out_CLIENT>
+            <std_err_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_25_11_16_57\logs\com.cheops.candidatemanager.models.MyUploadForm\std_err_MASTER.log</std_err_MASTER>
+            <std_out_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_25_11_16_57\logs\com.cheops.candidatemanager.models.MyUploadForm\std_out_MASTER.log</std_out_MASTER>
+            <suite>
+                <fullPathOfTestSuite>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_25_11_16_57\tests\com\cheops\candidatemanager\models\MyUploadForm_ESTest.java</fullPathOfTestSuite>
+                <numberOfTests>6</numberOfTests>
+                <totalNumberOfStatements>18</totalNumberOfStatements>
+                <totalEffortInSeconds>8</totalEffortInSeconds>
+                <coverage>
+                    <criterion>LineCoverage</criterion>
+                    <coverageValue>1.0</coverageValue>
+                    <coverageBitString>1111111</coverageBitString>
+                </coverage>
+                <coverage>
+                    <criterion>BranchCoverage</criterion>
+                    <coverageValue>1.0</coverageValue>
+                    <coverageBitString>11111</coverageBitString>
+                </coverage>
+                <coverage>
+                    <criterion>ExceptionCoverage</criterion>
+                    <coverageValue>1.0</coverageValue>
+                    <coverageBitString></coverageBitString>
+                </coverage>
+                <coverage>
+                    <criterion>WeakMutationScore</criterion>
+                    <coverageValue>1.0</coverageValue>
+                    <coverageBitString></coverageBitString>
+                </coverage>
+                <coverage>
+                    <criterion>OutputCoverage</criterion>
+                    <coverageValue>1.0</coverageValue>
+                    <coverageBitString>111111</coverageBitString>
+                </coverage>
+                <coverage>
+                    <criterion>MethodCoverage</criterion>
+                    <coverageValue>1.0</coverageValue>
+                    <coverageBitString>11111</coverageBitString>
+                </coverage>
+                <coverage>
+                    <criterion>MethodNoExceptionCoverage</criterion>
+                    <coverageValue>1.0</coverageValue>
+                    <coverageBitString>11111</coverageBitString>
+                </coverage>
+                <coverage>
+                    <criterion>CBranchCoverage</criterion>
+                    <coverageValue>1.0</coverageValue>
+                    <coverageBitString>11111</coverageBitString>
+                </coverage>
+            </suite>
+        </generation>
     </cut>
     <cut>
         <fullNameOfTargetClass>com.cheops.candidatemanager.controllers.SkillsController</fullNameOfTargetClass>
@@ -1447,6 +2107,17 @@
             <std_out_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_15_45_42\logs\com.cheops.candidatemanager.controllers.SkillsController\std_out_CLIENT.log</std_out_CLIENT>
             <std_err_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_15_45_42\logs\com.cheops.candidatemanager.controllers.SkillsController\std_err_MASTER.log</std_err_MASTER>
             <std_out_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_15_45_42\logs\com.cheops.candidatemanager.controllers.SkillsController\std_out_MASTER.log</std_out_MASTER>
+        </generation>
+        <generation>
+            <id>2</id>
+            <failed>true</failed>
+            <modified>true</modified>
+            <timeBudgetInSeconds>125</timeBudgetInSeconds>
+            <memoryInMB>1000</memoryInMB>
+            <std_err_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_25_11_16_57\logs\com.cheops.candidatemanager.controllers.SkillsController\std_err_CLIENT.log</std_err_CLIENT>
+            <std_out_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_25_11_16_57\logs\com.cheops.candidatemanager.controllers.SkillsController\std_out_CLIENT.log</std_out_CLIENT>
+            <std_err_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_25_11_16_57\logs\com.cheops.candidatemanager.controllers.SkillsController\std_err_MASTER.log</std_err_MASTER>
+            <std_out_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_25_11_16_57\logs\com.cheops.candidatemanager.controllers.SkillsController\std_out_MASTER.log</std_out_MASTER>
         </generation>
     </cut>
     <cut>
@@ -1566,6 +2237,63 @@
                 </coverage>
             </suite>
         </generation>
+        <generation>
+            <id>2</id>
+            <failed>false</failed>
+            <modified>true</modified>
+            <timeBudgetInSeconds>60</timeBudgetInSeconds>
+            <memoryInMB>1000</memoryInMB>
+            <std_err_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_25_11_16_57\logs\com.cheops.candidatemanager.models.CandaidateSearchModel\std_err_CLIENT.log</std_err_CLIENT>
+            <std_out_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_25_11_16_57\logs\com.cheops.candidatemanager.models.CandaidateSearchModel\std_out_CLIENT.log</std_out_CLIENT>
+            <std_err_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_25_11_16_57\logs\com.cheops.candidatemanager.models.CandaidateSearchModel\std_err_MASTER.log</std_err_MASTER>
+            <std_out_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_25_11_16_57\logs\com.cheops.candidatemanager.models.CandaidateSearchModel\std_out_MASTER.log</std_out_MASTER>
+            <suite>
+                <fullPathOfTestSuite>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_25_11_16_57\tests\com\cheops\candidatemanager\models\CandaidateSearchModel_ESTest.java</fullPathOfTestSuite>
+                <numberOfTests>6</numberOfTests>
+                <totalNumberOfStatements>15</totalNumberOfStatements>
+                <totalEffortInSeconds>7</totalEffortInSeconds>
+                <coverage>
+                    <criterion>LineCoverage</criterion>
+                    <coverageValue>1.0</coverageValue>
+                    <coverageBitString>111111111111</coverageBitString>
+                </coverage>
+                <coverage>
+                    <criterion>BranchCoverage</criterion>
+                    <coverageValue>1.0</coverageValue>
+                    <coverageBitString>111111</coverageBitString>
+                </coverage>
+                <coverage>
+                    <criterion>ExceptionCoverage</criterion>
+                    <coverageValue>1.0</coverageValue>
+                    <coverageBitString></coverageBitString>
+                </coverage>
+                <coverage>
+                    <criterion>WeakMutationScore</criterion>
+                    <coverageValue>1.0</coverageValue>
+                    <coverageBitString></coverageBitString>
+                </coverage>
+                <coverage>
+                    <criterion>OutputCoverage</criterion>
+                    <coverageValue>1.0</coverageValue>
+                    <coverageBitString>111111</coverageBitString>
+                </coverage>
+                <coverage>
+                    <criterion>MethodCoverage</criterion>
+                    <coverageValue>1.0</coverageValue>
+                    <coverageBitString>111111</coverageBitString>
+                </coverage>
+                <coverage>
+                    <criterion>MethodNoExceptionCoverage</criterion>
+                    <coverageValue>1.0</coverageValue>
+                    <coverageBitString>111111</coverageBitString>
+                </coverage>
+                <coverage>
+                    <criterion>CBranchCoverage</criterion>
+                    <coverageValue>1.0</coverageValue>
+                    <coverageBitString>111111</coverageBitString>
+                </coverage>
+            </suite>
+        </generation>
     </cut>
     <cut>
         <fullNameOfTargetClass>com.cheops.candidatemanager.controllers.SalaryPackageController</fullNameOfTargetClass>
@@ -1591,6 +2319,17 @@
             <std_out_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_15_45_42\logs\com.cheops.candidatemanager.controllers.SalaryPackageController\std_out_CLIENT.log</std_out_CLIENT>
             <std_err_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_15_45_42\logs\com.cheops.candidatemanager.controllers.SalaryPackageController\std_err_MASTER.log</std_err_MASTER>
             <std_out_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_15_45_42\logs\com.cheops.candidatemanager.controllers.SalaryPackageController\std_out_MASTER.log</std_out_MASTER>
+        </generation>
+        <generation>
+            <id>2</id>
+            <failed>true</failed>
+            <modified>true</modified>
+            <timeBudgetInSeconds>190</timeBudgetInSeconds>
+            <memoryInMB>1000</memoryInMB>
+            <std_err_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_25_11_16_57\logs\com.cheops.candidatemanager.controllers.SalaryPackageController\std_err_CLIENT.log</std_err_CLIENT>
+            <std_out_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_25_11_16_57\logs\com.cheops.candidatemanager.controllers.SalaryPackageController\std_out_CLIENT.log</std_out_CLIENT>
+            <std_err_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_25_11_16_57\logs\com.cheops.candidatemanager.controllers.SalaryPackageController\std_err_MASTER.log</std_err_MASTER>
+            <std_out_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_25_11_16_57\logs\com.cheops.candidatemanager.controllers.SalaryPackageController\std_out_MASTER.log</std_out_MASTER>
         </generation>
     </cut>
     <cut>
@@ -1687,6 +2426,63 @@
                     <criterion>WeakMutationScore</criterion>
                     <coverageValue>0.0</coverageValue>
                     <coverageBitString>0000</coverageBitString>
+                </coverage>
+                <coverage>
+                    <criterion>OutputCoverage</criterion>
+                    <coverageValue>1.0</coverageValue>
+                    <coverageBitString></coverageBitString>
+                </coverage>
+                <coverage>
+                    <criterion>MethodCoverage</criterion>
+                    <coverageValue>0.0</coverageValue>
+                    <coverageBitString>000</coverageBitString>
+                </coverage>
+                <coverage>
+                    <criterion>MethodNoExceptionCoverage</criterion>
+                    <coverageValue>0.0</coverageValue>
+                    <coverageBitString>000</coverageBitString>
+                </coverage>
+                <coverage>
+                    <criterion>CBranchCoverage</criterion>
+                    <coverageValue>0.0</coverageValue>
+                    <coverageBitString>0000000</coverageBitString>
+                </coverage>
+            </suite>
+        </generation>
+        <generation>
+            <id>2</id>
+            <failed>false</failed>
+            <modified>true</modified>
+            <timeBudgetInSeconds>60</timeBudgetInSeconds>
+            <memoryInMB>1000</memoryInMB>
+            <std_err_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_25_11_16_57\logs\com.cheops.candidatemanager.configuration.SecurityConfiguration\std_err_CLIENT.log</std_err_CLIENT>
+            <std_out_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_25_11_16_57\logs\com.cheops.candidatemanager.configuration.SecurityConfiguration\std_out_CLIENT.log</std_out_CLIENT>
+            <std_err_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_25_11_16_57\logs\com.cheops.candidatemanager.configuration.SecurityConfiguration\std_err_MASTER.log</std_err_MASTER>
+            <std_out_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_25_11_16_57\logs\com.cheops.candidatemanager.configuration.SecurityConfiguration\std_out_MASTER.log</std_out_MASTER>
+            <suite>
+                <fullPathOfTestSuite>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_25_11_16_57\tests\com\cheops\candidatemanager\configuration\SecurityConfiguration_ESTest.java</fullPathOfTestSuite>
+                <numberOfTests>0</numberOfTests>
+                <totalNumberOfStatements>0</totalNumberOfStatements>
+                <totalEffortInSeconds>41</totalEffortInSeconds>
+                <coverage>
+                    <criterion>LineCoverage</criterion>
+                    <coverageValue>0.0</coverageValue>
+                    <coverageBitString>000000000000</coverageBitString>
+                </coverage>
+                <coverage>
+                    <criterion>BranchCoverage</criterion>
+                    <coverageValue>0.0</coverageValue>
+                    <coverageBitString>0000000</coverageBitString>
+                </coverage>
+                <coverage>
+                    <criterion>ExceptionCoverage</criterion>
+                    <coverageValue>1.0</coverageValue>
+                    <coverageBitString></coverageBitString>
+                </coverage>
+                <coverage>
+                    <criterion>WeakMutationScore</criterion>
+                    <coverageValue>0.0</coverageValue>
+                    <coverageBitString>00000000000</coverageBitString>
                 </coverage>
                 <coverage>
                     <criterion>OutputCoverage</criterion>
@@ -1828,6 +2624,63 @@
                 </coverage>
             </suite>
         </generation>
+        <generation>
+            <id>2</id>
+            <failed>false</failed>
+            <modified>true</modified>
+            <timeBudgetInSeconds>60</timeBudgetInSeconds>
+            <memoryInMB>1000</memoryInMB>
+            <std_err_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_25_11_16_57\logs\com.cheops.candidatemanager.exceptions.StorageException\std_err_CLIENT.log</std_err_CLIENT>
+            <std_out_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_25_11_16_57\logs\com.cheops.candidatemanager.exceptions.StorageException\std_out_CLIENT.log</std_out_CLIENT>
+            <std_err_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_25_11_16_57\logs\com.cheops.candidatemanager.exceptions.StorageException\std_err_MASTER.log</std_err_MASTER>
+            <std_out_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_25_11_16_57\logs\com.cheops.candidatemanager.exceptions.StorageException\std_out_MASTER.log</std_out_MASTER>
+            <suite>
+                <fullPathOfTestSuite>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_25_11_16_57\tests\com\cheops\candidatemanager\exceptions\StorageException_ESTest.java</fullPathOfTestSuite>
+                <numberOfTests>1</numberOfTests>
+                <totalNumberOfStatements>2</totalNumberOfStatements>
+                <totalEffortInSeconds>11</totalEffortInSeconds>
+                <coverage>
+                    <criterion>LineCoverage</criterion>
+                    <coverageValue>1.0</coverageValue>
+                    <coverageBitString>1111</coverageBitString>
+                </coverage>
+                <coverage>
+                    <criterion>BranchCoverage</criterion>
+                    <coverageValue>1.0</coverageValue>
+                    <coverageBitString>11</coverageBitString>
+                </coverage>
+                <coverage>
+                    <criterion>ExceptionCoverage</criterion>
+                    <coverageValue>1.0</coverageValue>
+                    <coverageBitString></coverageBitString>
+                </coverage>
+                <coverage>
+                    <criterion>WeakMutationScore</criterion>
+                    <coverageValue>1.0</coverageValue>
+                    <coverageBitString></coverageBitString>
+                </coverage>
+                <coverage>
+                    <criterion>OutputCoverage</criterion>
+                    <coverageValue>1.0</coverageValue>
+                    <coverageBitString></coverageBitString>
+                </coverage>
+                <coverage>
+                    <criterion>MethodCoverage</criterion>
+                    <coverageValue>1.0</coverageValue>
+                    <coverageBitString>11</coverageBitString>
+                </coverage>
+                <coverage>
+                    <criterion>MethodNoExceptionCoverage</criterion>
+                    <coverageValue>1.0</coverageValue>
+                    <coverageBitString>11</coverageBitString>
+                </coverage>
+                <coverage>
+                    <criterion>CBranchCoverage</criterion>
+                    <coverageValue>1.0</coverageValue>
+                    <coverageBitString>11</coverageBitString>
+                </coverage>
+            </suite>
+        </generation>
     </cut>
     <cut>
         <fullNameOfTargetClass>com.cheops.candidatemanager.controllers.FileUploaderController</fullNameOfTargetClass>
@@ -1853,6 +2706,17 @@
             <std_out_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_15_45_42\logs\com.cheops.candidatemanager.controllers.FileUploaderController\std_out_CLIENT.log</std_out_CLIENT>
             <std_err_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_15_45_42\logs\com.cheops.candidatemanager.controllers.FileUploaderController\std_err_MASTER.log</std_err_MASTER>
             <std_out_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_15_45_42\logs\com.cheops.candidatemanager.controllers.FileUploaderController\std_out_MASTER.log</std_out_MASTER>
+        </generation>
+        <generation>
+            <id>2</id>
+            <failed>true</failed>
+            <modified>true</modified>
+            <timeBudgetInSeconds>60</timeBudgetInSeconds>
+            <memoryInMB>1000</memoryInMB>
+            <std_err_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_25_11_16_57\logs\com.cheops.candidatemanager.controllers.FileUploaderController\std_err_CLIENT.log</std_err_CLIENT>
+            <std_out_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_25_11_16_57\logs\com.cheops.candidatemanager.controllers.FileUploaderController\std_out_CLIENT.log</std_out_CLIENT>
+            <std_err_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_25_11_16_57\logs\com.cheops.candidatemanager.controllers.FileUploaderController\std_err_MASTER.log</std_err_MASTER>
+            <std_out_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_25_11_16_57\logs\com.cheops.candidatemanager.controllers.FileUploaderController\std_out_MASTER.log</std_out_MASTER>
         </generation>
     </cut>
     <cut>
@@ -1930,6 +2794,63 @@
                 <numberOfTests>1</numberOfTests>
                 <totalNumberOfStatements>2</totalNumberOfStatements>
                 <totalEffortInSeconds>38</totalEffortInSeconds>
+                <coverage>
+                    <criterion>LineCoverage</criterion>
+                    <coverageValue>0.67</coverageValue>
+                    <coverageBitString>110</coverageBitString>
+                </coverage>
+                <coverage>
+                    <criterion>BranchCoverage</criterion>
+                    <coverageValue>1.0</coverageValue>
+                    <coverageBitString>11</coverageBitString>
+                </coverage>
+                <coverage>
+                    <criterion>ExceptionCoverage</criterion>
+                    <coverageValue>1.0</coverageValue>
+                    <coverageBitString>1</coverageBitString>
+                </coverage>
+                <coverage>
+                    <criterion>WeakMutationScore</criterion>
+                    <coverageValue>0.0</coverageValue>
+                    <coverageBitString>0</coverageBitString>
+                </coverage>
+                <coverage>
+                    <criterion>OutputCoverage</criterion>
+                    <coverageValue>0.0</coverageValue>
+                    <coverageBitString>000</coverageBitString>
+                </coverage>
+                <coverage>
+                    <criterion>MethodCoverage</criterion>
+                    <coverageValue>1.0</coverageValue>
+                    <coverageBitString>11</coverageBitString>
+                </coverage>
+                <coverage>
+                    <criterion>MethodNoExceptionCoverage</criterion>
+                    <coverageValue>0.5</coverageValue>
+                    <coverageBitString>10</coverageBitString>
+                </coverage>
+                <coverage>
+                    <criterion>CBranchCoverage</criterion>
+                    <coverageValue>1.0</coverageValue>
+                    <coverageBitString>11</coverageBitString>
+                </coverage>
+            </suite>
+        </generation>
+        <generation>
+            <id>2</id>
+            <failed>false</failed>
+            <modified>true</modified>
+            <timeBudgetInSeconds>60</timeBudgetInSeconds>
+            <memoryInMB>1000</memoryInMB>
+            <std_err_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_25_11_16_57\logs\com.cheops.candidatemanager.controllers.OpenIdController\std_err_CLIENT.log</std_err_CLIENT>
+            <std_out_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_25_11_16_57\logs\com.cheops.candidatemanager.controllers.OpenIdController\std_out_CLIENT.log</std_out_CLIENT>
+            <std_err_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_25_11_16_57\logs\com.cheops.candidatemanager.controllers.OpenIdController\std_err_MASTER.log</std_err_MASTER>
+            <std_out_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_25_11_16_57\logs\com.cheops.candidatemanager.controllers.OpenIdController\std_out_MASTER.log</std_out_MASTER>
+            <suite>
+                <fullPathOfTestSuite>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_25_11_16_57\tests\com\cheops\candidatemanager\controllers\OpenIdController_ESTest.java</fullPathOfTestSuite>
+                <numberOfTests>1</numberOfTests>
+                <totalNumberOfStatements>2</totalNumberOfStatements>
+                <totalEffortInSeconds>37</totalEffortInSeconds>
                 <coverage>
                     <criterion>LineCoverage</criterion>
                     <coverageValue>0.67</coverageValue>
@@ -2090,6 +3011,63 @@
                 </coverage>
             </suite>
         </generation>
+        <generation>
+            <id>2</id>
+            <failed>false</failed>
+            <modified>true</modified>
+            <timeBudgetInSeconds>60</timeBudgetInSeconds>
+            <memoryInMB>1000</memoryInMB>
+            <std_err_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_25_11_16_57\logs\com.cheops.candidatemanager.services.impl.AddressService\std_err_CLIENT.log</std_err_CLIENT>
+            <std_out_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_25_11_16_57\logs\com.cheops.candidatemanager.services.impl.AddressService\std_out_CLIENT.log</std_out_CLIENT>
+            <std_err_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_25_11_16_57\logs\com.cheops.candidatemanager.services.impl.AddressService\std_err_MASTER.log</std_err_MASTER>
+            <std_out_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_25_11_16_57\logs\com.cheops.candidatemanager.services.impl.AddressService\std_out_MASTER.log</std_out_MASTER>
+            <suite>
+                <fullPathOfTestSuite>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_25_11_16_57\tests\com\cheops\candidatemanager\services\impl\AddressService_ESTest.java</fullPathOfTestSuite>
+                <numberOfTests>8</numberOfTests>
+                <totalNumberOfStatements>46</totalNumberOfStatements>
+                <totalEffortInSeconds>38</totalEffortInSeconds>
+                <coverage>
+                    <criterion>LineCoverage</criterion>
+                    <coverageValue>0.83</coverageValue>
+                    <coverageBitString>111101011111</coverageBitString>
+                </coverage>
+                <coverage>
+                    <criterion>BranchCoverage</criterion>
+                    <coverageValue>1.0</coverageValue>
+                    <coverageBitString>111111</coverageBitString>
+                </coverage>
+                <coverage>
+                    <criterion>ExceptionCoverage</criterion>
+                    <coverageValue>0.56</coverageValue>
+                    <coverageBitString>011010101</coverageBitString>
+                </coverage>
+                <coverage>
+                    <criterion>WeakMutationScore</criterion>
+                    <coverageValue>1.0</coverageValue>
+                    <coverageBitString>111111</coverageBitString>
+                </coverage>
+                <coverage>
+                    <criterion>OutputCoverage</criterion>
+                    <coverageValue>0.4</coverageValue>
+                    <coverageBitString>1100100100</coverageBitString>
+                </coverage>
+                <coverage>
+                    <criterion>MethodCoverage</criterion>
+                    <coverageValue>1.0</coverageValue>
+                    <coverageBitString>111111</coverageBitString>
+                </coverage>
+                <coverage>
+                    <criterion>MethodNoExceptionCoverage</criterion>
+                    <coverageValue>0.67</coverageValue>
+                    <coverageBitString>110011</coverageBitString>
+                </coverage>
+                <coverage>
+                    <criterion>CBranchCoverage</criterion>
+                    <coverageValue>1.0</coverageValue>
+                    <coverageBitString>111111</coverageBitString>
+                </coverage>
+            </suite>
+        </generation>
     </cut>
     <cut>
         <fullNameOfTargetClass>com.cheops.candidatemanager.controllers.ApplicationProcessController</fullNameOfTargetClass>
@@ -2161,6 +3139,17 @@
                     <coverageBitString>111111</coverageBitString>
                 </coverage>
             </suite>
+        </generation>
+        <generation>
+            <id>2</id>
+            <failed>true</failed>
+            <modified>true</modified>
+            <timeBudgetInSeconds>103</timeBudgetInSeconds>
+            <memoryInMB>1000</memoryInMB>
+            <std_err_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_25_11_16_57\logs\com.cheops.candidatemanager.controllers.ApplicationProcessController\std_err_CLIENT.log</std_err_CLIENT>
+            <std_out_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_25_11_16_57\logs\com.cheops.candidatemanager.controllers.ApplicationProcessController\std_out_CLIENT.log</std_out_CLIENT>
+            <std_err_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_25_11_16_57\logs\com.cheops.candidatemanager.controllers.ApplicationProcessController\std_err_MASTER.log</std_err_MASTER>
+            <std_out_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_25_11_16_57\logs\com.cheops.candidatemanager.controllers.ApplicationProcessController\std_out_MASTER.log</std_out_MASTER>
         </generation>
     </cut>
     <cut>
@@ -2280,6 +3269,63 @@
                 </coverage>
             </suite>
         </generation>
+        <generation>
+            <id>2</id>
+            <failed>false</failed>
+            <modified>true</modified>
+            <timeBudgetInSeconds>60</timeBudgetInSeconds>
+            <memoryInMB>1000</memoryInMB>
+            <std_err_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_25_11_16_57\logs\com.cheops.candidatemanager.services.impl.CustomUserDetailService\std_err_CLIENT.log</std_err_CLIENT>
+            <std_out_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_25_11_16_57\logs\com.cheops.candidatemanager.services.impl.CustomUserDetailService\std_out_CLIENT.log</std_out_CLIENT>
+            <std_err_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_25_11_16_57\logs\com.cheops.candidatemanager.services.impl.CustomUserDetailService\std_err_MASTER.log</std_err_MASTER>
+            <std_out_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_25_11_16_57\logs\com.cheops.candidatemanager.services.impl.CustomUserDetailService\std_out_MASTER.log</std_out_MASTER>
+            <suite>
+                <fullPathOfTestSuite>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_25_11_16_57\tests\com\cheops\candidatemanager\services\impl\CustomUserDetailService_ESTest.java</fullPathOfTestSuite>
+                <numberOfTests>2</numberOfTests>
+                <totalNumberOfStatements>10</totalNumberOfStatements>
+                <totalEffortInSeconds>38</totalEffortInSeconds>
+                <coverage>
+                    <criterion>LineCoverage</criterion>
+                    <coverageValue>0.8</coverageValue>
+                    <coverageBitString>11110</coverageBitString>
+                </coverage>
+                <coverage>
+                    <criterion>BranchCoverage</criterion>
+                    <coverageValue>1.0</coverageValue>
+                    <coverageBitString>111</coverageBitString>
+                </coverage>
+                <coverage>
+                    <criterion>ExceptionCoverage</criterion>
+                    <coverageValue>0.5</coverageValue>
+                    <coverageBitString>10</coverageBitString>
+                </coverage>
+                <coverage>
+                    <criterion>WeakMutationScore</criterion>
+                    <coverageValue>1.0</coverageValue>
+                    <coverageBitString></coverageBitString>
+                </coverage>
+                <coverage>
+                    <criterion>OutputCoverage</criterion>
+                    <coverageValue>0.0</coverageValue>
+                    <coverageBitString>000000000</coverageBitString>
+                </coverage>
+                <coverage>
+                    <criterion>MethodCoverage</criterion>
+                    <coverageValue>1.0</coverageValue>
+                    <coverageBitString>111</coverageBitString>
+                </coverage>
+                <coverage>
+                    <criterion>MethodNoExceptionCoverage</criterion>
+                    <coverageValue>0.67</coverageValue>
+                    <coverageBitString>110</coverageBitString>
+                </coverage>
+                <coverage>
+                    <criterion>CBranchCoverage</criterion>
+                    <coverageValue>1.0</coverageValue>
+                    <coverageBitString>111</coverageBitString>
+                </coverage>
+            </suite>
+        </generation>
     </cut>
     <cut>
         <fullNameOfTargetClass>com.cheops.candidatemanager.services.impl.ApplicationProcessService</fullNameOfTargetClass>
@@ -2305,6 +3351,63 @@
             <std_out_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_15_45_42\logs\com.cheops.candidatemanager.services.impl.ApplicationProcessService\std_out_CLIENT.log</std_out_CLIENT>
             <std_err_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_15_45_42\logs\com.cheops.candidatemanager.services.impl.ApplicationProcessService\std_err_MASTER.log</std_err_MASTER>
             <std_out_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_15_45_42\logs\com.cheops.candidatemanager.services.impl.ApplicationProcessService\std_out_MASTER.log</std_out_MASTER>
+        </generation>
+        <generation>
+            <id>2</id>
+            <failed>false</failed>
+            <modified>true</modified>
+            <timeBudgetInSeconds>211</timeBudgetInSeconds>
+            <memoryInMB>1000</memoryInMB>
+            <std_err_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_25_11_16_57\logs\com.cheops.candidatemanager.services.impl.ApplicationProcessService\std_err_CLIENT.log</std_err_CLIENT>
+            <std_out_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_25_11_16_57\logs\com.cheops.candidatemanager.services.impl.ApplicationProcessService\std_out_CLIENT.log</std_out_CLIENT>
+            <std_err_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_25_11_16_57\logs\com.cheops.candidatemanager.services.impl.ApplicationProcessService\std_err_MASTER.log</std_err_MASTER>
+            <std_out_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_25_11_16_57\logs\com.cheops.candidatemanager.services.impl.ApplicationProcessService\std_out_MASTER.log</std_out_MASTER>
+            <suite>
+                <fullPathOfTestSuite>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_25_11_16_57\tests\com\cheops\candidatemanager\services\impl\ApplicationProcessService_ESTest.java</fullPathOfTestSuite>
+                <numberOfTests>27</numberOfTests>
+                <totalNumberOfStatements>236</totalNumberOfStatements>
+                <totalEffortInSeconds>131</totalEffortInSeconds>
+                <coverage>
+                    <criterion>LineCoverage</criterion>
+                    <coverageValue>1.0</coverageValue>
+                    <coverageBitString>111111111111111111111111111111111111111111111111</coverageBitString>
+                </coverage>
+                <coverage>
+                    <criterion>BranchCoverage</criterion>
+                    <coverageValue>1.0</coverageValue>
+                    <coverageBitString>111111111111111111111</coverageBitString>
+                </coverage>
+                <coverage>
+                    <criterion>ExceptionCoverage</criterion>
+                    <coverageValue>0.71</coverageValue>
+                    <coverageBitString>111010101101011101111</coverageBitString>
+                </coverage>
+                <coverage>
+                    <criterion>WeakMutationScore</criterion>
+                    <coverageValue>1.0</coverageValue>
+                    <coverageBitString>1111111111111111111111111111111</coverageBitString>
+                </coverage>
+                <coverage>
+                    <criterion>OutputCoverage</criterion>
+                    <coverageValue>0.6</coverageValue>
+                    <coverageBitString>1111011011011010010110010011011011011010</coverageBitString>
+                </coverage>
+                <coverage>
+                    <criterion>MethodCoverage</criterion>
+                    <coverageValue>1.0</coverageValue>
+                    <coverageBitString>11111111111</coverageBitString>
+                </coverage>
+                <coverage>
+                    <criterion>MethodNoExceptionCoverage</criterion>
+                    <coverageValue>1.0</coverageValue>
+                    <coverageBitString>11111111111</coverageBitString>
+                </coverage>
+                <coverage>
+                    <criterion>CBranchCoverage</criterion>
+                    <coverageValue>1.0</coverageValue>
+                    <coverageBitString>111111111111111111111</coverageBitString>
+                </coverage>
+            </suite>
         </generation>
     </cut>
     <cut>
@@ -2378,6 +3481,63 @@
                 </coverage>
             </suite>
         </generation>
+        <generation>
+            <id>2</id>
+            <failed>false</failed>
+            <modified>true</modified>
+            <timeBudgetInSeconds>60</timeBudgetInSeconds>
+            <memoryInMB>1000</memoryInMB>
+            <std_err_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_25_11_16_57\logs\com.cheops.candidatemanager.configuration.StorageProperties\std_err_CLIENT.log</std_err_CLIENT>
+            <std_out_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_25_11_16_57\logs\com.cheops.candidatemanager.configuration.StorageProperties\std_out_CLIENT.log</std_out_CLIENT>
+            <std_err_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_25_11_16_57\logs\com.cheops.candidatemanager.configuration.StorageProperties\std_err_MASTER.log</std_err_MASTER>
+            <std_out_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_25_11_16_57\logs\com.cheops.candidatemanager.configuration.StorageProperties\std_out_MASTER.log</std_out_MASTER>
+            <suite>
+                <fullPathOfTestSuite>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_25_11_16_57\tests\com\cheops\candidatemanager\configuration\StorageProperties_ESTest.java</fullPathOfTestSuite>
+                <numberOfTests>3</numberOfTests>
+                <totalNumberOfStatements>8</totalNumberOfStatements>
+                <totalEffortInSeconds>7</totalEffortInSeconds>
+                <coverage>
+                    <criterion>LineCoverage</criterion>
+                    <coverageValue>1.0</coverageValue>
+                    <coverageBitString>11111</coverageBitString>
+                </coverage>
+                <coverage>
+                    <criterion>BranchCoverage</criterion>
+                    <coverageValue>1.0</coverageValue>
+                    <coverageBitString>111</coverageBitString>
+                </coverage>
+                <coverage>
+                    <criterion>ExceptionCoverage</criterion>
+                    <coverageValue>1.0</coverageValue>
+                    <coverageBitString></coverageBitString>
+                </coverage>
+                <coverage>
+                    <criterion>WeakMutationScore</criterion>
+                    <coverageValue>1.0</coverageValue>
+                    <coverageBitString></coverageBitString>
+                </coverage>
+                <coverage>
+                    <criterion>OutputCoverage</criterion>
+                    <coverageValue>1.0</coverageValue>
+                    <coverageBitString>111</coverageBitString>
+                </coverage>
+                <coverage>
+                    <criterion>MethodCoverage</criterion>
+                    <coverageValue>1.0</coverageValue>
+                    <coverageBitString>111</coverageBitString>
+                </coverage>
+                <coverage>
+                    <criterion>MethodNoExceptionCoverage</criterion>
+                    <coverageValue>1.0</coverageValue>
+                    <coverageBitString>111</coverageBitString>
+                </coverage>
+                <coverage>
+                    <criterion>CBranchCoverage</criterion>
+                    <coverageValue>1.0</coverageValue>
+                    <coverageBitString>111</coverageBitString>
+                </coverage>
+            </suite>
+        </generation>
     </cut>
     <cut>
         <fullNameOfTargetClass>com.cheops.candidatemanager.services.impl.FileStorageService</fullNameOfTargetClass>
@@ -2408,6 +3568,63 @@
                 <numberOfTests>1</numberOfTests>
                 <totalNumberOfStatements>1</totalNumberOfStatements>
                 <totalEffortInSeconds>8</totalEffortInSeconds>
+                <coverage>
+                    <criterion>LineCoverage</criterion>
+                    <coverageValue>1.0</coverageValue>
+                    <coverageBitString>1</coverageBitString>
+                </coverage>
+                <coverage>
+                    <criterion>BranchCoverage</criterion>
+                    <coverageValue>1.0</coverageValue>
+                    <coverageBitString>1</coverageBitString>
+                </coverage>
+                <coverage>
+                    <criterion>ExceptionCoverage</criterion>
+                    <coverageValue>1.0</coverageValue>
+                    <coverageBitString></coverageBitString>
+                </coverage>
+                <coverage>
+                    <criterion>WeakMutationScore</criterion>
+                    <coverageValue>1.0</coverageValue>
+                    <coverageBitString></coverageBitString>
+                </coverage>
+                <coverage>
+                    <criterion>OutputCoverage</criterion>
+                    <coverageValue>1.0</coverageValue>
+                    <coverageBitString></coverageBitString>
+                </coverage>
+                <coverage>
+                    <criterion>MethodCoverage</criterion>
+                    <coverageValue>1.0</coverageValue>
+                    <coverageBitString>1</coverageBitString>
+                </coverage>
+                <coverage>
+                    <criterion>MethodNoExceptionCoverage</criterion>
+                    <coverageValue>1.0</coverageValue>
+                    <coverageBitString>1</coverageBitString>
+                </coverage>
+                <coverage>
+                    <criterion>CBranchCoverage</criterion>
+                    <coverageValue>1.0</coverageValue>
+                    <coverageBitString>1</coverageBitString>
+                </coverage>
+            </suite>
+        </generation>
+        <generation>
+            <id>2</id>
+            <failed>false</failed>
+            <modified>true</modified>
+            <timeBudgetInSeconds>60</timeBudgetInSeconds>
+            <memoryInMB>1000</memoryInMB>
+            <std_err_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_25_11_16_57\logs\com.cheops.candidatemanager.services.impl.FileStorageService\std_err_CLIENT.log</std_err_CLIENT>
+            <std_out_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_25_11_16_57\logs\com.cheops.candidatemanager.services.impl.FileStorageService\std_out_CLIENT.log</std_out_CLIENT>
+            <std_err_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_25_11_16_57\logs\com.cheops.candidatemanager.services.impl.FileStorageService\std_err_MASTER.log</std_err_MASTER>
+            <std_out_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_25_11_16_57\logs\com.cheops.candidatemanager.services.impl.FileStorageService\std_out_MASTER.log</std_out_MASTER>
+            <suite>
+                <fullPathOfTestSuite>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_25_11_16_57\tests\com\cheops\candidatemanager\services\impl\FileStorageService_ESTest.java</fullPathOfTestSuite>
+                <numberOfTests>1</numberOfTests>
+                <totalNumberOfStatements>1</totalNumberOfStatements>
+                <totalEffortInSeconds>7</totalEffortInSeconds>
                 <coverage>
                     <criterion>LineCoverage</criterion>
                     <coverageValue>1.0</coverageValue>
@@ -2568,6 +3785,63 @@
                 </coverage>
             </suite>
         </generation>
+        <generation>
+            <id>2</id>
+            <failed>false</failed>
+            <modified>true</modified>
+            <timeBudgetInSeconds>60</timeBudgetInSeconds>
+            <memoryInMB>1000</memoryInMB>
+            <std_err_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_25_11_16_57\logs\com.cheops.candidatemanager.controllers.RoleController\std_err_CLIENT.log</std_err_CLIENT>
+            <std_out_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_25_11_16_57\logs\com.cheops.candidatemanager.controllers.RoleController\std_out_CLIENT.log</std_out_CLIENT>
+            <std_err_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_25_11_16_57\logs\com.cheops.candidatemanager.controllers.RoleController\std_err_MASTER.log</std_err_MASTER>
+            <std_out_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_25_11_16_57\logs\com.cheops.candidatemanager.controllers.RoleController\std_out_MASTER.log</std_out_MASTER>
+            <suite>
+                <fullPathOfTestSuite>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_25_11_16_57\tests\com\cheops\candidatemanager\controllers\RoleController_ESTest.java</fullPathOfTestSuite>
+                <numberOfTests>1</numberOfTests>
+                <totalNumberOfStatements>1</totalNumberOfStatements>
+                <totalEffortInSeconds>6</totalEffortInSeconds>
+                <coverage>
+                    <criterion>LineCoverage</criterion>
+                    <coverageValue>1.0</coverageValue>
+                    <coverageBitString>1</coverageBitString>
+                </coverage>
+                <coverage>
+                    <criterion>BranchCoverage</criterion>
+                    <coverageValue>1.0</coverageValue>
+                    <coverageBitString>1</coverageBitString>
+                </coverage>
+                <coverage>
+                    <criterion>ExceptionCoverage</criterion>
+                    <coverageValue>1.0</coverageValue>
+                    <coverageBitString></coverageBitString>
+                </coverage>
+                <coverage>
+                    <criterion>WeakMutationScore</criterion>
+                    <coverageValue>1.0</coverageValue>
+                    <coverageBitString></coverageBitString>
+                </coverage>
+                <coverage>
+                    <criterion>OutputCoverage</criterion>
+                    <coverageValue>1.0</coverageValue>
+                    <coverageBitString></coverageBitString>
+                </coverage>
+                <coverage>
+                    <criterion>MethodCoverage</criterion>
+                    <coverageValue>1.0</coverageValue>
+                    <coverageBitString>1</coverageBitString>
+                </coverage>
+                <coverage>
+                    <criterion>MethodNoExceptionCoverage</criterion>
+                    <coverageValue>1.0</coverageValue>
+                    <coverageBitString>1</coverageBitString>
+                </coverage>
+                <coverage>
+                    <criterion>CBranchCoverage</criterion>
+                    <coverageValue>1.0</coverageValue>
+                    <coverageBitString>1</coverageBitString>
+                </coverage>
+            </suite>
+        </generation>
     </cut>
     <cut>
         <fullNameOfTargetClass>com.cheops.candidatemanager.controllers.CancidateController</fullNameOfTargetClass>
@@ -2593,6 +3867,17 @@
             <std_out_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_15_45_42\logs\com.cheops.candidatemanager.controllers.CancidateController\std_out_CLIENT.log</std_out_CLIENT>
             <std_err_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_15_45_42\logs\com.cheops.candidatemanager.controllers.CancidateController\std_err_MASTER.log</std_err_MASTER>
             <std_out_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_15_45_42\logs\com.cheops.candidatemanager.controllers.CancidateController\std_out_MASTER.log</std_out_MASTER>
+        </generation>
+        <generation>
+            <id>2</id>
+            <failed>true</failed>
+            <modified>true</modified>
+            <timeBudgetInSeconds>363</timeBudgetInSeconds>
+            <memoryInMB>1000</memoryInMB>
+            <std_err_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_25_11_16_57\logs\com.cheops.candidatemanager.controllers.CancidateController\std_err_CLIENT.log</std_err_CLIENT>
+            <std_out_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_25_11_16_57\logs\com.cheops.candidatemanager.controllers.CancidateController\std_out_CLIENT.log</std_out_CLIENT>
+            <std_err_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_25_11_16_57\logs\com.cheops.candidatemanager.controllers.CancidateController\std_err_MASTER.log</std_err_MASTER>
+            <std_out_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_25_11_16_57\logs\com.cheops.candidatemanager.controllers.CancidateController\std_out_MASTER.log</std_out_MASTER>
         </generation>
     </cut>
     <cut>
@@ -2665,6 +3950,63 @@
             <std_out_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_15_45_42\logs\com.cheops.candidatemanager.models.CustomUserDetails\std_out_CLIENT.log</std_out_CLIENT>
             <std_err_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_15_45_42\logs\com.cheops.candidatemanager.models.CustomUserDetails\std_err_MASTER.log</std_err_MASTER>
             <std_out_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\candidatemanager\.evosuite\tmp_2018_10_16_15_45_42\logs\com.cheops.candidatemanager.models.CustomUserDetails\std_out_MASTER.log</std_out_MASTER>
+        </generation>
+        <generation>
+            <id>2</id>
+            <failed>false</failed>
+            <modified>true</modified>
+            <timeBudgetInSeconds>60</timeBudgetInSeconds>
+            <memoryInMB>1000</memoryInMB>
+            <std_err_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_25_11_16_57\logs\com.cheops.candidatemanager.models.CustomUserDetails\std_err_CLIENT.log</std_err_CLIENT>
+            <std_out_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_25_11_16_57\logs\com.cheops.candidatemanager.models.CustomUserDetails\std_out_CLIENT.log</std_out_CLIENT>
+            <std_err_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_25_11_16_57\logs\com.cheops.candidatemanager.models.CustomUserDetails\std_err_MASTER.log</std_err_MASTER>
+            <std_out_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_25_11_16_57\logs\com.cheops.candidatemanager.models.CustomUserDetails\std_out_MASTER.log</std_out_MASTER>
+            <suite>
+                <fullPathOfTestSuite>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_25_11_16_57\tests\com\cheops\candidatemanager\models\CustomUserDetails_ESTest.java</fullPathOfTestSuite>
+                <numberOfTests>6</numberOfTests>
+                <totalNumberOfStatements>29</totalNumberOfStatements>
+                <totalEffortInSeconds>39</totalEffortInSeconds>
+                <coverage>
+                    <criterion>LineCoverage</criterion>
+                    <coverageValue>0.8</coverageValue>
+                    <coverageBitString>1111110101</coverageBitString>
+                </coverage>
+                <coverage>
+                    <criterion>BranchCoverage</criterion>
+                    <coverageValue>0.75</coverageValue>
+                    <coverageBitString>10110111</coverageBitString>
+                </coverage>
+                <coverage>
+                    <criterion>ExceptionCoverage</criterion>
+                    <coverageValue>1.0</coverageValue>
+                    <coverageBitString>11</coverageBitString>
+                </coverage>
+                <coverage>
+                    <criterion>WeakMutationScore</criterion>
+                    <coverageValue>0.5</coverageValue>
+                    <coverageBitString>0101</coverageBitString>
+                </coverage>
+                <coverage>
+                    <criterion>OutputCoverage</criterion>
+                    <coverageValue>0.5</coverageValue>
+                    <coverageBitString>1011111000010001</coverageBitString>
+                </coverage>
+                <coverage>
+                    <criterion>MethodCoverage</criterion>
+                    <coverageValue>0.75</coverageValue>
+                    <coverageBitString>11110101</coverageBitString>
+                </coverage>
+                <coverage>
+                    <criterion>MethodNoExceptionCoverage</criterion>
+                    <coverageValue>0.75</coverageValue>
+                    <coverageBitString>11110101</coverageBitString>
+                </coverage>
+                <coverage>
+                    <criterion>CBranchCoverage</criterion>
+                    <coverageValue>0.75</coverageValue>
+                    <coverageBitString>01111110</coverageBitString>
+                </coverage>
+            </suite>
         </generation>
     </cut>
     <cut>
@@ -2742,6 +4084,63 @@
                 <numberOfTests>4</numberOfTests>
                 <totalNumberOfStatements>22</totalNumberOfStatements>
                 <totalEffortInSeconds>39</totalEffortInSeconds>
+                <coverage>
+                    <criterion>LineCoverage</criterion>
+                    <coverageValue>1.0</coverageValue>
+                    <coverageBitString>111111111111</coverageBitString>
+                </coverage>
+                <coverage>
+                    <criterion>BranchCoverage</criterion>
+                    <coverageValue>1.0</coverageValue>
+                    <coverageBitString>111</coverageBitString>
+                </coverage>
+                <coverage>
+                    <criterion>ExceptionCoverage</criterion>
+                    <coverageValue>1.0</coverageValue>
+                    <coverageBitString>11</coverageBitString>
+                </coverage>
+                <coverage>
+                    <criterion>WeakMutationScore</criterion>
+                    <coverageValue>0.62</coverageValue>
+                    <coverageBitString>11011001</coverageBitString>
+                </coverage>
+                <coverage>
+                    <criterion>OutputCoverage</criterion>
+                    <coverageValue>0.33</coverageValue>
+                    <coverageBitString>010010</coverageBitString>
+                </coverage>
+                <coverage>
+                    <criterion>MethodCoverage</criterion>
+                    <coverageValue>1.0</coverageValue>
+                    <coverageBitString>111</coverageBitString>
+                </coverage>
+                <coverage>
+                    <criterion>MethodNoExceptionCoverage</criterion>
+                    <coverageValue>1.0</coverageValue>
+                    <coverageBitString>111</coverageBitString>
+                </coverage>
+                <coverage>
+                    <criterion>CBranchCoverage</criterion>
+                    <coverageValue>1.0</coverageValue>
+                    <coverageBitString>111</coverageBitString>
+                </coverage>
+            </suite>
+        </generation>
+        <generation>
+            <id>2</id>
+            <failed>false</failed>
+            <modified>true</modified>
+            <timeBudgetInSeconds>60</timeBudgetInSeconds>
+            <memoryInMB>1000</memoryInMB>
+            <std_err_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_25_11_16_57\logs\com.cheops.candidatemanager.controllers.UserController\std_err_CLIENT.log</std_err_CLIENT>
+            <std_out_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_25_11_16_57\logs\com.cheops.candidatemanager.controllers.UserController\std_out_CLIENT.log</std_out_CLIENT>
+            <std_err_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_25_11_16_57\logs\com.cheops.candidatemanager.controllers.UserController\std_err_MASTER.log</std_err_MASTER>
+            <std_out_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_25_11_16_57\logs\com.cheops.candidatemanager.controllers.UserController\std_out_MASTER.log</std_out_MASTER>
+            <suite>
+                <fullPathOfTestSuite>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_25_11_16_57\tests\com\cheops\candidatemanager\controllers\UserController_ESTest.java</fullPathOfTestSuite>
+                <numberOfTests>4</numberOfTests>
+                <totalNumberOfStatements>26</totalNumberOfStatements>
+                <totalEffortInSeconds>38</totalEffortInSeconds>
                 <coverage>
                     <criterion>LineCoverage</criterion>
                     <coverageValue>1.0</coverageValue>
@@ -2899,6 +4298,185 @@
                     <criterion>CBranchCoverage</criterion>
                     <coverageValue>1.0</coverageValue>
                     <coverageBitString>11</coverageBitString>
+                </coverage>
+            </suite>
+        </generation>
+        <generation>
+            <id>2</id>
+            <failed>false</failed>
+            <modified>true</modified>
+            <timeBudgetInSeconds>60</timeBudgetInSeconds>
+            <memoryInMB>1000</memoryInMB>
+            <std_err_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_25_11_16_57\logs\com.cheops.candidatemanager.controllers.TestController\std_err_CLIENT.log</std_err_CLIENT>
+            <std_out_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_25_11_16_57\logs\com.cheops.candidatemanager.controllers.TestController\std_out_CLIENT.log</std_out_CLIENT>
+            <std_err_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_25_11_16_57\logs\com.cheops.candidatemanager.controllers.TestController\std_err_MASTER.log</std_err_MASTER>
+            <std_out_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_25_11_16_57\logs\com.cheops.candidatemanager.controllers.TestController\std_out_MASTER.log</std_out_MASTER>
+            <suite>
+                <fullPathOfTestSuite>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_25_11_16_57\tests\com\cheops\candidatemanager\controllers\TestController_ESTest.java</fullPathOfTestSuite>
+                <numberOfTests>1</numberOfTests>
+                <totalNumberOfStatements>2</totalNumberOfStatements>
+                <totalEffortInSeconds>37</totalEffortInSeconds>
+                <coverage>
+                    <criterion>LineCoverage</criterion>
+                    <coverageValue>1.0</coverageValue>
+                    <coverageBitString>11</coverageBitString>
+                </coverage>
+                <coverage>
+                    <criterion>BranchCoverage</criterion>
+                    <coverageValue>1.0</coverageValue>
+                    <coverageBitString>11</coverageBitString>
+                </coverage>
+                <coverage>
+                    <criterion>ExceptionCoverage</criterion>
+                    <coverageValue>1.0</coverageValue>
+                    <coverageBitString></coverageBitString>
+                </coverage>
+                <coverage>
+                    <criterion>WeakMutationScore</criterion>
+                    <coverageValue>1.0</coverageValue>
+                    <coverageBitString>1</coverageBitString>
+                </coverage>
+                <coverage>
+                    <criterion>OutputCoverage</criterion>
+                    <coverageValue>0.33</coverageValue>
+                    <coverageBitString>010</coverageBitString>
+                </coverage>
+                <coverage>
+                    <criterion>MethodCoverage</criterion>
+                    <coverageValue>1.0</coverageValue>
+                    <coverageBitString>11</coverageBitString>
+                </coverage>
+                <coverage>
+                    <criterion>MethodNoExceptionCoverage</criterion>
+                    <coverageValue>1.0</coverageValue>
+                    <coverageBitString>11</coverageBitString>
+                </coverage>
+                <coverage>
+                    <criterion>CBranchCoverage</criterion>
+                    <coverageValue>1.0</coverageValue>
+                    <coverageBitString>11</coverageBitString>
+                </coverage>
+            </suite>
+        </generation>
+    </cut>
+    <cut>
+        <fullNameOfTargetClass>com.cheops.candidatemanager.configuration.WebMvcConfiguration</fullNameOfTargetClass>
+        <fullNameOfTestSuite>com.cheops.candidatemanager.configuration.WebMvcConfiguration_ESTest</fullNameOfTestSuite>
+        <generation>
+            <id>0</id>
+            <failed>false</failed>
+            <modified>true</modified>
+            <timeBudgetInSeconds>60</timeBudgetInSeconds>
+            <memoryInMB>1000</memoryInMB>
+            <std_err_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_25_11_16_57\logs\com.cheops.candidatemanager.configuration.WebMvcConfiguration\std_err_CLIENT.log</std_err_CLIENT>
+            <std_out_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_25_11_16_57\logs\com.cheops.candidatemanager.configuration.WebMvcConfiguration\std_out_CLIENT.log</std_out_CLIENT>
+            <std_err_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_25_11_16_57\logs\com.cheops.candidatemanager.configuration.WebMvcConfiguration\std_err_MASTER.log</std_err_MASTER>
+            <std_out_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_25_11_16_57\logs\com.cheops.candidatemanager.configuration.WebMvcConfiguration\std_out_MASTER.log</std_out_MASTER>
+            <suite>
+                <fullPathOfTestSuite>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_25_11_16_57\tests\com\cheops\candidatemanager\configuration\WebMvcConfiguration_ESTest.java</fullPathOfTestSuite>
+                <numberOfTests>2</numberOfTests>
+                <totalNumberOfStatements>7</totalNumberOfStatements>
+                <totalEffortInSeconds>10</totalEffortInSeconds>
+                <coverage>
+                    <criterion>LineCoverage</criterion>
+                    <coverageValue>1.0</coverageValue>
+                    <coverageBitString>1111</coverageBitString>
+                </coverage>
+                <coverage>
+                    <criterion>BranchCoverage</criterion>
+                    <coverageValue>1.0</coverageValue>
+                    <coverageBitString>11</coverageBitString>
+                </coverage>
+                <coverage>
+                    <criterion>ExceptionCoverage</criterion>
+                    <coverageValue>1.0</coverageValue>
+                    <coverageBitString>1</coverageBitString>
+                </coverage>
+                <coverage>
+                    <criterion>WeakMutationScore</criterion>
+                    <coverageValue>1.0</coverageValue>
+                    <coverageBitString>1111111</coverageBitString>
+                </coverage>
+                <coverage>
+                    <criterion>OutputCoverage</criterion>
+                    <coverageValue>1.0</coverageValue>
+                    <coverageBitString></coverageBitString>
+                </coverage>
+                <coverage>
+                    <criterion>MethodCoverage</criterion>
+                    <coverageValue>1.0</coverageValue>
+                    <coverageBitString>11</coverageBitString>
+                </coverage>
+                <coverage>
+                    <criterion>MethodNoExceptionCoverage</criterion>
+                    <coverageValue>1.0</coverageValue>
+                    <coverageBitString>11</coverageBitString>
+                </coverage>
+                <coverage>
+                    <criterion>CBranchCoverage</criterion>
+                    <coverageValue>1.0</coverageValue>
+                    <coverageBitString>11</coverageBitString>
+                </coverage>
+            </suite>
+        </generation>
+    </cut>
+    <cut>
+        <fullNameOfTargetClass>com.cheops.candidatemanager.controllers.LoginController</fullNameOfTargetClass>
+        <fullNameOfTestSuite>com.cheops.candidatemanager.controllers.LoginController_ESTest</fullNameOfTestSuite>
+        <generation>
+            <id>0</id>
+            <failed>false</failed>
+            <modified>true</modified>
+            <timeBudgetInSeconds>60</timeBudgetInSeconds>
+            <memoryInMB>1000</memoryInMB>
+            <std_err_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_25_11_16_57\logs\com.cheops.candidatemanager.controllers.LoginController\std_err_CLIENT.log</std_err_CLIENT>
+            <std_out_CLIENT>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_25_11_16_57\logs\com.cheops.candidatemanager.controllers.LoginController\std_out_CLIENT.log</std_out_CLIENT>
+            <std_err_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_25_11_16_57\logs\com.cheops.candidatemanager.controllers.LoginController\std_err_MASTER.log</std_err_MASTER>
+            <std_out_MASTER>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_25_11_16_57\logs\com.cheops.candidatemanager.controllers.LoginController\std_out_MASTER.log</std_out_MASTER>
+            <suite>
+                <fullPathOfTestSuite>C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\tmp_2018_10_25_11_16_57\tests\com\cheops\candidatemanager\controllers\LoginController_ESTest.java</fullPathOfTestSuite>
+                <numberOfTests>2</numberOfTests>
+                <totalNumberOfStatements>4</totalNumberOfStatements>
+                <totalEffortInSeconds>37</totalEffortInSeconds>
+                <coverage>
+                    <criterion>LineCoverage</criterion>
+                    <coverageValue>1.0</coverageValue>
+                    <coverageBitString>111</coverageBitString>
+                </coverage>
+                <coverage>
+                    <criterion>BranchCoverage</criterion>
+                    <coverageValue>1.0</coverageValue>
+                    <coverageBitString>111</coverageBitString>
+                </coverage>
+                <coverage>
+                    <criterion>ExceptionCoverage</criterion>
+                    <coverageValue>1.0</coverageValue>
+                    <coverageBitString></coverageBitString>
+                </coverage>
+                <coverage>
+                    <criterion>WeakMutationScore</criterion>
+                    <coverageValue>1.0</coverageValue>
+                    <coverageBitString>11</coverageBitString>
+                </coverage>
+                <coverage>
+                    <criterion>OutputCoverage</criterion>
+                    <coverageValue>0.33</coverageValue>
+                    <coverageBitString>010010</coverageBitString>
+                </coverage>
+                <coverage>
+                    <criterion>MethodCoverage</criterion>
+                    <coverageValue>1.0</coverageValue>
+                    <coverageBitString>111</coverageBitString>
+                </coverage>
+                <coverage>
+                    <criterion>MethodNoExceptionCoverage</criterion>
+                    <coverageValue>1.0</coverageValue>
+                    <coverageBitString>111</coverageBitString>
+                </coverage>
+                <coverage>
+                    <criterion>CBranchCoverage</criterion>
+                    <coverageValue>1.0</coverageValue>
+                    <coverageBitString>111</coverageBitString>
                 </coverage>
             </suite>
         </generation>

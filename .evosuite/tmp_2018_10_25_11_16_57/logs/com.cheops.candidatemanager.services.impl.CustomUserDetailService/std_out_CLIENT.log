@@ -1,0 +1,3 @@
+[MASTER] 11:28:50.879 [pool-2-thread-1] WARN  TestSuiteSerialization - Cannot load tests because file does not exist: C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\evosuite-seeds\com.cheops.candidatemanager.services.impl.CustomUserDetailService.seed
+[MASTER] 11:28:50.985 [pool-2-thread-1] WARN  TimeController - Phase INITIALIZATION lasted too long, 1 seconds more than allowed.
+[MASTER] 11:28:53.949 [pool-2-thread-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Have no generator for java.util.Optional<com.cheops.candidatemanager.models.User> canUseFunctionalMocks=true, canBeMocked: false
