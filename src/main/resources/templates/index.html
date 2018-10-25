@@ -1,8 +1,8 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
-<head th:replace="fragments/general.html :: headTag(title='Dashboard - Cheops Kandidatenbeheer')"></head>
+<head th:replace="fragments/general :: headTag(title='Dashboard - Cheops Kandidatenbeheer')"></head>
 <body>
-	<header th:replace="fragments/general.html :: header"></header>
+	<header th:replace="fragments/general :: header"></header>
 	<main>
 		<div class="container-fluid">
 			<div class="row">
@@ -41,8 +41,7 @@
                   </div>
                 </div>
                 <div class="nav-item m-navigation--item">
-                  <!-- Todo Add link -->
-                  <a href="#" class="nav-link"><span class="icon icon-add-people"></span>Kandidaat toevoegen</a>
+                  <a href="/register" class="nav-link"><span class="icon icon-add-people"></span>Kandidaat toevoegen</a>
                 </div>
                 <div class="nav-item m-navigation--item">
                   <a href="/search" class="nav-link"><span class="icon icon-search"></span>Kandidaat zoeken</a>
@@ -54,7 +53,7 @@
         <div class="col-md-9">
           <div class="row align-items-center justify-content-between mb-3">
             <div class="col-auto">
-              <h4>Dashboard</h4>
+              <h1 class="a-title--page">Dashboard</h1>
             </div>
             <div class="col-auto">
               <div class="a-dashboard-date">
@@ -65,45 +64,65 @@
           <div class="row">
             <!-- Todo Make content dynamic -->
             <div class="col-md-4 mb-grid">
-              <div th:replace="fragments/card.html :: card-stat(blue, 'Interviews', 2, 10)"></div>
+              <div th:replace="fragments/card :: card-stat(blue, 'Interviews', 2, 10)"></div>
             </div>
             <div class="col-md-4 mb-grid">
-              <div th:replace="fragments/card.html :: card-stat(green, 'Technische screening', 0, 0)"></div>
+              <div th:replace="fragments/card :: card-stat(green, 'Technische screening', 0, 0)"></div>
             </div>
             <div class="col-md-4 mb-grid">
-              <div th:replace="fragments/card.html :: card-stat(red, 'Nieuwe aanwervingen', 4, 40)"></div>
+              <div th:replace="fragments/card :: card-stat(red, 'Nieuwe aanwervingen', 4, 40)"></div>
             </div>
           </div>
           <div class="row">
             <div class="col-md-8 mb-grid">
-              <div th:replace="fragments/card.html :: card('Nieuwe kandidaten', ~{ :: .table-new-candidates})">
+              <!-- Todo Make content dynamic -->
+              <div th:replace="fragments/card :: card('Nieuwe kandidaten', ~{ :: .table-new-candidates})">
                 <div class="table-new-candidates" th:remove="tag">
                   add new candidates
                 </div>
               </div>
             </div>
             <div class="col-md-4 mb-grid">
-              <div th:replace="fragments/card.html :: card('Evenementen', ~{ :: .events})">
-                <div class="events" th:remove="tag">
-                  add events
+              <!-- Todo Make content dynamic -->
+              <div th:replace="fragments/card :: card('Evenementen', ~{ :: .o-events-list})">
+                <div class="o-events-list">
+                  <div class="a-event d-flex align-items-center">
+                    <div class="a-event--date h-background-after-blue">07/06</div>
+                    <div class="a-event--name">Kennismakingsgesprek Jens</div>
+                  </div>
+                  <div class="a-event d-flex align-items-center">
+                    <div class="a-event--date h-background-after-green">10/06</div>
+                    <div class="a-event--name">Technische screening Ingeborg</div>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
           <div class="row">
             <div class="col">
-              <div th:replace="fragments/card.html :: card('Recent aangenomen', ~{ :: .table-recent-hired})">
+              <!-- Todo Make content dynamic -->
+              <div th:replace="fragments/card :: card('Recent aangenomen', ~{ :: .table-recent-hired})">
                 <div class="table-recent-hired" th:remove="tag">
-                  add recent hired
+                  <table th:replace="fragments/table :: table-candidates(true, false, false, false, false, false, false, true)"></table>
                 </div>
               </div>
             </div>
           </div>
         </div>
 			</div>
+      <div class="row">
+        <div class="col mt-5">
+          <!-- Todo Make content dynamic -->
+          <div th:replace="fragments/card :: card('Recent aangenomen', ~{ :: .table-recent-test})">
+            <div class="table-recent-test" th:remove="tag">
+              <table th:replace="fragments/table :: table-candidates(true, true, true, true, true, true, true, true)"></table>
+            </div>
+          </div>
+        </div>
+      </div>
 		</div>
 	</main>
-  <footer th:replace="fragments/general.html :: footer"></footer>
-  <div th:replace="fragments/general.html :: foot"></div>
+  <footer th:replace="fragments/general :: footer"></footer>
+  <div th:replace="fragments/general :: foot"></div>
 </body>
 </html>

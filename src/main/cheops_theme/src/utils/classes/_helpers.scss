@@ -1,0 +1,41 @@
+.h-background {
+  &-blue {
+    background: $blue;
+  }
+
+  &-red {
+    background: $red;
+  }
+
+  &-green {
+    background: $green;
+  }
+}
+
+.h-background-after {
+  &-blue:after {
+    background: $blue;
+  }
+
+  &-red:after {
+    background: $red;
+  }
+
+  &-green:after {
+    background: $green;
+  }
+}
+
+.h-color {
+  &-blue {
+    color: $blue;
+  }
+
+  &-red {
+    color: $red;
+  }
+
+  &-green {
+    color: $green;
+  }
+}
