@@ -43,12 +43,8 @@ public class User {
 	private Set<Role> roles;
 
 	public User() {
-
 	}
 
-	// public User (User user) {
-	// this.active=user.getActive();
-	// }
 	public User(User user) {
 		this.active = user.getActive();
 		this.email = user.getEmail();
@@ -120,5 +116,4 @@ public class User {
 		return "User [id=" + id + ", email=" + email + ", password=" + password + ", name=" + name + ", lastName="
 				+ lastName + ", active=" + active + ", roles=" + roles + "]";
 	}
-
 }

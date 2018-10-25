@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
 <head th:fragment="headTag(title)">
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -43,7 +43,7 @@
         <div class="col-md header--right">
           <div class="header--right--inner d-flex align-items-center">
             <div class="o-header-block mr-md-2 mr-lg-4">
-              <a href="/settings" class="icon icon-config" title="Settings pagina"></a>
+              <a href="/settings" class="icon icon-config" title="Settings pagina" sec:authorize="hasAuthority('ROLE_ADMIN')" ></a>
             </div>
             <div class="o-header-block position-relative mr-md-2 mr-lg-4">
               <a href="#" class="icon icon-quick-menu" title="Snelkoppelingen"></a>

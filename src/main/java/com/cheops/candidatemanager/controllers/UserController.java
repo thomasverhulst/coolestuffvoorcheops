@@ -31,7 +31,7 @@ public class UserController {
 	@RequestMapping(value = "/user")
 	public String registerUser(Model model) {
 		model.addAttribute("user", new User());
-		return "user";
+		return "user/user";
 	}
 
 	@RequestMapping(value = "/registeruser", method = RequestMethod.POST)

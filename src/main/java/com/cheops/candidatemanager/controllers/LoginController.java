@@ -1,5 +1,6 @@
 package com.cheops.candidatemanager.controllers;
 
+import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,12 +12,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class LoginController {
   @RequestMapping(value = "login", method = RequestMethod.GET)
   public String loginView() {
-    // When user is authenticated, redirect the /login page to index, otherwise show /login page.
-    if (SecurityContextHolder.getContext().getAuthentication().isAuthenticated()) {
-      return "redirect:/";
-
-    } else {
+    // When user is anonymous authenticated, show login page, otherwise redirect /login to /.
+    if (SecurityContextHolder.getContext().getAuthentication() instanceof AnonymousAuthenticationToken) {
       return "login";
+    } else {
+      return "redirect:/";
     }
   }
 
