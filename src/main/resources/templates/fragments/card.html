@@ -17,5 +17,13 @@
         <div class="m-stats--percentage mt-1" th:text="${percentage}+'%'"></div>
       </div>
     </div>
-</div>
+  </div>
+  <div th:fragment="card(title, body)" class="card">
+    <div class="card--header">
+      <h5 th:text="${title}"></h5>
+    </div>
+    <div class="card--body" th:insert="${body}">
+      testing
+    </div>
+  </div>
 </body>
