@@ -3,9 +3,9 @@
 <head th:replace="fragments/general.html :: headTag(title='Dashboard - Cheops Kandidatenbeheer')"></head>
 <body>
 	<header th:replace="fragments/general.html :: header"></header>
-	<main class="d-flex flex-fill">
+	<main>
 		<div class="container-fluid">
-			<div class="row h-100">
+			<div class="row">
         <div class="col-md-3 mb-4 mb-md-0">
           <div class="card h-100">
             <div class="card--body">
@@ -57,35 +57,44 @@
               <h4>Dashboard</h4>
             </div>
             <div class="col-auto">
-              <div class="a-dashboard--date">
+              <div class="a-dashboard-date">
                 Vandaag <span th:text="${#dates.format(#dates.createNow(), 'dd MMMM yyyy')}"></span>
               </div>
             </div>
           </div>
-          <div class="row mb-grid">
+          <div class="row">
             <!-- Todo Make content dynamic -->
-            <div class="col-md-4">
+            <div class="col-md-4 mb-grid">
               <div th:replace="fragments/card.html :: card-stat(blue, 'Interviews', 2, 10)"></div>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-4 mb-grid">
               <div th:replace="fragments/card.html :: card-stat(green, 'Technische screening', 0, 0)"></div>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-4 mb-grid">
               <div th:replace="fragments/card.html :: card-stat(red, 'Nieuwe aanwervingen', 4, 40)"></div>
             </div>
           </div>
           <div class="row">
-            <div class="col-md-8">
+            <div class="col-md-8 mb-grid">
               <div th:replace="fragments/card.html :: card('Nieuwe kandidaten', ~{ :: .table-new-candidates})">
                 <div class="table-new-candidates" th:remove="tag">
-                  testing like woah
+                  add new candidates
                 </div>
               </div>
             </div>
-            <div class="col-md-4">
-              <div th:replace="fragments/card.html :: card('Events', ~{ :: .events})">
+            <div class="col-md-4 mb-grid">
+              <div th:replace="fragments/card.html :: card('Evenementen', ~{ :: .events})">
                 <div class="events" th:remove="tag">
-                  testing like woah events
+                  add events
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <div th:replace="fragments/card.html :: card('Recent aangenomen', ~{ :: .table-recent-hired})">
+                <div class="table-recent-hired" th:remove="tag">
+                  add recent hired
                 </div>
               </div>
             </div>

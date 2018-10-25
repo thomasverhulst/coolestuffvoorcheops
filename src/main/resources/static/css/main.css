@@ -4456,7 +4456,9 @@ a.text-gray:hover, a.text-gray:focus {
   .card--header {
     box-shadow: 1px 5px 14px -10px rgba(74, 74, 74, 0.3);
     padding: 20px;
-    text-align: center; }
+    text-align: center;
+    font-weight: 500;
+    font-size: .9375rem; }
   .card--body {
     display: flex;
     padding: 20px; }
@@ -4464,6 +4466,25 @@ a.text-gray:hover, a.text-gray:focus {
       flex: 1 0 50%; }
       .card--body > *:nth-child(2n) {
         border-left: 1px solid #EEEEEE; }
+  .card--arrow {
+    position: absolute;
+    top: -4px;
+    left: calc(50% - 7.5px);
+    transform: translateX(-50%); }
+    .card--arrow:after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 0 7.5px 4px 7.5px;
+      border-color: transparent transparent #FFFFFF transparent;
+      box-shadow: -10px 0 15px 1px rgba(74, 74, 74, 0.2); }
+  @media (min-width: 768px) {
+    .card--header {
+      text-align: left; } }
 
 .was-validated .form-control:invalid:focus,
 .was-validated .form-control:valid:focus {
@@ -4552,10 +4573,10 @@ main {
   font-weight: normal;
   font-style: normal; }
 
-.a-dashboard--date {
+.a-dashboard-date {
   font-size: .625rem;
   color: #9B9B9B; }
-  .a-dashboard--date span {
+  .a-dashboard-date span {
     font-weight: bold;
     color: #4A4A4A; }
 
@@ -4875,29 +4896,12 @@ header {
 .o-card-hover {
   width: calc(100vw - 30px/1.5); }
   .o-card-hover--title {
-    font-weight: 500;
     margin-bottom: 5px; }
   .o-card-hover--subtitle {
     font-weight: 300;
     font-size: .625rem; }
   .o-card-hover .card--body {
     padding: 0; }
-  .o-card-hover .card--arrow {
-    position: absolute;
-    top: -4px;
-    left: calc(50% - 7.5px);
-    transform: translateX(-50%); }
-    .o-card-hover .card--arrow:after {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 0;
-      height: 0;
-      border-style: solid;
-      border-width: 0 7.5px 4px 7.5px;
-      border-color: transparent transparent #FFFFFF transparent;
-      box-shadow: -10px 0 15px 1px rgba(74, 74, 74, 0.2); }
   .o-header-block .o-card-hover {
     display: none; }
   @media (min-width: 768px) {
