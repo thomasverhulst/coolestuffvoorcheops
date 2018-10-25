@@ -62,7 +62,7 @@
               </div>
             </div>
           </div>
-          <div class="row">
+          <div class="row mb-grid">
             <!-- Todo Make content dynamic -->
             <div class="col-md-4">
               <div th:replace="fragments/card.html :: card-stat(blue, 'Interviews', 2, 10)"></div>
@@ -72,6 +72,22 @@
             </div>
             <div class="col-md-4">
               <div th:replace="fragments/card.html :: card-stat(red, 'Nieuwe aanwervingen', 4, 40)"></div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-8">
+              <div th:replace="fragments/card.html :: card('Nieuwe kandidaten', ~{ :: .table-new-candidates})">
+                <div class="table-new-candidates" th:remove="tag">
+                  testing like woah
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div th:replace="fragments/card.html :: card('Events', ~{ :: .events})">
+                <div class="events" th:remove="tag">
+                  testing like woah events
+                </div>
+              </div>
             </div>
           </div>
         </div>

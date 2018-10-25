@@ -55,6 +55,10 @@ main {
   }
 }
 
+.mb-grid {
+  margin-bottom: $grid-gutter-width;
+}
+
 :focus {
   outline: none;
 }
