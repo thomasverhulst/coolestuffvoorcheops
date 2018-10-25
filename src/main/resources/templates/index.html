@@ -78,7 +78,7 @@
               <!-- Todo Make content dynamic -->
               <div th:replace="fragments/card :: card('Nieuwe kandidaten', ~{ :: .table-new-candidates})">
                 <div class="table-new-candidates" th:remove="tag">
-                  add new candidates
+                  <table th:replace="fragments/table :: table-candidates(false, false, false, false, true, true, false, false)"></table>
                 </div>
               </div>
             </div>
@@ -110,16 +110,6 @@
           </div>
         </div>
 			</div>
-      <div class="row">
-        <div class="col mt-5">
-          <!-- Todo Make content dynamic -->
-          <div th:replace="fragments/card :: card('Recent aangenomen', ~{ :: .table-recent-test})">
-            <div class="table-recent-test" th:remove="tag">
-              <table th:replace="fragments/table :: table-candidates(true, true, true, true, true, true, true, true)"></table>
-            </div>
-          </div>
-        </div>
-      </div>
 		</div>
 	</main>
   <footer th:replace="fragments/general :: footer"></footer>

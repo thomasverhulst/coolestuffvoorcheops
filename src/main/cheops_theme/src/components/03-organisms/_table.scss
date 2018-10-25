@@ -1,63 +1,13 @@
-.table-flex {
+table {
+  font-size: .8125rem;
   width: 100%;
-  overflow-x: auto;
-  display: flex;
-  flex-flow: column nowrap;
-  //font-size: .8rem;
-  //margin: 0.5rem;
-  //line-height: 1.5;
-  flex: 1 1 auto;
 
-  .table-row {
-    width: 100%;
-    display: flex;
-    flex-flow: row nowrap;
+  thead {
+    color: $table-head;
+  }
+
+  th,
+  td {
     padding: $grid-gutter-width/3 0;
   }
-  .table-cell {
-    display: flex;
-    flex-flow: row nowrap;
-    flex-grow: 1;
-    flex-basis: 0;
-    //padding: 0.5em;
-    word-break: break-word;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    min-width: 0px;
-    white-space: nowrap;
-    //border-bottom: 1px solid #d0d0d0;
-  }
-
-  //.table-head-cell,
-  //.table-cell {
-  //  display: flex;
-  //  flex-flow: row nowrap;
-  //  flex: 1 0 0;
-  //  margin-right: 15px;
-  //  //word-wrap: break-word;
-  //  //overflow-wrap: break-word;
-  //  //word-break: break-word;
-  //  word-wrap: break-word;
-  //  overflow-wrap: break-word;
-  //  word-break: break-word;
-  //  @include last-child {
-  //    margin-right: 0;
-  //  }
-  //}
-
-  //.table-head-cell {
-  //  font-size: .8125rem;
-  //  font-weight: bold;
-  //  color: $table-head;
-  //}
-  //
-  //.table-cell,
-  //.table-head-cell {
-  //  @for $i from 1 through 30 {
-  //    &.table-w#{$i*10} {
-  //      width: #{$i*10}px;
-  //      flex: 0 0 #{$i*10}px;
-  //    }
-  //  }
-  //}
 }

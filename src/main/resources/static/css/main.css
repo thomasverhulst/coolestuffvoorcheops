@@ -4599,6 +4599,9 @@ main {
 :focus {
   outline: none; }
 
+.flex-grow-2 {
+  flex-grow: 2 !important; }
+
 @font-face {
   font-family: 'Icomoon';
   src: url("../fonts/icomoon/icomoon.eot?v54s9p");
@@ -4741,6 +4744,15 @@ main {
   .a-logo--header path {
     fill: #FFFFFF; }
 
+.a-pill {
+  font-size: .5rem;
+  color: #FFFFFF;
+  font-weight: 500;
+  text-transform: uppercase;
+  display: inline-block;
+  border-radius: 10px;
+  padding: 2px 7px; }
+
 .a-title--login {
   font-size: 2rem;
   padding: 0 15px;
@@ -4776,7 +4788,7 @@ main {
   text-align: center;
   padding: 45px 10px; }
   .m-icon-link.h-big .icon {
-    font-size: 40px;
+    font-size: 2.5rem;
     color: #9B9B9B;
     margin-bottom: 15px; }
 
@@ -4855,6 +4867,38 @@ main {
   font-size: .75rem;
   color: #CCCCCC;
   text-align: right; }
+
+.m-table-candidates--name {
+  font-weight: 500; }
+
+.m-table-candidates--function {
+  color: #9B9B9B; }
+
+.m-table-candidates--icon {
+  font-size: 1.125rem; }
+  .m-table-candidates--icon a {
+    color: #CCCCCC;
+    position: relative;
+    z-index: 1; }
+    .m-table-candidates--icon a:after {
+      width: 35px;
+      height: 35px;
+      transition: opacity 0.15s linear;
+      content: "";
+      position: absolute;
+      background: #DA291C;
+      border-radius: 100%;
+      top: -50%;
+      left: -50%;
+      z-index: -1;
+      opacity: 0; }
+      @media screen and (prefers-reduced-motion: reduce) {
+        .m-table-candidates--icon a:after {
+          transition: none; } }
+    .m-table-candidates--icon a:hover, .m-table-candidates--icon a:focus, .m-table-candidates--icon a:active {
+      color: #FFFFFF; }
+      .m-table-candidates--icon a:hover:after, .m-table-candidates--icon a:focus:after, .m-table-candidates--icon a:active:after {
+        opacity: 1; }
 
 footer {
   text-align: center;
@@ -4991,24 +5035,11 @@ header {
     .o-user-info .icon {
       transition: none; } }
 
-.table-flex {
-  width: 100%;
-  overflow-x: auto;
-  display: flex;
-  flex-flow: column nowrap;
-  flex: 1 1 auto; }
-  .table-flex .table-row {
-    width: 100%;
-    display: flex;
-    flex-flow: row nowrap;
+table {
+  font-size: .8125rem;
+  width: 100%; }
+  table thead {
+    color: #CCCCCC; }
+  table th,
+  table td {
     padding: 10px 0; }
-  .table-flex .table-cell {
-    display: flex;
-    flex-flow: row nowrap;
-    flex-grow: 1;
-    flex-basis: 0;
-    word-break: break-word;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    min-width: 0px;
-    white-space: nowrap; }

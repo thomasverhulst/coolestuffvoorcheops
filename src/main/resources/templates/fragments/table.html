@@ -1,64 +1,50 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <body>
-  <div th:fragment="table-candidates(showEmail, showTechnologies, showLocations, showExperience, showStatus, showCreated, showDelete, showEdit)" class="table-flex m-table-candidates">
-    <div class="table-row head">
-      <div class="table-cell table-w40"></div>
-      <div class="table-cell table-w180">Naam</div>
-      <div class="table-cell table-w180">Functie</div>
-      <div class="table-cell table-w220" th:if="${showEmail != false}">E-mailadres</div>
-      <div class="table-cell table-w180" th:if="${showTechnologies != false}">Technologieën</div>
-      <div class="table-cell table-w180" th:if="${showLocations != false}">Locatie</div>
-      <div class="table-cell table-w180" th:if="${showExperience != false}">Ervaring</div>
-      <div class="table-cell table-w180" th:if="${showStatus != false}">Status</div>
-      <div class="table-cell table-w180" th:if="${showCreated != false}">Aangemaakt</div>
-      <div class="table-cell table-w20" th:if="${showDelete != false}"></div>
-      <div class="table-cell table-w20" th:if="${showEdit != false}"></div>
-    </div>
-    <div class="table-row">
-      <div class="table-cell table-w40"><img th:src="@{~/images/avatar-empty.png}" /></div>
-      <div class="table-cell table-w180 m-table-candidates--name">Ingeborg De Tollenaere</div>
-      <div class="table-cell table-w180 m-table-candidates--function">Front-end</div>
-      <div class="table-cell table-w220" th:if="${showEmail != false}">ingeborg.detollenaere@cheops.be</div>
-      <div class="table-cell table-w180" th:if="${showTechnologies != false}">Drupal, HTML, CSS</div>
-      <div class="table-cell table-w180" th:if="${showLocations != false}">Gent, Antwerpen</div>
-      <div class="table-cell table-w180" th:if="${showExperience != false}">3 jaar</div>
-      <div class="table-cell table-w180" th:if="${showStatus != false}"><div class="a-pill h-background-red">kennismakingsgesprek</div></div>
-      <div class="table-cell table-w180" th:if="${showCreated != false}">05/06/2018</div>
-      <div class="table-cell table-w20 m-table-candidates--icon" th:if="${showDelete != false}"><a href="#" class="icon icon-delete" title="Verwijderen"></a></div>
-      <div class="table-cell table-w20 m-table-candidates--icon" th:if="${showEdit != false}"><a href="#" class="icon icon-edit" title="Wijzigen"></a></div>
-    </div>
-
-    <!--<table class="m-table-candidates">-->
-      <!--<thead>-->
-        <!--<tr>-->
-          <!--<th></th>-->
-          <!--<th>Naam</th>-->
-          <!--<th>Functie</th>-->
-          <!--<th th:if="${showEmail != false}">E-mailadres</th>-->
-          <!--<th th:if="${showTechnologies != false}">Technologieën</th>-->
-          <!--<th th:if="${showLocations != false}">Locatie</th>-->
-          <!--<th th:if="${showExperience != false}">Ervaring</th>-->
-          <!--<th th:if="${showStatus != false}">Status</th>-->
-          <!--<th th:if="${showCreated != false}">Aangemaakt</th>-->
-          <!--<th th:if="${showDelete != false}"></th>-->
-          <!--<th th:if="${showEdit != false}"></th>-->
-        <!--</tr>-->
-      <!--</thead>-->
-      <!--<tbody>-->
-        <!--<tr>-->
-          <!--<td><img th:src="@{~/images/avatar-empty.png}" /></td>-->
-          <!--<td class="m-table-candidates-name">Ingeborg De Tollenaere</td>-->
-          <!--<td th:if="${showEmail != false}">ingeborg.detollenaere@cheops.be</td>-->
-          <!--<td th:if="${showTechnologies != false}">Drupal, HTML, CSS</td>-->
-          <!--<td th:if="${showLocations != false}">Gent, Antwerpen</td>-->
-          <!--<td th:if="${showExperience != false}">3 jaar</td>-->
-          <!--<td th:if="${showStatus != false}"><div class="a-pill h-background-red">kennismakingsgesprek</div></td>-->
-          <!--<td th:if="${showCreated != false}">05/06/2018</td>-->
-          <!--<th th:if="${showDelete != false}" class="m-table-candidates&#45;&#45;icon"><a href="#" class="icon icon-delete" title="Verwijderen"></a></th>-->
-          <!--<th th:if="${showEdit != false}" class="m-table-candidates&#45;&#45;icon"><a href="#" class="icon icon-edit" title="Wijzigen"></a></th>-->
-        <!--</tr>-->
-      <!--</tbody>-->
-    <!--</table>-->
-  </div>
+  <!-- Todo Make dynamic with incoming object -->
+  <table th:fragment="table-candidates(showEmail, showTechnologies, showLocations, showExperience, showStatus, showCreated, showDelete, showEdit)" class="m-table-candidates">
+    <thead>
+      <tr>
+        <th style="width: 60px;"></th>
+        <th>Naam</th>
+        <th>Functie</th>
+        <th th:if="${showEmail != false}">E-mailadres</th>
+        <th th:if="${showTechnologies != false}">Technologieën</th>
+        <th th:if="${showLocations != false}">Locatie</th>
+        <th th:if="${showExperience != false}">Ervaring</th>
+        <th th:if="${showStatus != false}">Status</th>
+        <th th:if="${showCreated != false}">Aangemaakt</th>
+        <th th:if="${showDelete != false}" style="width: 40px;"></th>
+        <th th:if="${showEdit != false}" style="width: 40px;"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td style="width: 60px;"><img th:src="@{~/images/avatar-empty.png}" /></td>
+        <td class="m-table-candidates--name">Ingeborg De Tollenaere</td>
+        <td class="m-table-candidates--function">Functie</td>
+        <td th:if="${showEmail != false}">ingeborg.detollenaere@cheops.be</td>
+        <td th:if="${showTechnologies != false}">Drupal, HTML, CSS</td>
+        <td th:if="${showLocations != false}">Gent, Antwerpen</td>
+        <td th:if="${showExperience != false}">3 jaar</td>
+        <td th:if="${showStatus != false}"><div class="a-pill h-background-red">kennismakingsgesprek</div></td>
+        <td th:if="${showCreated != false}">05/06/2018</td>
+        <th th:if="${showDelete != false}" style="width: 40px;" class="m-table-candidates--icon"><a href="#" class="icon icon-delete" title="Verwijderen"></a></th>
+        <th th:if="${showEdit != false}" style="width: 40px;" class="m-table-candidates--icon"><a href="#" class="icon icon-edit" title="Wijzigen"></a></th>
+      </tr>
+      <tr>
+        <td style="width: 60px;"><img th:src="@{~/images/avatar-empty.png}" /></td>
+        <td class="m-table-candidates--name">Ingeborg De Tollenaere</td>
+        <td class="m-table-candidates--function">Functie</td>
+        <td th:if="${showEmail != false}">ingeborg.detollenaere@cheops.be</td>
+        <td th:if="${showTechnologies != false}">Drupal, HTML, CSS</td>
+        <td th:if="${showLocations != false}">Gent, Antwerpen</td>
+        <td th:if="${showExperience != false}">3 jaar</td>
+        <td th:if="${showStatus != false}"><div class="a-pill h-background-red">kennismakingsgesprek</div></td>
+        <td th:if="${showCreated != false}">05/06/2018</td>
+        <th th:if="${showDelete != false}" style="width: 40px;" class="m-table-candidates--icon"><a href="#" class="icon icon-delete" title="Verwijderen"></a></th>
+        <th th:if="${showEdit != false}" style="width: 40px;" class="m-table-candidates--icon"><a href="#" class="icon icon-edit" title="Wijzigen"></a></th>
+      </tr>
+    </tbody>
+  </table>
 </body>
