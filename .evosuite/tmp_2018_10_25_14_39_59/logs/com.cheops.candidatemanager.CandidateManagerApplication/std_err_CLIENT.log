@@ -1,0 +1,36 @@
+[MASTER] 14:47:04.894 [pool-2-thread-1] ERROR ConcreteClassAnalyzer - Problem for com.cheops.candidatemanager.CandidateManagerApplication. Class not found: org.springframework.context.support.GenericGroovyApplicationContext
+java.lang.ClassNotFoundException: groovy/lang/GroovyObject
+	at org.evosuite.instrumentation.InstrumentingClassLoader.instrumentClass(InstrumentingClassLoader.java:201)
+	at org.evosuite.instrumentation.InstrumentingClassLoader.loadClass(InstrumentingClassLoader.java:168)
+	at java.lang.Class.forName0(Native Method)
+	at java.lang.Class.forName(Class.java:348)
+	at org.evosuite.setup.ConcreteClassAnalyzer.getConcreteClassesImpl(ConcreteClassAnalyzer.java:130)
+	at org.evosuite.setup.ConcreteClassAnalyzer.getConcreteClasses(ConcreteClassAnalyzer.java:61)
+	at org.evosuite.setup.TestClusterGenerator.addDependency(TestClusterGenerator.java:878)
+	at org.evosuite.setup.TestClusterGenerator.addDependencies(TestClusterGenerator.java:789)
+	at org.evosuite.setup.TestClusterGenerator.initializeTargetMethods(TestClusterGenerator.java:546)
+	at org.evosuite.setup.TestClusterGenerator.generateCluster(TestClusterGenerator.java:134)
+	at org.evosuite.setup.DependencyAnalysis.analyze(DependencyAnalysis.java:118)
+	at org.evosuite.setup.DependencyAnalysis.analyzeClass(DependencyAnalysis.java:132)
+	at org.evosuite.TestSuiteGenerator.initializeTargetClass(TestSuiteGenerator.java:110)
+	at org.evosuite.TestSuiteGenerator.generateTestSuite(TestSuiteGenerator.java:130)
+	at org.evosuite.rmi.service.ClientNodeImpl$1.run(ClientNodeImpl.java:145)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: java.lang.NoClassDefFoundError: groovy/lang/GroovyObject
+	at java.lang.ClassLoader.defineClass1(Native Method)
+	at java.lang.ClassLoader.defineClass(ClassLoader.java:763)
+	at java.lang.ClassLoader.defineClass(ClassLoader.java:642)
+	at org.evosuite.instrumentation.InstrumentingClassLoader.instrumentClass(InstrumentingClassLoader.java:194)
+	... 19 common frames omitted
+Caused by: java.lang.ClassNotFoundException: groovy.lang.GroovyObject
+	at java.net.URLClassLoader.findClass(URLClassLoader.java:381)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:424)
+	at sun.misc.Launcher$AppClassLoader.loadClass(Launcher.java:349)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:357)
+	at org.evosuite.instrumentation.InstrumentingClassLoader.loadClass(InstrumentingClassLoader.java:159)
+	... 23 common frames omitted
+[MASTER] 14:47:04.903 [pool-2-thread-1] ERROR ConcreteClassAnalyzer - Removing class from inheritance tree
