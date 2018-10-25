@@ -1,0 +1,33 @@
+[MASTER] 14:44:15.873 [pool-2-thread-1] WARN  CheapPurityAnalyzer - org.apache.commons.fileupload.FileItem was not found in the inheritance tree. Using DEFAULT value for cheap-purity analysis
+[MASTER] 14:44:15.882 [pool-2-thread-1] WARN  InheritanceTree - Class not in inheritance graph: org.apache.commons.fileupload.FileItem
+[MASTER] 14:44:15.882 [pool-2-thread-1] WARN  CheapPurityAnalyzer - org.apache.commons.fileupload.FileItem was not found in the inheritance tree. Using DEFAULT value for cheap-purity analysis
+[MASTER] 14:44:15.882 [pool-2-thread-1] WARN  CheapPurityAnalyzer - org.apache.commons.fileupload.FileItem was not found in the inheritance tree. Using DEFAULT value for cheap-purity analysis
+[MASTER] 14:44:18.717 [pool-2-thread-1] WARN  CheapPurityAnalyzer - kotlin.jvm.internal.Intrinsics was not found in the inheritance tree. Using DEFAULT value for cheap-purity analysis
+[MASTER] 14:44:18.717 [pool-2-thread-1] WARN  InheritanceTree - Class not in inheritance graph: kotlin.jvm.internal.Intrinsics
+[MASTER] 14:44:22.323 [pool-2-thread-1] WARN  CheapPurityAnalyzer - kotlin.reflect.jvm.ReflectJvmMapping was not found in the inheritance tree. Using DEFAULT value for cheap-purity analysis
+[MASTER] 14:44:22.323 [pool-2-thread-1] WARN  InheritanceTree - Class not in inheritance graph: kotlin.reflect.jvm.ReflectJvmMapping
+[MASTER] 14:44:23.844 [pool-2-thread-1] WARN  InheritanceTree - Class not in inheritance graph: javax.faces.context.FacesContext
+[MASTER] 14:44:25.809 [pool-2-thread-1] WARN  InheritanceTree - Class not in inheritance graph: javax.faces.context.ExceptionHandler
+[MASTER] 14:44:25.818 [pool-2-thread-1] WARN  InheritanceTree - Class not in inheritance graph: javax.faces.context.ResponseStream
+[MASTER] 14:44:25.818 [pool-2-thread-1] WARN  InheritanceTree - Class not in inheritance graph: javax.faces.context.ResponseWriter
+[MASTER] 14:44:26.746 [pool-2-thread-1] WARN  InheritanceTree - Class not in inheritance graph: javax.faces.component.behavior.ClientBehavior
+[MASTER] 14:44:26.751 [pool-2-thread-1] WARN  InheritanceTree - Class not in inheritance graph: javax.faces.component.UIComponent
+[MASTER] 14:44:26.754 [pool-2-thread-1] WARN  InheritanceTree - Class not in inheritance graph: javax.faces.event.FacesEvent
+[MASTER] 14:44:26.757 [pool-2-thread-1] WARN  InheritanceTree - Class not in inheritance graph: javax.faces.component.ContextCallback
+[MASTER] 14:44:26.758 [pool-2-thread-1] WARN  InheritanceTree - Class not in inheritance graph: javax.faces.event.ComponentSystemEvent
+[MASTER] 14:44:26.765 [pool-2-thread-1] WARN  InheritanceTree - Class not in inheritance graph: javax.faces.el.ValueBinding
+[MASTER] 14:44:26.775 [pool-2-thread-1] WARN  InheritanceTree - Class not in inheritance graph: javax.faces.event.ComponentSystemEventListener
+[MASTER] 14:44:26.775 [pool-2-thread-1] WARN  InheritanceTree - Class not in inheritance graph: javax.faces.event.SystemEventListener
+[MASTER] 14:44:26.776 [pool-2-thread-1] WARN  InheritanceTree - Class not in inheritance graph: javax.faces.component.visit.VisitContext
+[MASTER] 14:44:26.779 [pool-2-thread-1] WARN  InheritanceTree - Class not in inheritance graph: javax.faces.component.visit.VisitCallback
+[MASTER] 14:44:26.794 [pool-2-thread-1] WARN  CheapPurityAnalyzer - joptsimple.OptionSet was not found in the inheritance tree. Using DEFAULT value for cheap-purity analysis
+[MASTER] 14:44:26.794 [pool-2-thread-1] WARN  InheritanceTree - Class not in inheritance graph: joptsimple.OptionSet
+[MASTER] 14:44:29.867 [pool-2-thread-1] WARN  TestSuiteSerialization - Cannot load tests because file does not exist: C:\Users\thomas.verhulst\Documents\workspace-sts-3.9.5.RELEASE\coolestuffvoorcheops\.evosuite\evosuite-seeds\com.cheops.candidatemanager.controllers.SearchController.seed
+[MASTER] 14:44:38.840 [pool-2-thread-1] WARN  TestFactory - Bounded variable issue when calling createVariable()
+[MASTER] 14:44:38.840 [pool-2-thread-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: No objects and generators for type class com.cheops.candidatemanager.services.impl.CandidateService
+[MASTER] 14:44:39.068 [pool-2-thread-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: No objects and generators for type class com.cheops.candidatemanager.services.impl.ApplicationProcessService
+[MASTER] 14:44:39.114 [pool-2-thread-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for com.cheops.candidatemanager.models.Candidate due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for com.mysql.jdbc.JDBC42ResultSet due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for com.mysql.jdbc.RowDataDynamic due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for com.mysql.jdbc.MysqlIO due to org.evosuite.ga.ConstructionFailedException: Max recursion depth reached
+[MASTER] 14:44:39.531 [pool-2-thread-1] WARN  InheritanceTree - Class not in inheritance graph: org.slf4j.Marker
+[MASTER] 14:44:39.534 [pool-2-thread-1] WARN  InheritanceTree - Class not in inheritance graph: org.slf4j.event.LoggingEvent
+[MASTER] 14:44:43.017 [pool-2-thread-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for com.cheops.candidatemanager.models.Candidate due to org.evosuite.ga.ConstructionFailedException: Max recursion depth reached
+[MASTER] 14:44:43.885 [pool-2-thread-1] WARN  TestChromosome - Functional mock problem: org.evosuite.ga.ConstructionFailedException: Failed to add constructor for com.cheops.candidatemanager.models.Candidate due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for com.mysql.jdbc.JDBC4CallableStatement due to org.evosuite.ga.ConstructionFailedException: Failed to add constructor for com.mysql.jdbc.ConnectionImpl due to org.evosuite.ga.ConstructionFailedException: Max recursion depth reached
