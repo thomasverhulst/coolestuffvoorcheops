@@ -32,12 +32,14 @@ import org.thymeleaf.util.StringUtils;
 import com.cheops.candidatemanager.models.Address;
 import com.cheops.candidatemanager.models.ApplicationProcess;
 import com.cheops.candidatemanager.models.Candidate;
+import com.cheops.candidatemanager.models.NewCandidate;
 import com.cheops.candidatemanager.models.SalaryPackage;
 import com.cheops.candidatemanager.models.Skills;
 import com.cheops.candidatemanager.models.Update;
 import com.cheops.candidatemanager.services.impl.AddressService;
 import com.cheops.candidatemanager.services.impl.ApplicationProcessService;
 import com.cheops.candidatemanager.services.impl.CandidateService;
+import com.cheops.candidatemanager.services.impl.NewCandidateService;
 import com.cheops.candidatemanager.services.impl.SalaryPackageService;
 import com.cheops.candidatemanager.services.impl.SkillsService;
 
@@ -57,6 +59,9 @@ public class CancidateController {
 
 	@Autowired
 	private CandidateService candidateservice;
+	
+	@Autowired
+	private NewCandidateService newCandidateservice;
 
 	@Autowired
 	private SkillsService skillsService;
@@ -87,6 +92,20 @@ public class CancidateController {
 		map.addAttribute("address", new Address());
 		map.addAttribute("candidate", new Candidate());
 		return "register";
+	}
+	
+	@PreAuthorize("hasRole('ADMIN')")
+	@GetMapping("/showRegisterNew")
+	public String showRegisterNew(ModelMap map) {
+		// naar register.html, addres en candadate worden meegegeven
+		// ModelMap
+		// https://stackoverflow.com/questions/13242394/spring-mvc-multiple-modelattribute-on-the-same-form
+
+		Update update = new Update(false);
+		map.addAttribute("update", update);
+		map.addAttribute("candidate", new NewCandidate());
+		//map.addAttribute("candidate", new Candidate());
+		return "registernew";
 	}
 
 	// terug knop, werkt niet
@@ -135,6 +154,44 @@ public class CancidateController {
 		model.addAttribute("skills", new Skills());
 		return "skills";
 	}
+	
+	@RequestMapping(value = "/registerCandidateNew", method = RequestMethod.POST)
+	public String registerNew(Model model, @ModelAttribute("address") Address address,
+			@ModelAttribute("candidate") NewCandidate newCandidate, HttpSession session) throws IOException {
+
+		session.setAttribute("isupdate", false);
+
+		// save cv if it exists
+		logger.debug("de cv link =" + newCandidate.getFile());
+		if (newCandidate.getFile() != null && !newCandidate.getFile().isEmpty()) {
+
+			MultipartFile file = newCandidate.getFile();
+			Path filenameAndPath = Paths.get(uploadDirectory, file.getOriginalFilename());
+
+			logger.debug("Upload link = " + uploadDirectory);
+			logger.debug("filenaam pad" + filenameAndPath);
+			Files.write(filenameAndPath, file.getBytes());
+			// set link to cv
+			newCandidate.setCvLink(file.getOriginalFilename());
+		}
+		
+		//System.out.println("addrzs" candidate.geta);
+		// https://stackoverflow.com/questions/2227395/spring-3-0-set-and-get-session-attribute
+		// save candidate to get an id
+		NewCandidate tmpCandidate = newCandidateservice.addNewCandidate(newCandidate);
+		session.setAttribute("candidate", tmpCandidate);
+
+		// adres
+		//Address tmpAddress = addressService.addAddress(address);
+
+		//candidate.setAddressId(tmpAddress.getId());
+		//candidateservice.updateCandidate(candidate);
+
+		logger.debug("Kandidaat id " + tmpCandidate.getId());
+		//model.addAttribute("skills", new Skills());
+		return "updatesucces";
+	}
+	
 
 	@PostMapping(value = "/updateCandidate")
 	public String updateArticle(Candidate candidate, Address address) {
