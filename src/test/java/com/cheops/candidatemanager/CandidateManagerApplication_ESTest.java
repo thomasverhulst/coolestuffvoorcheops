@@ -9,28 +9,15 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 import static org.evosuite.shaded.org.mockito.Mockito.*;
 import static org.evosuite.runtime.EvoAssertions.*;
-import com.cheops.candidatemanager.CandidateManagerApplication;
 import com.cheops.candidatemanager.services.IStorageService;
 import org.evosuite.runtime.EvoRunner;
 import org.evosuite.runtime.EvoRunnerParameters;
 import org.evosuite.runtime.ViolatedAssumptionAnswer;
 import org.junit.runner.RunWith;
 import org.springframework.boot.CommandLineRunner;
-import org.springframework.security.oauth2.config.annotation.web.configuration.ResourceServerConfigurerAdapter;
 
 @RunWith(EvoRunner.class) @EvoRunnerParameters(mockJVMNonDeterminism = true, useVFS = true, useVNET = true, resetStaticState = true, separateClassLoader = true, useJEE = true) 
 public class CandidateManagerApplication_ESTest extends CandidateManagerApplication_ESTest_scaffolding {
-
-  @Test(timeout = 4000)
-  public void test0()  throws Throwable  {
-      CandidateManagerApplication.GlobalSecurityConfiguration candidateManagerApplication_GlobalSecurityConfiguration0 = null;
-      try {
-        candidateManagerApplication_GlobalSecurityConfiguration0 = new CandidateManagerApplication.GlobalSecurityConfiguration();
-        fail("Expecting exception: NoClassDefFoundError");
-      
-      } catch(NoClassDefFoundError e) {
-      }
-  }
 
   @Test(timeout = 4000)
   public void test1()  throws Throwable  {
@@ -38,13 +25,6 @@ public class CandidateManagerApplication_ESTest extends CandidateManagerApplicat
       IStorageService iStorageService0 = mock(IStorageService.class, new ViolatedAssumptionAnswer());
       CommandLineRunner commandLineRunner0 = candidateManagerApplication0.init(iStorageService0);
       assertNotNull(commandLineRunner0);
-  }
-
-  @Test(timeout = 4000)
-  public void test2()  throws Throwable  {
-      CandidateManagerApplication candidateManagerApplication0 = new CandidateManagerApplication();
-      ResourceServerConfigurerAdapter resourceServerConfigurerAdapter0 = candidateManagerApplication0.resourceServerConfigurerAdapter();
-      assertNotNull(resourceServerConfigurerAdapter0);
   }
 
   @Test(timeout = 4000)
