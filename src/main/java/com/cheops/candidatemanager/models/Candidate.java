@@ -1,5 +1,6 @@
 package com.cheops.candidatemanager.models;
 
+import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -15,7 +16,12 @@ import org.springframework.web.multipart.MultipartFile;
 
 @Entity
 @Table(name = "candidate")
-public class Candidate {
+public class Candidate implements Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
 	@Id
 	@Column(name = "idcandidate")
@@ -47,6 +53,7 @@ public class Candidate {
 
 	@Column(name = "gender")
 	private String gender;
+	
 	@Transient
 	private MultipartFile file;
 
@@ -78,7 +85,6 @@ public class Candidate {
 		super();
 		this.name = name;
 		this.sirName = sirName;
-		// this.addressId = addressId;
 		this.email = email;
 		this.birthdate = birthdate;
 		this.phoneNumber = phoneNumber;

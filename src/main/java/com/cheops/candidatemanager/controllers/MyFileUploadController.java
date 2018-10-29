@@ -11,7 +11,9 @@ import javax.servlet.http.HttpServletRequest;
 import com.cheops.candidatemanager.models.MyUploadForm;
 import org.apache.log4j.Logger;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.multipart.MultipartFile;
@@ -20,14 +22,9 @@ public class MyFileUploadController {
 
 	Logger logger = Logger.getLogger(MyFileUploadController.class);
 
-//	@RequestMapping(value = "/")
-//	public String homePage() {
-//
-//		return "index";
-//	}
 
 	// GET: Show upload form page.
-	@RequestMapping(value = "/uploadOneFile", method = RequestMethod.GET)
+	@GetMapping(value = "/uploadOneFile")
 	public String uploadOneFileHandler(Model model) {
 
 		MyUploadForm myUploadForm = new MyUploadForm();
@@ -37,7 +34,7 @@ public class MyFileUploadController {
 	}
 
 	// POST: Do Upload
-	@RequestMapping(value = "/uploadOneFile", method = RequestMethod.POST)
+	@PostMapping(value = "/uploadOneFile")
 	public String uploadOneFileHandlerPOST(HttpServletRequest request, //
 			Model model, //
 			@ModelAttribute("myUploadForm") MyUploadForm myUploadForm) {
@@ -47,7 +44,7 @@ public class MyFileUploadController {
 	}
 
 	// GET: Show upload form page.
-	@RequestMapping(value = "/uploadMultiFile", method = RequestMethod.GET)
+	@GetMapping(value = "/uploadMultiFile")
 	public String uploadMultiFileHandler(Model model) {
 
 		MyUploadForm myUploadForm = new MyUploadForm();
@@ -57,7 +54,7 @@ public class MyFileUploadController {
 	}
 
 	// POST: Do Upload
-	@RequestMapping(value = "/uploadMultiFile", method = RequestMethod.POST)
+	@PostMapping(value = "/uploadMultiFile")
 	public String uploadMultiFileHandlerPOST(HttpServletRequest request, //
 			Model model, //
 			@ModelAttribute("myUploadForm") MyUploadForm myUploadForm) {

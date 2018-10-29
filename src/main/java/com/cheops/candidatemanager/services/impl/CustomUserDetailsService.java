@@ -24,17 +24,11 @@ public class CustomUserDetailsService implements UserDetailsService {
   @Autowired
   private RoleRepository roleRepository;
 
-//  @Autowired
-//  private BCryptPasswordEncoder bCryptPasswordEncoder;
-
-//  public User findUserByName(String name) {
-//    return userRepository.findByName(name);
-//  }
 
   public void saveUser(User user) {
-    // Todo: implement see below
 
-//    user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
+
+
 //    user.setEnabled(true);
 //    Role userRole = roleRepository.findByRole("ADMIN");
 //    user.setRoles(new HashSet<>(Arrays.asList(userRole)));

@@ -111,8 +111,8 @@ public class CandidateService implements ICandidateService {
 
 	@Override
 	public Candidate getCandidateById(int candidateId) {
-		Candidate e = candidateRepository.findById(candidateId).get();
-		return e;
+		return  candidateRepository.findById(candidateId).get();
+
 	}
 
 	@Override
