@@ -47,4 +47,26 @@
       </tr>
     </tbody>
   </table>
+  <table th:fragment="table-users" class="m-table-users">
+    <thead>
+      <tr>
+        <th>Naam</th>
+        <th>Email</th>
+        <th>Rollen</th>
+        <th>Actief</th>
+        <th style="width: 40px;"></th>
+        <th style="width: 40px;"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr th:each="user : ${users}">
+        <td class="m-table-users--name" th:text="${user.lastName} + ' ' + ${user.name}"></td>
+        <td th:text="${user.email}"></td>
+        <td class="m-table-users--roles" th:each="role : ${user.roles}"><span th:text="${role.role}" th:remove="tag"></span></td>
+        <td th:text="${user.active} ? 'Actief' : 'Niet actief'"></td>
+        <td style="width: 40px;" class="m-table-users--icon"><a href="#" class="icon icon-delete" title="Verwijderen"></a></td>
+        <td style="width: 40px;" class="m-table-users--icon"><a th:href="@{/admin/user/edit/{userid}(userid=${user.id})}" class="icon icon-edit" title="Wijzigen"></a></td>
+      </tr>
+    </tbody>
+  </table>
 </body>

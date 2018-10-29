@@ -4,6 +4,22 @@
 <body>
   <header th:replace="fragments/general :: header"></header>
   <main>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col">
+          <h1 class="a-title--page">Instellingen</h1>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <div th:if="${not #lists.isEmpty(users)}" th:replace="fragments/card :: card('Gebruikers', ~{ :: .table-users})">
+            <div class="table-users" th:remove="tag">
+              <table th:replace="fragments/table :: table-users" th:with="users=${users}"></table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </main>
   <footer th:replace="fragments/general :: footer"></footer>
   <div th:replace="fragments/general :: foot"></div>

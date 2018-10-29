@@ -54,6 +54,12 @@ public class CustomUserDetailsService implements UserDetailsService {
     }
   }
 
+  public List<User> getAllUsers() {
+    List<User> users = new ArrayList<>();
+    users.addAll(userRepository.findAll());
+    return users;
+  }
+
   private List<GrantedAuthority> getUserAuthority(Set<Role> userRoles) {
     Set<GrantedAuthority> roles = new HashSet<>();
     userRoles.forEach((role) -> {
@@ -67,4 +73,12 @@ public class CustomUserDetailsService implements UserDetailsService {
   private UserDetails buildUserForAuthentication(User user, List<GrantedAuthority> authorities) {
     return new org.springframework.security.core.userdetails.User(user.getName(), user.getPassword(), authorities);
   }
+
+//  public List<CandidateSearchResolver> getAllCandidates() {
+//
+//    List<Candidate> candidates = new ArrayList<>();
+//    candidateRepository.findAll().forEach(e -> candidates.add(e));
+//
+//    return fillExpertiseAndStatus(candidates);
+//  }
 }

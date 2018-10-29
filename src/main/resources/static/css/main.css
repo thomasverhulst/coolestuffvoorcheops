@@ -4769,6 +4769,11 @@ main {
   font-weight: normal;
   font-size: 1.375rem; }
 
+.m-access-denied {
+  text-align: center; }
+  .m-access-denied svg {
+    color: #DA291C; }
+
 .m-form-group {
   margin-bottom: 10px; }
 
@@ -4868,19 +4873,16 @@ main {
   color: #CCCCCC;
   text-align: right; }
 
-.m-table-candidates--name {
+.m-table-candidates--name, .m-table-users--name {
   font-weight: 500; }
 
-.m-table-candidates--function {
-  color: #9B9B9B; }
-
-.m-table-candidates--icon {
+.m-table-candidates--icon, .m-table-users--icon {
   font-size: 1.125rem; }
-  .m-table-candidates--icon a {
+  .m-table-candidates--icon a, .m-table-users--icon a {
     color: #CCCCCC;
     position: relative;
     z-index: 1; }
-    .m-table-candidates--icon a:after {
+    .m-table-candidates--icon a:after, .m-table-users--icon a:after {
       width: 35px;
       height: 35px;
       transition: opacity 0.15s linear;
@@ -4893,12 +4895,18 @@ main {
       z-index: -1;
       opacity: 0; }
       @media screen and (prefers-reduced-motion: reduce) {
-        .m-table-candidates--icon a:after {
+        .m-table-candidates--icon a:after, .m-table-users--icon a:after {
           transition: none; } }
-    .m-table-candidates--icon a:hover, .m-table-candidates--icon a:focus, .m-table-candidates--icon a:active {
+    .m-table-candidates--icon a:hover, .m-table-candidates--icon a:focus, .m-table-candidates--icon a:active, .m-table-users--icon a:hover, .m-table-users--icon a:focus, .m-table-users--icon a:active {
       color: #FFFFFF; }
-      .m-table-candidates--icon a:hover:after, .m-table-candidates--icon a:focus:after, .m-table-candidates--icon a:active:after {
+      .m-table-candidates--icon a:hover:after, .m-table-candidates--icon a:focus:after, .m-table-candidates--icon a:active:after, .m-table-users--icon a:hover:after, .m-table-users--icon a:focus:after, .m-table-users--icon a:active:after {
         opacity: 1; }
+
+.m-table-candidates--function {
+  color: #9B9B9B; }
+
+.m-table-users--roles {
+  text-transform: lowercase; }
 
 footer {
   text-align: center;

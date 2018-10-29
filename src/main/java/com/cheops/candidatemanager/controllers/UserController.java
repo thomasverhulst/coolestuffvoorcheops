@@ -1,21 +1,25 @@
 package com.cheops.candidatemanager.controllers;
 
 import com.cheops.candidatemanager.models.User;
+import com.cheops.candidatemanager.services.impl.CustomUserDetailsService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.List;
 
 @Controller
 public class UserController {
 
-//	@Autowired
-//	private CustomUserDetailsService customUserDetailsService;
+	@Autowired
+	private CustomUserDetailsService customUserDetailsService;
 
 	@RequestMapping(value = "login", method = RequestMethod.GET)
 	public String loginView() {
@@ -27,19 +31,34 @@ public class UserController {
 		}
 	}
 
-	@RequestMapping(value = "/settings")
-	public String registerUser(HttpServletRequest request) {
-		if (request.isUserInRole("ROLE_ADMIN")) {
-			return "admin/settings";
-		} else {
-			return "base/403";
-		}
-	}
-
 	@RequestMapping(value = "login", method = RequestMethod.POST)
 	public String login(@ModelAttribute Model login) {
 		return "home";
 	}
+
+	@RequestMapping(value = "/403")
+	public String accessDeniedView() {
+		return "base/403";
+	}
+
+  @RequestMapping(value = "/admin")
+  public String adminView(Model model) {
+    List<User> users = customUserDetailsService.getAllUsers();
+    model.addAttribute("users", users);
+    return "admin/settings";
+  }
+
+  @RequestMapping(value = "/admin/user/edit/{userId}", method = RequestMethod.GET)
+  public String userEditView(Model model, @PathVariable("userId") int userId) {
+//    List<User> users = customUserDetailsService.getAllUsers();
+//    model.addAttribute("users", users);
+//    return "admin/settings";
+    return "admin/user";
+  }
+
+
+
+	// Todo cleanup below
 
 	// @RequestMapping(value="/registerCandidate", method=RequestMethod.POST,
 	// params="action=back")
@@ -52,31 +71,31 @@ public class UserController {
 	/// @Autowired
 	/// UserService userService;
 
-	@RequestMapping(value = "/user")
-	public String registerUser(Model model) {
-		model.addAttribute("user", new User());
-		return "user/user";
-	}
+//	@RequestMapping(value = "/user")
+//	public String registerUser(Model model) {
+//		model.addAttribute("user", new User());
+//		return "user/user";
+//	}
 
-	@RequestMapping(value = "/registeruser", method = RequestMethod.POST)
-	public String doRegister(User user) {
-
-//		User temp = user;
-//		temp.setActive(1);
+//	@RequestMapping(value = "/registeruser", method = RequestMethod.POST)
+//	public String doRegister(User user) {
 //
-//		// tijdelijke fix iedereen admin
-//		Role r = new Role();
-//		r.setRole("ADMIN");
-//		// new HashSet<String>()
-//		Set<Role> t = new HashSet<Role>();
-//		t.add(r);
-//		temp.setRoles(t);
-//
-//		// temp.setId("Groet");
-//		//customUserDetailsService.addUser(temp);
-//		// userService.
-		return "redirect:/"; // redirect to homepage
-	}
+////		User temp = user;
+////		temp.setActive(1);
+////
+////		// tijdelijke fix iedereen admin
+////		Role r = new Role();
+////		r.setRole("ADMIN");
+////		// new HashSet<String>()
+////		Set<Role> t = new HashSet<Role>();
+////		t.add(r);
+////		temp.setRoles(t);
+////
+////		// temp.setId("Groet");
+////		//customUserDetailsService.addUser(temp);
+////		// userService.
+//		return "redirect:/"; // redirect to homepage
+//	}
 
 //	@RequestMapping(value = "/signup", method = RequestMethod.GET)
 //	public ModelAndView signup() {

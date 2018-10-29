@@ -38,14 +38,17 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 		http.csrf().disable();
 		http
         .authorizeRequests()
+        .antMatchers("/admin/**").access("hasAuthority('ADMIN')")
 			  .anyRequest().authenticated()
-			  .and()
+        .and()
       .formLogin()
         .loginPage("/login").permitAll()
 			  .defaultSuccessUrl("/", true)
-			  .and()
-        .rememberMe().key("uniqueAndSecret").tokenValiditySeconds(604800);
-	}
+        .and()
+        .rememberMe().key("uniqueAndSecret").tokenValiditySeconds(604800)
+        .and()
+      .exceptionHandling().accessDeniedPage("/403");
+  }
 
   @Override
   public void configure(WebSecurity web) throws Exception {
