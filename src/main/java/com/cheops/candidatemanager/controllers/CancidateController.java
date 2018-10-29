@@ -197,6 +197,8 @@ public class CancidateController {
 		NewCandidate tmpNewCandidate = newCandidateservice.addNewCandidate(newCandidate);
 		//hieronder uitgezet
 		tmpNewCandidate.setAddressId(tmpNewCandidate.getAddress().getId() );
+		tmpNewCandidate.setApplicationProcessId(tmpNewCandidate.getApplicationProcess().getId() );
+		tmpNewCandidate.setSkillsId(tmpNewCandidate.getSkills().getId());
 		//tmpNewCandidate.setApplicationProcessId(tmpNewCandidate.getApplicationProcessId() );
 		//tmpNewCandidate.setAddressId(tmpNewCandidate.getAddressId());
 		newCandidateservice.updateNewCandidate(tmpNewCandidate);
