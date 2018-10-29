@@ -5,6 +5,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.MapsId;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -15,6 +18,10 @@ public class Address {
 	@Column(name = "idaddress")
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
+	//@Id
+	@JoinColumn(name = "idaddress")
+	@OneToOne
+    private NewCandidate newCandidate; 
 
 	@Column(name = "streetname")
 	private String streetName;
@@ -103,5 +110,14 @@ public class Address {
 	public void setId(int id) {
 		this.id = id;
 	}
+
+	public NewCandidate getNewCandidate() {
+		return newCandidate;
+	}
+
+	public void setNewCandidate(NewCandidate newCandidate) {
+		this.newCandidate = newCandidate;
+	}
+	
 
 }
