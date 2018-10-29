@@ -132,16 +132,15 @@
 								</div>
 								
 								<div class=form-group>
-								 <fieldset id="currentSallaryPackage">
-								 th:each="child, childStat: ${children}">
-        <div th:each="stat : ${candidate.currentSallaryPackage}">
-            <label th:for="|candidate.currentSallaryPackag[${stat.index}].name|">Name</label>
+								
+        
+            <label th:for="|candidate.currentSallaryPackage[0].grossSalary|">Bruto loon</label>
             <!-- This construct will render field name like this: "items[0].name" -->
-            <input th:field="${candidate.currentSallaryPackag[__${stat.index}__].name}">
+            <input th:field="${candidate.currentSallaryPackage[0].grossSalary}">
 
             
-        </div>
-    </fieldset>
+     
+   
 								
 				</div>				
 								
