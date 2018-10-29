@@ -74,7 +74,7 @@ public class NewCandidate implements Serializable {
 
 	//@Id
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-	@JoinTable(name = "candidate_proposedsallarypackage", joinColumns = @JoinColumn(name = "candidate_id"), inverseJoinColumns = @JoinColumn(name = "proposedsallarypackageId_id"))
+	@JoinTable(name = "candidate_proposedsallarypackage", joinColumns = @JoinColumn(name = "candidate_id"), inverseJoinColumns = @JoinColumn(name = "proposedsallarypackage_id"))
 	//@Column(name = "proposedsallarypackageId")
 	private List<SalaryPackage> proposedSallaryPackage;
 
@@ -89,6 +89,22 @@ public class NewCandidate implements Serializable {
 	//@Id
 	@OneToOne(cascade = CascadeType.ALL)
 	private ApplicationProcess applicationProcess;
+
+	// old colums, still needed for compatibillity candidate and newcandidate
+	@Column(name = "currentsallarypackageId")
+	private int currentSallaryPackageId;
+
+	@Column(name = "proposedsallarypackageId")
+	private int proposedSallaryPackageId;
+
+	@Column(name = "skillsId")
+	private int skillsId;
+
+	@Column(name = "addressId")
+	private int addressId;
+
+	@Column(name = "applicationprocessId")
+	private int applicationProcessId;
 
 	public NewCandidate(){
 		
@@ -260,6 +276,46 @@ public class NewCandidate implements Serializable {
 
 	public void setApplicationProcess(ApplicationProcess applicationProcess) {
 		this.applicationProcess = applicationProcess;
+	}
+
+	public int getCurrentSallaryPackageId() {
+		return currentSallaryPackageId;
+	}
+
+	public void setCurrentSallaryPackageId(int currentSallaryPackageId) {
+		this.currentSallaryPackageId = currentSallaryPackageId;
+	}
+
+	public int getProposedSallaryPackageId() {
+		return proposedSallaryPackageId;
+	}
+
+	public void setProposedSallaryPackageId(int proposedSallaryPackageId) {
+		this.proposedSallaryPackageId = proposedSallaryPackageId;
+	}
+
+	public int getSkillsId() {
+		return skillsId;
+	}
+
+	public void setSkillsId(int skillsId) {
+		this.skillsId = skillsId;
+	}
+
+	public int getAddressId() {
+		return addressId;
+	}
+
+	public void setAddressId(int addressId) {
+		this.addressId = addressId;
+	}
+
+	public int getApplicationProcessId() {
+		return applicationProcessId;
+	}
+
+	public void setApplicationProcessId(int applicationProcessId) {
+		this.applicationProcessId = applicationProcessId;
 	}
 	
 }

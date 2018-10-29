@@ -79,7 +79,7 @@ public class CandidateService implements ICandidateService {
 
 			// ApplicationProcess Logic
 			String applicationStatus = "";
-			if (candidate.getApplicationProcessId() != 0) {
+			if (candidate.getApplicationProcessId() != 0 ) {
 				ApplicationProcess applicationProcess = applicationProcessService
 						.getApplicationProcessById(candidate.getApplicationProcessId());
 				if (applicationProcess.getToBeInvitedForFirstConversation()) {

@@ -9,6 +9,7 @@ import javax.validation.Valid;
 import com.cheops.candidatemanager.models.Address;
 import com.cheops.candidatemanager.models.Candidate;
 import com.cheops.candidatemanager.models.CandidateSearchResolver;
+import com.cheops.candidatemanager.models.NewCandidate;
 
 public interface ICandidateService {
 
@@ -43,4 +44,6 @@ public interface ICandidateService {
 	void saveOrUpdateCandidate(int id, @Valid Candidate candidate, @Valid Address address, @Valid int addressId);
 
 	void downloadCv(String cvLink, HttpServletResponse response) throws IOException;
+
+	
 }
