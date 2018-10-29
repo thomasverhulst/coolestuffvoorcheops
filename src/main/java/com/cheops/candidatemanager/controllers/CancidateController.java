@@ -175,11 +175,32 @@ public class CancidateController {
 			newCandidate.setCvLink(file.getOriginalFilename());
 		}
 		
+		if (newCandidate.getApplicationProcess().getFile() != null && !newCandidate.getApplicationProcess().getFile().isEmpty()) {
+		
+			MultipartFile file = newCandidate.getApplicationProcess().getFile();
+			// add file to byte variable, for blob
+//			System.out.println("filenaam = "+file.getOriginalFilename());
+//			applicationProcess.setFeedbackFileName(file.getOriginalFilename());
+//			applicationProcess.setFeedBackFile(file.getBytes());
+			Path filenameAndPath = Paths.get(feedbackuploadDirectory, file.getOriginalFilename());
+			Files.write(filenameAndPath, file.getBytes());
+			// set link to cv
+			newCandidate.getApplicationProcess().setFeedbackFileName(file.getOriginalFilename());
+			
+	
+			
+		}
+		
 		//System.out.println("addrzs" candidate.geta);
 		// https://stackoverflow.com/questions/2227395/spring-3-0-set-and-get-session-attribute
 		// save candidate to get an id
-		NewCandidate tmpCandidate = newCandidateservice.addNewCandidate(newCandidate);
-		session.setAttribute("candidate", tmpCandidate);
+		NewCandidate tmpNewCandidate = newCandidateservice.addNewCandidate(newCandidate);
+		//hieronder uitgezet
+		tmpNewCandidate.setAddressId(tmpNewCandidate.getAddress().getId() );
+		//tmpNewCandidate.setApplicationProcessId(tmpNewCandidate.getApplicationProcessId() );
+		//tmpNewCandidate.setAddressId(tmpNewCandidate.getAddressId());
+		newCandidateservice.updateNewCandidate(tmpNewCandidate);
+		session.setAttribute("candidate", tmpNewCandidate);
 
 		// adres
 		//Address tmpAddress = addressService.addAddress(address);
@@ -187,7 +208,7 @@ public class CancidateController {
 		//candidate.setAddressId(tmpAddress.getId());
 		//candidateservice.updateCandidate(candidate);
 
-		logger.debug("Kandidaat id " + tmpCandidate.getId());
+		logger.debug("Kandidaat id " + tmpNewCandidate.getId());
 		//model.addAttribute("skills", new Skills());
 		return "updatesucces";
 	}
@@ -293,9 +314,8 @@ public class CancidateController {
 	@RequestMapping(value = "/registerApplicationProcess", method = RequestMethod.POST)
 	public String registerApplicationProcess(Model model,
 			@ModelAttribute("applicationprocess") ApplicationProcess applicationProcess, BindingResult bindingResult, HttpSession session) throws IOException {
-	System.out.println("hoi we zijn hier");
-		if (applicationProcess.getFile() != null && !applicationProcess.getFile().isEmpty()) {
-			System.out.println("hoi we zijn er in");
+
+		if (applicationProcess.getFile() != null && !applicationProcess.getFile().isEmpty()) {	
 			MultipartFile file = applicationProcess.getFile();
 			// add file to byte variable, for blob
 //			System.out.println("filenaam = "+file.getOriginalFilename());
@@ -306,17 +326,8 @@ public class CancidateController {
 			// set link to cv
 			applicationProcess.setFeedbackFileName(file.getOriginalFilename());
 			
-			System.out.println("hoi we zijn hier");
-			
 		}
-		
-		
-
-		
-		System.out.println("hoi we zijn hier");
-		
-		
-	
+			
 		ApplicationProcess tmpApplicationprocess = applicationProcessService.addApplicationProcess(applicationProcess);
 		// get candidate from session
 		Candidate sessionCandidate = (Candidate) session.getAttribute("candidate");

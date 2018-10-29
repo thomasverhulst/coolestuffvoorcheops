@@ -14,6 +14,7 @@ import com.cheops.candidatemanager.models.Address;
 import com.cheops.candidatemanager.models.Candidate;
 import com.cheops.candidatemanager.models.CandidateSearchResolver;
 import com.cheops.candidatemanager.models.NewCandidate;
+import com.cheops.candidatemanager.models.Skills;
 import com.cheops.candidatemanager.repositories.CandidateRepository;
 import com.cheops.candidatemanager.repositories.NewCandidateRepository;
 import com.cheops.candidatemanager.services.ICandidateService;
@@ -49,6 +50,10 @@ public class NewCandidateService implements ICandidateService {
 	public void updateCandidate(Candidate candidate) {
 		// TODO Auto-generated method stub
 		
+	}
+	public void updateNewCandidate(NewCandidate newCandidate) {
+		// TODO Auto-generated method stub
+		newCandidateRepository.save(newCandidate);
 	}
 
 	@Override
