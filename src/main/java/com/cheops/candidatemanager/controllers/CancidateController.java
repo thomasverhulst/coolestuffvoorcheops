@@ -173,7 +173,7 @@ public class CancidateController {
 			// set link to cv
 			newCandidate.setCvLink(file.getOriginalFilename());
 		}
-		
+
 		if (newCandidate.getApplicationProcess().getFile() != null && !newCandidate.getApplicationProcess().getFile().isEmpty()) {
 		
 			MultipartFile file = newCandidate.getApplicationProcess().getFile();

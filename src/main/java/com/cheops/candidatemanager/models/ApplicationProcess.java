@@ -9,6 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Transient;
+import javax.validation.constraints.NotNull;
 
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.multipart.MultipartFile;
@@ -27,7 +28,7 @@ public class ApplicationProcess {
 	private Date applicationDate;
 
 	@Column(name = "tobeinvitedforfirstconversation")
-	private Boolean toBeInvitedForFirstConversation;
+	private boolean toBeInvitedForFirstConversation;
 
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	@Column(name = "invitationdate")
@@ -42,9 +43,9 @@ public class ApplicationProcess {
 
 	@Column(name = "feedbackfirstconversation")
 	private String feedbackFirstConversation;
-
+	
 	@Column(name = "tobeinvitedfortechnicalconversation")
-	private Boolean toBeInvitedForTechnicalConversation;
+	private boolean toBeInvitedForTechnicalConversation;
 
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	@Column(name = "technicalconversationdate")
@@ -67,7 +68,7 @@ public class ApplicationProcess {
 	private String feedbackFinancialProposal;
 
 	@Column(name = "isrecruited")
-	private Boolean isRecruited;
+	private boolean isRecruited;
 	
 //	@Column(name = "feedbackfile")
 //	private byte[] feedBackFile;
