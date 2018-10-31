@@ -28,26 +28,10 @@ public class CustomUserDetailsService implements UserDetailsService {
   @Autowired
   private BCryptPasswordEncoder bCryptPasswordEncoder;
 
-//  public User findUserByName(String name) {
-//    return userRepository.findByName(name);
-//  }
-
-  public void saveUser(User user) {
-    // Todo: implement see below
-
-    user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
-    user.setActive(true);
-    userRepository.save(user);
-
-    //Role userRole = roleRepository.findByRole("ADMIN");
-//    user.setRoles(new HashSet<>(Arrays.asList(userRole)));
-//    userRepository.save(user);
-    // https://www.djamware.com/post/5b2f000880aca77b083240b2/spring-boot-security-and-data-mongodb-authentication-example
-  }
-
   @Override
   public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
     User user = userRepository.findByUsername(username);
+    System.out.println("user in: " + user);
 
     if (user != null) {
       List<GrantedAuthority> authorities = getUserAuthority(user.getRoles());
@@ -68,8 +52,17 @@ public class CustomUserDetailsService implements UserDetailsService {
     return u;
   }
 
-  public void updateUser(User user) {
+  public void saveUser(User user) {
+    // Todo: implement see below
+
+    user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
+    user.setActive(true);
     userRepository.save(user);
+
+    //Role userRole = roleRepository.findByRole("ADMIN");
+//    user.setRoles(new HashSet<>(Arrays.asList(userRole)));
+//    userRepository.save(user);
+    // https://www.djamware.com/post/5b2f000880aca77b083240b2/spring-boot-security-and-data-mongodb-authentication-example
   }
 
   private List<GrantedAuthority> getUserAuthority(Set<Role> userRoles) {
@@ -83,14 +76,8 @@ public class CustomUserDetailsService implements UserDetailsService {
   }
 
   private UserDetails buildUserForAuthentication(User user, List<GrantedAuthority> authorities) {
-    return new org.springframework.security.core.userdetails.User(user.getName(), user.getPassword(), authorities);
+    System.out.println("user: " + user.getPassword() + " " + user.getUsername());
+     return new org.springframework.security.core.userdetails.User(user.getUsername(), user.getPassword(), user.getActive(), true, true, true, authorities);
   }
 
-//  public List<CandidateSearchResolver> getAllCandidates() {
-//
-//    List<Candidate> candidates = new ArrayList<>();
-//    candidateRepository.findAll().forEach(e -> candidates.add(e));
-//
-//    return fillExpertiseAndStatus(candidates);
-//  }
 }

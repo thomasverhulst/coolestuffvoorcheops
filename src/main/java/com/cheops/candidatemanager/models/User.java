@@ -72,7 +72,7 @@ public class User {
 	}
 
 	public String getUsername() {
-		return email;
+		return username;
 	}
 
 	public void setUsername(String username) {
@@ -132,4 +132,5 @@ public class User {
 		return "User [id=" + id + ", email=" + email + ", password=" + password + ", name=" + name + ", lastName="
 				+ lastName + ", active=" + active + ", roles=" + roles + "]";
 	}
+
 }
