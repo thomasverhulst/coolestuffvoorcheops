@@ -132,7 +132,15 @@
 
   $.Select2.prototype = {
     InitSelect2: function() {
-      this.element.select2();
+      let $this = this;
+
+      this.element.select2({
+        placeholder: $this.element.data('placeholder'),
+        //containerCssClass: [$this.element.attr('required'), 'form-control']
+      });
+
+      this.element.next('.select2-container').addClass($this.element.attr('required'));
+      this.element.next('.select2-container').attr("id", 'select2-' + $this.element.attr('data-select2-id'));
     }
   };
 
@@ -144,15 +152,39 @@
   new $.ChangePassword($('.js-change-password'));
   new $.Select2($('.js-select-basic'));
 
+
   // Form validation.
-  $('.js-needs-validation').each(function(e) {
-    $(this).submit(function(ev) {
-      if ($(this)[0].checkValidity() === false) {
-        ev.preventDefault();
-        ev.stopPropagation();
+  $.validator.setDefaults({
+    errorClass: 'is-invalid',
+    validClass: 'is-valid',
+    highlight: function (element, errorClass, validClass) {
+      if ($(element).hasClass('select2-hidden-accessible')) {
+        $("#select2-" + $(element).attr('id')).removeClass(validClass).addClass(errorClass);
+      } else {
+        $(element).addClass(errorClass);
       }
-      $(this).addClass('was-validated');
+    },
+    unhighlight: function (element, errorClass, validClass) {
+      if ($(element).hasClass('select2-hidden-accessible')) {
+        console.log($(element).attr('id'));
+        $("#select2-" + $(element).attr('id')).removeClass(errorClass).addClass(validClass);
+      } else {
+        $(element).removeClass(errorClass).addClass(validClass);
+      }
+    }
+  });
+
+  $('.js-needs-validation').each(function(e) {
+    $(this).validate({
+      ignore: 'input[type=hidden]',
+      errorPlacement: function(error,element) {
+        return true;
+      }
     });
+  });
+
+  $('.select2-hidden-accessible').on('change', function() {
+    $(this).trigger('blur');
   });
 
 })(jQuery);

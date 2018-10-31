@@ -56,10 +56,10 @@
                 </div>
                 <div class="row align-items-center">
                   <div class="col-md-4 form-group m-form-group">
-                    <label for="roles" class="a-form-label">Rollen</label>
-                    <select th:field="*{roles}" class="js-select-basic" id="roles" name="roles" multiple required>
+                    <select th:field="*{roles}" class="js-select-basic form-control" id="roles" name="roles" th:data-placeholder="#{select.roles}" multiple required>
                       <option th:each="role : ${allRoles}" th:field="*{roles}" th:value="${{role}}" th:text="${role.role}"></option>
                     </select>
+                    <div class="invalid-feedback" th:text="#{error.formEmptyField}"></div>
                   </div>
                 </div>
                 <div class="col-md-12">
