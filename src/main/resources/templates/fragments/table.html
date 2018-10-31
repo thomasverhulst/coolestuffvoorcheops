@@ -1,19 +1,19 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <body>
-  <!-- Todo Make dynamic with incoming object -->
+  <!-- TODO: Make dynamic with incoming object -->
   <table th:fragment="table-candidates(showEmail, showTechnologies, showLocations, showExperience, showStatus, showCreated, showDelete, showEdit)" class="m-table-candidates">
     <thead>
       <tr>
         <th style="width: 60px;"></th>
-        <th>Naam</th>
-        <th>Functie</th>
-        <th th:if="${showEmail != false}">E-mailadres</th>
-        <th th:if="${showTechnologies != false}">Technologieën</th>
-        <th th:if="${showLocations != false}">Locatie</th>
-        <th th:if="${showExperience != false}">Ervaring</th>
-        <th th:if="${showStatus != false}">Status</th>
-        <th th:if="${showCreated != false}">Aangemaakt</th>
+        <th th:text="#{name}"></th>
+        <th th:text="#{function}"></th>
+        <th th:if="${showEmail != false}" th:text="#{email}"></th>
+        <th th:if="${showTechnologies != false}" th:text="#{technologies}"></th>
+        <th th:if="${showLocations != false}" th:text="#{location}"></th>
+        <th th:if="${showExperience != false}" th:text="#{experience}"></th>
+        <th th:if="${showStatus != false}" th:text="#{state}"></th>
+        <th th:if="${showCreated != false}" th:text="#{created}"></th>
         <th th:if="${showDelete != false}" style="width: 40px;"></th>
         <th th:if="${showEdit != false}" style="width: 40px;"></th>
       </tr>
@@ -50,10 +50,10 @@
   <table th:fragment="table-users" class="m-table-users">
     <thead>
       <tr>
-        <th>Naam</th>
-        <th>Email</th>
-        <th>Rollen</th>
-        <th>Actief</th>
+        <th th:text="#{name}"></th>
+        <th th:text="#{email}"></th>
+        <th th:text="#{roles}"></th>
+        <th th:text="#{active}"></th>
         <th style="width: 40px;"></th>
         <th style="width: 40px;"></th>
       </tr>
@@ -62,10 +62,10 @@
       <tr th:each="user : ${users}">
         <td class="m-table-users--name" th:text="${user.lastName} + ' ' + ${user.name}"></td>
         <td th:text="${user.email}"></td>
-        <td class="m-table-users--roles" th:each="role : ${user.roles}"><span th:text="${role.role}" th:remove="tag"></span></td>
-        <td th:text="${user.active} ? 'Actief' : 'Niet actief'"></td>
-        <td style="width: 40px;" class="m-table-users--icon"><a href="#" class="icon icon-delete" title="Verwijderen"></a></td>
-        <td style="width: 40px;" class="m-table-users--icon"><a th:href="@{/admin/user/edit/{userid}(userid=${user.id})}" class="icon icon-edit" title="Wijzigen"></a></td>
+        <td class="m-table-users--roles"><span th:each="role : ${user.roles}" th:text="${role.role}"></span></td>
+        <td th:text="${user.active} ? #{active} : #{notActive}"></td>
+        <td style="width: 40px;" class="m-table-users--icon"><a href="#" class="icon icon-delete" th:title="#{delete}"></a></td>
+        <td style="width: 40px;" class="m-table-users--icon"><a th:href="@{/admin/user/edit/{userid}(userid=${user.id})}" class="icon icon-edit" th:title="#{edit}"></a></td>
       </tr>
     </tbody>
   </table>

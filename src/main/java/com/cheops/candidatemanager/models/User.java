@@ -13,6 +13,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "user")
@@ -23,20 +24,26 @@ public class User {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
 
-	@Column(name = "email")
+	@Column(name = "username", unique = true)
+	@NotNull
+	private String username;
+
+	@Column(name = "email", unique = true)
 	private String email;
 
 	@Column(name = "password")
+	@NotNull
 	private String password;
 
 	@Column(name = "name")
+	@NotNull
 	private String name;
 
 	@Column(name = "last_name")
 	private String lastName;
 
 	@Column(name = "active")
-	private int active;
+	private boolean active;
 
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	@JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "iduser_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
@@ -46,13 +53,14 @@ public class User {
 	}
 
 	public User(User user) {
-		this.active = user.getActive();
+		this.id = user.getId();
+		this.username = user.getUsername();
 		this.email = user.getEmail();
-		this.roles = user.getRoles();
+		this.password = user.getPassword();
 		this.name = user.getName();
 		this.lastName = user.getLastName();
-		this.id = user.getId();
-		this.password = user.getPassword();
+		this.active = user.getActive();
+		this.roles = user.getRoles();
 	}
 
 	public int getId() {
@@ -61,6 +69,14 @@ public class User {
 
 	public void setId(int id) {
 		this.id = id;
+	}
+
+	public String getUsername() {
+		return email;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
 	}
 
 	public String getEmail() {
@@ -95,11 +111,11 @@ public class User {
 		this.lastName = lastName;
 	}
 
-	public int getActive() {
+	public boolean getActive() {
 		return active;
 	}
 
-	public void setActive(int active) {
+	public void setActive(boolean active) {
 		this.active = active;
 	}
 

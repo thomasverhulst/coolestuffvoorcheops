@@ -31,12 +31,12 @@
           <div class="header--middle--inner d-flex align-items-center">
             <nav class="nav m-navigation--main">
               <div class="nav-item m-navigation--item">
-                <a href="/" class="nav-link">Dashboard</a>
+                <a href="/" class="nav-link" th:text="#{dashboard}"></a>
               </div>
               <div class="nav-item m-navigation--item">
-                <a href="/search" class="nav-link">Kandidaten</a>
+                <a href="/search" class="nav-link" th:text="#{candidates}"></a>
               </div>
-              <a href="/logout" class="btn btn-outline-white btn-sm d-inline-block d-md-none mt-3 mb-2">Uitloggen</a>
+              <a href="/logout" class="btn btn-outline-white btn-sm d-inline-block d-md-none mt-3 mb-2" th:text="#{logout}"></a>
             </nav>
           </div>
         </div>
@@ -46,23 +46,23 @@
               <a href="/admin" class="icon icon-config" title="Settings pagina" sec:authorize="hasAuthority('ADMIN')" ></a>
             </div>
             <div class="o-header-block position-relative mr-md-2 mr-lg-4">
-              <a href="#" class="icon icon-quick-menu" title="Snelkoppelingen"></a>
+              <a href="#" class="icon icon-quick-menu" th:title="#{shortcuts}"></a>
               <div class="o-card-hover card">
                 <div class="card--header">
-                  <div class="o-card-hover--title">Quick Actions</div>
-                  <div class="o-card-hover--subtitle">Snelkoppelingen</div>
+                  <div class="o-card-hover--title" th:text="#{quickActions}"></div>
+                  <div class="o-card-hover--subtitle" th:text="#{shortcuts}"></div>
                 </div>
                 <div class="card--body">
                   <div class="m-icon-link h-big">
                     <a href="/register">
                       <div class="icon icon-add-people"></div>
-                      <div class="m-icon-link--text">Kandidaat toevoegen</div>
+                      <div class="m-icon-link--text" th:text="#{candidate.add}"></div>
                     </a>
                   </div>
                   <div class="m-icon-link h-big">
                     <a href="/search">
                       <div class="icon icon-search"></div>
-                      <div class="m-icon-link--text">Kandidaat zoeken</div>
+                      <div class="m-icon-link--text" th:text="#{candidate.search}"></div>
                     </a>
                   </div>
                 </div>
@@ -73,12 +73,12 @@
               <div class="o-user-info">
                 <a href="/user" class="d-flex align-items-center d-block">
                   <div class="icon icon-profile"></div>
-                  <div class="o-user-info--message" th:text="${'Hallo, ' + #authentication.name}"></div>
+                  <div class="o-user-info--message" th:text="#{hello} + ', ' + ${#authentication.name}"></div>
                 </a>
               </div>
             </div>
             <div class="o-header-block d-none d-md-block">
-              <a href="/logout" class="btn btn-outline-white btn-sm">Uitloggen</a>
+              <a href="/logout" class="btn btn-outline-white btn-sm" th:text="#{logout}"></a>
             </div>
           </div>
         </div>
@@ -89,6 +89,7 @@
     <!-- JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script defer src="https://use.fontawesome.com/releases/v5.4.1/js/all.js" integrity="sha384-L469/ELG4Bg9sDQbl0hvjMq8pOcqFgkSpwhwnslzvVVGpDjYJ6wJJyYjvG3u8XW7" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
     <script th:src="@{~/js/base.min.js}"></script>
     <script>
       window.FontAwesomeConfig = {

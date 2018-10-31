@@ -45,6 +45,19 @@
   &-users {
     &--roles {
       text-transform: lowercase;
+
+      span {
+        &:after {
+          content: ',';
+          margin-right: 5px;
+        }
+
+        @include last-child {
+          &:after {
+            display: none;
+          }
+        }
+      }
     }
   }
 }

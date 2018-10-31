@@ -19,11 +19,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
   @Autowired
   private BCryptPasswordEncoder bCryptPasswordEncoder;
 
-//  @Autowired
-//  private CustomUserDetailsService userDetailsService;
-
   @Bean
-  public UserDetailsService customUserDetailsService() {
+  public CustomUserDetailsService customUserDetailsService() {
     return new CustomUserDetailsService();
   }
 
@@ -35,26 +32,33 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
-		http.csrf().disable();
 		http
-        .authorizeRequests()
-        .antMatchers("/admin/**").access("hasAuthority('ADMIN')")
-			  .anyRequest().authenticated()
-        .and()
-      .formLogin()
-        .loginPage("/login").permitAll()
-			  .defaultSuccessUrl("/", true)
-        .and()
-        .rememberMe().key("uniqueAndSecret").tokenValiditySeconds(604800)
-        .and()
+      .csrf().disable()
+      .authorizeRequests()
+      .antMatchers("/admin/**").access("hasAuthority('ADMIN')")
+			.anyRequest().authenticated()
+      .and()
+        .formLogin()
+          .loginPage("/login")
+          .permitAll()
+			    .defaultSuccessUrl("/", true)
+      .and()
+        .rememberMe()
+        .key("uniqueAndSecret")
+        //.rememberMeCookieName("cheops-candidatemanger-remember-me")
+        .tokenValiditySeconds(604800)
+      .and()
+      .logout()
+        .permitAll()
+      .and()
       .exceptionHandling().accessDeniedPage("/403");
   }
 
   @Override
   public void configure(WebSecurity web) throws Exception {
     web
-        .ignoring()
-        .antMatchers("/resources/**", "/static/**", "/css/**", "/js/**", "/images/**");
+      .ignoring()
+      .antMatchers("/resources/**", "/static/**", "/css/**", "/js/**", "/images/**");
   }
 
 }

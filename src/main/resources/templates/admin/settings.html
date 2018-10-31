@@ -1,20 +1,71 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
-<head th:replace="fragments/general :: headTag(title='Settings - Cheops Kandidatenbeheer')"></head>
+<head th:replace="fragments/general :: headTag(title=#{settings} + ' - Cheops Kandidatenbeheer')"></head>
 <body>
   <header th:replace="fragments/general :: header"></header>
   <main>
     <div class="container-fluid">
-      <div class="row">
+      <div class="row mb-3">
         <div class="col">
-          <h1 class="a-title--page">Instellingen</h1>
+          <h1 class="a-title--page" th:text="#{settings}"></h1>
+        </div>
+      </div>
+      <div class="row mb-grid">
+        <div class="col">
+          <div th:if="${not #lists.isEmpty(users)}" th:replace="fragments/card :: card(#{users}, ~{ :: .table-users})">
+            <div class="table-users" th:remove="tag">
+              <table th:replace="fragments/table :: table-users" th:with="users=${users}"></table>
+            </div>
+          </div>
         </div>
       </div>
       <div class="row">
         <div class="col">
-          <div th:if="${not #lists.isEmpty(users)}" th:replace="fragments/card :: card('Gebruikers', ~{ :: .table-users})">
-            <div class="table-users" th:remove="tag">
-              <table th:replace="fragments/table :: table-users" th:with="users=${users}"></table>
+          <div th:replace="fragments/card :: card(#{user.add}, ~{ :: .user-body})">
+            <div class="user-body" th:remove="tag">
+              <form th:action="@{/admin/addUser}" th:object="${user}" method="post" accept-charset="utf-8" class="m-form--edit-user js-needs-validation" novalidate>
+                <div th:if="${errorMessage != null}" th:text="${errorMessage}" class="alert alert-danger" role="alert"></div>
+                <div th:if="${successMessage != null}" th:text="${successMessage}" class="alert alert-success" role="alert"></div>
+                <div class="row align-items-center">
+                  <div class="col-md-4 form-group m-form-group">
+                    <input th:field="*{username}" type="text" id="username" name="username" th:placeholder="#{username} + ' *'" class="form-control a-form-input-text" required>
+                    <div class="invalid-feedback" th:text="#{error.formEmptyField}"></div>
+                  </div>
+                  <div class="col-md-4 form-group m-form-group">
+                    <input th:field="*{name}" type="text" id="name" name="name" th:placeholder="#{name} + ' *'" class="form-control a-form-input-text" required>
+                    <div class="invalid-feedback" th:text="#{error.formEmptyField}"></div>
+                  </div>
+                  <div class="col-md-4 form-group m-form-group">
+                    <input th:field="*{lastName}" type="text" id="lastName" name="lastName" th:placeholder="#{lastname}" class="form-control a-form-input-text">
+                    <div class="invalid-feedback" th:text="#{error.formEmptyField}"></div>
+                  </div>
+                </div>
+                <div class="row align-items-center">
+                  <div class="col-md-4 form-group m-form-group">
+                    <input th:field="*{email}" type="text" id="email" name="email" th:placeholder="#{email}" class="form-control a-form-input-text">
+                    <div class="invalid-feedback" th:text="#{error.formEmptyField}"></div>
+                  </div>
+                  <div class="col-md-4 form-group m-form-group">
+                    <input type="password" id="password" name="password" th:placeholder="#{password} + ' *'" class="form-control a-form-input-password" required>
+                    <div class="invalid-feedback" th:text="#{error.formEmptyField}"></div>
+                  </div>
+                  <div class="col-md-4 form-group m-form-group">
+                    <input type="password" id="passwordMatch" name="passwordMatch" th:placeholder="#{passwordMatch} + ' *'" class="form-control a-form-input-password" required>
+                    <div class="invalid-feedback" th:text="#{error.formEmptyField}"></div>
+                  </div>
+                </div>
+                <div class="row align-items-center">
+                  <div class="col-md-4 form-group m-form-group">
+                    <label for="roles" class="a-form-label">Rollen</label>
+                    <select th:field="*{roles}" class="js-select-basic" id="roles" name="roles" multiple required>
+                      <option th:each="role : ${allRoles}" th:field="*{roles}" th:value="${{role}}" th:text="${role.role}"></option>
+                    </select>
+                  </div>
+                </div>
+                <div class="col-md-12">
+                  <input type="submit" name="submit" th:value="#{add}" id="submit" class="btn btn-primary d-block">
+                </div>
+              </form>
             </div>
           </div>
         </div>

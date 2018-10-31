@@ -11,6 +11,7 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.*;
@@ -24,8 +25,8 @@ public class CustomUserDetailsService implements UserDetailsService {
   @Autowired
   private RoleRepository roleRepository;
 
-//  @Autowired
-//  private BCryptPasswordEncoder bCryptPasswordEncoder;
+  @Autowired
+  private BCryptPasswordEncoder bCryptPasswordEncoder;
 
 //  public User findUserByName(String name) {
 //    return userRepository.findByName(name);
@@ -34,17 +35,19 @@ public class CustomUserDetailsService implements UserDetailsService {
   public void saveUser(User user) {
     // Todo: implement see below
 
-//    user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
-//    user.setEnabled(true);
-//    Role userRole = roleRepository.findByRole("ADMIN");
+    user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
+    user.setActive(true);
+    userRepository.save(user);
+
+    //Role userRole = roleRepository.findByRole("ADMIN");
 //    user.setRoles(new HashSet<>(Arrays.asList(userRole)));
 //    userRepository.save(user);
     // https://www.djamware.com/post/5b2f000880aca77b083240b2/spring-boot-security-and-data-mongodb-authentication-example
   }
 
   @Override
-  public UserDetails loadUserByUsername(String name) throws UsernameNotFoundException {
-    User user = userRepository.findByName(name);
+  public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+    User user = userRepository.findByUsername(username);
 
     if (user != null) {
       List<GrantedAuthority> authorities = getUserAuthority(user.getRoles());
@@ -56,8 +59,17 @@ public class CustomUserDetailsService implements UserDetailsService {
 
   public List<User> getAllUsers() {
     List<User> users = new ArrayList<>();
-    users.addAll(userRepository.findAll());
+    userRepository.findAll().forEach(e -> users.add(e));
     return users;
+  }
+
+  public User getUserById(int userId) {
+    User u = userRepository.findById(userId).get();
+    return u;
+  }
+
+  public void updateUser(User user) {
+    userRepository.save(user);
   }
 
   private List<GrantedAuthority> getUserAuthority(Set<Role> userRoles) {

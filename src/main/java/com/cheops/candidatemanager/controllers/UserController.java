@@ -1,19 +1,21 @@
 package com.cheops.candidatemanager.controllers;
 
+import com.cheops.candidatemanager.models.Role;
 import com.cheops.candidatemanager.models.User;
 import com.cheops.candidatemanager.services.impl.CustomUserDetailsService;
+import com.cheops.candidatemanager.services.impl.RoleService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.MessageSource;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.*;
 
-import javax.servlet.http.HttpServletRequest;
+import javax.validation.Valid;
 import java.util.List;
+import java.util.Locale;
 
 @Controller
 public class UserController {
@@ -21,41 +23,73 @@ public class UserController {
 	@Autowired
 	private CustomUserDetailsService customUserDetailsService;
 
-	@RequestMapping(value = "login", method = RequestMethod.GET)
-	public String loginView() {
+	@Autowired
+  private RoleService roleService;
+
+  @Autowired
+	private MessageSource messageSource;
+
+  @GetMapping("/login")
+	public String loginView(Locale locale, Model model, @RequestParam(value = "error", required = false) String error, @RequestParam(value = "logout", required = false) String logout) {
 		// When user is anonymous authenticated, show login page, otherwise redirect /login to /.
 		if (SecurityContextHolder.getContext().getAuthentication() instanceof AnonymousAuthenticationToken) {
-			return "login";
+		  // If login has params logout or error, show message.
+      if (error != null) {
+        model.addAttribute("errorMessage", messageSource.getMessage("error.login", null, locale));
+      }
+      if (logout != null) {
+        model.addAttribute("successMessage", messageSource.getMessage("success.logout", null, locale));
+      }
+			return "user/login";
 		} else {
 			return "redirect:/";
 		}
 	}
 
-	@RequestMapping(value = "login", method = RequestMethod.POST)
-	public String login(@ModelAttribute Model login) {
-		return "home";
-	}
-
-	@RequestMapping(value = "/403")
-	public String accessDeniedView() {
-		return "base/403";
-	}
-
-  @RequestMapping(value = "/admin")
+  @GetMapping("/admin")
   public String adminView(Model model) {
     List<User> users = customUserDetailsService.getAllUsers();
+    List<Role> allRoles = roleService.getAllRoles();
     model.addAttribute("users", users);
+    model.addAttribute("user", new User());
+    model.addAttribute("allRoles", allRoles);
     return "admin/settings";
   }
 
-  @RequestMapping(value = "/admin/user/edit/{userId}", method = RequestMethod.GET)
-  public String userEditView(Model model, @PathVariable("userId") int userId) {
-//    List<User> users = customUserDetailsService.getAllUsers();
-//    model.addAttribute("users", users);
-//    return "admin/settings";
-    return "admin/user";
+  @PostMapping("/admin/adduser")
+  public String addUser(Locale locale, Model model, @Valid User user, BindingResult result) {
+//    if (result.hasErrors()) {
+//      model.addAttribute("errorMessage", messageSource.getMessage("error.submissionError", null, locale));
+//      return "admin/settings";
+//    }
+//
+//    customUserDetailsService.saveUser(user);
+//    model.addAttribute("successMessage", messageSource.getMessage("success.addUser", new Object[] {user.getName(), user.getLastName()}, locale));
+    return "admin/settings";
   }
 
+  @GetMapping("/admin/user/edit/{userId}")
+  public String userEditView(Model model, @PathVariable("userId") User user) {
+	  List<Role> allRoles = roleService.getAllRoles();
+	  model.addAttribute("user", user);
+	  model.addAttribute("allRoles", allRoles);
+    return "user/edit";
+  }
+
+//  @PostMapping("/admin/user/edit/{userId}")
+//  public String updateUser(Locale locale, Model model, @Valid User user, BindingResult result, HttpSession session) {
+//	  if (result.hasErrors()) {
+//      model.addAttribute("errorMessage", messageSource.getMessage("error.submissionError", null, locale));
+//      return "user/edit";
+//    }
+//    //result.get
+//    user.setId(user.getId());
+//	  User tmp = (User) session.getAttribute("user");
+//    user.setPassword(tmp.getPassword());
+//	  customUserDetailsService.updateUser(user);
+//    model.addAttribute("successMessage", messageSource.getMessage("success.editUser", new Object[] {user.getName(), user.getLastName()}, locale));
+//    return "user/edit";
+//  }
 
 
 	// Todo cleanup below

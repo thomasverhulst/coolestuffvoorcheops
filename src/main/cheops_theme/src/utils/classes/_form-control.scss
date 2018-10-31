@@ -5,4 +5,8 @@
       box-shadow: none;
     }
   }
+
+  &.form-control-lg {
+    font-size: $font-size-base;
+  }
 }
