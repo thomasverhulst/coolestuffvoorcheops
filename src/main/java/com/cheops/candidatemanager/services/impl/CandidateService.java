@@ -242,11 +242,11 @@ public class CandidateService implements ICandidateService {
 	}
 
 	@Override
-	public List<Candidate> getAllCandidatesWithoutActiveApplicationProcess() {
+	public List<CandidateSearchResolver> getAllCandidatesWithoutActiveApplicationProcess() {
 		List<Integer> applicationProcessIds = applicationProcessService
 				.getAllCandidatesWithoutActiveApplicationProcess();
-		Iterable<Candidate> candidates = candidateRepository.findAllByApplicationProcessIdIn(applicationProcessIds);
-		return (List<Candidate>) candidates;
+		List<Candidate> candidates = candidateRepository.findAllByApplicationProcessIdIn(applicationProcessIds);
+		return fillExpertiseAndStatus( candidates);
 	}
 
 	@Override

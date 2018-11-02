@@ -30,7 +30,7 @@ public interface ICandidateService {
 
 	List<CandidateSearchResolver> findAllRecruitedIn(List<Integer> applicationProcessId);
 
-	List<Candidate> getAllCandidatesWithoutActiveApplicationProcess();
+	List<CandidateSearchResolver> getAllCandidatesWithoutActiveApplicationProcess();
 
 	List<CandidateSearchResolver> getAllCandidatesWithActiveApplicationProcess();
 
