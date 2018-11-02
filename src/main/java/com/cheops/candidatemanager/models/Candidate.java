@@ -1,6 +1,7 @@
 package com.cheops.candidatemanager.models;
 
 import java.io.Serializable;
+import java.sql.Timestamp;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -60,6 +61,8 @@ public class Candidate implements Serializable {
 	@Column(name = "contactChannel")
 	private String contactChannel;
 	
+	@Column(name = "isaddedtimestamp")
+	private Timestamp isAddedTimeStamp;
 	// ids
 	@Column(name = "currentsallarypackageId")
 	private int currentSallaryPackageId;
@@ -219,6 +222,14 @@ public class Candidate implements Serializable {
 
 	public void setId(Integer id) {
 		this.id = id;
+	}
+
+	public Timestamp getIsAddedTimeStamp() {
+		return isAddedTimeStamp;
+	}
+
+	public void setIsAddedTimeStamp(Timestamp isAddedTimeStamp) {
+		this.isAddedTimeStamp = isAddedTimeStamp;
 	}
 
 }

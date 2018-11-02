@@ -10,8 +10,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Transient;
-import javax.validation.constraints.NotNull;
-
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -73,7 +71,12 @@ public class ApplicationProcess {
 	
 	@Column(name = "isrecruitedtimestamp")
 	private Timestamp isRecruitedTimeStamp;
-					  
+	
+	@Column(name = "isexemployee")
+	private boolean isExEmployee;
+	
+	@Column(name = "isexemployeetimestamp")
+	private Timestamp isExEmployeeTimeStamp;
 //	@Column(name = "feedbackfile")
 //	private byte[] feedBackFile;
 
@@ -90,13 +93,14 @@ public class ApplicationProcess {
 
 	}
 
+	
 	public ApplicationProcess(Integer id, Date applicationDate, boolean toBeInvitedForFirstConversation,
 			Date invitationDate, Date firstConversationDate, String staffNameFirstConversation,
 			String feedbackFirstConversation, boolean toBeInvitedForTechnicalConversation,
 			Date technicalConversationDate, String staffNameTechnicalConversation, String feedbackTechnicalConversation,
 			Boolean toBeSendFinancialProposal, Date financialProposalDate, String feedbackFinancialProposal,
-			boolean isRecruited, Timestamp isRecruitedTimeStamp, MultipartFile file, String feedbackFileName,
-			String notRecruited) {
+			boolean isRecruited, Timestamp isRecruitedTimeStamp, boolean isExEmployee, Timestamp isExEmployeeTimeStamp,
+			MultipartFile file, String feedbackFileName, String notRecruited) {
 		super();
 		this.id = id;
 		this.applicationDate = applicationDate;
@@ -114,10 +118,14 @@ public class ApplicationProcess {
 		this.feedbackFinancialProposal = feedbackFinancialProposal;
 		this.isRecruited = isRecruited;
 		this.isRecruitedTimeStamp = isRecruitedTimeStamp;
+		this.isExEmployee = isExEmployee;
+		this.isExEmployeeTimeStamp = isExEmployeeTimeStamp;
 		this.file = file;
 		this.feedbackFileName = feedbackFileName;
 		this.notRecruited = notRecruited;
 	}
+
+
 
 
 	@Override
@@ -243,6 +251,18 @@ public class ApplicationProcess {
 	public void setIsRecruited(Boolean isRecruited) {
 		this.isRecruited = isRecruited;
 	}
+	
+	
+
+	public boolean getIsExEmployee() {
+		return isExEmployee;
+	}
+
+
+	public void setIsExEmployee(boolean isExEmployee) {
+		this.isExEmployee = isExEmployee;
+	}
+
 
 	public Integer getId() {
 		return id;
@@ -295,6 +315,26 @@ public class ApplicationProcess {
 	public void setRecruited(boolean isRecruited) {
 		this.isRecruited = isRecruited;
 	}
+
+	public Timestamp getIsExEmployeeTimeStamp() {
+		return isExEmployeeTimeStamp;
+	}
+
+	public void setIsExEmployeeTimeStamp(Timestamp isExEmployeeTimeStamp) {
+		this.isExEmployeeTimeStamp = isExEmployeeTimeStamp;
+	}
+
+
+
+
+	
+
+
+
+
+//	public void setExEmployee(boolean isExEmployee) {
+//		this.isExEmployee = isExEmployee;
+//	}
 
 	
 }
