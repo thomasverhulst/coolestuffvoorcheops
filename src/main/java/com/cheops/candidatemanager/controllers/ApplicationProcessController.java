@@ -61,7 +61,7 @@ public class ApplicationProcessController {
 		}
 		
 		//check if isrecruited is set, if so, add timestamp	
-		if(applicationProcess.getIsRecruited()&& applicationProcess.getIsRecruitedTimeStamp() == null) {
+		if(applicationProcess.getIsRecruited()&& applicationProcess.getIsRecruitedTimeStamp() != null ) {
 			//as timestamp still is null, set new timestamp
 			
 				Timestamp isRecruitedTimeStamp = new Timestamp(System.currentTimeMillis());
