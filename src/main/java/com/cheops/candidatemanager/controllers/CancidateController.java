@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.sql.Timestamp;
 import java.util.Optional;
 
 import javax.servlet.http.HttpServletResponse;
@@ -124,6 +125,9 @@ public class CancidateController {
 
 		session.setAttribute("isupdate", false);
 
+		
+		
+		
 		// save cv if it exists
 		logger.debug("de cv link =" + candidate.getFile());
 		if (candidate.getFile() != null && !candidate.getFile().isEmpty()) {
@@ -160,6 +164,11 @@ public class CancidateController {
 
 		session.setAttribute("isupdate", false);
 
+		//check if isrecruited is set, if so, add timestamp	
+		if(newCandidate.getApplicationProcess().getIsRecruited()) {
+			Timestamp isRecruitedTimeStamp = new Timestamp(System.currentTimeMillis());
+			newCandidate.getApplicationProcess().setIsRecruitedTimeStamp(isRecruitedTimeStamp);
+		}
 		// save cv if it exists
 		logger.debug("de cv link =" + newCandidate.getFile());
 		if (newCandidate.getFile() != null && !newCandidate.getFile().isEmpty()) {
@@ -307,6 +316,13 @@ public class CancidateController {
 	public String registerApplicationProcess(Model model,
 			@ModelAttribute("applicationprocess") ApplicationProcess applicationProcess, BindingResult bindingResult, HttpSession session) throws IOException {
 
+		//check if isrecruited is set, if so, add timestamp	
+		if(applicationProcess.getIsRecruited()) {
+			Timestamp isRecruitedTimeStamp = new Timestamp(System.currentTimeMillis());
+			applicationProcess.setIsRecruitedTimeStamp(isRecruitedTimeStamp);
+		}
+		
+		//check if feedbackfile is added
 		if (applicationProcess.getFile() != null && !applicationProcess.getFile().isEmpty()) {	
 			MultipartFile file = applicationProcess.getFile();
 		

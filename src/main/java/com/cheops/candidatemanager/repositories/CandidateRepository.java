@@ -24,5 +24,6 @@ public interface CandidateRepository extends CrudRepository<Candidate, Integer> 
 	// @overload
 	// ArrayList<Candidate> findAllByApplicationProcessIdIn(List<ApplicationProcess>
 	
-
 }
+
+	
