@@ -126,7 +126,9 @@ public class CancidateController {
 		session.setAttribute("isupdate", false);
 
 		
-		
+		//set timestamp when can,didate is added
+		Timestamp isAddedTimeStamp = new Timestamp(System.currentTimeMillis());
+		candidate.setIsAddedTimeStamp(isAddedTimeStamp); 
 		
 		// save cv if it exists
 		logger.debug("de cv link =" + candidate.getFile());
@@ -158,17 +160,29 @@ public class CancidateController {
 		return "skills";
 	}
 	
-	@RequestMapping(value = "/registerCandidateNew", method = RequestMethod.POST)
+	@PostMapping(value = "/registerCandidateNew")
 	public String registerNew(Model model, @ModelAttribute("address") Address address,
 			@ModelAttribute("candidate") NewCandidate newCandidate, HttpSession session) throws IOException {
 
 		session.setAttribute("isupdate", false);
 
+		//set timestamp when can,didate is added
+		Timestamp isAddedTimeStamp = new Timestamp(System.currentTimeMillis());
+		newCandidate.setIsAddedTimeStamp(isAddedTimeStamp); 
+		
 		//check if isrecruited is set, if so, add timestamp	
 		if(newCandidate.getApplicationProcess().getIsRecruited()) {
 			Timestamp isRecruitedTimeStamp = new Timestamp(System.currentTimeMillis());
 			newCandidate.getApplicationProcess().setIsRecruitedTimeStamp(isRecruitedTimeStamp);
 		}
+		
+		//check if isExemployee is set, if so, add timestamp and unset "isrecruited	
+		if(newCandidate.getApplicationProcess().getIsExEmployee()) {
+			Timestamp isExEmployeeTimeStamp = new Timestamp(System.currentTimeMillis());
+			newCandidate.getApplicationProcess().setIsExEmployeeTimeStamp(isExEmployeeTimeStamp);
+			newCandidate.getApplicationProcess().setIsRecruited(false);
+		}
+		
 		// save cv if it exists
 		logger.debug("de cv link =" + newCandidate.getFile());
 		if (newCandidate.getFile() != null && !newCandidate.getFile().isEmpty()) {

@@ -13,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -32,7 +33,7 @@ public class ApplicationProcessController {
 	@Autowired
 	private ApplicationProcessService applicationProcessService;
 
-	@RequestMapping(value = "searchapplicationproces2/{candidateId}", method = RequestMethod.GET)
+	@GetMapping(value = "searchapplicationproces2/{candidateId}")
 	public String searchApplicationProcess(Model model, @PathVariable("candidateId") int candidateId) {
 		Integer applicationProcessId = candidateservice.getCandidateById(candidateId).getApplicationProcessId();
 //		ApplicationProcess applicationProcess = applicationProcessService.getApplicationProcessById(applicationProcessId);
@@ -60,10 +61,22 @@ public class ApplicationProcessController {
 		}
 		
 		//check if isrecruited is set, if so, add timestamp	
-		if(applicationProcess.getIsRecruited()) {
-			Timestamp isRecruitedTimeStamp = new Timestamp(System.currentTimeMillis());
-			applicationProcess.setIsRecruitedTimeStamp(isRecruitedTimeStamp);
+		if(applicationProcess.getIsRecruited()&& applicationProcess.getIsRecruitedTimeStamp() == null) {
+			//as timestamp still is null, set new timestamp
+			
+				Timestamp isRecruitedTimeStamp = new Timestamp(System.currentTimeMillis());
+				applicationProcess.setIsRecruitedTimeStamp(isRecruitedTimeStamp);
+			
+			
 		}
+				
+		//check if isExemployee is set, if so, add timestamp and unset "isrecruited	
+		if(applicationProcess.getIsExEmployee() ) {
+			Timestamp isExEmployeeTimeStamp = new Timestamp(System.currentTimeMillis());
+			applicationProcess.setIsExEmployeeTimeStamp(isExEmployeeTimeStamp);
+			applicationProcess.setIsRecruited(false);
+		}
+		
 		// still no check for backupfile?
 		//check if feedbackfile is added
 		if (applicationProcess.getFile() != null && !applicationProcess.getFile().isEmpty()) {	
