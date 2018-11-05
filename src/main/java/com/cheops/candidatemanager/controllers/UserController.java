@@ -1,5 +1,7 @@
 package com.cheops.candidatemanager.controllers;
 
+import com.cheops.candidatemanager.exceptions.UserAlreadyExistException;
+import com.cheops.candidatemanager.exceptions.UserDoesNotExistException;
 import com.cheops.candidatemanager.models.Role;
 import com.cheops.candidatemanager.models.User;
 import com.cheops.candidatemanager.services.impl.CustomUserDetailsService;
@@ -12,7 +14,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 import java.util.List;
 import java.util.Locale;
@@ -35,10 +39,10 @@ public class UserController {
 		if (SecurityContextHolder.getContext().getAuthentication() instanceof AnonymousAuthenticationToken) {
 		  // If login has params logout or error, show message.
       if (error != null) {
-        model.addAttribute("errorMessage", messageSource.getMessage("error.login", null, locale));
+        model.addAttribute("errorMessage", messageSource.getMessage("form.error.login", null, locale));
       }
       if (logout != null) {
-        model.addAttribute("successMessage", messageSource.getMessage("success.logout", null, locale));
+        model.addAttribute("successMessage", messageSource.getMessage("user.logout", null, locale));
       }
 			return "user/login";
 		} else {
@@ -56,30 +60,81 @@ public class UserController {
     return "admin/settings";
   }
 
-  @PostMapping("/admin/adduser")
-  public String addUser(Locale locale, Model model, @Valid User user, BindingResult result) {
-//    if (result.hasErrors()) {
-//      model.addAttribute("errorMessage", messageSource.getMessage("error.submissionError", null, locale));
-//      return "admin/settings";
-//    }
-//
-//    customUserDetailsService.saveUser(user);
-//    model.addAttribute("successMessage", messageSource.getMessage("success.addUser", new Object[] {user.getName(), user.getLastName()}, locale));
-    return "admin/settings";
+  @PostMapping("/admin")
+  public String addUser(Locale locale, Model model, @Valid @ModelAttribute("user") User user, BindingResult result, RedirectAttributes redirectAttributes) {
+    if (result.hasErrors()) {
+      List<Role> allRoles = roleService.getAllRoles();
+      model.addAttribute("allRoles", allRoles);
+      model.addAttribute("formErrorMessage", messageSource.getMessage("form.error.submission", null, locale));
+      return "admin/settings";
+    }
+
+    try {
+      User newUser = customUserDetailsService.addUser(user);
+      redirectAttributes.addFlashAttribute("formSuccessMessage", messageSource.getMessage("user.added", new Object[] {newUser.getName(), newUser.getLastName()}, locale));
+    } catch (final UserAlreadyExistException e) {
+      redirectAttributes.addFlashAttribute("formErrorMessage", messageSource.getMessage("user.alreadyExists", new Object[] {user.getUsername()}, locale));
+    }
+
+    return "redirect:/admin";
   }
 
-  @GetMapping("/admin/user/edit/{userId}")
-  public String userEditView(Model model, @PathVariable("userId") User user) {
+  @GetMapping("/admin/userdelete/{userId}")
+  public String userDelete(Locale locale, Model model, @PathVariable("userId") User user, RedirectAttributes redirectAttributes) {
+    if (user == null) {
+      redirectAttributes.addFlashAttribute("errorMessage", messageSource.getMessage("user.doesNotExists", null, locale));
+      return "redirect:/admin";
+    }
+
+    try {
+      customUserDetailsService.deleteUser(user);
+      redirectAttributes.addFlashAttribute("successMessage", messageSource.getMessage("user.deleted", new Object[] {user.getUsername()}, locale));
+    } catch (final UserDoesNotExistException e) {
+      redirectAttributes.addFlashAttribute("errorMessage", messageSource.getMessage("user.doesNotExists", null, locale));
+    }
+
+    return "redirect:/admin";
+  }
+
+  @GetMapping("/admin/useredit/{userId}")
+  public String userEditView(Locale locale, Model model, @PathVariable("userId") User user, RedirectAttributes redirectAttributes, HttpSession session) {
+    if (user == null) {
+      redirectAttributes.addFlashAttribute("errorMessage", messageSource.getMessage("user.doesNotExists", null, locale));
+      return "redirect:/admin";
+    }
+
 	  List<Role> allRoles = roleService.getAllRoles();
 	  model.addAttribute("user", user);
 	  model.addAttribute("allRoles", allRoles);
-    return "user/edit";
+    return "admin/useredit";
   }
+
+  @PostMapping("/admin/useredit/{userId}")
+  public String userEdit(Locale locale, @ModelAttribute User user, @PathVariable("userId") int userId, RedirectAttributes redirectAttributes) {
+    try {
+      // Set password before saving cause it gets lost otherwise.
+      User tempUser = customUserDetailsService.getUserById(userId);
+      user.setPassword(tempUser.getPassword());
+      customUserDetailsService.saveUser(user);
+      redirectAttributes.addFlashAttribute("successMessage", messageSource.getMessage("user.edited", new Object[] {user.getUsername()}, locale));
+    } catch (final UserDoesNotExistException e) {
+      redirectAttributes.addFlashAttribute("errorMessage", messageSource.getMessage("user.doesNotExists", null, locale));
+    }
+
+    return "redirect:/admin";
+  }
+
+
+
+// Todo: add alert before delete
+  // Todo: reset password option
+  // Todo: add change password view for user
+
 
 //  @PostMapping("/admin/user/edit/{userId}")
 //  public String updateUser(Locale locale, Model model, @Valid User user, BindingResult result, HttpSession session) {
 //	  if (result.hasErrors()) {
-//      model.addAttribute("errorMessage", messageSource.getMessage("error.submissionError", null, locale));
+//      model.addAttribute("errorMessage", messageSource.getMessage("form.error.submission", null, locale));
 //      return "user/edit";
 //    }
 //    //result.get

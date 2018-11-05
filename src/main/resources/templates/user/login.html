@@ -15,11 +15,9 @@
             <div th:if="${successMessage != null}" th:text="${successMessage}" class="alert alert-success" role="alert"></div>
             <div class="form-group m-form-group-sm">
               <input type="text" id="username" name="username" th:placeholder="#{username} + ' *'" class="form-control form-control-lg a-form-input-text" required>
-              <div class="invalid-feedback" th:text="#{error.formEmptyField}"></div>
             </div>
             <div class="form-group m-form-group-sm">
               <input type="password" id="password" name="password" th:placeholder="#{password} + ' *'" class="form-control form-control-lg a-form-input-password" required>
-              <div class="invalid-feedback" th:text="#{error.formEmptyField}"></div>
             </div>
             <div class="m-form-required mt-4" th:text="#{form.required}"></div>
             <div class="form-group m-form-group-sm mt-4">

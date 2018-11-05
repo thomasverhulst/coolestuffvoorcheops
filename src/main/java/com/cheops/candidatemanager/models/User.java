@@ -13,7 +13,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
+import javax.validation.constraints.*;
 
 @Entity
 @Table(name = "user")
@@ -24,29 +24,33 @@ public class User {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
 
-	@Column(name = "username", unique = true)
-	@NotNull
+	@Column(name = "username")
+	@Size(min = 3, max = 45, message = "{user.username.empty}")
 	private String username;
 
-	@Column(name = "email", unique = true)
+	@Column(name = "email")
+	@Size(max = 45, message = "{user.email.size}")
+	@Email(message = "{user.email.invalid}")
 	private String email;
 
 	@Column(name = "password")
-	@NotNull
 	private String password;
 
 	@Column(name = "name")
-	@NotNull
+	@NotBlank(message = "{user.name.empty}")
+	@Size(max = 45, message = "{user.name.size}")
 	private String name;
 
 	@Column(name = "last_name")
+	@Size(max = 45, message = "{user.last_name.size}")
 	private String lastName;
 
 	@Column(name = "active")
 	private boolean active;
 
-	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@OneToMany(fetch = FetchType.EAGER)
 	@JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "iduser_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
+	@NotEmpty(message = "{user.roles.empty}")
 	private Set<Role> roles;
 
 	public User() {

@@ -101,29 +101,6 @@
     }
   };
 
-  $.ChangePassword = function(element) {
-    this.element = (element instanceof $) ? element : $(element);
-    this.group = $('.js-change-password-group');
-
-    this.InitChangePassword();
-  }
-
-  $.ChangePassword.prototype = {
-    InitChangePassword: function() {
-      this.group.hide();
-      this.element.on('click', this.ToggleHandler.bind(this));
-    },
-    ToggleHandler: function(e) {
-      if($(e.currentTarget).is(':checked')) {
-        this.group.show();
-        this.group.find('input').prop('required', true);
-      } else {
-        this.group.hide();
-        this.group.find('input').prop('required', false)
-      }
-    }
-  };
-
   $.Select2 = function(element) {
     this.element = (element instanceof $) ? element : $(element);
 
@@ -136,11 +113,55 @@
 
       this.element.select2({
         placeholder: $this.element.data('placeholder'),
-        //containerCssClass: [$this.element.attr('required'), 'form-control']
       });
 
       this.element.next('.select2-container').addClass($this.element.attr('required'));
       this.element.next('.select2-container').attr("id", 'select2-' + $this.element.attr('data-select2-id'));
+    }
+  };
+
+  $.Modal = function(element) {
+    this.element = (element instanceof $) ? element : $(element);
+    this.body = $('body');
+    this.target = $(this.element.attr('data-target'));
+    this.close = $(this.target).find('[data-dismiss="modal"]');
+    this.confirm = $(this.target).find('[data-confirm="modal"]');
+
+    this.InitModal();
+  };
+
+  $.Modal.prototype = {
+    InitModal: function() {
+      this.element.on('click', this.ModalHandler.bind(this));
+      this.close.on('click', this.ModalClose.bind(this));
+      this.confirm.on('click', this.ModalConfirm.bind(this));
+    },
+    ModalHandler: function(e) {
+      e.preventDefault()
+      $this = this;
+      this.url = $(e.currentTarget).attr('href');
+      this.target.find('.modal-title').text($(e.currentTarget).attr('data-modal-title'));
+      this.target.show();
+      this.body.append('<div class="modal-backdrop fade"></div>');
+      this.backdrop = $('.modal-backdrop');
+
+      window.setTimeout(function(){
+        $this.target.addClass('show');
+        $this.backdrop.addClass('show');
+      }, 100);
+    },
+    ModalClose: function() {
+      $this = this;
+      this.target.removeClass('show');
+      this.backdrop.removeClass('show');
+
+      this.target.on('transitionend', function(e) {
+        $(this).hide().unbind(e);
+        $this.backdrop.remove();
+      });
+    },
+    ModalConfirm: function() {
+      window.location = this.url;
     }
   };
 
@@ -149,27 +170,25 @@
   new $.QuickMenu($('.header--right '));
   new $.QuickActions($('.icon-quick-menu ~ .o-card-hover'));
   new $.SubNav($('.js-has-nav-sub'));
-  new $.ChangePassword($('.js-change-password'));
   new $.Select2($('.js-select-basic'));
-
+  new $.Modal($('[data-toggle="modal"]'));
 
   // Form validation.
   $.validator.setDefaults({
-    errorClass: 'is-invalid',
-    validClass: 'is-valid',
+    errorClass: 'invalid-feedback',
+    errorElement: 'div',
     highlight: function (element, errorClass, validClass) {
       if ($(element).hasClass('select2-hidden-accessible')) {
-        $("#select2-" + $(element).attr('id')).removeClass(validClass).addClass(errorClass);
+        $("#select2-" + $(element).attr('id')).removeClass('is-valid').addClass('is-invalid');
       } else {
-        $(element).addClass(errorClass);
+        $(element).addClass('is-invalid');
       }
     },
     unhighlight: function (element, errorClass, validClass) {
       if ($(element).hasClass('select2-hidden-accessible')) {
-        console.log($(element).attr('id'));
-        $("#select2-" + $(element).attr('id')).removeClass(errorClass).addClass(validClass);
+        $("#select2-" + $(element).attr('id')).removeClass('is-invalid').addClass('is-valid');
       } else {
-        $(element).removeClass(errorClass).addClass(validClass);
+        $(element).removeClass('is-invalid').addClass('is-valid');
       }
     }
   });
@@ -177,8 +196,13 @@
   $('.js-needs-validation').each(function(e) {
     $(this).validate({
       ignore: 'input[type=hidden]',
-      errorPlacement: function(error,element) {
-        return true;
+      rules : {
+        passwordMatch: {
+          equalTo: '#password'
+        }
+      },
+      errorPlacement: function(error, e) {
+        e.parents('.form-group').append(error);
       }
     });
   });

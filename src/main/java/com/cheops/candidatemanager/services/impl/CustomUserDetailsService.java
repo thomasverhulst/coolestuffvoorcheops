@@ -1,5 +1,7 @@
 package com.cheops.candidatemanager.services.impl;
 
+import com.cheops.candidatemanager.exceptions.UserAlreadyExistException;
+import com.cheops.candidatemanager.exceptions.UserDoesNotExistException;
 import com.cheops.candidatemanager.models.Role;
 import com.cheops.candidatemanager.models.User;
 import com.cheops.candidatemanager.repositories.RoleRepository;
@@ -23,22 +25,18 @@ public class CustomUserDetailsService implements UserDetailsService {
   private UserRepository userRepository;
 
   @Autowired
-  private RoleRepository roleRepository;
-
-  @Autowired
   private BCryptPasswordEncoder bCryptPasswordEncoder;
 
   @Override
   public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
     User user = userRepository.findByUsername(username);
-    System.out.println("user in: " + user);
 
-    if (user != null) {
-      List<GrantedAuthority> authorities = getUserAuthority(user.getRoles());
-      return buildUserForAuthentication(user, authorities);
-    } else {
+    if (user == null) {
       throw new UsernameNotFoundException("Username not found.");
     }
+
+    List<GrantedAuthority> authorities = getUserAuthority(user.getRoles());
+    return buildUserForAuthentication(user, authorities);
   }
 
   public List<User> getAllUsers() {
@@ -48,21 +46,34 @@ public class CustomUserDetailsService implements UserDetailsService {
   }
 
   public User getUserById(int userId) {
-    User u = userRepository.findById(userId).get();
-    return u;
+    User user = userRepository.findById(userId).get();
+    return user;
   }
 
-  public void saveUser(User user) {
-    // Todo: implement see below
+  public User addUser(User user) throws UserAlreadyExistException {
+    if (userExist(user.getUsername())) {
+      throw new UserAlreadyExistException("There is an account with that username: " + user.getUsername());
+    }
 
     user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
     user.setActive(true);
-    userRepository.save(user);
+    return userRepository.save(user);
+  }
 
-    //Role userRole = roleRepository.findByRole("ADMIN");
-//    user.setRoles(new HashSet<>(Arrays.asList(userRole)));
-//    userRepository.save(user);
-    // https://www.djamware.com/post/5b2f000880aca77b083240b2/spring-boot-security-and-data-mongodb-authentication-example
+  public void saveUser(User user) throws UserDoesNotExistException {
+    if (!userRepository.existsById(user.getId())) {
+      throw new UserDoesNotExistException("This user doesn't exist.");
+    }
+
+    userRepository.save(user);
+  }
+
+  public void deleteUser(User user) throws UserDoesNotExistException {
+    if (!userRepository.existsById(user.getId())) {
+      throw new UserDoesNotExistException("This user doesn't exist.");
+    }
+
+    userRepository.delete(user);
   }
 
   private List<GrantedAuthority> getUserAuthority(Set<Role> userRoles) {
@@ -76,8 +87,11 @@ public class CustomUserDetailsService implements UserDetailsService {
   }
 
   private UserDetails buildUserForAuthentication(User user, List<GrantedAuthority> authorities) {
-    System.out.println("user: " + user.getPassword() + " " + user.getUsername());
-     return new org.springframework.security.core.userdetails.User(user.getUsername(), user.getPassword(), user.getActive(), true, true, true, authorities);
+    return new org.springframework.security.core.userdetails.User(user.getUsername(), user.getPassword(), user.getActive(), true, true, true, authorities);
+  }
+
+  private boolean userExist(final String username) {
+    return userRepository.findFirstByUsername(username) != null;
   }
 
 }

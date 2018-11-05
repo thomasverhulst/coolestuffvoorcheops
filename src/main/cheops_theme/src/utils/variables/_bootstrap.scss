@@ -82,7 +82,12 @@ $badge-padding-y: .5rem;
 $badge-padding-x: .5rem;
 $badge-background: $gray-300;
 $bage-background-hover: $primary;
-//$badge-border-radius:               $border-radius !default;
+
+// Modals.
+$modal-content-border-color: $gray-300;
+$modal-content-border-width: 0 ;
+
+
 
 
   // TODO delete below after setting all the correct overrides
