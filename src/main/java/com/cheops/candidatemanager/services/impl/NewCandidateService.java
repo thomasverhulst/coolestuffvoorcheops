@@ -14,16 +14,17 @@ import com.cheops.candidatemanager.models.Address;
 import com.cheops.candidatemanager.models.Candidate;
 import com.cheops.candidatemanager.models.CandidateSearchResolver;
 import com.cheops.candidatemanager.models.NewCandidate;
-import com.cheops.candidatemanager.models.Skills;
-import com.cheops.candidatemanager.repositories.CandidateRepository;
 import com.cheops.candidatemanager.repositories.NewCandidateRepository;
 import com.cheops.candidatemanager.services.ICandidateService;
+
 @Service
 public class NewCandidateService implements ICandidateService {
 
+  @Autowired
+  private NewCandidateRepository newCandidateRepository;
+
 	public String uploadDirectory = System.getProperty("user.dir") + "/uploads";
-	@Autowired
-	private NewCandidateRepository newCandidateRepository;
+
 	@Override
 	public List<CandidateSearchResolver> getAllCandidates() {
 		// TODO Auto-generated method stub
@@ -87,16 +88,16 @@ public class NewCandidateService implements ICandidateService {
 	}
 
 	@Override
-	public List<Candidate> getAllCandidatesWithoutActiveApplicationProcess() {
+  public List<CandidateSearchResolver> getAllCandidatesWithoutActiveApplicationProcess() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public List<CandidateSearchResolver> getAllCandidatesWithActiveApplicationProcess() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+  public List<CandidateSearchResolver> getAllCandidatesWithActiveApplicationProcess() {
+    // TODO Auto-generated method stub
+    return null;
+  }
 
 	@Override
 	public List<CandidateSearchResolver> findAllRecruited() {
@@ -105,8 +106,7 @@ public class NewCandidateService implements ICandidateService {
 	}
 
 	@Override
-	public List<CandidateSearchResolver> findByExperienceGreaterThan(int experience,
-			List<CandidateSearchResolver> candidates) {
+	public List<CandidateSearchResolver> findByExperienceGreaterThan(int experience, List<CandidateSearchResolver> candidates) {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -118,10 +118,8 @@ public class NewCandidateService implements ICandidateService {
 	}
 
 	@Override
-	public void saveOrUpdateCandidate(int id, @Valid Candidate candidate, @Valid Address address,
-			@Valid int addressId) {
+	public void saveOrUpdateCandidate(int id, @Valid Candidate candidate, @Valid Address address, @Valid int addressId) {
 		// TODO Auto-generated method stub
-		
 	}
 	
 	
@@ -150,9 +148,7 @@ public class NewCandidateService implements ICandidateService {
 				newCandidateRepository.save(candidate);
 			//}
 
-		}
-		
-	
+	}
 
 	@Override
 	public void downloadCv(String cvLink, HttpServletResponse response) throws IOException {

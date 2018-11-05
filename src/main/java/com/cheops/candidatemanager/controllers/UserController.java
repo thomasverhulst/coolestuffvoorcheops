@@ -1,62 +1,63 @@
 package com.cheops.candidatemanager.controllers;
 
 import com.cheops.candidatemanager.models.User;
+import com.cheops.candidatemanager.services.impl.CustomUserDetailsService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.MessageSource;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 
-import javax.servlet.http.HttpServletRequest;
+import java.util.Locale;
 
 @Controller
 public class UserController {
 
+  @Autowired
+  private CustomUserDetailsService customUserDetailsService;
 
-	@GetMapping(value = "login")
-	public String loginView() {
+  @Autowired
+	private MessageSource messageSource;
+
+  @GetMapping("/login")
+	public String loginView(Locale locale, Model model, @RequestParam(value = "error", required = false) String error, @RequestParam(value = "logout", required = false) String logout) {
 		// When user is anonymous authenticated, show login page, otherwise redirect /login to /.
 		if (SecurityContextHolder.getContext().getAuthentication() instanceof AnonymousAuthenticationToken) {
-			return "login";
+		  // If login has params logout or error, show message.
+      if (error != null) {
+        model.addAttribute("errorMessage", messageSource.getMessage("form.error.login", null, locale));
+      }
+      if (logout != null) {
+        model.addAttribute("successMessage", messageSource.getMessage("user.logout", null, locale));
+      }
+			return "user/login";
 		} else {
 			return "redirect:/";
 		}
 	}
 
-	@RequestMapping(value = "/settings")
-	public String registerUser(HttpServletRequest request) {
-		if (request.isUserInRole("ROLE_ADMIN")) {
-			return "admin/settings";
-		} else {
-			return "base/403";
-		}
-	}
+	@GetMapping("/user")
+  public String userView(Model model, @AuthenticationPrincipal UserDetails currentUser) {
+    User user = customUserDetailsService.getUserByUsername(currentUser.getUsername());
+    model.addAttribute("user", user);
+    return "user/user";
+  }
 
-	@PostMapping(value = "login")
-	public String login(@ModelAttribute Model login) {
-		return "home";
-	}
+  @GetMapping("/user/change-password")
+  public String changePasswordView(Model model, @AuthenticationPrincipal UserDetails currentUser) {
+    User user = customUserDetailsService.getUserByUsername(currentUser.getUsername());
+    model.addAttribute("user", user);
+    return "user/change-password";
+  }
 
-
-
-	@RequestMapping(value = "/user")
-	public String registerUser(Model model) {
-		model.addAttribute("user", new User());
-		return "user/user";
-	}
-
-	@PostMapping(value = "/registeruser")
-	public String doRegister(User user) {
-
-
-//		//customUserDetailsService.addUser(temp);
-//		// userService.
-		return "redirect:/"; // redirect to homepage
-	}
-
+  @PostMapping("/user/change-password")
+  public String changePassword() {
+    // Todo: change password + error + success handlers
+    return "user";
+  }
 
 }

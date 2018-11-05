@@ -1,6 +1,7 @@
 package com.cheops.candidatemanager.services;
 
 import java.io.IOException;
+import java.util.Collection;
 import java.util.List;
 
 import javax.servlet.http.HttpServletResponse;
@@ -30,7 +31,7 @@ public interface ICandidateService {
 
 	List<CandidateSearchResolver> findAllRecruitedIn(List<Integer> applicationProcessId);
 
-	List<Candidate> getAllCandidatesWithoutActiveApplicationProcess();
+	List<CandidateSearchResolver> getAllCandidatesWithoutActiveApplicationProcess();
 
 	List<CandidateSearchResolver> getAllCandidatesWithActiveApplicationProcess();
 
@@ -44,5 +45,4 @@ public interface ICandidateService {
 
 	void downloadCv(String cvLink, HttpServletResponse response) throws IOException;
 
-	
 }

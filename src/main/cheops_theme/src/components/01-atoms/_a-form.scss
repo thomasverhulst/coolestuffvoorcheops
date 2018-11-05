@@ -1,4 +1,9 @@
 .a-form {
+  &-label {
+    font-size: .8125rem;
+    color: $label-color;
+  }
+
   &-input {
     &-text,
     &-password {
@@ -12,13 +17,14 @@
   }
 
   &-checkbox {
-    opacity: 0;
+    display: none;
 
     &:not(:disabled) + label {
       cursor: pointer;
     }
 
-    & + label {
+    & + label,
+    & + input + label {
       position: relative;
       padding-left: $grid-gutter-width;
 
@@ -27,7 +33,8 @@
       }
     }
 
-    & + label:before {
+    & + label:before,
+    & + input + label:before {
       content: "";
       position: absolute;
       border-radius: 2px;
@@ -44,7 +51,8 @@
       line-height: .875rem;
     }
 
-    &:checked + label:before {
+    &:checked + label:before,
+    &:checked + input + label:before {
       content: "\f00c";
       font-family: $font-awesome-5;
       font-weight: 900;
@@ -54,11 +62,14 @@
       opacity: 0;
 
       + label,
-      +label:before {
+      + label:before,
+      + input + label,
+      + input + label:before {
         color: $input-disabled;
       }
 
-      + label:before {
+      + label:before,
+      + input + label:before {
         border-color: $input-disabled;
       }
     }

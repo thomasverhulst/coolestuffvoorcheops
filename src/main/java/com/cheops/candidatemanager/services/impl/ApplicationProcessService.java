@@ -110,24 +110,22 @@ public class ApplicationProcessService implements IApplicationProcessService {
 		return applicationProcess;
 	}
 
-	public List<ApplicationProcess> getUpcommingMonthsFirstScreenings() {
-
-		Date today = DateUtils.truncate(new Date(), Calendar.DAY_OF_MONTH);
-		Date month = DateUtils.truncate(new Date(), Calendar.DAY_OF_MONTH);
-		month = DateUtils.addMonths(new Date(), 1);
-
+	@Override
+	public List<ApplicationProcess> getUpcomingMonthsFirstScreenings() {
+	  Date today = DateUtils.truncate(new Date(), Calendar.DAY_OF_MONTH);
+    DateUtils.truncate(new Date(), Calendar.DAY_OF_MONTH);
+    Date month;
+    month = DateUtils.addMonths(new Date(), 1);
 		return applicationProcessRepository.findAllByfirstConversationDateBetween(today, month);
-
 	}
 
-	public List<ApplicationProcess> getUpcommingMonthsTechnicalScreenings() {
-
+	@Override
+	public List<ApplicationProcess> getUpcomingMonthsTechnicalScreenings() {
 		Date today = DateUtils.truncate(new Date(), Calendar.DAY_OF_MONTH);
-		Date month = DateUtils.truncate(new Date(), Calendar.DAY_OF_MONTH);
+    DateUtils.truncate(new Date(), Calendar.DAY_OF_MONTH);
+    Date month;
 		month = DateUtils.addMonths(new Date(), 1);
-
 		return applicationProcessRepository.findAllBytechnicalConversationDateBetween(today, month);
-
 	}
 
 	public List<ApplicationProcess> getLast5Recruited() {
@@ -137,12 +135,12 @@ public class ApplicationProcessService implements IApplicationProcessService {
 
 	}
 
-	public List<ApplicationProcess> getLastMonthsRecruities() {
+	public List<ApplicationProcess> getLastMonthsRecruits() {
 		Date lastMonth = DateUtils.truncate(new Date(), Calendar.DAY_OF_MONTH);
 		lastMonth = DateUtils.addMonths(new Date(), -1);
 		List<ApplicationProcess> l= applicationProcessRepository.findAllByIsRecruitedTimeStampGreaterThanEqual(lastMonth);
 		for (ApplicationProcess applicationProcess : l) {
-			System.out.println("lengte alijst"+applicationProcess.getIsRecruitedTimeStamp().toString());
+//			System.out.println("lengte alijst"+applicationProcess.getIsRecruitedTimeStamp().toString());
 		}
 		return l;
 	}

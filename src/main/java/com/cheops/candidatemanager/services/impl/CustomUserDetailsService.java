@@ -1,5 +1,7 @@
 package com.cheops.candidatemanager.services.impl;
 
+import com.cheops.candidatemanager.exceptions.UserAlreadyExistException;
+import com.cheops.candidatemanager.exceptions.UserDoesNotExistException;
 import com.cheops.candidatemanager.models.Role;
 import com.cheops.candidatemanager.models.User;
 import com.cheops.candidatemanager.repositories.UserRepository;
@@ -10,6 +12,7 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.*;
@@ -20,20 +23,67 @@ public class CustomUserDetailsService implements UserDetailsService {
   @Autowired
   private UserRepository userRepository;
 
-  public void saveUser(User user) {
-
-  }
+  @Autowired
+  private BCryptPasswordEncoder bCryptPasswordEncoder;
 
   @Override
-  public UserDetails loadUserByUsername(String name) throws UsernameNotFoundException {
-    User user = userRepository.findByName(name);
+  public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+    User user = userRepository.findByUsername(username);
 
-    if (user != null) {
-      List<GrantedAuthority> authorities = getUserAuthority(user.getRoles());
-      return buildUserForAuthentication(user, authorities);
-    } else {
+    if (user == null) {
       throw new UsernameNotFoundException("Username not found.");
     }
+
+    List<GrantedAuthority> authorities = getUserAuthority(user.getRoles());
+    return buildUserForAuthentication(user, authorities);
+  }
+
+  public List<User> getAllUsers() {
+    List<User> users = new ArrayList<>();
+    userRepository.findAll().forEach(e -> users.add(e));
+    return users;
+  }
+
+  public User getUserById(int userId) {
+    User user = userRepository.findById(userId).get();
+    return user;
+  }
+
+  public User getUserByUsername(String username) throws UserDoesNotExistException {
+    User user = userRepository.findByUsername(username);
+
+    if (user == null) {
+      throw new UserDoesNotExistException("This user doesn't exist.");
+    }
+
+    return user;
+  }
+
+  public User addUser(User user) throws UserAlreadyExistException {
+    if (userExist(user.getUsername())) {
+      throw new UserAlreadyExistException("There is an account with that username: " + user.getUsername());
+    }
+
+    user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
+    user.setActive(true);
+    return userRepository.save(user);
+  }
+
+  public void saveUser(User user) throws UserDoesNotExistException {
+    if (!userRepository.existsById(user.getId())) {
+      throw new UserDoesNotExistException("This user doesn't exist.");
+    }
+
+    user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
+    userRepository.save(user);
+  }
+
+  public void deleteUser(User user) throws UserDoesNotExistException {
+    if (!userRepository.existsById(user.getId())) {
+      throw new UserDoesNotExistException("This user doesn't exist.");
+    }
+
+    userRepository.delete(user);
   }
 
   private List<GrantedAuthority> getUserAuthority(Set<Role> userRoles) {
@@ -47,6 +97,11 @@ public class CustomUserDetailsService implements UserDetailsService {
   }
 
   private UserDetails buildUserForAuthentication(User user, List<GrantedAuthority> authorities) {
-    return new org.springframework.security.core.userdetails.User(user.getName(), user.getPassword(), authorities);
+    return new org.springframework.security.core.userdetails.User(user.getUsername(), user.getPassword(), user.getActive(), true, true, true, authorities);
   }
+
+  private boolean userExist(final String username) {
+    return userRepository.findFirstByUsername(username) != null;
+  }
+
 }

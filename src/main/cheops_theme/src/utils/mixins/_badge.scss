@@ -1,0 +1,10 @@
+@mixin badge {
+  text-transform: lowercase;
+  background: $badge-background;
+  padding: $badge-padding-y $badge-padding-x;
+  height: 30px;
+  line-height: 1;
+  border-radius: $badge-border-radius;
+  font-size: $badge-font-size;
+  cursor: pointer;
+}

@@ -15,4 +15,9 @@ public interface IApplicationProcessService {
 	void updateApplicationProcess(ApplicationProcess applicationProcess);
 
 	void deleteApplicationProcess(int applicationProcessId);
+
+	List<ApplicationProcess> getUpcomingMonthsFirstScreenings();
+
+  List<ApplicationProcess> getUpcomingMonthsTechnicalScreenings();
+
 }
