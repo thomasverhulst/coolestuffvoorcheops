@@ -3,7 +3,6 @@ package com.cheops.candidatemanager.repositories;
 import java.util.List;
 
 import com.cheops.candidatemanager.models.Candidate;
-import com.cheops.candidatemanager.models.CandidateSearchResolver;
 
 import org.springframework.data.repository.CrudRepository;
 

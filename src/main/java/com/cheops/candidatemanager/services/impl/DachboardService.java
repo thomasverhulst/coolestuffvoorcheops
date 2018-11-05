@@ -54,7 +54,7 @@ public class DachboardService implements IDashboardService {
 		}
 
 	}
-
+// dit ziet er verdacht uit, geen ! bij de isempty?
 	public List<Candidate> getLatest5RecruitedCandidates() {
 		List<Candidate> recentlyRecruited = new ArrayList<Candidate>();
 		recentlyRecruited.addAll(candidateService.getLast5Recruited());

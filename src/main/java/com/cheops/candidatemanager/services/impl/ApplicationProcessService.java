@@ -10,10 +10,7 @@ import java.util.List;
 import org.apache.commons.lang3.time.DateUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-//import org.thymeleaf.util.DateUtils;
-
 import com.cheops.candidatemanager.models.ApplicationProcess;
-import com.cheops.candidatemanager.models.Candidate;
 import com.cheops.candidatemanager.repositories.ApplicationProcessRepository;
 import com.cheops.candidatemanager.services.IApplicationProcessService;
 
@@ -32,8 +29,7 @@ public class ApplicationProcessService implements IApplicationProcessService {
 
 	@Override
 	public ApplicationProcess getApplicationProcessById(int applicationProcessId) {
-		ApplicationProcess e = applicationProcessRepository.findById(applicationProcessId).get();
-		return e;
+		return applicationProcessRepository.findById(applicationProcessId).get();
 	}
 
 	@Override
@@ -70,7 +66,6 @@ public class ApplicationProcessService implements IApplicationProcessService {
 		Iterator<ApplicationProcess> i = list.iterator();
 		while (i.hasNext()) {
 			ApplicationProcess s = i.next(); // must be called before you can call i.remove()
-			// Do something
 			if (s.getIsRecruited()) {
 				i.remove();
 			}
@@ -103,7 +98,6 @@ public class ApplicationProcessService implements IApplicationProcessService {
 		Iterator<ApplicationProcess> i = applicationProcess.iterator();
 		while (i.hasNext()) {
 			ApplicationProcess s = i.next(); // must be called before you can call i.remove()
-			// Do something
 			if (!(s.getIsRecruited())) {
 				i.remove();
 			}
@@ -123,7 +117,6 @@ public class ApplicationProcessService implements IApplicationProcessService {
 	}
 
 	public List<ApplicationProcess> getUpcommingMonthsTechnicalScreenings() {
-
 		Date today = DateUtils.truncate(new Date(), Calendar.DAY_OF_MONTH);
 		Date month = DateUtils.truncate(new Date(), Calendar.DAY_OF_MONTH);
 		month = DateUtils.addMonths(new Date(), 1);
@@ -133,10 +126,8 @@ public class ApplicationProcessService implements IApplicationProcessService {
 	}
 
 	public List<ApplicationProcess> getLast5Recruited() {
-
 		return  applicationProcessRepository.findTop5ByOrderByIsRecruitedTimeStampDesc();
 		
-
 	}
 
 	public List<ApplicationProcess> getLastMonthsRecruities() {
@@ -174,7 +165,6 @@ public class ApplicationProcessService implements IApplicationProcessService {
 			 
 			 for (ApplicationProcess applicationProcess : l) {
 				 // dit moet hier niet recruitedtimespamt zijn, is natuurlijk null.
-					//System.out.println("lengte alijsth"+applicationProcess.getIsRecruitedTimeStamp().toString());
 				 System.out.println("aaa"+ l.size());
 				}
 				
@@ -183,7 +173,6 @@ public class ApplicationProcessService implements IApplicationProcessService {
 				return Collections.<ApplicationProcess>emptyList();
 			}
 		
-		//return l;
 	}
 
 	public List<Integer> getAllExEmployees() {

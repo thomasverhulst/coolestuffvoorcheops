@@ -77,8 +77,6 @@ public class ApplicationProcess {
 	
 	@Column(name = "isexemployeetimestamp")
 	private Timestamp isExEmployeeTimeStamp;
-//	@Column(name = "feedbackfile")
-//	private byte[] feedBackFile;
 
 	@Transient
 	private MultipartFile file;
@@ -323,18 +321,5 @@ public class ApplicationProcess {
 	public void setIsExEmployeeTimeStamp(Timestamp isExEmployeeTimeStamp) {
 		this.isExEmployeeTimeStamp = isExEmployeeTimeStamp;
 	}
-
-
-
-
-	
-
-
-
-
-//	public void setExEmployee(boolean isExEmployee) {
-//		this.isExEmployee = isExEmployee;
-//	}
-
 	
 }
