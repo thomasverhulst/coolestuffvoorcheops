@@ -4,11 +4,10 @@
 <body>
 	<header th:replace="fragments/general :: header"></header>
 	<main>
-    <!-- TODO: use messages.properties-->
 		<div class="container-fluid">
 			<div class="row mb-3">
 				<div class="col">
-					<h1 class="a-title--page">Gebruiker aanpassen</h1>
+					<h1 class="a-title--page" th:text="#{user.edit}"></h1>
 				</div>
 			</div>
       <div class="row">
