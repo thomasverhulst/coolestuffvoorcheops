@@ -1,6 +1,7 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <body>
+<!-- TODO: use messages.properties -->
   <div th:fragment="card-stat(color, title, number, percentage)" class="card">
     <div class="card--body">
       <div class="m-stats">
@@ -19,9 +20,8 @@
     </div>
   </div>
   <div th:fragment="card(title, body)" class="card h-100">
-    <div class="card--header" th:text="${title}">
-    </div>
-    <div class="card--body" th:insert="${body}">
-    </div>
+    <div th:if="${title != null}" class="card--header" th:text="${title}"></div>
+    <div class="card--body" th:insert="${body}"></div>
   </div>
+  <duv th:fragment="card-(body)"
 </body>

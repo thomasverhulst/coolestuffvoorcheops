@@ -1,6 +1,6 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
-<head th:replace="fragments/general :: headTag(title='Dashboard - Cheops Kandidatenbeheer')"></head>
+<head th:replace="fragments/general :: headTag(title=#{dashboard} + ' - Cheops Kandidatenbeheer')"></head>
 <body>
 	<header th:replace="fragments/general :: header"></header>
 	<main>
@@ -11,40 +11,40 @@
             <div class="card--body">
               <nav class="nav m-navigation--dashboard">
                 <div class="nav-item m-navigation--item js-has-nav-sub">
-                  <a href="#" class="nav-link"><span class="icon icon-people"></span>Kandidaten<i class="fas fa-chevron-down"></i></a>
+                  <a href="#" class="nav-link" th:inline="text"><span class="icon icon-people"></span>[[#{candidates}]]<i class="fas fa-chevron-down"></i></a>
                   <div class="nav-sub">
-                    <!-- Todo Add links-->
+                    <!-- TODO: Add links-->
                     <div class="nav-item m-navigation--item m-navigation--subitem">
-                      <a href="#" class="nav-link">Alle</a>
+                      <a href="#" class="nav-link" th:text="#{all}"></a>
                     </div>
                     <div class="nav-item m-navigation--item m-navigation--subitem">
-                      <a href="#" class="nav-link">Nieuw</a>
+                      <a href="#" class="nav-link" th:text="#{new}"></a>
                     </div>
                     <div class="nav-item m-navigation--item m-navigation--subitem">
-                      <a href="#" class="nav-link">Uitgenodigd</a>
+                      <a href="#" class="nav-link" th:text="#{invited}"></a>
                     </div>
                     <div class="nav-item m-navigation--item m-navigation--subitem">
-                      <a href="#" class="nav-link">Kennismakingsgesprek</a>
+                      <a href="#" class="nav-link" th:text="#{firstMeeting}"></a>
                     </div>
                     <div class="nav-item m-navigation--item m-navigation--subitem">
-                      <a href="#" class="nav-link">Technische screening</a>
+                      <a href="#" class="nav-link" th:text="#{techMeeting}"></a>
                     </div>
                     <div class="nav-item m-navigation--item m-navigation--subitem">
-                      <a href="#" class="nav-link">Aangenomen</a>
+                      <a href="#" class="nav-link" th:text="#{hired}"></a>
                     </div>
                     <div class="nav-item m-navigation--item m-navigation--subitem">
-                      <a href="#" class="nav-link">Niet aangenomen</a>
+                      <a href="#" class="nav-link" th:text="#{notHired}"></a>
                     </div>
                     <div class="nav-item m-navigation--item m-navigation--subitem">
-                      <a href="#" class="nav-link">Ex-werknemers</a>
+                      <a href="#" class="nav-link" th:text="#{exemployees}"></a>
                     </div>
                   </div>
                 </div>
                 <div class="nav-item m-navigation--item">
-                  <a href="/showRegisterNew" class="nav-link"><span class="icon icon-add-people"></span>Kandidaat toevoegen</a>
+                  <a href="/showRegisterNew" class="nav-link" th:inline="text"><span class="icon icon-add-people"></span>[[#{candidate.search}]]</a>
                 </div>
                 <div class="nav-item m-navigation--item">
-                  <a href="/search" class="nav-link"><span class="icon icon-search"></span>Kandidaat zoeken</a>
+                  <a href="/search" class="nav-link" th:inline="text"><span class="icon icon-search"></span>[[#{candidate.add}]]</a>
                 </div>
               </nav>
             </div>
@@ -53,16 +53,16 @@
         <div class="col-md-9">
           <div class="row align-items-center justify-content-between mb-3">
             <div class="col-auto">
-              <h1 class="a-title--page">Dashboard</h1>
+              <h1 class="a-title--page" th:text="#{dashboard}"></h1>
             </div>
             <div class="col-auto">
-              <div class="a-dashboard-date">
-                Vandaag <span th:text="${#dates.format(#dates.createNow(), 'dd MMMM yyyy')}"></span>
+              <div class="a-dashboard-date" th:inline="text">
+                [[#{today}]] <span th:text="${#dates.format(#dates.createNow(), 'dd MMMM yyyy')}"></span>
               </div>
             </div>
           </div>
           <div class="row">
-            <!-- Todo Make content dynamic -->
+            <!-- TODO: Make content dynamic + use messages.properties -->
             <div class="col-md-4 mb-grid">
               <div th:replace="fragments/card :: card-stat(blue, 'Interviews', 2, 10)"></div>
             </div>
@@ -75,7 +75,7 @@
           </div>
           <div class="row">
             <div class="col-md-8 mb-grid">
-              <!-- Todo Make content dynamic -->
+              <!-- TODO: Make content dynamic + use messages.properties -->
               <div th:replace="fragments/card :: card('Nieuwe kandidaten', ~{ :: .table-new-candidates})">
                 <div class="table-new-candidates" th:remove="tag">
                   <table th:replace="fragments/table :: table-candidates(false, false, false, false, true, true, false, false)"></table>
@@ -83,7 +83,7 @@
               </div>
             </div>
             <div class="col-md-4 mb-grid">
-              <!-- Todo Make content dynamic -->
+              <!-- TODO: Make content dynamic + use messages.properties -->
               <div th:replace="fragments/card :: card('Evenementen', ~{ :: .o-events-list})">
                 <div class="o-events-list">
                   <div class="a-event d-flex align-items-center">
@@ -100,7 +100,7 @@
           </div>
           <div class="row">
             <div class="col">
-              <!-- Todo Make content dynamic -->
+              <!-- TODO: Make content dynamic + use messages.properties -->
               <div th:replace="fragments/card :: card('Recent aangenomen', ~{ :: .table-recent-hired})">
                 <div class="table-recent-hired" th:remove="tag">
                   <table th:replace="fragments/table :: table-candidates(true, false, false, false, false, false, false, true)"></table>
