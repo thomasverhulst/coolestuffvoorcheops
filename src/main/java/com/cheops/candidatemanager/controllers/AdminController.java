@@ -62,7 +62,7 @@ public class AdminController {
   }
 
   @GetMapping("/admin/userdelete/{userId}")
-  public String userDelete(Locale locale, Model model, @PathVariable("userId") User user, RedirectAttributes redirectAttributes) {
+  public String userDelete(Locale locale, @PathVariable("userId") User user, RedirectAttributes redirectAttributes) {
     if (user == null) {
       redirectAttributes.addFlashAttribute("errorMessage", messageSource.getMessage("user.doesNotExists", null, locale));
       return "redirect:/admin";
@@ -78,7 +78,7 @@ public class AdminController {
     return "redirect:/admin";
   }
 
-  @GetMapping("/admin/useredit/{userId}")
+  @GetMapping("/admin/user-edit/{userId}")
   public String userEditView(Locale locale, Model model, @PathVariable("userId") User user, RedirectAttributes redirectAttributes, HttpSession session) {
     if (user == null) {
       redirectAttributes.addFlashAttribute("errorMessage", messageSource.getMessage("user.doesNotExists", null, locale));
@@ -88,10 +88,10 @@ public class AdminController {
     List<Role> allRoles = roleService.getAllRoles();
     model.addAttribute("user", user);
     model.addAttribute("allRoles", allRoles);
-    return "admin/useredit";
+    return "user-edit";
   }
 
-  @PostMapping("/admin/useredit/{userId}")
+  @PostMapping("/admin/user-edit/{userId}")
   public String userEdit(Locale locale, @ModelAttribute User user, @PathVariable("userId") int userId, @RequestParam(value = "resetPassword", required = false) boolean resetPassword, RedirectAttributes redirectAttributes) {
     try {
 
@@ -111,4 +111,5 @@ public class AdminController {
 
     return "redirect:/admin";
   }
+
 }

@@ -50,6 +50,16 @@ public class CustomUserDetailsService implements UserDetailsService {
     return user;
   }
 
+  public User getUserByUsername(String username) throws UserDoesNotExistException {
+    User user = userRepository.findByUsername(username);
+
+    if (user == null) {
+      throw new UserDoesNotExistException("This user doesn't exist.");
+    }
+
+    return user;
+  }
+
   public User addUser(User user) throws UserAlreadyExistException {
     if (userExist(user.getUsername())) {
       throw new UserAlreadyExistException("There is an account with that username: " + user.getUsername());
