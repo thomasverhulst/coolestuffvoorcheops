@@ -7,12 +7,6 @@ import org.springframework.data.repository.CrudRepository;
 
 public interface SkillsRepository extends CrudRepository<Skills, Integer> {
 	// List<Address> findByStreetNameAndPostalCode(String streetName, String
-	// postalCode); {
-
-	// List<Skills> findAllByDotnetGreaterThan(int i);
-	// List<Skills> findAllByJavaGreaterThan(int i);
-
-	// List<Skills> findAllByDotnetTrue(boolean isdotnett);
 
 	List<Skills> findAllByDotnet(boolean isdotnett);
 
@@ -21,9 +15,5 @@ public interface SkillsRepository extends CrudRepository<Skills, Integer> {
 	List<Skills> findAllByFrontend(boolean isFrontend);
 
 	Object findAllByExperienceGreaterThan(int experience);
-
-	// Object findAllByExperienceGreaterThanIn(int experience);
-
-	// List<Skills> findAllByFrontenderGreaterThan(int i);
 
 }

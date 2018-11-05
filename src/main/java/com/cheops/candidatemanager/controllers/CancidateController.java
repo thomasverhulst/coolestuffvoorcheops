@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.sql.Timestamp;
 import java.util.Optional;
 
 import javax.servlet.http.HttpServletResponse;
@@ -49,8 +50,8 @@ public class CancidateController {
 	Logger logger = Logger.getLogger(CancidateController.class);
 
 	private final IStorageService storageService;
-	public String uploadDirectory = System.getProperty("user.dir") + "/uploads";
-	public String feedbackuploadDirectory = System.getProperty("user.dir") + "/uploadsfeedback";
+	final static String uploadDirectory = System.getProperty("user.dir") + "/uploads";
+	final static String feedbackuploadDirectory = System.getProperty("user.dir") + "/uploadsfeedback";
 	
 	// goede uitleg
 	// https://www.mkyong.com/spring-boot/spring-boot-hibernate-search-example/
@@ -104,12 +105,11 @@ public class CancidateController {
 		Update update = new Update(false);
 		map.addAttribute("update", update);
 		map.addAttribute("candidate", new NewCandidate());
-		//map.addAttribute("candidate", new Candidate());
 		return "registernew";
 	}
 
 	// terug knop, werkt niet
-	@RequestMapping(value = "/registerCandidate", method = RequestMethod.POST, params = "action=back")
+	@PostMapping(value = "/registerCandidate", params = "action=back")
 	public String home() {
 		return "index";
 	}
@@ -119,12 +119,17 @@ public class CancidateController {
 		return "header.html";
 	}
 
-	@RequestMapping(value = "/registerCandidate", method = RequestMethod.POST)
+	@PostMapping(value = "/registerCandidate")
 	public String register(Model model, @ModelAttribute("address") Address address,
 			@ModelAttribute("candidate") Candidate candidate, HttpSession session) throws IOException {
 
 		session.setAttribute("isupdate", false);
 
+		
+		//set timestamp when can,didate is added
+		Timestamp isAddedTimeStamp = new Timestamp(System.currentTimeMillis());
+		candidate.setIsAddedTimeStamp(isAddedTimeStamp); 
+		
 		// save cv if it exists
 		logger.debug("de cv link =" + candidate.getFile());
 		if (candidate.getFile() != null && !candidate.getFile().isEmpty()) {
@@ -155,12 +160,29 @@ public class CancidateController {
 		return "skills";
 	}
 	
-	@RequestMapping(value = "/registerCandidateNew", method = RequestMethod.POST)
+	@PostMapping(value = "/registerCandidateNew")
 	public String registerNew(Model model, @ModelAttribute("address") Address address,
 			@ModelAttribute("candidate") NewCandidate newCandidate, HttpSession session) throws IOException {
 
 		session.setAttribute("isupdate", false);
 
+		//set timestamp when can,didate is added
+		Timestamp isAddedTimeStamp = new Timestamp(System.currentTimeMillis());
+		newCandidate.setIsAddedTimeStamp(isAddedTimeStamp); 
+		
+		//check if isrecruited is set, if so, add timestamp	
+		if(newCandidate.getApplicationProcess().getIsRecruited()) {
+			Timestamp isRecruitedTimeStamp = new Timestamp(System.currentTimeMillis());
+			newCandidate.getApplicationProcess().setIsRecruitedTimeStamp(isRecruitedTimeStamp);
+		}
+		
+		//check if isExemployee is set, if so, add timestamp and unset "isrecruited	
+		if(newCandidate.getApplicationProcess().getIsExEmployee()) {
+			Timestamp isExEmployeeTimeStamp = new Timestamp(System.currentTimeMillis());
+			newCandidate.getApplicationProcess().setIsExEmployeeTimeStamp(isExEmployeeTimeStamp);
+			newCandidate.getApplicationProcess().setIsRecruited(false);
+		}
+		
 		// save cv if it exists
 		logger.debug("de cv link =" + newCandidate.getFile());
 		if (newCandidate.getFile() != null && !newCandidate.getFile().isEmpty()) {
@@ -174,14 +196,11 @@ public class CancidateController {
 			// set link to cv
 			newCandidate.setCvLink(file.getOriginalFilename());
 		}
-		
+
 		if (newCandidate.getApplicationProcess().getFile() != null && !newCandidate.getApplicationProcess().getFile().isEmpty()) {
 		
 			MultipartFile file = newCandidate.getApplicationProcess().getFile();
-			// add file to byte variable, for blob
-//			System.out.println("filenaam = "+file.getOriginalFilename());
-//			applicationProcess.setFeedbackFileName(file.getOriginalFilename());
-//			applicationProcess.setFeedBackFile(file.getBytes());
+			
 			Path filenameAndPath = Paths.get(feedbackuploadDirectory, file.getOriginalFilename());
 			Files.write(filenameAndPath, file.getBytes());
 			// set link to cv
@@ -191,7 +210,7 @@ public class CancidateController {
 			
 		}
 		
-		//System.out.println("addrzs" candidate.geta);
+
 		// https://stackoverflow.com/questions/2227395/spring-3-0-set-and-get-session-attribute
 		// save candidate to get an id
 		NewCandidate tmpNewCandidate = newCandidateservice.addNewCandidate(newCandidate);
@@ -199,19 +218,13 @@ public class CancidateController {
 		tmpNewCandidate.setAddressId(tmpNewCandidate.getAddress().getId() );
 		tmpNewCandidate.setApplicationProcessId(tmpNewCandidate.getApplicationProcess().getId() );
 		tmpNewCandidate.setSkillsId(tmpNewCandidate.getSkills().getId());
-		//tmpNewCandidate.setApplicationProcessId(tmpNewCandidate.getApplicationProcessId() );
-		//tmpNewCandidate.setAddressId(tmpNewCandidate.getAddressId());
+
 		newCandidateservice.updateNewCandidate(tmpNewCandidate);
 		session.setAttribute("candidate", tmpNewCandidate);
 
-		// adres
-		//Address tmpAddress = addressService.addAddress(address);
-
-		//candidate.setAddressId(tmpAddress.getId());
-		//candidateservice.updateCandidate(candidate);
-
+		
 		logger.debug("Kandidaat id " + tmpNewCandidate.getId());
-		//model.addAttribute("skills", new Skills());
+
 		return "updatesucces";
 	}
 	
@@ -223,7 +236,7 @@ public class CancidateController {
 		return "test";
 	}
 
-	@RequestMapping(value = "/updateCandidate2", method = RequestMethod.POST)
+	@PostMapping(value = "/updateCandidate2")
 	public String updateCandidate(Model model, @ModelAttribute("address") Address address,
 			@ModelAttribute("candidate") Candidate candidate, HttpSession session) throws IOException {
 
@@ -247,7 +260,7 @@ public class CancidateController {
 		return "test";
 	}
 
-	@RequestMapping(value = "/registerSkills", method = RequestMethod.POST)
+	@PostMapping(value = "/registerSkills")
 	public String registerSkills(Model model, @ModelAttribute("skills") Skills skills, HttpSession session) {
 		// check if it is an update (late adding ) of skills
 		boolean update = (boolean) session.getAttribute("isupdate");
@@ -274,7 +287,7 @@ public class CancidateController {
 		return "salarypackage";
 	}
 
-	@RequestMapping(value = "/registerSalaryPackage", method = RequestMethod.POST)
+	@PostMapping(value = "/registerSalaryPackage")
 	public String registerSalaryPackage(Model model, @ModelAttribute("salarypackage") SalaryPackage salaryPackage,
 			HttpSession session) {
 		logger.debug("we passeren hier " + salaryPackage.getGrossSalary());
@@ -313,16 +326,20 @@ public class CancidateController {
 		return returning;
 	}
 
-	@RequestMapping(value = "/registerApplicationProcess", method = RequestMethod.POST)
+	@PostMapping(value = "/registerApplicationProcess")
 	public String registerApplicationProcess(Model model,
 			@ModelAttribute("applicationprocess") ApplicationProcess applicationProcess, BindingResult bindingResult, HttpSession session) throws IOException {
 
+		//check if isrecruited is set, if so, add timestamp	
+		if(applicationProcess.getIsRecruited()) {
+			Timestamp isRecruitedTimeStamp = new Timestamp(System.currentTimeMillis());
+			applicationProcess.setIsRecruitedTimeStamp(isRecruitedTimeStamp);
+		}
+		
+		//check if feedbackfile is added
 		if (applicationProcess.getFile() != null && !applicationProcess.getFile().isEmpty()) {	
 			MultipartFile file = applicationProcess.getFile();
-			// add file to byte variable, for blob
-//			System.out.println("filenaam = "+file.getOriginalFilename());
-//			applicationProcess.setFeedbackFileName(file.getOriginalFilename());
-//			applicationProcess.setFeedBackFile(file.getBytes());
+		
 			Path filenameAndPath = Paths.get(feedbackuploadDirectory, file.getOriginalFilename());
 			Files.write(filenameAndPath, file.getBytes());
 			// set link to cv
@@ -363,7 +380,7 @@ public class CancidateController {
 		return "salarypackageproposal";
 	}
 
-	@RequestMapping(value = "/sendmail", method = RequestMethod.POST)
+	@PostMapping(value = "/sendmail")
 	public String sendMail(Model model, @ModelAttribute("salarypackage") SalaryPackage salaryPackage) {
 		return "mailsucces";
 	}

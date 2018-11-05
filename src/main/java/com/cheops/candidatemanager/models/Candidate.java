@@ -1,5 +1,7 @@
 package com.cheops.candidatemanager.models;
 
+import java.io.Serializable;
+import java.sql.Timestamp;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -15,7 +17,12 @@ import org.springframework.web.multipart.MultipartFile;
 
 @Entity
 @Table(name = "candidate")
-public class Candidate {
+public class Candidate implements Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
 	@Id
 	@Column(name = "idcandidate")
@@ -47,12 +54,15 @@ public class Candidate {
 
 	@Column(name = "gender")
 	private String gender;
+	
 	@Transient
 	private MultipartFile file;
 
 	@Column(name = "contactChannel")
 	private String contactChannel;
 	
+	@Column(name = "isaddedtimestamp")
+	private Timestamp isAddedTimeStamp;
 	// ids
 	@Column(name = "currentsallarypackageId")
 	private int currentSallaryPackageId;
@@ -78,7 +88,6 @@ public class Candidate {
 		super();
 		this.name = name;
 		this.sirName = sirName;
-		// this.addressId = addressId;
 		this.email = email;
 		this.birthdate = birthdate;
 		this.phoneNumber = phoneNumber;
@@ -213,6 +222,14 @@ public class Candidate {
 
 	public void setId(Integer id) {
 		this.id = id;
+	}
+
+	public Timestamp getIsAddedTimeStamp() {
+		return isAddedTimeStamp;
+	}
+
+	public void setIsAddedTimeStamp(Timestamp isAddedTimeStamp) {
+		this.isAddedTimeStamp = isAddedTimeStamp;
 	}
 
 }

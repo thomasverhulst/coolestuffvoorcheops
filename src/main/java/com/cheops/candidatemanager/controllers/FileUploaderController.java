@@ -6,8 +6,6 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.stream.Collectors;
 
-//import javax.annotation.Resource;
-
 import com.cheops.candidatemanager.services.IStorageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.Resource;
@@ -24,7 +22,6 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.method.annotation.MvcUriComponentsBuilder;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-//import com.google.common.io.Files;
 import com.google.common.net.HttpHeaders;
 import com.cheops.candidatemanager.exceptions.StorageFileNotFoundException;
 
@@ -40,7 +37,7 @@ public class FileUploaderController {
 	}
 
 	@GetMapping("/upload2")
-	public String listUploadedFiles(Model model) throws IOException {
+	public String listUploadedFiles(Model model)  {
 
 		model.addAttribute("files", storageService.loadAll()
 				.map(path -> MvcUriComponentsBuilder
@@ -59,7 +56,6 @@ public class FileUploaderController {
 		return ResponseEntity.ok()
 				.header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + file.getFilename() + "\"")
 				.body(file);
-		// return null;
 
 	}
 

@@ -2,7 +2,6 @@ package com.cheops.candidatemanager.services.impl;
 
 import com.cheops.candidatemanager.models.Role;
 import com.cheops.candidatemanager.models.User;
-import com.cheops.candidatemanager.repositories.RoleRepository;
 import com.cheops.candidatemanager.repositories.UserRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,25 +20,8 @@ public class CustomUserDetailsService implements UserDetailsService {
   @Autowired
   private UserRepository userRepository;
 
-  @Autowired
-  private RoleRepository roleRepository;
-
-//  @Autowired
-//  private BCryptPasswordEncoder bCryptPasswordEncoder;
-
-//  public User findUserByName(String name) {
-//    return userRepository.findByName(name);
-//  }
-
   public void saveUser(User user) {
-    // Todo: implement see below
 
-//    user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
-//    user.setEnabled(true);
-//    Role userRole = roleRepository.findByRole("ADMIN");
-//    user.setRoles(new HashSet<>(Arrays.asList(userRole)));
-//    userRepository.save(user);
-    // https://www.djamware.com/post/5b2f000880aca77b083240b2/spring-boot-security-and-data-mongodb-authentication-example
   }
 
   @Override

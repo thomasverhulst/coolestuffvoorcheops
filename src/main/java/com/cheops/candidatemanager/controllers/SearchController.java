@@ -14,6 +14,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -127,31 +128,33 @@ public class SearchController {
 		return goToResultpage(modelMap, candidates, session);
 	}
 
-	@RequestMapping(value = "/searchAllRecruitedCandidates", method = RequestMethod.POST)
+	@PostMapping(value = "/searchAllRecruitedCandidates")
 	public String searchAllRecruitedCandidates(ModelMap modelMap, HttpSession session) {
 		List<CandidateSearchResolver> candidates = candidateservice.findAllRecruited();
 		return goToResultpage(modelMap, candidates, session);
 	}
 
-	@RequestMapping(value = "/searchAllCandidates", method = RequestMethod.POST)
+	@PostMapping(value = "/searchAllCandidates")
 	public String searchAllCandidates(ModelMap modelMap, HttpSession session) {
 
 		List<CandidateSearchResolver> candidates = candidateservice.getAllCandidates();
 		return goToResultpage(modelMap, candidates, session);
 	}
 
-	@RequestMapping(value = "/searchAllCandidatesWithActiveApplicationProcess", method = RequestMethod.POST)
+	@PostMapping(value = "/searchAllCandidatesWithActiveApplicationProcess")
 	public String searchAllCandidatesWithActiveApplicationProcess(ModelMap modelMap, HttpSession session) {
 		List<CandidateSearchResolver> candidates = candidateservice.getAllCandidatesWithActiveApplicationProcess();
 		return goToResultpage(modelMap, candidates, session);
 	}
 
-	@RequestMapping(value = "/searchAllCandidatesWithoutActiveApplicationProcess", method = RequestMethod.POST)
+	@PostMapping(value = "/searchAllCandidatesWithoutActiveApplicationProcess")
 	public String searchAllCandidatesWithoutActiveApplicationProcess(ModelMap modelMap, HttpSession session) {
-		List<Candidate> candidates = candidateservice.getAllCandidatesWithoutActiveApplicationProcess();
-		modelMap.addAttribute("candidates", candidates);
-		modelMap.addAttribute("candaidatesearchmodel", new CandaidateSearchModel());
-		return "searchcandidateresult";
+		List<CandidateSearchResolver> candidates = candidateservice.getAllCandidatesWithoutActiveApplicationProcess();
+		return goToResultpage(modelMap, candidates, session);
+		
+		//modelMap.addAttribute("candidates", candidates);
+		//modelMap.addAttribute("candaidatesearchmodel", new CandaidateSearchModel());
+		//return "searchcandidateresult";
 	}
 
 	// adding result candidate list to session in order to make "return buttons"
@@ -164,8 +167,8 @@ public class SearchController {
 		modelMap.addAttribute("candaidatesearchmodel", new CandaidateSearchModel());
 		return "searchcandidateresult";
 	}
-
-	@RequestMapping(value = "/toSearchPage", method = RequestMethod.GET)
+	//////////////////////////////////////////dftg//searchAllCandidatesWithoutActiveApplicationProcess
+	@GetMapping(value = "/toSearchPage")
 	public String toSearchPage(ModelMap modelMap, HttpSession session) {
 
 		List<Candidate> candidateList = (List<Candidate>) session.getAttribute("candidateResults");
@@ -173,7 +176,7 @@ public class SearchController {
 		return "searchcandidateresult";
 	}
 
-	@RequestMapping(value = "/searchssalarypackage", method = RequestMethod.POST)
+	@PostMapping(value = "/searchssalarypackage")
 	public String getEmployeeByName(@RequestParam("name") String name, @RequestParam("sirName") String sirName,
 			ModelMap modelMap) {
 

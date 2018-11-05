@@ -5,6 +5,5 @@ import org.springframework.data.repository.CrudRepository;
 
 public interface SalaryPackageRepository extends CrudRepository<SalaryPackage, Integer> {
 	// List<Address> findByStreetNameAndPostalCode(String streetName, String
-	// postalCode);
 
 }

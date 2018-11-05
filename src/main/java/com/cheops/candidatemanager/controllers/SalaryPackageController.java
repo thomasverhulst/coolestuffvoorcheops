@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -30,7 +31,7 @@ public class SalaryPackageController {
 	@Autowired
 	private SalaryPackageService salaryPackageService;
 
-	@RequestMapping(value = "searchcurrentsalarypackage2/{candidateId}", method = RequestMethod.GET)
+	@GetMapping(value = "searchcurrentsalarypackage2/{candidateId}")
 	public String searchCurrentSalaryPackage(Model model, @PathVariable("candidateId") int candidateId,
 			HttpSession session) {
 		Integer salaryPackageId = candidateservice.getCandidateById(candidateId).getCurrentSallaryPackageId();
@@ -55,13 +56,12 @@ public class SalaryPackageController {
 																											// nullpointer?
 																											// (niet bij
 																											// skills)
-																											// AUTOWIRD
-																											// STOND UIT
+																											// AUTOWIR																										// STOND UIT
 		}
 		return "updatesalarypackage";
 	}
 
-	@RequestMapping(value = "searchproposedsalarypackage2/{candidateId}", method = RequestMethod.GET)
+	@GetMapping(value = "searchproposedsalarypackage2/{candidateId}")
 	public String searchProposedSalaryPackage(Model model, @PathVariable("candidateId") int candidateId,
 			HttpSession session) {
 		Integer salaryPackageId = candidateservice.getCandidateById(candidateId).getProposedSallaryPackageId();
@@ -84,7 +84,7 @@ public class SalaryPackageController {
 		return "updatesalarypackage";
 	}
 
-	@RequestMapping(value = "searchupdatesalarypackage/{candidateId}", method = RequestMethod.GET)
+	@GetMapping(value = "searchupdatesalarypackage/{candidateId}")
 	public String searchUpdateSalaryPackage(Model model, @PathVariable("candidateId") int candidateId,
 			HttpSession session) {
 		model.addAttribute("candidate", session.getAttribute("candidate"));

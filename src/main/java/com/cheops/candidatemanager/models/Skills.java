@@ -121,28 +121,12 @@ public class Skills {
 		return this.getId().compareTo(skills.getId());
 	}
 	// toegevoegd in de hoopd at de update zou werken, niet het geval
-	// @Override
-	// public int hashCode() {
-	// final int prime = 31;
-	// int result = 1;
-	// result = prime * result + (dotnet ? 1231 : 1237);
+	// result = prime * result + (dotnet ? 1231 : 1237);ki
 	// result = prime * result + experience;
 	// result = prime * result + (frontend ? 1231 : 1237);
 	// result = prime * result + ((id == null) ? 0 : id.hashCode());
 	// result = prime * result + (java ? 1231 : 1237);
 	// result = prime * result + ((preferredLocation == null) ? 0 :
-	// preferredLocation.hashCode());
-	// result = prime * result + ((preferredTechnologies == null) ? 0 :
-	// preferredTechnologies.hashCode());
-	// result = prime * result + ((technicalKnowlegde == null) ? 0 :
-	// technicalKnowlegde.hashCode());
-	// return result;
-	// }
-	//
-	// @Override
-	// public boolean equals(Object obj) {
-	// if (this == obj)
-	// return true;
 	// if (obj == null)
 	// return false;
 	// if (getClass() != obj.getClass())

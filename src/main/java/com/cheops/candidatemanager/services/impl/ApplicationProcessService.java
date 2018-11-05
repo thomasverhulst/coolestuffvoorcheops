@@ -1,14 +1,19 @@
 package com.cheops.candidatemanager.services.impl;
 
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
+
+import org.apache.commons.lang3.time.DateUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+//import org.thymeleaf.util.DateUtils;
 
 import com.cheops.candidatemanager.models.ApplicationProcess;
 import com.cheops.candidatemanager.repositories.ApplicationProcessRepository;
 import com.cheops.candidatemanager.services.IApplicationProcessService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
 @Service
 public class ApplicationProcessService implements IApplicationProcessService {
@@ -103,6 +108,43 @@ public class ApplicationProcessService implements IApplicationProcessService {
 		}
 
 		return applicationProcess;
+	}
+
+	public List<ApplicationProcess> getUpcommingMonthsFirstScreenings() {
+
+		Date today = DateUtils.truncate(new Date(), Calendar.DAY_OF_MONTH);
+		Date month = DateUtils.truncate(new Date(), Calendar.DAY_OF_MONTH);
+		month = DateUtils.addMonths(new Date(), 1);
+
+		return applicationProcessRepository.findAllByfirstConversationDateBetween(today, month);
+
+	}
+
+	public List<ApplicationProcess> getUpcommingMonthsTechnicalScreenings() {
+
+		Date today = DateUtils.truncate(new Date(), Calendar.DAY_OF_MONTH);
+		Date month = DateUtils.truncate(new Date(), Calendar.DAY_OF_MONTH);
+		month = DateUtils.addMonths(new Date(), 1);
+
+		return applicationProcessRepository.findAllBytechnicalConversationDateBetween(today, month);
+
+	}
+
+	public List<ApplicationProcess> getLast5Recruited() {
+
+		return  applicationProcessRepository.findTop5ByOrderByIsRecruitedTimeStampDesc();
+		
+
+	}
+
+	public List<ApplicationProcess> getLastMonthsRecruities() {
+		Date lastMonth = DateUtils.truncate(new Date(), Calendar.DAY_OF_MONTH);
+		lastMonth = DateUtils.addMonths(new Date(), -1);
+		List<ApplicationProcess> l= applicationProcessRepository.findAllByIsRecruitedTimeStampGreaterThanEqual(lastMonth);
+		for (ApplicationProcess applicationProcess : l) {
+			System.out.println("lengte alijst"+applicationProcess.getIsRecruitedTimeStamp().toString());
+		}
+		return l;
 	}
 
 }
