@@ -44,7 +44,8 @@
                   </select>
                 </div>
                 <div class="col-md-4 form-group m-form-group">
-                  <input type="checkbox" name="resetPassword" id="resetPassword" class="form-control a-form-checkbox js-change-password"><label for="resetPassword" th:text="#{user.passwordReset}"></label>
+                  <div class="mb-2"><input type="checkbox" name="resetPassword" id="resetPassword" class="form-control a-form-checkbox"><label for="resetPassword" th:text="#{user.passwordReset}"></label></div>
+                  <div><input type="checkbox" th:field="*{active}" th:checked="${active} ? 'checked'" name="active" id="active" class="form-control a-form-checkbox"><label for="active" th:text="#{active}"></label></div>
                 </div>
               </div>
               <div class="row">

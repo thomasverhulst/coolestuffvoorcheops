@@ -110,11 +110,17 @@ public class UserController {
   }
 
   @PostMapping("/admin/useredit/{userId}")
-  public String userEdit(Locale locale, @ModelAttribute User user, @PathVariable("userId") int userId, RedirectAttributes redirectAttributes) {
+  public String userEdit(Locale locale, @ModelAttribute User user, @PathVariable("userId") int userId, @RequestParam(value = "resetPassword", required = false) boolean resetPassword, RedirectAttributes redirectAttributes) {
     try {
-      // Set password before saving cause it gets lost otherwise.
-      User tempUser = customUserDetailsService.getUserById(userId);
-      user.setPassword(tempUser.getPassword());
+
+      // (Re)Set password before saving cause it gets lost otherwise.
+      if (resetPassword) {
+        user.setPassword(user.getUsername());
+      } else {
+        User tempUser = customUserDetailsService.getUserById(userId);
+        user.setPassword(tempUser.getPassword());
+      }
+
       customUserDetailsService.saveUser(user);
       redirectAttributes.addFlashAttribute("successMessage", messageSource.getMessage("user.edited", new Object[] {user.getUsername()}, locale));
     } catch (final UserDoesNotExistException e) {
@@ -123,29 +129,6 @@ public class UserController {
 
     return "redirect:/admin";
   }
-
-
-
-// Todo: add alert before delete
-  // Todo: reset password option
-  // Todo: add change password view for user
-
-
-//  @PostMapping("/admin/user/edit/{userId}")
-//  public String updateUser(Locale locale, Model model, @Valid User user, BindingResult result, HttpSession session) {
-//	  if (result.hasErrors()) {
-//      model.addAttribute("errorMessage", messageSource.getMessage("form.error.submission", null, locale));
-//      return "user/edit";
-//    }
-//    //result.get
-//    user.setId(user.getId());
-//	  User tmp = (User) session.getAttribute("user");
-//    user.setPassword(tmp.getPassword());
-//	  customUserDetailsService.updateUser(user);
-//    model.addAttribute("successMessage", messageSource.getMessage("success.editUser", new Object[] {user.getName(), user.getLastName()}, locale));
-//    return "user/edit";
-//  }
-
 
 	// Todo cleanup below
 
