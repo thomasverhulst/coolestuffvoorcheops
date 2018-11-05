@@ -217,13 +217,13 @@ public class SearchController {
 		return "searchssalarypackage";
 	}
 
-	@RequestMapping(value = "/dispatcher/{test}", method = RequestMethod.GET)
+	@GetMapping(value = "/dispatcher/{test}")
 	public String searchDispatcher(@PathVariable("test") String test) {
 		// https://stackoverflow.com/questions/1714028/mvc-which-submit-button-has-been-pressed
 		return "searchssalarypackage";
 	}
 
-	@RequestMapping(value = "searchcandidatedetails/{candidateId}", method = RequestMethod.GET)
+	@GetMapping(value = "searchcandidatedetails/{candidateId}")
 	public String searchCandidateDetails(ModelMap map, @PathVariable("candidateId") int candidateId)
 			throws IOException {
 
@@ -235,12 +235,12 @@ public class SearchController {
 		return "updatecandidate";
 	}
 
-	@RequestMapping(value = "searchcv/{candidateId}", method = RequestMethod.GET)
+	@GetMapping(value = "searchcv/{candidateId}")
 	public String searchCv(@PathVariable("candidateId") int candidateId) {
 		return "searchcv";
 	}
 
-	@RequestMapping(value = "searchskills/{candidateId}", method = RequestMethod.GET)
+	@GetMapping(value = "searchskills/{candidateId}")
 	public String searchSkills(Model model, @PathVariable("candidateId") int candidateId) {
 		// https://stackoverflow.com/questions/1714028/mvc-which-submit-button-has-been-pressed
 
@@ -251,7 +251,7 @@ public class SearchController {
 		return "searchskills";
 	}
 
-	@RequestMapping(value = "searchcurrentsalarypackage/{candidateId}", method = RequestMethod.GET)
+	@GetMapping(value = "searchcurrentsalarypackage/{candidateId}")
 	public String searchCurrentSalarypackage(Model model, @PathVariable("candidateId") int candidateId) {
 		// https://stackoverflow.com/questions/1714028/mvc-which-submit-button-has-been-pressed
 		Candidate candidate = candidateservice.getCandidateById(candidateId);
@@ -270,7 +270,7 @@ public class SearchController {
 		return "searchssalarypackage";
 	}
 
-	@RequestMapping(value = "searchproposedsalarypackage/{candidateId}", method = RequestMethod.GET)
+	@GetMapping(value = "searchproposedsalarypackage/{candidateId}")
 	public String searchProposedSalarypackage(Model model, @PathVariable("candidateId") int candidateId) {
 		// https://stackoverflow.com/questions/1714028/mvc-which-submit-button-has-been-pressed
 		Candidate candidate = candidateservice.getCandidateById(candidateId);
@@ -281,7 +281,7 @@ public class SearchController {
 		return "searchssalarypackage";
 	}
 
-	@RequestMapping(value = "searchapplicationproces/{candidateId}", method = RequestMethod.GET)
+	@GetMapping(value = "searchapplicationproces/{candidateId}")
 	public String searchApplicationproces(@PathVariable("candidateId") String candidateId) {
 		return "searchapplicationproces";
 	}

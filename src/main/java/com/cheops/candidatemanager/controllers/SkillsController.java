@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -29,7 +30,7 @@ public class SkillsController {
 	@Autowired
 	private SkillsService skillsService;
 
-	@RequestMapping(value = "searchskills1/{candidateId}", method = RequestMethod.GET)
+	@GetMapping(value = "searchskills1/{candidateId}")
 	public String searchSkills(Model model, @PathVariable("candidateId") int candidateId, HttpSession session) {
 
 		Integer skillsId = candidateservice.getCandidateById(candidateId).getSkillsId();
@@ -57,12 +58,12 @@ public class SkillsController {
 		return "updatesucces";
 	}
 
-	@RequestMapping(value = "/addSkills/{candidateId}", method = RequestMethod.GET)
+	@GetMapping(value = "/addSkills/{candidateId}")
 	public String addSkills(Model model, @PathVariable("candidateId") int candidateId, HttpSession session) {
 		model.addAttribute("candidate", session.getAttribute("candidate"));
 		model.addAttribute("skills", new Skills());
 		boolean update = (boolean) session.getAttribute("isupdate");
-		logger.debug("t = " + update);
+		logger.debug("isUpdate = " + update);
 		if (update) {
 			return "skills";
 		} else {
