@@ -2,6 +2,7 @@ package com.cheops.candidatemanager.services.impl;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Collections;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
@@ -12,6 +13,7 @@ import org.springframework.stereotype.Service;
 //import org.thymeleaf.util.DateUtils;
 
 import com.cheops.candidatemanager.models.ApplicationProcess;
+import com.cheops.candidatemanager.models.Candidate;
 import com.cheops.candidatemanager.repositories.ApplicationProcessRepository;
 import com.cheops.candidatemanager.services.IApplicationProcessService;
 
@@ -145,6 +147,57 @@ public class ApplicationProcessService implements IApplicationProcessService {
 			System.out.println("lengte alijst"+applicationProcess.getIsRecruitedTimeStamp().toString());
 		}
 		return l;
+	}
+
+	
+	public List<Integer> getAllNotRecuitedCandidates2(){
+		
+		ArrayList<ApplicationProcess> list= (ArrayList<ApplicationProcess>) applicationProcessRepository.findAllByNotRecruitedNotNullAndNotRecruitedNot(""); 
+
+		System.out.println("rrr"+ list.size());
+		
+
+		List<Integer> applicationProcessId = new ArrayList<Integer>();
+		for (ApplicationProcess applicationProcess : list) {
+			applicationProcessId.add(applicationProcess.getId());
+		}
+		return applicationProcessId;
+	}
+	
+	
+	public List<ApplicationProcess> getAllNotRecruitedCandidates() {
+		List<ApplicationProcess> l= applicationProcessRepository.findAllByNotRecruitedNotNullAndNotRecruitedNot(""); 
+		//findByLastnameNot
+		System.out.println("aaa"+l.size());
+		
+		 if (!l.isEmpty()) {
+			 
+			 for (ApplicationProcess applicationProcess : l) {
+				 // dit moet hier niet recruitedtimespamt zijn, is natuurlijk null.
+					//System.out.println("lengte alijsth"+applicationProcess.getIsRecruitedTimeStamp().toString());
+				 System.out.println("aaa"+ l.size());
+				}
+				
+			 return l;
+			}else {
+				return Collections.<ApplicationProcess>emptyList();
+			}
+		
+		//return l;
+	}
+
+	public List<Integer> getAllExEmployees() {
+		boolean isExEployee = true;
+		ArrayList<ApplicationProcess> list= (ArrayList<ApplicationProcess>) applicationProcessRepository.findAllByIsExEmployee(isExEployee); 
+
+		System.out.println("rrr"+ list.size());
+		
+
+		List<Integer> applicationProcessId = new ArrayList<Integer>();
+		for (ApplicationProcess applicationProcess : list) {
+			applicationProcessId.add(applicationProcess.getId());
+		}
+		return applicationProcessId;
 	}
 
 }

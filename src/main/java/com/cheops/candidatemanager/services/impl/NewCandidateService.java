@@ -14,8 +14,6 @@ import com.cheops.candidatemanager.models.Address;
 import com.cheops.candidatemanager.models.Candidate;
 import com.cheops.candidatemanager.models.CandidateSearchResolver;
 import com.cheops.candidatemanager.models.NewCandidate;
-import com.cheops.candidatemanager.models.Skills;
-import com.cheops.candidatemanager.repositories.CandidateRepository;
 import com.cheops.candidatemanager.repositories.NewCandidateRepository;
 import com.cheops.candidatemanager.services.ICandidateService;
 @Service
@@ -86,12 +84,7 @@ public class NewCandidateService implements ICandidateService {
 		return null;
 	}
 
-	@Override
-	public List<Candidate> getAllCandidatesWithoutActiveApplicationProcess() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
+	
 	@Override
 	public List<CandidateSearchResolver> getAllCandidatesWithActiveApplicationProcess() {
 		// TODO Auto-generated method stub
@@ -158,6 +151,12 @@ public class NewCandidateService implements ICandidateService {
 	public void downloadCv(String cvLink, HttpServletResponse response) throws IOException {
 		// TODO Auto-generated method stub
 		
+	}
+
+	@Override
+	public List<CandidateSearchResolver> getAllCandidatesWithoutActiveApplicationProcess() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

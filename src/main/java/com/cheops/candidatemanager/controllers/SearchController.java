@@ -71,7 +71,7 @@ public class SearchController {
 		return "searchcandidateresult";
 	}
 
-	@RequestMapping(value = "/searchCandidate", method = RequestMethod.POST)
+	@PostMapping(value = "/searchCandidate")
 	public String gpostCandidateByNameAndSirName(@RequestParam("name") String name,
 			@RequestParam("sirName") String sirName, ModelMap modelMap, HttpSession session) {
 
@@ -92,8 +92,24 @@ public class SearchController {
 		return goToResultpage(modelMap, candidates, session);
 
 	}
+	
+	@PostMapping(value = "/exEmployees")
+	public String searchExEmployee(@ModelAttribute("search") Search search, ModelMap modelMap,
+			HttpSession session) {
+		List<CandidateSearchResolver> candidates = candidateservice.getAllExEmployees();
+		return goToResultpage(modelMap, candidates, session);
 
-	@RequestMapping(value = "/searchInAllCandidates", method = RequestMethod.POST)
+	}
+	
+	@PostMapping(value = "/notRecruited")
+	public String searchNotRecruited(@ModelAttribute("search") Search search, ModelMap modelMap,
+			HttpSession session) {
+		List<CandidateSearchResolver> candidates = candidateservice.getAllNotRecruitedCandidates2();
+		return goToResultpage(modelMap, candidates, session);
+
+	}
+
+	@PostMapping(value = "/searchInAllCandidates")
 	public String searchInAllCandidates(@ModelAttribute("search") Search search, ModelMap modelMap,
 			HttpSession session) {
 		List<CandidateSearchResolver> candidates = new ArrayList<CandidateSearchResolver>();
@@ -147,6 +163,19 @@ public class SearchController {
 		return goToResultpage(modelMap, candidates, session);
 	}
 
+	@PostMapping(value = "/searchAllNotRecruitedCandidates")
+	public String searchAllNotRecruitedCandidates(ModelMap modelMap, HttpSession session) {
+		List<CandidateSearchResolver> candidates = candidateservice.getAllNotRecruitedCandidates2();
+		return goToResultpage(modelMap, candidates, session);
+	}
+
+//	@PostMapping(value = "/searchAllExEmployees")
+//	public String searchAllExEmployees(ModelMap modelMap, HttpSession session) {
+//		List<CandidateSearchResolver> candidates = candidateservice.getAllExEmployees();
+//		return goToResultpage(modelMap, candidates, session);
+//	}
+
+	
 	@PostMapping(value = "/searchAllCandidatesWithoutActiveApplicationProcess")
 	public String searchAllCandidatesWithoutActiveApplicationProcess(ModelMap modelMap, HttpSession session) {
 		List<CandidateSearchResolver> candidates = candidateservice.getAllCandidatesWithoutActiveApplicationProcess();

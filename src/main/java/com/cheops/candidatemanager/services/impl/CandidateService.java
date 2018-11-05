@@ -316,5 +316,28 @@ public class CandidateService implements ICandidateService {
 		 List<Candidate> candidates = candidateRepository.findAllByApplicationProcessIdIn(applicationProcessIds);
 		 return  candidates;
 	}
+	
+	//experiment
+	public List<CandidateSearchResolver> getAllNotRecruitedCandidates2() {
+		List<Integer> applicationProcessIds = applicationProcessService.getAllNotRecuitedCandidates2();
+		List<Candidate> candidates = candidateRepository.findAllByApplicationProcessIdIn(applicationProcessIds);
+		return fillExpertiseAndStatus(candidates);
+	}
+
+	public List<Candidate> getAllNotRecruitedCandidates() {
+		 List<ApplicationProcess> applicationProcessList = applicationProcessService.getAllNotRecruitedCandidates();
+		 // refactoring te overwegen!
+		 List<Integer> applicationProcessIds = applicationProcessList.stream().map(ApplicationProcess::getId).collect(Collectors.toList());
+		 List<Candidate> candidates = candidateRepository.findAllByApplicationProcessIdIn(applicationProcessIds);
+		 return  candidates;
+	}
+
+	public List<CandidateSearchResolver> getAllExEmployees() {
+		 List<Integer> applicationProcessIds = applicationProcessService.getAllExEmployees();
+		 
+			List<Candidate> candidates = candidateRepository.findAllByApplicationProcessIdIn(applicationProcessIds);
+
+		 return  fillExpertiseAndStatus(candidates);
+	}
 
 }
