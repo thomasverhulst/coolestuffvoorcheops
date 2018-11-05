@@ -6,12 +6,10 @@ import com.cheops.candidatemanager.models.Candidate;
 
 public interface IDashboardService {
 
-	// komende gesprekken
-	List<Candidate> getUpcommingFirstAndSecondScreenings();
+	List<Candidate> getUpcomingFirstAndSecondScreenings();
 
-	List<Candidate> getLastMonthsRecruities();
+	List<Candidate> getLastMonthsRecruits();
 
-	//ok
 	List<Candidate> get3LatestAddedCandidates();
 
 	List<Candidate> getLatest5RecruitedCandidates();

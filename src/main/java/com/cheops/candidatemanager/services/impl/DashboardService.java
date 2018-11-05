@@ -11,59 +11,51 @@ import com.cheops.candidatemanager.models.Candidate;
 import com.cheops.candidatemanager.services.IDashboardService;
 
 @Service
-public class DachboardService implements IDashboardService {
+public class DashboardService implements IDashboardService {
 
 	@Autowired
 	private CandidateService candidateService;
 
-	// komende gesprekken
-	public List<Candidate> getUpcommingFirstAndSecondScreenings() {
+	public List<Candidate> getUpcomingFirstAndSecondScreenings() {
 		List<Candidate> upcommingScreenings = new ArrayList<Candidate>();
-		upcommingScreenings.addAll(candidateService.getUpcommingMonthsFirstScreenings());
-		upcommingScreenings.addAll(candidateService.getUpcommingMonthsTechnicalScreenings());
+		upcommingScreenings.addAll(candidateService.getUpcomingMonthsFirstScreenings());
+		upcommingScreenings.addAll(candidateService.getUpcomingMonthsTechnicalScreenings());
 		
 		if (!upcommingScreenings.isEmpty()) {
 			return upcommingScreenings;
 		}else {
 			return Collections.<Candidate>emptyList();
 		}
-					
 	}
 
-	public List<Candidate> getLastMonthsRecruities() {
-		List<Candidate> lastMonthRecruities = new ArrayList<Candidate>();
+	public List<Candidate> getLastMonthsRecruits() {
+    List<Candidate> lastMonthRecruities = new ArrayList<Candidate>(candidateService.getLastMonthsRecruits());
 
-		lastMonthRecruities.addAll(candidateService.getLastMonthsRecruities());
 		if (!lastMonthRecruities.isEmpty()) {
 			return lastMonthRecruities;
 		} else {
 			return Collections.<Candidate>emptyList();
 		}
-
 	}
 
-	//ok
 	public List<Candidate> get3LatestAddedCandidates() {
-		List<Candidate> latest3AddedCandidates = new ArrayList<Candidate>();
-		latest3AddedCandidates.addAll(candidateService.get3LatestAddedCandidates());
-		System.out.println("lfd"+latest3AddedCandidates.size());
+    List<Candidate> latest3AddedCandidates = new ArrayList<Candidate>(candidateService.get3LatestAddedCandidates());
+
 		if (!latest3AddedCandidates.isEmpty()) {
 			return latest3AddedCandidates;
 		} else {
 			return Collections.<Candidate>emptyList();
 		}
-
 	}
 
 	public List<Candidate> getLatest5RecruitedCandidates() {
-		List<Candidate> recentlyRecruited = new ArrayList<Candidate>();
-		recentlyRecruited.addAll(candidateService.getLast5Recruited());
+    List<Candidate> recentlyRecruited = new ArrayList<Candidate>(candidateService.getLast5Recruited());
 
 		if (recentlyRecruited.isEmpty()) {
 			return recentlyRecruited;
 		} else {
 			return Collections.<Candidate>emptyList();
 		}
-
 	}
+
 }

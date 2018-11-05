@@ -262,20 +262,16 @@ public class CandidateService implements ICandidateService {
 		return fillExpertiseAndStatus(candidatesList);
 	}
 
-	public Collection<Candidate> getUpcommingMonthsFirstScreenings() {
-		 List<ApplicationProcess> applicationProcessIdList = applicationProcessService.getUpcommingMonthsFirstScreenings();
-		 System.out.println("lengte" +applicationProcessIdList.size());
+	public Collection<Candidate> getUpcomingMonthsFirstScreenings() {
+		List<ApplicationProcess> applicationProcessIdList = applicationProcessService.getUpcomingMonthsFirstScreenings();
 		List<Integer> applicationProcessIds = applicationProcessIdList.stream().map(ApplicationProcess::getId).collect(Collectors.toList());
-	
-		 List<Candidate> candidates = candidateRepository.findAllByApplicationProcessIdIn(applicationProcessIds);
-		 return  candidates;
-		 
+		return candidateRepository.findAllByApplicationProcessIdIn(applicationProcessIds);
 	}
 
-	public Collection< Candidate> getUpcommingMonthsTechnicalScreenings() {
+	public Collection< Candidate> getUpcomingMonthsTechnicalScreenings() {
 		
 		
-		 List<ApplicationProcess> applicationProcessList = applicationProcessService.getUpcommingMonthsTechnicalScreenings();
+		 List<ApplicationProcess> applicationProcessList = applicationProcessService.getUpcomingMonthsTechnicalScreenings();
 		 
 		List<Integer> applicationProcessIds = applicationProcessList.stream().map(ApplicationProcess::getId).collect(Collectors.toList());
 		
@@ -291,7 +287,7 @@ public class CandidateService implements ICandidateService {
 		ids.add(x-1);
 		ids.add(x-2);
 		List<Candidate> last3Candidates = (List<Candidate>) candidateRepository.findAllById(ids);
-		 System.out.println("candidatenlijst" +last3Candidates.size());
+//		 System.out.println("candidatenlijst" +last3Candidates.size());
 		 if (!last3Candidates.isEmpty()) {
 			 return last3Candidates;
 			}else {
@@ -308,9 +304,9 @@ public class CandidateService implements ICandidateService {
 
 	}
 
-	public Collection<Candidate> getLastMonthsRecruities() {
+	public Collection<Candidate> getLastMonthsRecruits() {
 
-		 List<ApplicationProcess> applicationProcessList = applicationProcessService.getLastMonthsRecruities();
+		 List<ApplicationProcess> applicationProcessList = applicationProcessService.getLastMonthsRecruits();
 		 
 		 List<Integer> applicationProcessIds = applicationProcessList.stream().map(ApplicationProcess::getId).collect(Collectors.toList());
 		 List<Candidate> candidates = candidateRepository.findAllByApplicationProcessIdIn(applicationProcessIds);
