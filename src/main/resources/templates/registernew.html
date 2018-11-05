@@ -1,0 +1,163 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/general.html :: headTag(title='Registreren - Cheops Kandidatenbeheer')"></head>
+<body>
+	<header th:replace="fragments/general.html :: header"></header>
+	<div class=container-fluid>
+		<div class="row">
+			<div class="col-sm-3"></div>
+			<div class="col-sm-6">
+				<h1>Registreer een kandidaat</h1>
+			</div>
+			<div class="col-sm-3"></div>
+
+		</div>
+		<div class="row">
+			<div class="col-sm-2"></div>
+
+
+			<form th:action="@{/registerCandidateNew}" th:object="${candidate}"
+				method="POST" enctype="multipart/form-data">
+
+				<div class="col-sm-3">
+					<div class=form-group>
+						<label for="name">Naam:</label> <input type="text"
+							th:field=*{name} id="name" class="form-control"
+							placeholder="Voornaam" required="required">
+					</div>
+					<div class=form-group>
+						<label for="sirName">Familienaam:</label> <input type="text"
+							th:field=*{sirName} id="sirName" class="form-control"
+							placeholder="Familienaam">
+					</div>
+					<div class=form-group>
+						<label for="email">E-mail:</label> <input type="text"
+							th:field=*{email} id="email" class="form-control"
+							placeholder="E-mail">
+					</div>
+					<div class=form-group>
+						<label for="birthdate">Geboortedatum:</label> <input type="date"
+							th:field=*{birthdate}
+							th:value="${#dates.format(candidate.birthdate,'yyyy/MM/dd')}"
+							id="birthdate" class="form-control" placeholder="Geboortedatum">
+					</div>
+					<div class=form-group>
+						<label for="phoneNumber">Telefoonnummer:</label> <input
+							type="text" th:field=*{phoneNumber} id="phoneNumber"
+							class="form-control" placeholder="Telefoonnummer"
+							required="required">
+					</div>
+					<div class=form-group>
+						<label for="cellPhoneNumber">Mobiel nummer:</label> <input
+							type="text" th:field=*{celphoneNumber} id="cellPhoneNumber"
+							class="form-control" placeholder="Mobiel nummer">
+					</div>
+					<div class=form-group>
+						<label for="gender">Geslacht</label>
+						<div>
+							<input type="radio" th:field=*{gender} id="gender" value="male"
+								checked="checked" /> Man <input type="radio" th:field=*{gender} id="gender" value="female" />
+							Vrouw
+						</div>
+						<div>
+<!-- 							<input type="radio" th:field=*{gender} id="gender" value="female" /> -->
+<!-- 							Vrouw -->
+						</div>
+					</div>
+					<div class=form-group>
+						<label for="contactChannel">Contactkanaal</label> <input
+							type="text" th:field=*{contactChannel} id="contactChannel"
+							class="form-control" placeholder="Contactkanaal">
+					</div>
+					
+					<!-- 		<div class=form-group> -->
+					<!-- 			<label for="cvLink">Cv naam</label> -->
+					<!-- 			<input type="text" th:field=*{cvLink} id="cvLink" class="form-control" placeholder="CV naam" > -->
+					<!-- 		</div> -->
+					<div class=form-group>
+						<label for="cv">Voeg CV toe</label> <input type="file"
+							th:field=*{file} id="cv" class="form-control"
+							placeholder="CV naam" value="test">
+					</div>
+				</div>
+
+				<div class="col-sm-1"></div>
+
+				<div class="col-sm-3">
+					<!-- hier komt het adres-->
+					<!-- https://stackoverflow.com/questions/16122257/how-to-pass-two-objects-to-use-in-a-form-using-thymeleaf -->candidate
+					<div >
+						<div class=form-group>
+							<label for="streetname">Straatnaam:</label> <input type="text"
+								th:field=*{address.streetName} id="streetname" class="form-control"
+								placeholder="Straatnaam" required="required">
+						</div>
+						<div class=form-group>
+							<label for="dwellingnumber">Huisnummer:</label> <input
+								type="text" th:field=*{address.dwellingNumber} id="dwellingnumber"
+								class="form-control" placeholder="Huisnummer">
+						</div>
+
+						<div class=form-group>
+							<label for="bus">Bus:</label> <input type="text" th:field=*{address.bus}
+								id="bus" class="form-control" placeholder="Bus">
+						</div>
+						<div class=form-group>
+							<label for="postalcode">Postcode:</label> <input type="text"
+								th:field=*{address.postalCode} id="postalcode" class="form-control"
+								placeholder="Postcode">
+						</div>
+						<div class=form-group>
+							<label for="municipality">Gemeente:</label> <input type="text"
+								th:field=*{address.municipality} id="municipality" class="form-control"
+								placeholder="Gemeente">
+						</div>
+						<div class=form-group>
+							<label for="land">Land:</label> <input type="text"
+								th:field=*{address.land} id="Land" class="form-control"
+								placeholder="Land">
+						</div>
+						
+						<div class=form-group>
+						<label for="preferredlocation">Voorkeur locatie:</label> <input
+							type="text" th:field=*{skills.preferredLocation} id="preferredlocation"
+							class="form-control" placeholder="Voorkeurslokatie">
+						</div>
+						<div class=form-group>
+									<label for="staffnamefirstconversation">Naam
+										gesprekspartner tweede gesprek:</label> <input type="text"
+										th:field=*{applicationProcess.staffNameFirstConversation}
+										id="staffnamefirstconversation" class="form-control"
+										placeholder="Alain">
+								</div>
+								
+								<div class=form-group>
+								
+        
+            <label th:for="|candidate.currentSallaryPackage[0].grossSalary|">Bruto loon</label>
+            <!-- This construct will render field name like this: "items[0].name" -->
+            <input th:field="${candidate.currentSallaryPackage[0].grossSalary}">
+
+								
+				</div>				
+					<div class=form-group>
+									<label for="firstconversationdate">Datum eerste
+										gesprek:</label> <input type="date" th:field=*{applicationProcess.firstConversationDate}
+										th:value="${#dates.format(candidate.applicationProcess.firstConversationDate,'yyyy/MM/dd')}"
+										id="firstconversationdate" class="form-control">
+								</div>			
+						<div class=form-group>
+
+							<button class="btn-lg btn-primary btn-block" type="submit">Opslaan></button>
+
+						</div>
+					</div>
+				</div>
+
+			</form>
+		</div>
+	</div>
+	<footer th:replace="fragments/general.html :: footer"></footer>
+	<div th:replace="fragments/general.html :: foot"></div>
+</body>
+</html>

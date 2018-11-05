@@ -43,4 +43,6 @@ public interface ICandidateService {
 	void saveOrUpdateCandidate(int id, @Valid Candidate candidate, @Valid Address address, @Valid int addressId);
 
 	void downloadCv(String cvLink, HttpServletResponse response) throws IOException;
+
+	
 }

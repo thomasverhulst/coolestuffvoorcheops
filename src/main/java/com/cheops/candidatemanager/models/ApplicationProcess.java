@@ -1,5 +1,6 @@
 package com.cheops.candidatemanager.models;
 
+import java.sql.Timestamp;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -9,6 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Transient;
+import javax.validation.constraints.NotNull;
 
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.multipart.MultipartFile;
@@ -27,7 +29,7 @@ public class ApplicationProcess {
 	private Date applicationDate;
 
 	@Column(name = "tobeinvitedforfirstconversation")
-	private Boolean toBeInvitedForFirstConversation;
+	private boolean toBeInvitedForFirstConversation;
 
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	@Column(name = "invitationdate")
@@ -42,9 +44,9 @@ public class ApplicationProcess {
 
 	@Column(name = "feedbackfirstconversation")
 	private String feedbackFirstConversation;
-
+	
 	@Column(name = "tobeinvitedfortechnicalconversation")
-	private Boolean toBeInvitedForTechnicalConversation;
+	private boolean toBeInvitedForTechnicalConversation;
 
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	@Column(name = "technicalconversationdate")
@@ -67,8 +69,11 @@ public class ApplicationProcess {
 	private String feedbackFinancialProposal;
 
 	@Column(name = "isrecruited")
-	private Boolean isRecruited;
+	private boolean isRecruited;
 	
+	@Column(name = "isrecruitedtimestamp")
+	private Timestamp isRecruitedTimeStamp;
+					  
 //	@Column(name = "feedbackfile")
 //	private byte[] feedBackFile;
 
@@ -85,14 +90,12 @@ public class ApplicationProcess {
 
 	}
 
-	
-
-	public ApplicationProcess(Integer id, Date applicationDate, Boolean toBeInvitedForFirstConversation,
+	public ApplicationProcess(Integer id, Date applicationDate, boolean toBeInvitedForFirstConversation,
 			Date invitationDate, Date firstConversationDate, String staffNameFirstConversation,
-			String feedbackFirstConversation, Boolean toBeInvitedForTechnicalConversation,
+			String feedbackFirstConversation, boolean toBeInvitedForTechnicalConversation,
 			Date technicalConversationDate, String staffNameTechnicalConversation, String feedbackTechnicalConversation,
 			Boolean toBeSendFinancialProposal, Date financialProposalDate, String feedbackFinancialProposal,
-			Boolean isRecruited,  String feedbackFileName,
+			boolean isRecruited, Timestamp isRecruitedTimeStamp, MultipartFile file, String feedbackFileName,
 			String notRecruited) {
 		super();
 		this.id = id;
@@ -110,12 +113,11 @@ public class ApplicationProcess {
 		this.financialProposalDate = financialProposalDate;
 		this.feedbackFinancialProposal = feedbackFinancialProposal;
 		this.isRecruited = isRecruited;
-		//this.feedBackFile = feedBackFile;
-		//this.file = file;
+		this.isRecruitedTimeStamp = isRecruitedTimeStamp;
+		this.file = file;
 		this.feedbackFileName = feedbackFileName;
 		this.notRecruited = notRecruited;
 	}
-
 
 
 	@Override
@@ -250,14 +252,6 @@ public class ApplicationProcess {
 		this.id = id;
 	}
 
-//	public byte[] getFeedBackFile() {
-//		return feedBackFile;
-//	}
-//
-//	public void setFeedBackFile(byte[] bytes) {
-//		this.feedBackFile = bytes;
-//	}
-
 	public String getNotRecruited() {
 		return notRecruited;
 	}
@@ -282,4 +276,25 @@ public class ApplicationProcess {
 		this.feedbackFileName = feedbackFileName;
 	}
 
+	public Timestamp getIsRecruitedTimeStamp() {
+		return isRecruitedTimeStamp;
+	}
+
+	public void setIsRecruitedTimeStamp(Timestamp isRecruitedTimeStamp) {
+		this.isRecruitedTimeStamp = isRecruitedTimeStamp;
+	}
+
+	public void setToBeInvitedForFirstConversation(boolean toBeInvitedForFirstConversation) {
+		this.toBeInvitedForFirstConversation = toBeInvitedForFirstConversation;
+	}
+
+	public void setToBeInvitedForTechnicalConversation(boolean toBeInvitedForTechnicalConversation) {
+		this.toBeInvitedForTechnicalConversation = toBeInvitedForTechnicalConversation;
+	}
+
+	public void setRecruited(boolean isRecruited) {
+		this.isRecruited = isRecruited;
+	}
+
+	
 }

@@ -4,6 +4,8 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -35,7 +37,7 @@ public class CandidateService implements ICandidateService {
 	@Autowired
 	private SkillsService skillsService;
 	@Autowired
-	ApplicationProcessService applicationProcessService;
+	private ApplicationProcessService applicationProcessService;
 
 	@Override
 	public List<CandidateSearchResolver> findAllByNameLikeOrSirNameLike(String name, String sirName) {
@@ -79,7 +81,7 @@ public class CandidateService implements ICandidateService {
 
 			// ApplicationProcess Logic
 			String applicationStatus = "";
-			if (candidate.getApplicationProcessId() != 0) {
+			if (candidate.getApplicationProcessId() != 0 ) {
 				ApplicationProcess applicationProcess = applicationProcessService
 						.getApplicationProcessById(candidate.getApplicationProcessId());
 				if (applicationProcess.getToBeInvitedForFirstConversation()) {
@@ -111,8 +113,8 @@ public class CandidateService implements ICandidateService {
 
 	@Override
 	public Candidate getCandidateById(int candidateId) {
-		Candidate e = candidateRepository.findById(candidateId).get();
-		return e;
+		return  candidateRepository.findById(candidateId).get();
+
 	}
 
 	@Override
@@ -258,6 +260,61 @@ public class CandidateService implements ICandidateService {
 
 		List<Candidate> candidatesList = candidateRepository.findAllBySkillsIdIn(filteredSkillsId);
 		return fillExpertiseAndStatus(candidatesList);
+	}
+
+	public Collection<Candidate> getUpcommingMonthsFirstScreenings() {
+		 List<ApplicationProcess> applicationProcessIdList = applicationProcessService.getUpcommingMonthsFirstScreenings();
+		 System.out.println("lengte" +applicationProcessIdList.size());
+		List<Integer> applicationProcessIds = applicationProcessIdList.stream().map(ApplicationProcess::getId).collect(Collectors.toList());
+	
+		 List<Candidate> candidates = candidateRepository.findAllByApplicationProcessIdIn(applicationProcessIds);
+		 return  candidates;
+		 
+	}
+
+	public Collection< Candidate> getUpcommingMonthsTechnicalScreenings() {
+		
+		
+		 List<ApplicationProcess> applicationProcessList = applicationProcessService.getUpcommingMonthsTechnicalScreenings();
+		 
+		List<Integer> applicationProcessIds = applicationProcessList.stream().map(ApplicationProcess::getId).collect(Collectors.toList());
+		
+		 List<Candidate> candidates = candidateRepository.findAllByApplicationProcessIdIn(applicationProcessIds);
+		 return  candidates;
+			
+	}
+	// ok, maar refactorbaar
+	public Collection< Candidate> get3LatestAddedCandidates() {
+		List<Integer> ids = new ArrayList<Integer>();
+		int x = (int) candidateRepository.count();
+		ids.add(x);
+		ids.add(x-1);
+		ids.add(x-2);
+		List<Candidate> last3Candidates = (List<Candidate>) candidateRepository.findAllById(ids);
+		 System.out.println("candidatenlijst" +last3Candidates.size());
+		 if (!last3Candidates.isEmpty()) {
+			 return last3Candidates;
+			}else {
+				return Collections.<Candidate>emptyList();
+			}
+	}
+
+	// last 5, ok
+	public Collection< Candidate> getLast5Recruited() {
+		 List<ApplicationProcess> applicationProcessList = applicationProcessService.getLast5Recruited();
+		 List<Integer> applicationProcessIds = applicationProcessList.stream().map(ApplicationProcess::getId).collect(Collectors.toList());
+		 List<Candidate> candidates = candidateRepository.findAllByApplicationProcessIdIn(applicationProcessIds);
+		 return  candidates;
+
+	}
+
+	public Collection<Candidate> getLastMonthsRecruities() {
+
+		 List<ApplicationProcess> applicationProcessList = applicationProcessService.getLastMonthsRecruities();
+		 
+		 List<Integer> applicationProcessIds = applicationProcessList.stream().map(ApplicationProcess::getId).collect(Collectors.toList());
+		 List<Candidate> candidates = candidateRepository.findAllByApplicationProcessIdIn(applicationProcessIds);
+		 return  candidates;
 	}
 
 }
