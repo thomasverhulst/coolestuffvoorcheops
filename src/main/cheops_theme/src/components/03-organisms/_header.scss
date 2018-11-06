@@ -35,6 +35,12 @@ header {
     }
   }
 
+  .icon-config,
+  .icon-quick-menu {
+    font-size: 1.25rem;
+    display: block;
+  }
+
   .icon-icon-dots {
     @include transition($transition-base);
     font-size: 1.75rem;
@@ -42,8 +48,6 @@ header {
 
   .icon-quick-menu {
     @include transition($transition-base);
-    font-size: 1.25rem;
-    display: block;
     transform: rotate(0deg);
 
     &.active {
@@ -84,14 +88,6 @@ header {
         justify-content: flex-end;
         width: 100%;
       }
-
-      .o-header-block {
-        margin-right: $grid-gutter-width/1.5;
-
-        @include last-child() {
-          margin-right: 0;
-        }
-      }
     }
   }
 
@@ -103,15 +99,10 @@ header {
     }
 
     .#{&}--right {
-      .o-header-block {
-        margin-right: $grid-gutter-width*1.5;
 
-        @include last-child() {
-          margin-right: 0;
-        }
-      }
     }
 
+    .icon-config,
     .icon-quick-menu {
       &:hover {
         color: $secondary;

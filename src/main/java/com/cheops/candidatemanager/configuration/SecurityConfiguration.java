@@ -1,52 +1,66 @@
 package com.cheops.candidatemanager.configuration;
 
+import com.cheops.candidatemanager.services.impl.CustomUserDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Primary;
-import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
-import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.builders.WebSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
-import com.cheops.candidatemanager.repositories.UserRepository;
-
-@Primary
-@EnableGlobalMethodSecurity(prePostEnabled = true)
-@EnableJpaRepositories(basePackageClasses = UserRepository.class)
 @Configuration
+@EnableWebSecurity
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
-	@Autowired
-	private UserDetailsService userDetailsService;
+  @Autowired
+  private BCryptPasswordEncoder bCryptPasswordEncoder;
+
+  @Bean
+  public CustomUserDetailsService customUserDetailsService() {
+    return new CustomUserDetailsService();
+  }
 
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-		auth.userDetailsService(userDetailsService).passwordEncoder(getPasswordEncoder());
+    UserDetailsService userDetailsService = customUserDetailsService();
+    auth.userDetailsService(userDetailsService).passwordEncoder(bCryptPasswordEncoder);
 	}
 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
-		http.csrf().disable();
-		http.authorizeRequests()
-        .antMatchers("/").authenticated().anyRequest().permitAll()
-        .and().formLogin().loginPage("/login").permitAll()
-        .and().rememberMe().key("uniqueAndSecret").tokenValiditySeconds(604800);
-	}
+		http
+      .csrf().disable()
+      .authorizeRequests()
+      .antMatchers("/admin/**").access("hasAuthority('ADMIN')")
+			.anyRequest().authenticated()
+      .and()
+        .formLogin()
+          .loginPage("/login")
+          .permitAll()
+			    .defaultSuccessUrl("/", true)
+      .and()
+        .rememberMe()
+          .key("uniqueAndSecret")
+          .rememberMeParameter("remember-me")
+          .rememberMeCookieName("cheops-candidatemanager-remember-me")
+          .tokenValiditySeconds(604800)
+          .useSecureCookie(true)
+      .and()
+      .logout()
+        .permitAll()
+      .and()
+      .exceptionHandling().accessDeniedPage("/403");
+  }
 
-	private PasswordEncoder getPasswordEncoder() {
-		return new PasswordEncoder() {
-			@Override
-			public String encode(CharSequence rawPassword) {
-				return rawPassword.toString();
-			}
+  @Override
+  public void configure(WebSecurity web) throws Exception {
+    web
+      .ignoring()
+      .antMatchers("/resources/**", "/static/**", "/css/**", "/js/**", "/images/**");
+  }
 
-			@Override
-			public boolean matches(CharSequence rawPassword, String encodedPassword) {
-				return true;
-			}
-		};
-	}
 }

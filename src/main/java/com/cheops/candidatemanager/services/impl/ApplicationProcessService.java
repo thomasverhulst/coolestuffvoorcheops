@@ -1,14 +1,18 @@
 package com.cheops.candidatemanager.services.impl;
 
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Collections;
+import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 
+import org.apache.commons.lang3.time.DateUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import com.cheops.candidatemanager.models.ApplicationProcess;
 import com.cheops.candidatemanager.repositories.ApplicationProcessRepository;
 import com.cheops.candidatemanager.services.IApplicationProcessService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
 @Service
 public class ApplicationProcessService implements IApplicationProcessService {
@@ -25,8 +29,7 @@ public class ApplicationProcessService implements IApplicationProcessService {
 
 	@Override
 	public ApplicationProcess getApplicationProcessById(int applicationProcessId) {
-		ApplicationProcess e = applicationProcessRepository.findById(applicationProcessId).get();
-		return e;
+		return applicationProcessRepository.findById(applicationProcessId).get();
 	}
 
 	@Override
@@ -63,7 +66,6 @@ public class ApplicationProcessService implements IApplicationProcessService {
 		Iterator<ApplicationProcess> i = list.iterator();
 		while (i.hasNext()) {
 			ApplicationProcess s = i.next(); // must be called before you can call i.remove()
-			// Do something
 			if (s.getIsRecruited()) {
 				i.remove();
 			}
@@ -96,13 +98,95 @@ public class ApplicationProcessService implements IApplicationProcessService {
 		Iterator<ApplicationProcess> i = applicationProcess.iterator();
 		while (i.hasNext()) {
 			ApplicationProcess s = i.next(); // must be called before you can call i.remove()
-			// Do something
 			if (!(s.getIsRecruited())) {
 				i.remove();
 			}
 		}
 
 		return applicationProcess;
+	}
+
+	@Override
+	public List<ApplicationProcess> getUpcomingMonthsFirstScreenings() {
+	  Date today = DateUtils.truncate(new Date(), Calendar.DAY_OF_MONTH);
+    DateUtils.truncate(new Date(), Calendar.DAY_OF_MONTH);
+    Date month;
+    month = DateUtils.addMonths(new Date(), 1);
+		return applicationProcessRepository.findAllByfirstConversationDateBetween(today, month);
+	}
+
+	@Override
+	public List<ApplicationProcess> getUpcomingMonthsTechnicalScreenings() {
+
+		Date today = DateUtils.truncate(new Date(), Calendar.DAY_OF_MONTH);
+    DateUtils.truncate(new Date(), Calendar.DAY_OF_MONTH);
+    Date month;
+		month = DateUtils.addMonths(new Date(), 1);
+		return applicationProcessRepository.findAllBytechnicalConversationDateBetween(today, month);
+	}
+
+	public List<ApplicationProcess> getLast5Recruited() {
+		return  applicationProcessRepository.findTop5ByOrderByIsRecruitedTimeStampDesc();
+		
+	}
+
+	public List<ApplicationProcess> getLastMonthsRecruits() {
+		Date lastMonth = DateUtils.truncate(new Date(), Calendar.DAY_OF_MONTH);
+		lastMonth = DateUtils.addMonths(new Date(), -1);
+		List<ApplicationProcess> l= applicationProcessRepository.findAllByIsRecruitedTimeStampGreaterThanEqual(lastMonth);
+		for (ApplicationProcess applicationProcess : l) {
+//			System.out.println("lengte alijst"+applicationProcess.getIsRecruitedTimeStamp().toString());
+		}
+		return l;
+	}
+
+	
+	public List<Integer> getAllNotRecuitedCandidates2(){
+		
+		ArrayList<ApplicationProcess> list= (ArrayList<ApplicationProcess>) applicationProcessRepository.findAllByNotRecruitedNotNullAndNotRecruitedNot(""); 
+
+		System.out.println("rrr"+ list.size());
+		
+
+		List<Integer> applicationProcessId = new ArrayList<Integer>();
+		for (ApplicationProcess applicationProcess : list) {
+			applicationProcessId.add(applicationProcess.getId());
+		}
+		return applicationProcessId;
+	}
+	
+	
+	public List<ApplicationProcess> getAllNotRecruitedCandidates() {
+		List<ApplicationProcess> l= applicationProcessRepository.findAllByNotRecruitedNotNullAndNotRecruitedNot(""); 
+		//findByLastnameNot
+		System.out.println("aaa"+l.size());
+		
+		 if (!l.isEmpty()) {
+			 
+			 for (ApplicationProcess applicationProcess : l) {
+				 // dit moet hier niet recruitedtimespamt zijn, is natuurlijk null.
+				 System.out.println("aaa"+ l.size());
+				}
+				
+			 return l;
+			}else {
+				return Collections.<ApplicationProcess>emptyList();
+			}
+		
+	}
+
+	public List<Integer> getAllExEmployees() {
+		boolean isExEployee = true;
+		ArrayList<ApplicationProcess> list= (ArrayList<ApplicationProcess>) applicationProcessRepository.findAllByIsExEmployee(isExEployee); 
+
+		System.out.println("rrr"+ list.size());
+		
+
+		List<Integer> applicationProcessId = new ArrayList<Integer>();
+		for (ApplicationProcess applicationProcess : list) {
+			applicationProcessId.add(applicationProcess.getId());
+		}
+		return applicationProcessId;
 	}
 
 }

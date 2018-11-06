@@ -1,0 +1,74 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+  <!-- TODO: Make dynamic with incoming object -->
+  <table th:fragment="table-candidates(showEmail, showTechnologies, showLocations, showExperience, showStatus, showCreated, showDelete, showEdit)" class="m-table-candidates">
+    <thead>
+      <tr>
+        <th style="width: 60px;"></th>
+        <th th:text="#{name}"></th>
+        <th th:text="#{function}"></th>
+        <th th:if="${showEmail != false}" th:text="#{email}"></th>
+        <th th:if="${showTechnologies != false}" th:text="#{technologies}"></th>
+        <th th:if="${showLocations != false}" th:text="#{location}"></th>
+        <th th:if="${showExperience != false}" th:text="#{experience}"></th>
+        <th th:if="${showStatus != false}" th:text="#{state}"></th>
+        <th th:if="${showCreated != false}" th:text="#{created}"></th>
+        <th th:if="${showDelete != false}" style="width: 40px;"></th>
+        <th th:if="${showEdit != false}" style="width: 40px;"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td style="width: 60px;"><img th:src="@{~/images/avatar-empty.png}" /></td>
+        <td class="m-table-candidates--name">Ingeborg De Tollenaere</td>
+        <td class="m-table-candidates--function">Functie</td>
+        <td th:if="${showEmail != false}">ingeborg.detollenaere@cheops.be</td>
+        <td th:if="${showTechnologies != false}">Drupal, HTML, CSS</td>
+        <td th:if="${showLocations != false}">Gent, Antwerpen</td>
+        <td th:if="${showExperience != false}">3 jaar</td>
+        <td th:if="${showStatus != false}"><div class="a-pill h-background-red">kennismakingsgesprek</div></td>
+        <td th:if="${showCreated != false}">05/06/2018</td>
+        <th th:if="${showDelete != false}" style="width: 40px;" class="m-table-candidates--icon"><a href="#" class="icon icon-delete" title="Verwijderen"></a></th>
+        <th th:if="${showEdit != false}" style="width: 40px;" class="m-table-candidates--icon"><a href="#" class="icon icon-edit" title="Wijzigen"></a></th>
+      </tr>
+      <tr>
+        <td style="width: 60px;"><img th:src="@{~/images/avatar-empty.png}" /></td>
+        <td class="m-table-candidates--name">Ingeborg De Tollenaere</td>
+        <td class="m-table-candidates--function">Functie</td>
+        <td th:if="${showEmail != false}">ingeborg.detollenaere@cheops.be</td>
+        <td th:if="${showTechnologies != false}">Drupal, HTML, CSS</td>
+        <td th:if="${showLocations != false}">Gent, Antwerpen</td>
+        <td th:if="${showExperience != false}">3 jaar</td>
+        <td th:if="${showStatus != false}"><div class="a-pill h-background-red">kennismakingsgesprek</div></td>
+        <td th:if="${showCreated != false}">05/06/2018</td>
+        <th th:if="${showDelete != false}" style="width: 40px;" class="m-table-candidates--icon"><a href="#" class="icon icon-delete" title="Verwijderen"></a></th>
+        <th th:if="${showEdit != false}" style="width: 40px;" class="m-table-candidates--icon"><a href="#" class="icon icon-edit" title="Wijzigen"></a></th>
+      </tr>
+    </tbody>
+  </table>
+  <table th:fragment="table-users" class="m-table-users">
+    <thead>
+      <tr>
+        <th th:text="#{name}"></th>
+        <th th:text="#{username}"></th>
+        <th th:text="#{email}"></th>
+        <th th:text="#{roles}"></th>
+        <th th:text="#{active}"></th>
+        <th style="width: 40px;"></th>
+        <th style="width: 40px;"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr th:each="user : ${users}">
+        <td class="m-table-users--name" th:text="${user.lastName} + ' ' + ${user.name}"></td>
+        <td th:text="${user.username}"></td>
+        <td th:text="${user.email}"></td>
+        <td class="m-table-users--roles"><span th:each="role : ${user.roles}" th:text="${role.role}"></span></td>
+        <td th:text="${user.active} ? #{active} : #{notActive}"></td>
+        <td style="width: 40px;" class="m-table-users--icon"><a th:href="@{/admin/user-delete/{userid}(userid=${user.id})}" class="icon icon-delete" th:data-modal-title="${user.username}" data-toggle="modal" data-target="#delete-modal" th:title="#{delete}"></a></td>
+        <td style="width: 40px;" class="m-table-users--icon"><a th:href="@{/admin/user-edit/{userid}(userid=${user.id})}" class="icon icon-edit" th:title="#{edit}"></a></td>
+      </tr>
+    </tbody>
+  </table>
+</body>

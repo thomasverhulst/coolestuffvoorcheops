@@ -46,6 +46,19 @@ a {
   }
 }
 
+ul {
+  margin: $grid-gutter-width/2 0;
+  padding-left: $grid-gutter-width;
+
+  li {
+    margin-bottom: $grid-gutter-width/6;
+
+    @include last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
 main {
   flex: 1 1 auto;
   padding-top: $grid-gutter-width;
@@ -61,4 +74,8 @@ main {
 
 :focus {
   outline: none;
+}
+
+.flex-grow-2 {
+  flex-grow: 2 !important;
 }

@@ -1,5 +1,15 @@
 .m-form {
   &-group {
-    margin-bottom: $grid-gutter-width/3;
+    margin-bottom: $grid-gutter-width;
+
+    &-sm {
+      margin-bottom: $grid-gutter-width/3;
+    }
+  }
+
+  &-required {
+    font-size: .625rem;
+    font-style: italic;
+    color: $gray-400;
   }
 }

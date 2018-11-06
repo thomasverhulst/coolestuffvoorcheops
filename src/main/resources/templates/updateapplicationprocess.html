@@ -1,8 +1,8 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
-<head th:replace="fragments/general.html :: headTag(title='Update applicatie process - Cheops Kandidatenbeheer')"></head>
+<head th:replace="fragments/general :: headTag(title='Update applicatie process - Cheops Kandidatenbeheer')"></head>
 <body>
-<header th:replace="fragments/general.html :: header"></header>
+<header th:replace="fragments/general :: header"></header>
 <div class=container-fluid>
 
 <div class="row">
@@ -86,7 +86,11 @@
 			</div>
 			<div class=form-group>
 				<label for="isrecruited">Is in dienst:</label>
-				<input type="checkbox"  th:field=*{isRecruited} id="isrecruited" class="form-control"  >
+				<input type="checkbox" th:field=*{isRecruited} id="isrecruited" class="form-control"  >
+			</div>
+			<div class=form-group>
+				<label for="isexemployee">Is uit dienst:</label>
+				<input type="checkbox" th:field=*{isExEmployee} id="isexemployee" class="form-control"  >
 			</div>
 			<div class=form-group>
 				<button class="btn-lg btn-primary btn-block" type="submit">Update ></button>
@@ -121,7 +125,7 @@
 
 
 </div>
-<footer th:replace="fragments/general.html :: footer"></footer>
-<div th:replace="fragments/general.html :: foot"></div>
+<footer th:replace="fragments/general :: footer"></footer>
+<div th:replace="fragments/general :: foot"></div>
 </body>
 </html>

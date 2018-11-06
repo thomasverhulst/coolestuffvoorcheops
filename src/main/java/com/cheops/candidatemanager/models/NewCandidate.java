@@ -1,6 +1,7 @@
 package com.cheops.candidatemanager.models;
 
 import java.io.Serializable;
+import java.sql.Timestamp;
 import java.util.Date;
 import java.util.List;
 
@@ -11,7 +12,6 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.IdClass;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.OneToMany;
@@ -60,17 +60,21 @@ public class NewCandidate implements Serializable {
 
 	@Column(name = "gender")
 	private String gender;
+	
 	@Transient
 	private MultipartFile file;
 
 	@Column(name = "contactChannel")
 	private String contactChannel;
 	
+	@Column(name = "isaddedtimestamp")
+	private Timestamp isAddedTimeStamp;
+	
 	//@Id
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	@JoinTable(name = "candidate_currentsallarypackage", joinColumns = @JoinColumn(name = "candidate_id"), inverseJoinColumns = @JoinColumn(name = "currentsallarypackage_id"))
 	//@Column(name = "currentsallarypackageId")
-	private List< SalaryPackage> currentSallaryPackage;
+	private List<SalaryPackage> currentSallaryPackage;
 
 	//@Id
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
@@ -112,7 +116,7 @@ public class NewCandidate implements Serializable {
 	
 	public NewCandidate(Integer id, String name, String sirName, String email, Date birthdate, String phoneNumber,
 			String celphoneNumber, String cvLink, String gender, MultipartFile file, String contactChannel,
-			SalaryPackage currentSallaryPackage, SalaryPackage proposedSallaryPackage, Skills skills, Address address,
+			  Skills skills, Address address,
 			ApplicationProcess applicationProcess) {
 		super();
 		this.id = id;
@@ -126,8 +130,6 @@ public class NewCandidate implements Serializable {
 		this.gender = gender;
 		this.file = file;
 		this.contactChannel = contactChannel;
-		//this.currentSallaryPackage = currentSallaryPackage;
-		//this.proposedSallaryPackage = proposedSallaryPackage;
 		this.skills = skills;
 		this.address = address;
 		this.applicationProcess = applicationProcess;
@@ -220,23 +222,6 @@ public class NewCandidate implements Serializable {
 	public void setContactChannel(String contactChannel) {
 		this.contactChannel = contactChannel;
 	}
-	
-
-//	public SalaryPackage getCurrentSallaryPackage() {
-//		return currentSallaryPackage;
-//	}
-//
-//	public void setCurrentSallaryPackage(SalaryPackage currentSallaryPackage) {
-//		this.currentSallaryPackage = currentSallaryPackage;
-//	}
-
-//	public SalaryPackage getProposedSallaryPackage() {
-//		return proposedSallaryPackage;
-//	}
-//
-//	public void setProposedSallaryPackage(SalaryPackage proposedSallaryPackage) {
-//		this.proposedSallaryPackage = proposedSallaryPackage;
-//	}
 
 	public List<SalaryPackage> getCurrentSallaryPackage() {
 		return currentSallaryPackage;
@@ -316,6 +301,14 @@ public class NewCandidate implements Serializable {
 
 	public void setApplicationProcessId(int applicationProcessId) {
 		this.applicationProcessId = applicationProcessId;
+	}
+
+	public Timestamp getIsAddedTimeStamp() {
+		return isAddedTimeStamp;
+	}
+
+	public void setIsAddedTimeStamp(Timestamp isAddedTimeStamp) {
+		this.isAddedTimeStamp = isAddedTimeStamp;
 	}
 	
 }

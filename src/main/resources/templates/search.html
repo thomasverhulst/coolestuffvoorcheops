@@ -1,8 +1,8 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
-<head th:replace="fragments/general.html :: headTag(title='Zoeken - Cheops Kandidatenbeheer')"></head>
+<head th:replace="fragments/general :: headTag(title='Zoeken - Cheops Kandidatenbeheer')"></head>
 <body>
-	<header th:replace="fragments/general.html :: header"></header>
+	<header th:replace="fragments/general :: header"></header>
 
 	<div class=container-fluid>
 		<div class="row">
@@ -110,6 +110,28 @@
 							kandidaten zodner applicatieprocces ></button>
 					</div>
 				</form>
+				
+				<form
+					th:action="@{/exEmployees}"
+					th:object="${saerch}" method="POST">
+					<div class=form-group>
+						<button title="Kandidaten zonder applicatieprocces"
+							class="btn-lg btn-primary btn-block" type="submit">Zoek
+							ex kandidaten ></button>
+					</div>
+				</form>
+				
+				<form
+					th:action="@{/notRecruited}"
+					th:object="${saerch}" method="POST">
+					<div class=form-group>
+						<button title="Kandidaten zonder applicatieprocces"
+							class="btn-lg btn-primary btn-block" type="submit">Zoek
+							niet gerecruteerde kandidaten ></button>
+					</div>
+				</form>
+				
+				
 				<form th:action="@{/}">
 					<div class=form-group>
 						<button class="btn-lg btn-succes btn-block" type="submit">Terug
@@ -120,7 +142,7 @@
 
 		</div>
 	</div>
-	<footer th:replace="fragments/general.html :: footer"></footer>
-	<div th:replace="fragments/general.html :: foot"></div>
+	<footer th:replace="fragments/general :: footer"></footer>
+	<div th:replace="fragments/general :: foot"></div>
 </body>
 </html>

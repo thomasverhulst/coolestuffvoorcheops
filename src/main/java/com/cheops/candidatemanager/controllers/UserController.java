@@ -1,57 +1,63 @@
 package com.cheops.candidatemanager.controllers;
 
-import java.util.HashSet;
-import java.util.Set;
-
-import com.cheops.candidatemanager.models.Role;
 import com.cheops.candidatemanager.models.User;
+import com.cheops.candidatemanager.services.impl.CustomUserDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.MessageSource;
+import org.springframework.security.authentication.AnonymousAuthenticationToken;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 
-import com.cheops.candidatemanager.services.impl.CustomUserDetailService;
+import java.util.Locale;
 
-//import com.cheops.candidatemanager.services.UserService;
 @Controller
 public class UserController {
 
-	// @RequestMapping(value="/registerCandidate", method=RequestMethod.POST,
-	// params="action=back")
-	// public String home() {
-	// return "index";
-	// }
-	// @primary
-	@Autowired
-	CustomUserDetailService customUserDetailsService;
-	/// @Autowired
-	/// UserService userService;
+  @Autowired
+  private CustomUserDetailsService customUserDetailsService;
 
-	@RequestMapping(value = "/user")
-	public String registerUser(Model model) {
-		model.addAttribute("user", new User());
-		return "user";
+  @Autowired
+	private MessageSource messageSource;
+
+  @GetMapping("/login")
+	public String loginView(Locale locale, Model model, @RequestParam(value = "error", required = false) String error, @RequestParam(value = "logout", required = false) String logout) {
+		// When user is anonymous authenticated, show login page, otherwise redirect /login to /.
+		if (SecurityContextHolder.getContext().getAuthentication() instanceof AnonymousAuthenticationToken) {
+		  // If login has params logout or error, show message.
+      if (error != null) {
+        model.addAttribute("errorMessage", messageSource.getMessage("form.error.login", null, locale));
+      }
+      if (logout != null) {
+        model.addAttribute("successMessage", messageSource.getMessage("user.logout", null, locale));
+      }
+			return "user/login";
+		} else {
+			return "redirect:/";
+		}
 	}
 
-	@RequestMapping(value = "/registeruser", method = RequestMethod.POST)
-	public String doRegister(User user) {
+	@GetMapping("/user")
+  public String userView(Model model, @AuthenticationPrincipal UserDetails currentUser) {
+    User user = customUserDetailsService.getUserByUsername(currentUser.getUsername());
+    model.addAttribute("user", user);
+    return "user/user";
+  }
 
-		User temp = user;
-		temp.setActive(1);
+  @GetMapping("/user/change-password")
+  public String changePasswordView(Model model, @AuthenticationPrincipal UserDetails currentUser) {
+    User user = customUserDetailsService.getUserByUsername(currentUser.getUsername());
+    model.addAttribute("user", user);
+    return "user/change-password";
+  }
 
-		// tijdelijke fix iedereen admin
-		Role r = new Role();
-		r.setRole("ADMIN");
-		// new HashSet<String>()
-		Set<Role> t = new HashSet<Role>();
-		t.add(r);
-		temp.setRoles(t);
-
-		// temp.setId("Groet");
-		customUserDetailsService.addUser(temp);
-		// userService.
-		return "redirect:/"; // redirect to homepage
-	}
+  @PostMapping("/user/change-password")
+  public String changePassword() {
+    // Todo: change password + error + success handlers
+    return "user";
+  }
 
 }

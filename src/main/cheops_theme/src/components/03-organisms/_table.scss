@@ -1,0 +1,13 @@
+table {
+  font-size: .8125rem;
+  width: 100%;
+
+  thead {
+    color: $table-head;
+  }
+
+  th,
+  td {
+    padding: $grid-gutter-width/3 0;
+  }
+}

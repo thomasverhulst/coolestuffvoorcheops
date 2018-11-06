@@ -1,8 +1,14 @@
 .form-control {
   .was-validated &:invalid,
-  .was-validated &:valid {
+  .was-validated &:valid,
+  &.is-invalid,
+  &.is-valid {
     &:focus {
       box-shadow: none;
     }
+  }
+
+  &.form-control-lg {
+    font-size: $font-size-base;
   }
 }

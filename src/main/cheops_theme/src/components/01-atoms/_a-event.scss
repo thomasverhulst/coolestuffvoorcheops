@@ -1,0 +1,31 @@
+.a-event {
+  &--date,
+  &--name {
+    font-size: .8125rem;
+  }
+
+  &--date {
+    font-weight: 300;
+    position: relative;
+    margin-right: #{$grid-gutter-width/1.5 + 3};
+    width: 35px;
+
+    &:after {
+      content: "";
+      width: 3px;
+      border-radius: 4px;
+      position: absolute;
+      right: #{-$grid-gutter-width/3 - 3};
+      top: -3px;
+      bottom: -3px;
+
+      .h-blue & {
+        background-color: $blue;
+      }
+
+      .h-blue & {
+        background-color: $blue;
+      }
+    }
+  }
+}
