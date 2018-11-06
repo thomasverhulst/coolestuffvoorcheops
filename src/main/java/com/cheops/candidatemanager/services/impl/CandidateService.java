@@ -279,15 +279,9 @@ public class CandidateService implements ICandidateService {
 		 return  candidates;
 			
 	}
-	// ok, maar refactorbaar
+
 	public Collection< Candidate> get3LatestAddedCandidates() {
-		List<Integer> ids = new ArrayList<Integer>();
-		int x = (int) candidateRepository.count();
-		ids.add(x);
-		ids.add(x-1);
-		ids.add(x-2);
-		List<Candidate> last3Candidates = (List<Candidate>) candidateRepository.findAllById(ids);
-//		 System.out.println("candidatenlijst" +last3Candidates.size());
+    List<Candidate> last3Candidates = candidateRepository.findFirst3ByOrderByIdDesc();
 		 if (!last3Candidates.isEmpty()) {
 			 return last3Candidates;
 			}else {
@@ -295,12 +289,10 @@ public class CandidateService implements ICandidateService {
 			}
 	}
 
-	// last 5, ok
 	public Collection< Candidate> getLast5Recruited() {
 		 List<ApplicationProcess> applicationProcessList = applicationProcessService.getLast5Recruited();
 		 List<Integer> applicationProcessIds = applicationProcessList.stream().map(ApplicationProcess::getId).collect(Collectors.toList());
-		 List<Candidate> candidates = candidateRepository.findAllByApplicationProcessIdIn(applicationProcessIds);
-		 return  candidates;
+    return candidateRepository.findAllByApplicationProcessIdIn(applicationProcessIds);
 
 	}
 

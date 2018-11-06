@@ -23,7 +23,9 @@ public interface CandidateRepository extends CrudRepository<Candidate, Integer> 
 
 	// @overload
 	// ArrayList<Candidate> findAllByApplicationProcessIdIn(List<ApplicationProcess>
-	
+
+	List<Candidate> findFirst3ByOrderByIdDesc();
+
 }
 
 	
