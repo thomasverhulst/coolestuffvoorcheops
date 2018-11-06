@@ -28,20 +28,20 @@ public class User {
 	private String username;
 
 	@Column(name = "email")
-	@Size(max = 45, message = "{user.email.size}")
-	@Email(message = "{user.email.invalid}")
+	@Size(max = 45, message = "{email.size}")
+	@Email(message = "{email.invalid}")
 	private String email;
 
 	@Column(name = "password")
 	private String password;
 
 	@Column(name = "name")
-	@NotBlank(message = "{user.name.empty}")
-	@Size(max = 45, message = "{user.name.size}")
+	@NotBlank(message = "{name.empty}")
+	@Size(max = 45, message = "{name.size}")
 	private String name;
 
 	@Column(name = "last_name")
-	@Size(max = 45, message = "{user.last_name.size}")
+	@Size(max = 45, message = "{last_name.size}")
 	private String lastName;
 
 	@Column(name = "active")

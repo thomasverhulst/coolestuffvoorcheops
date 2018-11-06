@@ -38,11 +38,9 @@ public class Skills {
 	private boolean frontend;
 
 	public Skills() {
-
 	}
 
-	public Skills(String technicalKnowlegde, int experience, String preferredLocation, String preferredTechnologies,
-			boolean dotnet, boolean java, boolean frontend) {
+	public Skills(String technicalKnowlegde, int experience, String preferredLocation, String preferredTechnologies, boolean dotnet, boolean java, boolean frontend) {
 		super();
 		this.technicalKnowlegde = technicalKnowlegde;
 		this.experience = experience;

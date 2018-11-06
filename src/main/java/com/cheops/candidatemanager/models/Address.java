@@ -17,57 +17,58 @@ public class Address {
 	@Column(name = "idaddress")
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
-	//@Id
-	@JoinColumn(name = "idaddress")
-	@OneToOne
-    private NewCandidate newCandidate; 
 
 	@Column(name = "streetname")
-	private String streetName;
+	private String streetname;
 
-	@Column(name = "dwellingnumber")
-	private String dwellingNumber;
+	@Column(name = "housenumber")
+	private String housenumber;
 
 	@Column(name = "bus")
 	private String bus;
 
 	@Column(name = "postalcode")
-	private String postalCode;
+	private String postalcode;
 
-	@Column(name = "land")
-	private String land;
+	@Column(name = "country")
+	private String country;
 
 	@Column(name = "municipality")
 	private String municipality;
 
+	// ??
+	@JoinColumn(name = "idaddress")
+	@OneToOne
+	private NewCandidate newCandidate;
+	// ??
+
 	public Address() {
 	}
 
-	public Address(String streetName, String dwellingNumber, String bus, String postalCode, String land,
-			String municipality) {
+	public Address(String streetname, String housenumber, String bus, String postalcode, String country, String municipality) {
 		super();
-		this.streetName = streetName;
-		this.dwellingNumber = dwellingNumber;
+		this.streetname = streetname;
+		this.housenumber = housenumber;
 		this.bus = bus;
-		this.postalCode = postalCode;
-		this.land = land;
+		this.postalcode = postalcode;
+		this.country = country;
 		this.municipality = municipality;
 	}
 
-	public String getStreetName() {
-		return streetName;
+	public String getStreetname() {
+		return streetname;
 	}
 
-	public void setStreetName(String streetName) {
-		this.streetName = streetName;
+	public void setStreetname(String streetname) {
+		this.streetname = streetname;
 	}
 
-	public String getDwellingNumber() {
-		return dwellingNumber;
+	public String getHousenumber() {
+		return housenumber;
 	}
 
-	public void setDwellingNumber(String dwellingNumber) {
-		this.dwellingNumber = dwellingNumber;
+	public void setHousenumber(String housenumber) {
+		this.housenumber = housenumber;
 	}
 
 	public String getBus() {
@@ -78,20 +79,20 @@ public class Address {
 		this.bus = bus;
 	}
 
-	public String getPostalCode() {
-		return postalCode;
+	public String getPostalcode() {
+		return postalcode;
 	}
 
-	public void setPostalCode(String postalCode) {
-		this.postalCode = postalCode;
+	public void setPostalcode(String postalcode) {
+		this.postalcode = postalcode;
 	}
 
-	public String getLand() {
-		return land;
+	public String getCountry() {
+		return country;
 	}
 
-	public void setLand(String land) {
-		this.land = land;
+	public void setCountry(String country) {
+		this.country = country;
 	}
 
 	public String getMunicipality() {
@@ -110,6 +111,7 @@ public class Address {
 		this.id = id;
 	}
 
+	// ??
 	public NewCandidate getNewCandidate() {
 		return newCandidate;
 	}
@@ -117,6 +119,6 @@ public class Address {
 	public void setNewCandidate(NewCandidate newCandidate) {
 		this.newCandidate = newCandidate;
 	}
-	
+	// ??
 
 }
