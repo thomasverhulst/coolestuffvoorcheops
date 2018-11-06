@@ -199,6 +199,9 @@
       rules : {
         passwordMatch: {
           equalTo: '#password'
+        },
+        email: {
+          email: true
         }
       },
       errorPlacement: function(error, e) {

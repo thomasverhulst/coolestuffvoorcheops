@@ -8,6 +8,7 @@ import com.cheops.candidatemanager.services.impl.CustomUserDetailsService;
 import com.cheops.candidatemanager.services.impl.RoleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -31,6 +32,8 @@ public class AdminController {
   @Autowired
   private MessageSource messageSource;
 
+  @Autowired
+  private BCryptPasswordEncoder bCryptPasswordEncoder;
 
   @GetMapping("/admin")
   public String adminView(Model model) {
@@ -61,7 +64,7 @@ public class AdminController {
     return "redirect:/admin";
   }
 
-  @GetMapping("/admin/userdelete/{userId}")
+  @GetMapping("/admin/user-delete/{userId}")
   public String userDelete(Locale locale, @PathVariable("userId") User user, RedirectAttributes redirectAttributes) {
     if (user == null) {
       redirectAttributes.addFlashAttribute("errorMessage", messageSource.getMessage("user.doesNotExists", null, locale));
@@ -88,13 +91,12 @@ public class AdminController {
     List<Role> allRoles = roleService.getAllRoles();
     model.addAttribute("user", user);
     model.addAttribute("allRoles", allRoles);
-    return "user-edit";
+    return "admin/user-edit";
   }
 
   @PostMapping("/admin/user-edit/{userId}")
   public String userEdit(Locale locale, @ModelAttribute User user, @PathVariable("userId") int userId, @RequestParam(value = "resetPassword", required = false) boolean resetPassword, RedirectAttributes redirectAttributes) {
     try {
-
       // (Re)Set password before saving cause it gets lost otherwise.
       if (resetPassword) {
         user.setPassword(user.getUsername());

@@ -66,8 +66,8 @@
         <td th:text="${user.email}"></td>
         <td class="m-table-users--roles"><span th:each="role : ${user.roles}" th:text="${role.role}"></span></td>
         <td th:text="${user.active} ? #{active} : #{notActive}"></td>
-        <td style="width: 40px;" class="m-table-users--icon"><a th:href="@{/admin/userdelete/{userid}(userid=${user.id})}" class="icon icon-delete" th:data-modal-title="${user.username}" data-toggle="modal" data-target="#delete-modal" th:title="#{delete}"></a></td>
-        <td style="width: 40px;" class="m-table-users--icon"><a th:href="@{/admin/useredit/{userid}(userid=${user.id})}" class="icon icon-edit" th:title="#{edit}"></a></td>
+        <td style="width: 40px;" class="m-table-users--icon"><a th:href="@{/admin/user-delete/{userid}(userid=${user.id})}" class="icon icon-delete" th:data-modal-title="${user.username}" data-toggle="modal" data-target="#delete-modal" th:title="#{delete}"></a></td>
+        <td style="width: 40px;" class="m-table-users--icon"><a th:href="@{/admin/user-edit/{userid}(userid=${user.id})}" class="icon icon-edit" th:title="#{edit}"></a></td>
       </tr>
     </tbody>
   </table>

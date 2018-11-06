@@ -74,7 +74,6 @@ public class CustomUserDetailsService implements UserDetailsService {
       throw new UserDoesNotExistException("This user doesn't exist.");
     }
 
-    user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
     userRepository.save(user);
   }
 
