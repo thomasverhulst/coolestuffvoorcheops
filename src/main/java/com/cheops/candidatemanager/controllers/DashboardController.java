@@ -31,8 +31,8 @@ public class DashboardController {
 //    map.addAttribute("lastMonthsRecruities",dashboardService.getLastMonthsRecruits());
 
 //    model.addAttribute("upcomingMeetings", dashboardService.getUpcomingFirstAndSecondScreenings());
-    model.addAttribute("newCandidates", dashboardService.get3LatestAddedCandidates());
-    model.addAttribute("lastRecruited", dashboardService.getLatest5RecruitedCandidates());
+    //model.addAttribute("newCandidates", dashboardService.get3LatestAddedCandidates());
+    //model.addAttribute("lastRecruited", dashboardService.getLatest5RecruitedCandidates());
 
     // dashboardService.getLastMonthsRecruits() use for last block = new rec
 

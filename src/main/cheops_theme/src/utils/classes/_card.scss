@@ -46,6 +46,10 @@
     }
   }
 
+  &.no-border-radius {
+    border-radius: 0;
+  }
+
   @include media-breakpoint-up(md) {
     &--header {
       text-align: left;

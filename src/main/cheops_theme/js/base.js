@@ -165,6 +165,59 @@
     }
   };
 
+  $.Tabs = function(element) {
+    this.element = (element instanceof $) ? element : $(element);
+    this.active = this.element.find('.o-tabs-group--item.active');
+    this.previous = this.element.find('[data-toggle="previous"]');
+    this.next = this.element.find('[data-toggle="next"]');
+    this.panes = this.element.find('[data-content="panes"]');
+    this.activePane = this.element.find('.o-tabs-group--pane.active');
+    this.tab = this.element.find('[data-toggle="tab"]');
+
+    this.InitTabs();
+  };
+
+  $.Tabs.prototype = {
+    InitTabs: function() {
+      this.previous.on('click', this.PreviousHandler.bind(this));
+      this.next.on('click', this.NextHandler.bind(this));
+      this.tab.on('click', this.TabHandler.bind(this));
+    },
+    PreviousHandler: function(e) {
+      e.preventDefault();
+
+      if (this.active.prev('.o-tabs-group--item').length !== 0) {
+        this.MoveTab('prev');
+        this.MovePane(this.active.attr('href'));
+      }
+    },
+    NextHandler: function(e) {
+      e.preventDefault();
+
+      if (this.active.next('.o-tabs-group--item').length !== 0) {
+        this.MoveTab('next');
+        this.MovePane(this.active.attr('href'));
+      }
+    },
+    TabHandler: function(e) {
+      e.preventDefault();g
+      this.MovePane($(e.currentTarget).attr('href'));
+    },
+    MoveTab: function(position) {
+      this.active.removeClass('active');
+      this.active = position === 'next' ? this.active.next('.o-tabs-group--item').addClass('active') : this.active.prev('.o-tabs-group--item').addClass('active');
+    },
+    MovePane: function(pane) {
+      $this = this;
+      this.activePane.hide().removeClass('show active');
+      this.activePane = this.panes.find(pane).show();
+
+      window.setTimeout(function(){
+        $this.activePane.addClass('show active');
+      }, 100);
+    }
+  };
+
   // Initalize
   new $.MobileMenu($('.header--middle'));
   new $.QuickMenu($('.header--right '));
@@ -172,6 +225,7 @@
   new $.SubNav($('.js-has-nav-sub'));
   new $.Select2($('.js-select-basic'));
   new $.Modal($('[data-toggle="modal"]'));
+  new $.Tabs($('.o-tabs-group'));
 
   // Form validation.
   $.validator.setDefaults({

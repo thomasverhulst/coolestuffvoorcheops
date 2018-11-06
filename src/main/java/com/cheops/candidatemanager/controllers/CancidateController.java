@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
+import com.cheops.candidatemanager.models.*;
 import com.cheops.candidatemanager.repositories.CandidateRepository;
 import com.cheops.candidatemanager.services.IStorageService;
 import org.apache.log4j.Logger;
@@ -29,13 +30,6 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.thymeleaf.util.StringUtils;
 
-import com.cheops.candidatemanager.models.Address;
-import com.cheops.candidatemanager.models.ApplicationProcess;
-import com.cheops.candidatemanager.models.Candidate;
-import com.cheops.candidatemanager.models.NewCandidate;
-import com.cheops.candidatemanager.models.SalaryPackage;
-import com.cheops.candidatemanager.models.Skills;
-import com.cheops.candidatemanager.models.Update;
 import com.cheops.candidatemanager.services.impl.AddressService;
 import com.cheops.candidatemanager.services.impl.ApplicationProcessService;
 import com.cheops.candidatemanager.services.impl.CandidateService;
@@ -428,4 +422,11 @@ public class CancidateController {
 		return returnValue;
 	}
 
+
+	// ADDED FOR TEMP REASONS
+	@GetMapping("/add-candidate")
+	public String addCandidateView(Model model) {
+		model.addAttribute("candidate", new NewCandidateFE());
+		return "candidate/add";
+	}
 }
