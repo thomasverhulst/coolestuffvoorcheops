@@ -14,8 +14,6 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.cheops.candidatemanager.services.impl.CandidateService;
@@ -107,8 +105,6 @@ public class SalaryPackageController {
 
 	}
 
-	// dit is de methode om een update te
-	// doen...@PostMapping("/updateCandidate/{candidateId}/{addressId}")
 	@PostMapping("/updateSalaryPackage/{salaryPackageId}")
 	public String save(@Valid SalaryPackage salaryPackage, @PathVariable("salaryPackageId") int id,
 			BindingResult result, RedirectAttributes redirect) {

@@ -25,7 +25,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.thymeleaf.util.StringUtils;
@@ -50,8 +49,9 @@ public class CancidateController {
 	Logger logger = Logger.getLogger(CancidateController.class);
 
 	private final IStorageService storageService;
-	final static String uploadDirectory = System.getProperty("user.dir") + "/uploads";
-	final static String feedbackuploadDirectory = System.getProperty("user.dir") + "/uploadsfeedback";
+	
+	private static final String UPLOADDIRECTORY = System.getProperty("user.dir") + "/uploads";
+	private static final  String FEEDBACKUPLOADDIRECTORY = System.getProperty("user.dir") + "/uploadsfeedback";
 	
 	// goede uitleg
 	// https://www.mkyong.com/spring-boot/spring-boot-hibernate-search-example/
@@ -135,9 +135,9 @@ public class CancidateController {
 		if (candidate.getFile() != null && !candidate.getFile().isEmpty()) {
 
 			MultipartFile file = candidate.getFile();
-			Path filenameAndPath = Paths.get(uploadDirectory, file.getOriginalFilename());
+			Path filenameAndPath = Paths.get(UPLOADDIRECTORY, file.getOriginalFilename());
 
-			logger.debug("Upload link = " + uploadDirectory);
+			logger.debug("Upload link = " + UPLOADDIRECTORY);
 			logger.debug("filenaam pad" + filenameAndPath);
 			Files.write(filenameAndPath, file.getBytes());
 			// set link to cv
@@ -188,9 +188,9 @@ public class CancidateController {
 		if (newCandidate.getFile() != null && !newCandidate.getFile().isEmpty()) {
 
 			MultipartFile file = newCandidate.getFile();
-			Path filenameAndPath = Paths.get(uploadDirectory, file.getOriginalFilename());
+			Path filenameAndPath = Paths.get(UPLOADDIRECTORY, file.getOriginalFilename());
 
-			logger.debug("Upload link = " + uploadDirectory);
+			logger.debug("Upload link = " + UPLOADDIRECTORY);
 			logger.debug("filenaam pad" + filenameAndPath);
 			Files.write(filenameAndPath, file.getBytes());
 			// set link to cv
@@ -201,20 +201,18 @@ public class CancidateController {
 		
 			MultipartFile file = newCandidate.getApplicationProcess().getFile();
 			
-			Path filenameAndPath = Paths.get(feedbackuploadDirectory, file.getOriginalFilename());
+			Path filenameAndPath = Paths.get(FEEDBACKUPLOADDIRECTORY, file.getOriginalFilename());
 			Files.write(filenameAndPath, file.getBytes());
 			// set link to cv
 			newCandidate.getApplicationProcess().setFeedbackFileName(file.getOriginalFilename());
-			
-	
-			
+					
 		}
 		
 
 		// https://stackoverflow.com/questions/2227395/spring-3-0-set-and-get-session-attribute
 		// save candidate to get an id
 		NewCandidate tmpNewCandidate = newCandidateservice.addNewCandidate(newCandidate);
-		//hieronder uitgezet
+		
 		tmpNewCandidate.setAddressId(tmpNewCandidate.getAddress().getId() );
 		tmpNewCandidate.setApplicationProcessId(tmpNewCandidate.getApplicationProcess().getId() );
 		tmpNewCandidate.setSkillsId(tmpNewCandidate.getSkills().getId());
@@ -243,7 +241,7 @@ public class CancidateController {
 		// save cv
 		if (candidate.getFile() != null) {
 			MultipartFile file = candidate.getFile();
-			Path filenameAndPath = Paths.get(uploadDirectory, file.getOriginalFilename());
+			Path filenameAndPath = Paths.get(UPLOADDIRECTORY, file.getOriginalFilename());
 			Files.write(filenameAndPath, file.getBytes());
 			candidate.setCvLink(file.getOriginalFilename());
 		}
@@ -340,7 +338,7 @@ public class CancidateController {
 		if (applicationProcess.getFile() != null && !applicationProcess.getFile().isEmpty()) {	
 			MultipartFile file = applicationProcess.getFile();
 		
-			Path filenameAndPath = Paths.get(feedbackuploadDirectory, file.getOriginalFilename());
+			Path filenameAndPath = Paths.get(FEEDBACKUPLOADDIRECTORY, file.getOriginalFilename());
 			Files.write(filenameAndPath, file.getBytes());
 			// set link to cv
 			applicationProcess.setFeedbackFileName(file.getOriginalFilename());
@@ -398,7 +396,7 @@ public class CancidateController {
 
 		if (candidate.getFile() != null && !candidate.getFile().isEmpty()) {
 			MultipartFile file = candidate.getFile();
-			Path filenameAndPath = Paths.get(uploadDirectory, file.getOriginalFilename());
+			Path filenameAndPath = Paths.get(UPLOADDIRECTORY, file.getOriginalFilename());
 			Files.write(filenameAndPath, file.getBytes());
 			// set link to cv
 			candidate.setCvLink(file.getOriginalFilename());

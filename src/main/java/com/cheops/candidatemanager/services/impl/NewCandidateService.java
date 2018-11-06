@@ -88,12 +88,6 @@ public class NewCandidateService implements ICandidateService {
 	}
 
 	@Override
-  public List<CandidateSearchResolver> getAllCandidatesWithoutActiveApplicationProcess() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
   public List<CandidateSearchResolver> getAllCandidatesWithActiveApplicationProcess() {
     // TODO Auto-generated method stub
     return null;
@@ -154,6 +148,12 @@ public class NewCandidateService implements ICandidateService {
 	public void downloadCv(String cvLink, HttpServletResponse response) throws IOException {
 		// TODO Auto-generated method stub
 		
+	}
+
+	@Override
+	public List<CandidateSearchResolver> getAllCandidatesWithoutActiveApplicationProcess() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }
