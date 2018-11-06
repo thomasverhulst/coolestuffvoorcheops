@@ -60,6 +60,7 @@ public class NewCandidate implements Serializable {
 
 	@Column(name = "gender")
 	private String gender;
+	
 	@Transient
 	private MultipartFile file;
 

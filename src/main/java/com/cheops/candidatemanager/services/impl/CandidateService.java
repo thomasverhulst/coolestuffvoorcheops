@@ -13,9 +13,6 @@ import java.util.stream.Collectors;
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 
-import com.cheops.candidatemanager.repositories.AddressRepository;
-import com.cheops.candidatemanager.repositories.CandidateRepository;
-import com.cheops.candidatemanager.services.ICandidateService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -24,11 +21,14 @@ import com.cheops.candidatemanager.models.ApplicationProcess;
 import com.cheops.candidatemanager.models.Candidate;
 import com.cheops.candidatemanager.models.CandidateSearchResolver;
 import com.cheops.candidatemanager.models.Skills;
+import com.cheops.candidatemanager.repositories.AddressRepository;
+import com.cheops.candidatemanager.repositories.CandidateRepository;
+import com.cheops.candidatemanager.services.ICandidateService;
 
 @Service
 public class CandidateService implements ICandidateService {
-
-	public String uploadDirectory = System.getProperty("user.dir") + "/uploads";
+	//private static final
+	private static final String UPLOADDIRECTORY = System.getProperty("user.dir") + "/uploads";
 	@Autowired
 	private CandidateRepository candidateRepository;
 
@@ -81,7 +81,7 @@ public class CandidateService implements ICandidateService {
 
 			// ApplicationProcess Logic
 			String applicationStatus = "";
-			if (candidate.getApplicationProcessId() != 0 ) {
+			if (candidate.getApplicationProcessId() != 0) {
 				ApplicationProcess applicationProcess = applicationProcessService
 						.getApplicationProcessById(candidate.getApplicationProcessId());
 				if (applicationProcess.getToBeInvitedForFirstConversation()) {
@@ -113,7 +113,7 @@ public class CandidateService implements ICandidateService {
 
 	@Override
 	public Candidate getCandidateById(int candidateId) {
-		return  candidateRepository.findById(candidateId).get();
+		return candidateRepository.findById(candidateId).get();
 
 	}
 
@@ -191,7 +191,7 @@ public class CandidateService implements ICandidateService {
 		out = response.getWriter();
 
 		String gurufile = cvLink;
-		String gurupath = uploadDirectory;
+		String gurupath = UPLOADDIRECTORY;
 		response.setContentType("APPLICATION/OCTET-STREAM");
 		response.setHeader("Content-Disposition", "attachment; filename=\"" + gurufile + "\"");
 
@@ -246,7 +246,7 @@ public class CandidateService implements ICandidateService {
 		List<Integer> applicationProcessIds = applicationProcessService
 				.getAllCandidatesWithoutActiveApplicationProcess();
 		List<Candidate> candidates = candidateRepository.findAllByApplicationProcessIdIn(applicationProcessIds);
-		return fillExpertiseAndStatus( candidates);
+		return fillExpertiseAndStatus(candidates);
 	}
 
 	@Override
@@ -275,10 +275,12 @@ public class CandidateService implements ICandidateService {
 		 
 		List<Integer> applicationProcessIds = applicationProcessList.stream().map(ApplicationProcess::getId).collect(Collectors.toList());
 		
-		 List<Candidate> candidates = candidateRepository.findAllByApplicationProcessIdIn(applicationProcessIds);
-		 return  candidates;
+		 return candidateRepository.findAllByApplicationProcessIdIn(applicationProcessIds);
+		
 			
+
 	}
+
 
 	public Collection< Candidate> get3LatestAddedCandidates() {
     List<Candidate> last3Candidates = candidateRepository.findFirst3ByOrderByIdDesc();
@@ -293,7 +295,6 @@ public class CandidateService implements ICandidateService {
 		 List<ApplicationProcess> applicationProcessList = applicationProcessService.getLast5Recruited();
 		 List<Integer> applicationProcessIds = applicationProcessList.stream().map(ApplicationProcess::getId).collect(Collectors.toList());
     return candidateRepository.findAllByApplicationProcessIdIn(applicationProcessIds);
-
 	}
 
 	public Collection<Candidate> getLastMonthsRecruits() {
@@ -301,8 +302,34 @@ public class CandidateService implements ICandidateService {
 		 List<ApplicationProcess> applicationProcessList = applicationProcessService.getLastMonthsRecruits();
 		 
 		 List<Integer> applicationProcessIds = applicationProcessList.stream().map(ApplicationProcess::getId).collect(Collectors.toList());
-		 List<Candidate> candidates = candidateRepository.findAllByApplicationProcessIdIn(applicationProcessIds);
-		 return  candidates;
+		 return candidateRepository.findAllByApplicationProcessIdIn(applicationProcessIds);
+	
+
+
+	}
+
+	// experiment
+	public List<CandidateSearchResolver> getAllNotRecruitedCandidates2() {
+		List<Integer> applicationProcessIds = applicationProcessService.getAllNotRecuitedCandidates2();
+		List<Candidate> candidates = candidateRepository.findAllByApplicationProcessIdIn(applicationProcessIds);
+		return fillExpertiseAndStatus(candidates);
+	}
+
+	public List<Candidate> getAllNotRecruitedCandidates() {
+		List<ApplicationProcess> applicationProcessList = applicationProcessService.getAllNotRecruitedCandidates();
+		// refactoring te overwegen!
+		List<Integer> applicationProcessIds = applicationProcessList.stream().map(ApplicationProcess::getId)
+				.collect(Collectors.toList());
+		return candidateRepository.findAllByApplicationProcessIdIn(applicationProcessIds);
+
+	}
+
+	public List<CandidateSearchResolver> getAllExEmployees() {
+		List<Integer> applicationProcessIds = applicationProcessService.getAllExEmployees();
+
+		List<Candidate> candidates = candidateRepository.findAllByApplicationProcessIdIn(applicationProcessIds);
+		return fillExpertiseAndStatus(candidates);
+
 	}
 
 }

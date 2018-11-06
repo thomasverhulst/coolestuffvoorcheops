@@ -25,8 +25,7 @@ public class SkillsService implements ISkillService {
 
 	@Override
 	public Skills getSkillsById(int skillsId) {
-		Skills e = skillsRepository.findById(skillsId).get();
-		return e;
+		return skillsRepository.findById(skillsId).get();
 	}
 
 	@Override
@@ -86,8 +85,8 @@ public class SkillsService implements ISkillService {
 
 	public List<Integer> findAllByExperienceGreaterThan(int minimumExperience, List<Integer> skillId) {
 
-		ArrayList<Skills> l = (ArrayList<Skills>) skillsRepository.findAllById(skillId);
-		Iterator<Skills> i = l.iterator();
+		ArrayList<Skills> skillsList = (ArrayList<Skills>) skillsRepository.findAllById(skillId);
+		Iterator<Skills> i = skillsList.iterator();
 		while (i.hasNext()) {
 			Skills s = i.next();
 			if (s.getExperience() < minimumExperience) {
@@ -95,9 +94,8 @@ public class SkillsService implements ISkillService {
 			}
 		}
 
-		List<Integer> skillsIdList = l.stream().map(Skills::getId).collect(Collectors.toList());
+		return skillsList.stream().map(Skills::getId).collect(Collectors.toList());
 
-		return skillsIdList;
 	}
 
 }

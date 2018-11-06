@@ -6,7 +6,6 @@ import com.cheops.candidatemanager.models.Skills;
 import org.springframework.data.repository.CrudRepository;
 
 public interface SkillsRepository extends CrudRepository<Skills, Integer> {
-	// List<Address> findByStreetNameAndPostalCode(String streetName, String
 
 	List<Skills> findAllByDotnet(boolean isdotnett);
 
