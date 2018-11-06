@@ -16,8 +16,6 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -26,8 +24,8 @@ import com.cheops.candidatemanager.services.impl.CandidateService;
 
 @Controller
 public class ApplicationProcessController {
-
-	final static String feedbackuploadDirectory = System.getProperty("user.dir") + "/uploadsfeedback";
+	//static final String UPLOADDIRECTORY
+	private final static String feedbackuploadDirectory = System.getProperty("user.dir") + "/uploadsfeedback";
 	@Autowired
 	private CandidateService candidateservice;
 	@Autowired
@@ -36,12 +34,6 @@ public class ApplicationProcessController {
 	@GetMapping(value = "searchapplicationproces2/{candidateId}")
 	public String searchApplicationProcess(Model model, @PathVariable("candidateId") int candidateId) {
 		Integer applicationProcessId = candidateservice.getCandidateById(candidateId).getApplicationProcessId();
-//		ApplicationProcess applicationProcess = applicationProcessService.getApplicationProcessById(applicationProcessId);
-//		// if blof is not null add filename from blob to feedbackfilename
-//			if (applicationProcess.getFeedBackFile() != null) {
-//				
-//				applicationProcess.setFeedbackFileName(feedbackFileName);
-//			}
 		
 		model.addAttribute("applicationProcess",
 				applicationProcessService.getApplicationProcessById(applicationProcessId));
@@ -63,11 +55,8 @@ public class ApplicationProcessController {
 		//check if isrecruited is set, if so, add timestamp	
 		if(applicationProcess.getIsRecruited()&& applicationProcess.getIsRecruitedTimeStamp() != null ) {
 			//as timestamp still is null, set new timestamp
-			
-				Timestamp isRecruitedTimeStamp = new Timestamp(System.currentTimeMillis());
-				applicationProcess.setIsRecruitedTimeStamp(isRecruitedTimeStamp);
-			
-			
+			Timestamp isRecruitedTimeStamp = new Timestamp(System.currentTimeMillis());
+			applicationProcess.setIsRecruitedTimeStamp(isRecruitedTimeStamp);			
 		}
 				
 		//check if isExemployee is set, if so, add timestamp and unset "isrecruited	
@@ -77,7 +66,6 @@ public class ApplicationProcessController {
 			applicationProcess.setIsRecruited(false);
 		}
 		
-		// still no check for backupfile?
 		//check if feedbackfile is added
 		if (applicationProcess.getFile() != null && !applicationProcess.getFile().isEmpty()) {	
 			MultipartFile file = applicationProcess.getFile();

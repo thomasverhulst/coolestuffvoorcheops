@@ -3,8 +3,6 @@ package com.cheops.candidatemanager.models;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
-//import org.springframework.data.annotation.Id;
-
 @Entity
 public class Search {
 
@@ -15,7 +13,6 @@ public class Search {
 	private boolean java;
 	private boolean dotnet;
 	private int experience;
-	// private int years;
 
 	public Search() {
 

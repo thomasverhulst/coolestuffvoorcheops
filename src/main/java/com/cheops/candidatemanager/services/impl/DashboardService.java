@@ -47,7 +47,7 @@ public class DashboardService implements IDashboardService {
 			return Collections.<Candidate>emptyList();
 		}
 	}
-
+// dit ziet er verdacht uit, geen ! bij de isempty?
 	public List<Candidate> getLatest5RecruitedCandidates() {
     List<Candidate> recentlyRecruited = new ArrayList<Candidate>(candidateService.getLast5Recruited());
 
