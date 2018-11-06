@@ -281,28 +281,20 @@ public class CandidateService implements ICandidateService {
 
 	}
 
-	// ok, maar refactorbaar
-	public Collection<Candidate> get3LatestAddedCandidates() {
-		List<Integer> ids = new ArrayList<Integer>();
-		int x = (int) candidateRepository.count();
-		ids.add(x);
-		ids.add(x - 1);
-		ids.add(x - 2);
-		List<Candidate> last3Candidates = (List<Candidate>) candidateRepository.findAllById(ids);
 
-		if (!last3Candidates.isEmpty()) {
-			return last3Candidates;
-		} else {
-			return Collections.<Candidate>emptyList();
-		}
+	public Collection< Candidate> get3LatestAddedCandidates() {
+    List<Candidate> last3Candidates = candidateRepository.findFirst3ByOrderByIdDesc();
+		 if (!last3Candidates.isEmpty()) {
+			 return last3Candidates;
+			}else {
+				return Collections.<Candidate>emptyList();
+			}
 	}
 
-	public Collection<Candidate> getLast5Recruited() {
-		List<ApplicationProcess> applicationProcessList = applicationProcessService.getLast5Recruited();
-		List<Integer> applicationProcessIds = applicationProcessList.stream().map(ApplicationProcess::getId)
-				.collect(Collectors.toList());
-		return candidateRepository.findAllByApplicationProcessIdIn(applicationProcessIds);
-
+	public Collection< Candidate> getLast5Recruited() {
+		 List<ApplicationProcess> applicationProcessList = applicationProcessService.getLast5Recruited();
+		 List<Integer> applicationProcessIds = applicationProcessList.stream().map(ApplicationProcess::getId).collect(Collectors.toList());
+    return candidateRepository.findAllByApplicationProcessIdIn(applicationProcessIds);
 	}
 
 	public Collection<Candidate> getLastMonthsRecruits() {

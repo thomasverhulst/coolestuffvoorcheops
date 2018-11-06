@@ -77,17 +77,22 @@
           </div>
           <div class="row">
             <div class="col-md-8 mb-grid">
-              <!-- TODO: Make content dynamic + use messages.properties -->
-              <div th:replace="fragments/card :: card('Nieuwe kandidaten', ~{ :: .table-new-candidates})">
+              <!-- TODO: Add content when newcandidate is default -->
+              <div th:replace="fragments/card :: card(#{newCandidates}, ~{ :: .table-new-candidates})">
                 <div class="table-new-candidates" th:remove="tag">
                   <table th:replace="fragments/table :: table-candidates(false, false, false, false, true, true, false, false)"></table>
+                  <!--th:with="newCandidates=${newCandidates}"-->
                 </div>
               </div>
             </div>
             <div class="col-md-4 mb-grid">
-              <!-- TODO: Make content dynamic + use messages.properties -->
-              <div th:replace="fragments/card :: card('Evenementen', ~{ :: .o-events-list})">
+              <!-- TODO: Add content when newcandidate is default -->
+              <div th:replace="fragments/card :: card(#{meetings}, ~{ :: .o-events-list})">
                 <div class="o-events-list">
+                  <!--<div th:each="upcomingMeeting : ${upcomingMeetings}" class="a-event d-flex align-items-center">-->
+                    <!--<div class="a-event&#45;&#45;date h-background-after-blue">07/06</div>-->
+                    <!--<div class="a-event&#45;&#45;name">Kennismakingsgesprek Jens</div>-->
+                  <!--</div>-->
                   <div class="a-event d-flex align-items-center">
                     <div class="a-event--date h-background-after-blue">07/06</div>
                     <div class="a-event--name">Kennismakingsgesprek Jens</div>
@@ -102,10 +107,11 @@
           </div>
           <div class="row">
             <div class="col">
-              <!-- TODO: Make content dynamic + use messages.properties -->
-              <div th:replace="fragments/card :: card('Recent aangenomen', ~{ :: .table-recent-hired})">
+              <!-- TODO: Add content when newcandidate is default -->
+              <div th:replace="fragments/card :: card('', ~{ :: .table-recent-hired})">
                 <div class="table-recent-hired" th:remove="tag">
                   <table th:replace="fragments/table :: table-candidates(true, false, false, false, false, false, false, true)"></table>
+                  <!--th:with="lastRecruited=${lastRecruited}"-->
                 </div>
               </div>
             </div>
