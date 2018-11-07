@@ -19,6 +19,7 @@
     background: $black;
     color: $white;
     margin-right: 5px;
+    position: relative;
 
     @include last-child {
       margin-right: 0;
@@ -29,18 +30,24 @@
       color: $gray-900;
       pointer-events: none;
       box-shadow: 0 0 15px 1px rgba($gray-900, .2);
-      position: relative;
 
       &:after {
-        content: '';
-        position: absolute;
-        z-index: 10;
-        height: 16px;
-        bottom: -8px;
-        left: 0;
-        width: 100%;
-        background: $white;
+        opacity: 1;
       }
+
+    }
+
+    &:after {
+      @include transition($transition-fade);
+      content: '';
+      position: absolute;
+      z-index: 10;
+      height: 16px;
+      bottom: -16px;
+      left: 0;
+      width: 100%;
+      background: $white;
+      opacity: 0;
     }
 
     &:hover {

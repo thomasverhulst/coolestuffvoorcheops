@@ -18,7 +18,28 @@
     </div>
     <div class="row">
       <div class="col">
-        <div th:replace="fragments/tab :: tabs"></div>
+        <div th:replace="fragments/tab :: tabs-candidate(~{ :: .add-candidate-body})">
+          <div class="add-candidate-body" th:remove="tag">
+            <div th:replace="fragments/tab :: tabs-candidate-pane(~{ :: .details-pane-body}, 'nav-details', 'nav-home-tab', true)">
+              <div class="details-pane-body" th:remove="tag">i am details</div>
+            </div>
+            <div th:replace="fragments/tab :: tabs-candidate-pane(~{ :: .cv-pane-body}, 'nav-cv', 'nav-cv-tab', false)">
+              <div class="cv-pane-body" th:remove="tag">i am cv</div>
+            </div>
+            <div th:replace="fragments/tab :: tabs-candidate-pane(~{ :: .experience-pane-body}, 'nav-experience', 'nav-experience-tab', false)">
+              <div class="experience-pane-body" th:remove="tag">i am experience</div>
+            </div>
+            <div th:replace="fragments/tab :: tabs-candidate-pane(~{ :: .meeting-pane-body}, 'nav-meeting', 'nav-meeting-tab', false)">
+              <div class="meeting-pane-body" th:remove="tag">i am meeting</div>
+            </div>
+            <div th:replace="fragments/tab :: tabs-candidate-pane(~{ :: .offer-pane-body}, 'nav-offer', 'nav-offer-tab', false)">
+              <div class="offer-pane-body" th:remove="tag">i am offer</div>
+            </div>
+            <div th:replace="fragments/tab :: tabs-candidate-pane(~{ :: .history-pane-body}, 'nav-history', 'nav-history-tab', false)">
+              <div class="history-pane-body" th:remove="tag">i am history</div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>

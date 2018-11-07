@@ -200,8 +200,10 @@
       }
     },
     TabHandler: function(e) {
-      e.preventDefault();g
+      e.preventDefault();
       this.MovePane($(e.currentTarget).attr('href'));
+      this.active.removeClass('show active');
+      this.active = $(e.currentTarget).addClass('show active');
     },
     MoveTab: function(position) {
       this.active.removeClass('active');

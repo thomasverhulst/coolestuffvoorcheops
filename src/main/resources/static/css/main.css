@@ -5302,24 +5302,31 @@ header {
   padding: 15px 20px;
   background: #000000;
   color: #FFFFFF;
-  margin-right: 5px; }
+  margin-right: 5px;
+  position: relative; }
   .o-tabs-group--item:last-of-type {
     margin-right: 0; }
   .o-tabs-group--item.active {
     background: #FFFFFF;
     color: #4A4A4A;
     pointer-events: none;
-    box-shadow: 0 0 15px 1px rgba(74, 74, 74, 0.2);
-    position: relative; }
+    box-shadow: 0 0 15px 1px rgba(74, 74, 74, 0.2); }
     .o-tabs-group--item.active:after {
-      content: '';
-      position: absolute;
-      z-index: 10;
-      height: 16px;
-      bottom: -8px;
-      left: 0;
-      width: 100%;
-      background: #FFFFFF; }
+      opacity: 1; }
+  .o-tabs-group--item:after {
+    transition: opacity 0.15s linear;
+    content: '';
+    position: absolute;
+    z-index: 10;
+    height: 16px;
+    bottom: -16px;
+    left: 0;
+    width: 100%;
+    background: #FFFFFF;
+    opacity: 0; }
+    @media screen and (prefers-reduced-motion: reduce) {
+      .o-tabs-group--item:after {
+        transition: none; } }
   .o-tabs-group--item:hover {
     color: #FFFFFF;
     background: #262626; }
