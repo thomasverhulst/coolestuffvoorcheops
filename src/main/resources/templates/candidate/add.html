@@ -1,27 +1,142 @@
 <!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" th:data-locale="${#locale}">
 <head th:replace="fragments/general :: headTag(title=#{candidate.add} + ' - Cheops Kandidatenbeheer')"></head>
 <body>
 <header th:replace="fragments/general :: header"></header>
 <main>
   <div class="container-fluid">
     <div class="row mb-3">
-      <div class="col">
+      <div class="col-md">
         <h1 class="a-title--page" th:text="#{candidate.add}"></h1>
+      </div>
+      <div class="col-md d-flex align-items-center mb-sm-grid mt-sm-grid justify-content-md-end">
+        <input type="submit" name="submit" th:value="#{add}" form="form-add-candidate" class="btn btn-primary d-block">
+        <a href="javascript:history.back()" th:inline="text" class="m-icon-link--fa fa-icon ml-4"><i class="fas fa-times"></i>[[#{cancel}]]</a>
       </div>
     </div>
     <div th:if="${errorMessage != null} OR ${successMessage != null}" class="row">
       <div class="col">
-        <div th:if="${errorMessage != null}" th:text="${errorMessage}" class="alert alert-danger" role="alert"></div>
+        <div th:if="${formErrorMessage != null}" th:inline="text" class="alert alert-danger" role="alert">
+          [[${formErrorMessage}]]
+          <ul th:if="${!#fields.errors('*').isEmpty()}" class="mb-0">
+            <li th:each="err : ${#fields.errors('*')}" th:text="${err}"></li>
+          </ul>
+        </div>
         <div th:if="${successMessage != null}" th:text="${successMessage}" class="alert alert-success" role="alert"></div>
       </div>
     </div>
     <div class="row">
       <div class="col">
-        <div th:replace="fragments/tab :: tabs-candidate(~{ :: .add-candidate-body})">
-          <div class="add-candidate-body" th:remove="tag">
+        <div th:replace="fragments/tab :: tabs-candidate(~{ :: .m-form--add-candidate})">
+          <form th:action="@{/add-candidate}" th:object="${candidate}" method="post" accept-charset="utf-8" id="form-add-candidate" class="m-form--add-candidate js-needs-validation" autocomplete="disabled" novalidate>
             <div th:replace="fragments/tab :: tabs-candidate-pane(~{ :: .details-pane-body}, 'nav-details', 'nav-home-tab', true)">
-              <div class="details-pane-body" th:remove="tag">i am details</div>
+              <div class="details-pane-body" th:remove="tag">
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="a-title--form mt-4" th:text="#{candidate.personal}"></div>
+                    <div class="row">
+                      <div class="col-md-6 form-group m-form-group">
+                        <label for="name" class="a-form-label" th:text="#{name} + ' *'"></label>
+                        <input th:field="*{name}" type="text" id="name" name="name" class="form-control a-form-input-text" required>
+                      </div>
+                      <div class="col-md-6 form-group m-form-group">
+                        <label for="lastName" class="a-form-label" th:text="#{lastname}"></label>
+                        <input th:field="*{lastName}" type="text" id="lastName" name="lastName" class="form-control a-form-input-text">
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-6 form-group m-form-group">
+                        <label for="streetname" class="a-form-label" th:text="#{address.streetname}"></label>
+                        <input th:field="*{address.streetname}" type="text" id="streetname" name="streetname" class="form-control a-form-input-text">
+                      </div>
+                      <div class="col-md-3 form-group m-form-group">
+                        <label for="housenumber" class="a-form-label" th:text="#{address.housenumber}"></label>
+                        <input th:field="*{address.housenumber}" type="text" id="housenumber" name="housenumber" class="form-control a-form-input-text">
+                      </div>
+                      <div class="col-md-3 form-group m-form-group">
+                        <label for="bus" class="a-form-label" th:text="#{address.bus}"></label>
+                        <input th:field="*{address.bus}" type="text" id="bus" name="bus" class="form-control a-form-input-text">
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-4 form-group m-form-group">
+                        <label for="postalcode" class="a-form-label" th:text="#{address.postalcode}"></label>
+                        <input th:field="*{address.postalcode}" type="text" id="postalcode" name="postalcode" class="form-control a-form-input-text">
+                      </div>
+                      <div class="col-md-8 form-group m-form-group">
+                        <label for="municipality" class="a-form-label" th:text="#{address.municipality}"></label>
+                        <input th:field="*{address.municipality}" type="text" id="municipality" name="municipality" class="form-control a-form-input-text">
+                      </div>
+                    </div>
+                    <div class="form-group m-form-group">
+                      <label for="country" class="a-form-label" th:text="#{address.country}"></label>
+                      <input th:field="*{address.countrycode}" type="text" id="country" name="country" class="form-control a-form-input-text js-autocomplete-countries" autocomplete="off">
+                    </div>
+                    <div class="row">
+                      <div class="col-md-6 form-group m-form-group">
+                        <label for="gender" class="a-form-label" th:text="#{gender}"></label>
+                        <select th:field="*{{gender}}" id="gender" name="gender" class="form-control js-select-basic" th:data-placeholder="#{form.select.gender}">
+                          <option value=""></option>
+                          <option th:each="gender : ${T(com.cheops.candidatemanager.enums.Gender).values()}" th:value="${{gender}}" th:text="#{'enum.gender.' + ${{gender}}}"></option>
+                        </select>
+                      </div>
+                      <div class="col-md-6 form-group m-form-group">
+                        <label for="dateOfBirth" class="a-form-label" th:text="#{dateOfBirth}"></label>
+                        <input th:field="*{dateOfBirth}" type="date" id="dateOfBirth" name="dateOfBirth" class="form-control a-form-input-date">
+                      </div>
+                    </div>
+                    <div class="form-group m-form-group">
+                      <label for="email" class="a-form-label" th:text="#{email}"></label>
+                      <input th:field="*{email}" type="text" id="email" name="email" class="form-control a-form-input-text">
+                    </div>
+                    <div class="row">
+                      <div class="col-md-6 form-group m-form-group">
+                        <label for="phonenumber" class="a-form-label" th:text="#{phonenumber}"></label>
+                        <input th:field="*{phonenumber}" type="text" id="phonenumber" name="phonenumber" class="form-control a-form-input-text">
+                      </div>
+                      <div class="col-md-6 form-group m-form-group">
+                        <label for="cellphonenumber" class="a-form-label" th:text="#{cellphonenumber}"></label>
+                        <input th:field="*{cellphonenumber}" type="text" id="cellphonenumber" name="cellphonenumber" class="form-control a-form-input-text">
+                      </div>
+                    </div>
+                    <div class="form-group m-form-group">
+                      <label for="contactChannel" class="a-form-label" th:text="#{contactChannel}"></label>
+                      <input th:field="*{contactChannel}" type="text" id="contactChannel" name="contactChannel" class="form-control a-form-input-text">
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="a-title--form mt-4" th:text="#{candidate.current}"></div>
+                    <div class="row">
+                      <div class="col-md-6 form-group m-form-group">
+                        <label for="grosssalary" class="a-form-label" th:text="#{salary.grosssalary}"></label>
+                        <input th:field="*{currentSalaryPackage[0].grossSalary}" type="number" id="grosssalary" name="grosssalary" class="form-control a-form-input-text">
+                      </div>
+                      <div class="col-md-6 form-group m-form-group">
+                        <label for="car" class="a-form-label" th:text="#{address.streetname}"></label>
+                        <input th:field="*{currentSalaryPackage[0].car}" type="text" id="car" name="car" class="form-control a-form-input-text">
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-6 form-group m-form-group">
+                        <label for="dailyallowance" class="a-form-label" th:text="#{salary.dailyallowance}"></label>
+                        <input th:field="*{currentSalaryPackage[0].dailyAllowance}" type="number" id="dailyallowance" name="dailyallowance" class="form-control a-form-input-text">
+                      </div>
+                      <div class="col-md-6 form-group m-form-group">
+                        <label for="mealvouchers" class="a-form-label" th:text="#{salary.mealvouchers}"></label>
+                        <input th:field="*{currentSalaryPackage[0].mealVouchers}" type="number" id="mealvouchers" name="mealvouchers" class="form-control a-form-input-text">
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-6 form-group m-form-group">
+                        <input type="checkbox" th:field="*{currentSalaryPackage[0].hospitalization}" th:checked="${active} ? 'checked'" name="hospitalization" id="hospitalization" class="form-control a-form-checkbox"><label for="hospitalization" th:text="#{salary.hospitalization}"></label>
+                      </div>
+                      <div class="col-md-6 form-group m-form-group">
+                        <input type="checkbox" th:field="*{currentSalaryPackage[0].groupInsurance}" th:checked="${active} ? 'checked'" name="groupinsurance" id="groupinsurance" class="form-control a-form-checkbox"><label for="groupinsurance" th:text="#{salary.groupinsurance}"></label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
             <div th:replace="fragments/tab :: tabs-candidate-pane(~{ :: .cv-pane-body}, 'nav-cv', 'nav-cv-tab', false)">
               <div class="cv-pane-body" th:remove="tag">i am cv</div>
@@ -38,6 +153,12 @@
             <div th:replace="fragments/tab :: tabs-candidate-pane(~{ :: .history-pane-body}, 'nav-history', 'nav-history-tab', false)">
               <div class="history-pane-body" th:remove="tag">i am history</div>
             </div>
+          </form>
+        </div>
+        <div class="row">
+          <div class="col-md d-flex align-items-center mt-grid justify-content-md-end">
+            <input type="submit" name="submit" th:value="#{add}" form="form-add-candidate" class="btn btn-primary d-block">
+            <a href="javascript:history.back()" th:inline="text" class="m-icon-link--fa fa-icon ml-4"><i class="fas fa-times"></i>[[#{cancel}]]</a>
           </div>
         </div>
       </div>

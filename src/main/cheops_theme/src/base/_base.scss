@@ -72,6 +72,26 @@ main {
   margin-bottom: $grid-gutter-width;
 }
 
+.mt-grid {
+  margin-top: $grid-gutter-width;
+}
+
+.mb-sm-grid {
+  margin-bottom: $grid-gutter-width;
+
+  @include media-breakpoint-up(md) {
+    margin-bottom: 0;
+  }
+}
+
+.mt-sm-grid {
+  margin-top: $grid-gutter-width;
+
+  @include media-breakpoint-up(md) {
+    margin-top: 0;
+  }
+}
+
 :focus {
   outline: none;
 }

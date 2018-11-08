@@ -30,8 +30,8 @@ public class Address {
 	@Column(name = "postalcode")
 	private String postalcode;
 
-	@Column(name = "country")
-	private String country;
+	@Column(name = "countrycode")
+	private String countrycode;
 
 	@Column(name = "municipality")
 	private String municipality;
@@ -45,13 +45,13 @@ public class Address {
 	public Address() {
 	}
 
-	public Address(String streetname, String housenumber, String bus, String postalcode, String country, String municipality) {
+	public Address(String streetname, String housenumber, String bus, String postalcode, String countrycode, String municipality) {
 		super();
 		this.streetname = streetname;
 		this.housenumber = housenumber;
 		this.bus = bus;
 		this.postalcode = postalcode;
-		this.country = country;
+		this.countrycode = countrycode;
 		this.municipality = municipality;
 	}
 
@@ -87,12 +87,12 @@ public class Address {
 		this.postalcode = postalcode;
 	}
 
-	public String getCountry() {
-		return country;
+	public String getCountrycode() {
+		return countrycode;
 	}
 
-	public void setCountry(String country) {
-		this.country = country;
+	public void setCountrycode(String countrycode) {
+		this.countrycode = countrycode;
 	}
 
 	public String getMunicipality() {

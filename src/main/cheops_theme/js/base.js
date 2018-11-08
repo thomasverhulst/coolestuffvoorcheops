@@ -112,7 +112,7 @@
       let $this = this;
 
       this.element.select2({
-        placeholder: $this.element.data('placeholder'),
+        placeholder: $this.element.data('placeholder')
       });
 
       this.element.next('.select2-container').addClass($this.element.attr('required'));
@@ -228,6 +228,20 @@
   new $.Select2($('.js-select-basic'));
   new $.Modal($('[data-toggle="modal"]'));
   new $.Tabs($('.o-tabs-group'));
+
+  // Autocomplete.
+  $('.js-autocomplete-countries').autocomplete({
+    serviceUrl: '/countries',
+    paramName: 'str',
+    maxHeight: 150,
+    transformResult: function(response) {
+      return {
+        suggestions: $.map(JSON.parse(response), function(dataItem) {
+          return { value: dataItem.name, data: dataItem.code };
+        })
+      };
+    }
+  });
 
   // Form validation.
   $.validator.setDefaults({

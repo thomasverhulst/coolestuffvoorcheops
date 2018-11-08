@@ -6,13 +6,18 @@
 
   &-input {
     &-text,
-    &-password {
+    &-password,
+    &-date {
       border: 0;
       border-bottom: $input-border-width solid $border-color;
 
       &:focus {
         box-shadow: none;
       }
+    }
+
+    &-date {
+      padding: calc(#{$input-padding-y} - 2px) $input-padding-x;
     }
   }
 

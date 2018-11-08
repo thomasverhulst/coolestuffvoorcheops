@@ -5,37 +5,29 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.sql.Timestamp;
-import java.util.Optional;
+import java.util.*;
 
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
+import com.cheops.candidatemanager.exceptions.CountryNotFoundException;
 import com.cheops.candidatemanager.models.*;
 import com.cheops.candidatemanager.repositories.CandidateRepository;
 import com.cheops.candidatemanager.services.IStorageService;
+import com.cheops.candidatemanager.services.impl.*;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.thymeleaf.util.StringUtils;
-
-import com.cheops.candidatemanager.services.impl.AddressService;
-import com.cheops.candidatemanager.services.impl.ApplicationProcessService;
-import com.cheops.candidatemanager.services.impl.CandidateService;
-import com.cheops.candidatemanager.services.impl.NewCandidateService;
-import com.cheops.candidatemanager.services.impl.SalaryPackageService;
-import com.cheops.candidatemanager.services.impl.SkillsService;
 
 @Controller
 public class CancidateController {
@@ -69,6 +61,9 @@ public class CancidateController {
 
 	@Autowired
 	private CandidateRepository candidateRepository;
+
+	@Autowired
+  private CountryService countryService;
 
 	@Autowired
 	public CancidateController(IStorageService storageService) {
@@ -427,6 +422,32 @@ public class CancidateController {
 	@GetMapping("/add-candidate")
 	public String addCandidateView(Model model) {
 		model.addAttribute("candidate", new NewCandidateFE());
+		model.addAttribute("countries", countryService.getAllCountries());
 		return "candidate/add";
 	}
+
+	@PostMapping("/add-candidate")
+  public String addCandidate(@Valid @ModelAttribute("candidate") NewCandidateFE newCandidateFE) {
+    try {
+      System.out.println(countryService.getCountryCodeByName(newCandidateFE.getAddress().getCountrycode()));
+    } catch (final CountryNotFoundException e) {
+      System.out.println(e);
+    }
+
+	  return "candidate/add";
+  }
+
+	@GetMapping(value = "/countries", produces = "application/json")
+  @ResponseBody
+  public List<Country> autocompleteCountries(@RequestParam("str") String search) {
+	  List<Country> suggestions = new ArrayList<>();
+
+	  for (Country country : countryService.getAllCountries()) {
+	    if (country.getName().toLowerCase().contains(search.toLowerCase())) {
+        suggestions.add(country);
+      }
+    }
+
+    return suggestions;
+  }
 }

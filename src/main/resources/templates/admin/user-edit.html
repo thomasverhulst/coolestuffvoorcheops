@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" th:data-locale="${#locale}">
 <head th:replace="fragments/general :: headTag(title='Dashboard - Cheops Kandidatenbeheer')"></head>
 <body>
 	<header th:replace="fragments/general :: header"></header>
@@ -37,7 +37,7 @@
                   <input th:field="*{email}" type="text" id="email" name="email" class="form-control a-form-input-text">
                 </div>
                 <div class="col-md-4 form-group m-form-group">
-                  <label for="email" class="a-form-label" th:text="#{roles} + ' *'"></label>
+                  <label for="roles" class="a-form-label" th:text="#{roles} + ' *'"></label>
                   <select th:field="*{roles}" class="js-select-basic form-control" id="roles" name="roles" th:data-placeholder="#{form.select.roles} + ' *'" multiple required>
                     <option th:each="role : ${allRoles}" th:field="*{roles}" th:value="${{role}}" th:text="${role.role}"></option>
                   </select>

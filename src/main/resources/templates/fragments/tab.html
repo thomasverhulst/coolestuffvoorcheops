@@ -18,7 +18,5 @@
     </nav>
     <div class="o-tabs-group--content card no-border-radius" id="navTabsContent" data-content="panes" th:insert="${body}"></div>
   </div>
-  <div th:fragment="tabs-candidate-pane(body, id, arialabelledby, active)" class="o-tabs-group--pane card--body fade" th:classappend="${active} ? 'show active'" th:id="${id}" role="tabpanel" th:aria-labelledby="${arialabelledby}">
-    <div th:insert="${body}"></div>
-  </div>
+  <div th:fragment="tabs-candidate-pane(body, id, arialabelledby, active)" class="o-tabs-group--pane card--body fade" th:classappend="${active} ? 'show active'" th:id="${id}" role="tabpanel" th:aria-labelledby="${arialabelledby}" th:insert="${body}"></div>
 </body>
