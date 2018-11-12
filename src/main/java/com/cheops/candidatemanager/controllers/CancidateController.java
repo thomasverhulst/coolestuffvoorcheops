@@ -5,6 +5,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.sql.Timestamp;
+import java.util.List;
 import java.util.Optional;
 
 import javax.servlet.http.HttpServletResponse;
@@ -36,6 +37,7 @@ import com.cheops.candidatemanager.models.NewCandidate;
 import com.cheops.candidatemanager.models.SalaryPackage;
 import com.cheops.candidatemanager.models.Skills;
 import com.cheops.candidatemanager.models.Update;
+import com.cheops.candidatemanager.models.WorkHistory;
 import com.cheops.candidatemanager.services.impl.AddressService;
 import com.cheops.candidatemanager.services.impl.ApplicationProcessService;
 import com.cheops.candidatemanager.services.impl.CandidateService;
@@ -162,7 +164,7 @@ public class CancidateController {
 	
 	@PostMapping(value = "/registerCandidateNew")
 	public String registerNew(Model model, @ModelAttribute("address") Address address,
-			@ModelAttribute("candidate") NewCandidate newCandidate, HttpSession session) throws IOException {
+			@ModelAttribute("candidate") NewCandidate newCandidate,  BindingResult result, HttpSession session) throws IOException {
 
 		session.setAttribute("isupdate", false);
 
@@ -216,7 +218,15 @@ public class CancidateController {
 		tmpNewCandidate.setAddressId(tmpNewCandidate.getAddress().getId() );
 		tmpNewCandidate.setApplicationProcessId(tmpNewCandidate.getApplicationProcess().getId() );
 		tmpNewCandidate.setSkillsId(tmpNewCandidate.getSkills().getId());
-
+		
+		// set candidateId to workhistory
+		List <WorkHistory>worlhistoryList=  tmpNewCandidate.getWorkHistory();
+		for (WorkHistory workHistory : worlhistoryList) {
+			workHistory.setCandidateId(tmpNewCandidate.getId());
+		}
+		tmpNewCandidate.setWorkHistory(worlhistoryList);
+		
+		//update candidate
 		newCandidateservice.updateNewCandidate(tmpNewCandidate);
 		session.setAttribute("candidate", tmpNewCandidate);
 

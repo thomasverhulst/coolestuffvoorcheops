@@ -82,6 +82,12 @@ public class NewCandidate implements Serializable {
 	//@Column(name = "proposedsallarypackageId")
 	private List<SalaryPackage> proposedSallaryPackage;
 
+	
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	@JoinTable(name = "candidate_workhistory", joinColumns = @JoinColumn(name = "candidate_id"), inverseJoinColumns = @JoinColumn(name = "workhistory_id"))
+	//@Column(name = "currentsallarypackageId")
+	private List<WorkHistory> workHistory;
+	
 	//@Id
 	@OneToOne(cascade = CascadeType.ALL)
 	private Skills skills;
@@ -309,6 +315,14 @@ public class NewCandidate implements Serializable {
 
 	public void setIsAddedTimeStamp(Timestamp isAddedTimeStamp) {
 		this.isAddedTimeStamp = isAddedTimeStamp;
+	}
+
+	public List<WorkHistory> getWorkHistory() {
+		return workHistory;
+	}
+
+	public void setWorkHistory(List<WorkHistory> workHistory) {
+		this.workHistory = workHistory;
 	}
 	
 }
