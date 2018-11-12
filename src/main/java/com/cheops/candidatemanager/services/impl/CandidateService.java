@@ -276,6 +276,7 @@ public class CandidateService implements ICandidateService {
 
 	public Collection<Candidate> getUpcomingMonthsTechnicalScreenings() {
 
+
 		List<ApplicationProcess> applicationProcessList = applicationProcessService
 				.getUpcomingMonthsTechnicalScreenings();
 
@@ -285,6 +286,7 @@ public class CandidateService implements ICandidateService {
 		return candidateRepository.findAllByApplicationProcessIdIn(applicationProcessIds);
 
 	}
+
 
 
 	public Collection< Candidate> get3LatestAddedCandidates() {
@@ -305,6 +307,7 @@ public class CandidateService implements ICandidateService {
 	public Collection<Candidate> getLastMonthsRecruits() {
 
 		List<ApplicationProcess> applicationProcessList = applicationProcessService.getLastMonthsRecruits();
+
 
 		List<Integer> applicationProcessIds = applicationProcessList.stream().map(ApplicationProcess::getId)
 				.collect(Collectors.toList());
