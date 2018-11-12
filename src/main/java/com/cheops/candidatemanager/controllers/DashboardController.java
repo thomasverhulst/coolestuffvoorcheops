@@ -1,5 +1,12 @@
 package com.cheops.candidatemanager.controllers;
 
+
+import java.util.Calendar;
+import java.util.Date;
+import java.util.List;
+
+import org.apache.commons.lang3.time.DateUtils;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -8,8 +15,13 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 import com.cheops.candidatemanager.models.Candidate;
 import com.cheops.candidatemanager.models.CandidateSearchResolver;
+import com.cheops.candidatemanager.models.WorkHistory;
+import com.cheops.candidatemanager.repositories.WorkHistoryRepository;
 import com.cheops.candidatemanager.services.IDashboardService;
 import com.cheops.candidatemanager.services.impl.CandidateService;
+import com.cheops.candidatemanager.services.impl.DashboardService;
+import com.cheops.candidatemanager.services.impl.NewCandidateService;
+import com.cheops.candidatemanager.services.impl.WorkHistoryService;
 
 @Controller
 public class DashboardController {
@@ -17,34 +29,44 @@ public class DashboardController {
 	@Autowired
 	CandidateService candidateService;
 	@Autowired
-	private IDashboardService dashboardService;
+	private IDashboardService idashboardService;
 
+	@Autowired
+	private DashboardService dashboardService;
+	@Autowired
+	NewCandidateService newCandidateService;
+	@Autowired
+	WorkHistoryService workHistoryService;
+	@Autowired
+	WorkHistoryRepository workHistoryRepository;
 
 	@GetMapping("/")
-	public String registerUser(ModelMap map, Model model) {
-//	  List<Candidate> m3 =candidateService.getAllNotRecruitedCandidates(); //get the candidates were field is not null or empty.
-//    List<CandidateSearchResolver> m5 =candidateService.getAllExEmployees(); // get the candidatehs were isexempoyee = true
 
-//    map.addAttribute("upcommingFirstAndSecondScreeningsCandidates", dashboardService.getUpcomingFirstAndSecondScreenings());
-//    map.addAttribute("3latestAddedCandidates",dashboardService.get3LatestAddedCandidates());
-//    map.addAttribute("latest5RecruitedCandidates",dashboardService.getLatest5RecruitedCandidates());
-//    map.addAttribute("lastMonthsRecruities",dashboardService.getLastMonthsRecruits());
+	public String registerUser(ModelMap map) {
 
-//    model.addAttribute("upcomingMeetings", dashboardService.getUpcomingFirstAndSecondScreenings());
-    model.addAttribute("newCandidates", dashboardService.get3LatestAddedCandidates());
-    model.addAttribute("lastRecruited", dashboardService.getLatest5RecruitedCandidates());
+    System.out.println("I am first and second: " + idashboardService.getUpcomingFirstAndSecondScreenings());
 
-    // dashboardService.getLastMonthsRecruits() use for last block = new rec
 
-    return "index";
+    
+    workHistoryService.getAllExEmployees();
+    
+	// get the candidates were field is not null or empty.
+	List<Candidate> m3 =candidateService.getAllNotRecruitedCandidates();
+	// get the candidatehs were isexempoyee = true
+	List<CandidateSearchResolver> m5 =candidateService.getAllExEmployees();
+	
+	List<CandidateSearchResolver> m6 =  dashboardService.getAllExEmployeesNew();
+	
+	dashboardService.getLatest5RecruitedCandidatesNew();
+	dashboardService.getLastMonthsRecruitsNew();
 
-//		List<Candidate> l=dachboardService.getUpcomingFirstAndSecondScreenings();
-//		System.out.println( "de lengte vand e lijst is "+l.size());
-//		List<Candidate> m =dachboardService.get3LatestAddedCandidates();
-//		List<Candidate> m2 =dashboardService.getLatest5RecruitedCandidates();
-//		List<Candidate> m3 =dashboardService.getLastMonthsRecruits();
-//
-//		map.addAttribute("upcommingFirstAndSecondScreeningsCandidates", dashboardService.getUpcomingFirstAndSecondScreenings());
-//		map.addAttribute("lastMonthsRecruities",dashboardService.getLastMonthsRecruits());
+	map.addAttribute("upcommingFirstAndSecondScreeningsCandidates", idashboardService.getUpcomingFirstAndSecondScreenings());
+
+	map.addAttribute("3latestAddedCandidates",idashboardService.get3LatestAddedCandidates());
+	map.addAttribute("latest5RecruitedCandidates",idashboardService.getLatest5RecruitedCandidates());
+	map.addAttribute("lastMonthsRecruities",idashboardService.getLastMonthsRecruits());
+
+	return "index";
+
 }
 }
