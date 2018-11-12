@@ -136,10 +136,23 @@
         
             <label th:for="|candidate.currentSallaryPackage[0].grossSalary|">Bruto loon</label>
             <!-- This construct will render field name like this: "items[0].name" -->
-            <input th:field="${candidate.currentSallaryPackage[0].grossSalary}">
+            <input th:field="*{currentSallaryPackage[0].grossSalary}">
 
 								
-				</div>				
+				</div>	
+				
+				
+			<div class=form-group>					    
+            	<label th:for="|candidate.workHistory[0].started|">Startdatum</label>
+            	<input type="date" th:field="*{workHistory[0].started}">				
+			</div>				
+			
+			<div class=form-group>					    
+            	<label th:for="|candidate.workHistory[0].stopped|">Stopdatum</label>
+            	<input type="date" th:field="*{workHistory[0].stopped}">				
+			</div>
+				
+							
 					<div class=form-group>
 									<label for="firstconversationdate">Datum eerste
 										gesprek:</label> <input type="date" th:field=*{applicationProcess.firstConversationDate}

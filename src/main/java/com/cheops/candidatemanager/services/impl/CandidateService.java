@@ -21,13 +21,14 @@ import com.cheops.candidatemanager.models.ApplicationProcess;
 import com.cheops.candidatemanager.models.Candidate;
 import com.cheops.candidatemanager.models.CandidateSearchResolver;
 import com.cheops.candidatemanager.models.Skills;
+import com.cheops.candidatemanager.models.WorkHistory;
 import com.cheops.candidatemanager.repositories.AddressRepository;
 import com.cheops.candidatemanager.repositories.CandidateRepository;
 import com.cheops.candidatemanager.services.ICandidateService;
 
 @Service
 public class CandidateService implements ICandidateService {
-	//private static final
+	// private static final
 	private static final String UPLOADDIRECTORY = System.getProperty("user.dir") + "/uploads";
 	@Autowired
 	private CandidateRepository candidateRepository;
@@ -38,6 +39,9 @@ public class CandidateService implements ICandidateService {
 	private SkillsService skillsService;
 	@Autowired
 	private ApplicationProcessService applicationProcessService;
+
+	@Autowired
+	WorkHistoryService workHistoryService;
 
 	@Override
 	public List<CandidateSearchResolver> findAllByNameLikeOrSirNameLike(String name, String sirName) {
@@ -263,21 +267,22 @@ public class CandidateService implements ICandidateService {
 	}
 
 	public Collection<Candidate> getUpcomingMonthsFirstScreenings() {
-		List<ApplicationProcess> applicationProcessIdList = applicationProcessService.getUpcomingMonthsFirstScreenings();
-		List<Integer> applicationProcessIds = applicationProcessIdList.stream().map(ApplicationProcess::getId).collect(Collectors.toList());
+		List<ApplicationProcess> applicationProcessIdList = applicationProcessService
+				.getUpcomingMonthsFirstScreenings();
+		List<Integer> applicationProcessIds = applicationProcessIdList.stream().map(ApplicationProcess::getId)
+				.collect(Collectors.toList());
 		return candidateRepository.findAllByApplicationProcessIdIn(applicationProcessIds);
 	}
 
-	public Collection< Candidate> getUpcomingMonthsTechnicalScreenings() {
-		
-		
-		 List<ApplicationProcess> applicationProcessList = applicationProcessService.getUpcomingMonthsTechnicalScreenings();
-		 
-		List<Integer> applicationProcessIds = applicationProcessList.stream().map(ApplicationProcess::getId).collect(Collectors.toList());
-		
-		 return candidateRepository.findAllByApplicationProcessIdIn(applicationProcessIds);
-		
-			
+	public Collection<Candidate> getUpcomingMonthsTechnicalScreenings() {
+
+		List<ApplicationProcess> applicationProcessList = applicationProcessService
+				.getUpcomingMonthsTechnicalScreenings();
+
+		List<Integer> applicationProcessIds = applicationProcessList.stream().map(ApplicationProcess::getId)
+				.collect(Collectors.toList());
+
+		return candidateRepository.findAllByApplicationProcessIdIn(applicationProcessIds);
 
 	}
 
@@ -307,12 +312,11 @@ public class CandidateService implements ICandidateService {
 
 	public Collection<Candidate> getLastMonthsRecruits() {
 
-		 List<ApplicationProcess> applicationProcessList = applicationProcessService.getLastMonthsRecruits();
-		 
-		 List<Integer> applicationProcessIds = applicationProcessList.stream().map(ApplicationProcess::getId).collect(Collectors.toList());
-		 return candidateRepository.findAllByApplicationProcessIdIn(applicationProcessIds);
-	
+		List<ApplicationProcess> applicationProcessList = applicationProcessService.getLastMonthsRecruits();
 
+		List<Integer> applicationProcessIds = applicationProcessList.stream().map(ApplicationProcess::getId)
+				.collect(Collectors.toList());
+		return candidateRepository.findAllByApplicationProcessIdIn(applicationProcessIds);
 
 	}
 
@@ -336,6 +340,37 @@ public class CandidateService implements ICandidateService {
 		List<Integer> applicationProcessIds = applicationProcessService.getAllExEmployees();
 
 		List<Candidate> candidates = candidateRepository.findAllByApplicationProcessIdIn(applicationProcessIds);
+		return fillExpertiseAndStatus(candidates);
+
+	}
+
+	public Collection<Candidate> getLast5RecruitedNew() {
+		List<WorkHistory> workHistoryList = workHistoryService.getLast5Recruited();
+
+		List<Integer> candidateIds = workHistoryList.stream().map(WorkHistory::getCandidateId)
+				.collect(Collectors.toList());
+		return candidateRepository.findAllByIdIn(candidateIds);
+
+	}
+
+	public Collection<Candidate> getLastMonthsRecruitsNew() {
+
+		List<WorkHistory> workHistoryList = workHistoryService.getLastMonthsRecruits();
+		System.out.println("lenbgte" + workHistoryList.size());
+		List<Integer> candidateIds = workHistoryList.stream().map(WorkHistory::getCandidateId)
+				.collect(Collectors.toList());
+		return candidateRepository.findAllByIdIn(candidateIds);
+
+	}
+
+	public List<CandidateSearchResolver> getAllExEmployeesNew() {
+
+		List<WorkHistory> workHistoryExEmployees = workHistoryService.getAllExEmployees();
+
+		List<Integer> candidateIds = workHistoryExEmployees.stream().map(WorkHistory::getCandidateId)
+				.collect(Collectors.toList());
+		List<Candidate> candidates = candidateRepository.findAllByIdIn(candidateIds);
+
 		return fillExpertiseAndStatus(candidates);
 
 	}
