@@ -33,6 +33,7 @@ import org.thymeleaf.util.StringUtils;
 import com.cheops.candidatemanager.models.Address;
 import com.cheops.candidatemanager.models.ApplicationProcess;
 import com.cheops.candidatemanager.models.Candidate;
+import com.cheops.candidatemanager.models.Meeting;
 import com.cheops.candidatemanager.models.NewCandidate;
 import com.cheops.candidatemanager.models.SalaryPackage;
 import com.cheops.candidatemanager.models.Skills;
@@ -225,6 +226,15 @@ public class CancidateController {
 			workHistory.setCandidateId(tmpNewCandidate.getId());
 		}
 		tmpNewCandidate.setWorkHistory(worlhistoryList);
+		
+		
+		// set candidateId to meeting
+		List <Meeting>meetingList=  tmpNewCandidate.getMeeting();
+		for (Meeting meeting : meetingList) {
+			meeting.setCandidateId(tmpNewCandidate.getId());
+		}
+		tmpNewCandidate.setMeeting(meetingList);
+		
 		
 		//update candidate
 		newCandidateservice.updateNewCandidate(tmpNewCandidate);

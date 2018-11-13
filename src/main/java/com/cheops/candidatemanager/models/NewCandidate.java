@@ -85,10 +85,13 @@ public class NewCandidate implements Serializable {
 	
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	@JoinTable(name = "candidate_workhistory", joinColumns = @JoinColumn(name = "candidate_id"), inverseJoinColumns = @JoinColumn(name = "workhistory_id"))
-	//@Column(name = "currentsallarypackageId")
 	private List<WorkHistory> workHistory;
 	
-	//@Id
+	
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	@JoinTable(name = "candidate_meeting", joinColumns = @JoinColumn(name = "candidate_id"), inverseJoinColumns = @JoinColumn(name = "meeting_id"))
+	private List<Meeting> meeting;
+	
 	@OneToOne(cascade = CascadeType.ALL)
 	private Skills skills;
 
@@ -323,6 +326,14 @@ public class NewCandidate implements Serializable {
 
 	public void setWorkHistory(List<WorkHistory> workHistory) {
 		this.workHistory = workHistory;
+	}
+
+	public List<Meeting> getMeeting() {
+		return meeting;
+	}
+
+	public void setMeeting(List<Meeting> meeting) {
+		this.meeting = meeting;
 	}
 	
 }
