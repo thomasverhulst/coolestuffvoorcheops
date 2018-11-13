@@ -20,6 +20,7 @@ import com.cheops.candidatemanager.models.Address;
 import com.cheops.candidatemanager.models.ApplicationProcess;
 import com.cheops.candidatemanager.models.Candidate;
 import com.cheops.candidatemanager.models.CandidateSearchResolver;
+import com.cheops.candidatemanager.models.Meeting;
 import com.cheops.candidatemanager.models.Skills;
 import com.cheops.candidatemanager.models.WorkHistory;
 import com.cheops.candidatemanager.repositories.AddressRepository;
@@ -40,6 +41,9 @@ public class CandidateService implements ICandidateService {
 	@Autowired
 	private ApplicationProcessService applicationProcessService;
 
+	@Autowired
+	private MeetingService meetingService;
+	
 	@Autowired
 	WorkHistoryService workHistoryService;
 
@@ -259,9 +263,7 @@ public class CandidateService implements ICandidateService {
 
 		List<Integer> skillsIdList = candidates.stream().map(c -> c.getCandidate().getSkillsId())
 				.collect(Collectors.toList());
-
 		List<Integer> filteredSkillsId = skillsService.findAllByExperienceGreaterThan(experience, skillsIdList);
-
 		List<Candidate> candidatesList = candidateRepository.findAllBySkillsIdIn(filteredSkillsId);
 		return fillExpertiseAndStatus(candidatesList);
 	}
@@ -276,16 +278,33 @@ public class CandidateService implements ICandidateService {
 
 	public Collection<Candidate> getUpcomingMonthsTechnicalScreenings() {
 
-
 		List<ApplicationProcess> applicationProcessList = applicationProcessService
 				.getUpcomingMonthsTechnicalScreenings();
-
 		List<Integer> applicationProcessIds = applicationProcessList.stream().map(ApplicationProcess::getId)
 				.collect(Collectors.toList());
-
 		return candidateRepository.findAllByApplicationProcessIdIn(applicationProcessIds);
-
 	}
+	
+	public Collection<? extends Candidate> getUpcomingMonthsFirstScreeningsNew() {
+		List<Meeting> meetingList = meetingService
+				.getUpcomingMonthsFirstScreenings();
+		List<Integer> candidateIds = meetingList.stream().map(Meeting::getCandidateId)
+				.collect(Collectors.toList());
+		return candidateRepository.findAllByIdIn(candidateIds);
+	}
+
+	public Collection<? extends Candidate> getUpcomingMonthsTechnicalScreeningsNew() {
+		List<Meeting> meetingList = meetingService
+				.getUpcomingMonthsTechnicalScreenings();
+		List<Integer> candidateIds = meetingList.stream().map(Meeting::getCandidateId)
+				.collect(Collectors.toList());
+		return candidateRepository.findAllByIdIn(candidateIds);
+	}
+	
+	
+	
+	
+	
 
 
 
@@ -369,5 +388,7 @@ public class CandidateService implements ICandidateService {
 		return fillExpertiseAndStatus(candidates);
 
 	}
+
+	
 
 }

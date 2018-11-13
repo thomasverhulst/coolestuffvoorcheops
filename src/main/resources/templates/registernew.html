@@ -151,7 +151,24 @@
             	<label th:for="|candidate.workHistory[0].stopped|">Stopdatum</label>
             	<input type="date" th:field="*{workHistory[0].stopped}">				
 			</div>
+			
+			<div class=form-group>					    
+            	<label th:for="|candidate.meeting[0].meetingDate|">gespreksdatum</label>
+            	<input type="date" th:field="*{meeting[0].meetingDate}">				
+			</div>
 				
+					
+					
+					<div class=form-group>
+					<select th:field=*{meeting.conversationType}>
+					    <option th:each="conversationType : ${T(com.cheops.candidatemanager.models.Meeting.ConversationType).values()}"
+					            th:value="${conversationType}"
+					            th:text="${conversationType.displayName}">
+					    </option>
+					</select>
+					
+					</div>
+					
 							
 					<div class=form-group>
 									<label for="firstconversationdate">Datum eerste

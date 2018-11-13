@@ -17,7 +17,6 @@ public class DashboardService implements IDashboardService {
 	@Autowired
 	private CandidateService candidateService;
 
-
 	public List<Candidate> getUpcomingFirstAndSecondScreenings() {
 		List<Candidate> upcommingScreenings = new ArrayList<Candidate>();
 		upcommingScreenings.addAll(candidateService.getUpcomingMonthsFirstScreenings());
@@ -29,7 +28,20 @@ public class DashboardService implements IDashboardService {
 			return Collections.<Candidate>emptyList();
 		}
 	}
+	
+	public List<Candidate> getUpcomingFirstAndSecondScreeningsNew() {
 
+		List<Candidate> upcommingScreenings = new ArrayList<Candidate>();
+		upcommingScreenings.addAll(candidateService.getUpcomingMonthsFirstScreeningsNew());
+		upcommingScreenings.addAll(candidateService.getUpcomingMonthsTechnicalScreeningsNew());
+
+		if (!upcommingScreenings.isEmpty()) {
+			return upcommingScreenings;
+		} else {
+			return Collections.<Candidate>emptyList();
+		}
+	}
+		
 	public List<Candidate> get3LatestAddedCandidates() {
 		List<Candidate> latest3AddedCandidates = new ArrayList<Candidate>(candidateService.get3LatestAddedCandidates());
 
