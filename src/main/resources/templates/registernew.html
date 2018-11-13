@@ -160,10 +160,10 @@
 					
 					
 					<div class=form-group>
-					<select th:field=*{meeting.conversationType}>
-					    <option th:each="conversationType : ${T(com.cheops.candidatemanager.models.Meeting.ConversationType).values()}"
+					<select>
+					    <option th:each="conversationType : ${T(com.cheops.candidatemanager.models.ConversationType).values()}"
 					            th:value="${conversationType}"
-					            th:text="${conversationType.displayName}">
+					            th:text="${conversationType}">
 					    </option>
 					</select>
 					
