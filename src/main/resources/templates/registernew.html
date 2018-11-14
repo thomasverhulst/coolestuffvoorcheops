@@ -130,6 +130,17 @@
 <!-- 							class="form-control" placeholder="Voorkeurslokatie"> -->
 <!-- 						</div> -->
 						
+						<div>
+						  <select th:object="${locations}" th:field="*{cities}" multiple="multiple">
+	                         <option value=""> -- </option>
+	                         <option th:each="item : ${locations.cities}"
+	                            th:value="${item}"
+	                            th:utext="${item}"
+	                            th:selected="${item}"/>
+	                  		</select>	
+						</div>
+						
+						
 						<div class=form-group>
 							<select class="form-control" id="locationNames" name="locationNames" multiple="multiple">
 							    <option th:each="part : ${locationNamesAtribute}"

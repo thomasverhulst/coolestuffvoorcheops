@@ -83,6 +83,11 @@ https://stackoverflow.com/questions/39654338/java-stream-filter-null-pointer-iss
 https://www.mkyong.com/java8/java-8-filter-a-null-value-from-a-stream/
  List<String> result = language.filter(x -> x!=null).collect(Collectors.toList());
 
+# form examples voorbeelden
+https://o7planning.org/en/11659/thymeleaf-form-select-option-example#a14065418
+http://forum.thymeleaf.org/Problem-with-thymeleaf-expression-utility-lists-contains-td4027317.html
+https://doanduyhai.wordpress.com/2012/04/14/spring-mvc-part-iv-thymeleaf-advanced-usage/
+<div th:text="${#lists.contains(testList, 'test1')}"></div>
 #
 header en footer toevoegen https://www.quora.com/How-do-I-include-a-header-and-footer-file-in-every-HTML-page-we-are-designing
 https://mdbootstrap.com/components/bootstrap-footer/
