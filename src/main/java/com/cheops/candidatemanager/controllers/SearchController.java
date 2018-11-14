@@ -25,6 +25,7 @@ import com.cheops.candidatemanager.models.CandidateSearchResolver;
 import com.cheops.candidatemanager.models.SalaryPackage;
 import com.cheops.candidatemanager.models.Search;
 import com.cheops.candidatemanager.models.Skills;
+import com.cheops.candidatemanager.pojos.CitieListWrapper;
 import com.cheops.candidatemanager.services.impl.AddressService;
 import com.cheops.candidatemanager.services.impl.CandidateService;
 import com.cheops.candidatemanager.services.impl.SalaryPackageService;
@@ -50,13 +51,22 @@ public class SearchController {
 	private SalaryPackageService salaryPackageService;
 
 	@GetMapping("/search")
-	public String showRegister(Model modelMap) {
+	public String showRegister(ModelMap modelMap, HttpSession session) {
 
 		// https://stackoverflow.com/questions/13242394/spring-mvc-multiple-modelattribute-on-the-same-form
+		// voorlopige lijst met tetsdata
+		List<String> cities = new ArrayList<String>();
+		cities.add("London");
+		cities.add("Tokyo");
+		cities.add("New York");
+		cities.add("'t Stad");
 
-		modelMap.addAttribute("candidate", new Candidate());
-		modelMap.addAttribute("saerch", new Search());
-		return "search";
+		CitieListWrapper citieWrapper = new CitieListWrapper();
+		citieWrapper.setCities(cities);
+		modelMap.addAttribute("locations", citieWrapper);
+		List<CandidateSearchResolver> candidates = candidateservice.getAllCandidates();
+		return goToResultpage(modelMap, candidates, session);
+
 	}
 
 	@RequestMapping(value = "/searchCandidate")
@@ -143,6 +153,23 @@ public class SearchController {
 		return goToResultpage(modelMap, candidates, session);
 	}
 
+	
+	
+	
+	
+	
+	@GetMapping(value = "/searchAllCandidatesWithLocation")
+	public String searchAllCandidatesWithLocation(ModelMap modelMap, @ModelAttribute("locations") CitieListWrapper locations, HttpSession session) {
+		
+		List <CandidateSearchResolver> candidates = new ArrayList<CandidateSearchResolver>();
+		if (locations.getCities() != null) {
+			candidates =candidateservice.findAllPreferredlocationContaining(locations.getCities());
+		}
+		
+		return goToResultpage(modelMap, candidates, session);
+	}
+	
+	
 	@PostMapping(value = "/searchAllRecruitedCandidates")
 	public String searchAllRecruitedCandidates(ModelMap modelMap, HttpSession session) {
 		List<CandidateSearchResolver> candidates = candidateservice.findAllRecruited();

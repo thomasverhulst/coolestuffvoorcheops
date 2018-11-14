@@ -390,6 +390,21 @@ public class CandidateService implements ICandidateService {
 
 	}
 
+	public List<CandidateSearchResolver> findAllPreferredlocationContaining(List<String> cities) {
+		// TODO Auto-generated method stub
+		List<Integer> skillsIds= skillsService.findAllByPreferredlocationContaining( cities);
+		
+				
+		
+		List<Candidate> candidates = candidateRepository.findAllBySkillsIdIn(skillsIds);
+	
+		
+
+		
+
+		return fillExpertiseAndStatus(candidates);
+	}
+
 	
 
 }
