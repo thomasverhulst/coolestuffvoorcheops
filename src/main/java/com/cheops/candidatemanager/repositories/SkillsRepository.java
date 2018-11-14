@@ -1,5 +1,6 @@
 package com.cheops.candidatemanager.repositories;
 
+import java.util.Collection;
 import java.util.List;
 
 import com.cheops.candidatemanager.models.Skills;
@@ -14,5 +15,9 @@ public interface SkillsRepository extends CrudRepository<Skills, Integer> {
 	List<Skills> findAllByFrontend(boolean isFrontend);
 
 	Object findAllByExperienceGreaterThan(int experience);
+
+	List<Skills> findAllByPreferredLocationContaining(String location);
+
+	//Collection<? extends Skills> findAllByPreferredLocationContaining(String location);
 
 }
