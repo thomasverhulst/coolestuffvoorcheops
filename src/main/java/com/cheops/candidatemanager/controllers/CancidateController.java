@@ -5,6 +5,8 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.sql.Timestamp;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
@@ -107,7 +109,18 @@ public class CancidateController {
 
 		Update update = new Update(false);
 		map.addAttribute("update", update);
-		map.addAttribute("candidate", new NewCandidate());
+		
+		
+//		 List<String> cities = new ArrayList<String>();
+//		 cities.add("London");
+//		 cities.add("Tokyo");
+//		 cities.add("New York");
+//		 cities.add("'t Stad");
+//		
+//		 System.out.println(cities.size());
+		
+		 //map.addAttribute("list",cities);
+		map.addAttribute("candidate",new NewCandidate());
 		return "registernew";
 	}
 
@@ -211,7 +224,21 @@ public class CancidateController {
 					
 		}
 		
-
+		// fill list with locations to
+		List<String> cities = new ArrayList<String>();
+		 cities.add("London");
+		 cities.add("Tokyo");
+		 cities.add("New York");
+		 cities.add("'t Stad");
+		
+		//List<String> locationList =newCandidate.getSkills().getLocationNames();
+		StringBuilder str = new StringBuilder();
+		for (String location : cities) {
+			str.append(location+",");
+		}
+		System.out.println(str.toString());
+		String x = str.toString();
+		newCandidate.getSkills().setPreferredLocation(x);
 		// https://stackoverflow.com/questions/2227395/spring-3-0-set-and-get-session-attribute
 		// save candidate to get an id
 		NewCandidate tmpNewCandidate = newCandidateservice.addNewCandidate(newCandidate);
