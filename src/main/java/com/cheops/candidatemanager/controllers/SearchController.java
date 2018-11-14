@@ -26,6 +26,7 @@ import com.cheops.candidatemanager.models.SalaryPackage;
 import com.cheops.candidatemanager.models.Search;
 import com.cheops.candidatemanager.models.Skills;
 import com.cheops.candidatemanager.pojos.CitieListWrapper;
+import com.cheops.candidatemanager.pojos.ExperienceWrapper;
 import com.cheops.candidatemanager.services.impl.AddressService;
 import com.cheops.candidatemanager.services.impl.CandidateService;
 import com.cheops.candidatemanager.services.impl.SalaryPackageService;
@@ -55,15 +56,28 @@ public class SearchController {
 
 		// https://stackoverflow.com/questions/13242394/spring-mvc-multiple-modelattribute-on-the-same-form
 		// voorlopige lijst met tetsdata
-		List<String> cities = new ArrayList<String>();
-		cities.add("London");
-		cities.add("Tokyo");
-		cities.add("New York");
-		cities.add("'t Stad");
+//		List<String> cities = new ArrayList<String>();
+//		cities.add("London");
+//		cities.add("Tokyo");
+//		cities.add("New York");
+//		cities.add("'t Stad");
 
 		CitieListWrapper citieWrapper = new CitieListWrapper();
-		citieWrapper.setCities(cities);
+		//citieWrapper.setCities(cities);
+		
 		modelMap.addAttribute("locations", citieWrapper);
+		
+		
+		ExperienceWrapper experienceWrapper = new ExperienceWrapper();
+		
+//		List<String> experienceIntervals = new ArrayList<String>();
+//		experienceIntervals.add("<= 2");
+//		experienceIntervals.add("3 - 5");
+//		experienceIntervals.add("< 5");
+//		experienceWrapper.setExperienceIntervals(experienceIntervals);
+		
+		modelMap.addAttribute("experience", experienceWrapper);
+		
 		List<CandidateSearchResolver> candidates = candidateservice.getAllCandidates();
 		return goToResultpage(modelMap, candidates, session);
 
@@ -169,6 +183,28 @@ public class SearchController {
 		return goToResultpage(modelMap, candidates, session);
 	}
 	
+		
+	@GetMapping(value = "/searchAllCandidatesWithExperience")
+	public String searchAllCandidatesWithExperience(ModelMap modelMap, @ModelAttribute("experience") ExperienceWrapper experience, HttpSession session) {
+		
+		List <CandidateSearchResolver> candidates = new ArrayList<CandidateSearchResolver>();
+		if (experience.getExperienceIntervals() != null) {
+			if (experience.getExperienceIntervals().contains("2")) {
+				candidates =candidateservice.findAllByExperienceLessThan(3);
+			}else if(experience.getExperienceIntervals().contains("-")){
+				candidates =candidateservice.findAllByExperienceGreaterThanAndExperienceLessThan(2,6);
+			}else {
+				candidates =candidateservice.findAllByExperienceGreaterThan(5);
+			}
+			
+		}
+		
+		return goToResultpage(modelMap, candidates, session);
+	}
+	
+	
+	
+	
 	
 	@PostMapping(value = "/searchAllRecruitedCandidates")
 	public String searchAllRecruitedCandidates(ModelMap modelMap, HttpSession session) {
@@ -218,6 +254,10 @@ public class SearchController {
 		// adding results to session for return buttons
 		session.setAttribute("candidateResults", candidates);
 		// session.getAttribute("candidateResults")
+		ExperienceWrapper experienceWrapper = new ExperienceWrapper();
+		CitieListWrapper citieWrapper = new CitieListWrapper();
+		modelMap.addAttribute("experience", experienceWrapper);
+		modelMap.addAttribute("locations", citieWrapper);
 		modelMap.addAttribute("candidates", candidates);
 		modelMap.addAttribute("candaidatesearchmodel", new CandaidateSearchModel());
 		return "searchcandidateresult";

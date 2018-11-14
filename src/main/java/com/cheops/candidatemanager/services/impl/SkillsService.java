@@ -103,16 +103,31 @@ public class SkillsService implements ISkillService {
 
 	public List<Integer> findAllByPreferredlocationContaining(List<String> cities) {
 		// Set to avoid double entries
-		Set<Skills> skillIds = new HashSet <Skills>();
+		Set<Skills> skills = new HashSet <Skills>();
 		for (String location : cities) {
-			skillIds.addAll(skillsRepository.findAllByPreferredLocationContaining(location));
+			skills.addAll(skillsRepository.findAllByPreferredLocationContaining(location));
 		}
-		System.out.println("skilidlength"+skillIds.size());
-		 return  skillIds.stream().map(Skills::getId).collect(Collectors.toList());
+		System.out.println("skilidlength"+skills.size());
+		 return  skills.stream().map(Skills::getId).collect(Collectors.toList());
 		
-		//return skillsRepository.findAllById(skillsIds);
-		
-		//return mainList;
+	}
+						
+	public List<Integer> findAllByExperienceLessThan(int i) {
+		List<Skills> skills = new ArrayList<Skills>();
+		skills.addAll(skillsRepository.findAllByExperienceLessThan(i));
+		return skills.stream().map(Skills::getId).collect(Collectors.toList());
+	}
+
+	public List<Integer> findAllByExperienceGreaterThanAndExperienceLessThan(int i, int j) {
+		List<Skills> skills = new ArrayList<Skills>();
+		skills.addAll(skillsRepository.findAllByExperienceGreaterThanAndExperienceLessThan( i,  j));
+		return skills.stream().map(Skills::getId).collect(Collectors.toList());
+	}
+
+	public List<Integer> findAllByExperienceGreaterThan(int i) {
+		List<Skills> skills = new ArrayList<Skills>();
+		skills.addAll(skillsRepository.findAllByExperienceGreaterThan( i));
+		return skills.stream().map(Skills::getId).collect(Collectors.toList());
 	}
 
 }

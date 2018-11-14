@@ -35,6 +35,20 @@
 						</div>
 				</form>
 			
+			
+			<form th:action="@{/searchAllCandidatesWithExperience}">
+					<div>
+						  <select th:object="${experience}" th:field="*{experienceIntervals}">
+	                         <option value=""> -- </option>
+	                         <option th:each="item : ${experience.experienceIntervals}"
+	                            th:value="${item}"
+	                            th:utext="${item}"
+	                           />
+	                  		</select>	
+	                  		<button class="btn-lg btn-primary btn-block" type="submit">Zoek
+							met ervaring ></button>
+						</div>
+				</form>
 				
 			</div>
 		</div>

@@ -108,6 +108,9 @@ public class CandidateService implements ICandidateService {
 					expertise.toString(), applicationStatus);
 			candidateResolverList.add(candidateSearchResolver);
 		}
+		
+		
+		
 		return candidateResolverList;
 	}
 
@@ -385,23 +388,30 @@ public class CandidateService implements ICandidateService {
 		List<Integer> candidateIds = workHistoryExEmployees.stream().map(WorkHistory::getCandidateId)
 				.collect(Collectors.toList());
 		List<Candidate> candidates = candidateRepository.findAllByIdIn(candidateIds);
-
 		return fillExpertiseAndStatus(candidates);
-
 	}
 
 	public List<CandidateSearchResolver> findAllPreferredlocationContaining(List<String> cities) {
-		// TODO Auto-generated method stub
-		List<Integer> skillsIds= skillsService.findAllByPreferredlocationContaining( cities);
-		
-				
-		
-		List<Candidate> candidates = candidateRepository.findAllBySkillsIdIn(skillsIds);
-	
-		
+		List<Integer> skillsIds= skillsService.findAllByPreferredlocationContaining( cities);			
+		List<Candidate> candidates = candidateRepository.findAllBySkillsIdIn(skillsIds);	
+		return fillExpertiseAndStatus(candidates);
+	}
 
-		
+	public List<CandidateSearchResolver> findAllByExperienceLessThan(int i) {
+		List<Integer> skillsIds= skillsService.findAllByExperienceLessThan( i);
+		List<Candidate> candidates = candidateRepository.findAllBySkillsIdIn(skillsIds);	
+		return fillExpertiseAndStatus(candidates);
+	}
 
+	public List<CandidateSearchResolver> findAllByExperienceGreaterThanAndExperienceLessThan(int i, int j) {
+		List<Integer> skillsIds= skillsService.findAllByExperienceGreaterThanAndExperienceLessThan( i, j);
+		List<Candidate> candidates = candidateRepository.findAllBySkillsIdIn(skillsIds);	
+		return fillExpertiseAndStatus(candidates);
+	}
+
+	public List<CandidateSearchResolver> findAllByExperienceGreaterThan(int i) {
+		List<Integer> skillsIds= skillsService.findAllByExperienceGreaterThan( i);
+		List<Candidate> candidates = candidateRepository.findAllBySkillsIdIn(skillsIds);	
 		return fillExpertiseAndStatus(candidates);
 	}
 
