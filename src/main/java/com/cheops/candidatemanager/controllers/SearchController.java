@@ -189,9 +189,11 @@ public class SearchController {
 		
 		List <CandidateSearchResolver> candidates = new ArrayList<CandidateSearchResolver>();
 		if (experience.getExperienceIntervals() != null) {
-			if (experience.getExperienceIntervals().contains("2")) {
+			System.out.println("experience"+experience.getExperienceIntervals());
+			if (experience.getExperienceIntervals().toString().contains("2")) {
 				candidates =candidateservice.findAllByExperienceLessThan(3);
-			}else if(experience.getExperienceIntervals().contains("-")){
+				
+			}else if(experience.getExperienceIntervals().toString().contains("-")){
 				candidates =candidateservice.findAllByExperienceGreaterThanAndExperienceLessThan(2,6);
 			}else {
 				candidates =candidateservice.findAllByExperienceGreaterThan(5);
