@@ -1,5 +1,6 @@
 package com.cheops.candidatemanager.services.impl;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -203,7 +204,7 @@ public class CandidateService implements ICandidateService {
 		response.setContentType("APPLICATION/OCTET-STREAM");
 		response.setHeader("Content-Disposition", "attachment; filename=\"" + gurufile + "\"");
 
-		FileInputStream fileInputStream = new FileInputStream(gurupath + "\\" + gurufile);
+		FileInputStream fileInputStream = new FileInputStream(gurupath + File.separator + gurufile);
 
 		int i;
 		while ((i = fileInputStream.read()) != -1) {

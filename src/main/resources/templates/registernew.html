@@ -118,11 +118,50 @@
 								placeholder="Land">
 						</div>
 						
-						<div class=form-group>
-						<label for="preferredlocation">Voorkeur locatie:</label> <input
-							type="text" th:field=*{skills.preferredLocation} id="preferredlocation"
-							class="form-control" placeholder="Voorkeurslokatie">
+						<div class=form-group> -->
+						<label for="preferredTechnologies">Voorkeur technologie:</label> <input
+							type="text" th:field=*{skills.preferredTechnologies} id="preferredTechnologies"
+							class="form-control" placeholder="Voorkeur technologieen">
 						</div>
+						
+<!-- 						<div class=form-group> -->
+<!-- 						<label for="preferredlocation">Voorkeur locatie:</label> <input -->
+<!-- 							type="text" th:field=*{skills.preferredLocation} id="preferredlocation" -->
+<!-- 							class="form-control" placeholder="Voorkeurslokatie"> -->
+<!-- 						</div> -->
+						
+						<div>
+						  <select th:object="${locations}" th:field="*{cities}" multiple="multiple">
+	                         <option value=""> -- </option>
+	                         <option th:each="item : ${locations.cities}"
+	                            th:value="${item}"
+	                            th:utext="${item}"
+	                            th:selected="${item}"/>
+	                  		</select>	
+						</div>
+						
+						
+						<div class=form-group>
+							<select class="form-control" id="locationNames" name="locationNames" multiple="multiple">
+							    <option th:each="part : ${locationNamesAtribute}"
+							            th:selected="${servisAttribute.skills.locationNames.contains(skills.locationNames)}"
+							            th:value="${skill.locationNames}"
+							            th:text="${skills.locationNames}">Part name</option>
+							</select>
+						</div>
+						
+<!-- 						<div class=form-group> -->
+<!-- 								<select   th:field="*{skills.locationNames}" class="form-control" multiple="multiple" > -->
+<!-- 					            <option th:each="skills.locationNames"                                         -->
+<!-- 					                    th:value="${skills.locationNames}" -->
+<!-- 					            		th:text="${locationNames}"> -->
+					                                 
+<!-- 					            </option> -->
+<!-- 					        </select>         -->
+						
+<!-- 						</div> -->
+						
+						
 						<div class=form-group>
 									<label for="staffnamefirstconversation">Naam
 										gesprekspartner tweede gesprek:</label> <input type="text"

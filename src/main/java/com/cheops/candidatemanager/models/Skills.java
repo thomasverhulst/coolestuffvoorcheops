@@ -1,11 +1,17 @@
 package com.cheops.candidatemanager.models;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 @Entity
 @Table(name = "skills")
@@ -25,6 +31,11 @@ public class Skills {
 	@Column(name = "preferredlocation")
 	private String preferredLocation;
 
+	
+	//List<String> locationNames = new ArrayList<String>() ;
+	@Transient
+	List<String> locationNames = Arrays.asList("Buenos Aires", "Córdoba", "La Plata");
+	
 	@Column(name = "preferredtechnologies")
 	private String preferredTechnologies;
 
@@ -120,6 +131,23 @@ public class Skills {
 	public int compareTo(Skills skills) {
 		return this.getId().compareTo(skills.getId());
 	}
+
+	public List<String> getLocationNames() {
+		return locationNames;
+	}
+
+	public void setLocationNames(List<String> locationNames) {
+		this.locationNames = locationNames;
+	}
+	
+	
+	
+	
+
+
+	
+	
+	
 	// toegevoegd in de hoopd at de update zou werken, niet het geval
 	// result = prime * result + (dotnet ? 1231 : 1237);ki
 	// result = prime * result + experience;
