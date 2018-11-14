@@ -37,16 +37,18 @@ public class CountryService implements ICountryService {
   public String getCountryCodeByName(String country) throws CountryNotFoundException {
     String found = null;
 
-    String[] countryCodes = Locale.getISOCountries();
-    for (String countryCode : countryCodes){
-      Locale locale = new Locale("", countryCode);
-      if(locale.getDisplayCountry(LocaleContextHolder.getLocale()).equals(country)) {
-        found = locale.getCountry();
+    if (!country.equals("")) {
+      String[] countryCodes = Locale.getISOCountries();
+      for (String countryCode : countryCodes){
+        Locale locale = new Locale("", countryCode);
+        if(locale.getDisplayCountry(LocaleContextHolder.getLocale()).equals(country)) {
+          found = locale.getCountry();
+        }
       }
-    }
 
-    if (found == null) {
-      throw new CountryNotFoundException("This country does not exist: " + country);
+      if (found == null) {
+        throw new CountryNotFoundException("This country does not exist: " + country);
+      }
     }
 
     return found;

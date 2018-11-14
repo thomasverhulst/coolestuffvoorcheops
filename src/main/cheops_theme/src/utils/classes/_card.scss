@@ -14,16 +14,7 @@
   }
 
   &--body {
-    display: flex;
     padding: $grid-gutter-width/1.5;
-
-    > * {
-      flex: 1 0 50%;
-
-      @include each(2) {
-        border-left: 1px solid $border-color;
-      }
-    }
   }
 
   &--arrow {

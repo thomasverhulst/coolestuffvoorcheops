@@ -4309,6 +4309,9 @@ a.text-gray:hover, a.text-gray:focus {
     font-size: 0.875rem;
     line-height: 1.25;
     border-radius: 25px; }
+  .btn-icon .icon {
+    margin-right: 10px;
+    vertical-align: middle; }
 
 .btn-outline-primary {
   color: #DA291C;
@@ -4622,12 +4625,7 @@ a.text-gray:hover, a.text-gray:focus {
     font-weight: 500;
     font-size: .9375rem; }
   .card--body {
-    display: flex;
     padding: 20px; }
-    .card--body > * {
-      flex: 1 0 50%; }
-      .card--body > *:nth-child(2n) {
-        border-left: 1px solid #EEEEEE; }
   .card--arrow {
     position: absolute;
     top: -4px;
@@ -4713,6 +4711,12 @@ a.text-gray:hover, a.text-gray:focus {
     content: "\e910"; }
   .icon.icon-edit:before {
     content: "\e915"; }
+  .icon.icon-add-file:before {
+    content: "\e913"; }
+  .icon.icon-update-file:before {
+    content: "\e912"; }
+  .icon.icon-download-file:before {
+    content: "\e914"; }
 
 .select2-hidden-accessible {
   border: 0 !important;
@@ -4923,6 +4927,24 @@ main {
 
 .a-form-input-date {
   padding: calc(0.75rem - 2px) 0; }
+
+.a-form-input-file {
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1; }
+  .a-form-input-file.is-invalid + label + span {
+    color: #DA291C; }
+  .a-form-input-file--upload {
+    display: none; }
+  .a-form-input-file--wrapper + .invalid-feedback {
+    margin-top: 10px; }
+
+.a-form-textarea {
+  border: 0;
+  border-bottom: 2px solid #EEEEEE; }
 
 .a-form-checkbox {
   display: none; }
@@ -5305,7 +5327,12 @@ header {
     font-weight: 300;
     font-size: .625rem; }
   .o-card-hover .card--body {
+    display: flex;
     padding: 0; }
+    .o-card-hover .card--body > * {
+      flex: 1 0 50%; }
+      .o-card-hover .card--body > *:nth-child(2n) {
+        border-left: 1px solid #EEEEEE; }
   .o-header-block .o-card-hover {
     display: none; }
   @media (min-width: 768px) {

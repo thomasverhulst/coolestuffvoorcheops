@@ -17,7 +17,6 @@
               <div th:if="${errorMessage != null}" th:text="${errorMessage}" class="alert alert-danger" role="alert"></div>
               <div th:if="${successMessage != null}" th:text="${successMessage}" class="alert alert-success" role="alert"></div>
               <div class="row align-items-center">
-                <input type="hidden" th:field="*{id}" />
                 <div class="col-md-4 form-group m-form-group">
                   <label for="username" class="a-form-label" th:text="#{username} + ' *'"></label>
                   <input th:field="*{username}" type="text" id="username" name="username" th:placeholder="#{username} + ' *'" class="form-control a-form-input-text" required>

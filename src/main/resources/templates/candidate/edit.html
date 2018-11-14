@@ -1,16 +1,16 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org" th:data-locale="${#locale}">
-<head th:replace="fragments/general :: headTag(title=#{candidate.add} + ' - Cheops Kandidatenbeheer')"></head>
+<head th:replace="fragments/general :: headTag(title=#{candidate.edit} + ' - Cheops Kandidatenbeheer')"></head>
 <body>
 <header th:replace="fragments/general :: header"></header>
 <main>
   <div class="container-fluid">
     <div class="row mb-3">
       <div class="col-md">
-        <h1 class="a-title--page" th:text="#{candidate.add}"></h1>
+        <h1 class="a-title--page" th:text="#{candidate.edit}"></h1>
       </div>
       <div class="col-md d-flex align-items-center mb-sm-grid mt-sm-grid justify-content-md-end">
-        <input type="submit" name="submit" th:value="#{add}" form="form-add-candidate" class="btn btn-primary d-block">
+        <input type="submit" name="submit" th:value="#{edit}" form="form-edit-candidate" class="btn btn-primary d-block">
         <a href="javascript:history.back()" th:inline="text" class="m-icon-link--fa fa-icon ml-4"><i class="fas fa-times"></i>[[#{cancel}]]</a>
       </div>
     </div>
@@ -27,14 +27,14 @@
     </div>
     <div class="row">
       <div class="col">
-        <div th:replace="fragments/tab :: tabs-candidate(~{ :: .m-form--add-candidate})">
-          <form th:replace="fragments/form :: form-add-edit-candidate(add, form-add-candidate)" th:with="users=${candidate}" class="m-form--add-candidate"></form>
+        <div th:replace="fragments/tab :: tabs-candidate(~{ :: .m-form--edit-candidate})">
+          <form th:replace="fragments/form :: form-add-edit-candidate(edit, form-edit-candidate)" th:with="users=${candidate}" class="m-form--edit-candidate"></form>
         </div>
       </div>
     </div>
     <div class="row">
       <div class="col d-flex align-items-center mt-grid justify-content-md-end">
-        <input type="submit" name="submit" th:value="#{add}" form="form-add-candidate" class="btn btn-primary d-block">
+        <input type="submit" name="submit" th:value="#{edit}" form="form-edit-candidate" class="btn btn-primary d-block">
         <a href="javascript:history.back()" th:inline="text" class="m-icon-link--fa fa-icon ml-4"><i class="fas fa-times"></i>[[#{cancel}]]</a>
       </div>
     </div>

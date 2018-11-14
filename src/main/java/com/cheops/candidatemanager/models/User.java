@@ -48,7 +48,7 @@ public class User {
 	private boolean active;
 
 	@OneToMany(fetch = FetchType.EAGER)
-	@JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "iduser_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
+	@JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
 	@NotEmpty(message = "{user.roles.empty}")
 	private Set<Role> roles;
 

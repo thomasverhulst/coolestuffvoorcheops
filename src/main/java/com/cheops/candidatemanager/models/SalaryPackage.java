@@ -6,6 +6,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.Size;
 
 @Entity
 @Table(name = "salarypackage")
@@ -20,6 +21,7 @@ public class SalaryPackage {
 	private double grossSalary;
 
 	@Column(name = "car")
+	@Size(max = 45, message = "{car.size}")
 	private String car;
 
 	@Column(name = "dailyallowance")
@@ -37,17 +39,16 @@ public class SalaryPackage {
 	public SalaryPackage() {
 	}
 
-	public SalaryPackage(double grossSalary, String car, double dailyAllowance, double mealVouchers, boolean hospitalization, boolean groupInsurance) {
-		super();
-		this.grossSalary = grossSalary;
-		this.car = car;
-		this.dailyAllowance = dailyAllowance;
-		this.mealVouchers = mealVouchers;
-		this.hospitalization = hospitalization;
-		this.groupInsurance = groupInsurance;
-	}
+  public SalaryPackage(double grossSalary, @Size(max = 45, message = "{car.size}") String car, double dailyAllowance, double mealVouchers, boolean hospitalization, boolean groupInsurance) {
+    this.grossSalary = grossSalary;
+    this.car = car;
+    this.dailyAllowance = dailyAllowance;
+    this.mealVouchers = mealVouchers;
+    this.hospitalization = hospitalization;
+    this.groupInsurance = groupInsurance;
+  }
 
-	public double getGrossSalary() {
+  public double getGrossSalary() {
 		return grossSalary;
 	}
 

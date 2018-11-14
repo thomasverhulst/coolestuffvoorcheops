@@ -1,11 +1,11 @@
 package com.cheops.candidatemanager.models;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
+
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "skills")
@@ -16,18 +16,6 @@ public class Skills {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
 
-	@Column(name = "technicalknowlegde")
-	private String technicalKnowlegde;
-
-	@Column(name = "experience")
-	private int experience;
-
-	@Column(name = "preferredlocation")
-	private String preferredLocation;
-
-	@Column(name = "preferredtechnologies")
-	private String preferredTechnologies;
-
 	@Column(name = "dotnet")
 	private boolean dotnet;
 
@@ -37,129 +25,100 @@ public class Skills {
 	@Column(name = "frontend")
 	private boolean frontend;
 
+  @Column(name = "experience")
+  private double experience;
+
+  @Column(name = "preferredlocation")
+  private String preferredLocation;
+
+  @OneToMany
+  @LazyCollection(LazyCollectionOption.FALSE)
+  @JoinTable(name = "skills_technology", joinColumns = @JoinColumn(name = "skills_id"), inverseJoinColumns = @JoinColumn(name = "technology_id"))
+  private List<Technology> preferedTechnologies  = new ArrayList<>();;
+
+  @Column(name = "extra")
+  private String extra;
+
 	public Skills() {
 	}
 
-	public Skills(String technicalKnowlegde, int experience, String preferredLocation, String preferredTechnologies, boolean dotnet, boolean java, boolean frontend) {
-		super();
-		this.technicalKnowlegde = technicalKnowlegde;
-		this.experience = experience;
-		this.preferredLocation = preferredLocation;
-		this.preferredTechnologies = preferredTechnologies;
-		this.dotnet = dotnet;
-		this.java = java;
-		this.frontend = frontend;
-	}
+  public Skills(boolean dotnet, boolean java, boolean frontend, double experience, String preferredLocation, List<Technology> preferedTechnologies, String extra) {
+	  super();
+    this.dotnet = dotnet;
+    this.java = java;
+    this.frontend = frontend;
+    this.experience = experience;
+    this.preferredLocation = preferredLocation;
+    this.preferedTechnologies = preferedTechnologies;
+    this.extra = extra;
+  }
 
-	public String getTechnicalKnowlegde() {
-		return technicalKnowlegde;
-	}
+  public Integer getId() {
+    return id;
+  }
 
-	public void setTechnicalKnowlegde(String technicalKnowlegde) {
-		this.technicalKnowlegde = technicalKnowlegde;
-	}
+  public void setId(Integer id) {
+    this.id = id;
+  }
 
-	public int getExperience() {
-		return experience;
-	}
+  public boolean isDotnet() {
+    return dotnet;
+  }
 
-	public void setExperience(int experience) {
-		this.experience = experience;
-	}
+  public void setDotnet(boolean dotnet) {
+    this.dotnet = dotnet;
+  }
 
-	public String getPreferredLocation() {
-		return preferredLocation;
-	}
+  public boolean isJava() {
+    return java;
+  }
 
-	public void setPreferredLocation(String preferredLocation) {
-		this.preferredLocation = preferredLocation;
-	}
+  public void setJava(boolean java) {
+    this.java = java;
+  }
 
-	public String getPreferredTechnologies() {
-		return preferredTechnologies;
-	}
+  public boolean isFrontend() {
+    return frontend;
+  }
 
-	public void setPreferredTechnologies(String preferredTechnologies) {
-		this.preferredTechnologies = preferredTechnologies;
-	}
+  public void setFrontend(boolean frontend) {
+    this.frontend = frontend;
+  }
 
-	public boolean isDotnet() {
-		return dotnet;
-	}
+  public double getExperience() {
+    return experience;
+  }
 
-	public void setDotnet(boolean dotnet) {
-		this.dotnet = dotnet;
-	}
+  public void setExperience(double experience) {
+    this.experience = experience;
+  }
 
-	public boolean isJava() {
-		return java;
-	}
+  public String getPreferredLocation() {
+    return preferredLocation;
+  }
 
-	public void setJava(boolean java) {
-		this.java = java;
-	}
+  public void setPreferredLocation(String preferredLocation) {
+    this.preferredLocation = preferredLocation;
+  }
 
-	public boolean isFrontend() {
-		return frontend;
-	}
+  public List<Technology> getPreferedTechnologies() {
+    return preferedTechnologies;
+  }
 
-	public void setFrontend(boolean frontend) {
-		this.frontend = frontend;
-	}
+  public void setPreferedTechnologies(List<Technology> preferedTechnologies) {
+    this.preferedTechnologies = preferedTechnologies;
+  }
 
-	public Integer getId() {
-		return id;
-	}
+  public String getExtra() {
+    return extra;
+  }
 
-	public void setId(Integer id) {
-		this.id = id;
-	}
+  public void setExtra(String extra) {
+    this.extra = extra;
+  }
 
-	public int compareTo(Skills skills) {
+  public int compareTo(Skills skills) {
 		return this.getId().compareTo(skills.getId());
 	}
-	// toegevoegd in de hoopd at de update zou werken, niet het geval
-	// result = prime * result + (dotnet ? 1231 : 1237);ki
-	// result = prime * result + experience;
-	// result = prime * result + (frontend ? 1231 : 1237);
-	// result = prime * result + ((id == null) ? 0 : id.hashCode());
-	// result = prime * result + (java ? 1231 : 1237);
-	// result = prime * result + ((preferredLocation == null) ? 0 :
-	// if (obj == null)
-	// return false;
-	// if (getClass() != obj.getClass())
-	// return false;
-	// Skills other = (Skills) obj;
-	// if (dotnet != other.dotnet)
-	// return false;
-	// if (experience != other.experience)
-	// return false;
-	// if (frontend != other.frontend)
-	// return false;
-	// if (id == null) {
-	// if (other.id != null)
-	// return false;
-	// } else if (!id.equals(other.id))
-	// return false;
-	// if (java != other.java)
-	// return false;
-	// if (preferredLocation == null) {
-	// if (other.preferredLocation != null)
-	// return false;
-	// } else if (!preferredLocation.equals(other.preferredLocation))
-	// return false;
-	// if (preferredTechnologies == null) {
-	// if (other.preferredTechnologies != null)
-	// return false;
-	// } else if (!preferredTechnologies.equals(other.preferredTechnologies))
-	// return false;
-	// if (technicalKnowlegde == null) {
-	// if (other.technicalKnowlegde != null)
-	// return false;
-	// } else if (!technicalKnowlegde.equals(other.technicalKnowlegde))
-	// return false;
-	// return true;
-	// }
-	//
 
 }

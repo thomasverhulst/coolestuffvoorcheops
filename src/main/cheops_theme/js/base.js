@@ -220,6 +220,30 @@
     }
   };
 
+  $.FileInput = function(element) {
+    this.element = (element instanceof $) ? element : $(element);
+    this.upload = this.element.siblings('.a-form-input-file--upload');
+
+    this.InitFileInput();
+  };
+
+  $.FileInput.prototype = {
+    InitFileInput: function() {
+      this.element.on('change', this.FileInputHandler.bind(this));
+    },
+    FileInputHandler: function(e) {
+      filename = e.target.value.split('\\').pop();
+
+      if(filename) {
+        this.upload.text(filename);
+        this.upload.css('display', 'inline-block');
+      } else {
+        this.upload.text('');
+        this.upload.hide();
+      }
+    }
+  };
+
   // Initalize
   new $.MobileMenu($('.header--middle'));
   new $.QuickMenu($('.header--right '));
@@ -228,6 +252,7 @@
   new $.Select2($('.js-select-basic'));
   new $.Modal($('[data-toggle="modal"]'));
   new $.Tabs($('.o-tabs-group'));
+  new $.FileInput($('.a-form-input-file'));
 
   // Autocomplete.
   $('.js-autocomplete-countries').autocomplete({
@@ -263,6 +288,10 @@
     }
   });
 
+  $.validator.addMethod('filesize', function (value, element, param) {
+    return this.optional(element) || (element.files[0].size <= param)
+  }, 'Bestandsgrootte mag niet meer dan 10MB zijn.');
+
   $('.js-needs-validation').each(function(e) {
     $(this).validate({
       ignore: 'input[type=hidden]',
@@ -272,6 +301,10 @@
         },
         email: {
           email: true
+        },
+        file: {
+          extension: "doc?x|xls?x|txt|pdf|rtf|eml",
+          filesize: 10000000
         }
       },
       errorPlacement: function(error, e) {

@@ -12,7 +12,16 @@
   }
 
   .card--body {
+    display: flex;
     padding: 0;
+
+    > * {
+      flex: 1 0 50%;
+
+      @include each(2) {
+        border-left: 1px solid $border-color;
+      }
+    }
   }
 
   .o-header-block & {

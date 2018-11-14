@@ -5,6 +5,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.persistence.*;
+import javax.validation.Valid;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
@@ -43,10 +44,12 @@ public class NewCandidateFE implements Serializable {
 	private Date dateOfBirth;
 
 	@Column(name = "phonenumber")
+  @Size(max = 45, message = "{phonenumber.size}")
 	private String phonenumber;
 
 	@Column(name = "cellphonenumber")
-	private String cellphonenumber;
+  @Size(max = 45, message = "{cellphone.size}")
+  private String cellphonenumber;
 
 	@Column(name = "cvlink")
 	private String cvLink;
@@ -55,24 +58,27 @@ public class NewCandidateFE implements Serializable {
 	@Enumerated(EnumType.STRING)
 	private Gender gender;
 
-  @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-  @JoinTable(name = "candidate_currentsallarypackage", joinColumns = @JoinColumn(name = "candidate_id"), inverseJoinColumns = @JoinColumn(name = "currentsalarypackage_id"))
-  private List<SalaryPackage> currentSalaryPackage;
+	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+  @Valid
+	private SalaryPackage currentSalaryPackage;
 
   @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
   @JoinTable(name = "candidate_proposedsalarypackage", joinColumns = @JoinColumn(name = "candidate_id"), inverseJoinColumns = @JoinColumn(name = "proposedsalarypackage_id"))
-  private List<SalaryPackage> proposedSalaryPackage;
+  private List<SalaryPackage> proposedSalaryPackages;
 
-  @OneToOne(cascade = CascadeType.ALL)
+  @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+  @Valid
   private Skills skills;
 
-  @OneToOne( cascade = CascadeType.ALL)
+  @OneToOne(cascade=CascadeType.ALL)
+  @Valid
   private Address address;
 
   @OneToOne(cascade = CascadeType.ALL)
   private ApplicationProcess applicationProcess;
 
   @Column(name = "contactChannel")
+  @Size(max = 45, message = "{contactchannel.size}")
   private String contactChannel;
 
   @Column(name = "isaddedtimestamp")
@@ -84,27 +90,25 @@ public class NewCandidateFE implements Serializable {
 	public NewCandidateFE(){
 	}
 
-	public NewCandidateFE(Integer id, String name, String lastName, String email, Date dateOfBirth, String phonenumber,
-                        String cellphonenumber, String cvLink, Gender gender, MultipartFile file, String contactChannel,
-                        Skills skills, Address address, ApplicationProcess applicationProcess) {
-		super();
-		this.id = id;
-		this.name = name;
-		this.lastName = lastName;
-		this.email = email;
-		this.dateOfBirth = dateOfBirth;
-		this.phonenumber = phonenumber;
-		this.cellphonenumber = cellphonenumber;
-		this.cvLink = cvLink;
-		this.gender = gender;
-		this.file = file;
-		this.contactChannel = contactChannel;
-		this.skills = skills;
-		this.address = address;
-		this.applicationProcess = applicationProcess;
-	}
+  public NewCandidateFE(@NotBlank(message = "{name.empty}") @Size(max = 45, message = "{name.size}") String name, @Size(max = 45, message = "{last_name.size}") String lastName, @Size(max = 45, message = "{email.size}") @Email(message = "{email.invalid}") String email, Date dateOfBirth, @Size(max = 45, message = "{phonenumber.size}") String phonenumber, @Size(max = 45, message = "{cellphone.size}") String cellphonenumber, String cvLink, Gender gender, SalaryPackage currentSalaryPackage, List<SalaryPackage> proposedSalaryPackages, Skills skills, @Valid Address address, ApplicationProcess applicationProcess, @Size(max = 45, message = "{contactchannel.size}") String contactChannel, Timestamp isAddedTimeStamp) {
+    this.name = name;
+    this.lastName = lastName;
+    this.email = email;
+    this.dateOfBirth = dateOfBirth;
+    this.phonenumber = phonenumber;
+    this.cellphonenumber = cellphonenumber;
+    this.cvLink = cvLink;
+    this.gender = gender;
+    this.currentSalaryPackage = currentSalaryPackage;
+    this.proposedSalaryPackages = proposedSalaryPackages;
+    this.skills = skills;
+    this.address = address;
+    this.applicationProcess = applicationProcess;
+    this.contactChannel = contactChannel;
+    this.isAddedTimeStamp = isAddedTimeStamp;
+  }
 
-	public Integer getId() {
+  public Integer getId() {
 		return id;
 	}
 
@@ -176,20 +180,20 @@ public class NewCandidateFE implements Serializable {
 		this.gender = gender;
 	}
 
-  public List<SalaryPackage> getCurrentSalaryPackage() {
-    return currentSalaryPackage;
+	public SalaryPackage getCurrentSalaryPackage() {
+		return currentSalaryPackage;
+	}
+
+	public void setCurrentSalaryPackage(SalaryPackage currentSalaryPackage) {
+		this.currentSalaryPackage = currentSalaryPackage;
+	}
+
+  public List<SalaryPackage> getProposedSalaryPackages() {
+    return proposedSalaryPackages;
   }
 
-  public void setcurrentSalaryPackage(List<SalaryPackage> currentSalaryPackage) {
-    this.currentSalaryPackage = currentSalaryPackage;
-  }
-
-  public List<SalaryPackage> getproposedSalaryPackage() {
-    return proposedSalaryPackage;
-  }
-
-  public void setproposedSalaryPackage(List<SalaryPackage> proposedSalaryPackage) {
-    this.proposedSalaryPackage = proposedSalaryPackage;
+  public void setProposedSalaryPackages(List<SalaryPackage> proposedSalaryPackages) {
+    this.proposedSalaryPackages = proposedSalaryPackages;
   }
 
   public Skills getSkills() {
