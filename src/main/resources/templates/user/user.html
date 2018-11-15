@@ -1,29 +1,31 @@
-<!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org" th:data-locale="${#locale}">
-<head th:replace="fragments/general :: headTag(title=#{user} + ' - Cheops Kandidatenbeheer')"></head>
-<body>
-<header th:replace="fragments/general :: header"></header>
-<main>
-  <div class="container-fluid">
-    <div class="row mb-3">
-      <div class="col">
-        <h1 class="a-title--page" th:text="#{user}"></h1>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout/layout}">
+  <head>
+    <title th:inline="text">[[#{user}]]</title>
+  </head>
+  <body>
+    <main layout:fragment="content">
+      <div class="container-fluid">
+        <div class="row mb-3">
+          <div class="col">
+            <h1 class="a-title--page" th:text="#{user}"></h1>
+          </div>
+        </div>
+        <div th:if="${errorMessage != null} OR ${successMessage != null}" class="row">
+          <div class="col">
+            <div th:if="${errorMessage != null}" th:text="${errorMessage}" class="alert alert-danger" role="alert"></div>
+            <div th:if="${successMessage != null}" th:text="${successMessage}" class="alert alert-success" role="alert"></div>
+          </div>
+        </div>
+        <div class="row mb-grid">
+          <div class="col">
+            <div layout:insert="~{layout/reusables/card :: card}" th:with="title=#{user}" th:remove="tag"> <!-- Todo: add username to title card -->
+              <div layout:fragment="card-content">
+              <!-- Todo: Add user details overview + link to edit password -->
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
-    <div th:if="${errorMessage != null} OR ${successMessage != null}" class="row">
-      <div class="col">
-        <div th:if="${errorMessage != null}" th:text="${errorMessage}" class="alert alert-danger" role="alert"></div>
-        <div th:if="${successMessage != null}" th:text="${successMessage}" class="alert alert-success" role="alert"></div>
-      </div>
-    </div>
-    <div class="row mb-grid">
-      <div class="col">
-        <!-- Todo: Add user details overview + link to edit password -->
-      </div>
-    </div>
-  </div>
-</main>
-<footer th:replace="fragments/general :: footer"></footer>
-<div th:replace="fragments/general :: foot"></div>
-</body>
+    </main>
+  </body>
 </html>

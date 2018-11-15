@@ -1,23 +1,21 @@
-<!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org" th:data-locale="${#locale}">
-<head th:replace="fragments/general :: headTag(title=#{accessDenied} + ' - Cheops Kandidatenbeheer')"></head>
-<body>
-  <header th:replace="fragments/general :: header"></header>
-  <main>
-    <div class="row">
-      <div class="col">
-        <div class="m-access-denied">
-          <h1 th:text="#{accessDenied}"></h1>
-          <p class="mb-5" th:text="#{accessDeniedMsg}"></p>
-          <i class="fas fa-ban fa-10x"></i>
-          <p class="mt-5">
-            <a class="btn btn-outline-primary d-inline-block" href="/" th:text="#{returnDashboard}"></a>
-          </p>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout/layout}">
+  <head>
+    <title th:inline="text">[[#{accessDenied}]]</title>
+  </head>
+  <body>
+    <main layout:fragment="content">
+      <div class="row">
+        <div class="col">
+          <div class="m-access-denied">
+            <h1 th:text="#{accessDenied}"></h1>
+            <p class="mb-5" th:text="#{accessDeniedMsg}"></p>
+            <i class="fas fa-ban fa-10x"></i>
+            <p class="mt-5">
+              <a class="btn btn-outline-primary d-inline-block" href="/" th:text="#{returnDashboard}"></a>
+            </p>
+          </div>
         </div>
       </div>
-    </div>
-  </main>
-  <footer th:replace="fragments/general :: footer"></footer>
-<div th:replace="fragments/general :: foot"></div>
-</body>
+    </main>
+  </body>
 </html>

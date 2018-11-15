@@ -1,5 +1,6 @@
 package com.cheops.candidatemanager.configuration;
 
+import nz.net.ultraq.thymeleaf.LayoutDialect;
 import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -34,6 +35,11 @@ public class WebMvcConfiguration implements WebMvcConfigurer {
     SessionLocaleResolver localeResolver = new SessionLocaleResolver();
     localeResolver.setDefaultLocale(new Locale("nl"));
     return localeResolver;
+  }
+
+  @Bean
+  public LayoutDialect layoutDialect() {
+    return new LayoutDialect();
   }
 
   @Bean

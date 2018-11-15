@@ -1,0 +1,9 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+  <body layout:fragment="card(title)">
+    <div class="card h-100">
+      <div th:if="${title != null}" class="card--header" th:text="${title}"></div>
+      <div class="card--body" layout:fragment="card-content"></div>
+    </div>
+  </body>
+</html>
