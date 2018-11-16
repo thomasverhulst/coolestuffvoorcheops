@@ -10,4 +10,6 @@ public interface ICountryService {
 
   String getCountryCodeByName(String country);
 
+  String getCountryByCode(String code);
+
 }

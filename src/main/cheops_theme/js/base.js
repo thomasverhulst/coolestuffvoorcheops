@@ -244,6 +244,46 @@
     }
   };
 
+  $.AddRow = function(element) {
+    this.element = element;
+
+    this.InitAddRow();
+  };
+
+  $.AddRow.prototype = {
+    InitAddRow: function() {
+      $(document).on('click', this.element, this.AddRowHandler.bind(this));
+    },
+    AddRowHandler: function(e) {
+      e.preventDefault();
+      let $this = this;
+
+      $.post('/' + $(this.element).attr('data-action'), 'addItem', function(returnData) {
+        $($($this.element).attr('data-object')).replaceWith(returnData);
+      });
+    }
+  };
+
+  $.RemoveRow = function(element) {
+    this.element = element;
+
+    this.InitRemoveRow();
+  };
+
+  $.RemoveRow.prototype = {
+    InitRemoveRow: function() {
+      $(document).on('click', this.element, this.RemoveRowHandler.bind(this));
+    },
+    RemoveRowHandler: function(e) {
+      e.preventDefault();
+      let $this = this;
+
+      $.post('/' + $(this.element).attr('data-action'), 'removeItem=' + $(this.element).attr('data-value'), function(returnData) {
+        $($($this.element).attr('data-object')).replaceWith(returnData);
+      });
+    }
+  };
+
   // Initalize
   new $.MobileMenu($('.header--middle'));
   new $.QuickMenu($('.header--right '));
@@ -253,6 +293,8 @@
   new $.Modal($('[data-toggle="modal"]'));
   new $.Tabs($('.o-tabs-group'));
   new $.FileInput($('.a-form-input-file'));
+  new $.AddRow('.js-add-row');
+  new $.RemoveRow('.js-remove-row');
 
   // Autocomplete.
   $('.js-autocomplete-countries').autocomplete({

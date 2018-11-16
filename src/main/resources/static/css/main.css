@@ -4648,6 +4648,13 @@ a.text-gray:hover, a.text-gray:focus {
     .card--header {
       text-align: left; } }
 
+fieldset legend {
+  font-size: .9375rem;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #EEEEEE;
+  font-weight: 500;
+  margin-bottom: 45px; }
+
 .was-validated .form-control:invalid:focus, .was-validated .select2-search--inline input:invalid:focus, .select2-search--inline .was-validated input:invalid:focus, .was-validated .form-control:valid:focus, .was-validated .select2-search--inline input:valid:focus, .select2-search--inline .was-validated input:valid:focus, .form-control.is-invalid:focus, .select2-search--inline input.is-invalid:focus, .form-control.is-valid:focus, .select2-search--inline input.is-valid:focus {
   box-shadow: none; }
 
@@ -5087,6 +5094,8 @@ main.not-stripped {
   border-bottom: 1px solid #EEEEEE;
   font-weight: 500;
   margin-bottom: 45px; }
+  .a-title--form .icon {
+    float: right; }
 
 .m-error-block {
   text-align: center; }

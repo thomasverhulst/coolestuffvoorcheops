@@ -28,5 +28,9 @@
     border-bottom: 1px solid $border-color;
     font-weight: 500;
     margin-bottom: $grid-gutter-width*1.5;
+
+    .icon {
+      float: right;
+    }
   }
 }

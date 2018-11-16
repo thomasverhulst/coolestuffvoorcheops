@@ -198,25 +198,41 @@
       <div layout:fragment="pane-content">
         <div class="row">
           <div class="col">
-            <a class="btn btn-blue btn-icon btn-sm d-inline-block" th:href="@{/downloadCv/{cvLink}(cvLink=${candidate.cvLink})}" th:inline="text"><span class="icon icon-add-salary"></span>[[#{salary.add}]]</a>
+            <a class="btn btn-blue btn-icon btn-sm d-inline-block js-add-row" data-action="addSalaryPackage" data-object="#proposalList" href="#" th:inline="text"><span class="icon icon-add-salary"></span>[[#{salary.add}]]</a>
           </div>
         </div>
 
-        <div th:each="proposal, stat: *{proposedSalaryPackages}">
-          <div class="row mt-grid">
-            <div class="col-md-6 form-group m-form-group">
-              <label th:for="|proposedSalaryPackages[__${stat.index}__].grossSalary|" class="a-form-label" th:text="#{salary.grosssalary}"></label>
-              <input th:field="*{proposedSalaryPackages[__${stat.index}__].grossSalary}" type="number" name="proposal_grosssalary" class="form-control a-form-input-text">
+        <div id="proposalList" class="row">
+          <div th:if="${candidate.proposedSalaryPackages == null} or ${candidate.proposedSalaryPackages.empty}" class="col mt-grid" th:text="#{salary.proposalEmpty}"></div>
+          <div th:if="${candidate.proposedSalaryPackages != null} and ${!candidate.proposedSalaryPackages.empty}" class="col">
+            <div class="row">
+              <div th:each="proposal, stat: ${candidate.proposedSalaryPackages}" class="col-md-6">
+                <div class="a-title--form mt-4" th:inline="text">[[#{proposal}]] [[${stat.count}]] <a class="icon icon-delete js-remove-row" data-action="removeSalaryPackage" data-object="#proposalList" th:data-value="${stat.index}" href="#" th:title="#{salary.delete}"></a>
+                </div>
+                <div class="row">
+                  <div class="col-md-6 form-group m-form-group">
+                    <label th:for="|candidate.proposedSalaryPackages[__${stat.index}__].grossSalary|" class="a-form-label" th:text="#{salary.grosssalary}"></label>
+                    <input th:field="${candidate.proposedSalaryPackages[__${stat.index}__].grossSalary}" type="number" name="proposal_grosssalary" class="form-control a-form-input-text">
+                  </div>
+                  <div class="col-md-6 form-group m-form-group">
+                    <label th:for="|candidate.proposedSalaryPackages[__${stat.index}__].car|" class="a-form-label" th:text="#{salary.car}"></label>
+                    <input th:field="${candidate.proposedSalaryPackages[__${stat.index}__].car}" type="number" name="proposal_car" class="form-control a-form-input-text">
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
 
-        <!--<div th:if="${#lists.isEmpty(proposedSalaryPackages)}" th:remove="tag">-->
-          <!--<-->
+        <!--<div th:if="*{proposedSalaryPackages == null} or *{proposedSalaryPackages.empty}" class="row mt-grid">-->
+          <!--<div class="col" th:text="#{salary.proposalEmpty}"></div>-->
         <!--</div>-->
+        <!--<fieldset th:fragment="items" th:if="${candidate.proposedSalaryPackages != null} and ${!candidate.proposedSalaryPackages.empty}" class="row mt-grid" id="proposalSalaryPackages">-->
+
+
+
+        <!--</fieldset>-->
       </div>
-
-
     </div>
     <div layout:insert="~{layout/reusables/pane :: pane}" th:with="id='nav-history', arialabelledby='nav-history-tab', active=false" th:remove="tag">
       <div layout:fragment="pane-content">

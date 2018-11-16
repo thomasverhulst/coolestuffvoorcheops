@@ -60,4 +60,21 @@ public class CountryService implements ICountryService {
 
     return found;
   }
+
+  @Override
+  public String getCountryByCode(String code) throws CountryNotFoundException {
+    String found = null;
+
+    if (!code.equals("")) {
+      String[] countryCodes = Locale.getISOCountries();
+      for (String countryCode : countryCodes) {
+        Locale locale = new Locale("", countryCode);
+        if(locale.getCountry().equals(code)) {
+          found = locale.getDisplayCountry(LocaleContextHolder.getLocale());
+        }
+      }
+    }
+
+    return found;
+  }
 }

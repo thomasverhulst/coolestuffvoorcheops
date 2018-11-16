@@ -14,6 +14,7 @@ import java.sql.Timestamp;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -253,6 +254,15 @@ public class NewCandidateFE implements Serializable {
     }
 
     return cvDate;
+  }
+
+  public void addProposalSalaryPackage(SalaryPackage salaryPackage) {
+	  if (this.proposedSalaryPackages == null) this.proposedSalaryPackages = new ArrayList<>();
+	  this.proposedSalaryPackages.add(salaryPackage);
+  }
+
+  public void removeProposalSalaryPackage(int index) {
+	  if (this.proposedSalaryPackages != null) this.proposedSalaryPackages.remove(index);
   }
 
 }

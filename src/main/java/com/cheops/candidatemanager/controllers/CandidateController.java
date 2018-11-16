@@ -494,6 +494,13 @@ public class CandidateController {
       return "redirect:/add-candidate"; // Todo: redirect to overview candidates
     }
 
+    try {
+      String country = countryService.getCountryByCode(newCandidateFE.getAddress().getCountrycode());
+      newCandidateFE.getAddress().setCountrycode(country);
+    } catch (final CountryNotFoundException e) {
+      return returnWithErrors(model, newCandidateFE, e.getMessage(), "candidate/edit");
+    }
+
     model.addAttribute(CANDIDATE, newCandidateFE);
     return "candidate/edit";
   }
@@ -608,6 +615,29 @@ public class CandidateController {
     }
 
     return suggestions;
+  }
+
+  @PostMapping(path = "/addSalaryPackage", params = "addItem")
+  public String addProposalPackage(@ModelAttribute(CANDIDATE) NewCandidateFE newCandidateFE, HttpServletRequest request) {
+    newCandidateFE.addProposalSalaryPackage(new SalaryPackage());
+
+    if ("XMLHttpRequest".equals(request.getHeader("X-Requested-With"))) {
+      return "fragments/form :: #proposalList";
+    } else {
+      return "candidate/edit";
+    }
+  }
+
+  @PostMapping(path = "/removeSalaryPackage", params = "removeItem")
+  public String removeProposalPackage(@ModelAttribute(CANDIDATE) NewCandidateFE newCandidateFE, @RequestParam("removeItem") int index, HttpServletRequest request) {
+    System.out.println(newCandidateFE.getProposedSalaryPackages().size());
+    newCandidateFE.removeProposalSalaryPackage(index);
+
+    if ("XMLHttpRequest".equals(request.getHeader("X-Requested-With"))) {
+      return "fragments/form :: #proposalList";
+    } else {
+      return "candidate/edit";
+    }
   }
 
   private String returnWithErrors(Model model, NewCandidateFE newCandidateFE, String errorMessage, String returnUrl) {
