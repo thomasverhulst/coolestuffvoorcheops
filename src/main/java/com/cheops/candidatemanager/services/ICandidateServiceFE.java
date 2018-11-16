@@ -10,4 +10,6 @@ public interface ICandidateServiceFE {
 
 	void saveCandidate(NewCandidateFE candidate);
 
+	void deleteCandidate(NewCandidateFE candidate);
+
 }

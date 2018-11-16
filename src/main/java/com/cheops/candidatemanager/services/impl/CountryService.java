@@ -4,6 +4,8 @@ import com.cheops.candidatemanager.exceptions.CountryNotFoundException;
 import com.cheops.candidatemanager.models.Country;
 import com.cheops.candidatemanager.services.ICountryService;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.MessageSource;
 import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.stereotype.Service;
 
@@ -14,6 +16,11 @@ import java.util.Locale;
 
 @Service
 public class CountryService implements ICountryService {
+
+  private Locale locale = LocaleContextHolder.getLocale();
+
+  @Autowired
+  private MessageSource messageSource;
 
   @Override
   public List<Country> getAllCountries() {
@@ -47,7 +54,7 @@ public class CountryService implements ICountryService {
       }
 
       if (found == null) {
-        throw new CountryNotFoundException("This country does not exist: " + country);
+        throw new CountryNotFoundException(messageSource.getMessage("country.notFound", new Object[]{country}, locale));
       }
     }
 

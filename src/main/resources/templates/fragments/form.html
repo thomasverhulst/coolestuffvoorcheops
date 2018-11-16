@@ -91,16 +91,17 @@
             </div>
             <div th:if="*{cvLink != null} and *{cvLink != ''}" th:remove="tag">
               <div class="row">
-                <div class="col mb-3" th:if="${cvDate}" th:inline="text">[[#{version}]] [[${#dates.format(cvDate, 'dd-MM-yyyy')}]]</div>
+                <div class="col mb-3" th:if="${cvDate}" th:inline="text">[[#{version}]] [[${#dates.format(candidate.getCvDate(), 'dd-MM-yyyy')}]]</div>
               </div>
               <div class="row">
-                <div class="col d-flex mb-grid">
-                  <div class="cv-current mr-4">
-                    <a class="btn btn-blue btn-icon btn-sm d-inline-block" th:href="@{/downloadCv/{cvLink}(cvLink=${candidate.cvLink})}" th:inline="text"><span class="icon icon-download-file"></span>[[#{download}]]</a>
+                <div class="col mb-grid">
+                  <div class="cv-current">
+                    <a class="btn btn-blue btn-icon btn-sm d-inline-block mr-3" th:href="@{/downloadCv/{cvLink}(cvLink=${candidate.cvLink})}" th:inline="text"><span class="icon icon-download-file"></span>[[#{download}]]</a>
+                    <a class="btn btn-blue btn-icon btn-sm d-inline-block" th:href="@{/deleteCv/{candidateId}(candidateId=${candidate.id})}" th:inline="text"><span class="icon icon-delete"></span>[[#{delete}]]</a>
                   </div>
-                  <div class="a-form-input-file--wrapper">
+                  <div class="a-form-input-file--wrapper mt-3">
                     <input type="file" name="file" id="file" th:field="*{file}" class="form-control a-form-input-file" />
-                    <label for="file" th:inline="text" class="btn btn-blue btn-icon btn-sm d-inline-block"><span class="icon icon-update-file"></span>[[#{edit}]]</label>
+                    <label for="file" th:inline="text" class="btn btn-secondary btn-icon btn-sm d-inline-block"><span class="icon icon-update-file"></span>[[#{edit}]]</label>
                     <span class="a-form-input-file--upload ml-md-3 mt-3 mt-md-0"></span>
                   </div>
                 </div>
@@ -195,15 +196,27 @@
     </div>
     <div layout:insert="~{layout/reusables/pane :: pane}" th:with="id='nav-offer', arialabelledby='nav-offer-tab', active=false" th:remove="tag">
       <div layout:fragment="pane-content">
-        <div th:if="${#lists.isEmpty(proposedSalaryPackages)}" th:remove="tag">
-          <div class="row">
+        <div class="row">
+          <div class="col">
+            <a class="btn btn-blue btn-icon btn-sm d-inline-block" th:href="@{/downloadCv/{cvLink}(cvLink=${candidate.cvLink})}" th:inline="text"><span class="icon icon-add-salary"></span>[[#{salary.add}]]</a>
+          </div>
+        </div>
+
+        <div th:each="proposal, stat: *{proposedSalaryPackages}">
+          <div class="row mt-grid">
             <div class="col-md-6 form-group m-form-group">
-              <label th:for="|proposedSalaryPackages[0].grossSalary|" class="a-form-label" th:text="#{salary.grosssalary}"></label>
-              <input th:field="*{proposedSalaryPackages[0].grossSalary}" type="number" name="proposal_grosssalary" class="form-control a-form-input-text">
+              <label th:for="|proposedSalaryPackages[__${stat.index}__].grossSalary|" class="a-form-label" th:text="#{salary.grosssalary}"></label>
+              <input th:field="*{proposedSalaryPackages[__${stat.index}__].grossSalary}" type="number" name="proposal_grosssalary" class="form-control a-form-input-text">
             </div>
           </div>
         </div>
+
+        <!--<div th:if="${#lists.isEmpty(proposedSalaryPackages)}" th:remove="tag">-->
+          <!--<-->
+        <!--</div>-->
       </div>
+
+
     </div>
     <div layout:insert="~{layout/reusables/pane :: pane}" th:with="id='nav-history', arialabelledby='nav-history-tab', active=false" th:remove="tag">
       <div layout:fragment="pane-content">

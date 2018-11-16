@@ -1,19 +1,12 @@
 package com.cheops.candidatemanager.controllers;
 
 import java.io.IOException;
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.*;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
-import com.cheops.candidatemanager.exceptions.CandidateDoesNotExistException;
-import com.cheops.candidatemanager.exceptions.CountryNotFoundException;
-import com.cheops.candidatemanager.exceptions.FileStorageException;
-import com.cheops.candidatemanager.exceptions.MyFileNotFoundException;
+import com.cheops.candidatemanager.exceptions.*;
 import com.cheops.candidatemanager.models.*;
 import com.cheops.candidatemanager.services.ICandidateServiceFE;
 import com.cheops.candidatemanager.services.ICountryService;
@@ -31,7 +24,6 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.multipart.MultipartException;
-import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
@@ -477,7 +469,7 @@ public class CandidateController {
       String countryCode = countryService.getCountryCodeByName(newCandidateFE.getAddress().getCountrycode());
       newCandidateFE.getAddress().setCountrycode(countryCode);
     } catch (final CountryNotFoundException e) {
-      return returnWithErrors(model, newCandidateFE, messageSource.getMessage("country.notFound", null, locale), "candidate/add");
+      return returnWithErrors(model, newCandidateFE, e.getMessage(), "candidate/add");
     }
 
     if (newCandidateFE.getFile() != null && !newCandidateFE.getFile().isEmpty()) {
@@ -498,18 +490,8 @@ public class CandidateController {
   @GetMapping("/edit-candidate/{candidateId}")
   public String editCandidateView(Locale locale, Model model, @PathVariable("candidateId") NewCandidateFE newCandidateFE, RedirectAttributes redirectAttributes) {
     if (newCandidateFE == null) {
-      redirectAttributes.addFlashAttribute("errorMessage", messageSource.getMessage("candidate.doesNotExists", null, locale));
+      redirectAttributes.addFlashAttribute("errorMessage", messageSource.getMessage("candidate.doesNotExist", null, locale));
       return "redirect:/add-candidate"; // Todo: redirect to overview candidates
-    }
-
-    if (newCandidateFE.getCvLink() != null && !newCandidateFE.getCvLink().isEmpty()) {
-      try {
-        DateFormat format = new SimpleDateFormat("ddMMyy-hhmmss");
-        Date date = format.parse(newCandidateFE.getCvLink().substring(0, newCandidateFE.getCvLink().indexOf("_")));
-        model.addAttribute("cvDate", date);
-      } catch (ParseException e) {
-        e.printStackTrace();
-      }
     }
 
     model.addAttribute(CANDIDATE, newCandidateFE);
@@ -527,7 +509,7 @@ public class CandidateController {
       String countryCode = countryService.getCountryCodeByName(newCandidateFE.getAddress().getCountrycode());
       newCandidateFE.getAddress().setCountrycode(countryCode);
     } catch (final CountryNotFoundException e) {
-      return returnWithErrors(model, newCandidateFE, messageSource.getMessage("country.notFound", null, locale), "candidate/edit");
+      return returnWithErrors(model, newCandidateFE, e.getMessage(), "candidate/edit");
     }
 
     if (newCandidateFE.getFile() != null && !newCandidateFE.getFile().isEmpty()) {
@@ -536,9 +518,11 @@ public class CandidateController {
       try {
         fileStorageService.checkFileExtentsion(newCandidateFE.getFile());
         newCandidateFE.setCvLink(fileStorageService.storeCV(newCandidateFE.getFile()));
-        fileStorageService.deleteCv(old.getCvLink());
+        if (old.getCvLink() != null && !old.getCvLink().isEmpty()) {
+          fileStorageService.deleteCv(old.getCvLink());
+        }
       } catch (final FileStorageException | MyFileNotFoundException e) {
-        return returnWithErrors(model, newCandidateFE, messageSource.getMessage("form.error.fileExtension", null, locale), "candidate/edit");
+        return returnWithErrors(model, newCandidateFE, e.getMessage(), "candidate/edit");
       }
     }
 
@@ -546,16 +530,34 @@ public class CandidateController {
       newCandidateServiceFE.saveCandidate(newCandidateFE);
       redirectAttributes.addFlashAttribute("successMessage", messageSource.getMessage("candidate.edited", new Object[]{newCandidateFE.getName()}, locale));
     } catch (final CandidateDoesNotExistException e) {
-      redirectAttributes.addFlashAttribute("errorMessage", messageSource.getMessage("candidate.doesNotExists", null, locale));
+      redirectAttributes.addFlashAttribute("errorMessage", e.getMessage());
     }
 
     return "redirect:/add-candidate"; // Todo: redirect to overview candidates
+  }
+
+  @GetMapping("/delete-candidate/{candidateId}")
+  public String deleteCandidate(Locale locale, @PathVariable("candidateId") NewCandidateFE newCandidateFE, RedirectAttributes redirectAttributes) {
+    if (newCandidateFE == null) {
+      redirectAttributes.addFlashAttribute("errorMessage", messageSource.getMessage("candidate.doesNotExist", null, locale));
+      return "redirect:/add-candidate"; // Todo: redirect to overview candidates
+    }
+
+    try {
+      newCandidateServiceFE.deleteCandidate(newCandidateFE);
+      redirectAttributes.addFlashAttribute("successMessage", messageSource.getMessage("candidate.deleted", new Object[]{newCandidateFE.getName()}, locale));
+    } catch (final CandidateDoesNotExistException e) {
+      redirectAttributes.addFlashAttribute("errorMessage", e.getMessage());
+    }
+
+	  return "redirect:/add-candidate"; // Todo: redirect to overview candidates
   }
 
   @GetMapping("/downloadCv/{fileName:.+}")
   public ResponseEntity<Resource> downloadFile(@ModelAttribute(CANDIDATE) NewCandidateFE newCandidateFE, @PathVariable String fileName, HttpServletRequest request) {
     Resource resource = fileStorageService.loadCvAsResource(fileName);
     String contentType = null;
+
     try {
       contentType = request.getServletContext().getMimeType(resource.getFile().getAbsolutePath());
     } catch (IOException ex) {
@@ -569,7 +571,30 @@ public class CandidateController {
     return ResponseEntity.ok().contentType(MediaType.parseMediaType(contentType)).header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + "cv_" + newCandidateFE.getName() + "-" + newCandidateFE.getLastName() + "\"").body(resource);
   }
 
-  // Todo: add delete candidate controller
+  @GetMapping("/deleteCv/{candidateId}")
+  public String deleteFile(Locale locale, @ModelAttribute("candidateId") NewCandidateFE newCandidateFE, RedirectAttributes redirectAttributes) {
+
+	  // Todo: add delete function of cv/file
+
+    try {
+      if (newCandidateFE.getCvLink() != null && !newCandidateFE.getCvLink().isEmpty()) {
+        fileStorageService.deleteCv(newCandidateFE.getCvLink());
+      }
+      newCandidateFE.setCvLink("");
+      redirectAttributes.addFlashAttribute("successMessage", messageSource.getMessage("candidate.edited", new Object[]{newCandidateFE.getName()}, locale));
+    } catch (final FileStorageException | MyFileNotFoundException e) {
+      redirectAttributes.addFlashAttribute("errorMessage", e.getMessage());
+    }
+
+    try {
+      newCandidateServiceFE.saveCandidate(newCandidateFE);
+      redirectAttributes.addFlashAttribute("successMessage", messageSource.getMessage("candidate.edited", new Object[]{newCandidateFE.getName()}, locale));
+    } catch (final CandidateDoesNotExistException e) {
+      redirectAttributes.addFlashAttribute("errorMessage", e.getMessage());
+    }
+
+	  return "redirect:/edit-candidate/" + newCandidateFE.getId();
+  }
 
 	@GetMapping(value = "/countries", produces = "application/json")
   @ResponseBody

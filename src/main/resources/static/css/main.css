@@ -4717,6 +4717,8 @@ a.text-gray:hover, a.text-gray:focus {
     content: "\e912"; }
   .icon.icon-download-file:before {
     content: "\e914"; }
+  .icon.icon-add-salary:before {
+    content: "\e902"; }
 
 .select2-hidden-accessible {
   border: 0 !important;
@@ -5086,9 +5088,9 @@ main.not-stripped {
   font-weight: 500;
   margin-bottom: 45px; }
 
-.m-access-denied {
+.m-error-block {
   text-align: center; }
-  .m-access-denied svg {
+  .m-error-block svg {
     color: #DA291C; }
 
 .m-form-group {

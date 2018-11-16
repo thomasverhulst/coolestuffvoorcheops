@@ -11,6 +11,9 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 import java.io.Serializable;
 import java.sql.Timestamp;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
@@ -235,5 +238,21 @@ public class NewCandidateFE implements Serializable {
 	public void setFile(MultipartFile file) {
 		this.file = file;
 	}
+
+  public Date getCvDate() {
+	  Date cvDate = null;
+
+    if (cvLink != null && !cvLink.isEmpty()) {
+      try {
+        DateFormat format = new SimpleDateFormat("ddMMyy-hhmmss");
+        Date date = format.parse(cvLink.substring(0, cvLink.indexOf("_")));
+        cvDate = date;
+      } catch (ParseException e) {
+        e.printStackTrace();
+      }
+    }
+
+    return cvDate;
+  }
 
 }

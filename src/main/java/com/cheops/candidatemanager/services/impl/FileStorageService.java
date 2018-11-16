@@ -73,10 +73,10 @@ public class FileStorageService {
       if(resource.exists()) {
         return resource;
       } else {
-        throw new MyFileNotFoundException("File not found " + fileName);
+        throw new MyFileNotFoundException(messageSource.getMessage("form.error.fileNotFound", null, locale) + fileName);
       }
     } catch (MalformedURLException ex) {
-      throw new MyFileNotFoundException("File not found " + fileName, ex);
+      throw new MyFileNotFoundException(messageSource.getMessage("form.error.fileNotFound", null, locale) + fileName, ex);
     }
   }
 

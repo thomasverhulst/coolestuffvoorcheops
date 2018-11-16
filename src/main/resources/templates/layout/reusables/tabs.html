@@ -1,14 +1,10 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
-  <body layout:fragment="tabs">
+  <body layout:fragment="tabs(panes)">
     <div class="o-tabs-group">
       <nav class="d-flex align-items-center">
         <div class="o-tabs-group--tabs" id="navTabs" role="tablist">
-          <a class="o-tabs-group--item tab active" id="nav-details-tab" data-toggle="tab" href="#nav-details" role="tab" aria-controls="nav-details" aria-selected="true" th:text="#{details}"></a>
-          <a class="o-tabs-group--item tab" id="nav-experience-tab" data-toggle="tab" href="#nav-experience" role="tab" aria-controls="nav-experience" aria-selected="false" th:text="#{experience}"></a>
-          <a class="o-tabs-group--item tab" id="nav-meeting-tab" data-toggle="tab" href="#nav-meeting" role="tab" aria-controls="nav-meeting" aria-selected="false" th:text="#{meeting}"></a>
-          <a class="o-tabs-group--item tab" id="nav-offer-tab" data-toggle="tab" href="#nav-offer" role="tab" aria-controls="nav-offer" aria-selected="false" th:text="#{offer}"></a>
-          <a class="o-tabs-group--item tab" id="nav-history-tab" data-toggle="tab" href="#nav-history" role="tab" aria-controls="nav-history" aria-selected="false" th:text="#{history}"></a>
+          <a th:each="pane, stat: ${panes}" class="o-tabs-group--item tab" th:classappend="${stat.index==0} ? 'active'" th:id="'nav-' + ${pane} + '-tab'" data-toggle="tab" th:href="'#nav-' + ${pane}" role="tab" th:aria-controls="'nav-' + ${pane}" th:aria-selected="${stat.index==0} ? 'true' : 'false'" th:text="#{${pane}}"></a>
         </div>
         <div class="o-tabs-group--mobile ml-auto">
           <a href="#" class="fa-icon" data-toggle="previous"><i class="fas fa-chevron-left fa-2x"></i></a>

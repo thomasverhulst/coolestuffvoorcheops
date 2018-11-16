@@ -202,8 +202,8 @@
     TabHandler: function(e) {
       e.preventDefault();
       this.MovePane($(e.currentTarget).attr('href'));
-      this.active.removeClass('show active');
-      this.active = $(e.currentTarget).addClass('show active');
+      this.active.removeClass('show active').attr('aria-selected', false);
+      this.active = $(e.currentTarget).addClass('show active').attr('aria-selected', true);
     },
     MoveTab: function(position) {
       this.active.removeClass('active');

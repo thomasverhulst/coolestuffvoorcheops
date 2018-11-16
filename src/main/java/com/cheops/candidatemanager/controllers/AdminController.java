@@ -2,7 +2,6 @@ package com.cheops.candidatemanager.controllers;
 
 import com.cheops.candidatemanager.exceptions.UserAlreadyExistException;
 import com.cheops.candidatemanager.exceptions.UserDoesNotExistException;
-import com.cheops.candidatemanager.models.Role;
 import com.cheops.candidatemanager.models.User;
 import com.cheops.candidatemanager.services.impl.CustomUserDetailsService;
 import com.cheops.candidatemanager.services.impl.RoleService;
@@ -15,8 +14,6 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import javax.validation.Valid;
-import java.util.List;
 import java.util.Locale;
 
 @Controller
@@ -54,7 +51,7 @@ public class AdminController {
       User newUser = customUserDetailsService.addUser(user);
       redirectAttributes.addFlashAttribute("formSuccessMessage", messageSource.getMessage("user.added", new Object[]{newUser.getName(), newUser.getLastName()}, locale));
     } catch (final UserAlreadyExistException e) {
-      redirectAttributes.addFlashAttribute("formErrorMessage", messageSource.getMessage("user.alreadyExists", new Object[]{user.getUsername()}, locale));
+      redirectAttributes.addFlashAttribute("formErrorMessage", e.getMessage());
     }
 
     return "redirect:/admin";
@@ -63,7 +60,7 @@ public class AdminController {
   @GetMapping("/admin/user-delete/{userId}")
   public String deleteUser(Locale locale, @PathVariable("userId") User user, RedirectAttributes redirectAttributes) {
     if (user == null) {
-      redirectAttributes.addFlashAttribute("errorMessage", messageSource.getMessage("user.doesNotExists", null, locale));
+      redirectAttributes.addFlashAttribute("errorMessage", messageSource.getMessage("user.doesNotExist", null, locale));
       return "redirect:/admin";
     }
 
@@ -71,7 +68,7 @@ public class AdminController {
       customUserDetailsService.deleteUser(user);
       redirectAttributes.addFlashAttribute("successMessage", messageSource.getMessage("user.deleted", new Object[]{user.getUsername()}, locale));
     } catch (final UserDoesNotExistException e) {
-      redirectAttributes.addFlashAttribute("errorMessage", messageSource.getMessage("user.doesNotExists", null, locale));
+      redirectAttributes.addFlashAttribute("errorMessage", e.getMessage());
     }
 
     return "redirect:/admin";
@@ -80,7 +77,7 @@ public class AdminController {
   @GetMapping("/admin/user-edit/{userId}")
   public String editUserView(Locale locale, Model model, @PathVariable("userId") User user, RedirectAttributes redirectAttributes) {
     if (user == null) {
-      redirectAttributes.addFlashAttribute("errorMessage", messageSource.getMessage("user.doesNotExists", null, locale));
+      redirectAttributes.addFlashAttribute("errorMessage", messageSource.getMessage("user.doesNotExist", null, locale));
       return "redirect:/admin";
     }
 
@@ -103,7 +100,7 @@ public class AdminController {
       customUserDetailsService.saveUser(user);
       redirectAttributes.addFlashAttribute("successMessage", messageSource.getMessage("user.edited", new Object[]{user.getUsername()}, locale));
     } catch (final UserDoesNotExistException e) {
-      redirectAttributes.addFlashAttribute("errorMessage", messageSource.getMessage("user.doesNotExists", null, locale));
+      redirectAttributes.addFlashAttribute("errorMessage", e.getMessage());
     }
 
     return "redirect:/admin";

@@ -55,6 +55,9 @@ public class WebMvcConfiguration implements WebMvcConfigurer {
     registry.addViewController("/403").setViewName("base/403");
     registry.addRedirectViewController("/admin/user-edit", "/admin");
     registry.addRedirectViewController("/admin/user-delete", "/admin");
+    registry.addRedirectViewController("/candidate-view", "/search");
+    registry.addRedirectViewController("/candidate-edit", "/search");
+    registry.addRedirectViewController("/candidate-delete", "/search");
   }
 
 }
