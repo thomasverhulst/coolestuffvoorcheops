@@ -22,6 +22,8 @@ import org.thymeleaf.util.StringUtils;
 import com.cheops.candidatemanager.models.CandaidateSearchModel;
 import com.cheops.candidatemanager.models.Candidate;
 import com.cheops.candidatemanager.models.CandidateSearchResolver;
+import com.cheops.candidatemanager.models.Meeting;
+import com.cheops.candidatemanager.models.NewCandidate;
 import com.cheops.candidatemanager.models.SalaryPackage;
 import com.cheops.candidatemanager.models.Search;
 import com.cheops.candidatemanager.models.Skills;
@@ -133,7 +135,7 @@ public class SearchController {
 	}
 
 	@PostMapping(value = "/searchInAllCandidates")
-	public String searchInAllCandidates(@ModelAttribute("search") Search search, ModelMap modelMap,
+	public String searchInAllCandidates(@ModelAttribute("search") Search search ,@ModelAttribute("experience") ExperienceWrapper experience, ModelMap modelMap,
 			HttpSession session) {
 		List<CandidateSearchResolver> candidates = new ArrayList<CandidateSearchResolver>();
 		// moet dit naar een service?
@@ -149,6 +151,72 @@ public class SearchController {
 			// add frontenders if asked
 			candidates.addAll(candidateservice.findAllFrontend());
 		}
+//		if (search.isEmployed()) {
+//			// search only in recruited candiates
+//			List<Integer> applicationProcessIdList = candidates.stream()
+//					.map(c -> c.getCandidate().getApplicationProcessId()).collect(Collectors.toList());
+//			candidates.clear(); // lijst candidaten
+//			candidates.addAll(candidateservice.findAllRecruitedIn(applicationProcessIdList));
+//		}
+		
+		// get list with skillIds
+		List<Integer> skillsIdList = new ArrayList<Integer>();
+		// if already candidates added from code above
+		if (!candidates.isEmpty()) {
+			 skillsIdList = candidates.stream()
+					.map(c -> c.getCandidate().getSkillsId()).collect(Collectors.toList());
+			System.out.println("lengte"+ skillsIdList.size());
+		}else {
+			 List<Skills> l=(List<Skills>) skillsService.findAllSkills();
+					 
+					 skillsIdList= l.stream().map(Skills::getId)
+						.collect(Collectors.toList());
+			 
+		}
+		
+		
+		
+		
+		//List <CandidateSearchResolver> candidates = new ArrayList<CandidateSearchResolver>();
+		if (experience.getExperienceIntervals() != null) {
+			System.out.println("experience"+experience.getExperienceIntervals());
+			if (experience.getExperienceIntervals().toString().contains("2")) {
+				List<Integer>skillsIdsToKeep =skillsService.findAllByExperienceLessThan(3);
+				System.out.println("lengte"+ skillsIdsToKeep.size());
+
+				skillsIdList.retainAll( skillsIdsToKeep );
+				System.out.println("lengte"+ skillsIdList.size());
+				candidates.clear();
+				candidates.addAll(candidateservice.findAllBySkillsId(skillsIdList));
+				
+			}else if(experience.getExperienceIntervals().toString().contains(" - ")){
+				
+				List<Integer>skillsIdsToKeep =skillsService.findAllByExperienceGreaterThanAndExperienceLessThan(2,6);
+				System.out.println("lengte"+ skillsIdsToKeep.size());
+
+				skillsIdList.retainAll( skillsIdsToKeep );
+				System.out.println("lengte"+ skillsIdList.size());
+				candidates.clear();
+				candidates.addAll(candidateservice.findAllBySkillsId(skillsIdList));
+				
+				
+				//candidates.addAll(candidateservice.findAllByExperienceGreaterThanAndExperienceLessThan(2,6));
+			}else if(experience.getExperienceIntervals().toString().contains("> 5")){
+				System.out.println("we zijn hier");
+				List<Integer>skillsIdsToKeep =skillsService.findAllByExperienceGreaterThan(5);
+				System.out.println("lengte"+ skillsIdsToKeep.size());
+
+				skillsIdList.retainAll( skillsIdsToKeep );
+				System.out.println("lengte"+ skillsIdList.size());
+				candidates.clear();
+				candidates.addAll(candidateservice.findAllBySkillsId(skillsIdList));
+				//candidates.addAll(candidateservice.findAllByExperienceGreaterThan(5));
+			}
+			
+			
+			
+		}
+		
 		if (search.isEmployed()) {
 			// search only in recruited candiates
 			List<Integer> applicationProcessIdList = candidates.stream()
@@ -156,21 +224,21 @@ public class SearchController {
 			candidates.clear(); // lijst candidaten
 			candidates.addAll(candidateservice.findAllRecruitedIn(applicationProcessIdList));
 		}
-		if (search.getExperience() != 0) {
-			// TODO: filter te bouwen
-			// moet hier nog 1 worden afgetrokken omdate enkel groter dan gezocht wordt?
-			// COMBINATIE GREATER THAN EN in
-			List<CandidateSearchResolver> filterdByExperience = candidateservice
-					.findByExperienceGreaterThan(search.getExperience(), candidates);
-			candidates = filterdByExperience;
-		}
+		
+		
+		
+		
+		
+//		if (search.getExperience() != 0) {
+//			// TODO: filter te bouwen
+//			// moet hier nog 1 worden afgetrokken omdate enkel groter dan gezocht wordt?
+//			// COMBINATIE GREATER THAN EN in
+//			List<CandidateSearchResolver> filterdByExperience = candidateservice
+//					.findByExperienceGreaterThan(search.getExperience(), candidates);
+//			candidates = filterdByExperience;
+//		}
 		return goToResultpage(modelMap, candidates, session);
 	}
-
-	
-	
-	
-	
 	
 	@GetMapping(value = "/searchAllCandidatesWithLocation")
 	public String searchAllCandidatesWithLocation(ModelMap modelMap, @ModelAttribute("locations") CitieListWrapper locations, HttpSession session) {
@@ -182,8 +250,7 @@ public class SearchController {
 		
 		return goToResultpage(modelMap, candidates, session);
 	}
-	
-		
+			
 	@GetMapping(value = "/searchAllCandidatesWithExperience")
 	public String searchAllCandidatesWithExperience(ModelMap modelMap, @ModelAttribute("experience") ExperienceWrapper experience, HttpSession session) {
 		
@@ -193,9 +260,9 @@ public class SearchController {
 			if (experience.getExperienceIntervals().toString().contains("2")) {
 				candidates =candidateservice.findAllByExperienceLessThan(3);
 				
-			}else if(experience.getExperienceIntervals().toString().contains("-")){
+			}else if(experience.getExperienceIntervals().toString().contains("- 5")){
 				candidates =candidateservice.findAllByExperienceGreaterThanAndExperienceLessThan(2,6);
-			}else {
+			}else if(experience.getExperienceIntervals().toString().contains("> 5")) {
 				candidates =candidateservice.findAllByExperienceGreaterThan(5);
 			}
 			
@@ -203,10 +270,6 @@ public class SearchController {
 		
 		return goToResultpage(modelMap, candidates, session);
 	}
-	
-	
-	
-	
 	
 	@PostMapping(value = "/searchAllRecruitedCandidates")
 	public String searchAllRecruitedCandidates(ModelMap modelMap, HttpSession session) {
@@ -256,8 +319,11 @@ public class SearchController {
 		// adding results to session for return buttons
 		session.setAttribute("candidateResults", candidates);
 		// session.getAttribute("candidateResults")
+		//Search search = new Search();
+		modelMap.addAttribute("search", new Search());
 		ExperienceWrapper experienceWrapper = new ExperienceWrapper();
 		CitieListWrapper citieWrapper = new CitieListWrapper();
+		modelMap.addAttribute("candidate", new NewCandidate());
 		modelMap.addAttribute("experience", experienceWrapper);
 		modelMap.addAttribute("locations", citieWrapper);
 		modelMap.addAttribute("candidates", candidates);
@@ -265,9 +331,13 @@ public class SearchController {
 		return "searchcandidateresult";
 	}
 	//////////////////////////////////////////dftg//searchAllCandidatesWithoutActiveApplicationProcess
-	@GetMapping(value = "/toSearchPage")
+	@RequestMapping(value = "/toSearchPage")
 	public String toSearchPage(ModelMap modelMap, HttpSession session) {
 
+		modelMap.addAttribute("candidate", new NewCandidate());
+		modelMap.addAttribute("search", new Search());
+		modelMap.addAttribute("experience", new ExperienceWrapper());
+		modelMap.addAttribute("locations", new CitieListWrapper());
 		List<Candidate> candidateList = (List<Candidate>) session.getAttribute("candidateResults");
 		modelMap.addAttribute("candidates", candidateList);
 		return "searchcandidateresult";

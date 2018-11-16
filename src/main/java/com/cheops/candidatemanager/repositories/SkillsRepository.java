@@ -22,5 +22,13 @@ public interface SkillsRepository extends CrudRepository<Skills, Integer> {
 
 	Collection<? extends Skills> findAllByExperienceGreaterThanAndExperienceLessThan(int i, int j);
 
+	//List< Skills> findAllByExperienceLessThanAndIn(int i, List<Skills> skills);
+
+	List<Skills> findAllByIdIn(List<Integer> skillsIdList);
+
+	//List<Integer> findAllById();
+
+	//Collection<? extends Skills> findAllByExperienceLessThanIn(int i, List<Skills> skills);
+
 
 }

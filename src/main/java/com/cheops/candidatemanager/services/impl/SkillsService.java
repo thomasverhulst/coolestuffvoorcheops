@@ -129,5 +129,41 @@ public class SkillsService implements ISkillService {
 		skills.addAll(skillsRepository.findAllByExperienceGreaterThan( i));
 		return skills.stream().map(Skills::getId).collect(Collectors.toList());
 	}
+	
+	
+	
+//	public List<Integer> findAllByExperienceLessThanIn(int i, List<Integer> skillId) {
+//
+//		List<Skills> skills = (List<Skills>) skillsRepository.findAllById(skillId);
+//		skills.addAll(skillsRepository.findAllByExperienceLessThanAndIn(i,skills));
+//		return skills.stream().map(Skills::getId).collect(Collectors.toList());
+//		
+//		
+////		ArrayList<Skills> skillsList = (ArrayList<Skills>) skillsRepository.findAllById(skillId);
+////		Iterator<Skills> i = skillsList.iterator();
+////		while (i.hasNext()) {
+////			Skills s = i.next();
+////			if (s.getExperience() < minimumExperience) {
+////				i.remove();
+////			}
+////		}
+////
+////		return skillsList.stream().map(Skills::getId).collect(Collectors.toList());
+//
+//	}
+
+	public List<Skills> findAllSkillsById(List<Integer> skillsIdList) {
+		return skillsRepository.findAllByIdIn(skillsIdList);
+		
+	}
+
+	public Iterable<Skills> findAllSkills() {
+		return skillsRepository.findAll();
+	}
+
+//	public List<Integer> findAllByExperienceLessThanIn(int i, List<Skills> findAllSkillsById) {
+//		// TODO Auto-generated method stub
+//		return null;
+//	}
 
 }

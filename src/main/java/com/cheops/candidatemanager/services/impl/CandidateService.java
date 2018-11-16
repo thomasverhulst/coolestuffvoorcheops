@@ -415,6 +415,18 @@ public class CandidateService implements ICandidateService {
 		return fillExpertiseAndStatus(candidates);
 	}
 
+//	public Collection<? extends CandidateSearchResolver> findAllByExperienceLessThanIn(int i,
+//			List<Skills> findAllSkillsById) {
+//		List<Integer> skillsIds= skillsService.findAllByExperienceLessThanIn( i,findAllSkillsById);
+//		List<Candidate> candidates = candidateRepository.findAllBySkillsIdIn(skillsIds);	
+//		return fillExpertiseAndStatus(candidates);
+//	}
+
+	public Collection<CandidateSearchResolver> findAllBySkillsId(List<Integer> skillsIds) {
+		List<Candidate> candidates = candidateRepository.findAllBySkillsIdIn(skillsIds);	
+		return fillExpertiseAndStatus(candidates);
+	}
+
 	
 
 }
