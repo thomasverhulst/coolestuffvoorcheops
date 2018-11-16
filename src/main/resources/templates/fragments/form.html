@@ -124,16 +124,18 @@
                 <input th:field="*{currentSalaryPackage.dailyAllowance}" type="number" id="dailyallowance" name="dailyallowance" class="form-control a-form-input-text">
               </div>
               <div class="col-md-6 form-group m-form-group">
-                <label for="mealvouchers" class="a-form-label" th:text="#{salary.mealvouchers}"></label>
+                <label for="mealvouchers" class="a-form-label" th:utext="#{salary.mealvouchers}"></label>
                 <input th:field="*{currentSalaryPackage.mealVouchers}" type="number" id="mealvouchers" name="mealvouchers" class="form-control a-form-input-text">
               </div>
             </div>
             <div class="row">
               <div class="col-md-6 form-group m-form-group">
-                <input type="checkbox" th:field="*{currentSalaryPackage.hospitalization}" th:checked="${active} ? 'checked'" name="hospitalization" id="hospitalization" class="form-control a-form-checkbox"><label for="hospitalization" th:text="#{salary.hospitalization}"></label>
+                <input type="checkbox" th:field="*{currentSalaryPackage.hospitalization}" th:checked="${active} ? 'checked'" name="hospitalization" id="hospitalization" class="form-control a-form-checkbox">
+                <label for="hospitalization" th:text="#{salary.hospitalization}"></label>
               </div>
               <div class="col-md-6 form-group m-form-group">
-                <input type="checkbox" th:field="*{currentSalaryPackage.groupInsurance}" th:checked="${active} ? 'checked'" name="groupinsurance" id="groupinsurance" class="form-control a-form-checkbox"><label for="groupinsurance" th:text="#{salary.groupinsurance}"></label>
+                <input type="checkbox" th:field="*{currentSalaryPackage.groupInsurance}" th:checked="${active} ? 'checked'" name="groupinsurance" id="groupinsurance" class="form-control a-form-checkbox">
+                <label for="groupinsurance" th:text="#{salary.groupinsurance}"></label>
               </div>
             </div>
           </div>
@@ -211,12 +213,32 @@
                 </div>
                 <div class="row">
                   <div class="col-md-6 form-group m-form-group">
-                    <label th:for="|candidate.proposedSalaryPackages[__${stat.index}__].grossSalary|" class="a-form-label" th:text="#{salary.grosssalary}"></label>
-                    <input th:field="${candidate.proposedSalaryPackages[__${stat.index}__].grossSalary}" type="number" name="proposal_grosssalary" class="form-control a-form-input-text">
+                    <label th:for="'proposal_grosssalary_' + ${stat.index}" class="a-form-label" th:text="#{salary.grosssalary}"></label>
+                    <input th:field="${candidate.proposedSalaryPackages[__${stat.index}__].grossSalary}" type="number" name="proposal_grosssalary" th:id="'proposal_grosssalary_' + ${stat.index}" class="form-control a-form-input-text">
                   </div>
                   <div class="col-md-6 form-group m-form-group">
-                    <label th:for="|candidate.proposedSalaryPackages[__${stat.index}__].car|" class="a-form-label" th:text="#{salary.car}"></label>
-                    <input th:field="${candidate.proposedSalaryPackages[__${stat.index}__].car}" type="number" name="proposal_car" class="form-control a-form-input-text">
+                    <label th:for="'proposal_car_' + ${stat.index}" class="a-form-label" th:text="#{salary.car}"></label>
+                    <input th:field="${candidate.proposedSalaryPackages[__${stat.index}__].car}" type="text" name="proposal_car" th:id="'proposal_car_' + ${stat.index}" class="form-control a-form-input-text">
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6 form-group m-form-group">
+                    <label th:for="'proposal_dailyallowance_' + ${stat.index}" class="a-form-label" th:text="#{salary.dailyallowance}"></label>
+                    <input th:field="${candidate.proposedSalaryPackages[__${stat.index}__].dailyAllowance}" type="number" name="proposal_dailyallowance" th:id="'proposal_dailyallowance_' + ${stat.index}" class="form-control a-form-input-text">
+                  </div>
+                  <div class="col-md-6 form-group m-form-group">
+                    <label th:for="'proposal_mealvouchers_' + ${stat.index}" class="a-form-label" th:text="#{salary.mealvouchers}"></label>
+                    <input th:field="${candidate.proposedSalaryPackages[__${stat.index}__].mealVouchers}" type="number" name="proposal_mealVouchers" th:id="'proposal_mealvouchers_' + ${stat.index}" class="form-control a-form-input-text">
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6 form-group m-form-group">
+                    <input th:field="${candidate.proposedSalaryPackages[__${stat.index}__].hospitalization}" th:checked="${active} ? 'checked'" type="checkbox" name="proposal_hospitalization" th:id="'proposal_hospitalization_' + ${stat.index}" class="form-control a-form-checkbox">
+                    <label th:for="'proposal_hospitalization_' + ${stat.index}" th:text="#{salary.hospitalization}"></label>
+                  </div>
+                  <div class="col-md-6 form-group m-form-group">
+                    <input th:field="${candidate.proposedSalaryPackages[__${stat.index}__].groupInsurance}" th:checked="${active} ? 'checked'" type="checkbox" name="proposal_groupinsurance" th:id="'proposal_groupinsurance_' + ${stat.index}" class="form-control a-form-checkbox">
+                    <label th:for="'proposal_groupinsurance_' + ${stat.index}" th:text="#{salary.groupinsurance}"></label>
                   </div>
                 </div>
               </div>
@@ -241,51 +263,3 @@
     </div>
   </form>
 </body>
-
-<!--<div class="row" th:each="proposal, stat : *{proposedSalaryPackages}">-->
-<!--<div class="col-md-6 form-group m-form-group">-->
-<!--<label for="proposal_grosssalary" class="a-form-label" th:text="#{salary.grosssalary}"></label>-->
-<!--<input th:field="*{proposedSalaryPackages[__${stat.index}__].grossSalary}" type="number" id="proposal_grosssalary" name="proposal_grosssalary" class="form-control a-form-input-text">-->
-<!--</div>-->
-<!--</div>-->
-
-
-<!--<div th:text="${#lists.size(proposedSalaryPackage)}">[Engine Size]</div>-->
-<!--<div th:each="proposal, stat : *{proposedSalaryPackage}">-->
-<!--<div class="row">-->
-<!--<div class="col-md-6 form-group m-form-group">-->
-<!--<label for="proposal_grosssalary" class="a-form-label" th:text="#{salary.grosssalary}"></label>-->
-<!--<input th:field="${candidate.proposedSalaryPackage[__${stat.index}__].grossSalary}" type="number" id="proposal_grosssalary" name="proposal_grosssalary" class="form-control a-form-input-text">-->
-<!--</div>-->
-<!--<div class="col-md-6 form-group m-form-group">-->
-<!--<label th:for="|proposedSalaryPackage[${stat.index}].grossSalary|" class="a-form-label" th:text="#{salary.grosssalary}"></label>-->
-<!--<input th:field="*{proposedSalaryPackage[__${stat.index}__].grossSalary}" type="number" name="proposal_grosssalary" class="form-control a-form-input-text">-->
-<!--</div>-->
-
-<!--<input th:field="*{grossSalary}">-->
-
-
-<!--<div class="col-md-6 form-group m-form-group">-->
-<!--<label for="proposal_car" class="a-form-label" th:text="#{salary.car}"></label>-->
-<!--<input th:field="${candidate.proposedSalaryPackage[__${stat.index}__].car}" type="text" id="proposal_car" name="proposal_car" class="form-control a-form-input-text">-->
-<!--</div>-->
-<!--</div>-->
-<!--<div class="row">-->
-<!--<div class="col-md-6 form-group m-form-group">-->
-<!--<label for="proposal_dailyallowance" class="a-form-label" th:text="#{salary.dailyallowance}"></label>-->
-<!--<input th:field="${candidate.proposedSalaryPackage[__${stat.index}__].dailyAllowance}" type="number" id="proposal_dailyallowance" name="proposal_dailyallowance" class="form-control a-form-input-text">-->
-<!--</div>-->
-<!--<div class="col-md-6 form-group m-form-group">-->
-<!--<label for="proposal_mealvouchers" class="a-form-label" th:text="#{salary.mealvouchers}"></label>-->
-<!--<input th:field="${candidate.proposedSalaryPackage[__${stat.index}__].mealVouchers}" type="number" id="proposal_mealvouchers" name="proposal_mealvouchers" class="form-control a-form-input-text">-->
-<!--</div>-->
-<!--</div>-->
-<!--<div class="row">-->
-<!--<div class="col-md-6 form-group m-form-group">-->
-<!--<input type="checkbox" th:field="${candidate.proposedSalaryPackage[__${stat.index}__].hospitalization}" th:checked="${active} ? 'checked'" name="proposal_hospitalization" id="proposal_hospitalization" class="form-control a-form-checkbox"><label for="proposal_hospitalization" th:text="#{salary.hospitalization}"></label>-->
-<!--</div>-->
-<!--<div class="col-md-6 form-group m-form-group">-->
-<!--<input type="checkbox" th:field="${candidate.proposedSalaryPackage[__${stat.index}__].groupInsurance}" th:checked="${active} ? 'checked'" name="proposal_groupinsurance" id="proposal_groupinsurance" class="form-control a-form-checkbox"><label for="proposal_groupinsurance" th:text="#{salary.groupinsurance}"></label>-->
-<!--</div>-->
-<!--</div>-->
-<!--</div>-->
