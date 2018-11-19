@@ -13,6 +13,8 @@ public class Search {
 	private boolean java;
 	private boolean dotnet;
 	private int experience;
+	private String name;
+	private String sirName;
 
 	public Search() {
 
@@ -74,5 +76,22 @@ public class Search {
 	public void setExperience(int experience) {
 		this.experience = experience;
 	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getSirName() {
+		return sirName;
+	}
+
+	public void setSirName(String sirName) {
+		this.sirName = sirName;
+	}
+	
 
 }

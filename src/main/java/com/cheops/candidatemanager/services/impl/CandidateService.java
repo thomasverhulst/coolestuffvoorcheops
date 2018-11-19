@@ -427,6 +427,12 @@ public class CandidateService implements ICandidateService {
 		return fillExpertiseAndStatus(candidates);
 	}
 
+	public List<CandidateSearchResolver> findAllByIdIn(List<Integer> candidateIdList2) {
+		// TODO Auto-generated method stub
+		List<Candidate> l=candidateRepository.findAllByIdIn(candidateIdList2);
+		return fillExpertiseAndStatus(l);
+	}
+
 	
 
 }
