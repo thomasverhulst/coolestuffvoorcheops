@@ -36,7 +36,7 @@ h5 {
 a {
   @include transition($btn-transition);
 
-  &:not(.icon):not(.fa-icon):not(.btn):not(.tab) {
+  &:not(.icon):not(.fa-icon):not(.btn):not(.tab):not(.no-border) {
     display: inline-block;
     border-bottom: 1px solid transparent;
 

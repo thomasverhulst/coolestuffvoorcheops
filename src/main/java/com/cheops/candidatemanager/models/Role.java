@@ -19,7 +19,8 @@ public class Role {
 	@Column(name = "role")
 	private String role;
 
-	public Role() { }
+	public Role() {
+	}
 
 	public Role(Integer id, String role) {
 		super();

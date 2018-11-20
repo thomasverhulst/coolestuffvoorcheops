@@ -3,6 +3,7 @@ package com.cheops.candidatemanager.services.impl;
 import com.cheops.candidatemanager.configuration.FileStorageProperties;
 import com.cheops.candidatemanager.exceptions.FileStorageException;
 import com.cheops.candidatemanager.exceptions.MyFileNotFoundException;
+import com.cheops.candidatemanager.services.IFileStorageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.context.i18n.LocaleContextHolder;
@@ -23,7 +24,7 @@ import java.util.Date;
 import java.util.Locale;
 
 @Service
-public class FileStorageService {
+public class FileStorageService implements IFileStorageService {
 
   private final Path fileStorageLocationCv;
   private final Path fileStorageLocationFeedback;
@@ -47,6 +48,7 @@ public class FileStorageService {
     }
   }
 
+  @Override
   public String storeCV(MultipartFile file) {
     String fileName = StringUtils.cleanPath(file.getOriginalFilename());
 
@@ -66,6 +68,7 @@ public class FileStorageService {
     }
   }
 
+  @Override
   public Resource loadCvAsResource(String fileName) {
     try {
       Path filePath = this.fileStorageLocationCv.resolve(fileName).normalize();
@@ -80,6 +83,7 @@ public class FileStorageService {
     }
   }
 
+  @Override
   public void deleteCv(String file) {
     try {
       Path filePath = this.fileStorageLocationCv.resolve(file).normalize();
@@ -96,6 +100,7 @@ public class FileStorageService {
     }
   }
 
+  @Override
   public void checkFileExtentsion(MultipartFile file) {
     String fileName = file.getOriginalFilename();
     int lastIndex = fileName != null ? fileName.lastIndexOf('.') : 0;

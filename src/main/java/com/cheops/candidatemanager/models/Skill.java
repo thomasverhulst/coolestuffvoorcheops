@@ -2,6 +2,7 @@ package com.cheops.candidatemanager.models;
 
 import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 @Entity
@@ -33,6 +34,9 @@ public class Skill {
 
   @Column(name = "extra")
   private String extra;
+
+  @Transient
+  List<String> locationNames = Arrays.asList("Buenos Aires", "Córdoba", "La Plata");
 
 	public Skill() {
 	}
@@ -110,6 +114,14 @@ public class Skill {
 
   public void setExtra(String extra) {
     this.extra = extra;
+  }
+
+  public List<String> getLocationNames() {
+    return locationNames;
+  }
+
+  public void setLocationNames(List<String> locationNames) {
+    this.locationNames = locationNames;
   }
 
   public void addSkillTechnology(SkillTechnology skillTechnology) {

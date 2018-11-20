@@ -1,235 +1,294 @@
-//package com.cheops.candidatemanager.models;
-//
-//import java.io.Serializable;
-//import java.sql.Timestamp;
-//import java.util.Date;
-//
-//import javax.persistence.Column;
-//import javax.persistence.Entity;
-//import javax.persistence.GeneratedValue;
-//import javax.persistence.GenerationType;
-//import javax.persistence.Id;
-//import javax.persistence.Table;
-//import javax.persistence.Transient;
-//
-//import org.springframework.format.annotation.DateTimeFormat;
-//import org.springframework.web.multipart.MultipartFile;
-//
-//@Entity
-//@Table(name = "candidate")
-//public class Candidate implements Serializable {
-//
-//	/**
-//	 *
-//	 */
-//	private static final long serialVersionUID = 1L;
-//
-//	@Id
-//	@Column(name = "idcandidate")
-//	@GeneratedValue(strategy = GenerationType.AUTO)
-//	private Integer id;
-//
-//	@Column(name = "name")
-//	private String name;
-//
-//	@Column(name = "sirname")
-//	private String sirName;
-//
-//	@Column(name = "email")
-//	private String email;
-//
-//	// This is "org.springframework.format.annotation.DateTimeFormat"
-//	@DateTimeFormat(pattern = "yyyy-MM-dd")
-//	@Column(name = "birthdate")
-//	private Date birthdate;
-//
-//	@Column(name = "phonenumber")
-//	private String phoneNumber;
-//
-//	@Column(name = "celphonenumber")
-//	private String celphoneNumber;
-//
-//	@Column(name = "cvlink")
-//	private String cvLink;
-//
-//	@Column(name = "gender")
-//	private String gender;
-//
-//	@Transient
-//	private MultipartFile file;
-//
-//	@Column(name = "contactChannel")
-//	private String contactChannel;
-//
-//	@Column(name = "isaddedtimestamp")
-//	private Timestamp isAddedTimeStamp;
-//	// ids
-//	@Column(name = "currentsallarypackageId")
-//	private int currentSallaryPackageId;
-//
-//	@Column(name = "proposedsallarypackageId")
-//	private int proposedSallaryPackageId;
-//
-//	@Column(name = "skillsId")
-//	private int skillsId;
-//
-//	@Column(name = "addressId")
-//	private int addressId;
-//
-//	@Column(name = "applicationprocessId")
-//	private int applicationProcessId;
-//
-//	public Candidate() {
-//
-//	}
-//
-//	public Candidate(String name, String sirName, String email, Date birthdate, String phoneNumber,
-//			String celphoneNumber, String cvLink, String gender) {
-//		super();
-//		this.name = name;
-//		this.sirName = sirName;
-//		this.email = email;
-//		this.birthdate = birthdate;
-//		this.phoneNumber = phoneNumber;
-//		this.celphoneNumber = celphoneNumber;
-//		this.cvLink = cvLink;
-//		this.gender = gender;
-//	}
-//
-//	public String getName() {
-//		return name;
-//	}
-//
-//	public void setName(String name) {
-//		this.name = name;
-//	}
-//
-//	public String getSirName() {
-//		return sirName;
-//	}
-//
-//	public void setSirName(String sirName) {
-//		this.sirName = sirName;
-//	}
-//
-//	public String getEmail() {
-//		return email;
-//	}
-//
-//	public void setEmail(String email) {
-//		this.email = email;
-//	}
-//
-//	public Date getBirthdate() {
-//		return birthdate;
-//	}
-//
-//	public void setBirthdate(Date birthday) {
-//		this.birthdate = birthday;
-//	}
-//
-//	public String getPhoneNumber() {
-//		return phoneNumber;
-//	}
-//
-//	public void setPhoneNumber(String phoneNumber) {
-//		this.phoneNumber = phoneNumber;
-//	}
-//
-//	public String getCelphoneNumber() {
-//		return celphoneNumber;
-//	}
-//
-//	public void setCelphoneNumber(String celphoneNumber) {
-//		this.celphoneNumber = celphoneNumber;
-//	}
-//
-//	public String getCvLink() {
-//		return cvLink;
-//	}
-//
-//	public void setCvLink(String cvLink) {
-//		this.cvLink = cvLink;
-//	}
-//
-//	public String getGender() {
-//		return gender;
-//	}
-//
-//	public void setGender(String sex) {
-//		this.gender = sex;
-//	}
-//
-//	public String getContactChannel() {
-//		return contactChannel;
-//	}
-//
-//	public void setContactChannel(String contactChannel) {
-//		this.contactChannel = contactChannel;
-//	}
-//
-//	public MultipartFile getFile() {
-//		return file;
-//	}
-//
-//	public void setFile(MultipartFile file) {
-//		this.file = file;
-//	}
-//
-//	public Integer getId() {
-//		return id;
-//	}
-//
-//	public Integer getAddressId() {
-//		return addressId;
-//	}
-//
-//	public int getCurrentSallaryPackageId() {
-//		return currentSallaryPackageId;
-//	}
-//
-//	public void setCurrentSallaryPackageId(int currentSallaryPackageId) {
-//		this.currentSallaryPackageId = currentSallaryPackageId;
-//	}
-//
-//	public int getProposedSallaryPackageId() {
-//		return proposedSallaryPackageId;
-//	}
-//
-//	public void setProposedSallaryPackageId(int proposedSallaryPackageId) {
-//		this.proposedSallaryPackageId = proposedSallaryPackageId;
-//	}
-//
-//	public int getSkillsId() {
-//		return skillsId;
-//	}
-//
-//	public void setSkillsId(int skillsId) {
-//		this.skillsId = skillsId;
-//	}
-//
-//	public int getApplicationProcessId() {
-//		return applicationProcessId;
-//	}
-//
-//	public void setApplicationProcessId(int applicationProcessId) {
-//		this.applicationProcessId = applicationProcessId;
-//	}
-//
-//	public void setAddressId(int addressId) {
-//		this.addressId = addressId;
-//	}
-//
-//	public void setId(Integer id) {
-//		this.id = id;
-//	}
-//
-//	public Timestamp getIsAddedTimeStamp() {
-//		return isAddedTimeStamp;
-//	}
-//
-//	public void setIsAddedTimeStamp(Timestamp isAddedTimeStamp) {
-//		this.isAddedTimeStamp = isAddedTimeStamp;
-//	}
-//
-//}
+package com.cheops.candidatemanager.models;
+
+import com.cheops.candidatemanager.enums.Gender;
+import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.web.multipart.MultipartFile;
+
+import javax.persistence.*;
+import javax.validation.Valid;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
+import java.io.Serializable;
+import java.sql.Timestamp;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
+@Entity
+@Table(name = "candidate_fe")
+public class Candidate implements Serializable {
+
+	private static final long serialVersionUID = 1L;
+
+	@Id
+	@Column(name = "idcandidate")
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private int id;
+
+	@Column(name = "name")
+  @NotBlank(message = "{name.empty}")
+  @Size(max = 45, message = "{name.size}")
+	private String name;
+
+	@Column(name = "last_name")
+	@Size(max = 45, message = "{last_name.size}")
+	private String lastName;
+
+	@Column(name = "email")
+  @Size(max = 45, message = "{email.size}")
+  @Email(message = "{email.invalid}")
+	private String email;
+
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	@Column(name = "dob")
+	private Date dateOfBirth;
+
+	@Column(name = "phonenumber")
+  @Size(max = 45, message = "{phonenumber.size}")
+	private String phonenumber;
+
+	@Column(name = "cellphonenumber")
+  @Size(max = 45, message = "{cellphone.size}")
+  private String cellphonenumber;
+
+	@Column(name = "cvlink")
+	private String cvLink;
+
+	@Column(name = "gender")
+	@Enumerated(EnumType.STRING)
+	private Gender gender;
+
+	@OneToOne(cascade = CascadeType.ALL)
+  @Valid
+	private SalaryPackage currentSalaryPackage;
+
+  @OneToMany(orphanRemoval = true, cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+  @JoinTable(name = "candidate_proposedsalarypackage", joinColumns = @JoinColumn(name = "candidate_id"), inverseJoinColumns = @JoinColumn(name = "proposedsalarypackage_id"))
+  private List<SalaryPackage> proposedSalaryPackages;
+
+  @OneToOne(cascade = CascadeType.ALL)
+  @Valid
+  private Skill skill;
+
+  @OneToOne(cascade=CascadeType.ALL)
+  @Valid
+  private Address address;
+
+  @OneToOne(cascade = CascadeType.ALL)
+  private ApplicationProcess applicationProcess;
+
+  @Column(name = "contactChannel")
+  @Size(max = 45, message = "{contactchannel.size}")
+  private String contactChannel;
+
+  @Column(name = "isaddedtimestamp")
+  private Timestamp isAddedTimeStamp;
+
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	@JoinTable(name = "candidate_workhistory", joinColumns = @JoinColumn(name = "candidate_id"), inverseJoinColumns = @JoinColumn(name = "workhistory_id"))
+	private List<WorkHistory> workHistory;
+
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	@JoinTable(name = "candidate_meeting", joinColumns = @JoinColumn(name = "candidate_id"), inverseJoinColumns = @JoinColumn(name = "meeting_id"))
+	private List<Meeting> meeting;
+
+	@Transient
+	private MultipartFile file;
+
+	public Candidate(){
+	}
+
+  public Candidate(@NotBlank(message = "{name.empty}") @Size(max = 45, message = "{name.size}") String name, @Size(max = 45, message = "{last_name.size}") String lastName, @Size(max = 45, message = "{email.size}") @Email(message = "{email.invalid}") String email, Date dateOfBirth, @Size(max = 45, message = "{phonenumber.size}") String phonenumber, @Size(max = 45, message = "{cellphone.size}") String cellphonenumber, String cvLink, Gender gender, @Valid SalaryPackage currentSalaryPackage, List<SalaryPackage> proposedSalaryPackages, @Valid Skill skill, @Valid Address address, ApplicationProcess applicationProcess, @Size(max = 45, message = "{contactchannel.size}") String contactChannel, Timestamp isAddedTimeStamp, List<WorkHistory> workHistory, List<Meeting> meeting) {
+    this.name = name;
+    this.lastName = lastName;
+    this.email = email;
+    this.dateOfBirth = dateOfBirth;
+    this.phonenumber = phonenumber;
+    this.cellphonenumber = cellphonenumber;
+    this.cvLink = cvLink;
+    this.gender = gender;
+    this.currentSalaryPackage = currentSalaryPackage;
+    this.proposedSalaryPackages = proposedSalaryPackages;
+    this.skill = skill;
+    this.address = address;
+    this.applicationProcess = applicationProcess;
+    this.contactChannel = contactChannel;
+    this.isAddedTimeStamp = isAddedTimeStamp;
+    this.workHistory = workHistory;
+    this.meeting = meeting;
+  }
+
+  public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getLastName() {
+		return lastName;
+	}
+
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public Date getDateOfBirth() {
+		return dateOfBirth;
+	}
+
+	public void setDateOfBirth(Date dateOfBirth) {
+		this.dateOfBirth = dateOfBirth;
+	}
+
+	public String getPhonenumber() {
+		return phonenumber;
+	}
+
+	public void setPhonenumber(String phonenumber) {
+		this.phonenumber = phonenumber;
+	}
+
+	public String getCellphonenumber() {
+		return cellphonenumber;
+	}
+
+	public void setCellphonenumber(String cellphonenumber) {
+		this.cellphonenumber = cellphonenumber;
+	}
+
+	public String getCvLink() {
+		return cvLink;
+	}
+
+	public void setCvLink(String cvLink) {
+		this.cvLink = cvLink;
+	}
+
+	public Gender getGender() {
+		return gender;
+	}
+
+	public void setGender(Gender gender) {
+		this.gender = gender;
+	}
+
+	public SalaryPackage getCurrentSalaryPackage() {
+		return currentSalaryPackage;
+	}
+
+	public void setCurrentSalaryPackage(SalaryPackage currentSalaryPackage) {
+		this.currentSalaryPackage = currentSalaryPackage;
+	}
+
+  public List<SalaryPackage> getProposedSalaryPackages() {
+    return proposedSalaryPackages;
+  }
+
+  public void setProposedSalaryPackages(List<SalaryPackage> proposedSalaryPackages) {
+    this.proposedSalaryPackages = proposedSalaryPackages;
+  }
+
+  public Skill getSkill() {
+    return skill;
+  }
+
+  public void setSkill(Skill skill) {
+    this.skill = skill;
+  }
+
+  public Address getAddress() {
+    return address;
+  }
+
+  public void setAddress(Address address) {
+    this.address = address;
+  }
+
+  public String getContactChannel() {
+    return contactChannel;
+  }
+
+  public void setContactChannel(String contactChannel) {
+    this.contactChannel = contactChannel;
+  }
+
+  public Timestamp getIsAddedTimeStamp() {
+    return isAddedTimeStamp;
+  }
+
+  public void setIsAddedTimeStamp(Timestamp isAddedTimeStamp) {
+    this.isAddedTimeStamp = isAddedTimeStamp;
+  }
+
+  public MultipartFile getFile() {
+		return file;
+	}
+
+	public void setFile(MultipartFile file) {
+		this.file = file;
+	}
+
+  public List<WorkHistory> getWorkHistory() {
+    return workHistory;
+  }
+
+  public void setWorkHistory(List<WorkHistory> workHistory) {
+    this.workHistory = workHistory;
+  }
+
+  public List<Meeting> getMeeting() {
+    return meeting;
+  }
+
+  public void setMeeting(List<Meeting> meeting) {
+    this.meeting = meeting;
+  }
+
+  public Date getCvDate() {
+	  Date cvDate = null;
+
+    if (cvLink != null && !cvLink.isEmpty()) {
+      try {
+        DateFormat format = new SimpleDateFormat("ddMMyy-hhmmss");
+        Date date = format.parse(cvLink.substring(0, cvLink.indexOf("_")));
+        cvDate = date;
+      } catch (ParseException e) {
+        e.printStackTrace();
+      }
+    }
+
+    return cvDate;
+  }
+
+  public void addProposalSalaryPackage(SalaryPackage salaryPackage) {
+	  if (this.proposedSalaryPackages == null) this.proposedSalaryPackages = new ArrayList<>();
+	  this.proposedSalaryPackages.add(salaryPackage);
+  }
+
+  public void removeProposalSalaryPackage(int index) {
+	  if (this.proposedSalaryPackages != null) this.proposedSalaryPackages.remove(index);
+  }
+
+}

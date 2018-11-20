@@ -3,28 +3,21 @@
 //import java.io.Serializable;
 //import java.sql.Timestamp;
 //import java.util.Date;
-//import java.util.List;
 //
-//import javax.persistence.CascadeType;
 //import javax.persistence.Column;
 //import javax.persistence.Entity;
-//import javax.persistence.FetchType;
 //import javax.persistence.GeneratedValue;
 //import javax.persistence.GenerationType;
 //import javax.persistence.Id;
-//import javax.persistence.JoinColumn;
-//import javax.persistence.JoinTable;
-//import javax.persistence.OneToMany;
-//import javax.persistence.OneToOne;
 //import javax.persistence.Table;
 //import javax.persistence.Transient;
 //
 //import org.springframework.format.annotation.DateTimeFormat;
 //import org.springframework.web.multipart.MultipartFile;
+//
 //@Entity
-////@IdClass(NewCandidate.class)
 //@Table(name = "candidate")
-//public class NewCandidate implements Serializable {
+//public class Candidate implements Serializable {
 //
 //	/**
 //	 *
@@ -45,6 +38,7 @@
 //	@Column(name = "email")
 //	private String email;
 //
+//	// This is "org.springframework.format.annotation.DateTimeFormat"
 //	@DateTimeFormat(pattern = "yyyy-MM-dd")
 //	@Column(name = "birthdate")
 //	private Date birthdate;
@@ -69,32 +63,7 @@
 //
 //	@Column(name = "isaddedtimestamp")
 //	private Timestamp isAddedTimeStamp;
-//
-//	//@Id
-//	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-//	@JoinTable(name = "candidate_currentsallarypackage", joinColumns = @JoinColumn(name = "candidate_id"), inverseJoinColumns = @JoinColumn(name = "currentsallarypackage_id"))
-//	//@Column(name = "currentsallarypackageId")
-//	private List<SalaryPackage> currentSallaryPackage;
-//
-//	//@Id
-//	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-//	@JoinTable(name = "candidate_proposedsallarypackage", joinColumns = @JoinColumn(name = "candidate_id"), inverseJoinColumns = @JoinColumn(name = "proposedsallarypackage_id"))
-//	//@Column(name = "proposedsallarypackageId")
-//	private List<SalaryPackage> proposedSallaryPackage;
-//
-//	//@Id
-//	@OneToOne(cascade = CascadeType.ALL)
-//	private Skill skills;
-//
-//	//@Id
-//	@OneToOne( cascade = CascadeType.ALL)
-//	private Address address;
-//
-//	//@Id
-//	@OneToOne(cascade = CascadeType.ALL)
-//	private ApplicationProcess applicationProcess;
-//
-//	// old colums, still needed for compatibillity candidate and newcandidate
+//	// ids
 //	@Column(name = "currentsallarypackageId")
 //	private int currentSallaryPackageId;
 //
@@ -110,15 +79,13 @@
 //	@Column(name = "applicationprocessId")
 //	private int applicationProcessId;
 //
-//	public NewCandidate(){
+//	public Candidate() {
+//
 //	}
 //
-//	public NewCandidate(Integer id, String name, String sirName, String email, Date birthdate, String phoneNumber,
-//			String celphoneNumber, String cvLink, String gender, MultipartFile file, String contactChannel,
-//			  Skill skills, Address address,
-//			ApplicationProcess applicationProcess) {
+//	public Candidate(String name, String sirName, String email, Date birthdate, String phoneNumber,
+//			String celphoneNumber, String cvLink, String gender) {
 //		super();
-//		this.id = id;
 //		this.name = name;
 //		this.sirName = sirName;
 //		this.email = email;
@@ -127,19 +94,6 @@
 //		this.celphoneNumber = celphoneNumber;
 //		this.cvLink = cvLink;
 //		this.gender = gender;
-//		this.file = file;
-//		this.contactChannel = contactChannel;
-//		this.skills = skills;
-//		this.address = address;
-//		this.applicationProcess = applicationProcess;
-//	}
-//
-//	public Integer getId() {
-//		return id;
-//	}
-//
-//	public void setId(Integer id) {
-//		this.id = id;
 //	}
 //
 //	public String getName() {
@@ -170,8 +124,8 @@
 //		return birthdate;
 //	}
 //
-//	public void setBirthdate(Date birthdate) {
-//		this.birthdate = birthdate;
+//	public void setBirthdate(Date birthday) {
+//		this.birthdate = birthday;
 //	}
 //
 //	public String getPhoneNumber() {
@@ -202,16 +156,8 @@
 //		return gender;
 //	}
 //
-//	public void setGender(String gender) {
-//		this.gender = gender;
-//	}
-//
-//	public MultipartFile getFile() {
-//		return file;
-//	}
-//
-//	public void setFile(MultipartFile file) {
-//		this.file = file;
+//	public void setGender(String sex) {
+//		this.gender = sex;
 //	}
 //
 //	public String getContactChannel() {
@@ -222,44 +168,20 @@
 //		this.contactChannel = contactChannel;
 //	}
 //
-//	public List<SalaryPackage> getCurrentSallaryPackage() {
-//		return currentSallaryPackage;
+//	public MultipartFile getFile() {
+//		return file;
 //	}
 //
-//	public List<SalaryPackage> getProposedSallaryPackage() {
-//		return proposedSallaryPackage;
+//	public void setFile(MultipartFile file) {
+//		this.file = file;
 //	}
 //
-//	public void setProposedSallaryPackage(List<SalaryPackage> proposedSallaryPackage) {
-//		this.proposedSallaryPackage = proposedSallaryPackage;
+//	public Integer getId() {
+//		return id;
 //	}
 //
-//	public void setCurrentSallaryPackage(List<SalaryPackage> currentSallaryPackage) {
-//		this.currentSallaryPackage = currentSallaryPackage;
-//	}
-//
-//	public Skill getSkill() {
-//		return skills;
-//	}
-//
-//	public void setSkill(Skill skills) {
-//		this.skills = skills;
-//	}
-//
-//	public Address getAddress() {
-//		return address;
-//	}
-//
-//	public void setAddress(Address address) {
-//		this.address = address;
-//	}
-//
-//	public ApplicationProcess getApplicationProcess() {
-//		return applicationProcess;
-//	}
-//
-//	public void setApplicationProcess(ApplicationProcess applicationProcess) {
-//		this.applicationProcess = applicationProcess;
+//	public Integer getAddressId() {
+//		return addressId;
 //	}
 //
 //	public int getCurrentSallaryPackageId() {
@@ -286,20 +208,20 @@
 //		this.skillsId = skillsId;
 //	}
 //
-//	public int getAddressId() {
-//		return addressId;
-//	}
-//
-//	public void setAddressId(int addressId) {
-//		this.addressId = addressId;
-//	}
-//
 //	public int getApplicationProcessId() {
 //		return applicationProcessId;
 //	}
 //
 //	public void setApplicationProcessId(int applicationProcessId) {
 //		this.applicationProcessId = applicationProcessId;
+//	}
+//
+//	public void setAddressId(int addressId) {
+//		this.addressId = addressId;
+//	}
+//
+//	public void setId(Integer id) {
+//		this.id = id;
 //	}
 //
 //	public Timestamp getIsAddedTimeStamp() {

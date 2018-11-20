@@ -26,8 +26,8 @@ public class ExceptionHandlingControllerAdvice {
 
     if (outputFlashMap != null) {
       outputFlashMap.put("errorMessage", messageSource.getMessage("form.error.fileSize", null, locale));
-
     }
+
     return rv;
   }
 

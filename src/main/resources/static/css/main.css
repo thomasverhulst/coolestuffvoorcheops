@@ -4847,10 +4847,10 @@ a {
   @media screen and (prefers-reduced-motion: reduce) {
     a {
       transition: none; } }
-  a:not(.icon):not(.fa-icon):not(.btn):not(.tab) {
+  a:not(.icon):not(.fa-icon):not(.btn):not(.tab):not(.no-border) {
     display: inline-block;
     border-bottom: 1px solid transparent; }
-    a:not(.icon):not(.fa-icon):not(.btn):not(.tab):hover, a:not(.icon):not(.fa-icon):not(.btn):not(.tab):focus, a:not(.icon):not(.fa-icon):not(.btn):not(.tab):active {
+    a:not(.icon):not(.fa-icon):not(.btn):not(.tab):not(.no-border):hover, a:not(.icon):not(.fa-icon):not(.btn):not(.tab):not(.no-border):focus, a:not(.icon):not(.fa-icon):not(.btn):not(.tab):not(.no-border):active {
       border-bottom-color: inherit; }
 
 ul {
@@ -5160,8 +5160,6 @@ main.not-stripped {
     color: #9B9B9B;
     display: flex;
     align-items: center;
-    border-bottom: 0;
-    padding-bottom: 0;
     font-weight: 500; }
     .m-navigation--dashboard .m-navigation--item a:hover, .m-navigation--dashboard .m-navigation--item a:focus, .m-navigation--dashboard .m-navigation--item a:active {
       color: #4A4A4A; }

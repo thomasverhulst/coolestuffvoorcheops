@@ -17,6 +17,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import java.util.Locale;
 
 @Controller
+@RequestMapping("/admin")
 @SessionAttributes({AdminController.USER})
 public class AdminController {
 
@@ -31,7 +32,7 @@ public class AdminController {
   @Autowired
   private MessageSource messageSource;
 
-  @GetMapping("/admin")
+  @GetMapping("")
   public String adminView(Model model) {
     model.addAttribute("users", customUserDetailsService.getAllUsers());
     model.addAttribute("user", new User());
@@ -39,7 +40,7 @@ public class AdminController {
     return "admin/settings";
   }
 
-  @PostMapping("/admin")
+  @PostMapping("")
   public String addUser(Locale locale, Model model, @Validated @ModelAttribute("user") User user, BindingResult result, RedirectAttributes redirectAttributes) {
     if (result.hasErrors()) {
       model.addAttribute("allRoles", roleService.getAllRoles());
@@ -57,7 +58,7 @@ public class AdminController {
     return "redirect:/admin";
   }
 
-  @GetMapping("/admin/user-delete/{userId}")
+  @GetMapping("/user-delete/{userId}")
   public String deleteUser(Locale locale, @PathVariable("userId") User user, RedirectAttributes redirectAttributes) {
     if (user == null) {
       redirectAttributes.addFlashAttribute("errorMessage", messageSource.getMessage("user.doesNotExist", null, locale));
@@ -74,7 +75,7 @@ public class AdminController {
     return "redirect:/admin";
   }
 
-  @GetMapping("/admin/user-edit/{userId}")
+  @GetMapping("/user-edit/{userId}")
   public String editUserView(Locale locale, Model model, @PathVariable("userId") User user, RedirectAttributes redirectAttributes) {
     if (user == null) {
       redirectAttributes.addFlashAttribute("errorMessage", messageSource.getMessage("user.doesNotExist", null, locale));
@@ -86,7 +87,7 @@ public class AdminController {
     return "admin/user-edit";
   }
 
-  @PostMapping("/admin/user-edit/{userId}")
+  @PostMapping("/user-edit/{userId}")
   public String saveUser(Locale locale, Model model, @Validated @ModelAttribute(USER) User user, BindingResult result, @RequestParam(value = "resetPassword", required = false) boolean resetPassword, RedirectAttributes redirectAttributes) {
     if (result.hasErrors()) {
       model.addAttribute("allRoles", roleService.getAllRoles());

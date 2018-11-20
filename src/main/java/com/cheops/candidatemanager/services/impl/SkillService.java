@@ -1,8 +1,10 @@
 package com.cheops.candidatemanager.services.impl;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 import com.cheops.candidatemanager.models.Skill;
@@ -97,6 +99,20 @@ public class SkillService implements ISkillService {
 
 		return skillList.stream().map(Skill::getId).collect(Collectors.toList());
 
+	}
+
+	public List<Integer> findAllByPreferredlocationContaining(List<String> cities) {
+		// Set to avoid double entries
+		Set<Skill> skillIds = new HashSet <Skill>();
+		for (String location : cities) {
+			skillIds.addAll(skillsRepository.findAllByPreferredLocationContaining(location));
+		}
+		System.out.println("skilidlength"+skillIds.size());
+		 return  skillIds.stream().map(Skill::getId).collect(Collectors.toList());
+		
+		//return skillsRepository.findAllById(skillsIds);
+		
+		//return mainList;
 	}
 
 }
