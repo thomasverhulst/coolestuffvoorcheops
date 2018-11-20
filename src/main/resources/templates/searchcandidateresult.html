@@ -146,6 +146,20 @@
 	                  		</select>	
 	                  		
 						</div>
+						
+						
+						
+							<div class=form-group>
+						  <select th:object="${status}" th:field="*{statusList}">
+	                         <option  value="" selected="selected"> -- </option>
+	                         <option th:each="item : ${status.statusList}"
+	                            th:value="${item}"
+	                            th:utext="${item}"
+	                           />
+	                  		</select>
+	                  		
+	                  		</div>
+						
 	                  		
 	                  		
 	                  		<div class=form-group>

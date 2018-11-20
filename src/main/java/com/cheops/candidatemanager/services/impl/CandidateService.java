@@ -56,7 +56,7 @@ public class CandidateService implements ICandidateService {
 		return fillExpertiseAndStatus(candidates);
 	}
 
-	private List<CandidateSearchResolver> fillExpertiseAndStatus(List<Candidate> candidates) {
+	public List<CandidateSearchResolver> fillExpertiseAndStatus(List<Candidate> candidates) {
 		List<CandidateSearchResolver> candidateResolverList = new ArrayList<CandidateSearchResolver>();
 		for (Candidate candidate : candidates) {
 			// Everything related to the skill
@@ -428,9 +428,12 @@ public class CandidateService implements ICandidateService {
 	}
 
 	public List<CandidateSearchResolver> findAllByIdIn(List<Integer> candidateIdList2) {
-		// TODO Auto-generated method stub
-		List<Candidate> l=candidateRepository.findAllByIdIn(candidateIdList2);
-		return fillExpertiseAndStatus(l);
+		List<Candidate> candidateList=candidateRepository.findAllByIdIn(candidateIdList2);
+		return fillExpertiseAndStatus(candidateList);
+	}
+
+	public List<Candidate> findAllById() {
+		return (List<Candidate>) candidateRepository.findAll();
 	}
 
 	
