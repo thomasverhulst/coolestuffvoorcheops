@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+  <body layout:fragment="stats(color, title, subtitle, number, percentage)">
+    <div class="m-stats">
+      <div class="m-stats--top d-flex align-items-center">
+        <div class="m-stats--title" th:inline="text">
+          [[${title}]]<span th:text="${subtitle}"></span>
+        </div>
+        <div class="m-stats--number ml-auto" th:classappend="'h-color-' + ${color}" th:text="${number}"></div>
+      </div>
+      <div class="m-stats--bar">
+        <div class="m-stats--bar-inner" th:classappend="'h-background-' + ${color}" th:style="'width:' + ${percentage} + '%;'"></div>
+      </div>
+      <div class="m-stats--percentage mt-1" th:text="${percentage}+'%'"></div>
+    </div>
+  </body>
+</html>

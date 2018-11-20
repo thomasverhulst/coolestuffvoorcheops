@@ -1,0 +1,270 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<body>
+  <form th:fragment="form-add-edit-candidate(action, formid)" th:action="${action == 'add'} ? @{/add-candidate} : @{/edit-candidate/{candidateId}(candidateId=${candidate.id})}" th:object="${candidate}" enctype="multipart/form-data" method="post" accept-charset="utf-8" th:id="${formid}" class="js-needs-validation" autocomplete="disabled" novalidate>
+    <div layout:insert="~{layout/reusables/pane :: pane}" th:with="id='nav-details', arialabelledby='nav-home-tab', active=true" th:remove="tag">
+      <div layout:fragment="pane-content">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="a-title--form mt-4" th:text="#{candidate.personal}"></div>
+            <div class="row">
+              <div class="col-md-6 form-group m-form-group">
+                <label for="name" class="a-form-label" th:text="#{name} + ' *'"></label>
+                <input th:field="*{name}" type="text" id="name" name="name" class="form-control a-form-input-text" required>
+              </div>
+              <div class="col-md-6 form-group m-form-group">
+                <label for="lastName" class="a-form-label" th:text="#{lastname}"></label>
+                <input th:field="*{lastName}" type="text" id="lastName" name="lastName" class="form-control a-form-input-text">
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6 form-group m-form-group">
+                <label for="streetname" class="a-form-label" th:text="#{address.streetname}"></label>
+                <input th:field="*{address.streetname}" type="text" id="streetname" name="streetname" class="form-control a-form-input-text">
+              </div>
+              <div class="col-md-3 form-group m-form-group">
+                <label for="housenumber" class="a-form-label" th:text="#{address.housenumber}"></label>
+                <input th:field="*{address.housenumber}" type="text" id="housenumber" name="housenumber" class="form-control a-form-input-text">
+              </div>
+              <div class="col-md-3 form-group m-form-group">
+                <label for="bus" class="a-form-label" th:text="#{address.bus}"></label>
+                <input th:field="*{address.bus}" type="text" id="bus" name="bus" class="form-control a-form-input-text">
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-4 form-group m-form-group">
+                <label for="postalcode" class="a-form-label" th:text="#{address.postalcode}"></label>
+                <input th:field="*{address.postalcode}" type="text" id="postalcode" name="postalcode" class="form-control a-form-input-text">
+              </div>
+              <div class="col-md-8 form-group m-form-group">
+                <label for="municipality" class="a-form-label" th:text="#{address.municipality}"></label>
+                <input th:field="*{address.municipality}" type="text" id="municipality" name="municipality" class="form-control a-form-input-text">
+              </div>
+            </div>
+            <div class="form-group m-form-group">
+              <label for="country" class="a-form-label" th:text="#{address.country}"></label>
+              <input th:field="*{address.countrycode}" type="text" id="country" name="country" class="form-control a-form-input-text js-autocomplete-countries" autocomplete="off">
+            </div>
+            <div class="row">
+              <div class="col-md-6 form-group m-form-group">
+                <label for="gender" class="a-form-label" th:text="#{gender}"></label>
+                <select th:field="*{{gender}}" id="gender" name="gender" class="form-control js-select-basic" th:data-placeholder="#{form.select.gender}">
+                  <option value=""></option>
+                  <option th:each="gender : ${T(com.cheops.candidatemanager.enums.Gender).values()}" th:value="${{gender}}" th:text="#{'enum.gender.' + ${{gender}}}"></option>
+                </select>
+              </div>
+              <div class="col-md-6 form-group m-form-group">
+                <label for="dateOfBirth" class="a-form-label" th:text="#{dateOfBirth}"></label>
+                <input th:field="*{dateOfBirth}" type="date" id="dateOfBirth" name="dateOfBirth" class="form-control a-form-input-date">
+              </div>
+            </div>
+            <div class="form-group m-form-group">
+              <label for="email" class="a-form-label" th:text="#{email}"></label>
+              <input th:field="*{email}" type="text" id="email" name="email" class="form-control a-form-input-text">
+            </div>
+            <div class="row">
+              <div class="col-md-6 form-group m-form-group">
+                <label for="phonenumber" class="a-form-label" th:text="#{phonenumber}"></label>
+                <input th:field="*{phonenumber}" type="text" id="phonenumber" name="phonenumber" class="form-control a-form-input-text">
+              </div>
+              <div class="col-md-6 form-group m-form-group">
+                <label for="cellphonenumber" class="a-form-label" th:text="#{cellphonenumber}"></label>
+                <input th:field="*{cellphonenumber}" type="text" id="cellphonenumber" name="cellphonenumber" class="form-control a-form-input-text">
+              </div>
+            </div>
+            <div class="form-group m-form-group">
+              <label for="contactChannel" class="a-form-label" th:text="#{contactChannel}"></label>
+              <input th:field="*{contactChannel}" type="text" id="contactChannel" name="contactChannel" class="form-control a-form-input-text">
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="a-title--form mt-4" th:text="#{cv}"></div>
+            <div th:if="*{cvLink == ''} or *{cvLink == null}" class="row">
+              <div class="col form-group m-form-group d-flex justify-content-center justify-content-md-start flex-wrap align-items-center">
+                <label class="a-form-label mb-3" th:text="#{cvLabel}"></label>
+                <div class="a-form-input-file--wrapper flex-fill w-100">
+                  <input type="file" name="file" id="file" th:field="*{file}" class="form-control a-form-input-file" />
+                  <label for="file" th:inline="text" class="btn btn-blue btn-icon btn-sm d-inline-block"><span class="icon icon-add-file"></span>[[#{add}]]</label>
+                  <span class="a-form-input-file--upload ml-3"></span>
+                </div>
+              </div>
+            </div>
+            <div th:if="*{cvLink != null} and *{cvLink != ''}" th:remove="tag">
+              <div class="row">
+                <div class="col mb-3" th:if="${candidate.getCvDate()}" th:inline="text">[[#{version}]] [[${#dates.format(candidate.getCvDate(), 'dd-MM-yyyy')}]] <a class="icon icon-download-file ml-3" th:href="@{/downloadCv/{cvLink}(cvLink=${candidate.cvLink})}" th:title="#{download}"></a><a class="icon icon-delete ml-3" th:href="@{/deleteCv/{candidateId}(candidateId=${candidate.id})}" th:title="#{delete}"></a></div>
+              </div>
+              <div class="row">
+                <div class="col mb-grid">
+                  <div class="a-form-input-file--wrapper mt-1">
+                    <input type="file" name="file" id="file" th:field="*{file}" class="form-control a-form-input-file" />
+                    <label for="file" th:inline="text" class="btn btn-secondary btn-icon btn-sm d-inline-block"><span class="icon icon-update-file"></span>[[#{edit}]]</label>
+                    <span class="a-form-input-file--upload ml-md-3 mt-3 mt-md-0"></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="a-title--form mt-4" th:text="#{candidate.current}"></div>
+            <div id="currentSalary" class="row">
+              <div class="col">
+                <div class="row">
+                  <div class="col-md-6 form-group m-form-group">
+                    <label for="current_grosssalary" class="a-form-label" th:text="#{salary.grosssalary}"></label>
+                    <input th:field="${candidate.currentSalaryPackage.grossSalary}" type="number" id="current_grosssalary" name="current_grosssalary" class="form-control a-form-input-text">
+                  </div>
+                  <div class="col-md-6 form-group m-form-group">
+                    <label for="current_car" class="a-form-label" th:text="#{salary.car}"></label>
+                    <input th:field="${candidate.currentSalaryPackage.car}" type="text" id="current_car" name="current_car" class="form-control a-form-input-text">
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6 form-group m-form-group">
+                    <label for="current_dailyallowance" class="a-form-label" th:text="#{salary.dailyallowance}"></label>
+                    <input th:field="${candidate.currentSalaryPackage.dailyAllowance}" type="number" id="current_dailyallowance" name="current_dailyallowance" class="form-control a-form-input-text">
+                  </div>
+                  <div class="col-md-6 form-group m-form-group">
+                    <label for="current_mealvouchers" class="a-form-label" th:utext="#{salary.mealvouchers}"></label>
+                    <input th:field="${candidate.currentSalaryPackage.mealVouchers}" type="number" id="current_mealvouchers" name="current_mealvouchers" class="form-control a-form-input-text">
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6 form-group m-form-group">
+                    <input type="checkbox" th:field="${candidate.currentSalaryPackage.hospitalization}" th:checked="${active} ? 'checked'" name="current_hospitalization" id="current_hospitalization" class="form-control a-form-checkbox">
+                    <label for="current_hospitalization" th:text="#{salary.hospitalization}"></label>
+                  </div>
+                  <div class="col-md-6 form-group m-form-group">
+                    <input type="checkbox" th:field="${candidate.currentSalaryPackage.groupInsurance}" th:checked="${active} ? 'checked'" name="current_groupinsurance" id="current_groupinsurance" class="form-control a-form-checkbox">
+                    <label for="current_groupinsurance" th:text="#{salary.groupinsurance}"></label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div layout:insert="~{layout/reusables/pane :: pane}" th:with="id='nav-experience', arialabelledby='nav-experience-tab', active=false" th:remove="tag">
+      <div layout:fragment="pane-content">
+        <div class="row mt-grid">
+          <div class="col-md-6">
+            <div class="form-group m-form-group">
+              <input type="checkbox" th:field="*{skill.java}" th:checked="${active} ? 'checked'" name="java" id="java" class="form-control a-form-checkbox"><label for="java" th:text="#{skill.java}"></label>
+            </div>
+            <div class="form-group m-form-group">
+              <input type="checkbox" th:field="*{skill.dotnet}" th:checked="${active} ? 'checked'" name="dotnet" id="dotnet" class="form-control a-form-checkbox"><label for="dotnet" th:text="#{skill.dotnet}"></label>
+            </div>
+            <div class="form-group m-form-group">
+              <input type="checkbox" th:field="*{skill.frontend}" th:checked="${active} ? 'checked'" name="frontend" id="frontend" class="form-control a-form-checkbox"><label for="frontend" th:text="#{skill.frontend}"></label>
+            </div>
+            <div class="form-group m-form-group">
+              <label for="experience" class="a-form-label" th:text="#{skill.experience}"></label>
+              <input th:field="*{skill.experience}" type="number" id="experience" name="experience" class="form-control a-form-input-text">
+            </div>
+            <div class="form-group m-form-group">
+              <label for="preferedlocation" class="a-form-label" th:text="#{skill.preferedlocation}"></label>
+              <input th:field="*{skill.preferredLocation}" type="number" id="preferedlocation" name="preferedlocation" class="form-control a-form-input-text">
+            </div>
+            <div class="form-group m-form-group">
+              <label for="extra" class="a-form-label" th:text="#{skill.extra}"></label>
+              <textarea th:field="*{skill.extra}" id="extra" name="extra" class="form-control a-form-textarea" rows="3" maxlength="200"></textarea>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="a-title--form" th:text="#{technologies}"></div>
+            <div class="row">
+              <div class="col">
+                <a class="btn btn-blue btn-icon btn-sm d-inline-block js-add-row" data-action="addSkillTechnology" data-object="#skillTechnologies" href="#" th:inline="text"><span class="icon icon-add-technology"></span>[[#{technology.add}]]</a>
+              </div>
+            </div>
+            <div id="skillTechnologies" class="row mt-grid">
+              <div th:if="${candidate.skill.technologies == null} or ${candidate.skill.technologies.empty}" class="col" th:text="#{skill.technologiesEmpty}"></div>
+              <div th:if="${candidate.skill.technologies != null} and ${!candidate.skill.technologies.empty}" class="col">
+                <div th:each="technology, stat: ${candidate.skill.technologies}" class="row align-items-center">
+                  <div class="col-md-6 form-group m-form-group">
+                    <label th:for="'candidate.skill.technologies_' + ${stat.index} + '_name'" class="a-form-label" th:text="#{technology.name}"></label>
+                    <input th:field="${candidate.skill.technologies[__${stat.index}__].technology.name}" type="text" name="technology_name" th:id="'candidate.skill.technologies_' + ${stat.index} + '_name'" class="form-control a-form-input-text js-autocomplete-technologies" autocomplete="off">
+                  </div>
+                  <div class="col-md-2 form-group m-form-group">
+                    <label th:for="'candidate.skill.technologies_' + ${stat.index} + '_years'" class="a-form-label" th:text="#{technology.years}"></label>
+                    <input th:field="${candidate.skill.technologies[__${stat.index}__].years}" type="number" name="technology_years" th:id="'candidate.skill.technologies_' + ${stat.index} + '_years'" class="form-control a-form-input-text">
+                  </div>
+                  <div class="col-md-3 form-group m-form-group">
+                    <input type="checkbox" th:field="${candidate.skill.technologies[__${stat.index}__].preferred}" th:checked="${active} ? 'checked'" name="technology_years" th:id="'candidate.skill.technologies_' + ${stat.index} + '_preferred'" class="form-control a-form-checkbox"><label th:for="'candidate.skill.technologies_' + ${stat.index} + '_preferred'" th:text="#{technology.preferred}"></label>
+                  </div>
+                  <div class="col-md-1 form-group m-form-group">
+                    <a class="icon icon-delete js-remove-row" data-action="removeSkillTechnology" data-object="#skillTechnologies" th:data-value="${stat.index}" href="#" th:title="#{technology.remove}"></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div layout:insert="~{layout/reusables/pane :: pane}" th:with="id='nav-meeting', arialabelledby='nav-meeting-tab', active=false" th:remove="tag">
+      <div layout:fragment="pane-content">
+        i am meeting
+      </div>
+    </div>
+    <div layout:insert="~{layout/reusables/pane :: pane}" th:with="id='nav-offer', arialabelledby='nav-offer-tab', active=false" th:remove="tag">
+      <div layout:fragment="pane-content">
+        <div class="row">
+          <div class="col">
+            <a class="btn btn-blue btn-icon btn-sm d-inline-block js-add-row" data-action="addSalaryPackage" data-object="#proposalList" href="#" th:inline="text"><span class="icon icon-add-salary"></span>[[#{salary.add}]]</a>
+          </div>
+        </div>
+        <div id="proposalList" class="row">
+          <div th:if="${candidate.proposedSalaryPackages == null} or ${candidate.proposedSalaryPackages.empty}" class="col mt-grid" th:text="#{salary.proposalEmpty}"></div>
+          <div th:if="${candidate.proposedSalaryPackages != null} and ${!candidate.proposedSalaryPackages.empty}" class="col">
+            <div class="row">
+              <div th:each="proposal, stat: ${candidate.proposedSalaryPackages}" class="col-md-6">
+                <div class="a-title--form mt-4" th:inline="text">
+                  [[#{proposal}]] [[${stat.count}]]
+                  <a class="icon icon-delete js-remove-row" data-action="removeSalaryPackage" data-object="#proposalList" th:data-value="${stat.index}" href="#" th:title="#{salary.delete}"></a>
+                  <!--<a class="float-right mr-3 js-set-current-salary" data-action="resetCurrentSalary" data-object="#currentSalary" th:data-value-reset="*{currentSalaryPackage.id}" th:data-value="${stat.index}" href="#" th:title="#{salary.set}">-->
+                    <!--<span class="icon icon-set-salary"></span>-->
+                    <!--<i class="fas fa-times d-none"></i>-->
+                  <!--</a>-->
+                </div>
+                <div class="row">
+                  <div class="col-md-6 form-group m-form-group">
+                    <label th:for="'proposal_grosssalary_' + ${stat.index}" class="a-form-label" th:text="#{salary.grosssalary}"></label>
+                    <input th:field="${candidate.proposedSalaryPackages[__${stat.index}__].grossSalary}" type="number" name="proposal_grosssalary" th:id="'proposal_grosssalary_' + ${stat.index}" class="form-control a-form-input-text">
+                  </div>
+                  <div class="col-md-6 form-group m-form-group">
+                    <label th:for="'proposal_car_' + ${stat.index}" class="a-form-label" th:text="#{salary.car}"></label>
+                    <input th:field="${candidate.proposedSalaryPackages[__${stat.index}__].car}" type="text" name="proposal_car" th:id="'proposal_car_' + ${stat.index}" class="form-control a-form-input-text">
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6 form-group m-form-group">
+                    <label th:for="'proposal_dailyallowance_' + ${stat.index}" class="a-form-label" th:text="#{salary.dailyallowance}"></label>
+                    <input th:field="${candidate.proposedSalaryPackages[__${stat.index}__].dailyAllowance}" type="number" name="proposal_dailyallowance" th:id="'proposal_dailyallowance_' + ${stat.index}" class="form-control a-form-input-text">
+                  </div>
+                  <div class="col-md-6 form-group m-form-group">
+                    <label th:for="'proposal_mealvouchers_' + ${stat.index}" class="a-form-label" th:text="#{salary.mealvouchers}"></label>
+                    <input th:field="${candidate.proposedSalaryPackages[__${stat.index}__].mealVouchers}" type="number" name="proposal_mealVouchers" th:id="'proposal_mealvouchers_' + ${stat.index}" class="form-control a-form-input-text">
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6 form-group m-form-group">
+                    <input th:field="${candidate.proposedSalaryPackages[__${stat.index}__].hospitalization}" th:checked="${active} ? 'checked'" type="checkbox" name="proposal_hospitalization" th:id="'proposal_hospitalization_' + ${stat.index}" class="form-control a-form-checkbox">
+                    <label th:for="'proposal_hospitalization_' + ${stat.index}" th:text="#{salary.hospitalization}"></label>
+                  </div>
+                  <div class="col-md-6 form-group m-form-group">
+                    <input th:field="${candidate.proposedSalaryPackages[__${stat.index}__].groupInsurance}" th:checked="${active} ? 'checked'" type="checkbox" name="proposal_groupinsurance" th:id="'proposal_groupinsurance_' + ${stat.index}" class="form-control a-form-checkbox">
+                    <label th:for="'proposal_groupinsurance_' + ${stat.index}" th:text="#{salary.groupinsurance}"></label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div layout:insert="~{layout/reusables/pane :: pane}" th:with="id='nav-history', arialabelledby='nav-history-tab', active=false" th:remove="tag">
+      <div layout:fragment="pane-content">
+        i am history
+      </div>
+    </div>
+  </form>
+</body>

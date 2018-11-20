@@ -18,7 +18,7 @@ public class RoleService implements IRoleService {
   @Override
   public List<Role> getAllRoles() {
     List<Role> roles = new ArrayList<>();
-    roleRepository.findAll().forEach(e -> roles.add(e));
+    roleRepository.findAll().forEach(roles::add);
     return roles;
   }
 

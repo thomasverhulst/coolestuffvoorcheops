@@ -6,6 +6,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.Size;
 
 @Entity
 @Table(name = "salarypackage")
@@ -14,19 +15,20 @@ public class SalaryPackage {
 	@Id
 	@Column(name = "idsalarypackage")
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Integer id;
+	private int id;
 
 	@Column(name = "grosssalary")
 	private double grossSalary;
 
 	@Column(name = "car")
+	@Size(max = 45, message = "{car.size}")
 	private String car;
 
 	@Column(name = "dailyallowance")
-	private Double dailyAllowance;
+	private double dailyAllowance;
 
-	@Column(name = "maaltijdchecques")
-	private Double maaltijdchecques;
+	@Column(name = "mealvouchers")
+	private double mealVouchers;
 
 	@Column(name = "hospitalization")
 	private boolean hospitalization;
@@ -35,21 +37,26 @@ public class SalaryPackage {
 	private boolean groupInsurance;
 
 	public SalaryPackage() {
-
 	}
 
-	public SalaryPackage(double grossSalary, String car, Double dailyAllowance, Double maaltijdchecques,
-			boolean hospitalization, boolean groupInsurance) {
-		super();
-		this.grossSalary = grossSalary;
-		this.car = car;
-		this.dailyAllowance = dailyAllowance;
-		this.maaltijdchecques = maaltijdchecques;
-		this.hospitalization = hospitalization;
-		this.groupInsurance = groupInsurance;
+  public SalaryPackage(double grossSalary, @Size(max = 45, message = "{car.size}") String car, double dailyAllowance, double mealVouchers, boolean hospitalization, boolean groupInsurance) {
+    this.grossSalary = grossSalary;
+    this.car = car;
+    this.dailyAllowance = dailyAllowance;
+    this.mealVouchers = mealVouchers;
+    this.hospitalization = hospitalization;
+    this.groupInsurance = groupInsurance;
+  }
+
+	public void setId(int id) {
+		this.id = id;
 	}
 
-	public double getGrossSalary() {
+	public int getId() {
+		return id;
+	}
+
+  public double getGrossSalary() {
 		return grossSalary;
 	}
 
@@ -65,20 +72,20 @@ public class SalaryPackage {
 		this.car = car;
 	}
 
-	public Double getDailyAllowance() {
+	public double getDailyAllowance() {
 		return dailyAllowance;
 	}
 
-	public void setDailyAllowance(Double dailyAllowance) {
+	public void setDailyAllowance(double dailyAllowance) {
 		this.dailyAllowance = dailyAllowance;
 	}
 
-	public Double getMaaltijdchecques() {
-		return maaltijdchecques;
+	public double getMealVouchers() {
+		return mealVouchers;
 	}
 
-	public void setMaaltijdchecques(Double maaltijdchecques) {
-		this.maaltijdchecques = maaltijdchecques;
+	public void setMealVouchers(double mealVouchers) {
+		this.mealVouchers = mealVouchers;
 	}
 
 	public boolean isHospitalization() {
@@ -95,14 +102,6 @@ public class SalaryPackage {
 
 	public void setGroupInsurance(boolean groupInsurance) {
 		this.groupInsurance = groupInsurance;
-	}
-
-	public void setId(Integer id) {
-		this.id = id;
-	}
-
-	public Integer getId() {
-		return id;
 	}
 
 }

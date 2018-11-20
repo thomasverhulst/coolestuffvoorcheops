@@ -36,7 +36,7 @@ h5 {
 a {
   @include transition($btn-transition);
 
-  &:not(.icon):not(.btn) {
+  &:not(.icon):not(.fa-icon):not(.btn):not(.tab):not(.no-border) {
     display: inline-block;
     border-bottom: 1px solid transparent;
 
@@ -60,16 +60,38 @@ ul {
 }
 
 main {
-  flex: 1 1 auto;
-  padding-top: $grid-gutter-width;
+  &.not-stripped {
+    flex: 1 1 auto;
+    padding-top: $grid-gutter-width;
 
-  @include media-breakpoint-up(lg) {
-    padding: $grid-gutter-width*1.5 $grid-gutter-width 0;
+    @include media-breakpoint-up(lg) {
+      padding: $grid-gutter-width*1.5 $grid-gutter-width 0;
+    }
   }
 }
 
 .mb-grid {
   margin-bottom: $grid-gutter-width;
+}
+
+.mt-grid {
+  margin-top: $grid-gutter-width;
+}
+
+.mb-sm-grid {
+  margin-bottom: $grid-gutter-width;
+
+  @include media-breakpoint-up(md) {
+    margin-bottom: 0;
+  }
+}
+
+.mt-sm-grid {
+  margin-top: $grid-gutter-width;
+
+  @include media-breakpoint-up(md) {
+    margin-top: 0;
+  }
 }
 
 :focus {

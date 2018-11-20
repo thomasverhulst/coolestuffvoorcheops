@@ -14,7 +14,7 @@ public class Search {
 	private boolean dotnet;
 	private int experience;
 	private String name;
-	private String sirName;
+	private String lastName;
 
 	public Search() {
 
@@ -85,18 +85,18 @@ public class Search {
 		this.name = name;
 	}
 
-	public String getSirName() {
-		return sirName;
+	public String getLastName() {
+		return lastName;
 	}
 
-	public void setSirName(String sirName) {
-		this.sirName = sirName;
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
 	}
 
 	@Override
 	public String toString() {
 		return "Search [id=" + id + ", employed=" + employed + ", frontender=" + frontender + ", java=" + java
-				+ ", dotnet=" + dotnet + ", experience=" + experience + ", name=" + name + ", sirName=" + sirName + "]";
+				+ ", dotnet=" + dotnet + ", experience=" + experience + ", name=" + name + ", lastName=" + lastName + "]";
 	}
 	
 	

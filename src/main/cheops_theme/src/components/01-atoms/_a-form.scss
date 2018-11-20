@@ -6,7 +6,8 @@
 
   &-input {
     &-text,
-    &-password {
+    &-password,
+    &-date {
       border: 0;
       border-bottom: $input-border-width solid $border-color;
 
@@ -14,6 +15,40 @@
         box-shadow: none;
       }
     }
+
+    &-date {
+      padding: calc(#{$input-padding-y} - 2px) $input-padding-x;
+    }
+
+    &-file {
+      width: 0.1px;
+      height: 0.1px;
+      opacity: 0;
+      overflow: hidden;
+      position: absolute;
+      z-index: -1;
+
+      &.is-invalid {
+        + label + span {
+          color: $primary;
+        }
+      }
+
+      &--upload {
+        display: none;
+      }
+
+      &--wrapper {
+        + .invalid-feedback {
+          margin-top: $grid-gutter-width/3;
+        }
+      }
+    }
+  }
+
+  &-textarea {
+    border: 0;
+    border-bottom: $input-border-width solid $border-color;
   }
 
   &-checkbox {

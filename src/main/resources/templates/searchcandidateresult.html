@@ -1,277 +1,277 @@
-<!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org">
-<head th:replace="fragments/general :: headTag(title='Zoeken resultaat - Cheops Kandidatenbeheer')"></head>
-<body>
-<header th:replace="fragments/general :: header"></header>
-	<div class=container-fluid>
-		<div class="row">
-			<div class="col-sm-3"></div>
-			<div class="col-sm-6">
-				<h1>Zoekresultaten kandidaat</h1>
-			</div>
-			<div class="col-sm-3">
-			
-			
-			<form th:action="@{/searchAllRecruitedCandidates}"
-					th:object="${saerch}" method="POST">
-					<div class=form-group>
-						<button class="btn-lg btn-primary btn-block" type="submit">Zoek
-							iedereen in dienst ></button>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout/layout}">
+<head>
+	<title th:inline="text">[[#{dashboard}]] - Cheops Kandidatenbeheer</title>
+</head>
+	<body>
+		<main layout:fragment="content">
+			<div class=container-fluid>
+				<div class="row">
+					<div class="col-sm-3"></div>
+					<div class="col-sm-6">
+						<h1>Zoekresultaten kandidaat</h1>
 					</div>
-				</form>
-				
-				
-				<form th:action="@{/searchAllCandidatesWithLocation}">
-					<div>
-						  <select th:object="${locations}" th:field="*{cities}" multiple="multiple">
-	                         <option value=""> -- </option>
-	                         <option th:each="item : ${locations.cities}"
-	                            th:value="${item}"
-	                            th:utext="${item}"
-	                            th:selected="${item}"/>
-	                  		</select>	
-	                  		<button class="btn-lg btn-primary btn-block" type="submit">Zoek
-							voor deze locaties ></button>
-						</div>
-				</form>
-			
-			
-			<form th:action="@{/searchAllCandidatesWithExperience}">
-					<div>
-						  <select th:object="${experience}" th:field="*{experienceIntervals}">
-	                         <option value=""> -- </option>
-	                         <option th:each="item : ${experience.experienceIntervals}"
-	                            th:value="${item}"
-	                            th:utext="${item}"
-	                           />
-	                  		</select>	
-	                  		<button class="btn-lg btn-primary btn-block" type="submit">Zoek
-							met ervaring ></button>
-						</div>
-				</form>
-				
-				<form th:action="@{/searchCandidate}" th:object="${candidate}"
-				method="POST">
+					<div class="col-sm-3">
 
-				<div class="col-sm-3">
-					<div class=form-group>
-						<label for="name">Naam:</label> <input type="text"
-							th:field=*{name} id="name" class="form-control"
-							placeholder="Voornaam">
-					</div>
-					<div class=form-group>
-						<label for="sirName">Familienaam:</label> <input type="text"
-							th:field=*{sirName} id="sirName" class="form-control"
-							placeholder="Familienaam">
-					</div>
-					<!-- 	<div class=form-group> -->
-					<!-- 		<label for="email">E-mail</label> -->
-					<!-- 		<input type="text" th:field=*{email} id="email" class="form-control" placeholder="email" > -->
-					<!-- 	</div> -->
-					<div class=form-group>
-						<button class="btn-lg btn-primary btn-block" type="submit">Zoek
-							></button>
-					</div>
-				</div>
-			</form>
-				<form th:action="@{/searchInAllCandidates}" th:object="${search}"
-					method="POST">
-					
-					
-					<div class=form-group>
-						<label for="name">Naam:</label> <input type="text"
-							th:field=*{name} id="name" class="form-control"
-							placeholder="Voornaam">
-					</div>
-					<div class=form-group>
-						<label for="sirName">Familienaam:</label> <input type="text"
-							th:field=*{sirName} id="sirName" class="form-control"
-							placeholder="Familienaam">
-					</div>
-					<!-- 	<div class=form-group> -->
-					<!-- 		<label for="email">E-mail</label> -->
-					<!-- 		<input type="text" th:field=*{email} id="email" class="form-control" placeholder="email" > -->
-					<!-- 	</div> -->
-					
-					
-					
-					
-					
-					
-					
-					<div class=form-group>
-						<label for="isJava">Zoek javanen:</label> <input type="checkbox"
-							th:field="*{java}" id="isJava" class="form-control">
-					</div>
-					<div class=form-group>
-						<label for="isDotnet"> Zoek .Netters:</label> <input
-							type="checkbox" th:field=*{dotnet} id="isDotnet"
-							class="form-control">
-					</div>
-					<div class=form-group>
-						<label for="isFrontender">Zoek frontenters:</label> <input
-							type="checkbox" th:field=*{frontender} id="isFrondenter"
-							class="form-control">
-					</div>
-					
-<!-- 					<div class=form-group> -->
-<!-- 						<label for="experience">Minimum jaren ervaring:</label> <input -->
-<!-- 							type="text" th:field=*{experience} id="experience" -->
-<!-- 							class="form-control" placeholder="Minimum jaren ervaring"> -->
-<!-- 					</div> -->
-					
-					
-					<div>
-					
-					
-					</div>
-					<div class=form-group>
-						  <select th:object="${experience}" th:field="*{experienceIntervals}">
-	                         <option  value="" selected="selected"> -- </option>
-	                         <option th:each="item : ${experience.experienceIntervals}"
-	                            th:value="${item}"
-	                            th:utext="${item}"
-	                           />
-	                  		</select>
-	                  		
-	                  		</div>
-	                  		
-	                  		<div class=form-group>
-						  <select th:object="${locations}" th:field="*{cities}" multiple="multiple">
-	                         <option value=""> -- </option>
-	                         <option th:each="item : ${locations.cities}"
-	                            th:value="${item}"
-	                            th:utext="${item}"
-	                            th:selected="${item}"/>
-	                  		</select>	
-	                  		
-						</div>
-						
-						
-						
+
+					<form th:action="@{/searchAllRecruitedCandidates}"
+							th:object="${saerch}" method="POST">
 							<div class=form-group>
-						  <select th:object="${status}" th:field="*{statusList}">
-	                         <option  value="" selected="selected"> -- </option>
-	                         <option th:each="item : ${status.statusList}"
-	                            th:value="${item}"
-	                            th:utext="${item}"
-	                           />
-	                  		</select>
-	                  		
-	                  		</div>
-						
-	                  		
-	                  		
-	                  		<div class=form-group>
-						<label for="isEmployed">Zoek hierboven alleen bij
-							kandidaten in dienst:</label> <input type="checkbox" th:field=*{employed}
-							id="isEmployed" class="form-control">
-					</div>	
-	                  		<div class=form-group>
-						<button class="btn-lg btn-primary btn-block" type="submit">Zoek
-							></button>
+								<button class="btn-lg btn-primary btn-block" type="submit">Zoek
+									iedereen in dienst ></button>
+							</div>
+						</form>
+
+
+						<form th:action="@{/searchAllCandidatesWithLocation}">
+							<div>
+									<select th:object="${locations}" th:field="*{cities}" multiple="multiple">
+															 <option value=""> -- </option>
+															 <option th:each="item : ${locations.cities}"
+																	th:value="${item}"
+																	th:utext="${item}"
+																	th:selected="${item}"/>
+														</select>
+														<button class="btn-lg btn-primary btn-block" type="submit">Zoek
+									voor deze locaties ></button>
+								</div>
+						</form>
+
+
+					<form th:action="@{/searchAllCandidatesWithExperience}">
+							<div>
+									<select th:object="${experience}" th:field="*{experienceIntervals}">
+															 <option value=""> -- </option>
+															 <option th:each="item : ${experience.experienceIntervals}"
+																	th:value="${item}"
+																	th:utext="${item}"
+																 />
+														</select>
+														<button class="btn-lg btn-primary btn-block" type="submit">Zoek
+									met ervaring ></button>
+								</div>
+						</form>
+
+						<form th:action="@{/searchCandidate}" th:object="${candidate}"
+						method="POST">
+
+						<div class="col-sm-3">
+							<div class=form-group>
+								<label for="name">Naam:</label> <input type="text"
+									th:field=*{name} id="name" class="form-control"
+									placeholder="Voornaam">
+							</div>
+							<div class=form-group>
+								<label for="lastName">Familienaam:</label> <input type="text"
+									th:field=*{lastName} id="lastName" class="form-control"
+									placeholder="Familienaam">
+							</div>
+							<!-- 	<div class=form-group> -->
+							<!-- 		<label for="email">E-mail</label> -->
+							<!-- 		<input type="text" th:field=*{email} id="email" class="form-control" placeholder="email" > -->
+							<!-- 	</div> -->
+							<div class=form-group>
+								<button class="btn-lg btn-primary btn-block" type="submit">Zoek
+									></button>
+							</div>
+						</div>
+					</form>
+						<form th:action="@{/searchInAllCandidates}" th:object="${search}"
+							method="POST">
+
+
+							<div class=form-group>
+								<label for="name">Naam:</label> <input type="text"
+									th:field=*{name} id="name" class="form-control"
+									placeholder="Voornaam">
+							</div>
+							<div class=form-group>
+								<label for="lastName">Familienaam:</label> <input type="text"
+									th:field=*{lastName} id="lastName" class="form-control"
+									placeholder="Familienaam">
+							</div>
+							<!-- 	<div class=form-group> -->
+							<!-- 		<label for="email">E-mail</label> -->
+							<!-- 		<input type="text" th:field=*{email} id="email" class="form-control" placeholder="email" > -->
+							<!-- 	</div> -->
+
+
+
+
+
+
+
+							<div class=form-group>
+								<label for="isJava">Zoek javanen:</label> <input type="checkbox"
+									th:field="*{java}" id="isJava" class="form-control">
+							</div>
+							<div class=form-group>
+								<label for="isDotnet"> Zoek .Netters:</label> <input
+									type="checkbox" th:field=*{dotnet} id="isDotnet"
+									class="form-control">
+							</div>
+							<div class=form-group>
+								<label for="isFrontender">Zoek frontenters:</label> <input
+									type="checkbox" th:field=*{frontender} id="isFrondenter"
+									class="form-control">
+							</div>
+
+		<!-- 					<div class=form-group> -->
+		<!-- 						<label for="experience">Minimum jaren ervaring:</label> <input -->
+		<!-- 							type="text" th:field=*{experience} id="experience" -->
+		<!-- 							class="form-control" placeholder="Minimum jaren ervaring"> -->
+		<!-- 					</div> -->
+
+
+							<div>
+
+
+							</div>
+							<div class=form-group>
+									<select th:object="${experience}" th:field="*{experienceIntervals}">
+															 <option  value="" selected="selected"> -- </option>
+															 <option th:each="item : ${experience.experienceIntervals}"
+																	th:value="${item}"
+																	th:utext="${item}"
+																 />
+														</select>
+
+														</div>
+
+														<div class=form-group>
+									<select th:object="${locations}" th:field="*{cities}" multiple="multiple">
+															 <option value=""> -- </option>
+															 <option th:each="item : ${locations.cities}"
+																	th:value="${item}"
+																	th:utext="${item}"
+																	th:selected="${item}"/>
+														</select>
+
+								</div>
+
+
+
+									<div class=form-group>
+									<select th:object="${status}" th:field="*{statusList}">
+															 <option  value="" selected="selected"> -- </option>
+															 <option th:each="item : ${status.statusList}"
+																	th:value="${item}"
+																	th:utext="${item}"
+																 />
+														</select>
+
+														</div>
+
+
+
+														<div class=form-group>
+								<label for="isEmployed">Zoek hierboven alleen bij
+									kandidaten in dienst:</label> <input type="checkbox" th:field=*{employed}
+									id="isEmployed" class="form-control">
+							</div>
+														<div class=form-group>
+								<button class="btn-lg btn-primary btn-block" type="submit">Zoek
+									></button>
+							</div>
+
+						</form>
+
 					</div>
-						
-				</form>
-				
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-sm-2"></div>
-		</div>
-
-		<form action="#" th:action="@{/dispatcher}" th:object="${candidates}">
-			<!--     <label for="candidates_input">Search:</label> <input name="candidates" -->
-			<!--                                                      id="candidates"> -->
-			<!--     </input> -->
-			<div th:if="${not #lists.isEmpty(candidates)}">
-				<h2>Search Results</h2>
-				<table class="table table-striped header-fixed">
-					<thead>
-						<tr>
-							<th scope="col">ID:</th>
-							<th scope="col">Naam:</th>
-							<th scope="col">Achetnaam</th>
-							<th scope="col">E-mail adres:</th>
-							<th scope="col">Expertise:</th>
-							<th scope="col">Status:</th>
-							<th scope="col">Bekijk CV:</th>
-							<th scope="col">Bekijk details:</th>
-							<th scope="col">Bekijk kennis:</th>
-							<th scope="col">Bekijk huidig loonpakket:</th>
-							<th scope="col">Bekijk voorgestelde loonpakket:</th>
-							<th scope="col">Aanwervingsproces:</th>
-						</tr>
-					</thead>
-					<tbody>
-
-						<tr th:each="candidates : ${candidates}">
-							<td th:text="${candidates.candidate.id}">Text ...</td>
-							<td th:text="${candidates.candidate.name}">Text ...</td>
-							<td th:text="${candidates.candidate.sirName}">Text ...</td>
-							<td th:text="${candidates.candidate.email}">Text...</td>
-							<td th:text="${candidates.expertise}">Text...</td>
-							<td th:text="${candidates.applicationStatus}">Text...</td>
-
-							<td><a
-								th:href="@{/searchcv2/{candidateId}(candidateId=${candidates.candidate.id})}">Zie
-									CV <span class="glyphicon glyphicon-download"></span>
-							</a></td>
-
-							<td><a
-								th:href="@{/searchcandidatedetails/{candidateId}(candidateId=${candidates.candidate.id})}">Zie
-									details kandidaat <span class="glyphicon glyphicon-pencil"></span>
-							</a></td>
-
-							<td><a
-								th:href="@{/searchskills1/{candidateId}(candidateId=${candidates.candidate.id})}">Zie
-									kennis kandadaat <span class="glyphicon glyphicon-pencil"></span>
-							</a></td>
-
-							<td><a
-								th:href="@{/searchcurrentsalarypackage2/{candidateId}(candidateId=${candidates.candidate.id})}">Zie
-									huidig loonpakket <span class="glyphicon glyphicon-pencil"></span>
-							</a></td>
-
-							<td><a
-								th:href="@{/searchproposedsalarypackage2/{candidateId}(candidateId=${candidates.candidate.id})}">Zie
-									voorgesteld loonpakket <span class="glyphicon glyphicon-pencil"></span>
-							</a></td>
-
-							<td>
-								<!-- optie, links niet laten zien, maar hoe doe je dan een update? -->
-								<div th:if="${candidates.candidate.applicationProcessId != 0}">
-									<a
-										th:href="@{/searchapplicationproces2/{candidateId}(candidateId=${candidates.candidate.id})}">Zie
-										aanwervingsprocess <span class="glyphicon glyphicon-pencil"></span>
-									</a>
-								</div>
-								<div
-									th:if="${candidates.candidate.applicationProcessId = 0}? ${'color: red;'}">
-									<a
-										th:href="@{/searchapplicationproces2/{candidateId}(candidateId=${candidates.candidate.id})}">Zie
-										aanwervingsprocess <span class="glyphicon glyphicon-pencil"></span>
-									</a>
-								</div>
-							</td>
-						</tr>
-
-					</tbody>
-				</table>
-			</div>
-		</form>
-
-		<div>
-			<form th:action="@{/search}">
-
-				<div class=form-group>
-					<button class="btn-lg btn-succes btn-block" type="submit">
-						Terug naar zoekpagina ></button>
 				</div>
-			</form>
-		</div>
-	</div>
-<footer th:replace="fragments/general :: footer"></footer>
-<div th:replace="fragments/general :: foot"></div>
-</body>
+				<div class="row">
+					<div class="col-sm-2"></div>
+				</div>
+
+				<form action="#" th:action="@{/dispatcher}" th:object="${candidates}">
+					<!--     <label for="candidates_input">Search:</label> <input name="candidates" -->
+					<!--                                                      id="candidates"> -->
+					<!--     </input> -->
+					<div th:if="${not #lists.isEmpty(candidates)}">
+						<h2>Search Results</h2>
+						<table class="table table-striped header-fixed">
+							<thead>
+								<tr>
+									<th scope="col">ID:</th>
+									<th scope="col">Naam:</th>
+									<th scope="col">Achetnaam</th>
+									<th scope="col">E-mail adres:</th>
+									<th scope="col">Expertise:</th>
+									<th scope="col">Status:</th>
+									<th scope="col">Bekijk CV:</th>
+									<th scope="col">Bekijk details:</th>
+									<th scope="col">Bekijk kennis:</th>
+									<th scope="col">Bekijk huidig loonpakket:</th>
+									<th scope="col">Bekijk voorgestelde loonpakket:</th>
+									<th scope="col">Aanwervingsproces:</th>
+								</tr>
+							</thead>
+							<tbody>
+
+								<tr th:each="candidates : ${candidates}">
+									<td th:text="${candidates.candidate.id}">Text ...</td>
+									<td th:text="${candidates.candidate.name}">Text ...</td>
+									<td th:text="${candidates.candidate.lastName}">Text ...</td>
+									<td th:text="${candidates.candidate.email}">Text...</td>
+									<td th:text="${candidates.expertise}">Text...</td>
+									<td th:text="${candidates.applicationStatus}">Text...</td>
+
+									<td><a
+										th:href="@{/searchcv2/{candidateId}(candidateId=${candidates.candidate.id})}">Zie
+											CV <span class="glyphicon glyphicon-download"></span>
+									</a></td>
+
+									<td><a
+										th:href="@{/searchcandidatedetails/{candidateId}(candidateId=${candidates.candidate.id})}">Zie
+											details kandidaat <span class="glyphicon glyphicon-pencil"></span>
+									</a></td>
+
+									<td><a
+										th:href="@{/searchskills1/{candidateId}(candidateId=${candidates.candidate.id})}">Zie
+											kennis kandadaat <span class="glyphicon glyphicon-pencil"></span>
+									</a></td>
+
+									<td><a
+										th:href="@{/searchcurrentsalarypackage2/{candidateId}(candidateId=${candidates.candidate.id})}">Zie
+											huidig loonpakket <span class="glyphicon glyphicon-pencil"></span>
+									</a></td>
+
+									<td><a
+										th:href="@{/searchproposedsalarypackage2/{candidateId}(candidateId=${candidates.candidate.id})}">Zie
+											voorgesteld loonpakket <span class="glyphicon glyphicon-pencil"></span>
+									</a></td>
+
+									<td>
+										<!-- optie, links niet laten zien, maar hoe doe je dan een update? -->
+										<div th:if="${candidates.candidate.applicationProcess.id != 0}">
+											<a
+												th:href="@{/searchapplicationproces2/{candidateId}(candidateId=${candidates.candidate.id})}">Zie
+												aanwervingsprocess <span class="glyphicon glyphicon-pencil"></span>
+											</a>
+										</div>
+										<div
+											th:if="${candidates.candidate.applicationProcess.id = 0}? ${'color: red;'}">
+											<a
+												th:href="@{/searchapplicationproces2/{candidateId}(candidateId=${candidates.candidate.id})}">Zie
+												aanwervingsprocess <span class="glyphicon glyphicon-pencil"></span>
+											</a>
+										</div>
+									</td>
+								</tr>
+
+							</tbody>
+						</table>
+					</div>
+				</form>
+
+				<div>
+					<form th:action="@{/search}">
+
+						<div class=form-group>
+							<button class="btn-lg btn-succes btn-block" type="submit">
+								Terug naar zoekpagina ></button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</main>
+	</body>
 </html>

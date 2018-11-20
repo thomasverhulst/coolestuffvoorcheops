@@ -33,38 +33,44 @@ public class WorkHistory {
 	private Date stopped;
 
 	public WorkHistory() {
-		
 	}
-	public WorkHistory( int candidateId, Timestamp started, Timestamp stopped) {
-		super();
 
+	public WorkHistory( int candidateId, Timestamp started, Timestamp stopped) {
 		this.candidateId = candidateId;
 		this.started = started;
 		this.stopped = stopped;
 	}
+
 	public Integer getId() {
 		return id;
 	}
+
 	public void setId(Integer id) {
 		this.id = id;
 	}
+
 	public int getCandidateId() {
 		return candidateId;
 	}
+
 	public void setCandidateId(int candidateId) {
 		this.candidateId = candidateId;
 	}
+
 	public Date getStarted() {
 		return started;
 	}
+
 	public void setStarted(Date started) {
 		this.started = started;
 	}
+
 	public Date getStopped() {
 		return stopped;
 	}
+
 	public void setStopped(Date stopped) {
 		this.stopped = stopped;
 	}
-	
+
 }

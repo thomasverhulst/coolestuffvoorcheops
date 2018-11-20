@@ -17,4 +17,13 @@
       margin-bottom: $grid-gutter-width/2;
     }
   }
+
+  &--fa {
+    font-size: .75rem;
+    color: $gray-900;
+
+    svg {
+      margin-right: $grid-gutter-width/3;
+    }
+  }
 }

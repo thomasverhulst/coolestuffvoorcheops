@@ -3,17 +3,13 @@ package com.cheops.candidatemanager.models;
 public class CandidateSearchResolver {
 
 	private Candidate candidate;
-
 	private String expertise;
-
 	private String applicationStatus;
 
 	public CandidateSearchResolver() {
-		super();
 	}
 
 	public CandidateSearchResolver(Candidate candidate, String expertise, String applicationStatus) {
-		super();
 		this.candidate = candidate;
 		this.expertise = expertise;
 		this.applicationStatus = applicationStatus;

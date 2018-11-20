@@ -8,10 +8,10 @@ public interface IDashboardService {
 
 	List<Candidate> getUpcomingFirstAndSecondScreenings();
 
-	List<Candidate> getLastMonthsRecruits();
-
 	List<Candidate> get3LatestAddedCandidates();
 
 	List<Candidate> getLatest5RecruitedCandidates();
+
+	List<Candidate> getLastMonthsRecruits();
 
 }

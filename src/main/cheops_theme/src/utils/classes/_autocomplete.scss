@@ -1,0 +1,17 @@
+.autocomplete {
+  &-suggestions {
+    background: $white;
+    box-shadow: $box-shadow;
+    max-height: 150px;
+    overflow: auto;
+  }
+
+  &-suggestion {
+    padding: $grid-gutter-width/3 $grid-gutter-width/2;
+    cursor: pointer;
+  }
+
+  &-selected {
+    color: $primary;
+  }
+}

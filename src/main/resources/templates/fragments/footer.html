@@ -1,0 +1,10 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+  <body>
+    <footer th:fragment="footer" class="page-footer font-small blue">
+      <div class="container-fluid">
+        &copy; Copyright Cheops <span th:text="${#dates.year(#dates.createNow())}" th:remove="tag"></span>
+      </div>
+    </footer>
+  </body>
+</html>

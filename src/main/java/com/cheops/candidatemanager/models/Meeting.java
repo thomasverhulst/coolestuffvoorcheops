@@ -11,6 +11,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import com.cheops.candidatemanager.enums.ConversationType;
 import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
@@ -32,12 +33,17 @@ public class Meeting {
 	@Column(name = "conversationpartner")
 	private String conversationPartner;
 
-	@Enumerated(EnumType.STRING) // another possibility: EnumType.ORDINAL
+	@Enumerated(EnumType.STRING)
 	@Column(name = "conversationtype")
 	private ConversationType conversationType;
 
 	public Meeting() {
-		super();
+	}
+
+	public Meeting(Date meetingDate, String conversationPartner, ConversationType conversationType) {
+		this.meetingDate = meetingDate;
+		this.conversationPartner = conversationPartner;
+		this.conversationType = conversationType;
 	}
 
 	public Integer getId() {
@@ -79,23 +85,5 @@ public class Meeting {
 	public void setConversationType2(ConversationType conversationType) {
 		this.conversationType = conversationType;
 	}
-
-//	public static enum ConversationType {
-//		// FIRST, SECOND
-//		// poging van
-//		// https://stackoverflow.com/questions/29515366/how-to-display-all-possible-enum-values-in-a-dropdown-list-using-spring-and-thym
-//		FIRST("First conversation"), SECOND("Technical conversation");
-//
-//		public final String displayName;
-//
-//		ConversationType(String displayName) {
-//			this.displayName = displayName;
-//		}
-//
-//		public String getConversationType() {
-//			return displayName;
-//		}
-//
-//	}
 
 }

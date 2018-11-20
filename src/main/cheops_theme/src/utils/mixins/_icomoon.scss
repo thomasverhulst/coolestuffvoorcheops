@@ -1,23 +1,17 @@
 @mixin icomoon($icon) {
   @extend .icon;
-  ///* use !important to prevent issues with browser extensions that change fonts */
-  //font-family: 'icomoon' !important;
-  //speak: none;
-  //font-style: normal;
-  //font-weight: normal;
-  //font-variant: normal;
-  //text-transform: none;
-  //line-height: 1;
-  //
-  ///* Better Font Rendering =========== */
-  //-webkit-font-smoothing: antialiased;
-  //-moz-osx-font-smoothing: grayscale;
 
   &:before {
     @if $icon == "list" {
       content: "\e901";
+    } @else if $icon == "add-salary" {
+      content: "\e902";
+    } @else if $icon == "set-salary" {
+      content: "\e903";
     } @else if $icon == "telephone" {
       content: "\e900";
+    } @else if $icon == "add-technology" {
+      content: "\e904";
     } @else if $icon == "quick-menu" {
       content: "\e909";
     } @else if $icon == "empty-file" {

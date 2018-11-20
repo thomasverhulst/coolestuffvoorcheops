@@ -11,7 +11,7 @@ import static org.evosuite.shaded.org.mockito.Mockito.*;
 import static org.evosuite.runtime.EvoAssertions.*;
 import com.cheops.candidatemanager.models.Skills;
 import com.cheops.candidatemanager.repositories.SkillsRepository;
-import com.cheops.candidatemanager.services.impl.SkillsService;
+import com.cheops.candidatemanager.services.impl.SkillService;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
@@ -162,7 +162,7 @@ public class SkillsService_ESTest extends SkillsService_ESTest_scaffolding {
       
       } catch(ClassCastException e) {
          //
-         // java.util.LinkedList cannot be cast to Skills
+         // java.util.LinkedList cannot be cast to Skill
          //
          verifyException("SkillsRepository$MockitoMock$1904746507", e);
       }

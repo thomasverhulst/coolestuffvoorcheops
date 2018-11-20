@@ -8,6 +8,13 @@
   &-sm {
     @include button-size($btn-padding-y-sm, $btn-padding-x-sm, $font-size-base, $btn-line-height, $btn-border-radius-sm);
   }
+
+  &-icon {
+    .icon {
+      margin-right: $grid-gutter-width/3;
+      vertical-align: middle;
+    }
+  }
 }
 
 @each $color, $value in $theme-colors {

@@ -1,126 +1,136 @@
-<!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org">
-<head th:replace="fragments/general :: headTag(title=#{dashboard} + ' - Cheops Kandidatenbeheer')"></head>
-<body>
-	<header th:replace="fragments/general :: header"></header>
-	<main>
-		<div class="container-fluid">
-			<div class="row">
-        <div class="col-md-3 mb-4 mb-md-0">
-          <div class="card h-100">
-            <div class="card--body">
-              <nav class="nav m-navigation--dashboard">
-                <div class="nav-item m-navigation--item js-has-nav-sub">
-                  <a href="#" class="nav-link" th:inline="text"><span class="icon icon-people"></span>[[#{candidates}]]<i class="fas fa-chevron-down"></i></a>
-                  <div class="nav-sub">
-                    <!-- TODO: Add links-->
-                    <div class="nav-item m-navigation--item m-navigation--subitem">
-                      <a href="#" class="nav-link" th:text="#{all}"></a>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout/layout}">
+  <head>
+    <title th:inline="text">[[#{dashboard}]] - Cheops Kandidatenbeheer</title>
+  </head>
+  <body>
+    <main layout:fragment="content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-3 mb-4 mb-md-0">
+            <div class="card h-100">
+              <div class="card--body">
+                <nav class="nav m-navigation--dashboard">
+                  <div class="nav-item m-navigation--item js-has-nav-sub">
+                    <a href="#" class="nav-link no-border" th:inline="text"><span class="icon icon-people"></span>[[#{candidates}]]<i class="fas fa-chevron-down"></i></a>
+                    <div class="nav-sub">
+                      <!-- TODO: Add links-->
+                      <div class="nav-item m-navigation--item m-navigation--subitem">
+                        <a href="#" class="nav-link no-border" th:text="#{all}"></a>
+                      </div>
+                      <div class="nav-item m-navigation--item m-navigation--subitem">
+                        <a href="#" class="nav-link no-border" th:text="#{new}"></a>
+                      </div>
+                      <div class="nav-item m-navigation--item m-navigation--subitem">
+                        <a href="#" class="nav-link no-border" th:text="#{invited}"></a>
+                      </div>
+                      <div class="nav-item m-navigation--item m-navigation--subitem">
+                        <a href="#" class="nav-link no-border" th:text="#{firstMeeting}"></a>
+                      </div>
+                      <div class="nav-item m-navigation--item m-navigation--subitem">
+                        <a href="#" class="nav-link no-border" th:text="#{techMeeting}"></a>
+                      </div>
+                      <div class="nav-item m-navigation--item m-navigation--subitem">
+                        <a href="#" class="nav-link no-border" th:text="#{hired}"></a>
+                      </div>
+                      <div class="nav-item m-navigation--item m-navigation--subitem">
+                        <a href="/notRecruited" class="nav-link no-border" th:text="#{notHired}"></a>
+                      </div>
+                      <div class="nav-item m-navigation--item m-navigation--subitem">
+                        <a href="/exEmployees" class="nav-link no-border" th:text="#{exemployees}"></a>
+                      </div>
                     </div>
-                    <div class="nav-item m-navigation--item m-navigation--subitem">
-                      <a href="#" class="nav-link" th:text="#{new}"></a>
-                    </div>
-                    <div class="nav-item m-navigation--item m-navigation--subitem">
-                      <a href="#" class="nav-link" th:text="#{invited}"></a>
-                    </div>
-                    <div class="nav-item m-navigation--item m-navigation--subitem">
-                      <a href="#" class="nav-link" th:text="#{firstMeeting}"></a>
-                    </div>
-                    <div class="nav-item m-navigation--item m-navigation--subitem">
-                      <a href="#" class="nav-link" th:text="#{techMeeting}"></a>
-                    </div>
-                    <div class="nav-item m-navigation--item m-navigation--subitem">
-                      <a href="#" class="nav-link" th:text="#{hired}"></a>
-                    </div>
-                    <div class="nav-item m-navigation--item m-navigation--subitem">
-
-                      <a href="/notRecruited" class="nav-link" th:text="#{notHired}"></a>
-                    </div>
-                    <div class="nav-item m-navigation--item m-navigation--subitem">
-                      <a href="/exEmployees" class="nav-link" th:text="#{exemployees}"></a>
-
+                  </div>
+                  <div class="nav-item m-navigation--item">
+                    <a href="/search" class="nav-link no-border" th:inline="text"><span class="icon icon-add-people"></span>[[#{candidate.search}]]</a>
+                  </div>
+                  <div class="nav-item m-navigation--item">
+                    <a href="/add-candidate" class="nav-link no-border" th:inline="text"><span class="icon icon-search"></span>[[#{candidate.add}]]</a>
+                  </div>
+                </nav>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-9">
+            <div class="row align-items-center justify-content-between mb-3">
+              <div class="col-auto">
+                <h1 class="a-title--page" th:text="#{dashboard}"></h1>
+              </div>
+              <div class="col-auto">
+                <div class="a-dashboard-date" th:inline="text">
+                  [[#{today}]] <span th:text="${#dates.format(#dates.createNow(), 'dd MMMM yyyy')}"></span>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <!-- TODO: Make content dynamic -->
+              <div class="col-md-4 mb-grid">
+                <div layout:insert="~{layout/reusables/card :: card}" th:remove="tag">
+                  <div layout:fragment="card-content">
+                    <div layout:insert="~{layout/reusables/stats :: stats}" th:with="color='blue', title=#{firstMeetings}, subtitle=#{pastMonth}, number='2', percentage='10'" th:remove="tag"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4 mb-grid">
+                <div layout:insert="~{layout/reusables/card :: card}" th:remove="tag">
+                  <div layout:fragment="card-content">
+                    <div layout:insert="~{layout/reusables/stats :: stats}" th:with="color='green', title=#{techMeetings}, subtitle=#{pastMonth}, number='0', percentage='0'" th:remove="tag"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4 mb-grid">
+                <div layout:insert="~{layout/reusables/card :: card}" th:remove="tag">
+                  <div layout:fragment="card-content">
+                    <div layout:insert="~{layout/reusables/stats :: stats}" th:with="color='red', title=#{newRecruitments}, subtitle=#{upcomingMonth}, number='4', percentage='40'" th:remove="tag"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-8 mb-grid">
+                <!-- TODO: Add content when newcandidate is default -->
+                <div layout:insert="~{layout/reusables/card :: card}" th:with="title=#{newCandidates}" th:remove="tag">
+                  <div layout:fragment="card-content">
+                    <table th:replace="fragments/table :: table-candidates(false, false, false, false, true, true, false, false)"></table>
+                    <!--th:with="newCandidates=${newCandidates}"-->
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4 mb-grid">
+                <!-- TODO: Add content when newcandidate is default -->
+                <div layout:insert="~{layout/reusables/card :: card}" th:with="title=#{meetings}" th:remove="tag">
+                  <div layout:fragment="card-content">
+                    <div class="o-events-list">
+                      <!--<div th:each="upcomingMeeting : ${upcomingMeetings}" class="a-event d-flex align-items-center">-->
+                      <!--<div class="a-event&#45;&#45;date h-background-after-blue">07/06</div>-->
+                      <!--<div class="a-event&#45;&#45;name">Kennismakingsgesprek Jens</div>-->
+                      <!--</div>-->
+                      <div class="a-event d-flex align-items-center">
+                        <div class="a-event--date h-background-after-blue">07/06</div>
+                        <div class="a-event--name">Kennismakingsgesprek Jens</div>
+                      </div>
+                      <div class="a-event d-flex align-items-center">
+                        <div class="a-event--date h-background-after-green">10/06</div>
+                        <div class="a-event--name">Technische screening Ingeborg</div>
+                      </div>
                     </div>
                   </div>
                 </div>
-                <div class="nav-item m-navigation--item">
-                  <a href="/showRegisterNew" class="nav-link" th:inline="text"><span class="icon icon-add-people"></span>[[#{candidate.add}]]</a>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <!-- TODO: Add content when newcandidate is default -->
+                <div layout:insert="~{layout/reusables/card :: card}" th:with="title=#{recentlyHired}" th:remove="tag">
+                  <div layout:fragment="card-content">
+                    <table th:replace="fragments/table :: table-candidates(true, false, false, false, false, false, false, true)"></table>
+                    <!--th:with="lastRecruited=${lastRecruited}"-->
+                  </div>
                 </div>
-                <div class="nav-item m-navigation--item">
-                  <a href="/search" class="nav-link" th:inline="text"><span class="icon icon-search"></span>[[#{candidate.search}]]</a>
-                </div>
-              </nav>
+              </div>
             </div>
           </div>
         </div>
-        <div class="col-md-9">
-          <div class="row align-items-center justify-content-between mb-3">
-            <div class="col-auto">
-              <h1 class="a-title--page" th:text="#{dashboard}"></h1>
-            </div>
-            <div class="col-auto">
-              <div class="a-dashboard-date" th:inline="text">
-                [[#{today}]] <span th:text="${#dates.format(#dates.createNow(), 'dd MMMM yyyy')}"></span>
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <!-- TODO: Make content dynamic + use messages.properties -->
-            <div class="col-md-4 mb-grid">
-              <div th:replace="fragments/card :: card-stat(blue, 'Interviews', 2, 10)"></div>
-            </div>
-            <div class="col-md-4 mb-grid">
-              <div th:replace="fragments/card :: card-stat(green, 'Technische screening', 0, 0)"></div>
-            </div>
-            <div class="col-md-4 mb-grid">
-              <div th:replace="fragments/card :: card-stat(red, 'Nieuwe aanwervingen', 4, 40)"></div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-8 mb-grid">
-              <!-- TODO: Add content when newcandidate is default -->
-              <div th:replace="fragments/card :: card(#{newCandidates}, ~{ :: .table-new-candidates})">
-                <div class="table-new-candidates" th:remove="tag">
-                  <table th:replace="fragments/table :: table-candidates(false, false, false, false, true, true, false, false)"></table>
-                  <!--th:with="newCandidates=${newCandidates}"-->
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4 mb-grid">
-              <!-- TODO: Add content when newcandidate is default -->
-              <div th:replace="fragments/card :: card(#{meetings}, ~{ :: .o-events-list})">
-                <div class="o-events-list">
-                  <!--<div th:each="upcomingMeeting : ${upcomingMeetings}" class="a-event d-flex align-items-center">-->
-                    <!--<div class="a-event&#45;&#45;date h-background-after-blue">07/06</div>-->
-                    <!--<div class="a-event&#45;&#45;name">Kennismakingsgesprek Jens</div>-->
-                  <!--</div>-->
-                  <div class="a-event d-flex align-items-center">
-                    <div class="a-event--date h-background-after-blue">07/06</div>
-                    <div class="a-event--name">Kennismakingsgesprek Jens</div>
-                  </div>
-                  <div class="a-event d-flex align-items-center">
-                    <div class="a-event--date h-background-after-green">10/06</div>
-                    <div class="a-event--name">Technische screening Ingeborg</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col">
-              <!-- TODO: Add content when newcandidate is default -->
-              <div th:replace="fragments/card :: card('', ~{ :: .table-recent-hired})">
-                <div class="table-recent-hired" th:remove="tag">
-                  <table th:replace="fragments/table :: table-candidates(true, false, false, false, false, false, false, true)"></table>
-                  <!--th:with="lastRecruited=${lastRecruited}"-->
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-			</div>
-		</div>
-	</main>
-  <footer th:replace="fragments/general :: footer"></footer>
-  <div th:replace="fragments/general :: foot"></div>
-</body>
+      </div>
+    </main>
+  </body>
 </html>
