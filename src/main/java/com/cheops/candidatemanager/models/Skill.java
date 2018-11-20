@@ -29,7 +29,7 @@ public class Skill {
   @Column(name = "preferredlocation")
   private String preferredLocation;
 
-  @OneToMany(mappedBy = "skill", orphanRemoval = true, cascade ={CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
+  @OneToMany(mappedBy = "skill", orphanRemoval = true, cascade ={CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH}, fetch = FetchType.LAZY)
   private List<SkillTechnology> technologies;
 
   @Column(name = "extra")

@@ -12,7 +12,7 @@ public class SkillTechnology {
   private int id;
 
   @ManyToOne
-  @JoinColumn(name = "skill_id") //, insertable = false, updatable = false)
+  @JoinColumn(name = "skill_id")
   private Skill skill;
 
   @ManyToOne(cascade ={CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})

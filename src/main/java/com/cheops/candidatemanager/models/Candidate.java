@@ -66,7 +66,7 @@ public class Candidate implements Serializable {
   @Valid
 	private SalaryPackage currentSalaryPackage;
 
-  @OneToMany(orphanRemoval = true, cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+  @OneToMany(orphanRemoval = true, cascade = CascadeType.ALL, fetch = FetchType.LAZY)
   @JoinTable(name = "candidate_proposedsalarypackage", joinColumns = @JoinColumn(name = "candidate_id"), inverseJoinColumns = @JoinColumn(name = "proposedsalarypackage_id"))
   private List<SalaryPackage> proposedSalaryPackages;
 
