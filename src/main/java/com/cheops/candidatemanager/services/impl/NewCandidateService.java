@@ -1,8 +1,10 @@
 package com.cheops.candidatemanager.services.impl;
 
 import java.io.IOException;
+import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
@@ -14,7 +16,9 @@ import com.cheops.candidatemanager.models.Address;
 import com.cheops.candidatemanager.models.Candidate;
 import com.cheops.candidatemanager.models.CandidateSearchResolver;
 import com.cheops.candidatemanager.models.NewCandidate;
+import com.cheops.candidatemanager.models.WorkHistory;
 import com.cheops.candidatemanager.repositories.NewCandidateRepository;
+import com.cheops.candidatemanager.repositories.WorkHistoryRepository;
 import com.cheops.candidatemanager.services.ICandidateService;
 
 @Service
@@ -23,6 +27,8 @@ public class NewCandidateService implements ICandidateService {
   @Autowired
   private NewCandidateRepository newCandidateRepository;
 
+  private WorkHistoryService workHistoryService;
+  
 	public String uploadDirectory = System.getProperty("user.dir") + "/uploads";
 
 	@Override
@@ -154,6 +160,29 @@ public class NewCandidateService implements ICandidateService {
 	public List<CandidateSearchResolver> getAllCandidatesWithoutActiveApplicationProcess() {
 		// TODO Auto-generated method stub
 		return null;
+	}
+	
+	@Autowired
+	private WorkHistoryRepository workHistoryRepository ;
+
+	
+	public Collection<NewCandidate> getLast5Recruited() {
+		List<WorkHistory> workHistoryList = workHistoryService.getLast5Recruited();
+		
+		List<Integer> candidateIds = workHistoryList.stream().map(WorkHistory::getCandidateId).collect(Collectors.toList());
+		return newCandidateRepository.findAllByIdIn(candidateIds);
+
+	}
+
+	public Collection<NewCandidate> getLastMonthsRecruits() {
+
+		 List<WorkHistory> workHistoryList = workHistoryService.getLastMonthsRecruits();
+		 System.out.println("lenbgte"+workHistoryList.size());
+		 List<Integer> candidateIds = workHistoryList.stream().map(WorkHistory::getCandidateId).collect(Collectors.toList());
+			return newCandidateRepository.findAllByIdIn(candidateIds);
+		 
+		 
+	
 	}
 
 }

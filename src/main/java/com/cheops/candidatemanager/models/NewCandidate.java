@@ -82,7 +82,16 @@ public class NewCandidate implements Serializable {
 	//@Column(name = "proposedsallarypackageId")
 	private List<SalaryPackage> proposedSallaryPackage;
 
-	//@Id
+	
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	@JoinTable(name = "candidate_workhistory", joinColumns = @JoinColumn(name = "candidate_id"), inverseJoinColumns = @JoinColumn(name = "workhistory_id"))
+	private List<WorkHistory> workHistory;
+	
+	
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	@JoinTable(name = "candidate_meeting", joinColumns = @JoinColumn(name = "candidate_id"), inverseJoinColumns = @JoinColumn(name = "meeting_id"))
+	private List<Meeting> meeting;
+	
 	@OneToOne(cascade = CascadeType.ALL)
 	private Skills skills;
 
@@ -309,6 +318,22 @@ public class NewCandidate implements Serializable {
 
 	public void setIsAddedTimeStamp(Timestamp isAddedTimeStamp) {
 		this.isAddedTimeStamp = isAddedTimeStamp;
+	}
+
+	public List<WorkHistory> getWorkHistory() {
+		return workHistory;
+	}
+
+	public void setWorkHistory(List<WorkHistory> workHistory) {
+		this.workHistory = workHistory;
+	}
+
+	public List<Meeting> getMeeting() {
+		return meeting;
+	}
+
+	public void setMeeting(List<Meeting> meeting) {
+		this.meeting = meeting;
 	}
 	
 }

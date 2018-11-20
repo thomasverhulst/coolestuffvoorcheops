@@ -5,6 +5,9 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.sql.Timestamp;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Optional;
 
 import javax.servlet.http.HttpServletResponse;
@@ -24,6 +27,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -32,10 +36,13 @@ import org.thymeleaf.util.StringUtils;
 import com.cheops.candidatemanager.models.Address;
 import com.cheops.candidatemanager.models.ApplicationProcess;
 import com.cheops.candidatemanager.models.Candidate;
+import com.cheops.candidatemanager.models.Meeting;
 import com.cheops.candidatemanager.models.NewCandidate;
 import com.cheops.candidatemanager.models.SalaryPackage;
 import com.cheops.candidatemanager.models.Skills;
 import com.cheops.candidatemanager.models.Update;
+import com.cheops.candidatemanager.models.WorkHistory;
+import com.cheops.candidatemanager.pojos.CitieListWrapper;
 import com.cheops.candidatemanager.services.impl.AddressService;
 import com.cheops.candidatemanager.services.impl.ApplicationProcessService;
 import com.cheops.candidatemanager.services.impl.CandidateService;
@@ -49,10 +56,10 @@ public class CancidateController {
 	Logger logger = Logger.getLogger(CancidateController.class);
 
 	private final IStorageService storageService;
-	
+
 	private static final String UPLOADDIRECTORY = System.getProperty("user.dir") + "/uploads";
-	private static final  String FEEDBACKUPLOADDIRECTORY = System.getProperty("user.dir") + "/uploadsfeedback";
-	
+	private static final String FEEDBACKUPLOADDIRECTORY = System.getProperty("user.dir") + "/uploadsfeedback";
+
 	// goede uitleg
 	// https://www.mkyong.com/spring-boot/spring-boot-hibernate-search-example/
 	@Autowired
@@ -60,7 +67,7 @@ public class CancidateController {
 
 	@Autowired
 	private CandidateService candidateservice;
-	
+
 	@Autowired
 	private NewCandidateService newCandidateservice;
 
@@ -94,7 +101,7 @@ public class CancidateController {
 		map.addAttribute("candidate", new Candidate());
 		return "register";
 	}
-	
+
 	@PreAuthorize("hasRole('ADMIN')")
 	@GetMapping("/showRegisterNew")
 	public String showRegisterNew(ModelMap map) {
@@ -104,6 +111,18 @@ public class CancidateController {
 
 		Update update = new Update(false);
 		map.addAttribute("update", update);
+
+		// voorlopige lijst met tetsdata
+		List<String> cities = new ArrayList<String>();
+		cities.add("London");
+		cities.add("Tokyo");
+		cities.add("New York");
+		cities.add("'t Stad");
+
+		CitieListWrapper citieWrapper = new CitieListWrapper();
+		citieWrapper.setCities(cities);
+		map.addAttribute("locations", citieWrapper);
+
 		map.addAttribute("candidate", new NewCandidate());
 		return "registernew";
 	}
@@ -125,11 +144,10 @@ public class CancidateController {
 
 		session.setAttribute("isupdate", false);
 
-		
-		//set timestamp when can,didate is added
+		// set timestamp when can,didate is added
 		Timestamp isAddedTimeStamp = new Timestamp(System.currentTimeMillis());
-		candidate.setIsAddedTimeStamp(isAddedTimeStamp); 
-		
+		candidate.setIsAddedTimeStamp(isAddedTimeStamp);
+
 		// save cv if it exists
 		logger.debug("de cv link =" + candidate.getFile());
 		if (candidate.getFile() != null && !candidate.getFile().isEmpty()) {
@@ -159,30 +177,32 @@ public class CancidateController {
 		model.addAttribute("skills", new Skills());
 		return "skills";
 	}
-	
-	@PostMapping(value = "/registerCandidateNew")
+
+	@PostMapping(value = "/registerCandidateNew", produces = "application/json")
 	public String registerNew(Model model, @ModelAttribute("address") Address address,
-			@ModelAttribute("candidate") NewCandidate newCandidate, HttpSession session) throws IOException {
+			@ModelAttribute("candidate") NewCandidate newCandidate,
+			@ModelAttribute("locations") CitieListWrapper locations, BindingResult result, HttpSession session)
+			throws IOException {
 
 		session.setAttribute("isupdate", false);
 
-		//set timestamp when can,didate is added
+		// set timestamp when can,didate is added
 		Timestamp isAddedTimeStamp = new Timestamp(System.currentTimeMillis());
-		newCandidate.setIsAddedTimeStamp(isAddedTimeStamp); 
-		
-		//check if isrecruited is set, if so, add timestamp	
-		if(newCandidate.getApplicationProcess().getIsRecruited()) {
+		newCandidate.setIsAddedTimeStamp(isAddedTimeStamp);
+
+		// check if isrecruited is set, if so, add timestamp
+		if (newCandidate.getApplicationProcess().getIsRecruited()) {
 			Timestamp isRecruitedTimeStamp = new Timestamp(System.currentTimeMillis());
 			newCandidate.getApplicationProcess().setIsRecruitedTimeStamp(isRecruitedTimeStamp);
 		}
-		
-		//check if isExemployee is set, if so, add timestamp and unset "isrecruited	
-		if(newCandidate.getApplicationProcess().getIsExEmployee()) {
+
+		// check if isExemployee is set, if so, add timestamp and unset "isrecruited
+		if (newCandidate.getApplicationProcess().getIsExEmployee()) {
 			Timestamp isExEmployeeTimeStamp = new Timestamp(System.currentTimeMillis());
 			newCandidate.getApplicationProcess().setIsExEmployeeTimeStamp(isExEmployeeTimeStamp);
 			newCandidate.getApplicationProcess().setIsRecruited(false);
 		}
-		
+
 		// save cv if it exists
 		logger.debug("de cv link =" + newCandidate.getFile());
 		if (newCandidate.getFile() != null && !newCandidate.getFile().isEmpty()) {
@@ -197,35 +217,59 @@ public class CancidateController {
 			newCandidate.setCvLink(file.getOriginalFilename());
 		}
 
-		if (newCandidate.getApplicationProcess().getFile() != null && !newCandidate.getApplicationProcess().getFile().isEmpty()) {
-		
+		if (newCandidate.getApplicationProcess().getFile() != null
+				&& !newCandidate.getApplicationProcess().getFile().isEmpty()) {
+
 			MultipartFile file = newCandidate.getApplicationProcess().getFile();
-			
+
 			Path filenameAndPath = Paths.get(FEEDBACKUPLOADDIRECTORY, file.getOriginalFilename());
 			Files.write(filenameAndPath, file.getBytes());
 			// set link to cv
 			newCandidate.getApplicationProcess().setFeedbackFileName(file.getOriginalFilename());
-					
+
 		}
-		
+
+		// fill list with locations to
+		if (locations.getCities() != null) {
+			StringBuilder stringBuilder = new StringBuilder();
+			for (String location : locations.getCities()) {
+				stringBuilder.append(location + ",");
+			}
+			System.out.println(stringBuilder.toString());
+			String x = stringBuilder.toString();
+			newCandidate.getSkills().setPreferredLocation(x);
+		}
 
 		// https://stackoverflow.com/questions/2227395/spring-3-0-set-and-get-session-attribute
 		// save candidate to get an id
 		NewCandidate tmpNewCandidate = newCandidateservice.addNewCandidate(newCandidate);
-		
-		tmpNewCandidate.setAddressId(tmpNewCandidate.getAddress().getId() );
-		tmpNewCandidate.setApplicationProcessId(tmpNewCandidate.getApplicationProcess().getId() );
+
+		tmpNewCandidate.setAddressId(tmpNewCandidate.getAddress().getId());
+		tmpNewCandidate.setApplicationProcessId(tmpNewCandidate.getApplicationProcess().getId());
 		tmpNewCandidate.setSkillsId(tmpNewCandidate.getSkills().getId());
 
+		// set candidateId to workhistory
+		List<WorkHistory> worlhistoryList = tmpNewCandidate.getWorkHistory();
+		for (WorkHistory workHistory : worlhistoryList) {
+			workHistory.setCandidateId(tmpNewCandidate.getId());
+		}
+		tmpNewCandidate.setWorkHistory(worlhistoryList);
+
+		// set candidateId to meeting
+		List<Meeting> meetingList = tmpNewCandidate.getMeeting();
+		for (Meeting meeting : meetingList) {
+			meeting.setCandidateId(tmpNewCandidate.getId());
+		}
+		tmpNewCandidate.setMeeting(meetingList);
+
+		// update candidate
 		newCandidateservice.updateNewCandidate(tmpNewCandidate);
 		session.setAttribute("candidate", tmpNewCandidate);
 
-		
 		logger.debug("Kandidaat id " + tmpNewCandidate.getId());
 
 		return "updatesucces";
 	}
-	
 
 	@PostMapping(value = "/updateCandidate")
 	public String updateArticle(Candidate candidate, Address address) {
@@ -326,25 +370,26 @@ public class CancidateController {
 
 	@PostMapping(value = "/registerApplicationProcess")
 	public String registerApplicationProcess(Model model,
-			@ModelAttribute("applicationprocess") ApplicationProcess applicationProcess, BindingResult bindingResult, HttpSession session) throws IOException {
+			@ModelAttribute("applicationprocess") ApplicationProcess applicationProcess, BindingResult bindingResult,
+			HttpSession session) throws IOException {
 
-		//check if isrecruited is set, if so, add timestamp	
-		if(applicationProcess.getIsRecruited()) {
+		// check if isrecruited is set, if so, add timestamp
+		if (applicationProcess.getIsRecruited()) {
 			Timestamp isRecruitedTimeStamp = new Timestamp(System.currentTimeMillis());
 			applicationProcess.setIsRecruitedTimeStamp(isRecruitedTimeStamp);
 		}
-		
-		//check if feedbackfile is added
-		if (applicationProcess.getFile() != null && !applicationProcess.getFile().isEmpty()) {	
+
+		// check if feedbackfile is added
+		if (applicationProcess.getFile() != null && !applicationProcess.getFile().isEmpty()) {
 			MultipartFile file = applicationProcess.getFile();
-		
+
 			Path filenameAndPath = Paths.get(FEEDBACKUPLOADDIRECTORY, file.getOriginalFilename());
 			Files.write(filenameAndPath, file.getBytes());
 			// set link to cv
 			applicationProcess.setFeedbackFileName(file.getOriginalFilename());
-			
+
 		}
-			
+
 		ApplicationProcess tmpApplicationprocess = applicationProcessService.addApplicationProcess(applicationProcess);
 		// get candidate from session
 		Candidate sessionCandidate = (Candidate) session.getAttribute("candidate");

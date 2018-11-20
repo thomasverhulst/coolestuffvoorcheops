@@ -68,14 +68,26 @@ Als variabelen met is beginnen, worden getteres en setters ook gegeereerd met "i
 #repository uitleg
 https://docs.spring.io/spring-data/jpa/docs/1.5.0.RC1/reference/html/jpa.repositories.html
 
-
+List<People> findDistinctByNameNotIn(List<String> names);
+OindTopById_IdLotOrderById_VersionLotDesc(@Param("identifiant") int idIdLot);
 # SQL
 ALTER table kandidatenbeheer.candidate ADD contactChannel varchar(2000);
 
+# streams
+https://stackoverflow.com/questions/39654338/java-stream-filter-null-pointer-issue
 
 #
 // https://www.concretepage.com/spring-boot/spring-boot-crudrepository-example
+.filter(Objects::nonNull)
 
+https://www.mkyong.com/java8/java-8-filter-a-null-value-from-a-stream/
+ List<String> result = language.filter(x -> x!=null).collect(Collectors.toList());
+
+# form examples voorbeelden
+https://o7planning.org/en/11659/thymeleaf-form-select-option-example#a14065418
+http://forum.thymeleaf.org/Problem-with-thymeleaf-expression-utility-lists-contains-td4027317.html
+https://doanduyhai.wordpress.com/2012/04/14/spring-mvc-part-iv-thymeleaf-advanced-usage/
+<div th:text="${#lists.contains(testList, 'test1')}"></div>
 #
 header en footer toevoegen https://www.quora.com/How-do-I-include-a-header-and-footer-file-in-every-HTML-page-we-are-designing
 https://mdbootstrap.com/components/bootstrap-footer/
