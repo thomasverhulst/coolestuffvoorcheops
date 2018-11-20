@@ -124,6 +124,7 @@ public class SearchController {
 
 	}
 
+	// te refactoren/ verplaatsen naar service
 	@PostMapping(value = "/searchInAllCandidates")
 	public String searchInAllCandidates(@ModelAttribute("search") Search search,
 			@ModelAttribute("experience") ExperienceWrapper experience,
@@ -144,13 +145,6 @@ public class SearchController {
 			// add frontenders if asked
 			candidates.addAll(candidateservice.findAllFrontend());
 		}
-//		if (search.isEmployed()) {
-//			// search only in recruited candiates
-//			List<Integer> applicationProcessIdList = candidates.stream()
-//					.map(c -> c.getCandidate().getApplicationProcessId()).collect(Collectors.toList());
-//			candidates.clear(); // lijst candidaten
-//			candidates.addAll(candidateservice.findAllRecruitedIn(applicationProcessIdList));
-//		}
 
 		// get list with skillIds
 		List<Integer> skillsIdList = new ArrayList<Integer>();
@@ -160,7 +154,6 @@ public class SearchController {
 			System.out.println("lengte" + skillsIdList.size());
 		} else {
 			List<Skills> skillsIds = (List<Skills>) skillsService.findAllSkills();
-
 			skillsIdList = skillsIds.stream().map(Skills::getId).collect(Collectors.toList());
 
 		}
@@ -175,7 +168,6 @@ public class SearchController {
 				skillsIdList.retainAll(skillsIdsToKeep);
 				if (skillsIdList.isEmpty()) {
 					allreadyZeroResults = true;
-
 				}
 				candidates.clear();
 				candidates.addAll(candidateservice.findAllBySkillsId(skillsIdList));
@@ -186,7 +178,6 @@ public class SearchController {
 				skillsIdList.retainAll(skillsIdsToKeep);
 				if (skillsIdList.isEmpty()) {
 					allreadyZeroResults = true;
-
 				}
 				candidates.clear();
 				candidates.addAll(candidateservice.findAllBySkillsId(skillsIdList));
@@ -204,7 +195,6 @@ public class SearchController {
 		}
 
 		// get ids of candidates
-
 		System.out.println("Nog "+ candidates.size() +" KANDIDATEN");
 		System.out.println(search.getName());
 		System.out.println(search.getSirName());
@@ -234,12 +224,13 @@ public class SearchController {
 				System.out.println("aantaltot" + candidateIdList2.size());
 				System.out.println("in de naam");
 				candidateIdList2.retainAll(candidateIdToKeep);
+				candidates.clear(); // lijst candidaten
 				if (candidateIdToKeep.isEmpty()) {
 					allreadyZeroResults = true;
-
+				}else {
+					candidates.addAll(candidateservice.findAllByIdIn(candidateIdToKeep));
 				}
-				candidates.clear(); // lijst candidaten
-				candidates.addAll(candidateservice.findAllByIdIn(candidateIdToKeep));
+				
 			} else {
 				System.out.println("we zijn hier");
 				System.out.println(candidateIdToKeep.size());
@@ -248,7 +239,6 @@ public class SearchController {
 					allreadyZeroResults = true;
 
 				} else {
-
 					candidates.addAll(candidateservice.findAllByIdIn(candidateIdToKeep));
 				}
 			}
@@ -278,7 +268,6 @@ public class SearchController {
 				candidates.clear();
 				if (candidateIdList.isEmpty()) {
 					allreadyZeroResults = true;
-
 				} else {
 					candidates.addAll(candidateservice.findAllByIdIn(candidateIdList));
 					System.out.println("er zijn nog " + candidates.size() + " kandidaten");
@@ -311,26 +300,20 @@ public class SearchController {
 				List<CandidateSearchResolver> candidatesToKeep = candidatesList.stream() // Convert to steam
 						.filter(x -> stripperdStatus.equals(x.getApplicationStatus())) // we want "jack" only
 						.collect(Collectors.toList()); // If 'findAny' then return found
-				candidates.clear();
-				
+				candidates.clear();				
 				if (candidatesToKeep.isEmpty()) {
 					allreadyZeroResults = true;
-
 				} else {					
 					candidates.addAll(candidatesToKeep);
 					System.out.println("was nog niet vol");
 				}
-				
-
 			} else {
-
 				List<Candidate> candidatesList = candidateservice.findAllById();
 				List<CandidateSearchResolver> candidatesSearchResolver = candidateservice
 						.fillExpertiseAndStatus(candidatesList);
 				List<CandidateSearchResolver> candidatesToKeep = candidatesSearchResolver.stream() // Convert to steam
 						.filter(x -> stripperdStatus.equals(x.getApplicationStatus())) // we want "jack" only
 						.collect(Collectors.toList());
-
 				candidates.addAll(candidatesToKeep);
 			}
 
