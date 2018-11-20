@@ -23,12 +23,12 @@ public class SkillTechnology {
   private boolean preferred;
 
   @Column(name = "years")
-  private int years;
+  private double years;
 
   public SkillTechnology(){
   }
 
-  public SkillTechnology(Skill skill, Technology technology, boolean preferred, int years) {
+  public SkillTechnology(Skill skill, Technology technology, boolean preferred, double years) {
     this.skill = skill;
     this.technology = technology;
     this.preferred = preferred;
@@ -67,11 +67,11 @@ public class SkillTechnology {
     this.preferred = preferred;
   }
 
-  public int getYears() {
+  public double getYears() {
     return years;
   }
 
-  public void setYears(int years) {
+  public void setYears(double years) {
     this.years = years;
   }
 

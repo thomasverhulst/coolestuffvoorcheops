@@ -165,7 +165,7 @@
             </div>
             <div class="form-group m-form-group">
               <label for="extra" class="a-form-label" th:text="#{skill.extra}"></label>
-              <textarea th:field="*{skill.extra}" id="extra" name="extra" class="form-control a-form-textarea" rows="3"></textarea>
+              <textarea th:field="*{skill.extra}" id="extra" name="extra" class="form-control a-form-textarea" rows="3" maxlength="200"></textarea>
             </div>
           </div>
           <div class="col-md-6">
@@ -178,14 +178,21 @@
             <div id="skillTechnologies" class="row mt-grid">
               <div th:if="${candidate.skill.technologies == null} or ${candidate.skill.technologies.empty}" class="col" th:text="#{skill.technologiesEmpty}"></div>
               <div th:if="${candidate.skill.technologies != null} and ${!candidate.skill.technologies.empty}" class="col">
-                <div th:each="technology, stat: ${candidate.skill.technologies}" class="row">
-
+                <div th:each="technology, stat: ${candidate.skill.technologies}" class="row align-items-center">
                   <div class="col-md-6 form-group m-form-group">
-                    <label th:for="'candidate.skill.technologies_' + ${stat.index}" class="a-form-label" th:text="#{technology.name}"></label>
-                    <input th:field="${candidate.skill.technologies[__${stat.index}__].technology.name}" type="text" name="technology_name" th:id="'candidate.skill.technologies_' + ${stat.index}" class="form-control a-form-input-text js-autocomplete-technologies" autocomplete="off">
+                    <label th:for="'candidate.skill.technologies_' + ${stat.index} + '_name'" class="a-form-label" th:text="#{technology.name}"></label>
+                    <input th:field="${candidate.skill.technologies[__${stat.index}__].technology.name}" type="text" name="technology_name" th:id="'candidate.skill.technologies_' + ${stat.index} + '_name'" class="form-control a-form-input-text js-autocomplete-technologies" autocomplete="off">
                   </div>
-
-                  <a class="icon icon-delete js-remove-row" data-action="removeSkillTechnology" data-object="#skillTechnologies" th:data-value="${stat.index}" href="#" th:title="#{salary.delete}"></a>
+                  <div class="col-md-2 form-group m-form-group">
+                    <label th:for="'candidate.skill.technologies_' + ${stat.index} + '_years'" class="a-form-label" th:text="#{technology.years}"></label>
+                    <input th:field="${candidate.skill.technologies[__${stat.index}__].years}" type="number" name="technology_years" th:id="'candidate.skill.technologies_' + ${stat.index} + '_years'" class="form-control a-form-input-text">
+                  </div>
+                  <div class="col-md-3 form-group m-form-group">
+                    <input type="checkbox" th:field="${candidate.skill.technologies[__${stat.index}__].preferred}" th:checked="${active} ? 'checked'" name="technology_years" th:id="'candidate.skill.technologies_' + ${stat.index} + '_preferred'" class="form-control a-form-checkbox"><label th:for="'candidate.skill.technologies_' + ${stat.index} + '_preferred'" th:text="#{technology.preferred}"></label>
+                  </div>
+                  <div class="col-md-1 form-group m-form-group">
+                    <a class="icon icon-delete js-remove-row" data-action="removeSkillTechnology" data-object="#skillTechnologies" th:data-value="${stat.index}" href="#" th:title="#{technology.remove}"></a>
+                  </div>
                 </div>
               </div>
             </div>
