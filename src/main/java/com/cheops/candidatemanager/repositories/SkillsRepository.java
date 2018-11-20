@@ -14,10 +14,21 @@ public interface SkillsRepository extends CrudRepository<Skills, Integer> {
 
 	List<Skills> findAllByFrontend(boolean isFrontend);
 
-	Object findAllByExperienceGreaterThan(int experience);
+	Collection<? extends Skills> findAllByExperienceGreaterThan(int experience);
 
 	List<Skills> findAllByPreferredLocationContaining(String location);
 
-	//Collection<? extends Skills> findAllByPreferredLocationContaining(String location);
+	Collection<? extends Skills> findAllByExperienceLessThan(int i);
+
+	Collection<? extends Skills> findAllByExperienceGreaterThanAndExperienceLessThan(int i, int j);
+
+	//List< Skills> findAllByExperienceLessThanAndIn(int i, List<Skills> skills);
+
+	List<Skills> findAllByIdIn(List<Integer> skillsIdList);
+
+	//List<Integer> findAllById();
+
+	//Collection<? extends Skills> findAllByExperienceLessThanIn(int i, List<Skills> skills);
+
 
 }

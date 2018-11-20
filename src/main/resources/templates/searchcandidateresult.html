@@ -35,6 +35,144 @@
 						</div>
 				</form>
 			
+			
+			<form th:action="@{/searchAllCandidatesWithExperience}">
+					<div>
+						  <select th:object="${experience}" th:field="*{experienceIntervals}">
+	                         <option value=""> -- </option>
+	                         <option th:each="item : ${experience.experienceIntervals}"
+	                            th:value="${item}"
+	                            th:utext="${item}"
+	                           />
+	                  		</select>	
+	                  		<button class="btn-lg btn-primary btn-block" type="submit">Zoek
+							met ervaring ></button>
+						</div>
+				</form>
+				
+				<form th:action="@{/searchCandidate}" th:object="${candidate}"
+				method="POST">
+
+				<div class="col-sm-3">
+					<div class=form-group>
+						<label for="name">Naam:</label> <input type="text"
+							th:field=*{name} id="name" class="form-control"
+							placeholder="Voornaam">
+					</div>
+					<div class=form-group>
+						<label for="sirName">Familienaam:</label> <input type="text"
+							th:field=*{sirName} id="sirName" class="form-control"
+							placeholder="Familienaam">
+					</div>
+					<!-- 	<div class=form-group> -->
+					<!-- 		<label for="email">E-mail</label> -->
+					<!-- 		<input type="text" th:field=*{email} id="email" class="form-control" placeholder="email" > -->
+					<!-- 	</div> -->
+					<div class=form-group>
+						<button class="btn-lg btn-primary btn-block" type="submit">Zoek
+							></button>
+					</div>
+				</div>
+			</form>
+				<form th:action="@{/searchInAllCandidates}" th:object="${search}"
+					method="POST">
+					
+					
+					<div class=form-group>
+						<label for="name">Naam:</label> <input type="text"
+							th:field=*{name} id="name" class="form-control"
+							placeholder="Voornaam">
+					</div>
+					<div class=form-group>
+						<label for="sirName">Familienaam:</label> <input type="text"
+							th:field=*{sirName} id="sirName" class="form-control"
+							placeholder="Familienaam">
+					</div>
+					<!-- 	<div class=form-group> -->
+					<!-- 		<label for="email">E-mail</label> -->
+					<!-- 		<input type="text" th:field=*{email} id="email" class="form-control" placeholder="email" > -->
+					<!-- 	</div> -->
+					
+					
+					
+					
+					
+					
+					
+					<div class=form-group>
+						<label for="isJava">Zoek javanen:</label> <input type="checkbox"
+							th:field="*{java}" id="isJava" class="form-control">
+					</div>
+					<div class=form-group>
+						<label for="isDotnet"> Zoek .Netters:</label> <input
+							type="checkbox" th:field=*{dotnet} id="isDotnet"
+							class="form-control">
+					</div>
+					<div class=form-group>
+						<label for="isFrontender">Zoek frontenters:</label> <input
+							type="checkbox" th:field=*{frontender} id="isFrondenter"
+							class="form-control">
+					</div>
+					
+<!-- 					<div class=form-group> -->
+<!-- 						<label for="experience">Minimum jaren ervaring:</label> <input -->
+<!-- 							type="text" th:field=*{experience} id="experience" -->
+<!-- 							class="form-control" placeholder="Minimum jaren ervaring"> -->
+<!-- 					</div> -->
+					
+					
+					<div>
+					
+					
+					</div>
+					<div class=form-group>
+						  <select th:object="${experience}" th:field="*{experienceIntervals}">
+	                         <option  value="" selected="selected"> -- </option>
+	                         <option th:each="item : ${experience.experienceIntervals}"
+	                            th:value="${item}"
+	                            th:utext="${item}"
+	                           />
+	                  		</select>
+	                  		
+	                  		</div>
+	                  		
+	                  		<div class=form-group>
+						  <select th:object="${locations}" th:field="*{cities}" multiple="multiple">
+	                         <option value=""> -- </option>
+	                         <option th:each="item : ${locations.cities}"
+	                            th:value="${item}"
+	                            th:utext="${item}"
+	                            th:selected="${item}"/>
+	                  		</select>	
+	                  		
+						</div>
+						
+						
+						
+							<div class=form-group>
+						  <select th:object="${status}" th:field="*{statusList}">
+	                         <option  value="" selected="selected"> -- </option>
+	                         <option th:each="item : ${status.statusList}"
+	                            th:value="${item}"
+	                            th:utext="${item}"
+	                           />
+	                  		</select>
+	                  		
+	                  		</div>
+						
+	                  		
+	                  		
+	                  		<div class=form-group>
+						<label for="isEmployed">Zoek hierboven alleen bij
+							kandidaten in dienst:</label> <input type="checkbox" th:field=*{employed}
+							id="isEmployed" class="form-control">
+					</div>	
+	                  		<div class=form-group>
+						<button class="btn-lg btn-primary btn-block" type="submit">Zoek
+							></button>
+					</div>
+						
+				</form>
 				
 			</div>
 		</div>

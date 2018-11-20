@@ -56,7 +56,7 @@ public class CandidateService implements ICandidateService {
 		return fillExpertiseAndStatus(candidates);
 	}
 
-	private List<CandidateSearchResolver> fillExpertiseAndStatus(List<Candidate> candidates) {
+	public List<CandidateSearchResolver> fillExpertiseAndStatus(List<Candidate> candidates) {
 		List<CandidateSearchResolver> candidateResolverList = new ArrayList<CandidateSearchResolver>();
 		for (Candidate candidate : candidates) {
 			// Everything related to the skill
@@ -108,6 +108,9 @@ public class CandidateService implements ICandidateService {
 					expertise.toString(), applicationStatus);
 			candidateResolverList.add(candidateSearchResolver);
 		}
+		
+		
+		
 		return candidateResolverList;
 	}
 
@@ -385,24 +388,52 @@ public class CandidateService implements ICandidateService {
 		List<Integer> candidateIds = workHistoryExEmployees.stream().map(WorkHistory::getCandidateId)
 				.collect(Collectors.toList());
 		List<Candidate> candidates = candidateRepository.findAllByIdIn(candidateIds);
-
 		return fillExpertiseAndStatus(candidates);
-
 	}
 
 	public List<CandidateSearchResolver> findAllPreferredlocationContaining(List<String> cities) {
-		// TODO Auto-generated method stub
-		List<Integer> skillsIds= skillsService.findAllByPreferredlocationContaining( cities);
-		
-				
-		
-		List<Candidate> candidates = candidateRepository.findAllBySkillsIdIn(skillsIds);
-	
-		
-
-		
-
+		List<Integer> skillsIds= skillsService.findAllByPreferredlocationContaining( cities);			
+		List<Candidate> candidates = candidateRepository.findAllBySkillsIdIn(skillsIds);	
 		return fillExpertiseAndStatus(candidates);
+	}
+
+	public List<CandidateSearchResolver> findAllByExperienceLessThan(int i) {
+		List<Integer> skillsIds= skillsService.findAllByExperienceLessThan( i);
+		List<Candidate> candidates = candidateRepository.findAllBySkillsIdIn(skillsIds);	
+		return fillExpertiseAndStatus(candidates);
+	}
+
+	public List<CandidateSearchResolver> findAllByExperienceGreaterThanAndExperienceLessThan(int i, int j) {
+		List<Integer> skillsIds= skillsService.findAllByExperienceGreaterThanAndExperienceLessThan( i, j);
+		List<Candidate> candidates = candidateRepository.findAllBySkillsIdIn(skillsIds);	
+		return fillExpertiseAndStatus(candidates);
+	}
+
+	public List<CandidateSearchResolver> findAllByExperienceGreaterThan(int i) {
+		List<Integer> skillsIds= skillsService.findAllByExperienceGreaterThan( i);
+		List<Candidate> candidates = candidateRepository.findAllBySkillsIdIn(skillsIds);	
+		return fillExpertiseAndStatus(candidates);
+	}
+
+//	public Collection<? extends CandidateSearchResolver> findAllByExperienceLessThanIn(int i,
+//			List<Skills> findAllSkillsById) {
+//		List<Integer> skillsIds= skillsService.findAllByExperienceLessThanIn( i,findAllSkillsById);
+//		List<Candidate> candidates = candidateRepository.findAllBySkillsIdIn(skillsIds);	
+//		return fillExpertiseAndStatus(candidates);
+//	}
+
+	public Collection<CandidateSearchResolver> findAllBySkillsId(List<Integer> skillsIds) {
+		List<Candidate> candidates = candidateRepository.findAllBySkillsIdIn(skillsIds);	
+		return fillExpertiseAndStatus(candidates);
+	}
+
+	public List<CandidateSearchResolver> findAllByIdIn(List<Integer> candidateIdList2) {
+		List<Candidate> candidateList=candidateRepository.findAllByIdIn(candidateIdList2);
+		return fillExpertiseAndStatus(candidateList);
+	}
+
+	public List<Candidate> findAllById() {
+		return (List<Candidate>) candidateRepository.findAll();
 	}
 
 	

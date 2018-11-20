@@ -8,20 +8,18 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
-import com.cheops.candidatemanager.models.MyUploadForm;
 import org.apache.log4j.Logger;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.multipart.MultipartFile;
+
+import com.cheops.candidatemanager.models.MyUploadForm;
 
 public class MyFileUploadController {
 
 	Logger logger = Logger.getLogger(MyFileUploadController.class);
-
 
 	// GET: Show upload form page.
 	@GetMapping(value = "/uploadOneFile")
