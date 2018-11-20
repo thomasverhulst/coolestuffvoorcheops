@@ -15,4 +15,25 @@ public interface ISkillService {
 	void updateSkills(Skill skill);
 
 	void deleteSkills(int skillsId);
+
+	List<Integer> findAllDotnet();
+
+	List<Integer> findAllJava();
+
+	List<Integer> findAllFrontend();
+
+	List<Integer> findAllByExperienceGreaterThan(int minimumExperience, List<Integer> skillId);
+
+	List<Integer> findAllByPreferredlocationContaining(List<String> cities);
+
+	List<Integer> findAllByExperienceLessThan(double i);
+
+	List<Integer> findAllByExperienceGreaterThanAndExperienceLessThan(double i, double j);
+
+	List<Integer> findAllByExperienceGreaterThan(double i);
+
+	List<Skill> findAllSkillsById(List<Integer> skillsIdList);
+
+	Iterable<Skill> findAllSkills();
+
 }

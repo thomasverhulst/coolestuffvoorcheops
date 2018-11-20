@@ -8,4 +8,8 @@ import java.util.List;
 public interface CandidateRepository extends CrudRepository<Candidate, Integer> {
   List<Candidate> findAllByIdIn(List<Integer> candidateIds);
   List<Candidate> findFirst3ByOrderByIdDesc();
+  List<Candidate> findAllBySkillIdIn(List<Integer> skillsIds);
+  List<Candidate> findAllByNameLikeOrLastNameLike(String name, String lastName);
+  List<Candidate> findAllByApplicationProcessIdIn(List<Integer> applicationProcessIds);
+  Candidate findByapplicationProcessId(Integer id);
 }

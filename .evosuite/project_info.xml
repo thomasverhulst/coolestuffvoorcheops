@@ -2792,7 +2792,7 @@
         </generation>
     </cut>
     <cut>
-        <fullNameOfTargetClass>com.cheops.candidatemanager.models.CandaidateSearchModel</fullNameOfTargetClass>
+        <fullNameOfTargetClass>com.cheops.candidatemanager.models.CandidateSearchModel</fullNameOfTargetClass>
         <fullNameOfTestSuite>com.cheops.candidatemanager.models.CandaidateSearchModel_ESTest</fullNameOfTestSuite>
         <generation>
             <id>0</id>

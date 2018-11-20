@@ -27,7 +27,7 @@ public class CandaidateSearchModel_ESTest_scaffolding {
 
   @BeforeClass 
   public static void initEvoSuiteFramework() { 
-    org.evosuite.runtime.RuntimeSettings.className = "CandaidateSearchModel";
+    org.evosuite.runtime.RuntimeSettings.className = "CandidateSearchModel";
     org.evosuite.runtime.GuiSupport.initialize(); 
     org.evosuite.runtime.RuntimeSettings.maxNumberOfThreads = 100; 
     org.evosuite.runtime.RuntimeSettings.maxNumberOfIterationsPerLoop = 10000; 
@@ -85,7 +85,7 @@ public class CandaidateSearchModel_ESTest_scaffolding {
 
   private static void initializeClasses() {
     org.evosuite.runtime.classhandling.ClassStateSupport.initializeClasses(CandaidateSearchModel_ESTest_scaffolding.class.getClassLoader() ,
-      "CandaidateSearchModel"
+      "CandidateSearchModel"
     );
   } 
 
@@ -93,7 +93,7 @@ public class CandaidateSearchModel_ESTest_scaffolding {
     org.evosuite.runtime.classhandling.ClassResetter.getInstance().setClassLoader(CandaidateSearchModel_ESTest_scaffolding.class.getClassLoader()); 
 
     org.evosuite.runtime.classhandling.ClassStateSupport.resetClasses(
-      "CandaidateSearchModel"
+      "CandidateSearchModel"
     );
   }
 }

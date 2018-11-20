@@ -27,7 +27,7 @@
 //
 //  @BeforeClass
 //  public static void initEvoSuiteFramework() {
-//    org.evosuite.runtime.RuntimeSettings.className = "com.cheops.candidatemanager.models.CandaidateSearchModel";
+//    org.evosuite.runtime.RuntimeSettings.className = "com.cheops.candidatemanager.models.CandidateSearchModel";
 //    org.evosuite.runtime.GuiSupport.initialize();
 //    org.evosuite.runtime.RuntimeSettings.maxNumberOfThreads = 100;
 //    org.evosuite.runtime.RuntimeSettings.maxNumberOfIterationsPerLoop = 10000;
@@ -85,7 +85,7 @@
 //
 //  private static void initializeClasses() {
 //    org.evosuite.runtime.classhandling.ClassStateSupport.initializeClasses(CandaidateSearchModel_ESTest_scaffolding.class.getClassLoader() ,
-//      "com.cheops.candidatemanager.models.CandaidateSearchModel"
+//      "com.cheops.candidatemanager.models.CandidateSearchModel"
 //    );
 //  }
 //
@@ -93,7 +93,7 @@
 //    org.evosuite.runtime.classhandling.ClassResetter.getInstance().setClassLoader(CandaidateSearchModel_ESTest_scaffolding.class.getClassLoader());
 //
 //    org.evosuite.runtime.classhandling.ClassStateSupport.resetClasses(
-//      "com.cheops.candidatemanager.models.CandaidateSearchModel"
+//      "com.cheops.candidatemanager.models.CandidateSearchModel"
 //    );
 //  }
 //}

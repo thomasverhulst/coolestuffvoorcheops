@@ -19,7 +19,7 @@ import java.util.Date;
 import java.util.List;
 
 @Entity
-@Table(name = "candidate_fe")
+@Table(name = "candidate")
 public class Candidate implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -224,6 +224,14 @@ public class Candidate implements Serializable {
 
   public void setAddress(Address address) {
     this.address = address;
+  }
+
+  public ApplicationProcess getApplicationProcess() {
+    return applicationProcess;
+  }
+
+  public void setApplicationProcess(ApplicationProcess applicationProcess) {
+    this.applicationProcess = applicationProcess;
   }
 
   public String getContactChannel() {
