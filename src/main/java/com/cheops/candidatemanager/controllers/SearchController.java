@@ -7,6 +7,7 @@ import java.util.stream.Collectors;
 
 import javax.servlet.http.HttpSession;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -19,11 +20,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.thymeleaf.util.StringUtils;
 
-import com.cheops.candidatemanager.models.ApplicationProcess;
 import com.cheops.candidatemanager.models.CandaidateSearchModel;
 import com.cheops.candidatemanager.models.Candidate;
 import com.cheops.candidatemanager.models.CandidateSearchResolver;
-import com.cheops.candidatemanager.models.Meeting;
 import com.cheops.candidatemanager.models.NewCandidate;
 import com.cheops.candidatemanager.models.SalaryPackage;
 import com.cheops.candidatemanager.models.Search;
@@ -31,7 +30,6 @@ import com.cheops.candidatemanager.models.Skills;
 import com.cheops.candidatemanager.pojos.CitieListWrapper;
 import com.cheops.candidatemanager.pojos.ExperienceWrapper;
 import com.cheops.candidatemanager.pojos.StatusWrapper;
-import com.cheops.candidatemanager.repositories.CandidateRepository;
 import com.cheops.candidatemanager.services.impl.AddressService;
 import com.cheops.candidatemanager.services.impl.CandidateService;
 import com.cheops.candidatemanager.services.impl.SalaryPackageService;
@@ -42,6 +40,7 @@ public class SearchController {
 
 	private static final String uploadDirectory = System.getProperty("user.dir") + "/uploads/";
 
+	Logger logger = Logger.getLogger(SearchController.class);
 	// https://www.mkyong.com/spring-boot/spring-boot-hibernate-search-example/
 	// https://stackoverflow.com/questions/48800517/how-to-search-multiple-fields-in-a-search-box-in-spring-data-jpa
 	@Autowired
@@ -131,6 +130,7 @@ public class SearchController {
 			@ModelAttribute("locations") CitieListWrapper locations, @ModelAttribute("status") StatusWrapper status,
 			ModelMap modelMap, HttpSession session) {
 		List<CandidateSearchResolver> candidates = new ArrayList<CandidateSearchResolver>();
+		boolean allreadyZeroResults = false;
 		// moet dit naar een service?
 		if (search.isDotnet()) {
 			// add .netters if asked
@@ -159,82 +159,57 @@ public class SearchController {
 			skillsIdList = candidates.stream().map(c -> c.getCandidate().getSkillsId()).collect(Collectors.toList());
 			System.out.println("lengte" + skillsIdList.size());
 		} else {
-			List<Skills> l = (List<Skills>) skillsService.findAllSkills();
+			List<Skills> skillsIds = (List<Skills>) skillsService.findAllSkills();
 
-			skillsIdList = l.stream().map(Skills::getId).collect(Collectors.toList());
+			skillsIdList = skillsIds.stream().map(Skills::getId).collect(Collectors.toList());
 
 		}
 
-		if (experience.getExperienceIntervals() != null) {
-			System.out.println("experience" + experience.getExperienceIntervals());
+		logger.info("Nog \"+ candidates.size() +\" KANDIDATEN");
+		System.out.println("Nog "+ candidates.size() +" KANDIDATEN");
+		if (!experience.getExperienceIntervals().isEmpty()) {
+			System.out.println("experience gekozen" + experience.getExperienceIntervals());
 			if (experience.getExperienceIntervals().toString().contains("2")) {
 				List<Integer> skillsIdsToKeep = skillsService.findAllByExperienceLessThan(3);
 
 				skillsIdList.retainAll(skillsIdsToKeep);
+				if (skillsIdList.isEmpty()) {
+					allreadyZeroResults = true;
+
+				}
 				candidates.clear();
 				candidates.addAll(candidateservice.findAllBySkillsId(skillsIdList));
 
-			} else if (experience.getExperienceIntervals().toString().contains(" - ")) {
+			} else if (experience.getExperienceIntervals().toString().contains(" - ") && allreadyZeroResults == false) {
 
 				List<Integer> skillsIdsToKeep = skillsService.findAllByExperienceGreaterThanAndExperienceLessThan(2, 6);
 				skillsIdList.retainAll(skillsIdsToKeep);
+				if (skillsIdList.isEmpty()) {
+					allreadyZeroResults = true;
+
+				}
 				candidates.clear();
 				candidates.addAll(candidateservice.findAllBySkillsId(skillsIdList));
 
-			} else if (experience.getExperienceIntervals().toString().contains("> 5")) {
+			} else if (experience.getExperienceIntervals().toString().contains("> 5") && allreadyZeroResults == false) {
 				List<Integer> skillsIdsToKeep = skillsService.findAllByExperienceGreaterThan(5);
 				skillsIdList.retainAll(skillsIdsToKeep);
+				if (skillsIdList.isEmpty()) {
+					allreadyZeroResults = true;
+
+				}
 				candidates.clear();
 				candidates.addAll(candidateservice.findAllBySkillsId(skillsIdList));
 			}
 		}
-		// get ids of candidates
-		List<Integer> candidateIdList = new ArrayList<Integer>();
-		for (CandidateSearchResolver candidateSearchResolver : candidates) {
-			candidateIdList.add(candidateSearchResolver.getCandidate().getId());
-		}
-		// List <CandidateSearchResolver> candidates = new
-		// ArrayList<CandidateSearchResolver>()
-		if (!locations.getCities().isEmpty()) {
-			System.out.println("locaties" + locations.getCities().toString());
-			List<CandidateSearchResolver> candidatesToKeep = candidateservice
-					.findAllPreferredlocationContaining(locations.getCities());
-
-			System.out.println("lengtee" + candidatesToKeep.size());
-			System.out.println("cand" + candidates.size());
-			List<Integer> candidatesToKeepIdList = new ArrayList<Integer>();
-			for (CandidateSearchResolver candidateSearchResolver : candidatesToKeep) {
-				candidatesToKeepIdList.add(candidateSearchResolver.getCandidate().getId());
-			}
-
-			for (CandidateSearchResolver candidateSearchResolver : candidatesToKeep) {
-				System.out.println("Tokeep" + candidateSearchResolver.getCandidate().getId());
-			}
-			if (!candidates.isEmpty()) {
-				candidateIdList.retainAll(candidatesToKeepIdList);
-				candidates.clear();
-				candidates.addAll(candidateservice.findAllBySkillsId(candidateIdList));
-			} else {
-				candidates.addAll(candidatesToKeep);
-				System.out.println("was nog niet vol");
-			}
-
-		}
-
-		if (search.isEmployed()) {
-			// search only in recruited candiates
-			List<Integer> applicationProcessIdList = candidates.stream()
-					.map(c -> c.getCandidate().getApplicationProcessId()).collect(Collectors.toList());
-			candidates.clear(); // lijst candidaten
-			candidates.addAll(candidateservice.findAllRecruitedIn(applicationProcessIdList));
-		}
 
 		// get ids of candidates
 
+		System.out.println("Nog "+ candidates.size() +" KANDIDATEN");
 		System.out.println(search.getName());
 		System.out.println(search.getSirName());
 
-		if (!search.getName().isEmpty() && !search.getSirName().isEmpty()) {
+		if ((!search.getName().isEmpty() || !search.getSirName().isEmpty()) && allreadyZeroResults == false) {
 
 			if (StringUtils.isEmpty(search.getName()) || StringUtils.isEmpty(search.getSirName())) {
 				if (search.getName().equals("")) {
@@ -259,18 +234,72 @@ public class SearchController {
 				System.out.println("aantaltot" + candidateIdList2.size());
 				System.out.println("in de naam");
 				candidateIdList2.retainAll(candidateIdToKeep);
+				if (candidateIdToKeep.isEmpty()) {
+					allreadyZeroResults = true;
+
+				}
 				candidates.clear(); // lijst candidaten
 				candidates.addAll(candidateservice.findAllByIdIn(candidateIdToKeep));
 			} else {
 				System.out.println("we zijn hier");
 				System.out.println(candidateIdToKeep.size());
-				candidates.addAll(candidateservice.findAllByIdIn(candidateIdToKeep));
+
+				if (candidateIdToKeep.isEmpty()) {
+					allreadyZeroResults = true;
+
+				} else {
+
+					candidates.addAll(candidateservice.findAllByIdIn(candidateIdToKeep));
+				}
+			}
+
+		}
+		System.out.println("Nog "+ candidates.size() +" KANDIDATEN");
+		// get ids of candidates
+		List<Integer> candidateIdList = getActualCandidateIds(candidates);
+		if (!locations.getCities().isEmpty() && allreadyZeroResults == false) {
+			System.out.println("locaties gokozen" + locations.getCities().toString());
+			List<CandidateSearchResolver> candidatesToKeep = candidateservice
+					.findAllPreferredlocationContaining(locations.getCities());
+
+			System.out.println("lengtee" + candidatesToKeep.size());
+			System.out.println("cand" + candidates.size());
+			List<Integer> candidatesToKeepIdList = new ArrayList<Integer>();
+			for (CandidateSearchResolver candidateSearchResolver : candidatesToKeep) {
+				candidatesToKeepIdList.add(candidateSearchResolver.getCandidate().getId());
+			}
+
+			for (CandidateSearchResolver candidateSearchResolver : candidatesToKeep) {
+				System.out.println("Tokeep" + candidateSearchResolver.getCandidate().getId());
+			}
+			if (!candidates.isEmpty()) {
+				System.out.println("Er waren " + candidateIdList.size() + "kanidataten");
+				candidateIdList.retainAll(candidatesToKeepIdList);
+				candidates.clear();
+				if (candidateIdList.isEmpty()) {
+					allreadyZeroResults = true;
+
+				} else {
+					candidates.addAll(candidateservice.findAllByIdIn(candidateIdList));
+					System.out.println("er zijn nog " + candidates.size() + " kandidaten");
+				}
+			} else {
+
+				if (candidatesToKeep.isEmpty()) {
+					allreadyZeroResults = true;
+
+				} else {
+					candidates.addAll(candidatesToKeep);
+
+					System.out.println("was nog niet vol");
+				}
 			}
 
 		}
 
 		// https://www.mkyong.com/java8/java-8-streams-filter-examples/
-		if (!status.getStatusList().isEmpty()) {
+		System.out.println("Nog "+ candidates.size() +" KANDIDATEN");
+		if (!status.getStatusList().isEmpty() && allreadyZeroResults == false) {
 
 			// status.getStatusList().toString() containt selected status value such as
 			// "Eerste intervieuw, stripped because in a list it is surrounded with []"
@@ -283,7 +312,15 @@ public class SearchController {
 						.filter(x -> stripperdStatus.equals(x.getApplicationStatus())) // we want "jack" only
 						.collect(Collectors.toList()); // If 'findAny' then return found
 				candidates.clear();
-				candidates.addAll(candidatesToKeep);
+				
+				if (candidatesToKeep.isEmpty()) {
+					allreadyZeroResults = true;
+
+				} else {					
+					candidates.addAll(candidatesToKeep);
+					System.out.println("was nog niet vol");
+				}
+				
 
 			} else {
 
@@ -299,6 +336,14 @@ public class SearchController {
 
 		}
 
+		if (search.isEmployed() && allreadyZeroResults == false) {
+			// search only in recruited candiates
+			List<Integer> applicationProcessIdList = candidates.stream()
+					.map(c -> c.getCandidate().getApplicationProcessId()).collect(Collectors.toList());
+			candidates.clear(); // lijst candidaten
+			candidates.addAll(candidateservice.findAllRecruitedIn(applicationProcessIdList));
+		}
+
 //		if (search.getExperience() != 0) {
 //			// TODO: filter te bouwen
 //			// moet hier nog 1 worden afgetrokken omdate enkel groter dan gezocht wordt?
@@ -307,6 +352,7 @@ public class SearchController {
 //					.findByExperienceGreaterThan(search.getExperience(), candidates);
 //			candidates = filterdByExperience;
 //		}
+		System.out.println(search.toString());
 		return goToResultpage(modelMap, candidates, session);
 	}
 
@@ -402,7 +448,7 @@ public class SearchController {
 		modelMap.addAttribute("search", new Search());
 		ExperienceWrapper experienceWrapper = new ExperienceWrapper();
 		CitieListWrapper citieWrapper = new CitieListWrapper();
-		modelMap.addAttribute("statuss", new StatusWrapper());
+		modelMap.addAttribute("status", new StatusWrapper());
 		modelMap.addAttribute("candidate", new NewCandidate());
 		modelMap.addAttribute("experience", experienceWrapper);
 		modelMap.addAttribute("locations", citieWrapper);

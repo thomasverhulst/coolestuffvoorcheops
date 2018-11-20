@@ -92,6 +92,13 @@ public class Search {
 	public void setSirName(String sirName) {
 		this.sirName = sirName;
 	}
+
+	@Override
+	public String toString() {
+		return "Search [id=" + id + ", employed=" + employed + ", frontender=" + frontender + ", java=" + java
+				+ ", dotnet=" + dotnet + ", experience=" + experience + ", name=" + name + ", sirName=" + sirName + "]";
+	}
+	
 	
 
 }
