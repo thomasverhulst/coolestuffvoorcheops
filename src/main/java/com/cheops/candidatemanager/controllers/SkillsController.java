@@ -4,7 +4,7 @@
 //import javax.validation.Valid;
 //
 //import com.cheops.candidatemanager.models.Candidate;
-//import com.cheops.candidatemanager.models.Skills;
+//import com.cheops.candidatemanager.models.Skill;
 //import org.apache.log4j.Logger;
 //import org.springframework.beans.factory.annotation.Autowired;
 //import org.springframework.stereotype.Controller;
@@ -45,7 +45,7 @@
 //	}
 //
 //	@PostMapping("/updateSkills/{skillsId}")
-//	public String update(@Valid Skills skills, @PathVariable("skillsId") int id, BindingResult result,
+//	public String update(@Valid Skill skills, @PathVariable("skillsId") int id, BindingResult result,
 //											 RedirectAttributes redirect) {
 //
 //		if (result.hasErrors()) {
@@ -59,7 +59,7 @@
 //	@GetMapping(value = "/addSkills/{candidateId}")
 //	public String addSkills(Model model, @PathVariable("candidateId") int candidateId, HttpSession session) {
 //		model.addAttribute("candidate", session.getAttribute("candidate"));
-//		model.addAttribute("skills", new Skills());
+//		model.addAttribute("skills", new Skill());
 //		boolean update = (boolean) session.getAttribute("isupdate");
 //		logger.debug("isUpdate = " + update);
 //		if (update) {

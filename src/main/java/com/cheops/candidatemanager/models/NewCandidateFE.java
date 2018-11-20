@@ -27,7 +27,7 @@ public class NewCandidateFE implements Serializable {
 	@Id
 	@Column(name = "idcandidate")
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Integer id;
+	private int id;
 
 	@Column(name = "name")
   @NotBlank(message = "{name.empty}")
@@ -62,17 +62,17 @@ public class NewCandidateFE implements Serializable {
 	@Enumerated(EnumType.STRING)
 	private Gender gender;
 
-	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@OneToOne(cascade = CascadeType.ALL)
   @Valid
 	private SalaryPackage currentSalaryPackage;
 
-  @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+  @OneToMany(orphanRemoval = true, cascade = CascadeType.ALL, fetch = FetchType.EAGER)
   @JoinTable(name = "candidate_proposedsalarypackage", joinColumns = @JoinColumn(name = "candidate_id"), inverseJoinColumns = @JoinColumn(name = "proposedsalarypackage_id"))
   private List<SalaryPackage> proposedSalaryPackages;
 
-  @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+  @OneToOne(cascade = CascadeType.ALL)
   @Valid
-  private Skills skills;
+  private Skill skill;
 
   @OneToOne(cascade=CascadeType.ALL)
   @Valid
@@ -94,7 +94,7 @@ public class NewCandidateFE implements Serializable {
 	public NewCandidateFE(){
 	}
 
-  public NewCandidateFE(@NotBlank(message = "{name.empty}") @Size(max = 45, message = "{name.size}") String name, @Size(max = 45, message = "{last_name.size}") String lastName, @Size(max = 45, message = "{email.size}") @Email(message = "{email.invalid}") String email, Date dateOfBirth, @Size(max = 45, message = "{phonenumber.size}") String phonenumber, @Size(max = 45, message = "{cellphone.size}") String cellphonenumber, String cvLink, Gender gender, SalaryPackage currentSalaryPackage, List<SalaryPackage> proposedSalaryPackages, Skills skills, @Valid Address address, ApplicationProcess applicationProcess, @Size(max = 45, message = "{contactchannel.size}") String contactChannel, Timestamp isAddedTimeStamp) {
+  public NewCandidateFE(@NotBlank(message = "{name.empty}") @Size(max = 45, message = "{name.size}") String name, @Size(max = 45, message = "{last_name.size}") String lastName, @Size(max = 45, message = "{email.size}") @Email(message = "{email.invalid}") String email, Date dateOfBirth, @Size(max = 45, message = "{phonenumber.size}") String phonenumber, @Size(max = 45, message = "{cellphone.size}") String cellphonenumber, String cvLink, Gender gender, SalaryPackage currentSalaryPackage, List<SalaryPackage> proposedSalaryPackages, Skill skill, @Valid Address address, ApplicationProcess applicationProcess, @Size(max = 45, message = "{contactchannel.size}") String contactChannel, Timestamp isAddedTimeStamp) {
     this.name = name;
     this.lastName = lastName;
     this.email = email;
@@ -105,18 +105,18 @@ public class NewCandidateFE implements Serializable {
     this.gender = gender;
     this.currentSalaryPackage = currentSalaryPackage;
     this.proposedSalaryPackages = proposedSalaryPackages;
-    this.skills = skills;
+    this.skill = skill;
     this.address = address;
     this.applicationProcess = applicationProcess;
     this.contactChannel = contactChannel;
     this.isAddedTimeStamp = isAddedTimeStamp;
   }
 
-  public Integer getId() {
+  public int getId() {
 		return id;
 	}
 
-	public void setId(Integer id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 
@@ -200,12 +200,12 @@ public class NewCandidateFE implements Serializable {
     this.proposedSalaryPackages = proposedSalaryPackages;
   }
 
-  public Skills getSkills() {
-    return skills;
+  public Skill getSkill() {
+    return skill;
   }
 
-  public void setSkills(Skills skills) {
-    this.skills = skills;
+  public void setSkill(Skill skill) {
+    this.skill = skill;
   }
 
   public Address getAddress() {

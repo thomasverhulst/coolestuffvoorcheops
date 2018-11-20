@@ -2,10 +2,10 @@ package com.cheops.candidatemanager.repositories;
 
 import java.io.Serializable;
 
-import com.cheops.candidatemanager.models.Skills;
+import com.cheops.candidatemanager.models.Skill;
 import org.springframework.data.repository.Repository;
 
-public interface SkillsRepository2<T, ID extends Serializable> extends Repository<Skills, Integer> {
+public interface SkillsRepository2<T, ID extends Serializable> extends Repository<Skill, Integer> {
 	// List<Address> findByStreetNameAndPostalCode(String streetName, String
 
 	<S extends T> S save(S entity);

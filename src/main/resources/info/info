@@ -48,7 +48,7 @@ https://www.guru99.com/jsp-file-upload-download.html
 #deploiyen
 https://github.com/thomasverhulst/candidatemanager.git
 https://github.com/thomasverhulst/candidatemanager
-address applicationprocess candidate salarypackage skills
+address applicationprocess candidate salarypackage skill
 jws-app-beheer
  <application-name>-<project>.<default-domain-suffix>
 storage 100MiB

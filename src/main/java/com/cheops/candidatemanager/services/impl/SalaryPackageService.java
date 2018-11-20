@@ -18,14 +18,13 @@ public class SalaryPackageService implements ISalaryPackageService {
 	@Override
 	public List<SalaryPackage> getAllSalaryPackages() {
 		List<SalaryPackage> list = new ArrayList<>();
-		salaryPackageRepository.findAll().forEach(e -> list.add(e));
+		salaryPackageRepository.findAll().forEach(list::add);
 		return list;
 	}
 
 	@Override
 	public SalaryPackage getSalaryPackageById(int salaryPackageId) {
-		return  salaryPackageRepository.findById(salaryPackageId).get();
-		
+		return  salaryPackageRepository.findById(salaryPackageId).orElse(null);
 	}
 
 	@Override

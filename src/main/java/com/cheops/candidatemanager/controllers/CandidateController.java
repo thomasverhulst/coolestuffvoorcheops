@@ -10,7 +10,10 @@ import com.cheops.candidatemanager.exceptions.*;
 import com.cheops.candidatemanager.models.*;
 import com.cheops.candidatemanager.services.ICandidateServiceFE;
 import com.cheops.candidatemanager.services.ICountryService;
+import com.cheops.candidatemanager.services.ISalaryPackageService;
+import com.cheops.candidatemanager.services.ITechnologyService;
 import com.cheops.candidatemanager.services.impl.FileStorageService;
+import org.apache.commons.io.FilenameUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.core.io.Resource;
@@ -36,13 +39,17 @@ public class CandidateController {
   private MessageSource messageSource;
 
   @Autowired
+  private FileStorageService fileStorageService;
+
+  @Autowired
   private ICandidateServiceFE newCandidateServiceFE;
 
   @Autowired
   private ICountryService countryService;
 
   @Autowired
-  private FileStorageService fileStorageService;
+  private ITechnologyService technologyService;
+
 
 
 
@@ -162,7 +169,7 @@ public class CandidateController {
 //		candidateservice.updateCandidate(candidate);
 //
 //		logger.debug("Kandidaat id " + tmpCandidate.getId());
-//		model.addAttribute("skills", new Skills());
+//		model.addAttribute("skills", new Skill());
 //		return "skills";
 //	}
 //
@@ -221,7 +228,7 @@ public class CandidateController {
 //
 //		tmpNewCandidate.setAddressId(tmpNewCandidate.getAddress().getId() );
 //		tmpNewCandidate.setApplicationProcessId(tmpNewCandidate.getApplicationProcess().getId() );
-//		tmpNewCandidate.setSkillsId(tmpNewCandidate.getSkills().getId());
+//		tmpNewCandidate.setSkillsId(tmpNewCandidate.getSkill().getId());
 //
 //		newCandidateservice.updateNewCandidate(tmpNewCandidate);
 //		session.setAttribute("candidate", tmpNewCandidate);
@@ -265,21 +272,21 @@ public class CandidateController {
 //	}
 //
 //	@PostMapping(value = "/registerSkills")
-//	public String registerSkills(Model model, @ModelAttribute("skills") Skills skills, HttpSession session) {
+//	public String registerSkills(Model model, @ModelAttribute("skills") Skill skills, HttpSession session) {
 //		// check if it is an update (late adding ) of skills
 //		boolean update = (boolean) session.getAttribute("isupdate");
 //		// get candidate from session
 //		Candidate sessionCandidate = (Candidate) session.getAttribute("candidate");
 //
 //		if (update) {
-//			Skills tmpSkills = skillsService.addSkills(skills);
+//			Skill tmpSkills = skillsService.addSkills(skills);
 //			skillsService.addSkills(tmpSkills);
 //			sessionCandidate.setSkillsId(tmpSkills.getId());
 //			candidateservice.updateCandidate(sessionCandidate);
 //			return "updatesucces";
 //		}
-//		Skills tmpSkills = skillsService.addSkills(skills);
-//		logger.debug("Skills id = " + tmpSkills.getId());
+//		Skill tmpSkills = skillsService.addSkills(skills);
+//		logger.debug("Skill id = " + tmpSkills.getId());
 //
 //		// set SkillsId to candidate from session
 //		sessionCandidate.setSkillsId(tmpSkills.getId());
@@ -454,7 +461,6 @@ public class CandidateController {
   // ADDED FOR TEMP REASONS
 	@GetMapping("/add-candidate")
 	public String addOrUpdateCandidateView(Locale locale, Model model) {
-    model.addAttribute("countries", countryService.getAllCountries());
 		model.addAttribute("candidate", new NewCandidateFE());
 		return "candidate/add";
 	}
@@ -481,6 +487,7 @@ public class CandidateController {
       }
     }
 
+    setTechnologies(newCandidateFE);
     newCandidateServiceFE.addCandidate(newCandidateFE);
     sessionStatus.setComplete();
     redirectAttributes.addFlashAttribute("successMessage", messageSource.getMessage("candidate.added", new Object[]{newCandidateFE.getName()}, locale));
@@ -494,11 +501,13 @@ public class CandidateController {
       return "redirect:/add-candidate"; // Todo: redirect to overview candidates
     }
 
-    try {
-      String country = countryService.getCountryByCode(newCandidateFE.getAddress().getCountrycode());
-      newCandidateFE.getAddress().setCountrycode(country);
-    } catch (final CountryNotFoundException e) {
-      return returnWithErrors(model, newCandidateFE, e.getMessage(), "candidate/edit");
+    if (newCandidateFE.getAddress().getCountrycode() != null) {
+      try {
+        String country = countryService.getCountryByCode(newCandidateFE.getAddress().getCountrycode());
+        newCandidateFE.getAddress().setCountrycode(country);
+      } catch (final CountryNotFoundException e) {
+        return returnWithErrors(model, newCandidateFE, e.getMessage(), "candidate/edit");
+      }
     }
 
     model.addAttribute(CANDIDATE, newCandidateFE);
@@ -507,7 +516,7 @@ public class CandidateController {
 
   @PostMapping("/edit-candidate/{candidateId}")
   @ExceptionHandler(MultipartException.class)
-  public String saveCandidate(Locale locale, Model model, @Validated @ModelAttribute(CANDIDATE) NewCandidateFE newCandidateFE, BindingResult result, RedirectAttributes redirectAttributes) {
+  public String saveCandidate(Locale locale, Model model, @Validated @ModelAttribute(CANDIDATE) NewCandidateFE newCandidateFE, BindingResult result, RedirectAttributes redirectAttributes, SessionStatus sessionStatus) {
     if (result.hasErrors()) {
       return returnWithErrors(model, newCandidateFE, messageSource.getMessage("form.error.submission", null, locale), "candidate/edit");
     }
@@ -533,8 +542,11 @@ public class CandidateController {
       }
     }
 
-	  try {
+    setTechnologies(newCandidateFE);
+
+    try {
       newCandidateServiceFE.saveCandidate(newCandidateFE);
+      sessionStatus.setComplete();
       redirectAttributes.addFlashAttribute("successMessage", messageSource.getMessage("candidate.edited", new Object[]{newCandidateFE.getName()}, locale));
     } catch (final CandidateDoesNotExistException e) {
       redirectAttributes.addFlashAttribute("errorMessage", e.getMessage());
@@ -575,7 +587,7 @@ public class CandidateController {
       contentType = "application/octet-stream";
     }
 
-    return ResponseEntity.ok().contentType(MediaType.parseMediaType(contentType)).header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + "cv_" + newCandidateFE.getName() + "-" + newCandidateFE.getLastName() + "\"").body(resource);
+    return ResponseEntity.ok().contentType(MediaType.parseMediaType(contentType)).header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + "cv_" + newCandidateFE.getName() + "-" + newCandidateFE.getLastName() + "." + FilenameUtils.getExtension(resource.getFilename()) + "\"").body(resource);
   }
 
   @GetMapping("/deleteCv/{candidateId}")
@@ -603,13 +615,14 @@ public class CandidateController {
 	  return "redirect:/edit-candidate/" + newCandidateFE.getId();
   }
 
-	@GetMapping(value = "/countries", produces = "application/json")
+  // Autocomplete calls.
+  @GetMapping(value = "/countries", produces = "application/json")
   @ResponseBody
   public List<Country> autocompleteCountries(@RequestParam("str") String search) {
-	  List<Country> suggestions = new ArrayList<>();
+    List<Country> suggestions = new ArrayList<>();
 
-	  for (Country country : countryService.getAllCountries()) {
-	    if (country.getName().toLowerCase().contains(search.toLowerCase())) {
+    for (Country country : countryService.getAllCountries()) {
+      if (country.getName().toLowerCase().contains(search.toLowerCase())) {
         suggestions.add(country);
       }
     }
@@ -617,7 +630,22 @@ public class CandidateController {
     return suggestions;
   }
 
-  @PostMapping(path = "/addSalaryPackage", params = "addItem")
+  @GetMapping(value = "/technologies", produces = "application/json")
+  @ResponseBody
+  public List<Technology> autocompleteTechnologies(@RequestParam("str") String search) {
+    List<Technology> suggestions = new ArrayList<>();
+
+	  for (Technology technology : technologyService.getAllTechnologies()) {
+	    if (technology.getName().toLowerCase().contains(search.toLowerCase())) {
+	      suggestions.add(technology);
+      }
+    }
+
+    return suggestions;
+  }
+
+  // Ajax calls.
+  @PostMapping(path = "/addSalaryPackage")
   public String addProposalPackage(@ModelAttribute(CANDIDATE) NewCandidateFE newCandidateFE, HttpServletRequest request) {
     newCandidateFE.addProposalSalaryPackage(new SalaryPackage());
 
@@ -630,7 +658,6 @@ public class CandidateController {
 
   @PostMapping(path = "/removeSalaryPackage", params = "removeItem")
   public String removeProposalPackage(@ModelAttribute(CANDIDATE) NewCandidateFE newCandidateFE, @RequestParam("removeItem") int index, HttpServletRequest request) {
-    System.out.println(newCandidateFE.getProposedSalaryPackages().size());
     newCandidateFE.removeProposalSalaryPackage(index);
 
     if ("XMLHttpRequest".equals(request.getHeader("X-Requested-With"))) {
@@ -640,11 +667,54 @@ public class CandidateController {
     }
   }
 
+//  @PostMapping(path = "/resetCurrentSalary")
+//  public String resetCurrentSalary(@ModelAttribute(CANDIDATE) NewCandidateFE newCandidateFE, HttpServletRequest request) {
+//    if ("XMLHttpRequest".equals(request.getHeader("X-Requested-With"))) {
+//      return "fragments/form :: #currentSalary";
+//    } else {
+//      return "candidate/edit";
+//    }
+//  }
+
+  @PostMapping(path = "/addSkillTechnology")
+  public String addSkillTechnology(@ModelAttribute(CANDIDATE) NewCandidateFE newCandidateFE, HttpServletRequest request) {
+    newCandidateFE.getSkill().addSkillTechnology(new SkillTechnology());
+
+    if ("XMLHttpRequest".equals(request.getHeader("X-Requested-With"))) {
+      return "fragments/form :: #skillTechnologies";
+    } else {
+      return "candidate/edit";
+    }
+  }
+
+  @PostMapping(path = "/removeSkillTechnology", params = "removeItem")
+  public String removeSkillTechnology(@ModelAttribute(CANDIDATE) NewCandidateFE newCandidateFE, @RequestParam("removeItem") int index, HttpServletRequest request) {
+    newCandidateFE.getSkill().removeSkillTechnology(index);
+
+    if ("XMLHttpRequest".equals(request.getHeader("X-Requested-With"))) {
+      return "fragments/form :: #skillTechnologies";
+    } else {
+      return "candidate/edit";
+    }
+  }
+
+  // Custom methods.
   private String returnWithErrors(Model model, NewCandidateFE newCandidateFE, String errorMessage, String returnUrl) {
     model.addAttribute("candidate", newCandidateFE);
     model.addAttribute("countries", countryService.getAllCountries());
     model.addAttribute("errorMessage", errorMessage);
     return returnUrl;
+  }
+
+  private void setTechnologies(@ModelAttribute(CANDIDATE) @Validated NewCandidateFE newCandidateFE) {
+    if (newCandidateFE.getSkill().getTechnologies() != null && !newCandidateFE.getSkill().getTechnologies().isEmpty()) {
+      for (SkillTechnology skillTechnology : newCandidateFE.getSkill().getTechnologies()) {
+        Technology technology = technologyService.findByName(skillTechnology.getTechnology().getName());
+        if (technology != null) {
+          skillTechnology.setTechnology(technology);
+        }
+      }
+    }
   }
 
 }

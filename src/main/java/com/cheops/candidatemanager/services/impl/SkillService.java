@@ -5,37 +5,38 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import com.cheops.candidatemanager.models.Skills;
+import com.cheops.candidatemanager.models.Skill;
 import com.cheops.candidatemanager.repositories.SkillsRepository;
 import com.cheops.candidatemanager.services.ISkillService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class SkillsService implements ISkillService {
+public class SkillService implements ISkillService {
+
 	@Autowired
 	private SkillsRepository skillsRepository;
 
 	@Override
-	public List<Skills> getAllSkills() {
-		List<Skills> list = new ArrayList<>();
-		skillsRepository.findAll().forEach(e -> list.add(e));
+	public List<Skill> getAllSkills() {
+		List<Skill> list = new ArrayList<>();
+		skillsRepository.findAll().forEach(list::add);
 		return list;
 	}
 
 	@Override
-	public Skills getSkillsById(int skillsId) {
+	public Skill getSkillsById(int skillsId) {
 		return skillsRepository.findById(skillsId).get();
 	}
 
 	@Override
-	public Skills addSkills(Skills skills) {
-		return skillsRepository.save(skills);
+	public Skill addSkills(Skill skill) {
+		return skillsRepository.save(skill);
 	}
 
 	@Override
-	public void updateSkills(Skills skills) {
-		skillsRepository.save(skills);
+	public void updateSkills(Skill skill) {
+		skillsRepository.save(skill);
 	}
 
 	@Override
@@ -46,11 +47,11 @@ public class SkillsService implements ISkillService {
 	public List<Integer> findAllDotnet() {
 
 		boolean isdotnet = true;
-		List<Skills> list = skillsRepository.findAllByDotnet(isdotnet);
+		List<Skill> list = skillsRepository.findAllByDotnet(isdotnet);
 		List<Integer> skillId = new ArrayList<Integer>();
-		for (Skills skills : list) {
-			if (skills.isDotnet()) {
-				skillId.add(skills.getId());
+		for (Skill skill : list) {
+			if (skill.isDotnet()) {
+				skillId.add(skill.getId());
 			}
 		}
 		return skillId;
@@ -58,12 +59,12 @@ public class SkillsService implements ISkillService {
 
 	public List<Integer> findAllJava() {
 		boolean isJava = true;
-		List<Skills> list = skillsRepository.findAllByJava(isJava);
+		List<Skill> list = skillsRepository.findAllByJava(isJava);
 		// refactor optie
 		List<Integer> skillId = new ArrayList<Integer>();
-		for (Skills skills : list) {
-			if (skills.isJava()) {
-				skillId.add(skills.getId());
+		for (Skill skill : list) {
+			if (skill.isJava()) {
+				skillId.add(skill.getId());
 			}
 		}
 		return skillId;
@@ -72,12 +73,12 @@ public class SkillsService implements ISkillService {
 	public List<Integer> findAllFrontend() {
 
 		boolean isFrontend = true;
-		List<Skills> list = skillsRepository.findAllByFrontend(isFrontend);
+		List<Skill> list = skillsRepository.findAllByFrontend(isFrontend);
 
 		List<Integer> skillId = new ArrayList<Integer>();
-		for (Skills skills : list) {
-			if (skills.isFrontend()) {
-				skillId.add(skills.getId());
+		for (Skill skill : list) {
+			if (skill.isFrontend()) {
+				skillId.add(skill.getId());
 			}
 		}
 		return skillId;
@@ -85,16 +86,16 @@ public class SkillsService implements ISkillService {
 
 	public List<Integer> findAllByExperienceGreaterThan(int minimumExperience, List<Integer> skillId) {
 
-		ArrayList<Skills> skillsList = (ArrayList<Skills>) skillsRepository.findAllById(skillId);
-		Iterator<Skills> i = skillsList.iterator();
+		ArrayList<Skill> skillList = (ArrayList<Skill>) skillsRepository.findAllById(skillId);
+		Iterator<Skill> i = skillList.iterator();
 		while (i.hasNext()) {
-			Skills s = i.next();
+			Skill s = i.next();
 			if (s.getExperience() < minimumExperience) {
 				i.remove();
 			}
 		}
 
-		return skillsList.stream().map(Skills::getId).collect(Collectors.toList());
+		return skillList.stream().map(Skill::getId).collect(Collectors.toList());
 
 	}
 

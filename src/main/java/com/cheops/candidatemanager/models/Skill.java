@@ -1,20 +1,17 @@
 package com.cheops.candidatemanager.models;
 
-import org.hibernate.annotations.LazyCollection;
-import org.hibernate.annotations.LazyCollectionOption;
-
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table(name = "skills")
-public class Skills {
+@Table(name = "skill")
+public class Skill {
 
 	@Id
-	@Column(name = "idskills")
+	@Column(name = "idskill")
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Integer id;
+	private int id;
 
 	@Column(name = "dotnet")
 	private boolean dotnet;
@@ -31,33 +28,31 @@ public class Skills {
   @Column(name = "preferredlocation")
   private String preferredLocation;
 
-  @OneToMany
-  @LazyCollection(LazyCollectionOption.FALSE)
-  @JoinTable(name = "skills_technology", joinColumns = @JoinColumn(name = "skills_id"), inverseJoinColumns = @JoinColumn(name = "technology_id"))
-  private List<Technology> preferedTechnologies  = new ArrayList<>();;
+  @OneToMany(mappedBy = "skill", orphanRemoval = true, cascade ={CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
+  private List<SkillTechnology> technologies;
 
   @Column(name = "extra")
   private String extra;
 
-	public Skills() {
+	public Skill() {
 	}
 
-  public Skills(boolean dotnet, boolean java, boolean frontend, double experience, String preferredLocation, List<Technology> preferedTechnologies, String extra) {
+  public Skill(boolean dotnet, boolean java, boolean frontend, double experience, String preferredLocation, List<SkillTechnology> technologies, String extra) {
 	  super();
     this.dotnet = dotnet;
     this.java = java;
     this.frontend = frontend;
     this.experience = experience;
     this.preferredLocation = preferredLocation;
-    this.preferedTechnologies = preferedTechnologies;
+    this.technologies = technologies;
     this.extra = extra;
   }
 
-  public Integer getId() {
+  public int getId() {
     return id;
   }
 
-  public void setId(Integer id) {
+  public void setId(int id) {
     this.id = id;
   }
 
@@ -101,12 +96,12 @@ public class Skills {
     this.preferredLocation = preferredLocation;
   }
 
-  public List<Technology> getPreferedTechnologies() {
-    return preferedTechnologies;
+  public List<SkillTechnology> getTechnologies() {
+    return technologies;
   }
 
-  public void setPreferedTechnologies(List<Technology> preferedTechnologies) {
-    this.preferedTechnologies = preferedTechnologies;
+  public void setTechnologies(List<SkillTechnology> technologies) {
+    this.technologies = technologies;
   }
 
   public String getExtra() {
@@ -117,8 +112,15 @@ public class Skills {
     this.extra = extra;
   }
 
-  public int compareTo(Skills skills) {
-		return this.getId().compareTo(skills.getId());
-	}
+  public void addSkillTechnology(SkillTechnology skillTechnology) {
+	  if (this.technologies == null) this.technologies = new ArrayList<>();
+	  if (skillTechnology.getTechnology() == null) skillTechnology.setTechnology(new Technology());
+    skillTechnology.setSkill(this);
+    this.technologies.add(skillTechnology);
+  }
+
+  public void removeSkillTechnology(int index) {
+    if (this.technologies != null) this.technologies.remove(index);
+  }
 
 }

@@ -20,7 +20,7 @@
 //import com.cheops.candidatemanager.models.ApplicationProcess;
 //import com.cheops.candidatemanager.models.Candidate;
 //import com.cheops.candidatemanager.models.CandidateSearchResolver;
-//import com.cheops.candidatemanager.models.Skills;
+//import com.cheops.candidatemanager.models.Skill;
 //import com.cheops.candidatemanager.repositories.AddressRepository;
 //import com.cheops.candidatemanager.repositories.CandidateRepository;
 //import com.cheops.candidatemanager.services.ICandidateService;
@@ -53,7 +53,7 @@
 //			// Everything related to the skill
 //			StringBuffer expertise = new StringBuffer("");
 //			if (candidate.getSkillsId() != 0) {
-//				Skills skill = skillsService.getSkillsById(candidate.getSkillsId());
+//				Skill skill = skillsService.getSkillsById(candidate.getSkillsId());
 //
 //				if (skill.isDotnet()) {
 //					expertise.append(".Net");

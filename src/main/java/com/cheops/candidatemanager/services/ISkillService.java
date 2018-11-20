@@ -2,17 +2,17 @@ package com.cheops.candidatemanager.services;
 
 import java.util.List;
 
-import com.cheops.candidatemanager.models.Skills;
+import com.cheops.candidatemanager.models.Skill;
 
 public interface ISkillService {
 
-	List<Skills> getAllSkills();
+	List<Skill> getAllSkills();
 
-	Skills getSkillsById(int skillsId);
+	Skill getSkillsById(int skillsId);
 
-	Skills addSkills(Skills skills);
+	Skill addSkills(Skill skill);
 
-	void updateSkills(Skills skills);
+	void updateSkills(Skill skill);
 
 	void deleteSkills(int skillsId);
 }

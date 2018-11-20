@@ -98,7 +98,7 @@ public class FileStorageService {
 
   public void checkFileExtentsion(MultipartFile file) {
     String fileName = file.getOriginalFilename();
-    int lastIndex = fileName.lastIndexOf('.');
+    int lastIndex = fileName != null ? fileName.lastIndexOf('.') : 0;
 
     if(!fileExtensions.contains(fileName.substring(lastIndex))) {
       throw new FileStorageException(messageSource.getMessage("form.error.fileExtension", null, locale));

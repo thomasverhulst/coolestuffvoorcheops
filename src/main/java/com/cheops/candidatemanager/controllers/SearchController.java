@@ -24,7 +24,7 @@
 //import com.cheops.candidatemanager.models.CandidateSearchResolver;
 //import com.cheops.candidatemanager.models.SalaryPackage;
 //import com.cheops.candidatemanager.models.Search;
-//import com.cheops.candidatemanager.models.Skills;
+//import com.cheops.candidatemanager.models.Skill;
 //import com.cheops.candidatemanager.services.impl.AddressService;
 //import com.cheops.candidatemanager.services.impl.CandidateService;
 //import com.cheops.candidatemanager.services.impl.SalaryPackageService;
@@ -244,7 +244,7 @@
 //		// https://stackoverflow.com/questions/1714028/mvc-which-submit-button-has-been-pressed
 //
 //		Candidate tmpCandidate = candidateservice.getCandidateById(candidateId);
-//		Skills tmpSkills = skillsService.getSkillsById(tmpCandidate.getSkillsId());
+//		Skill tmpSkills = skillsService.getSkillsById(tmpCandidate.getSkillsId());
 //
 //		model.addAttribute("skills", tmpSkills);
 //		return "searchskills";

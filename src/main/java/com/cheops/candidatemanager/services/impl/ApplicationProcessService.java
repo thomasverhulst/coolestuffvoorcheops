@@ -29,7 +29,7 @@ public class ApplicationProcessService implements IApplicationProcessService {
 
 	@Override
 	public ApplicationProcess getApplicationProcessById(int applicationProcessId) {
-		return applicationProcessRepository.findById(applicationProcessId).get();
+		return applicationProcessRepository.findById(applicationProcessId).orElse(null);
 	}
 
 	@Override

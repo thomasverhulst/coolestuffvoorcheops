@@ -15,7 +15,7 @@ public class SalaryPackage {
 	@Id
 	@Column(name = "idsalarypackage")
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Integer id;
+	private int id;
 
 	@Column(name = "grosssalary")
 	private double grossSalary;
@@ -47,6 +47,14 @@ public class SalaryPackage {
     this.hospitalization = hospitalization;
     this.groupInsurance = groupInsurance;
   }
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public int getId() {
+		return id;
+	}
 
   public double getGrossSalary() {
 		return grossSalary;
@@ -94,14 +102,6 @@ public class SalaryPackage {
 
 	public void setGroupInsurance(boolean groupInsurance) {
 		this.groupInsurance = groupInsurance;
-	}
-
-	public void setId(Integer id) {
-		this.id = id;
-	}
-
-	public Integer getId() {
-		return id;
 	}
 
 }

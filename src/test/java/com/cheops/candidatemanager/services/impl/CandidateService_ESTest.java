@@ -13,7 +13,7 @@
 //import com.cheops.candidatemanager.models.ApplicationProcess;
 //import com.cheops.candidatemanager.models.Candidate;
 //import com.cheops.candidatemanager.models.CandidateSearchResolver;
-//import com.cheops.candidatemanager.models.Skills;
+//import com.cheops.candidatemanager.models.Skill;
 //import com.cheops.candidatemanager.repositories.AddressRepository;
 //import com.cheops.candidatemanager.repositories.ApplicationProcessRepository;
 //import com.cheops.candidatemanager.repositories.CandidateRepository;
@@ -484,7 +484,7 @@
 //      doReturn(stack0).when(candidateRepository0).findAllBySkillsIdIn(anyList());
 //      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "candidateRepository", (Object) candidateRepository0);
 //      SkillsService skillsService0 = new SkillsService();
-//      Stack<Skills> stack1 = new Stack<Skills>();
+//      Stack<Skill> stack1 = new Stack<Skill>();
 //      SkillsRepository skillsRepository0 = mock(SkillsRepository.class, new ViolatedAssumptionAnswer());
 //      doReturn(stack1).when(skillsRepository0).findAllByDotnet(anyBoolean());
 //      Injector.inject(skillsService0, (Class<?>) SkillsService.class, "skillsRepository", (Object) skillsRepository0);
@@ -641,8 +641,8 @@
 //      doReturn(arrayList1).when(candidateRepository0).findAllByApplicationProcessIdIn(anyList());
 //      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "candidateRepository", (Object) candidateRepository0);
 //      SkillsService skillsService0 = new SkillsService();
-//      Stack<Skills> stack0 = new Stack<Skills>();
-//      HashSet<Skills> hashSet0 = new HashSet<Skills>(stack0);
+//      Stack<Skill> stack0 = new Stack<Skill>();
+//      HashSet<Skill> hashSet0 = new HashSet<Skill>(stack0);
 //      SkillsRepository skillsRepository0 = mock(SkillsRepository.class, new ViolatedAssumptionAnswer());
 //      doReturn(hashSet0).when(skillsRepository0).findAllById(anyIterable());
 //      Injector.inject(skillsService0, (Class<?>) SkillsService.class, "skillsRepository", (Object) skillsRepository0);
@@ -701,7 +701,7 @@
 //      CandidateRepository candidateRepository0 = mock(CandidateRepository.class, new ViolatedAssumptionAnswer());
 //      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "candidateRepository", (Object) candidateRepository0);
 //      SkillsService skillsService0 = new SkillsService();
-//      Vector<Skills> vector0 = new Vector<Skills>();
+//      Vector<Skill> vector0 = new Vector<Skill>();
 //      SkillsRepository skillsRepository0 = mock(SkillsRepository.class, new ViolatedAssumptionAnswer());
 //      doReturn(vector0).when(skillsRepository0).findAllByFrontend(anyBoolean());
 //      Injector.inject(skillsService0, (Class<?>) SkillsService.class, "skillsRepository", (Object) skillsRepository0);
@@ -742,7 +742,7 @@
 //      doReturn(stack0).when(candidateRepository0).findAllByApplicationProcessIdIn(anyList());
 //      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "candidateRepository", (Object) candidateRepository0);
 //      SkillsService skillsService0 = new SkillsService();
-//      Optional.ofNullable((Skills) null);
+//      Optional.ofNullable((Skill) null);
 //      SkillsRepository skillsRepository0 = mock(SkillsRepository.class, new ViolatedAssumptionAnswer());
 //      doReturn((Optional) null).when(skillsRepository0).findById(anyInt());
 //      Injector.inject(skillsService0, (Class<?>) SkillsService.class, "skillsRepository", (Object) skillsRepository0);
@@ -789,7 +789,7 @@
 //      Stack<Candidate> stack0 = new Stack<Candidate>();
 //      Candidate candidate0 = new Candidate();
 //      candidate0.setSkillsId(942);
-//      Stack<Skills> stack1 = new Stack<Skills>();
+//      Stack<Skill> stack1 = new Stack<Skill>();
 //      stack0.add(candidate0);
 //      CandidateService candidateService0 = new CandidateService();
 //      AddressRepository addressRepository0 = mock(AddressRepository.class, new ViolatedAssumptionAnswer());
@@ -840,11 +840,11 @@
 //      CandidateRepository candidateRepository0 = mock(CandidateRepository.class, new ViolatedAssumptionAnswer());
 //      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "candidateRepository", (Object) candidateRepository0);
 //      SkillsService skillsService0 = new SkillsService();
-//      Stack<Skills> stack1 = new Stack<Skills>();
-//      Optional<Skills> optional0 = Optional.ofNullable((Skills) null);
-//      Function<Object, Optional<Skills>> function0 = (Function<Object, Optional<Skills>>) mock(Function.class, new ViolatedAssumptionAnswer());
-//      Optional<Skills> optional1 = optional0.flatMap((Function<? super Skills, Optional<Skills>>) function0);
-//      Predicate<Skills> predicate0 = Predicate.isEqual((Object) null);
+//      Stack<Skill> stack1 = new Stack<Skill>();
+//      Optional<Skill> optional0 = Optional.ofNullable((Skill) null);
+//      Function<Object, Optional<Skill>> function0 = (Function<Object, Optional<Skill>>) mock(Function.class, new ViolatedAssumptionAnswer());
+//      Optional<Skill> optional1 = optional0.flatMap((Function<? super Skill, Optional<Skill>>) function0);
+//      Predicate<Skill> predicate0 = Predicate.isEqual((Object) null);
 //      optional1.filter(predicate0);
 //      SkillsRepository skillsRepository0 = mock(SkillsRepository.class, new ViolatedAssumptionAnswer());
 //      doReturn((List) null).when(skillsRepository0).findAllByFrontend(anyBoolean());
@@ -895,7 +895,7 @@
 //      doReturn(stack0).when(candidateRepository0).findAllBySkillsIdIn(anyList());
 //      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "candidateRepository", (Object) candidateRepository0);
 //      SkillsService skillsService0 = new SkillsService();
-//      Stack<Skills> stack1 = new Stack<Skills>();
+//      Stack<Skill> stack1 = new Stack<Skill>();
 //      SkillsRepository skillsRepository0 = mock(SkillsRepository.class, new ViolatedAssumptionAnswer());
 //      doReturn(stack1).when(skillsRepository0).findAllByDotnet(anyBoolean());
 //      Injector.inject(skillsService0, (Class<?>) SkillsService.class, "skillsRepository", (Object) skillsRepository0);
@@ -933,7 +933,7 @@
 //      doReturn(stack0).when(candidateRepository0).findAllByNameLikeOrSirNameLike(anyString() , anyString());
 //      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "candidateRepository", (Object) candidateRepository0);
 //      SkillsService skillsService0 = new SkillsService();
-//      Optional<Skills> optional0 = Optional.ofNullable((Skills) null);
+//      Optional<Skill> optional0 = Optional.ofNullable((Skill) null);
 //      SkillsRepository skillsRepository0 = mock(SkillsRepository.class, new ViolatedAssumptionAnswer());
 //      doReturn(optional0).when(skillsRepository0).findById(anyInt());
 //      Injector.inject(skillsService0, (Class<?>) SkillsService.class, "skillsRepository", (Object) skillsRepository0);
@@ -1198,7 +1198,7 @@
 //      doReturn(stack0).when(candidateRepository0).findAllBySkillsIdIn(anyList());
 //      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "candidateRepository", (Object) candidateRepository0);
 //      SkillsService skillsService0 = new SkillsService();
-//      Stack<Skills> stack1 = new Stack<Skills>();
+//      Stack<Skill> stack1 = new Stack<Skill>();
 //      SkillsRepository skillsRepository0 = mock(SkillsRepository.class, new ViolatedAssumptionAnswer());
 //      doReturn(stack1).when(skillsRepository0).findAllByDotnet(anyBoolean());
 //      Injector.inject(skillsService0, (Class<?>) SkillsService.class, "skillsRepository", (Object) skillsRepository0);
@@ -1236,7 +1236,7 @@
 //      doReturn(stack0).when(candidateRepository0).findAllBySkillsIdIn(anyList());
 //      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "candidateRepository", (Object) candidateRepository0);
 //      SkillsService skillsService0 = new SkillsService();
-//      Stack<Skills> stack1 = new Stack<Skills>();
+//      Stack<Skill> stack1 = new Stack<Skill>();
 //      SkillsRepository skillsRepository0 = mock(SkillsRepository.class, new ViolatedAssumptionAnswer());
 //      doReturn(stack1).when(skillsRepository0).findAllByDotnet(anyBoolean());
 //      Injector.inject(skillsService0, (Class<?>) SkillsService.class, "skillsRepository", (Object) skillsRepository0);
@@ -1272,7 +1272,7 @@
 //      doReturn(stack0).when(candidateRepository0).findAllBySkillsIdIn(anyList());
 //      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "candidateRepository", (Object) candidateRepository0);
 //      SkillsService skillsService0 = new SkillsService();
-//      Stack<Skills> stack1 = new Stack<Skills>();
+//      Stack<Skill> stack1 = new Stack<Skill>();
 //      SkillsRepository skillsRepository0 = mock(SkillsRepository.class, new ViolatedAssumptionAnswer());
 //      doReturn(stack1).when(skillsRepository0).findAllByDotnet(anyBoolean());
 //      Injector.inject(skillsService0, (Class<?>) SkillsService.class, "skillsRepository", (Object) skillsRepository0);
@@ -1301,8 +1301,8 @@
 //      CandidateRepository candidateRepository0 = mock(CandidateRepository.class, new ViolatedAssumptionAnswer());
 //      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "candidateRepository", (Object) candidateRepository0);
 //      SkillsService skillsService0 = new SkillsService();
-//      Stack<Skills> stack0 = new Stack<Skills>();
-//      HashSet<Skills> hashSet0 = new HashSet<Skills>(stack0);
+//      Stack<Skill> stack0 = new Stack<Skill>();
+//      HashSet<Skill> hashSet0 = new HashSet<Skill>(stack0);
 //      SkillsRepository skillsRepository0 = mock(SkillsRepository.class, new ViolatedAssumptionAnswer());
 //      doReturn((List) null).when(skillsRepository0).findAllByDotnet(anyBoolean());
 //      Injector.inject(skillsService0, (Class<?>) SkillsService.class, "skillsRepository", (Object) skillsRepository0);
@@ -1340,8 +1340,8 @@
 //      doReturn(arrayList1).when(candidateRepository0).findAllByApplicationProcessIdIn(anyList());
 //      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "candidateRepository", (Object) candidateRepository0);
 //      SkillsService skillsService0 = new SkillsService();
-//      Skills skills0 = new Skills();
-//      Optional<Skills> optional0 = Optional.ofNullable(skills0);
+//      Skill skills0 = new Skill();
+//      Optional<Skill> optional0 = Optional.ofNullable(skills0);
 //      SkillsRepository skillsRepository0 = mock(SkillsRepository.class, new ViolatedAssumptionAnswer());
 //      doReturn(optional0).when(skillsRepository0).findById(anyInt());
 //      Injector.inject(skillsService0, (Class<?>) SkillsService.class, "skillsRepository", (Object) skillsRepository0);
@@ -1372,8 +1372,8 @@
 //      doReturn(arrayList1).when(candidateRepository0).findAllByApplicationProcessIdIn(anyList());
 //      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "candidateRepository", (Object) candidateRepository0);
 //      SkillsService skillsService0 = new SkillsService();
-//      Skills skills0 = new Skills("", 224, "APPLICATION/OCTET-STREAM", "", true, true, true);
-//      Optional<Skills> optional0 = Optional.ofNullable(skills0);
+//      Skill skills0 = new Skill("", 224, "APPLICATION/OCTET-STREAM", "", true, true, true);
+//      Optional<Skill> optional0 = Optional.ofNullable(skills0);
 //      skills0.setDotnet(false);
 //      SkillsRepository skillsRepository0 = mock(SkillsRepository.class, new ViolatedAssumptionAnswer());
 //      doReturn(optional0).when(skillsRepository0).findById(anyInt());
@@ -1405,8 +1405,8 @@
 //      doReturn(arrayList1).when(candidateRepository0).findAllByApplicationProcessIdIn(anyList());
 //      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "candidateRepository", (Object) candidateRepository0);
 //      SkillsService skillsService0 = new SkillsService();
-//      Skills skills0 = new Skills("", 224, "APPLICATION/OCTET-STREAM", "", true, true, false);
-//      Optional<Skills> optional0 = Optional.ofNullable(skills0);
+//      Skill skills0 = new Skill("", 224, "APPLICATION/OCTET-STREAM", "", true, true, false);
+//      Optional<Skill> optional0 = Optional.ofNullable(skills0);
 //      SkillsRepository skillsRepository0 = mock(SkillsRepository.class, new ViolatedAssumptionAnswer());
 //      doReturn(optional0).when(skillsRepository0).findById(anyInt());
 //      Injector.inject(skillsService0, (Class<?>) SkillsService.class, "skillsRepository", (Object) skillsRepository0);
@@ -1437,8 +1437,8 @@
 //      doReturn(arrayList1).when(candidateRepository0).findAllByApplicationProcessIdIn(anyList());
 //      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "candidateRepository", (Object) candidateRepository0);
 //      SkillsService skillsService0 = new SkillsService();
-//      Skills skills0 = new Skills("", 224, "APPLICATION/OCTET-STREAM", "", true, true, true);
-//      Optional<Skills> optional0 = Optional.ofNullable(skills0);
+//      Skill skills0 = new Skill("", 224, "APPLICATION/OCTET-STREAM", "", true, true, true);
+//      Optional<Skill> optional0 = Optional.ofNullable(skills0);
 //      SkillsRepository skillsRepository0 = mock(SkillsRepository.class, new ViolatedAssumptionAnswer());
 //      doReturn(optional0).when(skillsRepository0).findById(anyInt());
 //      Injector.inject(skillsService0, (Class<?>) SkillsService.class, "skillsRepository", (Object) skillsRepository0);
@@ -1469,8 +1469,8 @@
 //      doReturn(arrayList1).when(candidateRepository0).findAllByApplicationProcessIdIn(anyList());
 //      Injector.inject(candidateService0, (Class<?>) CandidateService.class, "candidateRepository", (Object) candidateRepository0);
 //      SkillsService skillsService0 = new SkillsService();
-//      Skills skills0 = new Skills("", 224, "APPLICATION/OCTET-STREAM", "", false, false, true);
-//      Optional<Skills> optional0 = Optional.ofNullable(skills0);
+//      Skill skills0 = new Skill("", 224, "APPLICATION/OCTET-STREAM", "", false, false, true);
+//      Optional<Skill> optional0 = Optional.ofNullable(skills0);
 //      SkillsRepository skillsRepository0 = mock(SkillsRepository.class, new ViolatedAssumptionAnswer());
 //      doReturn(optional0).when(skillsRepository0).findById(anyInt());
 //      Injector.inject(skillsService0, (Class<?>) SkillsService.class, "skillsRepository", (Object) skillsRepository0);

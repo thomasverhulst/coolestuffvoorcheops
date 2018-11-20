@@ -84,7 +84,7 @@
 //
 //	//@Id
 //	@OneToOne(cascade = CascadeType.ALL)
-//	private Skills skills;
+//	private Skill skills;
 //
 //	//@Id
 //	@OneToOne( cascade = CascadeType.ALL)
@@ -115,7 +115,7 @@
 //
 //	public NewCandidate(Integer id, String name, String sirName, String email, Date birthdate, String phoneNumber,
 //			String celphoneNumber, String cvLink, String gender, MultipartFile file, String contactChannel,
-//			  Skills skills, Address address,
+//			  Skill skills, Address address,
 //			ApplicationProcess applicationProcess) {
 //		super();
 //		this.id = id;
@@ -238,11 +238,11 @@
 //		this.currentSallaryPackage = currentSallaryPackage;
 //	}
 //
-//	public Skills getSkills() {
+//	public Skill getSkill() {
 //		return skills;
 //	}
 //
-//	public void setSkills(Skills skills) {
+//	public void setSkill(Skill skills) {
 //		this.skills = skills;
 //	}
 //

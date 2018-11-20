@@ -223,6 +223,7 @@
   $.FileInput = function(element) {
     this.element = (element instanceof $) ? element : $(element);
     this.upload = this.element.siblings('.a-form-input-file--upload');
+    this.download = this.element.closest('.row').prev().find('.icon-download-file');
 
     this.InitFileInput();
   };
@@ -232,12 +233,14 @@
       this.element.on('change', this.FileInputHandler.bind(this));
     },
     FileInputHandler: function(e) {
-      filename = e.target.value.split('\\').pop();
+      let filename = e.target.value.split('\\').pop();
 
       if(filename) {
+        this.download.hide();
         this.upload.text(filename);
         this.upload.css('display', 'inline-block');
       } else {
+        this.download.show();
         this.upload.text('');
         this.upload.hide();
       }
@@ -245,44 +248,99 @@
   };
 
   $.AddRow = function(element) {
-    this.element = element;
+    this.element = (element instanceof $) ? element : $(element);
 
     this.InitAddRow();
   };
 
   $.AddRow.prototype = {
     InitAddRow: function() {
-      $(document).on('click', this.element, this.AddRowHandler.bind(this));
+      $(document).on('click', '.js-add-row', this.AddRowHandler.bind(this));
     },
     AddRowHandler: function(e) {
       e.preventDefault();
-      let $this = this;
+      let target = $(e.currentTarget);
 
-      $.post('/' + $(this.element).attr('data-action'), 'addItem', function(returnData) {
-        $($($this.element).attr('data-object')).replaceWith(returnData);
+      $.post('/' + target.attr('data-action'), function(returnData) {
+        $(target.attr('data-object')).replaceWith(returnData);
+
+        if (target.attr('data-action') === "addSkillTechnology") {
+          setAutocompleteTechnologies();
+        }
       });
     }
   };
 
   $.RemoveRow = function(element) {
-    this.element = element;
+    this.element = (element instanceof $) ? element : $(element);
 
     this.InitRemoveRow();
   };
 
   $.RemoveRow.prototype = {
     InitRemoveRow: function() {
-      $(document).on('click', this.element, this.RemoveRowHandler.bind(this));
+      $(document).on('click', '.js-remove-row', this.RemoveRowHandler.bind(this));
     },
     RemoveRowHandler: function(e) {
       e.preventDefault();
-      let $this = this;
+      let target = $(e.currentTarget);
 
-      $.post('/' + $(this.element).attr('data-action'), 'removeItem=' + $(this.element).attr('data-value'), function(returnData) {
-        $($($this.element).attr('data-object')).replaceWith(returnData);
+      $.post('/' + target.attr('data-action'), 'removeItem=' + target.attr('data-value'), function(returnData) {
+        $(target.attr('data-object')).replaceWith(returnData);
+
+        if (target.attr('data-action') === "addSkillTechnology") {
+          setAutocompleteTechnologies();
+        }
       });
     }
   };
+
+  // $.SetCurrentSalary = function(element) {
+  //   this.element = (element instanceof $) ? element : $(element);
+  //   this.icon = this.element.find('.icon');
+  //   this.reset = this.element.find('.svg-inline--fa');
+  //
+  //   this.InitSetCurrentSalary();
+  // };
+  //
+  // $.SetCurrentSalary.prototype = {
+  //   InitSetCurrentSalary: function() {
+  //     this.element.on('click', this.SetCurrentSalaryRowHandler.bind(this));
+  //   },
+  //   SetCurrentSalaryRowHandler: function(e) {
+  //     e.preventDefault();
+  //     let $this = this;
+  //
+  //     if (!this.element.hasClass('reset')) {
+  //       let fields = ['grosssalary', 'car', 'dailyallowance', 'mealvouchers', 'hospitalization', 'groupinsurance'];
+  //       this.icon.hide();
+  //       this.element.find('.svg-inline--fa').removeClass('d-none');
+  //       this.element.addClass('reset');
+  //
+  //       $.each(fields, function(i, field) {
+  //         let proposalField = $('#proposal_' + field + '_' + $this.element.attr('data-value'));
+  //         let currentField = $('#current_' + field);
+  //
+  //         if (proposalField.attr('type') === 'checkbox') {
+  //           if (proposalField.val() === true) {
+  //             currentField.prop('checked', true);
+  //           } else {
+  //             currentField.prop('checked', false);
+  //           }
+  //         } else {
+  //           currentField.val(proposalField.val());
+  //         }
+  //       });
+  //     } else {
+  //       $.post('/' + $(this.element).attr('data-action'), function(returnData) {
+  //         $($this.element.attr('data-object')).replaceWith(returnData);
+  //         $this.icon.show();
+  //         $this.element.find('.svg-inline--fa').addClass('d-none');
+  //         $this.element.removeClass('reset');
+  //       });
+  //     }
+  //   }
+  // };
 
   // Initalize
   new $.MobileMenu($('.header--middle'));
@@ -295,6 +353,10 @@
   new $.FileInput($('.a-form-input-file'));
   new $.AddRow('.js-add-row');
   new $.RemoveRow('.js-remove-row');
+
+  // $.each($('.js-set-current-salary'), function(i, item) {
+  //   new $.SetCurrentSalary(item);
+  // });
 
   // Autocomplete.
   $('.js-autocomplete-countries').autocomplete({
@@ -309,6 +371,23 @@
       };
     }
   });
+
+  setAutocompleteTechnologies();
+
+  function setAutocompleteTechnologies() {
+    $('.js-autocomplete-technologies').autocomplete({
+      serviceUrl: '/technologies',
+      paramName: 'str',
+      maxHeight: 150,
+      transformResult: function(response) {
+        return {
+          suggestions: $.map(JSON.parse(response), function(dataItem) {
+            return { value: dataItem.name, data: dataItem.id };
+          })
+        };
+      }
+    });
+  }
 
   // Form validation.
   $.validator.setDefaults({

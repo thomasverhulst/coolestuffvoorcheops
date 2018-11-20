@@ -89,7 +89,7 @@ public class SkillsService_ESTest_scaffolding {
     org.evosuite.runtime.classhandling.ClassStateSupport.initializeClasses(SkillsService_ESTest_scaffolding.class.getClassLoader() ,
       "SkillsService",
       "org.springframework.stereotype.Component",
-      "Skills",
+      "Skill",
       "ISkillService",
       "org.springframework.stereotype.Service",
       "org.springframework.data.repository.Repository",
@@ -107,7 +107,7 @@ public class SkillsService_ESTest_scaffolding {
 
     org.evosuite.runtime.classhandling.ClassStateSupport.resetClasses(
       "SkillsService",
-      "Skills",
+      "Skill",
       "com.mysql.jdbc.AbandonedConnectionCleanupThread$1",
       "com.mysql.jdbc.AbandonedConnectionCleanupThread",
       "com.mysql.jdbc.NonRegisteringDriver",

@@ -14,7 +14,7 @@ public class Role {
 	@Id
 	@Column(name = "idrole")
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Integer id;
+	private int id;
 
 	@Column(name = "role")
 	private String role;
@@ -27,11 +27,11 @@ public class Role {
 		this.role = role;
 	}
 
-	public Integer getId() {
+	public int getId() {
 		return id;
 	}
 
-	public void setId(Integer id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 

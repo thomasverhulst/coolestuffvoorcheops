@@ -47,12 +47,12 @@ public class CustomUserDetailsService implements UserDetailsService {
 
   public List<User> getAllUsers() {
     List<User> users = new ArrayList<>();
-    userRepository.findAll().forEach(e -> users.add(e));
+    userRepository.findAll().forEach(users::add);
     return users;
   }
 
   public User getUserById(int userId) {
-    User user = userRepository.findById(userId).get();
+    User user = userRepository.findById(userId).orElse(null);
     return user;
   }
 

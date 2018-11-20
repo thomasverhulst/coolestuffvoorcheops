@@ -4726,6 +4726,10 @@ fieldset legend {
     content: "\e914"; }
   .icon.icon-add-salary:before {
     content: "\e902"; }
+  .icon.icon-set-salary:before {
+    content: "\e903"; }
+  .icon.icon-add-technology:before {
+    content: "\e904"; }
 
 .select2-hidden-accessible {
   border: 0 !important;
@@ -4740,7 +4744,6 @@ fieldset legend {
 
 .select2-container {
   border-bottom: 2px solid #EEEEEE;
-  width: 100% !important;
   display: block; }
   .select2-container--focus {
     border-bottom-color: #DA291C; }

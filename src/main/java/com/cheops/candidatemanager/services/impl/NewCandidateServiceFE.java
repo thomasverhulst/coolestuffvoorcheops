@@ -24,7 +24,7 @@ public class NewCandidateServiceFE implements ICandidateServiceFE {
 
 	@Override
 	public NewCandidateFE getCandidateById(int candidateId) {
-		return newCandidateFERepository.findById(candidateId).get();
+		return newCandidateFERepository.findById(candidateId).orElse(null);
 	}
 
   @Override

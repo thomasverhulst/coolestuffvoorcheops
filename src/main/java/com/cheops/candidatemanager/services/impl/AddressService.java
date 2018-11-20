@@ -18,13 +18,13 @@ public class AddressService implements IAddressService {
 	@Override
 	public List<Address> getAllAdresses() {
 		List<Address> list = new ArrayList<>();
-		addressRepository.findAll().forEach(e -> list.add(e));
+		addressRepository.findAll().forEach(list::add);
 		return list;
 	}
 
 	@Override
 	public Address getAddressById(int addressId) {
-		Address e = addressRepository.findById(addressId).get();
+		Address e = addressRepository.findById(addressId).orElse(null);
 		return e;
 	}
 
@@ -40,7 +40,7 @@ public class AddressService implements IAddressService {
 	}
 
 	@Override
-	public void deleteAdress(int addressId) {
+	public void deleteAddress(int addressId) {
 		addressRepository.delete(getAddressById(addressId));
 	}
 
