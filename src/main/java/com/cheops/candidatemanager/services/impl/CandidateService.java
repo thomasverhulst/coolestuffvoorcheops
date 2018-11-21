@@ -2,6 +2,7 @@ package com.cheops.candidatemanager.services.impl;
 
 import com.cheops.candidatemanager.exceptions.CandidateDoesNotExistException;
 import com.cheops.candidatemanager.models.*;
+import com.cheops.candidatemanager.pojos.StatusWrapper;
 import com.cheops.candidatemanager.repositories.CandidateRepository;
 import com.cheops.candidatemanager.services.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,14 +12,17 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 @Service
 public class CandidateService implements ICandidateService {
 
   private Locale locale = LocaleContextHolder.getLocale();
+  public Map <String, List<CandidateSearchResolver>>candidateresolversListMap = new HashMap<String,List< CandidateSearchResolver>>();
 
   @Autowired
   private CandidateRepository candidateRepository;
@@ -38,6 +42,7 @@ public class CandidateService implements ICandidateService {
   @Autowired
   private MessageSource messageSource;
 
+	
 	@Override
 	public Candidate getCandidateById(int candidateId) {
 		return candidateRepository.findById(candidateId).orElse(null);
@@ -273,4 +278,73 @@ public class CandidateService implements ICandidateService {
 
 		return candidateResolverList;
 	}
+
+	
+	
+	public void sortCandidateSearchResolvers() {
+		List<Candidate> candidates =(List<Candidate>) candidateRepository.findAll() ;
+		List<CandidateSearchResolver>  candidateSearchResolverList=fillExpertiseAndStatus(candidates);
+//		List<CandidateSearchResolver> candidatesToKeep = l.stream().filter(x -> "Eerste interview".equals(x.getApplicationStatus())).collect(Collectors.toList());
+//		
+//		List<CandidateSearchResolver> candidatesToKeep = l.stream().filter(x -> "Technisch interview".equals(x.getApplicationStatus())).collect(Collectors.toList());
+//		List<CandidateSearchResolver> candidatesToKeep = l.stream().filter(x -> "In dienst".equals(x.getApplicationStatus())).collect(Collectors.toList());
+//
+//		List<CandidateSearchResolver> candidatesToKeep = l.stream().filter(x -> "(Nog) niet uitgenodigd".equals(x.getApplicationStatus())).collect(Collectors.toList());
+
+		//List<List<CandidateSearchResolver>>candidateresolversList ;
+		
+		//Map <String, List<CandidateSearchResolver>>candidateresolversListMap = new HashMap<String,List< CandidateSearchResolver>>();
+		StatusWrapper s = new StatusWrapper();
+		s.getStatusList();
+		for (String status : s.getStatusList()) {
+			String stripperdStatus = status.substring(1, status.length() - 1);
+			System.out.println("STRIPPEDSTATUS"+stripperdStatus);
+			candidateresolversListMap.put(stripperdStatus,getStatusList(candidateSearchResolverList,stripperdStatus));
+			//candidateresolversList.add(getStatusList(l,stripperdStatus));
+		}
+		
+//		candidateresolversListMap.entrySet().stream().filter(e -> e.getKey())
+//		
+//		for(Map.Entry<String, List<CandidateSearchResolver>> entry : candidateresolversListMap.entrySet()) {
+//		    String key = entry.getKey();
+//		    List<CandidateSearchResolver> value = entry.getValue();
+//
+//		    // do what you have to do here
+//		    // In your case, another loop.
+//		}
+		
+		
+	}
+	
+	public List<CandidateSearchResolver> getStatusList(List<CandidateSearchResolver> candidateSearchResolverList,String status ){
+		List<CandidateSearchResolver> candidatesToKeep = 	candidateSearchResolverList.stream().filter(x -> status.equals(x.getApplicationStatus())).collect(Collectors.toList());
+		//List<CandidateSearchResolver> candidatesToKeep = 
+		System.out.println("Aantal"+candidatesToKeep.size());
+		return candidatesToKeep;
+	}
+
+	@Override
+	public Map<String, List<CandidateSearchResolver>> getCandidateresolversListMap() {
+		
+		
+		List<Candidate> candidates =(List<Candidate>) candidateRepository.findAll() ;
+		List<CandidateSearchResolver>  candidateSearchResolver=fillExpertiseAndStatus(candidates);
+
+		StatusWrapper statusWrapper = new StatusWrapper();
+		statusWrapper.getStatusList();
+		for (String status : statusWrapper.getStatusList()) {
+			
+			String stripperdStatus = status.substring(1, status.length() - 1);
+			System.out.println("STRIPPEDSTATUS" +stripperdStatus);
+			candidateresolversListMap.put(status,getStatusList(candidateSearchResolver,status));
+		}
+				
+		return candidateresolversListMap;
+	}
+
+	public void setCandidateresolversListMap(Map<String, List<CandidateSearchResolver>> candidateresolversListMap) {
+		this.candidateresolversListMap = candidateresolversListMap;
+	}
+	
+	
 }
