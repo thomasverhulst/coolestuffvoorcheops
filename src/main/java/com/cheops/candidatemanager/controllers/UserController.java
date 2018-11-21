@@ -35,23 +35,6 @@ public class UserController {
   @Autowired
 	private MessageSource messageSource;
 
-//  @GetMapping("/login")
-//	public String loginView(Locale locale, Model model, @RequestParam(value = "error", required = false) String error, @RequestParam(value = "logout", required = false) String logout) {
-//		// When user is anonymous authenticated, show login page, otherwise redirect /login to /.
-//		if (SecurityContextHolder.getContext().getAuthentication() instanceof AnonymousAuthenticationToken) {
-//		  // If login has params logout or error, show message.
-//      if (error != null) {
-//        model.addAttribute("errorMessage", messageSource.getMessage("form.error.login", null, locale));
-//      }
-//      if (logout != null) {
-//        model.addAttribute("successMessage", messageSource.getMessage("user.logout", null, locale));
-//      }
-//			return "user/login";
-//		} else {
-//			return "redirect:/";
-//		}
-//	}
-
 	@GetMapping("")
   public String userView(Model model, @AuthenticationPrincipal UserDetails currentUser) {
     User user = customUserDetailsService.getUserByUsername(currentUser.getUsername());
@@ -110,7 +93,7 @@ public class UserController {
     }
 
     try {
-      // ReSet password if checked.
+      // Reset password if checked.
       if (resetPassword) user.setPassword(user.getUsername());
       customUserDetailsService.saveUser(user);
       redirectAttributes.addFlashAttribute("successMessage", messageSource.getMessage("user.edited", new Object[]{user.getUsername()}, locale));

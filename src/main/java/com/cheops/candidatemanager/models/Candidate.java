@@ -8,6 +8,7 @@ import javax.persistence.*;
 import javax.validation.Valid;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Past;
 import javax.validation.constraints.Size;
 import java.io.Serializable;
 import java.sql.Timestamp;
@@ -45,6 +46,7 @@ public class Candidate implements Serializable {
 
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	@Column(name = "dob")
+  @Past(message = "{dob.past}")
 	private Date dateOfBirth;
 
 	@Column(name = "phonenumber")
@@ -92,8 +94,7 @@ public class Candidate implements Serializable {
 	@JoinTable(name = "candidate_workhistory", joinColumns = @JoinColumn(name = "candidate_id"), inverseJoinColumns = @JoinColumn(name = "workhistory_id"))
 	private List<WorkHistory> workHistory;
 
-	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-	@JoinTable(name = "candidate_meeting", joinColumns = @JoinColumn(name = "candidate_id"), inverseJoinColumns = @JoinColumn(name = "meeting_id"))
+	@OneToMany(mappedBy = "candidate", orphanRemoval = true, cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	private List<Meeting> meetings;
 
 	@Transient
@@ -301,6 +302,7 @@ public class Candidate implements Serializable {
 
   public void addMeeting(Meeting meeting) {
 	  if (this.meetings == null) this.meetings = new ArrayList<>();
+    meeting.setCandidate(this);
 	  this.meetings.add(meeting);
   }
 

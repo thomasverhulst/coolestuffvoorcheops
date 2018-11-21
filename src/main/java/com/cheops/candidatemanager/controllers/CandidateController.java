@@ -1,6 +1,7 @@
 package com.cheops.candidatemanager.controllers;
 
 import java.io.IOException;
+import java.sql.Timestamp;
 import java.util.*;
 
 import javax.servlet.http.HttpServletRequest;
@@ -58,9 +59,7 @@ public class CandidateController {
 
 	@PostMapping("/add")
   public String addCandidate(Locale locale, Model model, @Valid @ModelAttribute(CANDIDATE) Candidate candidate, BindingResult result, RedirectAttributes redirectAttributes, SessionStatus sessionStatus) {
-	  if (result.hasErrors()) {
-      return returnWithErrors(model, candidate, messageSource.getMessage("form.error.submission", null, locale), "candidate/add");
-    }
+	  if (result.hasErrors()) return returnWithErrors(model, candidate, messageSource.getMessage("form.error.submission", null, locale), "candidate/add");
 
     try {
       String countryCode = countryService.getCountryCodeByName(candidate.getAddress().getCountrycode());
@@ -78,6 +77,7 @@ public class CandidateController {
       }
     }
 
+    candidate.setIsAddedTimeStamp(new Timestamp(System.currentTimeMillis()));
     setTechnologies(candidate);
     candidateService.addCandidate(candidate);
     sessionStatus.setComplete();
@@ -108,9 +108,7 @@ public class CandidateController {
   @PostMapping("/edit/{candidateId}")
   @ExceptionHandler(MultipartException.class)
   public String saveCandidate(Locale locale, Model model, @Validated @ModelAttribute(CANDIDATE) Candidate candidate, BindingResult result, RedirectAttributes redirectAttributes, SessionStatus sessionStatus) {
-    if (result.hasErrors()) {
-      return returnWithErrors(model, candidate, messageSource.getMessage("form.error.submission", null, locale), "candidate/edit");
-    }
+    if (result.hasErrors()) return returnWithErrors(model, candidate, messageSource.getMessage("form.error.submission", null, locale), "candidate/edit");
 
     try {
       String countryCode = countryService.getCountryCodeByName(candidate.getAddress().getCountrycode());
@@ -125,9 +123,7 @@ public class CandidateController {
       try {
         fileStorageService.checkFileExtentsion(candidate.getFile());
         candidate.setCvLink(fileStorageService.storeCV(candidate.getFile()));
-        if (old.getCvLink() != null && !old.getCvLink().isEmpty()) {
-          fileStorageService.deleteCv(old.getCvLink());
-        }
+        if (old.getCvLink() != null && !old.getCvLink().isEmpty()) fileStorageService.deleteCv(old.getCvLink());
       } catch (final FileStorageException | MyFileNotFoundException e) {
         return returnWithErrors(model, candidate, e.getMessage(), "candidate/edit");
       }
@@ -175,9 +171,7 @@ public class CandidateController {
     if (candidate.getSkill().getTechnologies() != null && !candidate.getSkill().getTechnologies().isEmpty()) {
       for (SkillTechnology skillTechnology : candidate.getSkill().getTechnologies()) {
         Technology technology = technologyService.findByName(skillTechnology.getTechnology().getName());
-        if (technology != null) {
-          skillTechnology.setTechnology(technology);
-        }
+        if (technology != null) skillTechnology.setTechnology(technology);
       }
     }
   }

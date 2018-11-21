@@ -1,15 +1,9 @@
 package com.cheops.candidatemanager.models;
 
+import java.io.Serializable;
 import java.util.Date;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import javax.validation.constraints.Size;
 
 import com.cheops.candidatemanager.enums.ConversationType;
@@ -17,15 +11,16 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 @Table(name = "meeting")
-public class Meeting {
+public class Meeting implements Serializable {
 
 	@Id
 	@Column(name = "idmeeting")
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
 
-	@Column(name = "candidatenr")
-	private int candidateId;
+  @ManyToOne
+  @JoinColumn(name = "candidate_id")
+	private Candidate candidate;
 
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	@Column(name = "meetingdate")
@@ -42,13 +37,13 @@ public class Meeting {
 	public Meeting() {
 	}
 
-	public Meeting(Date meetingDate, String conversationPartner, ConversationType conversationType) {
-		this.meetingDate = meetingDate;
-		this.conversationPartner = conversationPartner;
-		this.conversationType = conversationType;
-	}
+  public Meeting(Date meetingDate, @Size(max = 45, message = "{conversationpartner.size}") String conversationPartner, ConversationType conversationType) {
+    this.meetingDate = meetingDate;
+    this.conversationPartner = conversationPartner;
+    this.conversationType = conversationType;
+  }
 
-	public Integer getId() {
+  public Integer getId() {
 		return id;
 	}
 
@@ -56,13 +51,13 @@ public class Meeting {
 		this.id = id;
 	}
 
-	public int getCandidateId() {
-		return candidateId;
-	}
+  public Candidate getCandidate() {
+    return candidate;
+  }
 
-	public void setCandidateId(int candidateId) {
-		this.candidateId = candidateId;
-	}
+  public void setCandidate(Candidate candidate) {
+    this.candidate = candidate;
+  }
 
 	public Date getMeetingDate() {
 		return meetingDate;
@@ -80,11 +75,11 @@ public class Meeting {
 		this.conversationPartner = conversationPartner;
 	}
 
-	public ConversationType getConversationType2() {
+	public ConversationType getConversationType() {
 		return conversationType;
 	}
 
-	public void setConversationType2(ConversationType conversationType) {
+	public void setConversationType(ConversationType conversationType) {
 		this.conversationType = conversationType;
 	}
 

@@ -25,7 +25,7 @@ import java.io.IOException;
 import java.util.Locale;
 
 @Controller
-@SessionAttributes({CandidateController.CANDIDATE})
+@SessionAttributes({FileStorageController.CANDIDATE})
 public class FileStorageController {
 
   static final String CANDIDATE = "candidate";

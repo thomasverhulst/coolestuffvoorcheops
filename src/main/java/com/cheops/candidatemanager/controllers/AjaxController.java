@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Controller
-@SessionAttributes({CandidateController.CANDIDATE})
+@SessionAttributes({AjaxController.CANDIDATE})
 public class AjaxController {
 
   static final String CANDIDATE = "candidate";
@@ -23,6 +23,31 @@ public class AjaxController {
   @Autowired
   private ICountryService countryService;
 
+  // Meeting.
+  @PostMapping(value = "/addMeeting")
+  public String addMeeting(Candidate candidate, HttpServletRequest request) {
+    candidate.addMeeting(new Meeting());
+    request.getSession().setAttribute(CANDIDATE, candidate);
+
+    if ("XMLHttpRequest".equals(request.getHeader("X-Requested-With"))) {
+      return "fragments/form :: #meetingList";
+    } else {
+      return "candidate/edit";
+    }
+  }
+
+  @PostMapping(value = "/removeMeeting", params = "removeItem")
+  public String removeMeeting(Candidate candidate, @RequestParam("removeItem") int index, HttpServletRequest request) {
+    candidate.removeMeeting(index);
+    request.getSession().setAttribute(CANDIDATE, candidate);
+
+    if ("XMLHttpRequest".equals(request.getHeader("X-Requested-With"))) {
+      return "fragments/form :: #meetingList";
+    } else {
+      return "candidate/edit";
+    }
+  }
+
   // Technology.
   @GetMapping(value = "/technologies", produces = "application/json")
   @ResponseBody
@@ -30,17 +55,16 @@ public class AjaxController {
     List<Technology> suggestions = new ArrayList<>();
 
     for (Technology technology : technologyService.getAllTechnologies()) {
-      if (technology.getName().toLowerCase().contains(search.toLowerCase())) {
-        suggestions.add(technology);
-      }
+      if (technology.getName().toLowerCase().contains(search.toLowerCase())) suggestions.add(technology);
     }
 
     return suggestions;
   }
 
   @PostMapping(path = "/addSkillTechnology")
-  public String addSkillTechnology(@ModelAttribute(CANDIDATE) Candidate candidate, HttpServletRequest request) {
+  public String addSkillTechnology(Candidate candidate, HttpServletRequest request) {
     candidate.getSkill().addSkillTechnology(new SkillTechnology());
+    request.getSession().setAttribute(CANDIDATE, candidate);
 
     if ("XMLHttpRequest".equals(request.getHeader("X-Requested-With"))) {
       return "fragments/form :: #skillTechnologies";
@@ -50,8 +74,9 @@ public class AjaxController {
   }
 
   @PostMapping(path = "/removeSkillTechnology", params = "removeItem")
-  public String removeSkillTechnology(@ModelAttribute(CANDIDATE) Candidate candidate, @RequestParam("removeItem") int index, HttpServletRequest request) {
+  public String removeSkillTechnology(Candidate candidate, @RequestParam("removeItem") int index, HttpServletRequest request) {
     candidate.getSkill().removeSkillTechnology(index);
+    request.getSession().setAttribute(CANDIDATE, candidate);
 
     if ("XMLHttpRequest".equals(request.getHeader("X-Requested-With"))) {
       return "fragments/form :: #skillTechnologies";
@@ -62,8 +87,9 @@ public class AjaxController {
 
   // Salary.
   @PostMapping(path = "/addSalaryPackage")
-  public String addProposalPackage(@ModelAttribute(CANDIDATE) Candidate candidate, HttpServletRequest request) {
+  public String addProposalPackage(Candidate candidate, HttpServletRequest request) {
     candidate.addProposalSalaryPackage(new SalaryPackage());
+    request.getSession().setAttribute(CANDIDATE, candidate);
 
     if ("XMLHttpRequest".equals(request.getHeader("X-Requested-With"))) {
       return "fragments/form :: #proposalList";
@@ -73,8 +99,9 @@ public class AjaxController {
   }
 
   @PostMapping(path = "/removeSalaryPackage", params = "removeItem")
-  public String removeProposalPackage(@ModelAttribute(CANDIDATE) Candidate candidate, @RequestParam("removeItem") int index, HttpServletRequest request) {
+  public String removeProposalPackage(Candidate candidate, @RequestParam("removeItem") int index, HttpServletRequest request) {
     candidate.removeProposalSalaryPackage(index);
+    request.getSession().setAttribute(CANDIDATE, candidate);
 
     if ("XMLHttpRequest".equals(request.getHeader("X-Requested-With"))) {
       return "fragments/form :: #proposalList";
@@ -99,9 +126,7 @@ public class AjaxController {
     List<Country> suggestions = new ArrayList<>();
 
     for (Country country : countryService.getAllCountries()) {
-      if (country.getName().toLowerCase().contains(search.toLowerCase())) {
-        suggestions.add(country);
-      }
+      if (country.getName().toLowerCase().contains(search.toLowerCase())) suggestions.add(country);
     }
 
     return suggestions;

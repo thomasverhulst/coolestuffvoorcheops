@@ -22,12 +22,8 @@ public class LoginController {
     // When user is anonymous authenticated, show login page, otherwise redirect /login to /.
     if (SecurityContextHolder.getContext().getAuthentication() instanceof AnonymousAuthenticationToken) {
       // If login has params logout or error, show message.
-      if (error != null) {
-        model.addAttribute("errorMessage", messageSource.getMessage("form.error.login", null, locale));
-      }
-      if (logout != null) {
-        model.addAttribute("successMessage", messageSource.getMessage("user.logout", null, locale));
-      }
+      if (error != null) model.addAttribute("errorMessage", messageSource.getMessage("form.error.login", null, locale));
+      if (logout != null) model.addAttribute("successMessage", messageSource.getMessage("user.logout", null, locale));
       return "user/login";
     } else {
       return "redirect:/";

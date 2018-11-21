@@ -2,10 +2,11 @@ package com.cheops.candidatemanager.models;
 
 import javax.persistence.*;
 import javax.validation.constraints.Size;
+import java.io.Serializable;
 
 @Entity
 @Table(name = "address")
-public class Address {
+public class Address implements Serializable {
 
 	@Id
 	@Column(name = "idaddress")
