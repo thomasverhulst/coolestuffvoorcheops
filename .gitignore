@@ -30,3 +30,6 @@ package-lock.json
 
 ### System ###
 .DS_Store
+
+### Uploads folder ###
+/uploads/
