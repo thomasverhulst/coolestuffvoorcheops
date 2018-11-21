@@ -10,6 +10,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.Size;
 
 import com.cheops.candidatemanager.enums.ConversationType;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -31,6 +32,7 @@ public class Meeting {
 	private Date meetingDate;
 
 	@Column(name = "conversationpartner")
+  @Size(max = 45, message = "{conversationpartner.size}")
 	private String conversationPartner;
 
 	@Enumerated(EnumType.STRING)

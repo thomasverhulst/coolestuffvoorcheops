@@ -1,6 +1,7 @@
 package com.cheops.candidatemanager.models;
 
 import javax.persistence.*;
+import javax.validation.constraints.Size;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -33,6 +34,7 @@ public class Skill {
   private List<SkillTechnology> technologies;
 
   @Column(name = "extra")
+  @Size(max = 200, message = "{skillextra.size}")
   private String extra;
 
   @Transient
@@ -41,8 +43,7 @@ public class Skill {
 	public Skill() {
 	}
 
-  public Skill(boolean dotnet, boolean java, boolean frontend, double experience, String preferredLocation, List<SkillTechnology> technologies, String extra) {
-	  super();
+  public Skill(boolean dotnet, boolean java, boolean frontend, double experience, String preferredLocation, List<SkillTechnology> technologies, @Size(max = 200, message = "{skillextra.size}") String extra) {
     this.dotnet = dotnet;
     this.java = java;
     this.frontend = frontend;

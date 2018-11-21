@@ -3,8 +3,8 @@ package com.cheops.candidatemanager.controllers;
 import com.cheops.candidatemanager.exceptions.UserAlreadyExistException;
 import com.cheops.candidatemanager.exceptions.UserDoesNotExistException;
 import com.cheops.candidatemanager.models.User;
+import com.cheops.candidatemanager.services.IRoleService;
 import com.cheops.candidatemanager.services.impl.CustomUserDetailsService;
-import com.cheops.candidatemanager.services.impl.RoleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Controller;
@@ -27,7 +27,7 @@ public class AdminController {
   private CustomUserDetailsService customUserDetailsService;
 
   @Autowired
-  private RoleService roleService;
+  private IRoleService roleService;
 
   @Autowired
   private MessageSource messageSource;
@@ -58,53 +58,5 @@ public class AdminController {
     return "redirect:/admin";
   }
 
-  @GetMapping("/user-delete/{userId}")
-  public String deleteUser(Locale locale, @PathVariable("userId") User user, RedirectAttributes redirectAttributes) {
-    if (user == null) {
-      redirectAttributes.addFlashAttribute("errorMessage", messageSource.getMessage("user.doesNotExist", null, locale));
-      return "redirect:/admin";
-    }
-
-    try {
-      customUserDetailsService.deleteUser(user);
-      redirectAttributes.addFlashAttribute("successMessage", messageSource.getMessage("user.deleted", new Object[]{user.getUsername()}, locale));
-    } catch (final UserDoesNotExistException e) {
-      redirectAttributes.addFlashAttribute("errorMessage", e.getMessage());
-    }
-
-    return "redirect:/admin";
-  }
-
-  @GetMapping("/user-edit/{userId}")
-  public String editUserView(Locale locale, Model model, @PathVariable("userId") User user, RedirectAttributes redirectAttributes) {
-    if (user == null) {
-      redirectAttributes.addFlashAttribute("errorMessage", messageSource.getMessage("user.doesNotExist", null, locale));
-      return "redirect:/admin";
-    }
-
-    model.addAttribute(USER, user);
-    model.addAttribute("allRoles", roleService.getAllRoles());
-    return "admin/user-edit";
-  }
-
-  @PostMapping("/user-edit/{userId}")
-  public String saveUser(Locale locale, Model model, @Validated @ModelAttribute(USER) User user, BindingResult result, @RequestParam(value = "resetPassword", required = false) boolean resetPassword, RedirectAttributes redirectAttributes) {
-    if (result.hasErrors()) {
-      model.addAttribute("allRoles", roleService.getAllRoles());
-      model.addAttribute("formErrorMessage", messageSource.getMessage("form.error.submission", null, locale));
-      return "admin/settings";
-    }
-
-    try {
-      // ReSet password if checked.
-      if (resetPassword) user.setPassword(user.getUsername());
-      customUserDetailsService.saveUser(user);
-      redirectAttributes.addFlashAttribute("successMessage", messageSource.getMessage("user.edited", new Object[]{user.getUsername()}, locale));
-    } catch (final UserDoesNotExistException e) {
-      redirectAttributes.addFlashAttribute("errorMessage", e.getMessage());
-    }
-
-    return "redirect:/admin";
-  }
 
 }
