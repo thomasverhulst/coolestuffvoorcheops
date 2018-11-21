@@ -1,5 +1,6 @@
 package com.cheops.candidatemanager.models;
 
+import java.io.Serializable;
 import java.util.Set;
 
 import javax.persistence.Column;
@@ -16,7 +17,7 @@ import javax.validation.constraints.*;
 
 @Entity
 @Table(name = "user")
-public class User {
+public class User implements Serializable {
 
 	@Id
 	@Column(name = "iduser")

@@ -1,10 +1,11 @@
 package com.cheops.candidatemanager.models;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
 @Table(name = "skill_technology")
-public class SkillTechnology {
+public class SkillTechnology implements Serializable {
 
   @Id
   @Column(name = "idskilltechnology")

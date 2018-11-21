@@ -1,5 +1,6 @@
 package com.cheops.candidatemanager.models;
 
+import java.io.Serializable;
 import java.sql.Timestamp;
 import java.util.Date;
 
@@ -14,7 +15,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 @Table(name = "workhistory")
-public class WorkHistory {
+public class WorkHistory implements Serializable {
 
 	@Id
 	@Column(name = "idworkhistory")

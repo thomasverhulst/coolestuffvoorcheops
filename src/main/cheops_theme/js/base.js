@@ -247,51 +247,38 @@
     }
   };
 
-  $.AddRow = function(element) {
-    this.element = (element instanceof $) ? element : $(element);
-
+  $.Rows = function() {
     this.InitAddRow();
   };
 
-  $.AddRow.prototype = {
+  $.Rows.prototype = {
     InitAddRow: function() {
       $(document).on('click', '.js-add-row', this.AddRowHandler.bind(this));
+      $(document).on('click', '.js-remove-row', this.RemoveRowHandler.bind(this));
     },
     AddRowHandler: function(e) {
       e.preventDefault();
       let target = $(e.currentTarget);
+      this.ReplaceData(target);
+      let $this = this;
 
-      $.post('/' + target.attr('data-action'), function(returnData) {
-        $(target.attr('data-object')).replaceWith(returnData);
-
-        if (target.attr('data-action') === "addSkillTechnology") {
-          setAutocompleteTechnologies();
-        }
+      $.post('/' + target.attr('data-action'), $('form').serialize(), function(returnData) {
+        $this.ReplaceData(returnData, target.attr('data-object'), target.attr('data-action'));
       });
-    }
-  };
-
-  $.RemoveRow = function(element) {
-    this.element = (element instanceof $) ? element : $(element);
-
-    this.InitRemoveRow();
-  };
-
-  $.RemoveRow.prototype = {
-    InitRemoveRow: function() {
-      $(document).on('click', '.js-remove-row', this.RemoveRowHandler.bind(this));
     },
     RemoveRowHandler: function(e) {
       e.preventDefault();
       let target = $(e.currentTarget);
+      let $this = this;
 
-      $.post('/' + target.attr('data-action'), 'removeItem=' + target.attr('data-value'), function(returnData) {
-        $(target.attr('data-object')).replaceWith(returnData);
-
-        if (target.attr('data-action') === "addSkillTechnology") {
-          setAutocompleteTechnologies();
-        }
+      $.post('/' + target.attr('data-action'), $('form').serialize() + '&removeItem=' + target.attr('data-value'), function(returnData) {
+        $this.ReplaceData(returnData, target.attr('data-object'), target.attr('data-action'));
       });
+    },
+    ReplaceData: function(returnData, target, data_action) {
+      $(target).replaceWith(returnData);
+      setSelect2();
+      if (data_action === "addSkillTechnology") setAutocompleteTechnologies();
     }
   };
 
@@ -347,16 +334,21 @@
   new $.QuickMenu($('.header--right '));
   new $.QuickActions($('.icon-quick-menu ~ .o-card-hover'));
   new $.SubNav($('.js-has-nav-sub'));
-  new $.Select2($('.js-select-basic'));
   new $.Modal($('[data-toggle="modal"]'));
   new $.Tabs($('.o-tabs-group'));
   new $.FileInput($('.a-form-input-file'));
-  new $.AddRow('.js-add-row');
-  new $.RemoveRow('.js-remove-row');
+  new $.Rows;
+  setSelect2();
 
   // $.each($('.js-set-current-salary'), function(i, item) {
   //   new $.SetCurrentSalary(item);
   // });
+
+  function setSelect2() {
+    $.each($('.js-select-basic'), function(i, item) {
+      new $.Select2(item);
+    });
+  }
 
   // Autocomplete.
   $('.js-autocomplete-countries').autocomplete({

@@ -4730,6 +4730,10 @@ fieldset legend {
     content: "\e903"; }
   .icon.icon-add-technology:before {
     content: "\e904"; }
+  .icon.icon-add-meeting:before {
+    content: "\e905"; }
+  .icon.icon-meeting:before {
+    content: "\e906"; }
 
 .select2-hidden-accessible {
   border: 0 !important;
@@ -5096,7 +5100,7 @@ main.not-stripped {
   padding-bottom: 15px;
   border-bottom: 1px solid #EEEEEE;
   font-weight: 500;
-  margin-bottom: 45px; }
+  margin-bottom: 30px; }
   .a-title--form .icon {
     float: right; }
 

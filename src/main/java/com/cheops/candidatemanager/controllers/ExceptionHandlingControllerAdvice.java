@@ -24,9 +24,8 @@ public class ExceptionHandlingControllerAdvice {
     RedirectView rv = new RedirectView(request.getRequestURL().toString());
     FlashMap outputFlashMap = RequestContextUtils.getOutputFlashMap(request);
 
-    if (outputFlashMap != null) {
+    if (outputFlashMap != null)
       outputFlashMap.put("errorMessage", messageSource.getMessage("form.error.fileSize", null, locale));
-    }
 
     return rv;
   }

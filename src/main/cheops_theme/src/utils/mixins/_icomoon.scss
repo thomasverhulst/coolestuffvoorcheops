@@ -12,6 +12,10 @@
       content: "\e900";
     } @else if $icon == "add-technology" {
       content: "\e904";
+    } @else if $icon == "add-meeting" {
+      content: "\e905";
+    } @else if $icon == "meeting" {
+      content: "\e906";
     } @else if $icon == "quick-menu" {
       content: "\e909";
     } @else if $icon == "empty-file" {

@@ -91,14 +91,16 @@ public class CandidateService implements ICandidateService {
 	@Override
 	public Collection<Candidate> getUpcomingMonthsFirstScreenings() {
     List<Meeting> meetingList = meetingService.getUpcomingMonthsFirstScreenings();
-		List<Integer> candidateIds = meetingList.stream().map(Meeting::getCandidateId).collect(Collectors.toList());
+//		List<Integer> candidateIds = meetingList.stream().map(Meeting::getCandidate).collect(Collectors.toList());
+		List<Integer> candidateIds = meetingList.stream().map(m -> m.getCandidate().getId()).collect(Collectors.toList());
 		return candidateRepository.findAllByIdIn(candidateIds);
 	}
 
 	@Override
 	public Collection<Candidate> getUpcomingMonthsTechnicalScreenings() {
 	  List<Meeting> meetingList = meetingService.getUpcomingMonthsTechnicalScreenings();
-		List<Integer> candidateIds = meetingList.stream().map(Meeting::getCandidateId).collect(Collectors.toList());
+//		List<Integer> candidateIds = meetingList.stream().map(Meeting::getCandidate).collect(Collectors.toList());
+		List<Integer> candidateIds = meetingList.stream().map(m -> m.getCandidate().getId()).collect(Collectors.toList());
 		return candidateRepository.findAllByIdIn(candidateIds);
 	}
 

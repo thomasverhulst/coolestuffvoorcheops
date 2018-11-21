@@ -1,10 +1,12 @@
 package com.cheops.candidatemanager.models;
 
 import javax.persistence.*;
+import javax.validation.constraints.Size;
+import java.io.Serializable;
 
 @Entity
 @Table(name = "technology")
-public class Technology {
+public class Technology implements Serializable {
 
   @Id
   @Column(name = "idtechnology")
@@ -12,13 +14,13 @@ public class Technology {
   private int id;
 
   @Column(name = "name")
+  @Size(max = 45, message = "{name.size}")
   private String name;
 
   public Technology() {
   }
 
-  public Technology(String name) {
-    super();
+  public Technology(@Size(max = 45, message = "{name.size}") String name) {
     this.name = name;
   }
 

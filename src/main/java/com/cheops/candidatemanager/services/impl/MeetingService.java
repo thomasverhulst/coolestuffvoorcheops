@@ -32,7 +32,7 @@ public class MeetingService implements IMeetingService {
 		Date today = DateUtils.truncate(new Date(), Calendar.DAY_OF_MONTH);
 		DateUtils.truncate(new Date(), Calendar.DAY_OF_MONTH);
 		Date month = DateUtils.addMonths(new Date(), 1);
-    return meetingRepository.findAllBymeetingDateBetweenAndConversationType(today, month,ConversationType.SECOND);
+    return meetingRepository.findAllBymeetingDateBetweenAndConversationType(today, month,ConversationType.TECHNICAL);
 	}
 
 }

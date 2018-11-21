@@ -8,6 +8,7 @@ import javax.persistence.*;
 import javax.validation.Valid;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Past;
 import javax.validation.constraints.Size;
 import java.io.Serializable;
 import java.sql.Timestamp;
@@ -45,6 +46,7 @@ public class Candidate implements Serializable {
 
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	@Column(name = "dob")
+  @Past(message = "{dob.past}")
 	private Date dateOfBirth;
 
 	@Column(name = "phonenumber")
@@ -92,9 +94,8 @@ public class Candidate implements Serializable {
 	@JoinTable(name = "candidate_workhistory", joinColumns = @JoinColumn(name = "candidate_id"), inverseJoinColumns = @JoinColumn(name = "workhistory_id"))
 	private List<WorkHistory> workHistory;
 
-	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-	@JoinTable(name = "candidate_meeting", joinColumns = @JoinColumn(name = "candidate_id"), inverseJoinColumns = @JoinColumn(name = "meeting_id"))
-	private List<Meeting> meeting;
+	@OneToMany(mappedBy = "candidate", orphanRemoval = true, cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	private List<Meeting> meetings;
 
 	@Transient
 	private MultipartFile file;
@@ -102,7 +103,7 @@ public class Candidate implements Serializable {
 	public Candidate(){
 	}
 
-  public Candidate(@NotBlank(message = "{name.empty}") @Size(max = 45, message = "{name.size}") String name, @Size(max = 45, message = "{last_name.size}") String lastName, @Size(max = 45, message = "{email.size}") @Email(message = "{email.invalid}") String email, Date dateOfBirth, @Size(max = 45, message = "{phonenumber.size}") String phonenumber, @Size(max = 45, message = "{cellphone.size}") String cellphonenumber, String cvLink, Gender gender, @Valid SalaryPackage currentSalaryPackage, List<SalaryPackage> proposedSalaryPackages, @Valid Skill skill, @Valid Address address, ApplicationProcess applicationProcess, @Size(max = 45, message = "{contactchannel.size}") String contactChannel, Timestamp isAddedTimeStamp, List<WorkHistory> workHistory, List<Meeting> meeting) {
+  public Candidate(@NotBlank(message = "{name.empty}") @Size(max = 45, message = "{name.size}") String name, @Size(max = 45, message = "{last_name.size}") String lastName, @Size(max = 45, message = "{email.size}") @Email(message = "{email.invalid}") String email, Date dateOfBirth, @Size(max = 45, message = "{phonenumber.size}") String phonenumber, @Size(max = 45, message = "{cellphone.size}") String cellphonenumber, String cvLink, Gender gender, @Valid SalaryPackage currentSalaryPackage, List<SalaryPackage> proposedSalaryPackages, @Valid Skill skill, @Valid Address address, ApplicationProcess applicationProcess, @Size(max = 45, message = "{contactchannel.size}") String contactChannel, Timestamp isAddedTimeStamp, List<WorkHistory> workHistory, List<Meeting> meetings) {
     this.name = name;
     this.lastName = lastName;
     this.email = email;
@@ -119,7 +120,7 @@ public class Candidate implements Serializable {
     this.contactChannel = contactChannel;
     this.isAddedTimeStamp = isAddedTimeStamp;
     this.workHistory = workHistory;
-    this.meeting = meeting;
+    this.meetings = meetings;
   }
 
   public int getId() {
@@ -266,12 +267,12 @@ public class Candidate implements Serializable {
     this.workHistory = workHistory;
   }
 
-  public List<Meeting> getMeeting() {
-    return meeting;
+  public List<Meeting> getMeetings() {
+    return meetings;
   }
 
-  public void setMeeting(List<Meeting> meeting) {
-    this.meeting = meeting;
+  public void setMeetings(List<Meeting> meetings) {
+    this.meetings = meetings;
   }
 
   public Date getCvDate() {
@@ -297,6 +298,16 @@ public class Candidate implements Serializable {
 
   public void removeProposalSalaryPackage(int index) {
 	  if (this.proposedSalaryPackages != null) this.proposedSalaryPackages.remove(index);
+  }
+
+  public void addMeeting(Meeting meeting) {
+	  if (this.meetings == null) this.meetings = new ArrayList<>();
+    meeting.setCandidate(this);
+	  this.meetings.add(meeting);
+  }
+
+  public void removeMeeting(int index) {
+	  if (this.meetings != null) this.meetings.remove(index);
   }
 
 }

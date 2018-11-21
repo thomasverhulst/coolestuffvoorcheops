@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 <body>
-  <form th:fragment="form-add-edit-candidate(action, formid)" th:action="${action == 'add'} ? @{/add-candidate} : @{/edit-candidate/{candidateId}(candidateId=${candidate.id})}" th:object="${candidate}" enctype="multipart/form-data" method="post" accept-charset="utf-8" th:id="${formid}" class="js-needs-validation" autocomplete="disabled" novalidate>
+  <form th:fragment="form-add-edit-candidate(action, formid)" th:action="${action == 'add'} ? @{/candidate/add} : @{/candidate/edit/{candidateId}(candidateId=${candidate.id})}" th:object="${candidate}" enctype="multipart/form-data" method="post" accept-charset="utf-8" th:id="${formid}" class="js-needs-validation" autocomplete="disabled" novalidate>
     <div layout:insert="~{layout/reusables/pane :: pane}" th:with="id='nav-details', arialabelledby='nav-home-tab', active=true" th:remove="tag">
       <div layout:fragment="pane-content">
         <div class="row">
@@ -78,31 +78,6 @@
             </div>
           </div>
           <div class="col-md-6">
-            <div class="a-title--form mt-4" th:text="#{cv}"></div>
-            <div th:if="*{cvLink == ''} or *{cvLink == null}" class="row">
-              <div class="col form-group m-form-group d-flex justify-content-center justify-content-md-start flex-wrap align-items-center">
-                <label class="a-form-label mb-3" th:text="#{cvLabel}"></label>
-                <div class="a-form-input-file--wrapper flex-fill w-100">
-                  <input type="file" name="file" id="file" th:field="*{file}" class="form-control a-form-input-file" />
-                  <label for="file" th:inline="text" class="btn btn-blue btn-icon btn-sm d-inline-block"><span class="icon icon-add-file"></span>[[#{add}]]</label>
-                  <span class="a-form-input-file--upload ml-3"></span>
-                </div>
-              </div>
-            </div>
-            <div th:if="*{cvLink != null} and *{cvLink != ''}" th:remove="tag">
-              <div class="row">
-                <div class="col mb-3" th:if="${candidate.getCvDate()}" th:inline="text">[[#{version}]] [[${#dates.format(candidate.getCvDate(), 'dd-MM-yyyy')}]] <a class="icon icon-download-file ml-3" th:href="@{/downloadCv/{cvLink}(cvLink=${candidate.cvLink})}" th:title="#{download}"></a><a class="icon icon-delete ml-3" th:href="@{/deleteCv/{candidateId}(candidateId=${candidate.id})}" th:title="#{delete}"></a></div>
-              </div>
-              <div class="row">
-                <div class="col mb-grid">
-                  <div class="a-form-input-file--wrapper mt-1">
-                    <input type="file" name="file" id="file" th:field="*{file}" class="form-control a-form-input-file" />
-                    <label for="file" th:inline="text" class="btn btn-secondary btn-icon btn-sm d-inline-block"><span class="icon icon-update-file"></span>[[#{edit}]]</label>
-                    <span class="a-form-input-file--upload ml-md-3 mt-3 mt-md-0"></span>
-                  </div>
-                </div>
-              </div>
-            </div>
             <div class="a-title--form mt-4" th:text="#{candidate.current}"></div>
             <div id="currentSalary" class="row">
               <div class="col">
@@ -134,6 +109,31 @@
                   <div class="col-md-6 form-group m-form-group">
                     <input type="checkbox" th:field="${candidate.currentSalaryPackage.groupInsurance}" th:checked="${active} ? 'checked'" name="current_groupinsurance" id="current_groupinsurance" class="form-control a-form-checkbox">
                     <label for="current_groupinsurance" th:text="#{salary.groupinsurance}"></label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="a-title--form mt-4" th:text="#{cv}"></div>
+            <div th:if="*{cvLink == ''} or *{cvLink == null}" class="row">
+              <div class="col form-group m-form-group d-flex justify-content-center justify-content-md-start flex-wrap align-items-center">
+                <label class="a-form-label mb-3" th:text="#{cvLabel}"></label>
+                <div class="a-form-input-file--wrapper flex-fill w-100">
+                  <input type="file" name="file" id="file" th:field="*{file}" class="form-control a-form-input-file" />
+                  <label for="file" th:inline="text" class="btn btn-blue btn-icon btn-sm d-inline-block"><span class="icon icon-add-file"></span>[[#{add}]]</label>
+                  <span class="a-form-input-file--upload ml-3"></span>
+                </div>
+              </div>
+            </div>
+            <div th:if="*{cvLink != null} and *{cvLink != ''}" th:remove="tag">
+              <div class="row">
+                <div class="col mb-3" th:if="${candidate.getCvDate()}" th:inline="text">[[#{version}]] [[${#dates.format(candidate.getCvDate(), 'dd-MM-yyyy')}]] <a class="icon icon-download-file ml-3" th:href="@{/downloadCv/{cvLink}(cvLink=${candidate.cvLink})}" th:title="#{download}"></a><a class="icon icon-delete ml-3" th:href="@{/deleteCv/{candidateId}(candidateId=${candidate.id})}" th:title="#{delete}"></a></div>
+              </div>
+              <div class="row">
+                <div class="col mb-grid">
+                  <div class="a-form-input-file--wrapper mt-1">
+                    <input type="file" name="file" id="file" th:field="*{file}" class="form-control a-form-input-file" />
+                    <label for="file" th:inline="text" class="btn btn-secondary btn-icon btn-sm d-inline-block"><span class="icon icon-update-file"></span>[[#{edit}]]</label>
+                    <span class="a-form-input-file--upload ml-md-3 mt-3 mt-md-0"></span>
                   </div>
                 </div>
               </div>
@@ -180,15 +180,15 @@
               <div th:if="${candidate.skill.technologies != null} and ${!candidate.skill.technologies.empty}" class="col">
                 <div th:each="technology, stat: ${candidate.skill.technologies}" class="row align-items-center">
                   <div class="col-md-6 form-group m-form-group">
-                    <label th:for="'candidate.skill.technologies_' + ${stat.index} + '_name'" class="a-form-label" th:text="#{technology.name}"></label>
-                    <input th:field="${candidate.skill.technologies[__${stat.index}__].technology.name}" type="text" name="technology_name" th:id="'candidate.skill.technologies_' + ${stat.index} + '_name'" class="form-control a-form-input-text js-autocomplete-technologies" autocomplete="off">
+                    <label th:for="'skill_technologies_' + ${stat.index} + '_name'" class="a-form-label" th:text="#{technology.name}"></label>
+                    <input th:field="${candidate.skill.technologies[__${stat.index}__].technology.name}" type="text" name="technology_name" th:id="'skill_technologies_' + ${stat.index} + '_name'" class="form-control a-form-input-text js-autocomplete-technologies" autocomplete="off">
                   </div>
                   <div class="col-md-2 form-group m-form-group">
-                    <label th:for="'candidate.skill.technologies_' + ${stat.index} + '_years'" class="a-form-label" th:text="#{technology.years}"></label>
-                    <input th:field="${candidate.skill.technologies[__${stat.index}__].years}" type="number" name="technology_years" th:id="'candidate.skill.technologies_' + ${stat.index} + '_years'" class="form-control a-form-input-text">
+                    <label th:for="'skill_technologies_' + ${stat.index} + '_years'" class="a-form-label" th:text="#{technology.years}"></label>
+                    <input th:field="${candidate.skill.technologies[__${stat.index}__].years}" type="number" name="technology_years" th:id="'skill_technologies_' + ${stat.index} + '_years'" class="form-control a-form-input-text">
                   </div>
                   <div class="col-md-3 form-group m-form-group">
-                    <input type="checkbox" th:field="${candidate.skill.technologies[__${stat.index}__].preferred}" th:checked="${active} ? 'checked'" name="technology_years" th:id="'candidate.skill.technologies_' + ${stat.index} + '_preferred'" class="form-control a-form-checkbox"><label th:for="'candidate.skill.technologies_' + ${stat.index} + '_preferred'" th:text="#{technology.preferred}"></label>
+                    <input type="checkbox" th:field="${candidate.skill.technologies[__${stat.index}__].preferred}" th:checked="${active} ? 'checked'" name="technology_years" th:id="'skill_technologies_' + ${stat.index} + '_preferred'" class="form-control a-form-checkbox"><label th:for="'skill_technologies_' + ${stat.index} + '_preferred'" th:text="#{technology.preferred}"></label>
                   </div>
                   <div class="col-md-1 form-group m-form-group">
                     <a class="icon icon-delete js-remove-row" data-action="removeSkillTechnology" data-object="#skillTechnologies" th:data-value="${stat.index}" href="#" th:title="#{technology.remove}"></a>
@@ -202,7 +202,41 @@
     </div>
     <div layout:insert="~{layout/reusables/pane :: pane}" th:with="id='nav-meeting', arialabelledby='nav-meeting-tab', active=false" th:remove="tag">
       <div layout:fragment="pane-content">
-        i am meeting
+        <div class="row">
+          <div class="col">
+            <a class="btn btn-blue btn-icon btn-sm d-inline-block js-add-row" data-action="addMeeting" data-object="#meetingList" href="#" th:inline="text"><span class="icon icon-add-meeting"></span>[[#{meeting.add}]]</a>
+          </div>
+        </div>
+        <div id="meetingList" class="row">
+          <div th:if="${candidate.meetings == null} or ${candidate.meetings.empty}" class="col mt-grid" th:text="#{meeting.empty}"></div>
+          <div th:if="${candidate.meetings != null} and ${!candidate.meetings.empty}" class="col">
+            <div class="row">
+              <div th:each="meeting, stat: ${candidate.meetings}" class="col-md-6">
+                <div class="a-title--form mt-4" th:inline="text">
+                  [[#{meeting}]] [[${stat.count}]]
+                  <a class="icon icon-delete js-remove-row" data-action="removeMeeting" data-object="#meetingList" th:data-value="${stat.index}" href="#" th:title="#{meeting.delete}"></a>
+                </div>
+                <div class="row">
+                  <div class="col-md-4 form-group m-form-group">
+                    <label th:for="'meeting_meetingdate_' + ${stat.index}" class="a-form-label" th:text="#{meeting.date}"></label>
+                    <input th:field="${candidate.meetings[__${stat.index}__].meetingDate}" type="date" name="meeting_meetingdate" th:id="'meeting_meetingdate_' + ${stat.index}" class="form-control a-form-input-text">
+                  </div>
+                  <div class="col-md-4 form-group m-form-group">
+                    <label th:for="'meeting_conversationpartner_' + ${stat.index}" class="a-form-label" th:text="#{meeting.partner}"></label>
+                    <input th:field="${candidate.meetings[__${stat.index}__].conversationPartner}" type="text" name="meeting_conversationpartner" th:id="'meeting_conversationpartner_' + ${stat.index}" class="form-control a-form-input-text">
+                  </div>
+                  <div class="col-md-4 form-group m-form-group">
+                    <label th:for="'meeting_conversationtype_' + ${stat.index}" class="a-form-label" th:text="#{meeting.type}"></label>
+                    <select th:field="${{candidate.meetings[__${stat.index}__].conversationType}}" name="meeting_conversationtype" th:id="'meeting_conversationtype_' + ${stat.index}" class="form-control js-select-basic" th:data-placeholder="#{form.select.conversationType}">
+                      <option value=""></option>
+                      <option th:each="conversationType : ${T(com.cheops.candidatemanager.enums.ConversationType).values()}" th:value="${{conversationType}}" th:text="#{'enum.conversationType.' + ${{conversationType}}}"></option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
     <div layout:insert="~{layout/reusables/pane :: pane}" th:with="id='nav-offer', arialabelledby='nav-offer-tab', active=false" th:remove="tag">
@@ -220,10 +254,6 @@
                 <div class="a-title--form mt-4" th:inline="text">
                   [[#{proposal}]] [[${stat.count}]]
                   <a class="icon icon-delete js-remove-row" data-action="removeSalaryPackage" data-object="#proposalList" th:data-value="${stat.index}" href="#" th:title="#{salary.delete}"></a>
-                  <!--<a class="float-right mr-3 js-set-current-salary" data-action="resetCurrentSalary" data-object="#currentSalary" th:data-value-reset="*{currentSalaryPackage.id}" th:data-value="${stat.index}" href="#" th:title="#{salary.set}">-->
-                    <!--<span class="icon icon-set-salary"></span>-->
-                    <!--<i class="fas fa-times d-none"></i>-->
-                  <!--</a>-->
                 </div>
                 <div class="row">
                   <div class="col-md-6 form-group m-form-group">
