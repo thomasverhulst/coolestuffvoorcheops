@@ -5,6 +5,7 @@ import com.cheops.candidatemanager.models.CandidateSearchResolver;
 
 import java.util.Collection;
 import java.util.List;
+import java.util.Map;
 
 public interface ICandidateService {
 
@@ -57,5 +58,15 @@ public interface ICandidateService {
   List<CandidateSearchResolver> findAllRecruitedIn(List<Integer> applicationProcessId);
 
   List<CandidateSearchResolver> fillExpertiseAndStatus(List<Candidate> candidates);
+
+//List<CandidateSearchResolver> findAllBytoBeInvitedForFirstConversation();
+//
+//List<CandidateSearchResolver> findAllBytoBeInvitedForSecondConversation();
+//
+//List<CandidateSearchResolver> findAllByIsRecruited(boolean isRecruited);
+//
+//List<CandidateSearchResolver> getNotYetInvited();
+
+Map<String, List<CandidateSearchResolver>> getCandidateresolversListMap();
 
 }
