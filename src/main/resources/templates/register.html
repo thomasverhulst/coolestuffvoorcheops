@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" th:data-locale="${#locale}">
 <head th:replace="fragments/general :: headTag(title='Registreren - Cheops Kandidatenbeheer')"></head>
 <body>
 	<header th:replace="fragments/general :: header"></header>
@@ -26,8 +26,8 @@
 							placeholder="Voornaam" required="required">
 					</div>
 					<div class=form-group>
-						<label for="sirName">Familienaam:</label> <input type="text"
-							th:field=*{sirName} id="sirName" class="form-control"
+						<label for="lastName">Familienaam:</label> <input type="text"
+							th:field=*{lastName} id="lastName" class="form-control"
 							placeholder="Familienaam">
 					</div>
 					<div class=form-group>

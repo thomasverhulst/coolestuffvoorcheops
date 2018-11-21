@@ -1,0 +1,6 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+  <body layout:fragment="pane(id, arialabelledby, active)">
+    <div class="o-tabs-group--pane card--body fade" th:classappend="${active} ? 'show active'" th:id="${id}" role="tabpanel" th:aria-labelledby="${arialabelledby}" layout:fragment="pane-content"></div>
+  </body>
+</html>

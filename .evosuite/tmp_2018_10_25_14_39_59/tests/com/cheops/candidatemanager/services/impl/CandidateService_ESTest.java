@@ -20,7 +20,7 @@ import com.cheops.candidatemanager.repositories.CandidateRepository;
 import com.cheops.candidatemanager.repositories.SkillsRepository;
 import com.cheops.candidatemanager.services.impl.ApplicationProcessService;
 import com.cheops.candidatemanager.services.impl.CandidateService;
-import com.cheops.candidatemanager.services.impl.SkillsService;
+import com.cheops.candidatemanager.services.impl.SkillService;
 import java.io.IOException;
 import java.time.Instant;
 import java.util.ArrayList;

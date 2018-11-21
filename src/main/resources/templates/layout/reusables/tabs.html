@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+  <body layout:fragment="tabs(panes)">
+    <div class="o-tabs-group">
+      <nav class="d-flex align-items-center">
+        <div class="o-tabs-group--tabs" id="navTabs" role="tablist">
+          <a th:each="pane, stat: ${panes}" class="o-tabs-group--item tab" th:classappend="${stat.index==0} ? 'active'" th:id="'nav-' + ${pane} + '-tab'" data-toggle="tab" th:href="'#nav-' + ${pane}" role="tab" th:aria-controls="'nav-' + ${pane}" th:aria-selected="${stat.index==0} ? 'true' : 'false'" th:text="#{${pane}}"></a>
+        </div>
+        <div class="o-tabs-group--mobile ml-auto">
+          <a href="#" class="fa-icon" data-toggle="previous"><i class="fas fa-chevron-left fa-2x"></i></a>
+          <a href="#" class="fa-icon" data-toggle="next"><i class="fas fa-chevron-right fa-2x ml-3"></i></a>
+        </div>
+      </nav>
+      <div class="o-tabs-group--content card no-border-radius" id="navTabsContent" data-content="panes" layout:fragment="tabs-panes"></div>
+    </div>
+  </body>
+</html>

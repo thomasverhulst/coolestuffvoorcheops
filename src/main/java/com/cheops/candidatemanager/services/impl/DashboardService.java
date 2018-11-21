@@ -16,20 +16,44 @@ public class DashboardService implements IDashboardService {
 	@Autowired
 	private CandidateService candidateService;
 
+	@Override
 	public List<Candidate> getUpcomingFirstAndSecondScreenings() {
 		List<Candidate> upcommingScreenings = new ArrayList<Candidate>();
 		upcommingScreenings.addAll(candidateService.getUpcomingMonthsFirstScreenings());
 		upcommingScreenings.addAll(candidateService.getUpcomingMonthsTechnicalScreenings());
-		
+
 		if (!upcommingScreenings.isEmpty()) {
 			return upcommingScreenings;
-		}else {
+		} else {
 			return Collections.<Candidate>emptyList();
 		}
 	}
 
+	@Override
+	public List<Candidate> get3LatestAddedCandidates() {
+		List<Candidate> latest3AddedCandidates = new ArrayList<Candidate>(candidateService.get3LatestAddedCandidates());
+
+		if (!latest3AddedCandidates.isEmpty()) {
+			return latest3AddedCandidates;
+		} else {
+			return Collections.<Candidate>emptyList();
+		}
+	}
+
+	@Override
+	public List<Candidate> getLatest5RecruitedCandidates() {
+		List<Candidate> recentlyRecruited = (List<Candidate>) candidateService.getLast5Recruited();
+
+		if (recentlyRecruited.isEmpty()) {
+			return recentlyRecruited;
+		} else {
+			return Collections.<Candidate>emptyList();
+		}
+	}
+
+	@Override
 	public List<Candidate> getLastMonthsRecruits() {
-    List<Candidate> lastMonthRecruities = new ArrayList<Candidate>(candidateService.getLastMonthsRecruits());
+		List<Candidate> lastMonthRecruities = (List<Candidate>) candidateService.getLastMonthsRecruits();
 
 		if (!lastMonthRecruities.isEmpty()) {
 			return lastMonthRecruities;
@@ -38,24 +62,15 @@ public class DashboardService implements IDashboardService {
 		}
 	}
 
-	public List<Candidate> get3LatestAddedCandidates() {
-    List<Candidate> latest3AddedCandidates = new ArrayList<Candidate>(candidateService.get3LatestAddedCandidates());
-
-		if (!latest3AddedCandidates.isEmpty()) {
-			return latest3AddedCandidates;
-		} else {
-			return Collections.<Candidate>emptyList();
-		}
-	}
-// dit ziet er verdacht uit, geen ! bij de isempty?
-	public List<Candidate> getLatest5RecruitedCandidates() {
-    List<Candidate> recentlyRecruited = new ArrayList<Candidate>(candidateService.getLast5Recruited());
-
-		if (recentlyRecruited.isEmpty()) {
-			return recentlyRecruited;
-		} else {
-			return Collections.<Candidate>emptyList();
-		}
-	}
+//	public List<CandidateSearchResolver> getAllExEmployeesNew() {
+//
+//		List<CandidateSearchResolver> exEmployees= candidateService.getAllExEmployeesNew();
+//		if (!exEmployees.isEmpty()) {
+//			return exEmployees;
+//		} else {
+//			return Collections.<CandidateSearchResolver>emptyList();
+//		}
+//
+//	}
 
 }

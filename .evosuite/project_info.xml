@@ -50,7 +50,7 @@
         </generation>
     </cut>
     <cut>
-        <fullNameOfTargetClass>com.cheops.candidatemanager.services.impl.SkillsService</fullNameOfTargetClass>
+        <fullNameOfTargetClass>com.cheops.candidatemanager.services.impl.SkillService</fullNameOfTargetClass>
         <fullNameOfTestSuite>com.cheops.candidatemanager.services.impl.SkillsService_ESTest</fullNameOfTestSuite>
         <generation>
             <id>0</id>
@@ -2792,7 +2792,7 @@
         </generation>
     </cut>
     <cut>
-        <fullNameOfTargetClass>com.cheops.candidatemanager.models.CandaidateSearchModel</fullNameOfTargetClass>
+        <fullNameOfTargetClass>com.cheops.candidatemanager.models.CandidateSearchModel</fullNameOfTargetClass>
         <fullNameOfTestSuite>com.cheops.candidatemanager.models.CandaidateSearchModel_ESTest</fullNameOfTestSuite>
         <generation>
             <id>0</id>
@@ -5072,7 +5072,7 @@
         </generation>
     </cut>
     <cut>
-        <fullNameOfTargetClass>com.cheops.candidatemanager.controllers.CancidateController</fullNameOfTargetClass>
+        <fullNameOfTargetClass>com.cheops.candidatemanager.controllers.CandidateController</fullNameOfTargetClass>
         <fullNameOfTestSuite>com.cheops.candidatemanager.controllers.CancidateController_ESTest</fullNameOfTestSuite>
         <generation>
             <id>0</id>

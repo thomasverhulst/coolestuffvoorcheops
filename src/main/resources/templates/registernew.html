@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" th:data-locale="${#locale}">
 <head th:replace="fragments/general.html :: headTag(title='Registreren - Cheops Kandidatenbeheer')"></head>
 <body>
 	<header th:replace="fragments/general.html :: header"></header>
@@ -26,8 +26,8 @@
 							placeholder="Voornaam" required="required">
 					</div>
 					<div class=form-group>
-						<label for="sirName">Familienaam:</label> <input type="text"
-							th:field=*{sirName} id="sirName" class="form-control"
+						<label for="lastName">Familienaam:</label> <input type="text"
+							th:field=*{lastName} id="lastName" class="form-control"
 							placeholder="Familienaam">
 					</div>
 					<div class=form-group>
@@ -118,11 +118,51 @@
 								placeholder="Land">
 						</div>
 						
-						<div class=form-group>
-						<label for="preferredlocation">Voorkeur locatie:</label> <input
-							type="text" th:field=*{skills.preferredLocation} id="preferredlocation"
-							class="form-control" placeholder="Voorkeurslokatie">
+						<div class=form-group> -->
+						<label for="preferredTechnologies">Voorkeur technologie:</label> <input
+							type="text" th:field=*{skills.preferredTechnologies} id="preferredTechnologies"
+							class="form-control" placeholder="Voorkeur technologieen">
 						</div>
+						
+<!-- 						<div class=form-group> -->
+<!-- 						<label for="preferredlocation">Voorkeur locatie:</label> <input -->
+<!-- 							type="text" th:field=*{skills.preferredLocation} id="preferredlocation" -->
+<!-- 							class="form-control" placeholder="Voorkeurslokatie"> -->
+<!-- 						</div> -->
+						
+						<div>
+						  <select th:object="${locations}" th:field="*{cities}" multiple="multiple">
+	                         <option value=""> -- </option>
+	                         <option th:each="item : ${locations.cities}"
+	                            th:value="${item}"
+	                            th:utext="${item}"
+	                            th:selected="${item}"/>
+	                  		</select>	
+						</div>
+						
+						
+						<div class=form-group>
+
+							<select class="form-control" id="locationNames" name="locationNames" multiple="multiple">
+							    <option th:each="part : ${locationNamesAtribute}"
+							            th:selected="${servisAttribute.skills.locationNames.contains(skills.locationNames)}"
+							            th:value="${skill.locationNames}"
+							            th:text="${skills.locationNames}">Part name</option>
+							</select>
+						</div>
+						
+<!-- 						<div class=form-group> -->
+<!-- 								<select   th:field="*{skills.locationNames}" class="form-control" multiple="multiple" > -->
+<!-- 					            <option th:each="skills.locationNames"                                         -->
+<!-- 					                    th:value="${skills.locationNames}" -->
+<!-- 					            		th:text="${locationNames}"> -->
+					                                 
+<!-- 					            </option> -->
+<!-- 					        </select>         -->
+						
+<!-- 						</div> -->
+						
+						
 						<div class=form-group>
 									<label for="staffnamefirstconversation">Naam
 										gesprekspartner tweede gesprek:</label> <input type="text"
@@ -136,10 +176,40 @@
         
             <label th:for="|candidate.currentSallaryPackage[0].grossSalary|">Bruto loon</label>
             <!-- This construct will render field name like this: "items[0].name" -->
-            <input th:field="${candidate.currentSallaryPackage[0].grossSalary}">
+            <input th:field="*{currentSallaryPackage[0].grossSalary}">
 
 								
-				</div>				
+				</div>	
+				
+				
+			<div class=form-group>					    
+            	<label th:for="|candidate.workHistory[0].started|">Startdatum</label>
+            	<input type="date" th:field="*{workHistory[0].started}">				
+			</div>				
+			
+			<div class=form-group>					    
+            	<label th:for="|candidate.workHistory[0].stopped|">Stopdatum</label>
+            	<input type="date" th:field="*{workHistory[0].stopped}">				
+			</div>
+			
+			<div class=form-group>					    
+            	<label th:for="|candidate.meeting[0].meetingDate|">gespreksdatum</label>
+            	<input type="date" th:field="*{meeting[0].meetingDate}">				
+			</div>
+				
+					
+					
+					<div class=form-group>
+					<select>
+					    <option th:each="conversationType : ${T(com.cheops.candidatemanager.models.ConversationType).values()}"
+					            th:value="${conversationType}"
+					            th:text="${conversationType}">
+					    </option>
+					</select>
+					
+					</div>
+					
+							
 					<div class=form-group>
 									<label for="firstconversationdate">Datum eerste
 										gesprek:</label> <input type="date" th:field=*{applicationProcess.firstConversationDate}

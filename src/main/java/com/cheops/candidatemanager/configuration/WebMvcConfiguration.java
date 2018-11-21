@@ -1,5 +1,6 @@
 package com.cheops.candidatemanager.configuration;
 
+import nz.net.ultraq.thymeleaf.LayoutDialect;
 import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -37,6 +38,11 @@ public class WebMvcConfiguration implements WebMvcConfigurer {
   }
 
   @Bean
+  public LayoutDialect layoutDialect() {
+    return new LayoutDialect();
+  }
+
+  @Bean
   @Override
   public Validator getValidator() {
     LocalValidatorFactoryBean bean = new LocalValidatorFactoryBean();
@@ -47,8 +53,11 @@ public class WebMvcConfiguration implements WebMvcConfigurer {
   @Override
   public void addViewControllers(final ViewControllerRegistry registry) {
     registry.addViewController("/403").setViewName("base/403");
-    registry.addRedirectViewController("/admin/user-edit", "/admin");
-    registry.addRedirectViewController("/admin/user-delete", "/admin");
+    registry.addRedirectViewController("/candidate/", "/candidate/add");
+    registry.addRedirectViewController("/candidate/*/", "/search");
+    registry.addRedirectViewController("/candidate/*", "/search");
+    registry.addRedirectViewController("/user/*/", "/");
+    registry.addRedirectViewController("/user/*", "/");
   }
 
 }

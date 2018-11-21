@@ -1,0 +1,21 @@
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout/layout}">
+  <head>
+    <title th:inline="text">[[#{notFound}]]</title>
+  </head>
+  <body>
+    <main layout:fragment="content">
+      <div class="row">
+        <div class="col">
+          <div class="m-error-block">
+            <h1 th:text="#{notFound}"></h1>
+            <p class="mb-5" th:text="#{notFound.message}"></p>
+            <i class="far fa-question-circle fa-10x"></i>
+            <p class="mt-5">
+              <a class="btn btn-outline-primary d-inline-block" href="/" th:text="#{returnDashboard}"></a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

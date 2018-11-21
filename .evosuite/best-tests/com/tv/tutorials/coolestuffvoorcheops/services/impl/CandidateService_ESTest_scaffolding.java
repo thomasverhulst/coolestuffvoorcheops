@@ -88,7 +88,7 @@ public class CandidateService_ESTest_scaffolding {
   private static void initializeClasses() {
     org.evosuite.runtime.classhandling.ClassStateSupport.initializeClasses(CandidateService_ESTest_scaffolding.class.getClassLoader() ,
       "SkillsService",
-      "Skills",
+      "Skill",
       "Candidate",
       "IApplicationProcessService",
       "org.springframework.beans.factory.annotation.Autowired",
@@ -132,7 +132,7 @@ public class CandidateService_ESTest_scaffolding {
       "ApplicationProcessService",
       "ApplicationProcess",
       "Candidate",
-      "Skills",
+      "Skill",
       "Address",
       "SkillsService",
       "CandidateSearchResolver",

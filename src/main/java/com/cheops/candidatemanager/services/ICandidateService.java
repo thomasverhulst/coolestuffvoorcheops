@@ -1,48 +1,61 @@
 package com.cheops.candidatemanager.services;
 
-import java.io.IOException;
-import java.util.Collection;
-import java.util.List;
-
-import javax.servlet.http.HttpServletResponse;
-import javax.validation.Valid;
-
-import com.cheops.candidatemanager.models.Address;
 import com.cheops.candidatemanager.models.Candidate;
 import com.cheops.candidatemanager.models.CandidateSearchResolver;
 
-public interface ICandidateService {
+import java.util.Collection;
+import java.util.List;
 
-	List<CandidateSearchResolver> getAllCandidates();
+public interface ICandidateService {
 
 	Candidate getCandidateById(int candidateId);
 
 	Candidate addCandidate(Candidate candidate);
 
-	void updateCandidate(Candidate candidate);
+	void saveCandidate(Candidate candidate);
 
-	void deleteCandidate(int candidateId);
+	void deleteCandidate(Candidate candidate);
 
-	List<CandidateSearchResolver> findAllByNameLikeOrSirNameLike(String name, String sirName);
+  List<CandidateSearchResolver> getAllCandidates();
 
-	List<CandidateSearchResolver> findAllDotnet();
+  Collection<Candidate> getLast5Recruited();
 
-	List<CandidateSearchResolver> findAllJava();
+  Collection<Candidate> getLastMonthsRecruits();
 
-	List<CandidateSearchResolver> findAllRecruitedIn(List<Integer> applicationProcessId);
+  Collection<Candidate> getUpcomingMonthsFirstScreenings();
 
-	List<CandidateSearchResolver> getAllCandidatesWithoutActiveApplicationProcess();
+  Collection<Candidate> getUpcomingMonthsTechnicalScreenings();
 
-	List<CandidateSearchResolver> getAllCandidatesWithActiveApplicationProcess();
+  Collection<Candidate> get3LatestAddedCandidates();
 
-	List<CandidateSearchResolver> findAllRecruited();
+  List<CandidateSearchResolver> getAllExEmployees();
 
-	List<CandidateSearchResolver> findByExperienceGreaterThan(int experience, List<CandidateSearchResolver> candidates);
+  List<CandidateSearchResolver> getAllNotRecruitedCandidates();
 
-	List<CandidateSearchResolver> findAllFrontend();
+  List<CandidateSearchResolver> findAllPreferredlocationContaining(List<String> cities);
 
-	void saveOrUpdateCandidate(int id, @Valid Candidate candidate, @Valid Address address, @Valid int addressId);
+  List<CandidateSearchResolver> findAllByExperienceLessThan(int i);
 
-	void downloadCv(String cvLink, HttpServletResponse response) throws IOException;
+  List<CandidateSearchResolver> findAllByExperienceGreaterThanAndExperienceLessThan(int i, int j);
+
+  List<CandidateSearchResolver> findAllByExperienceGreaterThan(int i);
+
+  Collection<CandidateSearchResolver> findAllBySkillsId(List<Integer> skillsIds);
+
+  List<CandidateSearchResolver> findAllByIdIn(List<Integer> candidateIdList2);
+
+  List<Candidate> findAllById();
+
+  List<CandidateSearchResolver> findAllByNameLikeOrLastNameLike(String name, String lastName);
+
+  List<CandidateSearchResolver> findAllDotnet();
+
+  List<CandidateSearchResolver> findAllJava();
+
+  List<CandidateSearchResolver> findAllFrontend();
+
+  List<CandidateSearchResolver> findAllRecruitedIn(List<Integer> applicationProcessId);
+
+  List<CandidateSearchResolver> fillExpertiseAndStatus(List<Candidate> candidates);
 
 }

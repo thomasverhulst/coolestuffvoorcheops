@@ -2,6 +2,7 @@ package com.cheops.candidatemanager.models;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import java.io.Serializable;
 
 @Entity
 public class Search {
@@ -13,6 +14,8 @@ public class Search {
 	private boolean java;
 	private boolean dotnet;
 	private int experience;
+	private String name;
+	private String lastName;
 
 	public Search() {
 
@@ -74,5 +77,29 @@ public class Search {
 	public void setExperience(int experience) {
 		this.experience = experience;
 	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getLastName() {
+		return lastName;
+	}
+
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+
+	@Override
+	public String toString() {
+		return "Search [id=" + id + ", employed=" + employed + ", frontender=" + frontender + ", java=" + java
+				+ ", dotnet=" + dotnet + ", experience=" + experience + ", name=" + name + ", lastName=" + lastName + "]";
+	}
+	
+	
 
 }

@@ -6,20 +6,22 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import java.io.Serializable;
 
 @Entity
 @Table(name = "role")
-public class Role {
+public class Role implements Serializable {
 
 	@Id
-	@Column(name = "role_id")
+	@Column(name = "idrole")
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Integer id;
+	private int id;
 
 	@Column(name = "role")
 	private String role;
 
-	public Role() { }
+	public Role() {
+	}
 
 	public Role(Integer id, String role) {
 		super();
@@ -27,11 +29,11 @@ public class Role {
 		this.role = role;
 	}
 
-	public Integer getId() {
+	public int getId() {
 		return id;
 	}
 
-	public void setId(Integer id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 

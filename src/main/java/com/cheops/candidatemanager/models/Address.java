@@ -1,122 +1,107 @@
 package com.cheops.candidatemanager.models;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
-import javax.persistence.Table;
+import javax.persistence.*;
+import javax.validation.constraints.Size;
+import java.io.Serializable;
 
 @Entity
 @Table(name = "address")
-public class Address {
+public class Address implements Serializable {
 
 	@Id
 	@Column(name = "idaddress")
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
-	//@Id
-	@JoinColumn(name = "idaddress")
-	@OneToOne
-    private NewCandidate newCandidate; 
 
 	@Column(name = "streetname")
-	private String streetName;
+  @Size(max = 45, message = "{street.size}")
+	private String streetname;
 
-	@Column(name = "dwellingnumber")
-	private String dwellingNumber;
+	@Column(name = "housenumber")
+  @Size(max = 45, message = "{housenumber.size}")
+  private String housenumber;
 
 	@Column(name = "bus")
-	private String bus;
+  @Size(max = 45, message = "{bus.size}")
+  private String bus;
 
 	@Column(name = "postalcode")
-	private String postalCode;
+  @Size(max = 45, message = "{postalcode.size}")
+  private String postalcode;
 
-	@Column(name = "land")
-	private String land;
+	@Column(name = "countrycode")
+	private String countrycode;
 
 	@Column(name = "municipality")
-	private String municipality;
+  @Size(max = 45, message = "{municipality.size}")
+  private String municipality;
 
 	public Address() {
-	}
+  }
 
-	public Address(String streetName, String dwellingNumber, String bus, String postalCode, String land,
-			String municipality) {
-		super();
-		this.streetName = streetName;
-		this.dwellingNumber = dwellingNumber;
-		this.bus = bus;
-		this.postalCode = postalCode;
-		this.land = land;
-		this.municipality = municipality;
-	}
+  public Address(@Size(max = 45, message = "{street.size}") String streetname, @Size(max = 45, message = "{housenumber.size}") String housenumber, @Size(max = 45, message = "{bus.size}") String bus, @Size(max = 45, message = "{postalcode.size}") String postalcode, String countrycode, @Size(max = 45, message = "{municipality.size}") String municipality) {
+    this.streetname = streetname;
+    this.housenumber = housenumber;
+    this.bus = bus;
+    this.postalcode = postalcode;
+    this.countrycode = countrycode;
+    this.municipality = municipality;
+  }
 
-	public String getStreetName() {
-		return streetName;
-	}
+  public int getId() {
+    return id;
+  }
 
-	public void setStreetName(String streetName) {
-		this.streetName = streetName;
-	}
+  public void setId(int id) {
+    this.id = id;
+  }
 
-	public String getDwellingNumber() {
-		return dwellingNumber;
-	}
+  public String getStreetname() {
+    return streetname;
+  }
 
-	public void setDwellingNumber(String dwellingNumber) {
-		this.dwellingNumber = dwellingNumber;
-	}
+  public void setStreetname(String streetname) {
+    this.streetname = streetname;
+  }
 
-	public String getBus() {
-		return bus;
-	}
+  public String getHousenumber() {
+    return housenumber;
+  }
 
-	public void setBus(String bus) {
-		this.bus = bus;
-	}
+  public void setHousenumber(String housenumber) {
+    this.housenumber = housenumber;
+  }
 
-	public String getPostalCode() {
-		return postalCode;
-	}
+  public String getBus() {
+    return bus;
+  }
 
-	public void setPostalCode(String postalCode) {
-		this.postalCode = postalCode;
-	}
+  public void setBus(String bus) {
+    this.bus = bus;
+  }
 
-	public String getLand() {
-		return land;
-	}
+  public String getPostalcode() {
+    return postalcode;
+  }
 
-	public void setLand(String land) {
-		this.land = land;
-	}
+  public void setPostalcode(String postalcode) {
+    this.postalcode = postalcode;
+  }
 
-	public String getMunicipality() {
-		return municipality;
-	}
+  public String getCountrycode() {
+    return countrycode;
+  }
 
-	public void setMunicipality(String municipality) {
-		this.municipality = municipality;
-	}
+  public void setCountrycode(String countrycode) {
+    this.countrycode = countrycode;
+  }
 
-	public Integer getId() {
-		return id;
-	}
+  public String getMunicipality() {
+    return municipality;
+  }
 
-	public void setId(int id) {
-		this.id = id;
-	}
-
-	public NewCandidate getNewCandidate() {
-		return newCandidate;
-	}
-
-	public void setNewCandidate(NewCandidate newCandidate) {
-		this.newCandidate = newCandidate;
-	}
-	
+  public void setMunicipality(String municipality) {
+    this.municipality = municipality;
+  }
 
 }

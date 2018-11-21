@@ -1,5 +1,6 @@
 package com.cheops.candidatemanager.models;
 
+import java.io.Serializable;
 import java.sql.Timestamp;
 import java.util.Date;
 
@@ -15,7 +16,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 @Entity
 @Table(name = "applicationprocess")
-public class ApplicationProcess {
+public class ApplicationProcess implements Serializable {
 
 	@Id
 	@Column(name = "idapplicationprocess")

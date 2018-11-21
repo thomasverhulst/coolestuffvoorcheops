@@ -1,5 +1,6 @@
 package com.cheops.candidatemanager.models;
 
+import java.io.Serializable;
 import java.util.Set;
 
 import javax.persistence.Column;
@@ -16,7 +17,7 @@ import javax.validation.constraints.*;
 
 @Entity
 @Table(name = "user")
-public class User {
+public class User implements Serializable {
 
 	@Id
 	@Column(name = "iduser")
@@ -28,27 +29,27 @@ public class User {
 	private String username;
 
 	@Column(name = "email")
-	@Size(max = 45, message = "{user.email.size}")
-	@Email(message = "{user.email.invalid}")
+	@Size(max = 45, message = "{email.size}")
+	@Email(message = "{email.invalid}")
 	private String email;
 
 	@Column(name = "password")
 	private String password;
 
 	@Column(name = "name")
-	@NotBlank(message = "{user.name.empty}")
-	@Size(max = 45, message = "{user.name.size}")
+	@NotBlank(message = "{name.empty}")
+	@Size(max = 45, message = "{name.size}")
 	private String name;
 
 	@Column(name = "last_name")
-	@Size(max = 45, message = "{user.last_name.size}")
+	@Size(max = 45, message = "{last_name.size}")
 	private String lastName;
 
 	@Column(name = "active")
 	private boolean active;
 
 	@OneToMany(fetch = FetchType.EAGER)
-	@JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "iduser_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
+	@JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
 	@NotEmpty(message = "{user.roles.empty}")
 	private Set<Role> roles;
 

@@ -7,6 +7,8 @@ import com.cheops.candidatemanager.models.User;
 import com.cheops.candidatemanager.repositories.UserRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.MessageSource;
+import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -20,11 +22,16 @@ import java.util.*;
 @Service
 public class CustomUserDetailsService implements UserDetailsService {
 
+  private Locale locale = LocaleContextHolder.getLocale();
+
   @Autowired
   private UserRepository userRepository;
 
   @Autowired
   private BCryptPasswordEncoder bCryptPasswordEncoder;
+
+  @Autowired
+  private MessageSource messageSource;
 
   @Override
   public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
@@ -40,12 +47,12 @@ public class CustomUserDetailsService implements UserDetailsService {
 
   public List<User> getAllUsers() {
     List<User> users = new ArrayList<>();
-    userRepository.findAll().forEach(e -> users.add(e));
+    userRepository.findAll().forEach(users::add);
     return users;
   }
 
   public User getUserById(int userId) {
-    User user = userRepository.findById(userId).get();
+    User user = userRepository.findById(userId).orElse(null);
     return user;
   }
 
@@ -53,7 +60,7 @@ public class CustomUserDetailsService implements UserDetailsService {
     User user = userRepository.findByUsername(username);
 
     if (user == null) {
-      throw new UserDoesNotExistException("This user doesn't exist.");
+      throw new UserDoesNotExistException(messageSource.getMessage("user.doesNotExist", null, locale));
     }
 
     return user;
@@ -61,7 +68,7 @@ public class CustomUserDetailsService implements UserDetailsService {
 
   public User addUser(User user) throws UserAlreadyExistException {
     if (userExist(user.getUsername())) {
-      throw new UserAlreadyExistException("There is an account with that username: " + user.getUsername());
+      throw new UserAlreadyExistException(messageSource.getMessage("user.alreadyExists", new Object[]{user.getUsername()}, locale));
     }
 
     user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
@@ -71,7 +78,7 @@ public class CustomUserDetailsService implements UserDetailsService {
 
   public void saveUser(User user) throws UserDoesNotExistException {
     if (!userRepository.existsById(user.getId())) {
-      throw new UserDoesNotExistException("This user doesn't exist.");
+      throw new UserDoesNotExistException(messageSource.getMessage("user.doesNotExist", null, locale));
     }
 
     userRepository.save(user);
@@ -79,7 +86,7 @@ public class CustomUserDetailsService implements UserDetailsService {
 
   public void deleteUser(User user) throws UserDoesNotExistException {
     if (!userRepository.existsById(user.getId())) {
-      throw new UserDoesNotExistException("This user doesn't exist.");
+      throw new UserDoesNotExistException(messageSource.getMessage("user.doesNotExist", null, locale));
     }
 
     userRepository.delete(user);

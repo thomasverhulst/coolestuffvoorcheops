@@ -2,17 +2,38 @@ package com.cheops.candidatemanager.services;
 
 import java.util.List;
 
-import com.cheops.candidatemanager.models.Skills;
+import com.cheops.candidatemanager.models.Skill;
 
 public interface ISkillService {
 
-	List<Skills> getAllSkills();
+	List<Skill> getAllSkills();
 
-	Skills getSkillsById(int skillsId);
+	Skill getSkillsById(int skillsId);
 
-	Skills addSkills(Skills skills);
+	Skill addSkills(Skill skill);
 
-	void updateSkills(Skills skills);
+	void updateSkills(Skill skill);
 
 	void deleteSkills(int skillsId);
+
+	List<Integer> findAllDotnet();
+
+	List<Integer> findAllJava();
+
+	List<Integer> findAllFrontend();
+
+	List<Integer> findAllByExperienceGreaterThan(int minimumExperience, List<Integer> skillId);
+
+	List<Integer> findAllByPreferredlocationContaining(List<String> cities);
+
+	List<Integer> findAllByExperienceLessThan(double i);
+
+	List<Integer> findAllByExperienceGreaterThanAndExperienceLessThan(double i, double j);
+
+	List<Integer> findAllByExperienceGreaterThan(double i);
+
+	List<Skill> findAllSkillsById(List<Integer> skillsIdList);
+
+	Iterable<Skill> findAllSkills();
+
 }

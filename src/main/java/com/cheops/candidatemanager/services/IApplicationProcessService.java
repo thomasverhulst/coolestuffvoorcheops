@@ -20,4 +20,22 @@ public interface IApplicationProcessService {
 
   List<ApplicationProcess> getUpcomingMonthsTechnicalScreenings();
 
+	List<Integer> findAllRecruited();
+
+  List<Integer> getAllCandidatesWithActiveApplicationProcess();
+
+  List<Integer> getAllCandidatesWithoutActiveApplicationProcess();
+
+  List<ApplicationProcess> getAllApplicationProcessById(List<Integer> applicationProcessId);
+
+  List<ApplicationProcess> findAllByIsRecruitedIn(List<ApplicationProcess> applicationProcess);
+
+  List<ApplicationProcess> getLast5Recruited();
+
+  List<ApplicationProcess> getLastMonthsRecruits();
+
+  List<Integer> getAllNotRecuitedCandidates();
+
+  List<Integer> getAllExEmployees();
+
 }

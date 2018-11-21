@@ -34,9 +34,9 @@ public class CandaidateSearchModel_ESTest extends CandaidateSearchModel_ESTest_s
   @Test(timeout = 4000)
   public void test2()  throws Throwable  {
       CandaidateSearchModel candaidateSearchModel0 = new CandaidateSearchModel();
-      candaidateSearchModel0.setId("com.cheops.candidatemanager.models.CandaidateSearchModel");
+      candaidateSearchModel0.setId("com.cheops.candidatemanager.models.CandidateSearchModel");
       String string0 = candaidateSearchModel0.getId();
-      assertEquals("com.cheops.candidatemanager.models.CandaidateSearchModel", string0);
+      assertEquals("com.cheops.candidatemanager.models.CandidateSearchModel", string0);
   }
 
   @Test(timeout = 4000)

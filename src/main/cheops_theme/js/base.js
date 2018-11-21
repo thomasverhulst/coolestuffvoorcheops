@@ -112,7 +112,7 @@
       let $this = this;
 
       this.element.select2({
-        placeholder: $this.element.data('placeholder'),
+        placeholder: $this.element.data('placeholder')
       });
 
       this.element.next('.select2-container').addClass($this.element.attr('required'));
@@ -165,13 +165,221 @@
     }
   };
 
+  $.Tabs = function(element) {
+    this.element = (element instanceof $) ? element : $(element);
+    this.active = this.element.find('.o-tabs-group--item.active');
+    this.previous = this.element.find('[data-toggle="previous"]');
+    this.next = this.element.find('[data-toggle="next"]');
+    this.panes = this.element.find('[data-content="panes"]');
+    this.activePane = this.element.find('.o-tabs-group--pane.active');
+    this.tab = this.element.find('[data-toggle="tab"]');
+
+    this.InitTabs();
+  };
+
+  $.Tabs.prototype = {
+    InitTabs: function() {
+      this.previous.on('click', this.PreviousHandler.bind(this));
+      this.next.on('click', this.NextHandler.bind(this));
+      this.tab.on('click', this.TabHandler.bind(this));
+    },
+    PreviousHandler: function(e) {
+      e.preventDefault();
+
+      if (this.active.prev('.o-tabs-group--item').length !== 0) {
+        this.MoveTab('prev');
+        this.MovePane(this.active.attr('href'));
+      }
+    },
+    NextHandler: function(e) {
+      e.preventDefault();
+
+      if (this.active.next('.o-tabs-group--item').length !== 0) {
+        this.MoveTab('next');
+        this.MovePane(this.active.attr('href'));
+      }
+    },
+    TabHandler: function(e) {
+      e.preventDefault();
+      this.MovePane($(e.currentTarget).attr('href'));
+      this.active.removeClass('show active').attr('aria-selected', false);
+      this.active = $(e.currentTarget).addClass('show active').attr('aria-selected', true);
+    },
+    MoveTab: function(position) {
+      this.active.removeClass('active');
+      this.active = position === 'next' ? this.active.next('.o-tabs-group--item').addClass('active') : this.active.prev('.o-tabs-group--item').addClass('active');
+    },
+    MovePane: function(pane) {
+      $this = this;
+      this.activePane.hide().removeClass('show active');
+      this.activePane = this.panes.find(pane).show();
+
+      window.setTimeout(function(){
+        $this.activePane.addClass('show active');
+      }, 100);
+    }
+  };
+
+  $.FileInput = function(element) {
+    this.element = (element instanceof $) ? element : $(element);
+    this.upload = this.element.siblings('.a-form-input-file--upload');
+    this.download = this.element.closest('.row').prev().find('.icon-download-file');
+
+    this.InitFileInput();
+  };
+
+  $.FileInput.prototype = {
+    InitFileInput: function() {
+      this.element.on('change', this.FileInputHandler.bind(this));
+    },
+    FileInputHandler: function(e) {
+      let filename = e.target.value.split('\\').pop();
+
+      if(filename) {
+        this.download.hide();
+        this.upload.text(filename);
+        this.upload.css('display', 'inline-block');
+      } else {
+        this.download.show();
+        this.upload.text('');
+        this.upload.hide();
+      }
+    }
+  };
+
+  $.Rows = function() {
+    this.InitAddRow();
+  };
+
+  $.Rows.prototype = {
+    InitAddRow: function() {
+      $(document).on('click', '.js-add-row', this.AddRowHandler.bind(this));
+      $(document).on('click', '.js-remove-row', this.RemoveRowHandler.bind(this));
+    },
+    AddRowHandler: function(e) {
+      e.preventDefault();
+      let target = $(e.currentTarget);
+      this.ReplaceData(target);
+      let $this = this;
+
+      $.post('/' + target.attr('data-action'), $('form').serialize(), function(returnData) {
+        $this.ReplaceData(returnData, target.attr('data-object'), target.attr('data-action'));
+      });
+    },
+    RemoveRowHandler: function(e) {
+      e.preventDefault();
+      let target = $(e.currentTarget);
+      let $this = this;
+
+      $.post('/' + target.attr('data-action'), $('form').serialize() + '&removeItem=' + target.attr('data-value'), function(returnData) {
+        $this.ReplaceData(returnData, target.attr('data-object'), target.attr('data-action'));
+      });
+    },
+    ReplaceData: function(returnData, target, data_action) {
+      $(target).replaceWith(returnData);
+      setSelect2();
+      if (data_action === "addSkillTechnology") setAutocompleteTechnologies();
+    }
+  };
+
+  // $.SetCurrentSalary = function(element) {
+  //   this.element = (element instanceof $) ? element : $(element);
+  //   this.icon = this.element.find('.icon');
+  //   this.reset = this.element.find('.svg-inline--fa');
+  //
+  //   this.InitSetCurrentSalary();
+  // };
+  //
+  // $.SetCurrentSalary.prototype = {
+  //   InitSetCurrentSalary: function() {
+  //     this.element.on('click', this.SetCurrentSalaryRowHandler.bind(this));
+  //   },
+  //   SetCurrentSalaryRowHandler: function(e) {
+  //     e.preventDefault();
+  //     let $this = this;
+  //
+  //     if (!this.element.hasClass('reset')) {
+  //       let fields = ['grosssalary', 'car', 'dailyallowance', 'mealvouchers', 'hospitalization', 'groupinsurance'];
+  //       this.icon.hide();
+  //       this.element.find('.svg-inline--fa').removeClass('d-none');
+  //       this.element.addClass('reset');
+  //
+  //       $.each(fields, function(i, field) {
+  //         let proposalField = $('#proposal_' + field + '_' + $this.element.attr('data-value'));
+  //         let currentField = $('#current_' + field);
+  //
+  //         if (proposalField.attr('type') === 'checkbox') {
+  //           if (proposalField.val() === true) {
+  //             currentField.prop('checked', true);
+  //           } else {
+  //             currentField.prop('checked', false);
+  //           }
+  //         } else {
+  //           currentField.val(proposalField.val());
+  //         }
+  //       });
+  //     } else {
+  //       $.post('/' + $(this.element).attr('data-action'), function(returnData) {
+  //         $($this.element.attr('data-object')).replaceWith(returnData);
+  //         $this.icon.show();
+  //         $this.element.find('.svg-inline--fa').addClass('d-none');
+  //         $this.element.removeClass('reset');
+  //       });
+  //     }
+  //   }
+  // };
+
   // Initalize
   new $.MobileMenu($('.header--middle'));
   new $.QuickMenu($('.header--right '));
   new $.QuickActions($('.icon-quick-menu ~ .o-card-hover'));
   new $.SubNav($('.js-has-nav-sub'));
-  new $.Select2($('.js-select-basic'));
   new $.Modal($('[data-toggle="modal"]'));
+  new $.Tabs($('.o-tabs-group'));
+  new $.FileInput($('.a-form-input-file'));
+  new $.Rows;
+  setSelect2();
+
+  // $.each($('.js-set-current-salary'), function(i, item) {
+  //   new $.SetCurrentSalary(item);
+  // });
+
+  function setSelect2() {
+    $.each($('.js-select-basic'), function(i, item) {
+      new $.Select2(item);
+    });
+  }
+
+  // Autocomplete.
+  $('.js-autocomplete-countries').autocomplete({
+    serviceUrl: '/countries',
+    paramName: 'str',
+    maxHeight: 150,
+    transformResult: function(response) {
+      return {
+        suggestions: $.map(JSON.parse(response), function(dataItem) {
+          return { value: dataItem.name, data: dataItem.code };
+        })
+      };
+    }
+  });
+
+  setAutocompleteTechnologies();
+
+  function setAutocompleteTechnologies() {
+    $('.js-autocomplete-technologies').autocomplete({
+      serviceUrl: '/technologies',
+      paramName: 'str',
+      maxHeight: 150,
+      transformResult: function(response) {
+        return {
+          suggestions: $.map(JSON.parse(response), function(dataItem) {
+            return { value: dataItem.name, data: dataItem.id };
+          })
+        };
+      }
+    });
+  }
 
   // Form validation.
   $.validator.setDefaults({
@@ -193,6 +401,10 @@
     }
   });
 
+  $.validator.addMethod('filesize', function (value, element, param) {
+    return this.optional(element) || (element.files[0].size <= param)
+  }, 'Bestandsgrootte mag niet meer dan 10MB zijn.');
+
   $('.js-needs-validation').each(function(e) {
     $(this).validate({
       ignore: 'input[type=hidden]',
@@ -202,6 +414,10 @@
         },
         email: {
           email: true
+        },
+        file: {
+          extension: "doc?x|xls?x|txt|pdf|rtf|eml",
+          filesize: 10000000
         }
       },
       errorPlacement: function(error, e) {

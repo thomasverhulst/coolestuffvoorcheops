@@ -1,6 +1,6 @@
 .o-user-info {
-  a:not(.icon):not(.btn) {
-    border-bottom: 0;
+  a {
+    border-bottom: 0 !important;
 
     @include hover-focus-active {
       .o-user-info--message {
