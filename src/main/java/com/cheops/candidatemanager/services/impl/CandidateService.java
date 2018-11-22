@@ -267,6 +267,7 @@ public class CandidateService implements ICandidateService {
 				} else {
 					applicationStatus = "(Nog) niet uitgenodigd";
 				}
+
 			}
 
 			CandidateSearchResolver candidateSearchResolver = new CandidateSearchResolver(candidate, expertise.toString(), applicationStatus);

@@ -49,6 +49,7 @@
   &-textarea {
     border: 0;
     border-bottom: $input-border-width solid $border-color;
+    min-height: 77px;
   }
 
   &-checkbox {

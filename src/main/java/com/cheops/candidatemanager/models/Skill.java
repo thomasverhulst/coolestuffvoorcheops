@@ -1,5 +1,7 @@
 package com.cheops.candidatemanager.models;
 
+import com.cheops.candidatemanager.enums.Expertise;
+
 import javax.persistence.*;
 import javax.validation.constraints.Size;
 import java.io.Serializable;
@@ -37,6 +39,9 @@ public class Skill implements Serializable {
   @Column(name = "extra")
   @Size(max = 200, message = "{skillextra.size}")
   private String extra;
+
+  @Transient
+  private final List<Expertise> expertises = new ArrayList<>();
 
   @Transient
   List<String> locationNames = Arrays.asList("Buenos Aires", "Córdoba", "La Plata");
@@ -116,6 +121,13 @@ public class Skill implements Serializable {
 
   public void setExtra(String extra) {
     this.extra = extra;
+  }
+
+  public List<Expertise> getExpertises() {
+	  if (this.dotnet) this.expertises.add(Expertise.DOTNET);
+	  if (this.java) this.expertises.add(Expertise.JAVA);
+	  if (this.frontend) this.expertises.add(Expertise.FRONTEND);
+    return expertises;
   }
 
   public List<String> getLocationNames() {

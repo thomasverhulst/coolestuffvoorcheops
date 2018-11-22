@@ -34,13 +34,18 @@ public class Meeting implements Serializable {
 	@Column(name = "conversationtype")
 	private ConversationType conversationType;
 
+  @Column(name = "feedback")
+  @Size(max = 400, message = "{feedback.size}")
+  private String feedback;
+
 	public Meeting() {
 	}
 
-  public Meeting(Date meetingDate, @Size(max = 45, message = "{conversationpartner.size}") String conversationPartner, ConversationType conversationType) {
+  public Meeting(Date meetingDate, @Size(max = 45, message = "{conversationpartner.size}") String conversationPartner, ConversationType conversationType, @Size(max = 400, message = "{feedback.size}") String feedback) {
     this.meetingDate = meetingDate;
     this.conversationPartner = conversationPartner;
     this.conversationType = conversationType;
+    this.feedback = feedback;
   }
 
   public Integer getId() {
@@ -83,4 +88,11 @@ public class Meeting implements Serializable {
 		this.conversationType = conversationType;
 	}
 
+  public String getFeedback() {
+    return feedback;
+  }
+
+  public void setFeedback(String feedback) {
+    this.feedback = feedback;
+  }
 }
