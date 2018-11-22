@@ -27,7 +27,7 @@
         </div>
         <div class="row">
           <div class="col">
-            <div layout:insert="~{layout/reusables/tabs :: tabs}" th:with="panes = ${ {'details', 'experience', 'meeting', 'offer', 'history'} }" th:remove="tag">
+            <div layout:insert="~{layout/reusables/tabs :: tabs}" th:with="panes = ${ {'details', 'experience', 'meeting', 'offer', 'recruitmentprocess'} }" th:remove="tag">
               <div layout:fragment="tabs-panes">
                 <form th:replace="fragments/form :: form-add-edit-candidate(add, form-add-candidate)" th:with="users=${candidate}" class="m-form--add-candidate"></form>
               </div>

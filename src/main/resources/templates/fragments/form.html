@@ -203,6 +203,12 @@
     <div layout:insert="~{layout/reusables/pane :: pane}" th:with="id='nav-meeting', arialabelledby='nav-meeting-tab', active=false" th:remove="tag">
       <div layout:fragment="pane-content">
         <div class="row">
+          <div class="col form-group m-form-group">
+            <input type="checkbox" th:field="${candidate.recruitment.invited}" th:checked="${active} ? 'checked'" name="recruitment_invited" id="recruitment_invited" class="form-control a-form-checkbox">
+            <label for="recruitment_invited" th:text="#{salary.hospitalization}"></label>
+          </div>
+        </div>
+        <div class="row">
           <div class="col">
             <a class="btn btn-blue btn-icon btn-sm d-inline-block js-add-row" data-action="addMeeting" data-object="#meetingList" href="#" th:inline="text"><span class="icon icon-add-meeting"></span>[[#{meeting.add}]]</a>
           </div>
@@ -231,6 +237,10 @@
                       <option value=""></option>
                       <option th:each="conversationType : ${T(com.cheops.candidatemanager.enums.ConversationType).values()}" th:value="${{conversationType}}" th:text="#{'enum.conversationType.' + ${{conversationType}}}"></option>
                     </select>
+                  </div>
+                  <div class="col form-group m-form-group">
+                    <label th:for="'meeting_feedback_' + ${stat.index}" class="a-form-label" th:text="#{meeting.feedback}"></label>
+                    <textarea th:field="${candidate.meetings[__${stat.index}__].feedback}" name="meeting_feedback" th:id="'meeting_feedback_' + ${stat.index}" class="form-control a-form-textarea" rows="3" maxlength="400"></textarea>
                   </div>
                 </div>
               </div>
@@ -291,9 +301,9 @@
         </div>
       </div>
     </div>
-    <div layout:insert="~{layout/reusables/pane :: pane}" th:with="id='nav-history', arialabelledby='nav-history-tab', active=false" th:remove="tag">
+    <div layout:insert="~{layout/reusables/pane :: pane}" th:with="id='nav-recruitmentprocess', arialabelledby='nav-recruitmentprocess-tab', active=false" th:remove="tag">
       <div layout:fragment="pane-content">
-        i am history
+
       </div>
     </div>
   </form>

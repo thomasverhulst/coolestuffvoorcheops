@@ -26,67 +26,87 @@ public class ApplicationProcess implements Serializable {
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	@Column(name = "applicationdate")
 	private Date applicationDate;
+	// has no function
 
 	@Column(name = "tobeinvitedforfirstconversation")
 	private boolean toBeInvitedForFirstConversation;
+	// needed but perhaps send to candidate? or other model?
 
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	@Column(name = "invitationdate")
 	private Date invitationDate;
+	// has no function
 
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	@Column(name = "firstconversationdate")
 	private Date firstConversationDate;
+	// has no function
 
 	@Column(name = "staffnamefirstconversation")
 	private String staffNameFirstConversation;
+	// has no function
 
 	@Column(name = "feedbackfirstconversation")
 	private String feedbackFirstConversation;
+	// should be in meeting model
 	
 	@Column(name = "tobeinvitedfortechnicalconversation")
 	private boolean toBeInvitedForTechnicalConversation;
+	// has no function
 
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	@Column(name = "technicalconversationdate")
 	private Date technicalConversationDate;
+	// has no function
 
 	@Column(name = "staffnametechnicalconversation")
 	private String staffNameTechnicalConversation;
+	// has no function
 
 	@Column(name = "feedbacktechnicalconversation")
 	private String feedbackTechnicalConversation;
+	// should be in meeting model
 
 	@Column(name = "tobesendfinancialproposal")
 	private Boolean toBeSendFinancialProposal;
+	// has no function
 
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	@Column(name = "financialproposaldate")
 	private Date financialProposalDate;
+	// has no function
 
 	@Column(name = "feedbackfinancialproposal")
 	private String feedbackFinancialProposal;
+	// has no function
 
 	@Column(name = "isrecruited")
 	private boolean isRecruited;
+	// is workhistory
 	
 	@Column(name = "isrecruitedtimestamp")
 	private Timestamp isRecruitedTimeStamp;
+	// is workhistory
 	
 	@Column(name = "isexemployee")
 	private boolean isExEmployee;
+	// is workhistory
 	
 	@Column(name = "isexemployeetimestamp")
 	private Timestamp isExEmployeeTimeStamp;
+	// is workhistory
 
 	@Transient
 	private MultipartFile file;
+	// needed
 	
 	@Column(name = "feedbackfilename")
 	private String feedbackFileName;
+	// needed + add textarea field
 	
 	@Column(name = "notrecruited")
 	private String notRecruited;
+	// needed
 	
 	public ApplicationProcess() {
 
@@ -250,8 +270,8 @@ public class ApplicationProcess implements Serializable {
 	public void setIsRecruited(Boolean isRecruited) {
 		this.isRecruited = isRecruited;
 	}
-	
-	
+
+
 
 	public boolean getIsExEmployee() {
 		return isExEmployee;

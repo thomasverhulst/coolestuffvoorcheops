@@ -3,7 +3,7 @@ package com.cheops.candidatemanager.models;
 public class CandidateSearchResolver {
 
 	private Candidate candidate;
-	private String expertise;
+	private String expertise; // added in skill model
 	private String applicationStatus;
 
 	public CandidateSearchResolver() {

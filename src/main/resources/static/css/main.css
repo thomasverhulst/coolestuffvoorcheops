@@ -4734,6 +4734,8 @@ fieldset legend {
     content: "\e905"; }
   .icon.icon-meeting:before {
     content: "\e906"; }
+  .icon.icon-status:before {
+    content: "\e916"; }
 
 .select2-hidden-accessible {
   border: 0 !important;
@@ -4960,7 +4962,8 @@ main.not-stripped {
 
 .a-form-textarea {
   border: 0;
-  border-bottom: 2px solid #EEEEEE; }
+  border-bottom: 2px solid #EEEEEE;
+  min-height: 77px; }
 
 .a-form-checkbox {
   display: none; }

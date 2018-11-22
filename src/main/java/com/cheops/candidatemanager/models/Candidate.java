@@ -81,11 +81,15 @@ public class Candidate implements Serializable {
   private Address address;
 
   @OneToOne(cascade = CascadeType.ALL)
-  private ApplicationProcess applicationProcess;
+  private Contact contact;
 
-  @Column(name = "contactChannel")
-  @Size(max = 45, message = "{contactchannel.size}")
-  private String contactChannel;
+  @OneToOne(cascade = CascadeType.ALL)
+  private Recruitment recruitment;
+
+  // Todo remove
+  @OneToOne(cascade = CascadeType.ALL)
+  private ApplicationProcess applicationProcess;
+  // Todo remove
 
   @Column(name = "isaddedtimestamp")
   private Timestamp isAddedTimeStamp;
@@ -103,7 +107,7 @@ public class Candidate implements Serializable {
 	public Candidate(){
 	}
 
-  public Candidate(@NotBlank(message = "{name.empty}") @Size(max = 45, message = "{name.size}") String name, @Size(max = 45, message = "{last_name.size}") String lastName, @Size(max = 45, message = "{email.size}") @Email(message = "{email.invalid}") String email, Date dateOfBirth, @Size(max = 45, message = "{phonenumber.size}") String phonenumber, @Size(max = 45, message = "{cellphone.size}") String cellphonenumber, String cvLink, Gender gender, @Valid SalaryPackage currentSalaryPackage, List<SalaryPackage> proposedSalaryPackages, @Valid Skill skill, @Valid Address address, ApplicationProcess applicationProcess, @Size(max = 45, message = "{contactchannel.size}") String contactChannel, Timestamp isAddedTimeStamp, List<WorkHistory> workHistory, List<Meeting> meetings) {
+  public Candidate(@NotBlank(message = "{name.empty}") @Size(max = 45, message = "{name.size}") String name, @Size(max = 45, message = "{last_name.size}") String lastName, @Size(max = 45, message = "{email.size}") @Email(message = "{email.invalid}") String email, Date dateOfBirth, @Size(max = 45, message = "{phonenumber.size}") String phonenumber, @Size(max = 45, message = "{cellphone.size}") String cellphonenumber, String cvLink, Gender gender, @Valid SalaryPackage currentSalaryPackage, List<SalaryPackage> proposedSalaryPackages, @Valid Skill skill, @Valid Address address, @Valid Contact contact, @Valid Recruitment recruitment, ApplicationProcess applicationProcess, @Size(max = 45, message = "{contactchannel.size}") String contactChannel, Timestamp isAddedTimeStamp, List<WorkHistory> workHistory, List<Meeting> meetings) {
     this.name = name;
     this.lastName = lastName;
     this.email = email;
@@ -116,8 +120,9 @@ public class Candidate implements Serializable {
     this.proposedSalaryPackages = proposedSalaryPackages;
     this.skill = skill;
     this.address = address;
-    this.applicationProcess = applicationProcess;
-    this.contactChannel = contactChannel;
+    this.contact = contact;
+    this.recruitment = recruitment;
+    this.applicationProcess = applicationProcess; // todo remove + getters/setters
     this.isAddedTimeStamp = isAddedTimeStamp;
     this.workHistory = workHistory;
     this.meetings = meetings;
@@ -235,12 +240,12 @@ public class Candidate implements Serializable {
     this.applicationProcess = applicationProcess;
   }
 
-  public String getContactChannel() {
-    return contactChannel;
+  public Contact getContact() {
+    return contact;
   }
 
-  public void setContactChannel(String contactChannel) {
-    this.contactChannel = contactChannel;
+  public void setContact(Contact contact) {
+    this.contact = contact;
   }
 
   public Timestamp getIsAddedTimeStamp() {
