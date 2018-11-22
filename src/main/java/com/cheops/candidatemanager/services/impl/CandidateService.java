@@ -2,6 +2,7 @@ package com.cheops.candidatemanager.services.impl;
 
 import com.cheops.candidatemanager.exceptions.CandidateDoesNotExistException;
 import com.cheops.candidatemanager.models.*;
+import com.cheops.candidatemanager.pojos.StatusWrapper;
 import com.cheops.candidatemanager.repositories.CandidateRepository;
 import com.cheops.candidatemanager.services.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,14 +12,17 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 @Service
 public class CandidateService implements ICandidateService {
 
   private Locale locale = LocaleContextHolder.getLocale();
+  public Map <String, List<CandidateSearchResolver>>candidateresolversListMap = new HashMap<String,List< CandidateSearchResolver>>();
 
   @Autowired
   private CandidateRepository candidateRepository;
@@ -38,6 +42,7 @@ public class CandidateService implements ICandidateService {
   @Autowired
   private MessageSource messageSource;
 
+	
 	@Override
 	public Candidate getCandidateById(int candidateId) {
 		return candidateRepository.findById(candidateId).orElse(null);
@@ -275,4 +280,30 @@ public class CandidateService implements ICandidateService {
 
 		return candidateResolverList;
 	}
+	
+	public List<CandidateSearchResolver> getStatusList(List<CandidateSearchResolver> candidateSearchResolverList,String status ){
+		return	candidateSearchResolverList.stream().filter(x -> status.equals(x.getApplicationStatus())).collect(Collectors.toList());
+	}
+
+	@Override
+	public Map<String, List<CandidateSearchResolver>> getCandidateresolversListMap() {
+			
+		List<Candidate> candidates =(List<Candidate>) candidateRepository.findAll() ;
+		List<CandidateSearchResolver>  candidateSearchResolver=fillExpertiseAndStatus(candidates);
+
+		StatusWrapper statusWrapper = new StatusWrapper();
+		statusWrapper.getStatusList();
+		for (String status : statusWrapper.getStatusList()) {
+			
+			candidateresolversListMap.put(status,getStatusList(candidateSearchResolver,status));
+		}
+				
+		return candidateresolversListMap;
+	}
+
+	public void setCandidateresolversListMap(Map<String, List<CandidateSearchResolver>> candidateresolversListMap) {
+		this.candidateresolversListMap = candidateresolversListMap;
+	}
+	
+	
 }
